@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'ICMFilter'
+);
+
+collFriendProperties=new Array(
+'colorSpace'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'ICMFilter'
+);
+
+sStyle=''
+
+sScript='';
+
+sCode='';
+
+iWinWidth=500;
+
+iWinHeight=330;
+
+bRunCode=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>intent | Intent</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/icmfilter.html">ICMFilter</a> ( intent</b> = <i>sIntent</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/icmfilter.html">ICMFilter</a>').Intent = </b><i>sIntent</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sIntent </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。
+<span class=cssDefault><b>Picture</b></span> | <b>Graphic</b> | <b>Proof</b> | <b>Match</b>
+<table>
+<tr><td nowrap><b> Picture </b></td><td nowrap><b>: </b></td><td>
+<b>默认值</b>。强调色彩连续性。适用于图像和照片。
+</td></tr>
+<tr><td nowrap><b> Graphic </b></td><td nowrap><b>: </b></td><td>
+强调颜色的饱和度胜过其色调和明度。适用于商业图片。
+</td></tr>
+<tr><td nowrap><b> Proof </b></td><td nowrap><b>: </b></td><td>
+使用最接近的颜色匹配不被支持的颜色。白点不被保护。
+</td></tr>
+<tr><td nowrap><b> Match </b></td><td nowrap><b>: </b></td><td>
+使用最接近的颜色匹配不被支持的颜色。白点受到保护。
+</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索对象的色彩内容的预定效果。滤镜会根据选择的效果调整色彩输出改善内容显示。<br>
+要获取你的显示器或打印机的色彩处理能力的最大优势，选择最符合你的内容的此属性值。
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+#idDiv{ filter:progid:DXImageTransform.Microsoft.ICMFilter(intent=sRGB, intent=Picture);}<br>
+</div>
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

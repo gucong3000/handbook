@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>DHTML 参考手册 -</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="DFN.html" title="DFN 元素 | dfn 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>DFN 元素 | dfn 对象</A> <A HREF="DIR.html" title="DIR 元素 | dir 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>DIR 元素 | dir 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>对话框协助程序对象<IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" style="vertical-align:top" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></H1>
+<HR SIZE="1"><P>提供对颜色对话框及块格式化和字体集合的访问。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>对话框协助程序</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH>
+<TR>
+<TD><A HREF="../collections/blockformats.html">blockFormats</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取指定可用块格式化标签的名称的字符串的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/fonts.html">fonts</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取所有系统支持的字体的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH>
+<TR>
+<TD><A HREF="../methods/choosecolordlg.html">ChooseColorDlg</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>打开系统颜色选择对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getcharset.html">getCharset</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取指定特定字体的字符集的 <b>Variant</b> 值。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>要创建此对象，请使用 <A HREF="OBJECT.html">OBJECT</A> 元素并提供对话框协助程序的类标识符(CLSID)。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的代表创建了一个对话框协助程序对象，稍后可使用其 id 值引用之。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;OBJECT id=dlgHelper CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"&gt;
+&lt;/OBJECT&gt;
+</PRE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

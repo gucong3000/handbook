@@ -1,0 +1,274 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Eqn Attribute</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Eqn Attribute</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Defines the equation used by a formula. Read/write <B>String</B>.</P>
+<P><B>Applies To</B></P>
+<P><A href="f.html"><B>F</B></A> (subelement of <A href="Formula.html"><B>Formulas</B></A>)
+<P><STRONG>Tag Syntax</STRONG> </P>
+<P><P><B>&lt;v: </B><I>element</I><B>
+eqn="</B><I>expression</I><B>"&gt;</B></P>
+<P><STRONG>Script Syntax</STRONG> </P>
+<P><I>element</I><B>.eqn</B>=<B>"</B><I>expression</I><B>"</B></P>
+<P><I>expression</I>=<I>element</I><B>.eqn</B></P>
+<P><B>Remarks</B></P>
+<P> Equations are defined by the evaluation of
+a text expression that has the general form of an operation followed by
+up to three arguments. Each argument may be of the following types:</P>
+<UL><LI><I>adjustment</I> (for example, #2)
+<LI><I>another formula</I> (for
+example, @2)
+<LI><I>fixed numbers</I> (for
+example, 2)
+<LI><I>predefined values</I></LI></UL>
+<P>The table below defines the formulas that can be used
+with&nbsp;the optional arguments given the names <EM>v</EM> ,
+<EM>p1</EM>, and <EM>p2.</EM>
+The formula pattern
+is:</P>
+<P>
+<CODE>&nbsp;&nbsp;&nbsp;&lt;f eqn="<I>operation</I> [<I>v</I>] [<I>p1</I>] [<I>p2</I>]"/&gt;</CODE> </P>
+<P>
+<TABLE class=ClsRef cellspacing="2" cellpadding="2" border="0" rules="all">
+<TR>
+<TD bgcolor=#A6CAF0><STRONG>Operation</STRONG></TD>
+<TD bgcolor=#A6CAF0>
+<P><STRONG>Params</STRONG></P></TD>
+<TD bgcolor=#A6CAF0><STRONG>Exact</STRONG></TD>
+<TD bgcolor=#A6CAF0><STRONG>Result</STRONG></TD>
+<TD bgcolor=#A6CAF0><STRONG>Description</STRONG></TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>val</STRONG></TD>
+<TD bgcolor=#EEEEEE>1</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>v</TD>
+<TD bgcolor=#EEEEEE>Defines
+a guide
+value from some other value.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>sum</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>v + p1 - p2</TD>
+<TD bgcolor=#EEEEEE>Used for addition and subtraction.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>product</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>rounds</TD>
+<TD bgcolor=#EEEEEE>v * p1 / p2</TD>
+<TD bgcolor=#EEEEEE>Used for multiplication and division.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>mid</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>(c)</TD>
+<TD bgcolor=#EEEEEE>(v + p1)&nbsp;/ 2</TD>
+<TD bgcolor=#EEEEEE>Average.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>abs</STRONG></TD>
+<TD bgcolor=#EEEEEE>1</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>abs(v)</TD>
+<TD bgcolor=#EEEEEE>Absolute value.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>min</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>min(v,p1)</TD>
+<TD bgcolor=#EEEEEE>The lesser value of v and p1.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>max</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>max(v,p1)</TD>
+<TD bgcolor=#EEEEEE>The greater value of v and p1.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>if</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>v &gt; 0 ? p1 : p2</TD>
+<TD bgcolor=#EEEEEE>Conditional testing.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>mod</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>sqrt(v^2 + p1^2 + p2^2)</TD>
+<TD bgcolor=#EEEEEE>Modulus value.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>atan2</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>atan2(p1,v)</TD>
+<TD bgcolor=#EEEEEE>Polar value in degrees * 2^16 (fd units).</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>sin</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>v * sin(p1)</TD>
+<TD bgcolor=#EEEEEE>Sin, argument in degrees * 2^16
+(fd <A href="../units.html">units</A>).</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>cos</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>v * cos(p1)</TD>
+<TD bgcolor=#EEEEEE>Cos, argument in degrees * 2^16
+(fd <A href="../units.html">units</A>).</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>cosatan2</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>v * cos(atan2(p2,p1))</TD>
+<TD bgcolor=#EEEEEE>Preserves full accuracy in
+intermediate calculation.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>sinatan2</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>v * sin(atan2(p2,p1))</TD>
+<TD bgcolor=#EEEEEE>Preserves full accuracy in
+intermediate calculation.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>sqrt</STRONG></TD>
+<TD bgcolor=#EEEEEE>1</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>sqrt(v)</TD>
+<TD bgcolor=#EEEEEE>Result is positive and rounds down.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>sumangle</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>yes</TD>
+<TD bgcolor=#EEEEEE>v + p1 * 2^16 + p2*2^16</TD>
+<TD bgcolor=#EEEEEE><P>v scaled by 2^16; p1 and p2 are degrees.</P></TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>ellipse</STRONG></TD>
+<TD bgcolor=#EEEEEE>3</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>p2 * sqrt(1-(v/p1)^2)</TD>
+<TD bgcolor=#EEEEEE>Ellipse.</TD>
+</TR>
+<TR>
+<TD bgcolor=#EEEEEE><STRONG>tan</STRONG></TD>
+<TD bgcolor=#EEEEEE>2</TD>
+<TD bgcolor=#EEEEEE>no</TD>
+<TD bgcolor=#EEEEEE>v * tan(p1)</TD>
+<TD bgcolor=#EEEEEE>Tangent, argument in degrees * 2^16 (fd
+<A href="../units.html">units</A>).</TD>
+</TR>
+</TABLE>
+<BR>
+<P>Note that the equation only consists of operations and numbers; mathematical symbols are omitted.
+For example, the equation
+<P>&nbsp;&nbsp;&nbsp;<code>eqn="sum 5 9 3"</code>
+<P>would yield the equivalent of
+<P>&nbsp;&nbsp;&nbsp;<code>5 + 9 - 3</code>
+<P>for the returned value of 11. If operands are missing,
+the value is not used. For example,
+<P>&nbsp;&nbsp;&nbsp;<code>eqn="sum 5 9"</code>
+<P>would yield the equivalent of
+<P>&nbsp;&nbsp;&nbsp;<code>5 + 9</code></P>
+<P>and would ignore the missing operand.
+<P><I>   VML Standard Attribute</I></P>
+<P><B>Example</B></P>
+<P>The following formula would yield a result of 6
+(the sum of both numbers divided by 2), which, if this were the first formula,
+could be retrieved by the symbol <STRONG>@0</STRONG>.</P>
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:f eqn="mid 5 7"/&gt;
+</PRE>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>runtimeStyle</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<STYLE TYPE="text/css">
+BODY {font-size: 9pt; font-family: Arial;}
+.datahead {font-size: 9pt; font-family: Arial; background-color: #505050; color: #FFFFFF; border: "1 solid"; border-top-color: "#909090"; border-left-color: "#909090"; border-right-color: "#303030"; border-bottom-color: "#303030";}
+.dataitem {font-size: 9pt; font-family: 宋体; background-color: #C0C0C0; color: #000000; border: "1 solid"; border-top-color: "#CFCFCF"; border-left-color: "#CFCFCF"; border-right-color: "#505050"; border-bottom-color: "#505050";}
+</STYLE>
+<SCRIPT>
+function fnSetData(){
+for(var i=1;i<oData.rows.length;i++){
+var oWorkRow=oData.rows(i);
+oWorkRow.cells(1).innerText=eval("oScratch.style." + oWorkRow.cells(0).innerText);
+oWorkRow.cells(2).innerText=eval("oScratch.runtimeStyle." + oWorkRow.cells(0).innerText);
+oWorkRow.cells(3).innerText=eval("oScratch.currentStyle." + oWorkRow.cells(0).innerText);
+}
+}
+function fnChangeStyle(oStyle,sValue){
+if(sValue.indexOf("清除")>-1){
+sValue="";
+}
+eval("oScratch.runtimeStyle." + oStyle + "='" + sValue + "'");
+fnSetData();
+}
+function fnInit(){
+fnSetData();
+}
+</SCRIPT>
+</HEAD>
+<BODY onload="fnInit()" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<H1>runtimeStyle 对象范例</H1>
+<DIV ID="oScratch" STYLE="border: '5 solid'; border-color: #101010; background-color: #CFCFCF; color: #000000; font-size: 12pt; font-family: 'Arial';">
+下面的例子演示了 <b>runtimeStyle</b> 对象的用法。<b>runtimeStyle</b> 对象允许作者使用特定的样式覆盖内嵌或在样式表中定义的已有样式。
+<P>在这个例子中，你可以选择不同值用于本文字段预配置属性。当你选择新值后，请注意 <b>runtimeStyle</b> 和 <b>currentStyle</b> 对象的值都发生了变化，而 <b>style</b> 对象则保持原状。
+如果 <b>runtimeStyle</b> 对象的值被清除(从下拉菜单中选择“清除”)，则属性值将恢复为 <b>style</b> 的值，并且 <b>currentStyle</b> 值也反应了这一更改。
+</DIV>
+<P>
+<TABLE ID="oData">
+<TR>
+<TD CLASS="datahead">CSS 属性</TD>
+<TD CLASS="datahead">style</TD>
+<TD CLASS="datahead">runtimeStyle</TD>
+<TD CLASS="datahead">currentStyle</TD>
+<TD CLASS="datahead"><b>选择一个值</b></TD>
+</TR>
+<TR>
+<TD CLASS="dataitem">backgroundColor</TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"><SELECT CLASS="dataitem"  onchange="fnChangeStyle('backgroundColor',this.options(this.selectedIndex).text)">
+<OPTION>Indigo
+<OPTION>MistyRose
+<OPTION>MediumOrchid
+<OPTION>Pink
+<OPTION>Yellow
+<OPTION>清除此运行时刻样式
+</SELECT>
+</td>
+</TR>
+<TR>
+<TD CLASS="dataitem">borderColor</TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"><SELECT CLASS="dataitem"  onchange="fnChangeStyle('borderColor',this.options(this.selectedIndex).text)">
+<OPTION>Red
+<OPTION>Green
+<OPTION>Blue
+<OPTION>Yellow
+<OPTION>清除此运行时刻样式
+</SELECT>
+</td>
+</TR>
+<TR>
+<TD CLASS="dataitem">color</TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"></TD>
+<TD CLASS="dataitem"><SELECT CLASS="dataitem"  onchange="fnChangeStyle('color',this.options(this.selectedIndex).text)">
+<OPTION>Red
+<OPTION>White
+<OPTION>Blue
+<OPTION>Yellow
+<OPTION>Silver
+<OPTION>Gold
+<OPTION>清除此运行时刻样式
+</SELECT>
+</td>
+</TR>
+</TABLE>
+<BR><BR><BR>
+&copy; 2002 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

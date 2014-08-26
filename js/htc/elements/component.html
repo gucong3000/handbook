@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>PUBLIC:COMPONENT</span>元素</h1>
+		<hr>
+		<p>将文件内容识别为<span>HTC</span>。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;PUBLIC:COMPONENT<br>&nbsp;&nbsp;id&nbsp;=&nbsp;&quot;<I>sID</I>&quot;<br>&nbsp;&nbsp;lightweight&nbsp;=&nbsp;&quot;<I>bLight</I>&quot;<br>&nbsp;&nbsp;literalcontent&nbsp;=&nbsp;&quot;<I>sLiteral</I>&quot;<br>&nbsp;&nbsp;name&nbsp;=&nbsp;&quot;<I>sName</I>&quot;<br>&nbsp;&nbsp;supportseditmode&nbsp;=&nbsp;&quot;<I>bEditable</I>&quot;<br>&nbsp;&nbsp;tagname&nbsp;=&nbsp;&quot;<I>sTagName</I>&quot;<br>&nbsp;&nbsp;urn&nbsp;=&nbsp;&quot;<I>sURN</I>&quot;<br>&gt;<br><U>&lt;!--&nbsp;child&nbsp;elements&nbsp;--&gt;</U><br>&lt;/PUBLIC:COMPONENT&gt;<br></code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>ID</B></dt>
+				<dd>
+					<p>可选。字符串值；在组件内用于识别该<B><span>PUBLIC:COMPONENT</span></B>元素的唯一值。这个属性类似于<span>DHTML</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性。</p>
+				</dd>
+				<dt><B>lightWeight</B></dt>
+				<dd>
+					<p>可选。布尔值；指定<span>HTC</span>文件中是否包含标记。如果<span>HTC</span>文件不包含标记，这个属性应该设置为<span>true</span>以改进渲染性能。这个属性对任何<span>HTC</span>文件均有效。</p>
+					<table>
+						<tr>
+							<td class="value">true</td>
+							<td>该<span>HTC</span>文件不包含标记，因此在主文档中使用该<span>HTC</span>文件定义的自定义标签时，无需每次都进行解析和渲染。</td>
+						</tr>
+						<tr>
+							<th class="value">false</th>
+							<td>默认值。该<span>HTC</span>文件包含有标记，所以每次在主文档中使用该<span>HTC</span>文件定义的自定义标签时，都需要进行解析和渲染。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>literalContent</B></dt>
+				<dd>
+					<p>可选。字符串值；指定包含在该自定义标签中的内容是作为数据岛处理，还是需要被解析并渲染。这个属性仅在该<span>HTC</span>文件定义了元素行为时才有效。此时同时还需要使用到<B><span>tagName</span></B>属性。阅读注意部分以获得更多的信息。</p>
+					<table>
+						<tr>
+							<th class="value">false</th>
+							<td>默认值。通过<B><span>tagName</span></B>属性定义的该标签中，文本和标记并不作为数据岛处理，必须被解析并渲染。</td>
+						</tr>
+						<tr>
+							<td class="value">nested</td>
+							<td><span>Internet Explorer 6</span>以后继版本。通过<B><span>tagName</span></B>属性定义的该标签的<B>第一个</B>开启标记和<B>最后一个</B>关闭标记内的内容作为数据岛处理，并不被解析渲染。阅读<a href="../articles/uselitcontattr.html">使用<span>literalContent</span>属性</a>以获得更多信息。</td>
+						</tr>
+						<tr>
+							<td class="value">true</td>
+							<td>通过<B><span>tagName</span></B>属性定义的该标签的<B>第一个</B>开启标记和<B>最后一个</B>关闭标记内的内容作为数据岛处理，并不被解析渲染。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>NAME</B></dt>
+				<dd>
+					<p>可选。布尔值；指定在包含有行为的文档中该行为的访问名称。</p>
+				</dd>
+				<dt><B>supportEditMode</B></dt>
+				<dd>
+					<p>可选。指定该<span>HTC</span>文件的内容是否可编辑的字符串。这个属性仅在该<span>HTC</span>文件定义了一个元素行为时才有效。</p>
+					<table>
+						<tr>
+							<td class="value">false</td>
+							<td>该<span>HTC</span>文件中的标记是可编辑的。</td>
+						</tr>
+						<tr>
+							<th class="value">true</th>
+							<td>默认值。该<span>HTC</span>文件中的标记是不可编辑的。你可以在该<span>HTC</span>文件中的每个元素上通过设置<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/iscontenteditable.asp"><span>isContentEditable</span></a>属性为<span>VARIANT_TRUE</span>来重载此值。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>tagName</B></dt>
+				<dd>
+					<p>可选。字符串值；指定该<span>HTC</span>文件定义并导入到主文档中的自定义标签的名称。此属性仅当该<span>HTC</span>文件定义了一个元素行为时才有效。阅读注意部分以获得更多信息。</p>
+				</dd>
+				<dt><B>URN</B></dt>
+				<dd>
+					<p>可选。字符串值；符合统一资源名称<span>(URN)</span>格式的唯一值，用于识别该组件。此属性让多个行为发生同名事件时能够识别出各个组件。当事件发生时，<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"><span>event</span></a>对象的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/srcurn.asp"><span>srcUrn</span></a>属性被设置为发生事件的行为的<span>URN</span>。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Element Information</LABEL>元素信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th rowspan="2">子元素</th>
+					<td><B>最多一次</B>。<a href="defaults.html"><span>PUBLIC:DEFAULTS</span></a></td>
+				</tr>
+				<tr>
+					<td><B>一次或多次</B>。<a href="attach.html"><span>PUBLIC:ATTACH</span></a>，<a href="event.html"><span>PUBLIC:EVENT</span></a>，<a href="method.html"><span>PUBLIC:METHOD</span></a>，<a href="property.html"><span>PUBLIC:PROPERTY</span></a></td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>该<B><span>PUBLIC:COMPONENT</span></B>元素用于定义良种截然不同类型的行为。第一种是附加性行为，它使用<span>behavior</span>层叠样式表<span>(CSS)</span>属性来修改一个已存在元素的行为。第二种类型从<span>Internet Explorer 5.5</span>开始引入，被称为元素行为。元素行为用于定义一个自定义标签，然后如一个标准的<span>HTML</span>标签一样在网页中使用。</p>
+			<p>元素行为暗示着在网页中一个自定义标签被创建然后适用。因此，有必要在该<span>HTC</span>文件定义一个元素行为时定义<B><span>PUBLIC:COMPONENT</span></B>元素的<B><span>tagName</span></B>属性。正如前面所说的，此元素的一些属性明确为元素行为的使用而设计。要获得更多的信息，请阅读<a href="../articles/abelebeh.html">《元素行为》</a>。</p>
+			<p><B><span>NAME</span></B>属性在多个行为附加到一个元素上时特别有用，因为它让你可以在包含文档中调用所需行为的属性或者方法。如果在一个文档中多个行为被附加到<span>&lt;SPAN&nbsp;id=&quot;mySpan&quot;&nbsp;/&gt;</span>元素上，你可以使用下面的格式来设置命名为<span>behaviorABC</span>的行为的<span>delay</span>属性。</p>
+			<code>mySpan.behaviorABC.delay&nbsp;=&nbsp;1000;</code>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+				<li><a href="../articles/abelebeh.html">《关于元素行为》</a></li>
+				<li><a href="../articles/uselitcontattr.html">《使用<span>literalContent</span>属性》</a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

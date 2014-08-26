@@ -1,0 +1,115 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>startDownload</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>startDownload Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Downloads the specified file.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>download</I><B>.startDownload(</B><I>sUrl</I><B>, </B><I>fpCallback</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sUrl</I></TD><TD>
+Required.
+<b>String</b> that specifies the location of the file to download.</TD></TR><TR><TD><I>fpCallback</I></TD><TD>
+Required.
+Function pointer that specifies the code to execute after the download is complete.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The callback function pointer takes a single parameter. When a file downloads successfully, the file contents are passed as the parameter and are accessible in script.</P><P>The <B>startDownload</B> method returns only the content of text documents. If a different document format is downloaded, the format is returned, but the file content is not.</P><P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;In order to use the <B>startDownload</B> method with Microsoft&#174; Visual Basic&#174; Scripting Edition (VBScript), you need to use the <A HREF="/scripting/vbscript/doc/vsfctgetref.htm" TARGET="_top">GetRef</A> to obtain a function pointer. The function pointer can then be passed to <B>startDownload</B>.
+</DIV></P><P>The following sample code shows a callback function.<PRE CLASS="clsCode" AUTOHILITE="1">// The callback function accepts one parameter.
+function fnCallBack(vData){
+/* vData stores the downloaded file content.
+The content can be split into an array,
+written to another file, or processed in a form.
+*/
+var aData=vData.split("\n");
+}</PRE></P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example uses the <B>startDownload</B> method to begin downloading a file when the user clicks the link. In addition, the specified callback function, <span class="clsLiteral">onDownloadDone</span>, is notified when the download is complete.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:MSIE &gt;
+&lt;MSIE:DOWNLOAD ID="oDownload" STYLE="behavior:url(#default#download)" /&gt;
+&lt;SCRIPT&gt;
+function onDownloadDone(s) { alert (s); }
+&lt;/SCRIPT&gt;
+&lt;P&gt;Click &lt;A HREF="javascript:oDownload.startDownload('download.htm',
+onDownloadDone)"&gt;here&lt;/A&gt; to download this page.</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=500,width=400,status=1,resizable=1"></IMG></A></DIV><P>
+This example demonstrates using the <A HREF="../behaviors/download.html">download</A> behavior with VBScript.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:IE&gt;
+&lt;SCRIPT LANGUAGE="VBScript"&gt;
+Function onDownloadDone(s)
+MsgBox s
+End Function
+&lt;/SCRIPT&gt;
+&lt;IE:DOWNLOAD ID="oDownload" STYLE="behavior:url(#default#download)" /&gt;
+&lt;button
+onclick="vbscript:oDownload.startDownload 'downloadvb.htm', GetRef('onDownloadDone')"&gt;
+Download File&lt;/button&gt;
+</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;unix=5" HREF="../behaviors/download.html">
+download</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

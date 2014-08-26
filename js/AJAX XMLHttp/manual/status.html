@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<title>XMLHTTPRequest参考手册 | Xmlhttp.CN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel='shortcut icon' href='xmlhttp.ico' />
+<link rel='bookmark icon' href='xmlhttp.ico' />
+<link href="../images/manual.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../images/manual.js"></script>
+</head>
+<body onload="setManualIndexState()">
+<div id="top">
+  <div id="div_logo"><a href="/" title="index"><img src="../images/logo_xmlhttp.gif" alt="XmlHttp.CN" id="img_logo"/></a></div>
+</div>
+<div id="main">
+<div id="sidebar">
+  <div id="context_btn"><img src="../images/context_open.gif" alt="" onmouseover="btn_handle('onmouseover')" onmouseout="btn_handle('onmouseout')" onclick="btn_handle('onclick')" id="btn"/></div>
+  <div id="title">XMLHTTP对象参考</div>
+  <div id="index">
+  <a href="xmlhttprequest.html" title="">XMLHTTPRequest 对象</a>
+  <a href="xmlhttprequest.members.html" title="">XMLHTTPRequest 成员</a>
+  <a href="onreadystatechange.html" title="">onreadystatechange</a>
+  <a href="readystate.html" title="">readyState</a>
+  <a href="responsebody.html" title="">responseBody</a>
+  <a href="responsestream.html" title="">responseStream</a>
+  <a href="responseText.html" title="">responseText</a>
+  <a href="responsexml.html" title="">responseXML</a>
+  <a href="status.html" title="">status</a>
+  <a href="statustext.html" title="">statusText</a>
+  <a href="abort.html" title="">abort</a>
+  <a href="getallresponseheaders.html" title="">getAllResponseHeaders</a>
+  <a href="getresponseheader.html" title="">getResponseHeader</a>
+  <a href="open.html" title="">open</a>
+  <a href="send.html" title="">send</a>
+  <a href="setrequestheader.html" title="">setRequestHeader</a>
+  </div>
+</div>
+<h1>status</h1>
+<p>返回当前请求的http状态码</p>
+<h2>语法</h2>
+<pre>
+lValue = oXMLHttpRequest.status;
+</pre>
+<h2>Example</h2>
+<pre>
+var xmlhttp = new ActiveXObject("Msxml2.XMLHTTP.3.0");
+xmlhttp.open("GET", "http://localhost/books.xml", false);
+xmlhttp.send();
+alert(xmlhttp.status);
+</pre>
+<h2>返回值</h2>
+长整形标准http状态码，定义如下：
+<table class="t1" border="1" cellpadding="3">
+<th>
+  Number
+</th>
+<th>
+  Description
+</th>
+</tr><tr>
+<td>
+<p>100</p>
+</td>
+<td>
+<p>Continue</p>
+</td>
+</tr><tr>
+<td>
+<p>101</p>
+</td>
+<td>
+<p>Switching protocols</p>
+</td>
+</tr><tr>
+<td>
+<p>200</p>
+</td>
+<td>
+<p>OK</p>
+</td>
+</tr><tr>
+<td>
+<p>201</p>
+</td>
+<td>
+<p>Created</p>
+</td>
+</tr><tr>
+<td>
+<p>202</p>
+</td>
+<td>
+<p>Accepted</p>
+</td>
+</tr><tr>
+<td>
+<p>203</p>
+</td>
+<td>
+<p>Non-Authoritative Information</p>
+</td>
+</tr><tr>
+<td>
+<p>204</p>
+</td>
+<td>
+<p>No Content</p>
+</td>
+</tr><tr>
+<td>
+<p>205</p>
+</td>
+<td>
+<p>Reset Content</p>
+</td>
+</tr><tr>
+<td>
+<p>206</p>
+</td>
+<td>
+<p>Partial Content</p>
+</td>
+</tr><tr>
+<td>
+<p>300</p>
+</td>
+<td>
+<p>Multiple Choices</p>
+</td>
+</tr><tr>
+<td>
+<p>301</p>
+</td>
+<td>
+<p>Moved Permanently</p>
+</td>
+</tr><tr>
+<td>
+<p>302</p>
+</td>
+<td>
+<p>Found</p>
+</td>
+</tr><tr>
+<td>
+<p>303</p>
+</td>
+<td>
+<p>See Other</p>
+</td>
+</tr><tr>
+<td>
+<p>304</p>
+</td>
+<td>
+<p>Not Modified</p>
+</td>
+</tr><tr>
+<td>
+<p>305</p>
+</td>
+<td>
+<p>Use Proxy</p>
+</td>
+</tr><tr>
+<td>
+<p>307</p>
+</td>
+<td>
+<p>Temporary Redirect</p>
+</td>
+</tr><tr>
+<td>
+<p>400</p>
+</td>
+<td>
+<p>Bad Request</p>
+</td>
+</tr><tr>
+<td>
+<p>401</p>
+</td>
+<td>
+<p>Unauthorized</p>
+</td>
+</tr><tr>
+<td>
+<p>402</p>
+</td>
+<td>
+<p>Payment Required</p>
+</td>
+</tr><tr>
+<td>
+<p>403</p>
+</td>
+<td>
+<p>Forbidden</p>
+</td>
+</tr><tr>
+<td>
+<p>404</p>
+</td>
+<td>
+<p>Not Found</p>
+</td>
+</tr><tr>
+<td>
+<p>405</p>
+</td>
+<td>
+<p>Method Not Allowed</p>
+</td>
+</tr><tr>
+<td>
+<p>406</p>
+</td>
+<td>
+<p>Not Acceptable</p>
+</td>
+</tr><tr>
+<td>
+<p>407</p>
+</td>
+<td>
+<p>Proxy Authentication Required</p>
+</td>
+</tr><tr>
+<td>
+<p>408</p>
+</td>
+<td>
+<p>Request Timeout</p>
+</td>
+</tr><tr>
+<td>
+<p>409</p>
+</td>
+<td>
+<p>Conflict</p>
+</td>
+</tr><tr>
+<td>
+<p>410</p>
+</td>
+<td>
+<p>Gone</p>
+</td>
+</tr><tr>
+<td>
+<p>411</p>
+</td>
+<td>
+<p>Length Required</p>
+</td>
+</tr><tr>
+<td>
+<p>412</p>
+</td>
+<td>
+<p>Precondition Failed</p>
+</td>
+</tr><tr>
+<td>
+<p>413</p>
+</td>
+<td>
+<p>Request Entity Too Large</p>
+</td>
+</tr><tr>
+<td>
+<p>414</p>
+</td>
+<td>
+<p>Request-URI Too Long</p>
+</td>
+</tr><tr>
+<td>
+<p>415</p>
+</td>
+<td>
+<p>Unsupported Media Type</p>
+</td>
+</tr><tr>
+<td>
+<p>416</p>
+</td>
+<td>
+<p>Requested Range Not Suitable</p>
+</td>
+</tr><tr>
+<td>
+<p>417</p>
+</td>
+<td>
+<p>Expectation Failed</p>
+</td>
+</tr><tr>
+<td>
+<p>500</p>
+</td>
+<td>
+<p>Internal Server Error</p>
+</td>
+</tr><tr>
+<td>
+<p>501</p>
+</td>
+<td>
+<p>Not Implemented</p>
+</td>
+</tr><tr>
+<td>
+<p>502</p>
+</td>
+<td>
+<p>Bad Gateway</p>
+</td>
+</tr><tr>
+<td>
+<p>503</p>
+</td>
+<td>
+<p>Service Unavailable</p>
+</td>
+</tr><tr>
+<td>
+<p>504</p>
+</td>
+<td>
+<p>Gateway Timeout</p>
+</td>
+</tr><tr>
+<td>
+<p>505</p>
+</td>
+<td>
+<p>HTTP Version Not Supported</p>
+</td>
+</tr></table>
+<h2>备注</h2>
+<p>长整形，此属性只读，返回当前请求的http状态码,此属性仅当数据发送并接收完毕后才可获取。
+</p>
+<h2>参考</h2>
+<p>
+<a href="statustext.html" title="">statusText 属性</a><br />
+<a href="send.html" title="">send 方法</a><br />
+</p>
+</div>
+
+</body>
+</html>

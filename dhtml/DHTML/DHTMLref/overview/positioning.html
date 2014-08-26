@@ -1,0 +1,184 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>About Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>About Element Positioning
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Microsoft&#174; Internet Explorer 4.0 supports the ability to position  HTML  elements in x- and y-coordinates, as well as overlap elements in planes along the z-axis, which extends toward and away from the viewer in a Web document. This capability allows authors to place elements&#151;images, controls, or text&#151;exactly where they want on the page. By using scripts to manipulate the position coordinates and other dynamic styles, authors can move elements around a page, creating animated effects. The combination of dynamic styles, positioning, transparent Microsoft ActiveX&#174; Controls, and transparent images presents authors with a rich set of animation options.</p><UL><LI><A TARGET="_self" HREF="#What_Is_Positioning_">What Is Positioning?</A></LI><LI><A TARGET="_self" HREF="#Absolute_Positioning">Absolute Positioning</A></LI><LI><A TARGET="_self" HREF="#Relative_Positioning">Relative Positioning</A></LI><LI><A TARGET="_self" HREF="#Positioning_Consider">Positioning Considerations</A></LI><LI><A TARGET="_self" HREF="#Controlling_Content_">Controlling Content Visibility</A></LI><LI><A TARGET="_self" HREF="#Element_Visibility">Element Visibility</A></LI></UL><H2><A NAME="What_Is_Positioning_"></A>What Is Positioning?</H2><p>Cascading Style Sheets (CSS) Positioning defines the placement of elements on a page, and is an extension of cascading style sheets as specified in the
+<A HREF="http://www.w3.org/style/css/" TARGET="_top">W3C Working Draft</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">
+on Positioning HTML with CSS. By default, elements flow one after another in the same order as they appear in the HTML source, with each element having a size and position that depends on the type of element, the contents of the element, and the display context for the element as it will render on the page. This default "flow" model for HTML layout doesn't provide the author with a high level of control over the placement of elements on the page. By applying a small set of CSS attributes to the elements that are defined for the page, you can control the precise position of elements by giving exact coordinates, or specifying placement relative to the position of other objects on the page. </p><p>Just like any other HTML or CSS attribute, the CSS attributes used to control an element's position are available for scripting. The position of these elements on the page can thus be dynamically changed with script. This is very powerful! The position of these elements can be recalculated and redrawn after the document is loaded without needing to reload the page from the server. </p><p>Controlling the position of an element uses several other layout control techniques. These include controlling the display of the object&#151;that is, whether or not the element is displayed on the page, and how much of the element can be viewed by the user. </p><p>There are two ways to position an element in x- and y-coordinates. The type of positioning to use depends on the layout of the content and the purpose of the document. Absolute positioning means that the element is precisely placed relative to the parent coordinate system, regardless of any other content. Relative positioning places the item with respect to other elements on the page. Relative positioning depends on the default flow of the document, and reflows content should the user resize the browser. </p><H2><A NAME="Absolute_Positioning"></A>Absolute Positioning</H2><p>An absolutely positioned element is always relative to either the next positioned parent or, if there isn't one, the <A HREF="../objects/body.html">body</A> by default. Values for <A HREF="../properties/left.html">left</A> and <A HREF="../properties/top_0.html">top</A> are relative to the upper-left corner of the next positioned element in the hierarchy. For example, to place an image at the top left corner of the document, you set the attributes to 0 as follows: </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;IMG SRC="sample.gif" STYLE="position:absolute; left:0px; top:0px"&gt;</PRE><p>This positions the image within the border of the <B>body</B> element. Remember, there is a default border on the <B>body</B>, so if no border is desired, set the border of the <B>body</B> to 0 to position the image at the 0,0 coordinates of the client area. </p><p>To see how a positioned parent affects the absolute position, consider the following example. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV STYLE="position:relative;left:50px;top:30px;height:100px;width:100px"&gt;
+Some text inside the DIV that will be hidden by the image because the image
+will be positioned over this flowing text.
+&lt;IMG SRC="sample.gif" STYLE="position:absolute; left:0px; top:0px"&gt;
+&lt;/DIV&gt;</PRE><p>This example places the <A HREF="../objects/img.html">img</A> element at the upper-left corner of the <A HREF="../objects/div.html">div</A> element, which is itself positioned on the page. </p><p>Setting an absolute position pulls the element out of the "flow" of the document and positions it regardless of the layout of surrounding elements. If other elements already occupy the given position, they do not affect the positioned element, nor does the positioned element affect them. Instead, all elements are drawn at the same place, causing the objects to overlap. You can control this overlap by using the <A HREF="../properties/zindex.html">z-index</A> attribute to specify the order in which elements are stacked at the same location. </p><p>The contents of a positioned element flow within the given dimensions as default HTML would flow. For instance, text would wrap normally based on the width of the element, and various inline elements contained within the positioned elements will be placed next to each other in source order according to the constraints of size and shape of the "container" (that is, the positioned element). </p><H2><A NAME="Relative_Positioning"></A>Relative Positioning</H2><p>Setting the CSS?A HREF="../properties/position.html">position</A> attribute to "relative" places the element in the natural HTML flow of the document but offsets the position of the element based on the preceding content. For example, placing a piece of text within a paragraph with "relative" positioning renders the text relative to the text in the paragraph that precedes it. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;P&gt;The superscript in this name&lt;SPAN STYLE="position: relative; top:-3px"&gt;xyz&lt;/SPAN&gt; is "xyz".</PRE><p>Should the user resize the window, the "xyz" still appears three pixels above the natural baseline of the text. You can set the left attribute in a similar way to change the horizontal spacing between "name" and "xyz". If the contents of the <A HREF="../objects/span.html">span</A> were absolutely positioned, the "xyz" would be placed relative to the <B>body</B> (or the next positioned element in the hierarchy), and the "xyz" would be barely visible at the upper corner of the client area&#151;probably not the effect the author intended! </p><p>Text and elements that follow a relatively positioned element occupy their own space and do not overlap the natural space for the positioned element. Contrast this with an absolutely positioned element where subsequent text and elements occupy what would have been the natural space for the positioned element before the positioned element was pulled out of the flow. </p><p>It is quite possible that relatively positioned elements will overlap with other objects and elements on the page. As with absolute positioning, you can use the z-index attribute to set the <B>z-index</B> of the positioned element relative to other elements that might occupy the same area. By default, a positioned element always has a higher z-coordinate than its parent element so that it will always be on top of its parent element. </p><H2><A NAME="Positioning_Consider"></A>Positioning Considerations</H2><p>The type of positioning to use depends on the layout of the content and the purpose of the document. Relative positioning depends on the default flow of the document and will reflow content should the user resize the browser. However, absolute positioning gives you the control to precisely place images and text no matter what the user does to the display. </p><p>Here is an example of nesting an absolutely positioned element within a relatively positioned element. The desired effect is to center text in a rectangle. In the past, you might build tables and use attributes to center the content inside a table cell. However, this layout restricts you to a static table. Using positioning, this content can be worked into a larger layout, and then you can add scripting that might, for instance, have each of these elements fall into place from somewhere outside the document as the user loads the page! </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Center the DIV&lt;/TITLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function doPosition() {
+two.style.top = document.all.one.offsetHeight/2 -
+two.offsetHeight/2;
+two.style.left = document.all.one.offsetWidth/2 -
+two.offsetWidth/2;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="doPosition()"&gt;
+&lt;P&gt;Some text in the beginning.&lt;/P&gt;
+&lt;DIV ID=one
+STYLE="position:relative;top:10px;height:200px;width:200px;
+background-color:green"&gt;Some text in the outer DIV
+&lt;DIV ID=two STYLE="position:absolute;left:50px;width:100px;color:red;
+border:red 2px solid"&gt;text in the inner DIV - color should be red
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p></p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/pos_01.htm"></IMG></A></DIV><p>In the example above, the outer <B>div</B> flows with the contents of the document that precedes it, meaning it is positioned 10 pixels immediately after the first paragraph. The inner <B>div</B> has an initial absolute position, but this position is modified by the script function "doPosition" when the document is loaded. The <A HREF="../properties/offsetwidth.html">offsetWidth</A> and <A HREF="../properties/offsetheight.html">offsetHeight</A> properties are used to calculate the new absolute position for an element. In the example above, you can also use the <A HREF="../properties/posleft.html">posLeft</A> or <A HREF="../properties/pixelleft.html">pixelLeft</A> property to center the images. These properties give alternate access to the <B>left</B> property, letting you set the position using a floating point number or an integer. There are similar properties that provide alternate access to the <B>top</B>, <A HREF="../properties/width_2.html">width</A>, and <A HREF="../properties/height_1.html">height</A> properties. </p><H3><A NAME="Combining_Dynamic_Po"></A>Combining Dynamic Positioning Techniques</H3><p>The previous example can be expanded to manipulate multiple items on the page. Or, to animate this script, you might rework the scripting function on the onload of the document to have the inner piece of text "fly in" from offscreen. This function could be based on a timer that would move the inner <B>div</B> from an initial <B>top</B> and <B>left</B> coordinate somewhere off the visible portion of the page, and, over a given amount of time, move it to a position that would be in the center of the outer <B>div</B>. </p><p>The following example makes the <B>div</B> element visible and animates the content to glide across the screen. By setting an interval using the <A HREF="../methods/setinterval.html">setInterval</A> method on the <A HREF="../objects/obj_window.html">window</A> object, you can move one or more elements each time the interval elapses. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Glide the DIV&lt;/TITLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+var action;
+function StartGlide() {
+Banner.style.pixelLeft =
+document.body.offsetWidth;
+Banner.style.visibility = "visible";
+action = window.setInterval("Glide()",50);
+}
+function Glide() {
+document.all.Banner.style.pixelLeft -= 10;
+if (Banner.style.pixelLeft&lt;=0) {
+Banner.style.pixelLeft=0;
+window.clearInterval(action);
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="StartGlide()"&gt;
+&lt;P&gt;With dynamic positioning, you can move elements and their content
+anywhere in the document even after the document has loaded!
+&lt;DIV ID="Banner" STYLE="visibility:hidden;position:absolute;top:0px; left:0px"&gt;
+Welcome to Dynamic HTML!&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p></p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/pos_02.htm"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Only Internet Explorer 5 or later supports dynamically changing an element from nonpositioned to positioned. </DIV><p>For more ideas on how to integrate positioning with other Dynamic HTML (DHTML) techniques, see <A HREF="/workshop/author/filter/filters.html">Introduction to Filters and Transitions</A> to learn how to incorporate visual filter effects. </p><H2><A NAME="Controlling_Content_"></A>Controlling Content Visibility</H2><p>In addition to controlling where on the page the element is positioned, the content of positioned elements can be restricted from the user's view in several ways. The display and visibility attributes control whether the element appears on the screen at all, and the clip and overflow attributes control how much of the content the user can see. As mentioned previously, authors can also control the visibility of overlapping elements by manipulating the z-index ordering. </p><H3><A NAME="Clipping_Regions_and"></A>Clipping Regions and Overflow</H3><p>You can set a clipping region for a positioned element by using the <A HREF="../properties/clip.html">clip</A> attribute. The clipping region defines a rectangle within which the element is visible. Any portion of the element that extends outside the clipping region is clipped, that is, not displayed. The clipping region does not alter the HTML, but simply changes how the element is displayed. </p><p>For example, the following document uses <B>clip</B> to define a clipping region for the absolutely positioned <B>div</B>. The region, a 30-by-30 pixel square, displays only a portion of the text; the rest is clipped from view. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Clip the DIV&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV
+STYLE="position:absolute;top:50px;left:50px;height:100px;width:100px;
+clip:rect(0 30 30 0);background-color:green"&gt;
+some content some content some content some content some content
+some content some content some content some content some content
+some content some content some content some content some content
+some content some content
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p></p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/pos_03.htm"></IMG></A></DIV><p>Be careful when you define a clipping region&#151;the parameter order (top, right, bottom, left) is important. For example, setting clip:rect to (0 0 30 30) causes the region not to display because the top and right have been defined as zero. The correct definition for a 30-by-30 clipping region based off the top left corner of the positioned object is to set clip:rect to (0 30 30 0). </p><p>You can change the clipping region dynamically by using the <B>clip</B> property, as in the following example. </p><PRE CLASS="clsCode" AUTOHILITE="1">document.all.MyDiv.style.clip = "rect(0 50 75 0)";</PRE><p>Overflow occurs when there is more content in a positioned element than can fit within the area defined for it. By default, any extra content is displayed but flows beyond the end of the area and therefore may overlap other elements in the document. You can prevent this overflow by using the <A HREF="../properties/overflow.html">overflow</A> attribute to either hide the overflow or enable scroll bars to let the user view it by scrolling. </p><p>For example, the following document uses the <B>overflow</B> attribute to apply scroll bars. Only the portion of the text that fits within the 100-by-100 area is initially displayed, but the user can scroll the rest into view by using the scroll bars. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Scroll the Overflow&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="position:absolute;top:50px;left:50px;height:100px;width:100px;
+overflow:scroll"&gt;
+some content some content some content some content some content
+some content some content some content some content some content
+some content some content some content some content some content
+some content some content
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p></p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/pos_04.htm"></IMG></A></DIV><p>You can hide any overflow by setting the <B>overflow</B> attribute to "hidden". Similarly, you can let the overflow flow beyond the end of the area by setting it to "visible". </p><p>You can change the overflow dynamically by using the <B>overflow</B> property, as in the following example: </p><PRE CLASS="clsCode" AUTOHILITE="1">
+if (document.all.MyDiv.style.overflow != "scroll")
+document.all.MyDiv.style.overflow = "scroll";</PRE><H3><A NAME="Z_Index_Ordering"></A>Z-Index Ordering</H3><p>The z-index specifies in what order elements should be drawn when two or more elements occupy the same area. Setting the z-index is useful whenever you have absolutely or relatively positioned elements that overlap other elements in the document. </p><p>You set the z-index by using the <B>z-index</B> attribute. Setting this to a positive value causes the element to be stacked on top of other elements; negative values cause it to be stacked below. The following document uses z-index to stack text on top of the image. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Stack the Image&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P STYLE="position:absolute;top:0px;left:0px"&gt;Text Over Image&lt;/P&gt;
+&lt;IMG SRC="sample.jpg" STYLE="position:absolute;top:0px;left:0px;z-index:-1"&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p></p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/pos_05.htm"></IMG></A></DIV><p>The element with the greatest z-index is always placed at the very top of the stack, and the element with the least z-index at the very bottom. If two elements have the same z-index, their source order determines the stacking&#151;the last element is stacked highest. </p><p>You can change the z-index dynamically by setting the <B>zIndex</B> property, as in the following example. </p><PRE CLASS="clsCode" AUTOHILITE="1">MyImg.style.zIndex = 2;</PRE><p>In general, all elements are windowless and will participate in z-order overlapping. However, some objects are windowed. ActiveX Controls that have not been specifically written to be windowless will not overlap with other objects. <A HREF="../objects/iframe.html">iframe</A> elements represent a window object, and window objects do not participate in z-order. Another exception in Internet Explorer 4.0 is the <A HREF="../objects/select.html">select</A> element. </p><H2><A NAME="Element_Visibility"></A>Element Visibility</H2><p>The visibility of a positioned element determines whether the user can see the element. Visibility is useful for temporarily hiding an element, such as when time is needed to calculate its position or when carrying out simple transition effects. You can set the visibility by using the <A HREF="../properties/visibility.html">visibility</A> attribute. The following example uses the attribute to make the <B>div</B> element invisible. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;P&gt; A paragraph above the DIV element&lt;/P&gt;
+&lt;DIV ID=MyDiv STYLE="position:absolute;top:50px;left:50px;height:100px;
+width:100px;visibility:hidden"&gt;
+&lt;P&gt; A paragraph below the DIV element&lt;/P&gt;</PRE><p>You can set the visibility of an element from script by using the <B>visibility</B> property. For example, assume that the <B>div</B> in the previous example is loaded. Initially, it is invisible, but you can change this to visible by using the following: </p><PRE CLASS="clsCode" AUTOHILITE="1">MyDiv.style.visibility = "visible";</PRE><p>An element that is not visible continues to affect the document layout; that is, the space that the element would occupy remains in the document even though it is empty. This is unlike the <A HREF="../properties/display.html">display</A> attribute, which does not reserve space. The following sample demonstrates the difference between visibility and display. </p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/pos_06.htm"></IMG></A></DIV><p></p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Input from pointing devices, such as the mouse, does not penetrate through overlapping elements even if the elements are not visible. This is also true for positioned elements with a negative z-index unless:
+<ul><li>The parent is a scrolling container (that is, its <B>overflow</B> property is set to <SPAN CLASS="clsLiteral">auto</SPAN> or <SPAN CLASS="clsLiteral">scroll</SPAN>).</li><li>The parent is positioned (that is, its <B>position</B> property is set to <SPAN CLASS="clsLiteral">absolute</SPAN> or <SPAN CLASS="clsLiteral">relative</SPAN>).</li></ul></DIV><info><product rid="prod_IE" minver="4.0"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

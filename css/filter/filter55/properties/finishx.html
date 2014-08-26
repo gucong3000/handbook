@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Alpha'
+);
+
+collFriendProperties=new Array(
+'Opacity','finishOpacity','startY','startX','finishY','style'  
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Alpha'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#000000;color:#FFFFFF;padding:6px;filter : progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=90,finishOpacity=10,startX=20,startY=30,finishX=80,finishY=50);}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript='';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_sex.gif" style="float:left;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Alpha(style=1,opacity=90,finishOpacity=10,startY=20,startY=30,finishX=80,finishY=50);<\/div>\n';
+
+iWinWidth=560;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>finishX | FinishX&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/alpha.html">Alpha</a> ( finishX</b> = <i>iPercent</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/alpha.html">Alpha</a>').FinishX = </b><i>iPercent</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iPercent </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。其数值作为对象宽度的百分比值处理。默认值为<span class=cssDefault><b> 0 </b></span>。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索<a href="../filters/alpha.html"> Alpha </a>滤镜透明渐变结束点的水平坐标。仅当<a href="../properties/style.html"> style </a>属性值设置为<b> 1 </b>，即渐变样式为线性(linear)渐变时，此属性才会发生作用。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

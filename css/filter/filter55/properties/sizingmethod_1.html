@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'AlphaImageLoader'
+);
+
+collFriendProperties=new Array(
+'src'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'AlphaImageLoader'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:4px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="..\/images\/rdl_ice.gif", sizingMethod="crop");}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'..\/images\/rdl_ice.gif\', sizingMethod=";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel")){\n'+
+'if (selectedIndex!=0) var sValue=options[selectedIndex].value;\n'+
+'else var sValue="image"\n'+
+'}\n'+
+'oDiv.filters[0].sizingMethod=sValue;\n'+
+'oCodeDiv.innerHTML=sFilter+sValue+";";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv>请从下方选择<b> sizingMethod </b>参数的值。<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="null">---请选择---\n'+
+'<option value="image">image\n'+
+'<option value="scale">scale\n'+
+'<option value="crop">crop\n'+
+'<\/select>\n'+
+'<div id=idCodeDiv>filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="..\/images\/rdl_ice.gif", sizingMethod="crop");<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>sizingMethod | sizingMethod&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:FilterTypeImageTransform.Microsoft.<a href="../filters/alphaimageloader.html">AlphaImageLoader</a> ( sizingMethod</b> = <i>sMethod</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('FilterTypeImageTransform.Microsoft.<a href="../filters/alphaimageloader.html">AlphaImageLoader</a>').sizingMethod = </b><i>sMethod</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sMethod </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。
+<table>
+<tr><td nowrap><b> crop </b></td><td nowrap><b>: </b></td><td>剪切图片以适应对象尺寸。</td></tr>
+<tr><td nowrap><b> image </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。增大或减小对象的尺寸边界以适应图片的尺寸。</td></tr>
+<tr><td nowrap><b> scale </b></td><td nowrap><b>: </b></td><td>缩放图片以适应对象的尺寸边界。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滤镜作用的对象的图片在对象容器边界内的显示方式。
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

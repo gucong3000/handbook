@@ -1,0 +1,165 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Command</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/glossary.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/glossary.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Command Identifiers
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Command identifiers specify an action to take on the given object. Use them with the following methods: </p><ul><li><A HREF="../methods/execcommand.html">execCommand</A></li><li><A HREF="../methods/querycommandenabled.html">queryCommandEnabled</A></li><li><A HREF="../methods/querycommandindeterm.html">queryCommandIndeterm</A></li><li><A HREF="../methods/querycommandstate.html">queryCommandState</A></li><li><A HREF="../methods/querycommandsupported.html">queryCommandSupported</A></li><li><A HREF="../methods/querycommandvalue.html">queryCommandValue</A></li></ul><p><P></P><H2>Command Identifiers</H2><BLOCKQUOTE><A HREF="../constants/idm_2d_position.html">2D-Position</A><P>
+Allows absolutely positioned elements to be moved by dragging.</P><A HREF="../constants/idm_absolute_position.html">AbsolutePosition</A><P>
+Sets an element's <A HREF="../properties/position.html">position</A> property to "absolute."</P><A HREF="../constants/backcolor.html">BackColor</A><P>
+Sets or retrieves the background color of the current selection.</P><A HREF="../constants/blockdirltr.html">BlockDirLTR</A><P>
+Not currently supported.</P><A HREF="../constants/blockdirrtl.html">BlockDirRTL</A><P>
+Not currently supported.</P><A HREF="../constants/bold.html">Bold</A><P>
+Toggles the current selection between bold and nonbold.</P><A HREF="../constants/browsemode.html">BrowseMode</A><P>
+Not currently supported.</P><A HREF="../constants/clearauthenticationcache.html">ClearAuthenticationCache</A><P>
+Clears all authentication credentials from the cache. Applies only to <A HREF="../methods/execcommand.html">execCommand</A>.</P><A HREF="../constants/copy.html">Copy</A><P>
+Copies the current selection to the clipboard.</P><A HREF="../constants/createbookmark.html">CreateBookmark</A><P>
+Creates a bookmark <A HREF="../objects/a.html">anchor</A> or retrieves the name of a bookmark anchor for the current selection or insertion point.</P><A HREF="../constants/createlink.html">CreateLink</A><P>
+Inserts a <B>hyperlink</B> on the current selection, or displays a dialog box enabling the user to specify a URL to insert as a hyperlink on the current selection.</P><A HREF="../constants/cut.html">Cut</A><P>
+Copies the current selection to the clipboard and then deletes it.</P><A HREF="../constants/delete.html">Delete</A><P>
+Deletes the current selection.</P><A HREF="../constants/dirltr.html">DirLTR</A><P>
+Not currently supported.</P><A HREF="../constants/dirrtl.html">DirRTL</A><P>
+Not currently supported.</P><A HREF="../constants/editmode.html">EditMode</A><P>
+Not currently supported.</P><A HREF="../constants/fontname.html">FontName</A><P>
+Sets or retrieves the font for the current selection.</P><A HREF="../constants/fontsize.html">FontSize</A><P>
+Sets or retrieves the font size for the current selection.</P><A HREF="../constants/forecolor.html">ForeColor</A><P>
+Sets or retrieves the foreground (text) color of the current selection.</P><A HREF="../constants/formatblock.html">FormatBlock</A><P>
+Sets  the current block format tag.</P><A HREF="../constants/indent.html">Indent</A><P>
+Increases the indent of the selected text by one indentation increment.</P><A HREF="../constants/inlinedirltr.html">InlineDirLTR</A><P>
+Not currently supported.</P><A HREF="../constants/inlinedirrtl.html">InlineDirRTL</A><P>
+Not currently supported.</P><A HREF="../constants/insertbutton.html">InsertButton</A><P>
+Overwrites a button control on the <SPAN CLASS="clsGlossary" onmouseover="showDef()" onmouseout="clearDef()" G_RID="term_text_selection">text selection</SPAN>.</P><A HREF="../constants/insertfieldset.html">InsertFieldset</A><P>
+Overwrites a box on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/inserthorizontalrule.html">InsertHorizontalRule</A><P>
+Overwrites a horizontal line on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertiframe.html">InsertIFrame</A><P>
+Overwrites an inline frame on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertimage.html">InsertImage</A><P>
+Overwrites an image on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputbutton.html">InsertInputButton</A><P>
+Overwrites a button control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputcheckbox.html">InsertInputCheckbox</A><P>
+Overwrites a check box control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputfileupload.html">InsertInputFileUpload</A><P>
+Overwrites a file upload control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputhidden.html">InsertInputHidden</A><P>
+Inserts a hidden control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputimage.html">InsertInputImage</A><P>
+Overwrites an image control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputpassword.html">InsertInputPassword</A><P>
+Overwrites a password control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputradio.html">InsertInputRadio</A><P>
+Overwrites a radio control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputreset.html">InsertInputReset</A><P>
+Overwrites a reset control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputsubmit.html">InsertInputSubmit</A><P>
+Overwrites a submit control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertinputtext.html">InsertInputText</A><P>
+Overwrites a text control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertmarquee.html">InsertMarquee</A><P>
+Overwrites an empty marquee on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertorderedlist.html">InsertOrderedList</A><P>
+Toggles the <SPAN>text selection</SPAN> between an ordered list and a normal format block.</P><A HREF="../constants/insertparagraph.html">InsertParagraph</A><P>
+Overwrites a line break on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertselectdropdown.html">InsertSelectDropdown</A><P>
+Overwrites a drop-down selection control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertselectlistbox.html">InsertSelectListbox</A><P>
+Overwrites a list box selection control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/inserttextarea.html">InsertTextArea</A><P>
+Overwrites a multiline text input control on the <SPAN>text selection</SPAN>.</P><A HREF="../constants/insertunorderedlist.html">InsertUnorderedList</A><P>
+Toggles the <SPAN>text selection</SPAN> between an ordered list and a normal format block.</P><A HREF="../constants/italic.html">Italic</A><P>
+Toggles the current selection between italic and nonitalic.</P><A HREF="../constants/justifycenter.html">JustifyCenter</A><P>
+Centers the format block in which the current selection is located.</P><A HREF="../constants/justifyfull.html">JustifyFull</A><P>
+Not currently supported.</P><A HREF="../constants/justifyleft.html">JustifyLeft</A><P>
+Left-justifies the format block in which the current selection is located.</P><A HREF="../constants/justifynone.html">JustifyNone</A><P>
+Not currently supported.</P><A HREF="../constants/justifyright.html">JustifyRight</A><P>
+Right-justifies the format block in which the current selection is located.</P><A HREF="../constants/idm_liveresize.html">LiveResize</A><P>
+Causes the MSHTML Editor to update an element's appearance continuously during a resizing or moving operation, rather than updating only at the completion of the move or resize.</P><A HREF="../constants/idm_multipleselection.html">MultipleSelection</A><P>
+Allows for the selection of more than one <SPAN CLASS="clsGlossary" onmouseover="showDef()" onmouseout="clearDef()" G_RID="term_site_selectable">site selectable</SPAN> element at a time when the user holds down the SHIFT or CTRL keys.</P><A HREF="../constants/open.html">Open</A><P>
+Not currently supported.</P><A HREF="../constants/outdent.html">Outdent</A><P>
+Decreases by one increment the indentation of the format block in which the current selection is located.</P><A HREF="../constants/overwrite.html">OverWrite</A><P>
+Toggles the text-entry mode between insert and overwrite.</P><A HREF="../constants/paste.html">Paste</A><P>
+Overwrites the contents of the clipboard on the current selection.</P><A HREF="../constants/playimage.html">PlayImage</A><P>
+Not currently supported.</P><A HREF="../constants/idm_execprint_scr.html">Print</A><P>
+Opens the print dialog box so the user can print the current page.</P><A HREF="../constants/redo.html">Redo</A><P>
+Not currently supported.</P><A HREF="../constants/refresh.html">Refresh</A><P>
+Refreshes the current document.</P><A HREF="../constants/removeformat.html">RemoveFormat</A><P>
+Removes the formatting tags from the current selection.</P><A HREF="../constants/removeparaformat.html">RemoveParaFormat</A><P>
+Not currently supported.</P><A HREF="../constants/saveas.html">SaveAs</A><P>
+Saves the current Web page to a file.</P><A HREF="../constants/selectall.html">SelectAll</A><P>
+Selects the entire document.</P><A HREF="../constants/sizetocontrol.html">SizeToControl</A><P>
+Not currently supported.</P><A HREF="../constants/sizetocontrolheight.html">SizeToControlHeight</A><P>
+Not currently supported.</P><A HREF="../constants/sizetocontrolwidth.html">SizeToControlWidth</A><P>
+Not currently supported.</P><A HREF="../constants/stop.html">Stop</A><P>
+Not currently supported.</P><A HREF="../constants/stopimage.html">StopImage</A><P>
+Not currently supported.</P><A HREF="../constants/strikethrough.html">StrikeThrough</A><P>
+Not currently supported.</P><A HREF="../constants/subscript.html">Subscript</A><P>
+Not currently supported.</P><A HREF="../constants/superscript.html">Superscript</A><P>
+Not currently supported.</P><A HREF="../constants/unbookmark.html">UnBookmark</A><P>
+Removes any bookmark from the current selection.</P><A HREF="../constants/underline.html">Underline</A><P>
+Toggles the current selection between underlined and not underlined.</P><A HREF="../constants/undo.html">Undo</A><P>
+Not currently supported.</P><A HREF="../constants/unlink.html">Unlink</A><P>
+Removes any hyperlink from the current selection.</P><A HREF="../constants/unselect.html">Unselect</A><P>
+Clears the current selection.</P></BLOCKQUOTE><P></P></p></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_indexlist_com.css">
+<script src="rdl_indexlist_com.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+sTitleText='Attributes';
+sPrefix='properties/';
+
+collFriendLists = new Array(
+'Collections','Filters','Methods','Properties','Attributes','Events'
+);
+
+collHeadNotes = new Array(
+'属性(Attributes)','兼容性(Compatibility)','简介(Description)'
+);
+
+collListItems = new Array(
+
+new Array('Head','滤镜相关　Filters & Transitions'),
+new Array('40','add','IE4.0+','设置或检索滤镜作用图像是否覆盖原始图像。'),
+new Array('55','bands','IE5.5+','Blinds  :  设置或检索滤镜效果中有多少条百叶窗的窗格出现。\r\nSlide  :  设置或检索滤镜效果中有多少滑条被抽离。 '),
+new Array('55','Bias','IE5.5+','设置或检索添加到滤镜结果的每种颜色组分的值的百分比。'),
+new Array('55','colorSpace','IE5.5+','设置或检索颜色配置文件(.icm)的路径和名称。 '),
+new Array('40','Color','IE4.0+','设置或检索 Shadow 滤镜作用的颜色值。'),
+new Array('40','color','IE4.0+','设置或检索滤镜作用的颜色值。'),
+new Array('40','Direction','IE4.0+','设置或检索滤镜效果的运动偏移方向。'),
+new Array('55','direction','IE5.5+','CheckerBoard  :  设置或检索网格推拉的方向。\r\nBlinds  :  设置或检索百叶窗开关的方向。'),
+new Array('40','duration','IE4.0+','设置或检索转换完成所用的时间。'),
+new Array('55','Dx','IE5.5+','设置或检索线性转换的向量增加 X 。'),
+new Array('55','Dy','IE5.5+','设置或检索线性转换的向量增加 Y 。'),
+new Array('40','enabled','IE4.0+','设置或检索滤镜是否激活。改变此属性值会激发 onfilterchange 事件。 '),
+new Array('55','FilterType','IE5.5+','设置或检索定义新内容的像素的方法。'),
+new Array('55','finishOpacity','IE5.5+','设置或检索透明渐变的结束透明度。'),
+new Array('55','finishX','IE5.5+','设置或检索 Alpha 滤镜透明渐变结束点的水平坐标。'),
+new Array('55','finishY','IE5.5+','设置或检索 Alpha 滤镜透明渐变结束点的垂直坐标。'),
+new Array('40','freq','IE4.0+','设置或检索滤镜建立的波浪数目。'),
+new Array('55','function','IE5.5+','设置或检索混合方式。 '),
+new Array('55','gradientSize','IE5.5+','设置或检索对象内容被梯度渐隐条覆盖的百分比。'),
+new Array('55','grayScale','IE5.5+','设置或检索是否以灰度显示对象内容。'),
+new Array('55','gridSizeX','IE5.5+','设置或检索滤镜效果中横向盘旋多少次。'),
+new Array('55','gridSizeY','IE5.5+','设置或检索滤镜效果中纵向盘旋多少次。'),
+new Array('55','intent','IE5.5+','设置或检索对象的色彩内容的预定效果。'),
+new Array('55','irisStyle','IE5.5+','设置或检索 Iris 滤镜的剪切轮廓的外形。 '),
+new Array('55','lightStrength','IE5.5+','设置或检索滤镜建立的波浪浪尖和波谷之间的距离。'),
+new Array('55','M11','IE5.5+','设置或检索线性转换的第一行/第一列矩阵输入。'),
+new Array('55','M12','IE5.5+','设置或检索线性转换的第一行/第二列矩阵输入。'),
+new Array('55','M21','IE5.5+','设置或检索线性转换的第二行/第一列矩阵输入。'),
+new Array('55','M22','IE5.5+','设置或检索线性转换的第二行/第二列矩阵输入。'),
+new Array('55','makeShadow','IE5.5+','设置或检索对象的内容是否被处理为阴影显示。'),
+new Array('55','mask','IE5.5+','设置或检索是否依据 MaskColor 的值为对象添加遮罩(Mask)。'),
+new Array('55','MaskColor','IE5.5+','设置或检索遮罩( Mask )颜色。'),
+new Array('55','maxSquare','IE5.5+','设置或检索转换中矩形色块的最大宽度。'),
+new Array('55','mirror','IE5.5+','设置或检索是否反转显示对象内容。'),
+new Array('55','motion','IE5.5+','设置或检索对象内容出现的方向是依据 WipeStyle 特性的设定，还是取反。'),
+new Array('55','motion','IE5.5+','设置或检索对象的新内容是先从外显示还是先从内显示。'),
+new Array('55','motion','IE5.5+','设置或检索转换新内容从哪一个角开始。'),
+new Array('40','offX','IE4.0+','设置或检索阴影在横坐标轴上以对象为基准的偏移量。'),
+new Array('40','offY','IE4.0+','设置或检索阴影在纵坐标轴上以对象为基准的偏移量。'),
+new Array('55','opacity','IE5.5+','设置对象内容的透明度。'),
+new Array('55','opacity','IE5.5+','设置或检索透明渐变的开始透明度。'),
+new Array('55','orientation','IE5.5+','RandomBars  :  设置或检索滤镜效果模拟的开关门是横向的还是纵向的。\r\nBarn  :  设置或检索转换所使用的随机线条是横向的还是纵向的。'),
+new Array('55','overlap','IE5.5+','设置或检索在转换进程中源内容和目标内容都被显示的比例。'),
+new Array('40','phase','IE4.0+','设置或检索正弦波开始处的相位偏移。 '),
+new Array('55','pixelRadius','IE5.5+','设置或检索模糊效果的作用深度。'),
+new Array('40','positive','IE4.0+','设置或检索滤镜是否从对象的非透明像素建立阴影。'),
+new Array('55','shadowOpacity','IE5.5+','设置或检索在 Blur 滤镜中使用 makeShadow 制作成的阴影的透明度(暗度)。'),
+new Array('55','SizingMethod','IE5.5+','设置或检索容器是否改变尺寸去适应目标图像。'),
+new Array('55','sizingMethod','IE5.5+','设置或检索滤镜作用的对象的图片在对象容器边界内的显示方式。'),
+new Array('55','slideStyle','IE5.5+','设置或检索滑条抽离效果的方式。'),
+new Array('55','spokes','IE5.5+','设置或检索风车叶轮数目。'),
+new Array('55','squaresX','IE5.5+','设置或检索滤镜效果中横向有多少条。'),
+new Array('55','squaresY','IE5.5+','设置或检索滤镜效果中纵向有多少条。'),
+new Array('55','src','IE5.5+','使用绝对或相对 url 地址指定背景图像。'),
+new Array('55','startColorStr','IE5.5+','设置或检索色彩渐变的开始颜色和透明度。'),
+new Array('55','startX','IE5.5+','设置或检索 Alpha 滤镜透明渐变开始点的水平坐标。'),
+new Array('55','startY','IE5.5+','设置或检索 Alpha 滤镜透明渐变开始点的垂直坐标。'),
+new Array('40','strength','IE4.0+','设置或检索以对象为基准的在运动方向上的向外扩散距离。'),
+new Array('55','stretchStyle','IE5.5+','设置或检索拉伸变形转换的方式。'),
+new Array('55','style','IE5.5+','设置或检索透明渐变的样式。'),
+new Array('40','transition','IE4.0+','设置或检索转换所使用的方式。'),
+new Array('55','wipeStyle','IE5.5+','设置或检索转换所使用的擦除方式。'),
+new Array('55','XRay','IE5.5+','设置或检索是否通过红、绿均衡补偿的方法以X光效果显示对象内容。'),
+
+new Array('Head','文档相关　Document Object Model'),
+new Array('40','filter','IE4.0+','设置或检索对象所应用的滤镜或滤镜集合。')
+
+);
+
+</script>
+
+</body>
+</html>
+
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

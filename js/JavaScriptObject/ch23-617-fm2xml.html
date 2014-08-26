@@ -1,0 +1,195 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-610-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-624-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-617-fm2xml"></A><A NAME="IXT-23-55311"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Number.toFixed(  )</i></b></td>
+
+<td align="right"><i>采用定点计数法格式化数字</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.5; JScript 5.5, ECMAScript v3 </P><A NAME="ch23-618-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>number</I></TT>.toFixed(<TT><I>digits</I></TT>)</PRE><A NAME="IXT-23-55311"></A>
+
+
+
+
+
+<A NAME="ch23-619-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>digits</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">小数点后的数字位数，是0～20之间的值，包括0和20，有些实现可以支持更
+    大的数值范围。如果省略了该参数，将用0代理。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-620-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">number的字符串表示，不采用指数计数法，小数点后有固定的digics位数字。如果
+    必要，该数字会被舍入，也可以用0补足，以便它达到指定的长度。如果number大
+    于le+21，该方法只调用Number.toString()，返回采用指数计数法表示的字符串。</P>
+
+
+
+
+
+<A NAME="ch23-621-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">RangeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList"><TT><I>digits</I></TT>太小或太大时抛出的异常。0～20之间(包括0和20)的值不会引发
+    RangeError。有些实现支持更大范围或更小范围内的值。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">TypeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">调用该方法的对象不是Number时抛出的异常。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-622-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var n = 12345.6789;
+
+n.toFixed(  );            // 返回 12346，注意舍入，没有小数部分
+
+n.toFixed(1);             // 返回 12345.7，注意舍入
+
+n.toFixed(6);             // 返回 12345.678900，注意补零
+
+(1.23e+20).toFixed(2);    // 返回 123000000000000000000.00
+
+(1.23e-10).toFixed(2)     // 返回 0.00</PRE>
+
+
+
+<A NAME="ch23-623-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-610-fm2xml.html#ch23-610-fm2xml">Number.toExponential(  )</A>, <A class="docLink" HREF="ch23-624-fm2xml.html#ch23-624-fm2xml">Number.toLocaleString(  )</A>,
+
+<A class="docLink" HREF="ch23-629-fm2xml.html#ch23-629-fm2xml">Number.toPrecision(  )</A>, <A class="docLink" HREF="ch23-636-fm2xml.html#ch23-636-fm2xml">Number.toString(  )</A>
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-610-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-624-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

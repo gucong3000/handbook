@@ -1,0 +1,123 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Imagedata Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Imagedata Element</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Defines an image for a shape.</P>
+<P>The following attributes modify an image.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Attribute</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_althref.html"><B>AltHRef</B></A></TD><TD bgcolor=#EEEEEE>Specifies an alternate reference for an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_bilevel.html"><B>Bilevel</B></A></TD><TD bgcolor=#EEEEEE>Determines whether an image will display in black and white.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_blacklevel.html"><B>BlackLevel</B></A></TD><TD bgcolor=#EEEEEE>Determines the intensity of black in an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_chromakey.html"><B>Chromakey</B></A></TD><TD bgcolor=#EEEEEE>Defines the color in the palatte that will be treated as transparent.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_cropbottom.html"><B>CropBottom</B></A></TD><TD bgcolor=#EEEEEE>Defines the percentage of picture removal from the bottom side.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_cropleft.html"><B>CropLeft</B></A></TD><TD bgcolor=#EEEEEE>Defines the percentage of picture removal from the left side.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_cropright.html"><B>CropRight</B></A></TD><TD bgcolor=#EEEEEE>Defines the percentage of picture removal from the right side.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_croptop.html"><B>CropTop</B></A></TD><TD bgcolor=#EEEEEE>Defines the percentage of picture removal from the top side.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_detectmouseclick.html"><B>DetectMouseClick</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a mouse click will be detected.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_embosscolor.html"><B>EmbossColor</B></A></TD><TD bgcolor=#EEEEEE>Defines the color for embossed color effects.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_gain.html"><B>Gain</B></A></TD><TD bgcolor=#EEEEEE>Defines the intensity of all colors in an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_gamma.html"><B>Gamma</B></A></TD><TD bgcolor=#EEEEEE>Defines the amount of contrast for an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_grayscale.html"><B>GrayScale</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a picture will display in grayscale mode.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_href.html"><B>HRef</B></A></TD><TD bgcolor=#EEEEEE>Defines a URL for an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_id.html"><B>ID</B></A></TD><TD bgcolor=#EEEEEE>Defines a unique identifier for an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_movie.html"><B>Movie</B></A></TD><TD bgcolor=#EEEEEE>Defines a pointer to a movie image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_oleid.html"><B>OLEID</B></A></TD><TD bgcolor=#EEEEEE>Stores the OLE ID of an image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_src.html"><B>Src</B></A></TD><TD bgcolor=#EEEEEE>Defines a source for the image.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image_title.html"><B>Title</B></A></TD><TD bgcolor=#EEEEEE>Defines the title of an image.</TD></TR>
+</TABLE>
+<BR>
+<P class=RL><B>Remarks</B></P>
+<P>This element must be defined within a <A href="e_shape.html"><B>Shape</B></A> element.</P>
+<P>In addition, the <A href="image_src.html"><B>Src</B></A> attribute must point to an image.
+<P>The following is the minimum code needed to produce an image.
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:rect
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:50;height:50"&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:imagedata src="..\art\kids.jpg"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:rect&gt;
+</PRE>
+Note that in beta releases of VML, this element was called <B>Image</B>.
+<P class=RL><B>Examples</B></P>
+<P>Click <A href="t_image.html">here</A> to view a simple image.</P>
+<P>Click <A href="x_image.html">here</A> to view a more complex sample.</P>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

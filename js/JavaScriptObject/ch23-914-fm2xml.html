@@ -1,0 +1,183 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-907-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-921-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-914-fm2xml"></A><A NAME="IXT-23-55431"></A><A NAME="IXT-23-55432"></A><A NAME="IXT-23-55433"></A><A NAME="IXT-23-55434"></A><A NAME="IXT-23-55435"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>TypeError</i></b></td>
+
+<td align="right"><i>当一个值的类型错误时，抛出该异常</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.5; JScript 5.5; ECMAScript</P> 
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText">继承于 Error </P>
+<A NAME="ch23-915-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new TypeError(  )
+
+new TypeError(<TT><I>message</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-916-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>message</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">提供异常细节的错误消息(可选)。如果设置了该参数，它将作为TypeError对象的message属性的值。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-917-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">新构造的TypeError对象。如果指定了参数message，该Error对象将它作为message属性的值，否则，它将用实现定义的默认字符串作为该属性的值。如果不用new运算符，则把TypeError()构造函数当作函数调用，它的行为与使用new运算符调用时一样。</P>
+
+
+
+
+
+<A NAME="ch23-918-fm2xml"></A>
+
+<h4 class="docRefsectTitle">属性</h4>
+
+
+
+<A NAME="IXT-23-55434"></A><A NAME="IXT-23-55435"></A><DL class="docList"><A NAME="IXT-23-55434"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">message</span></span></span></DT>
+
+<DD>
+
+<P class="docList">提供异常细节的错误消息。该属性存放传递给构造函数的字符串，或存放实现定义的默认字符串。详见“Error.message”。</P>
+
+</DD>
+
+<A NAME="IXT-23-55435"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">name</span></span></span></DT>
+
+<DD>
+
+<P class="docList">声明异常类型的字符串。所有TypeError对象的name属性都继承值“TypeError”。</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-919-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">当一个值的类型与要求不符时，TypeError类的一个实例就会被抛出。在访问值为
+    null或undefined的属性时，这种情况经常发生。如果由一个对象(其他类的实例)
+    调用另一个类定义的方法，或者对于不是构造函数的值使用new运算符时，也会发生这种情况。当调用内部函数或方法时，如果传递的参数多于期望的个数，JavaScript
+    的实现也允许抛出TypeError异常。关于抛出和捕捉异常的细节，请参阅“Error”。</P>
+
+
+
+<A NAME="ch23-920-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-360-fm2xml.html#ch23-360-fm2xml">Error</A>, <A class="docLink" HREF="ch23-369-fm2xml.html#ch23-369-fm2xml">Error.message</A>, <A class="docLink" HREF="ch23-372-fm2xml.html#ch23-372-fm2xml">Error.name</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-907-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-921-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

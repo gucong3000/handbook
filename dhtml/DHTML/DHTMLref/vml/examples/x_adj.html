@@ -1,0 +1,100 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Adj Attribute Example</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+<script language=javascript>
+var doImage = doImage;
+var TType = TType;
+function mhHover(tbl, idx, cls)
+{
+var t, d;
+if (document.getElementById)
+t = document.getElementById(tbl);
+else
+t = document.all(tbl);
+if (t == null) return;
+if (t.getElementsByTagName)
+d = t.getElementsByTagName("TD");
+else
+d = t.all.tags("TD");
+if (d == null) return;
+if (d.length <= idx) return;
+d[idx].className = cls;
+}
+function setMSResearch() {
+var time = new Date();
+if( document.cookie.indexOf( 'msresearch=1 ') == -1 ) {
+document.cookie = 'msresearch=' + time.getTime() + ':' + escape( document.location) + ':' + escape( document.referrer) + '; path=/; domain=.microsoft.com; ';
+}
+}
+function footerjs(doc)
+{
+if (doImage == null)
+{
+var tt = TType == null ? "PV" : TType;
+doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.html?source=msdn&TYPE=' + tt + '&p=workshop_author_VML_Shape_examples_x&r=http%3a%2f%2fmsdn.microsoft.com%2fworkshop%2fauthor%2fVML%2fShape%2fa_adj.html" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>'
+);
+}
+if( ( document.cookie.indexOf( 'msresearch=1 ') == -1 )
+&& ( document.cookie.indexOf( 'msresearch=')   != -1 ) ) {
+setInterval( "setMSResearch()", 1000 );
+}
+}
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Adj Example</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<DIV id="MyDiv"></DIV>
+<v:shape id="rect01" type="#myshape"
+fillcolor="red" strokecolor="red"
+coordorigin="0 0" coordsize="200 200"
+style="position:relative;top:30;left:30;width:50;height:50"
+adj="1, 1, 1, 200, 200, 200, 200, 1">
+<v:path v="m @0,@1 l @2,@3, @4,@5, @6,@7 x e"/>
+<v:formulas>
+<v:f eqn="val #0"/>
+<v:f eqn="val #1"/>
+<v:f eqn="val #2"/>
+<v:f eqn="val #3"/>
+<v:f eqn="val #4"/>
+<v:f eqn="val #5"/>
+<v:f eqn="val #6"/>
+<v:f eqn="val #7"/>
+</v:formulas>
+</v:shape>
+<br><br><br><br><br>
+<P>A rectangle is created with a path that is defined by formulas that in turn are defined by adjustment values. Click the button to change the starting <I>x</I> value of the path from 0 to 100, creating a trapezoid.</P>
+<br><br><br>
+<INPUT TYPE=BUTTON VALUE="Click" NAME="Button">
+<br><br><br>
+<P><A HREF="../a_adj.html">Return to <B>Adj</B> attribute.</A></P>
+<SCRIPT LANGUAGE="VBScript">
+</SCRIPT>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

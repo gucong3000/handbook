@@ -1,0 +1,117 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>TYPE Attribute | type Property (t:TRANSITIONFILTER) (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>TYPE Attribute | type Property
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the type of transition to be applied.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;t:TRANSITIONFILTER&nbsp;<B>TYPE</B>
+= <SPAN CLASS="clsRange">sType</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>t:TRANSITIONFILTER</I>.<B>type</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sType</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sType</SPAN></TD><TD><b>String</b> that
+specifies or receives the name of the transition type that will be applied to renderable content. See the table below for possible values.</TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This attribute is required and must be one of the transition families listed in the table below, or it must be an extended transition type provided by the user agent.</P><P>You can apply more than one <A HREF="../../time2/elements/transitionfilter.html">transitionFilter</A> to a given object. By doing this, you can apply more than one type of transition. This has the possible effect of multiple types of transitions occurring simultaneously to renderable content. See the example below.</P><P>If no subtype is specified, the default subtype associated with the transition type will be used. The type <SPAN CLASS="clsLiteral">starWipe</SPAN> is an exception. It is required to explicitly include the subtype of "fivePoint" for this transition to work.</P><P><table class="clsStd"><tr><th>Type</th><th>Associated Subtype(s)</th></tr><tr><td>starWipe</td><td>fivePoint (this must be specified)</td></tr><tr><td>barWipe</td><td>leftToRight, topToBottom</td></tr><tr><td>barnDoorWipe</td><td>vertical, horizontal</td></tr><tr><td>irisWipe</td><td>rectangle, diamond</td></tr><tr><td>ellipseWipe</td><td>circle</td></tr><tr><td>clockWipe</td><td>clockwiseTwelve</td></tr><tr><td>fanWipe</td><td>centerTop</td></tr><tr><td>snakeWipe</td><td>topLeftHorizontal</td></tr><tr><td>spiralWipe</td><td>topLeftClockwise</td></tr><tr><td>pushWipe</td><td>fromLeft</td></tr><tr><td>slideWipe</td><td>fromLeft</td></tr><tr><td>fade</td><td>crossfade</td></tr></table></P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;You can also use Cascading Style Sheets (CSS) transitions as values for <B>TYPE</B>. See <A HREF="../../common/author/behaviors/overview/transition_ovw.html#types">TYPE And SUBTYPE</A> for more information.</DIV></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example demonstrates the different transition <B>type</B> values and the possible  <A HREF="../../time2/properties/subtype.html">subtype</A> values that can be used with those <B>type</B> values. In addition, the effects of changing various other attributes of the <B>transitionFilter</B> is also demonstrated.</P><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/mastersample/master_sample.htm" FEATURES="top=50,left=50,height=550,width=850,status=0,resizable=1"></IMG></A></DIV><P>
+This example shows three <A HREF="../../objects/div.html">DIVs</A> that have two different transitions applied to them simultaneously.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:transitionfilter type="barWipe" id="tran1" dur="3"
+targetElement="firstDiv"/&gt;
+&lt;t:transitionfilter type="fade" id="tran1b" dur="3"
+targetElement="firstDiv"/&gt;
+&lt;t:transitionfilter type="snakeWipe" id="tran2"  dur="3"
+targetElement="secondDiv"/&gt;
+&lt;t:transitionfilter type="barnDoorWipe" id="tran2b"  dur="3" targetElement="secondDiv"
+from="0" to="1"  CalcMode="linear"   mode="in" /&gt;
+&lt;DIV STYLE="height:170px;"&gt;
+&lt;DIV CLASS="time"  ID="firstDiv" STYLE="position:absolute; top:150px;
+left:20px; background-color:#3366CC; padding:10px; height:80; color:white;"&gt;
+This div has fade and barwipe types applied.
+&lt;/DIV&gt;
+&lt;DIV CLASS="time" ID="secondDiv" STYLE="position:absolute; top:185px;
+left:60px; background-color:#FFCC00; padding:10px; height:80;"&gt;
+This div has snakeWipe and barnDoorWipe types applied.
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/typeEX1.html" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../common/author/behaviors/overview/transition_ovw.html#types">Using HTML+TIME Transitions</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

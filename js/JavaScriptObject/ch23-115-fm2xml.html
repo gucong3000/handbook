@@ -1,0 +1,177 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-109-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-122-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-115-fm2xml"></A><A NAME="IXT-23-55049"></A><A NAME="IXT-23-55050"></A><A NAME="IXT-23-55051"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Array.toString(  )</i></b></td>
+
+<td align="right"><i>将数组转换成一个字符串</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2.0; ECMAScript v1</P>
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText"> Overrides Object.toString(  ) </P><A NAME="ch23-116-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>array</I></TT>.toString( )</PRE>
+
+<A NAME="IXT-23-55049"></A>
+
+<A NAME="IXT-23-55050"></A>
+
+<A NAME="IXT-23-55051"></A>
+
+
+
+<A NAME="ch23-117-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">array的字符串表示。</P>
+
+
+
+
+
+<A NAME="ch23-118-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">TypeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">调用该方法时，若对象不是Array，则抛出该异常。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-119-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">数组的toString()方法将把数组转换成一个字符串，并且返回这个字符串。当数组
+用于字符串环境中时，JavaScript会调用这一方法将数组自动转换成一个字符串。但
+在某些情况下，需要明确地调用这个方法。</P>
+
+
+
+<P class="docText">
+toString()在把数组转换成字符串时，首先要将数组的每个元素都转换成字符串
+(通过调用这些元素的toString()方法)。当每个元素都被转换成字符串时，它就以
+列表的形式输出这些字符串，字符串之间用逗号分隔。返回值与没有参数的join()
+方法返回的字符串相同。</P>
+
+
+
+<A NAME="ch23-120-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">在Netscape实现中，如果把语言版本明确地设置为1.2，toString()将会返回用逗号和空格分隔的数组元素列表，这个列表采用数组直接量表示法，用方括号括起元素。例如，在把&lt;script&gt;标记的language性质明确地设置为“JavaScript l.2”时，
+就会发生这种情况。
+</P>
+
+
+
+<A NAME="ch23-121-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-109-fm2xml.html#ch23-109-fm2xml">Array.toLocaleString(  )</A>, <A class="docLink" HREF="ch23-687-fm2xml.html#ch23-687-fm2xml">Object.toString(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-109-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-122-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

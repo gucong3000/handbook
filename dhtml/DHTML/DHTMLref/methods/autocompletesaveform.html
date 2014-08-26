@@ -1,0 +1,100 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>AutoCompleteSaveForm</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>AutoCompleteSaveForm Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Saves the specified form in the AutoComplete data store.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>external</I><B>.AutoCompleteSaveForm(</B><I>oForm</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>oForm</I></TD><TD>
+Required.
+<b>Object</b> that specifies a reference to a <A HREF="../objects/form.html">form</A> element.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Use this method, included in Microsoft&#174; Internet Explorer 5 and later, to store <A HREF="../objects/input_text.html">input type=text</A> and <A HREF="../objects/input_password.html">input type=password</A> values to AutoComplete data storage. Once information is entered in a form and saved to AutoComplete storage, whenever a user visits a Web site and starts typing in a field with the same name as a stored field, the <A HREF="../properties/autocomplete.html">AUTOCOMPLETE</A> attribute provides an AutoComplete box containing a list of previously stored data.</P><P>To enable the AutoComplete feature for forms, choose <B>Internet Options</B> from the <B>Tools</B> menu, click <B>Content</B>, and then click <B>AutoComplete</B>. To disable the feature for individual form controls and entire forms, use the <B>AUTOCOMPLETE</B> attribute.</P><P>This method is not supported in <A HREF="/workshop/author/hta/overview/htaoverview.html">HTML Applications (HTAs)</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>AutoCompleteSaveForm</B> method to save the value of a text field without submitting the form to a server.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnSaveForm(){
+window.external.AutoCompleteSaveForm(oForm);
+oForm.AutoCompleteTest.value="";
+oForm.AutoCompleteIgnore.value="";
+}
+&lt;/SCRIPT&gt;
+&lt;FORM NAME="oForm"&gt;
+This text is saved:
+&lt;INPUT TYPE="text" NAME="AutoCompleteTest"&gt;
+This text is not saved:
+&lt;INPUT TYPE="text" NAME="AutoCompleteIgnore" AUTOCOMPLETE="off"&gt;
+&lt;/FORM&gt;
+&lt;INPUT TYPE=button VALUE="Save Value" onclick="fnSaveForm()"&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1,scrollbars=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/external.html">
+external</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/forms/autocomplete_ovr.html">Using AutoComplete in HTML Forms</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

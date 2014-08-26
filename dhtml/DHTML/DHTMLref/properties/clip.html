@@ -1,0 +1,189 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>clip Attribute | clip</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>clip Attribute | clip Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves which part of a positioned <span replace="1">object</span> is visible. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ clip : <SPAN CLASS="clsRange">sClip</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.clip</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sClip</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sClip</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">auto</SPAN></TD><TD>Default. Clip to expose entire object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">rect(top right bottom left)</SPAN></TD><TD><span class="clsRange">Top</span>, <span class="clsRange">right</span>, <span class="clsRange">bottom</span>, and <span class="clsRange">left</span> specify length values, any of which can be replaced by <SPAN CLASS="clsLiteral">auto</SPAN>, leaving that side not clipped. The value of <span class="clsRange">top</span> specifies that everything above this value on the Y axis (with 0 at the top) is clipped. The value of <span class="clsRange">right</span> specifies that everything above this value on the X axis (with 0 at the left) is clipped. The value of <span class="clsRange">bottom</span> specifies that everything below this value on the Y axis (with 0 at the top) is clipped. The value of <span class="clsRange">left</span> specifies that everything to the left of this value on the X axis (with 0 at the left) is clipped.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+auto</SPAN>. The Cascading Style Sheets (CSS) attribute is
+not  inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This property defines the shape and size of the positioned object that is visible. The <A HREF="../properties/position.html">position</A> must be set to <SPAN CLASS="clsLiteral">absolute</SPAN>. Any part of the object that is outside the clipping region is transparent. Any coordinate can be replaced by the value <SPAN CLASS="clsLiteral">auto</SPAN>, which exposes the respective side (that is, the side is not clipped).</P><P>The order of the values <B>clip</B>:<span class="clsLiteral">rect(0 0 50 50)</span> renders the object invisible because it sets the top and right positions of the clipping region to 0. To achieve a 50-by-50 view port, use <B>clip</B>:<span class="clsLiteral">rect(0 50 50 0)</span>.</P><P>The <B>clip</B> attribute and the <B>clip</B> property are available on the Macintosh platform, as of Microsoft&#174; Internet Explorer 5.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example shows how to use an inline style to clip the image.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="position:absolute;top:0;left:200;
+clip:rect(15px auto auto auto)"&gt;
+&lt;IMG SRC="sphere.jpg"/&gt;
+&lt;/DIV&gt;
+&lt;DIV STYLE="position:absolute;top:0;left:300;
+clip:rect(auto 15px auto auto)"&gt;
+&lt;IMG SRC="sphere.jpg"/&gt;
+&lt;/DIV&gt;
+&lt;DIV STYLE="position:absolute;top:0;left:400;
+clip:rect(auto auto 15px auto)"&gt;
+&lt;IMG SRC="sphere.jpg"/&gt;
+&lt;/DIV&gt;
+&lt;DIV STYLE="position:absolute;top:0;left:500;
+clip:rect(auto auto auto 15px)"&gt;
+&lt;IMG SRC="sphere.jpg"/&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+The following example shows how to use inline scripting to clip the image.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;IMG ID="sphere" SRC="sphere.jpg"
+STYLE="position:absolute;top:0cm;left:0cm;"&gt;
+&lt;BUTTON
+onclick="sphere.style.clip='rect(0.2cm 0.6cm 1cm 0.1cm)'"&gt;
+Clip Image&lt;/BUTTON&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/rec-css2/" TARGET="_top">
+Cascading Style Sheets (CSS), Level 2 (CSS2)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5" HREF="../objects/defaults.html">
+defaults</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/embed.html">
+EMBED</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/runtimestyle.html">
+runtimeStyle</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../properties/clipbottom.html">clipBottom</A>, <A HREF="../properties/clipleft.html">clipLeft</A>, <A HREF="../properties/clipright.html">clipRight</A>, <A HREF="../properties/cliptop.html">clipTop</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Compositor'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Compositor'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;filter:progid:DXImageTransform.Microsoft.Compositor(function=20);}\n'+
+'#idDiv1{width:200px;height:80px;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:3;visibility:hidden;}\n'+
+'#idDiv2{width:180px;height:90px;background-color:#87CEEB;color:#000000;padding:4px;position:absolute;z-index:4;visibility:hidden;}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sBaseStr="filter : progid:DXImageTransform.Microsoft.Compositor ( function=code ) ;";\n'+
+'var oParentDiv,oCodeDiv;\n'+
+'function rdl_doInit(e){\n'+
+'oParentDiv=document.all("idParentDiv");\n'+
+'oCodeDiv=document.all("idCodeDiv");\n'+
+'with (oParentDiv) {\n'+
+'children[0].style.visibility="visible";\n'+
+'filters[0].Apply();\n'+
+'children[0].style.visibility="hidden";\n'+
+'children[1].style.visibility="visible";\n'+
+'filters[0].Play();\n'+
+'}\n'+
+'}\n'+
+'function rdl_change(e){\n'+
+'with (document.all("idSel")) var sValue=options[selectedIndex].value;\n'+
+'oParentDiv.filters[0].Function=parseInt(sValue);\n'+
+'oCodeDiv.innerHTML=sBaseStr.replace(/code/g,sValue);\n'+
+'}\n'+
+'window.onload=rdl_doInit;\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv1><img src="..\/images\/rdl_body1.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> A </b>。<\/div>\n'+
+'<div id=idDiv2><img src="..\/images\/rdl_body2.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> B </b>。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="0" style="font-weight:bold;">---function---\n'+
+'<option value="0">0\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="3">3\n'+
+'<option value="4">4\n'+
+'<option value="5">5\n'+
+'<option value="6">6\n'+
+'<option value="7">7\n'+
+'<option value="8">8\n'+
+'<option value="9">9\n'+
+'<option value="10">10\n'+
+'<option value="19">19\n'+
+'<option value="20">20\n'+
+'<option value="21">21\n'+
+'<option value="22">22\n'+
+'<option value="23">23\n'+
+'<option value="24">25\n'+
+'<\/select>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Compositor ( function=20 )<\/div>\n';
+
+iWinWidth=360;
+
+iWinHeight=350;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>function | Function</span> 版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/compositor.html">Compositor</a> ( function</b> = <i>sFunction</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/compositor.html">Compositor</a>').Function = </b><i>sFunction</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sFunction </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。
+<span class=cssDefault><b>0</b></span> | <b>1</b> | <b>2</b> | <b>3</b> | <b>4</b> | <b>5</b> | <b>6</b> | <b>7</b> | <b>8</b> | <b>9</b> | <b>10</b> | <b>19</b> | <b>20</b> | <b>21</b> | <b>22</b> | <b>23</b> | <b>24</b> | <b>25</b>
+<table>
+<tr><td nowrap><b> 0 </b></td><td nowrap><b>: </b></td><td>
+<b>默认值</b>。清除。不执行任何操作。
+</td></tr>
+<tr><td nowrap><b> 1 </b></td><td nowrap><b>: </b></td><td>
+<b> MIN </b>。比较<b>A</b>和<b>B</b>的每一个像素的亮度，将亮度较低的像素点显示出来。
+</td></tr>
+<tr><td nowrap><b> 2 </b></td><td nowrap><b>: </b></td><td>
+<b> MAX </b>。比较<b>A</b>和<b>B</b>的每一个像素的亮度，将亮度较高的像素点显示出来。
+</td></tr>
+<tr><td nowrap><b> 3 </b></td><td nowrap><b>: </b></td><td>
+<b>A</b>。仅仅显示<b>A</b>。
+</td></tr>
+<tr><td nowrap><b> 4 </b></td><td nowrap><b>: </b></td><td>
+<b>A OVER B</b>。在<b>B</b>之上显示<b>A</b>。<b>A</b>被完全显示，<b>B</b>通过<b>A</b>的透明区域显示出来。
+</td></tr>
+<tr><td nowrap><b> 5 </b></td><td nowrap><b>: </b></td><td>
+<b>A IN B</b>。显示被<b>A</b>被<b>B</b>包含的部分。只有两个图像<b> alpha </b>值都不为<b> 0 </b>的区域被显示。<b>B</b>不会有任何部分穿透显示。
+</td></tr>
+<tr><td nowrap><b> 6 </b></td><td nowrap><b>: </b></td><td>
+<b>A OUT B</b>。显示<b>A</b>没有被<b>B</b>包含的部分。<b>B</b>不会有任何部分穿透显示。
+</td></tr>
+<tr><td nowrap><b> 7 </b></td><td nowrap><b>: </b></td><td>
+<b>A ATOP B</b>。 显示<b>A</b>遮盖<b>B</b>，每个取样都通过<b>B</b>的<b> alpha </b>通道依比例测定获得。
+</td></tr>
+<tr><td nowrap><b> 8 </b></td><td nowrap><b>: </b></td><td>
+<b>A SUBTRACT B</b>。以<b>B</b>的颜色取样值减去<b>A</b>的相应颜色取样值的方式显示<b>A</b>。结果颜色通过<b>A</b>的<b> alpha </b>通道依比例测定获得。
+</td></tr>
+<tr><td nowrap><b> 9 </b></td><td nowrap><b>: </b></td><td>
+<b>A ADD B</b>。以<b>B</b>的颜色取样值加上<b>A</b>的相应颜色取样值的方式显示<b>A</b>。 结果颜色通过<b>A</b>的<b> alpha </b>通道依比例测定获得。
+</td></tr>
+<tr><td nowrap><b> 10 </b></td><td nowrap><b>: </b></td><td>
+<b>A XOR B</b>。显示<b>A</b>和<b>B</b>没有相互交叠的像素点。交叠的像素通过它们反转的<b> alpha </b>值依比例测定。
+</td></tr>
+<tr><td nowrap><b> 19 </b></td><td nowrap><b>: </b></td><td>
+<b>B</b>。仅仅显示<b>B</b>。
+</td></tr>
+<tr><td nowrap><b> 20 </b></td><td nowrap><b>: </b></td><td>
+<b>B OVER A</b>。在<b>A</b>之上显示<b>B</b>。<b>B</b>被完全显示，<b>A</b>通过<b>B</b>的透明区域显示出来。
+</td></tr>
+<tr><td nowrap><b> 21 </b></td><td nowrap><b>: </b></td><td>
+<b>B IN A</b>。显示被<b>B</b>被<b>A</b>包含的部分。只有两个图像<b> alpha </b>值都不为<b> 0 </b>的区域被显示。<b>A</b>不会有任何部分穿透显示。
+</td></tr>
+<tr><td nowrap><b> 22 </b></td><td nowrap><b>: </b></td><td>
+<b>B OUT A</b>。显示<b>B</b>没有被<b>A</b>包含的部分。<b>A</b>不会有任何部分穿透显示。
+</td></tr>
+<tr><td nowrap><b> 23 </b></td><td nowrap><b>: </b></td><td>
+<b>B ATOP A</b>。 显示<b>B</b>遮盖<b>A</b>，每个取样都通过<b>A</b>的<b> alpha </b>通道依比例测定获得。
+</td></tr>
+<tr><td nowrap><b> 24 </b></td><td nowrap><b>: </b></td><td>
+<b>B SUBTRACT A</b>。以<b>A</b>的颜色取样值减去<b>B</b>的相应颜色取样值的方式显示<b>B</b>。结果颜色通过<b>B</b>的<b> alpha </b>通道依比例测定获得。
+</td></tr>
+<tr><td nowrap><b> 25 </b></td><td nowrap><b>: </b></td><td>
+<b>B ADD A</b>。以<b>A</b>的颜色取样值加上<b>B</b>的相应颜色取样值的方式显示<b>B</b>。 结果颜色通过<b>B</b>的<b> alpha </b>通道依比例测定获得。
+</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索混合方式。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

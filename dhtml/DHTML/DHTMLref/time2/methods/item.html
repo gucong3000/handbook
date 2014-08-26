@@ -1,0 +1,126 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>item Method (activeElements, timeAll, timeChildren, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>item Method
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves an object from the specified collection.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>oItem</I> = <I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I><B>.item(</B><B> [</B><I>iIndex</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>iIndex</I></TD><TD>
+Optional.
+<b>Integer</b> that specifies the index of the object to retrieve from the collection. The first object in the collection is located at index position 0, and the last object in the collection is located at position <A HREF="../../time2/properties/length.html">length</A> minus 1. If a value is not specified, the default is 0.
+</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>Returns a reference to the object located at the specified index in the collection.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates how to use the <B>item</B> method to retrieve an object from a collection.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="item">&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;item Method&lt;/TITLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+var m2; //another media object
+//...
+function setActiveTrack(){
+if(itemNumber.value=="" || (itemNumber.value&lt;1 || itemNumber.value&gt;5) || (isFinite(itemNumber.value)==false)){
+alert('Must enter a valid track number!\nPlease re-enter your choice (1-5).');
+itemNumber.value='';
+itemNumber.focus();
+return;
+}else{
+m2 = m1.playList.item(itemNumber.value-1); //index starts at 0
+updateFields();
+}
+}
+...
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY  TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;t:media id="m1" begin="indefinite;" src="../../common/samples/author/behaviors/media/media.asx" /&gt;
+&lt;span id="title1"&gt;Title:&lt;/span&gt;&lt;BR&gt;
+&lt;span id="author1"&gt;Author:&lt;/span&gt;&lt;BR&gt;
+&lt;span id="abstract1"&gt;Abstract:&lt;/span&gt;&lt;BR&gt;
+&lt;span id="copyright1"&gt;Copyright:&lt;/span&gt;&lt;BR&gt;
+&lt;span id="index1"&gt;Index: &lt;/span&gt;&lt;BR&gt;&lt;BR&gt;
+Enter track number (1-5): &lt;input type="text" name="itemNumber" value="" size="2"&gt;&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON id="b0" onclick="m1.beginElement();setActiveTrack();"&gt;Start&lt;/BUTTON&gt;
+&lt;BUTTON id="b3" onclick="m1.endElement();emptyFields();"&gt;Stop&lt;/BUTTON&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/item.htm" FEATURES="top=50px,left=50px,height=400px,width=500px,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This method is a Microsoft extension to <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/collections/activeelements.html">
+activeElements</A>, <A PLATINFO="win32=5.5" HREF="../../time2/collections/timeall.html">
+timeAll</A>, <A PLATINFO="win32=5.5" HREF="../../time2/collections/timechildren.html">
+timeChildren</A>, <A PLATINFO="win32=5.5" HREF="../../time2/collections/playlist.html">
+playList</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/collections/activeelements.html">activeElements</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

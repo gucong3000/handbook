@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'event'
+);
+
+sStyle=
+'#oChild{border:2px solid #000000;background:#FFD700;width:80%;padding:6px;}\n'+
+'#idCodeDiv{width:100%;padding:4px;height:130px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;overflow-y:scroll;font-size:11px;\n'+
+'scrollbar-track-color:#C0C0C0;scrollbar-3dlight-color:#FFFFFF;scrollbar-highlight-color:#DFDFDF;scrollbar-face-color:#DFDFDF;scrollbar-darkshadow-color:#6F6F6F;scrollbar-shadow-color:#DFDFDF;scrollbar-arrow-color:#000000;}\n' ;
+
+sScript=
+'<script>\n'+
+'var sNowEventType="";\n'+
+'function rdl_Handle(e){\n'+
+'if (event.type!=sNowEventType) document.all("idCodeDiv").innerHTML+=event.type+"<br>";\n'+
+'document.all("idCodeDiv").scrollIntoView(false);\n'+
+'sNowEventType=event.type;\n'+
+'}\n'+
+'function window.onload(){\n'+
+'with (document.all("oChild")) {\n'+
+'onmouseover=onmouseout=onclick=onselectstart=onreadystatechange=onpropertychange=onmousewheel=onmousemove=onmouseup=onmouseleave=\n'+
+'onafterupdate=onbeforeactivate=onbeforedeactivate=onbeforeeditfocus=onbeforeupdate=onblur=oncontextmenu=oncontrolselect=ondeactivate=onerrorupdate=\n'+
+'onfocus=onfocusin=onfocusout=onlayoutcomplete=onlosecapture=ontimeerror=\n'+
+'onmouseenter=onmousedown=ondragstart=ondragover=ondrop=ondragenter=ondblclick=ondragend=ondrag=onlosecapture=onactivate=rdl_Handle;}\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=oChild>请在我的上面移动鼠标或者点击。<\/div>\n'+
+'<div id=idCodeDiv><\/div>\n';
+
+iWinWidth=320;
+
+iWinHeight=320;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>type</span>版本：DOM1　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><b>event . type = </b><i>sType</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sType </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。无默认值。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+
+检索事件对象的名称。<br>
+此属性在 IE4 中是只读的，在 IE5+ 中是可读写的。<br>
+此属性返回的事件名称没有<b> on </b>前缀。例如，<b> onclick </b>事件的此属性返回的是<b> click </b>。
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

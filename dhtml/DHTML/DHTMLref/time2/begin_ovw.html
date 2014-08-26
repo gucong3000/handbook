@@ -1,0 +1,319 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Initiating Timed Elements with the begin Attribute</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Initiating Timed Elements with the begin Attribute
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Authoring interactive Web pages without using script is now a reality with the HTML+TIME (Timed Interactive Multimedia Extensions)?A HREF="../time2/properties/begin.html">begin</A> attribute. This attribute enables you to animate objects and manipulate graphics on your Web pages and empowers you to set timed events that initiate at a prescribed time. This overview provides you with the necessary syntax for the <B>begin</B> attribute and describes how to initiate timed interactive HTML+TIME elements using the <A HREF="../time2/behaviors/time2.html">time2</A> behavior implemented in Microsoft?Internet Explorer 5.5.?/p><p>This overview contains the following sections.</p><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#general_info">General Information for the begin Attribute</A></LI><LI><A TARGET="_self" HREF="#being_time_clock_value">Set an Element to Initiate at a Simple Time Value</A></LI><LI><A TARGET="_self" HREF="#being_wall_clock_value">Set an Element to Initiate at a Wall Clock Value</A></LI><LI><A TARGET="_self" HREF="#begin_relative_timed_elements">Set an Element to Initiate Relative to another Timed Element</A></LI><LI><A TARGET="_self" HREF="#begin_relative_event">Set an Element to Initiate Relative to the Firing of an Event</A></LI><LI><A TARGET="_self" HREF="#beginElement_method_call">Set an Element to Initiate using the beginElement Method Call</A></LI><LI><A TARGET="_self" HREF="#begin_offset">Set an Element to Initiate at an Offset Value</A></LI><LI><A TARGET="_self" HREF="#begin_multiple_values">Specifying Multiple begin Values</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2><p>
+To use this overview most effectively you should have a basic knowledge of the <B>time2</B> behavior of HTML+TIME and of <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>. Specifically, this overview assumes that you know how to create an Extensible Markup Language (XML) namespace and import and
+reference the <B>time2</B> behavior. For more information on how to declare
+an XML namespace and/or import and reference the <B>time2</B> behavior,
+see <A HREF="time.html#Authoring">HTML+TIME</A>.</p><H2><A NAME="general_info"></A>General Information for the begin Attribute</H2><p>The default value for the <B>begin</B> attribute is
+<SPAN CLASS="clsLiteral">0</SPAN> and the default metric for the <B>begin</B>
+attribute is seconds. You can append an <SPAN CLASS="clsLiteral">h</SPAN>, <SPAN CLASS="clsLiteral">min</SPAN>, <SPAN CLASS="clsLiteral">s</SPAN>, or <SPAN CLASS="clsLiteral">ms</SPAN> abbreviation
+to the <B>begin</B> value to specify hours, minutes, seconds, or milliseconds respectively.
+For example, <SPAN CLASS="clsLiteral">begin="1"</SPAN> is the same as <SPAN CLASS="clsLiteral">begin="1s"</SPAN>—both have a <B>begin</B> value
+of one second. Also, an element's <B>begin</B> attribute can include either a
+positive or negative value as well as fractional values. Below is a list of some possible values to which you
+can set an element's <B>begin</B> attribute.</p><table class="clsStd"><thead><tr><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>7.5ms</td><td>7.5 milliseconds</td></tr><tr><td>7.5</td><td>7.5 seconds</td></tr><tr><td>7.5s</td><td>7.5 seconds</td></tr><tr><td>7.5min</td><td>7.5 minutes</td></tr><tr><td>7.5h</td><td>7.5 hours</td></tr><tr><td>15:07:25</td><td>15 hours, 7 minutes, 25 seconds</td></tr><tr><td>2000-11-15T19:20:30.45+01:00</td><td><ul><li>"2000-11-15" - November 15, 2000</li><li>"T" - Separator between time and date</li><li>"19:20:30.45" - 7:20pm, and 30.45 seconds</li><li>"+01:00" - Coordinated universal time (UTC) plus one hour</li></ul></td></tr><tr><td>object1.begin</td><td>Initiate when object1 initiates.</td></tr><tr><td>object1.click</td><td>Initiate when object1 is clicked.</td></tr><tr><td>indefinite</td><td>Initiate when the <A HREF="../time2/methods/beginelement.html">beginElement</A> method is called.</td></tr><tr><td>object.click + 3s</td><td>Initiate 3 seconds after object1 is clicked.</td></tr></tbody></table><p></p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;For objects other than <A HREF="../time2/timemedia_entry.html">media</A> objects,
+if the timeline has already started and an element is set to initiate at some negative value,
+the element initiates immediately. However, if you set a <B>media</B> object to initiate at a negative value, the <B>media</B> object adds the <B>begin</B> attribute's negative value to its own value (resulting in subtraction) and initiates at the new, decreased value.
+For example, a <B>media</B> object with a <A HREF="../time2/properties/mediadur.html">mediaDur</A> of 20 seconds and a <B>begin</B> value of <SPAN CLASS="clsLiteral">object1.click-3s</SPAN>, initiates 17 seconds into the file immediately after <SPAN CLASS="clsLiteral">object1</SPAN> is clicked.
+</DIV><H2><A NAME="being_time_clock_value"></A>Set an Element to Initiate at a Simple Time Value</H2><p>You can assign a simple time value to the <B>begin</B> attribute to indicate when
+an element becomes active. For more detailed information on using clock-time values,
+see <A HREF="../time2/properties/time_formats.html">Time Formats</A>.</p><p>The following example uses the <B>begin</B> attribute set to a simple time
+value for each animated element. For more information on how to use the <A HREF="../time2/elements/animate.html">animate</A> syntax, see <A HREF="timeanimation.html" TARGET="_top">Basics of HTML+TIME Animation</A>.</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;DIV id="oDIV" class="oElement1"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV" attributeName="left" to="400" begin="1"
+dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite"/&gt;
+&lt;DIV id="oDIV2" class="oElement2"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV2" attributeName="left" to="400" begin="2"
+dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite"/&gt;
+&lt;DIV id="oDIV3" class="oElement3"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV3" attributeName="left" to="400" begin="3.5"
+dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite"/&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/simple_begin.htm" FEATURES="top=10px,left=25px,height=520px,width=700px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="being_wall_clock_value"></A>Set an Element to Initiate at a Wall Clock Value</H2><p>You can also assign an element's <B>begin</B> attribute to a wall clock value.
+The wall clock value describes the element's <B>begin</B> time as  real-world clock time. The World Wide Web Consortium (W3C) describes three
+ways of handling time zone offsets.
+<ol><li>With a special UTC designator ("Z"), times are expressed in UTC. </li><li>Times are expressed in local time, together with a time zone offset in hours and
+minutes. A time zone offset of "+hh:mm" indicates that the date/time uses a local time
+zone which is "hh" hours and "mm" minutes ahead of UTC. A time zone               offset of "-hh:mm"
+indicates that the date/time uses a local time zone which is "hh" hours and "mm" minutes
+behind UTC.</li><li>Times are expressed in local time, as defined by your system settings. The
+local time zone of the end-user platform is used.</li></ol></p><p>The following list shows various ways to specify an element to begin on April 1, 2001 UTC.
+<ul><li><B>begin</B>="wallclock( 2001-04-01Z )"</li><li><B>begin</B>="wallclock( 2001-04-01T00:00Z )"</li><li><B>begin</B>="wallclock( 2001-04-01T00:00:00Z )"</li><li><B>begin</B>="wallclock( 2001-04-01T00:00:00.0Z )"</li><li><B>begin</B>="wallclock( 2001-04-01T00:00:00.0-00:00 )"</li></ul></p><p>In the following example, enter a <B>begin</B> time in the input boxes that is greater
+than the current time shown and click the 'Set begin time' button. Once set,
+a message, <SPAN CLASS="clsLiteral">"Breaking News: This is some breaking news..."</SPAN>
+appears at the time you have specified and displays until you click within
+the object. By default, the message is set to initiate on April 1, 2005.
+</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;DIV id="oAlert" class="oElement1" begin="wallclock(2005-04-01Z)"
+end="60s; oAlert.click"&gt;
+&lt;DIV class="oAlertHead"
+style="color:black; font-weight:bold; text-align:center;"&gt;
+BREAKING NEWS!!!
+&lt;/DIV&gt;
+&lt;B&gt;&lt;U&gt;Breaking News:&lt;/U&gt;&lt;/B&gt; This is some breaking news. This is some breaking news.
+This is some breaking news. This is some breaking news. This is some breaking news.
+This is some breaking news. This is some breaking news. This is some breaking news.
+This is some breaking news. This is some breaking news. This is some breaking news.
+&lt;BR&gt;&lt;BR&gt;
+Click anywhere within this news alert to close the pop-up window.
+&lt;DIV class="oAlertHead"&gt;**Note: This is not an actual news bulletin. It is for demonstration
+purposes only.&lt;/DIV&gt;
+&lt;/DIV&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/wallclock_begin.htm" FEATURES="top=25px,left=0px,height=500px,width=788px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="begin_relative_timed_elements"></A>Set an Element to Initiate Relative to another Timed Element</H2><p>You can make elements initiate relative to other timed elements in
+the document. Elements can be assigned to initiate when another element has started or stopped.
+</p><UL><LI><A TARGET="_self" HREF="#begin_relative_begin">Set an Element to Initiate Relative to another Timed Element's begin Value</A></LI><LI><A TARGET="_self" HREF="#begin_relative_end">Set an Element to Initiate Relative to another Timed Element's end Value</A></LI></UL><H3><A NAME="begin_relative_begin"></A>Set an Element to Initiate Relative to another Timed Element's begin Value</H3><p>In the following example, the first paragraph with id <I>paragraph1</I> has a <B>begin</B> time of 5 seconds and the second
+paragraph with id <I>paragraph2</I> has a <B>begin</B> time of <SPAN CLASS="clsLiteral">paragraph1.begin</SPAN>. The first paragraph
+appears 5 seconds after the page loads. The second paragraph appears when the first
+paragraph initiates. These settings cause both paragraphs to have a <B>begin</B> time value of 5 seconds.</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;P id="paragraph1" class="time" style="color:red;font-size:20pt;" begin="5"&gt;
+This is the first paragraph. It initiates at 5 seconds and is displayed
+indefinitely.
+&lt;/P&gt;
+&lt;P id="paragraph2" class="time" style="color:green;font-size:20pt;"
+begin="paragraph1.begin"&gt;
+This is the second paragraph. It initiates the same time at which the first paragraph
+initiates (at 5 seconds) and is displayed indefinitely.
+&lt;/P&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/begin_after_begin.htm" FEATURES="top=25px,left=50px,height=475px,width=600px,status=0,resizable=1"></IMG></A></DIV><H3><A NAME="begin_relative_end"></A>Set an Element to Initiate Relative to another Timed Element's end Value</H3><p>You can assign elements to initiate after another element completes its simple
+duration. By using the preceding example and adding a simple duration attribute value
+(<A HREF="../time2/properties/dur.html">dur</A>), which specifies the amount of time the element remains
+active in relation to the first paragraph, you can set the second paragraph to appear when the
+first paragraph disappears.
+</p><p>In the following example, the first paragraph has a <B>begin</B> time of 5
+seconds (after the page loads) with a duration of 5 seconds. The second paragraph initiates as soon
+as the first paragraph has completed its simple duration. The second paragraph does not have a set duration and displays indefinitely.</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;P id="paragraph1" class="time" style="color:red;font-size:20pt;" begin="5"
+dur="5"&gt;
+This is the first paragraph. It initiates at 5 seconds and has a duration
+of 5 seconds.
+&lt;/P&gt;
+&lt;P id="paragraph2" class="time" style="color:green;font-size:20pt;"
+begin="paragraph1.end"&gt;
+This is the second paragraph. It initiates when the first paragraph stops
+(10 seconds) and is displayed indefinitely.
+&lt;/P&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/begin_after_dur.htm" FEATURES="top=25px,left=50px,height=475px,width=600px,status=0,resizable=1"></IMG></A></DIV><p>You can stop a timed interactive element using the <A HREF="../time2/properties/end.html">end</A> attribute
+the same way you start a timed interactive element using the <B>begin</B> attribute.
+To do this, specify an element's <B>end</B> time using the <B>end</B>
+attribute. Unlike the <B>dur</B> attribute, the <B>end</B>
+attribute specifies the absolute <B>end</B> time of an element in relation to
+the active time of the document.
+</p><p>The duration of timed elements depends on which attribute is satisfied first on the timeline. For example, assuming that 15 seconds has not lapsed since the page loaded, a timed element with a duration of 10 seconds and an <B>end</B> value of 15 seconds stops after 10 seconds. However, if the values were reversed and the timed element had a duration of 15 seconds and an <B>end</B> value of 10 seconds, the timed element still stops at 10 seconds because the <B>end</B> attribute (with a value of 10 seconds) is satisfied first on the timeline.</p><p>In the following example, the first paragraph has a <B>begin</B> time of 5 seconds
+after the page loads and an <B>end</B> time of 10 seconds; therefore, it ends at 10 seconds after pageload.
+The second paragraph initiates as soon as the first paragraph completes its
+simple duration. The second paragraph does not have a set duration and displays indefinitely.</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin;end">...
+&lt;P id="paragraph1" class="time" style="color:red;font-size:20pt;" begin="5"
+end="10"&gt;
+This is the first paragraph. It initiates at 5 seconds and ends at 10
+seconds.
+&lt;/P&gt;
+&lt;P id="paragraph2" class="time" style="color:green;font-size:20pt;"
+begin="paragraph1.end"&gt;
+This is the second paragraph. It initiates when the first paragraph ends
+(10 seconds) and is displayed indefinitely.
+&lt;/P&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/begin_after_end.htm" FEATURES="top=25px,left=50px,height=475px,width=600px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="begin_relative_event"></A>Set an Element to Initiate Relative to the Firing of an Event</H2><p>Timed elements can initiate upon the firing of any <A HREF="../events.html">events</A>.
+You can have an element initiate upon a user-fired event or upon an event
+fired by an element within the document.
+</p><UL><LI><A TARGET="_self" HREF="#begin_User_Event_Driven">Set an Element to be Initiated by a User-Interaction Event</A></LI><LI><A TARGET="_self" HREF="#begin_Event_Driven_Another_Element">Set an Element to Initiate at the Firing of another Element's Event</A></LI></UL><H3><A NAME="begin_User_Event_Driven"></A>Set an Element to be Initiated by a User-Interaction Event</H3><p>This example demonstrates how to make timed elements that start or stop in
+response to user-interaction events.
+</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;t:ANIMATE id="oTA1" targetElement="oDIV" attributeName="left" to="400"
+begin="oDIV2.click" end="oDIV3.click" dur="3" accelerate="1"
+autoReverse="true" fill="hold"/&gt;
+&lt;SPAN class="caption" style="left:150px;"&gt;To begin&lt;/SPAN&gt;
+&lt;DIV id="oDIV2" class="header" style="left:25px;"&gt;Click anywhere within
+this box to make the yellow DIV start its duration. The timeline
+restarts if the yellow DIV is already active when you click here.
+&lt;/DIV&gt;
+&lt;SPAN class="caption" style="left:488px;"&gt;To end&lt;/SPAN&gt;
+&lt;DIV id="oDIV3" class="header" style="left:338px;"&gt;If the element is active,
+click anywhere within this box to end the element's timeline.
+&lt;/DIV&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/begin_user_interaction_event.htm" FEATURES="top=50px,left=50px,height=450px,width=725px,status=0,resizable=1"></IMG></A></DIV><H3><A NAME="begin_Event_Driven_Another_Element"></A>Set an Element to Initiate at the Firing of another Element's Event</H3><p>You can set timed elements to initiate when another element within the document fires an event.
+There is a wide variety of events that an element can fire. For more information on the
+possible events associated with elements, see <A HREF="../time2_entry.html">HTML+TIME 2.0 Reference</A> and
+<A HREF="../events.html">DHTML Events</A>.
+</p><p>For example, you can set a timed element associated with a
+<A HREF="../time2/elements/media.html">media</A> object to display on your Web page if the <B>media</B> object
+loads successfully and set an error message to display if the <B>media</B> object fails to load. To
+do this, assign an element's <B>begin</B> attribute to
+<I>media_id</I>.<A HREF="../time2/events/onmediacomplete.html">onmediacomplete</A>
+and another element's <B>begin</B> attribute to
+<I>media_id</I>.<A HREF="../time2/events/onmediaerror.html">onmediaerror</A>.
+Whether or not the media loads successfully, a message appears for the user.
+This example demonstrates how to assign an element's <B>begin</B> value relative to
+the firing of an event within the document.
+</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;!--
+This sequence begins if the media object (m1) loads successfully.
+--&gt;
+&lt;t:seq id="parent" begin="m1.onmediacomplete" dur="21"
+style="position:absolute;top:225px;left:305px;"&gt;
+&lt;SPAN class="time" dur="1"&gt;10...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="2"&gt;For go... for main engine start...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="1"&gt;7...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="2.2"&gt;6...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur=".75"&gt;Start...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="1.1"&gt;3...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="1.1"&gt;2...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="1.1"&gt;1...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="1.1"&gt;0...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="1.5"&gt;... and lift off...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur=".85"&gt;... lift off...&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="4.2"&gt;Americans return to space as Discovery
+clears the tower...
+&lt;/SPAN&gt;
+&lt;SPAN class="time"&gt;Roger all Discovery.&lt;/SPAN&gt;
+&lt;/t:seq&gt;
+&lt;!--
+This sequence begins if the media object (m1) does not load
+successfully.
+--&gt;
+&lt;t:seq id="parent" begin="m1.onmediaerror" dur="indefinite"
+style="position:absolute;top:225px;left:305px;"&gt;
+&lt;SPAN class="time" dur="3"&gt;ERROR!&lt;/SPAN&gt;
+&lt;SPAN class="time" dur="5"&gt;No file at the assigned location
+(/...some_other_URL.../)...
+&lt;/SPAN&gt;
+&lt;SPAN class="time"&gt;Please check back soon!&lt;/SPAN&gt;
+&lt;/t:seq&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/assign_event_to_element_begin/frames.htm" FEATURES="top=5px,left=5px,height=525px,width=775px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="beginElement_method_call"></A>Set an Element to Initiate using the beginElement Method Call</H2><p>You can also assign timed elements to initiate using the <B>beginElement</B>
+method. To do this, call the <B>beginElement</B> method from an event handler function fired by an
+element or by user interaction on the Web page.
+</p><p>In this example, the sequential time container initiates at 0 seconds after the page
+loads. The <B>beginElement</B>
+method is invoked when the <SPAN CLASS="clsLiteral">Restart Timeline</SPAN> button is pressed.
+</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;t:seq ID="sequence"&gt;
+&lt;SPAN class="time" style="color:red; font-size:20pt;"
+timeaction="display" dur="1"&gt;5...&lt;/SPAN&gt;
+&lt;SPAN class="time" style="color:green; font-size:20pt;"
+timeaction="display" dur="1"&gt;4...&lt;/SPAN&gt;
+&lt;SPAN class="time" style="color:blue; font-size:20pt;"
+timeaction="display" dur="1"&gt;3...&lt;/SPAN&gt;
+&lt;SPAN class="time" style="color:orange; font-size:20pt;"
+timeaction="display" dur="1"&gt;2...&lt;/SPAN&gt;
+&lt;SPAN class="time" style="color:purple; font-size:20pt;"
+timeaction="display" dur="1"&gt;1...&lt;/SPAN&gt;
+&lt;BR&gt;
+&lt;IMG class="time" dur="indefinite" src="../common/sun.gif"/&gt;
+&lt;/t:seq&gt;
+&lt;BR&gt;
+&lt;BUTTON ID="btn" onclick="sequence.beginElement();"&gt;Restart Timeline&lt;/BUTTON&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/beginElement.htm" FEATURES="top=50px,left=50px,height=450px,width=550px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="begin_offset"></A>Set an Element to Initiate at an Offset Value</H2><p>Using an offset value with the <B>begin</B> attribute causes the timed
+element(s) to start at the specified <B>begin</B> value plus the offset
+time value. The following example demonstrates how you can create elements to initiate as an
+offset relative to the <B>begin</B> time of another element.
+</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;DIV id="oDIV" class="oElement1"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV" attributeName="left" to="400" begin="0"
+dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite"/&gt;
+&lt;DIV id="oDIV2" class="oElement2"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV2" attributeName="left" to="400"
+begin="oDIV.begin+1;" dur="3" accelerate="1"
+autoReverse="true" repeatCount="indefinite" /&gt;
+&lt;DIV id="oDIV3" class="oElement3"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV3" attributeName="left" to="400"
+begin="oDIV.begin+2;" dur="3" accelerate="1"
+autoReverse="true" repeatCount="indefinite"/&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/begin_offset.htm" FEATURES="top=50px,left=50px,height=450px,width=650px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="begin_multiple_values"></A>Specifying Multiple begin Values</H2><p>You can specify multiple values in the <B>begin</B> attribute of any
+timed element. Using the example above, you can declare an element's <B>begin</B>
+attribute with semicolon-separated values. In this example, each <A HREF="../objects/div.html">div</A>'s
+<B>begin</B> time consists of more than one value.
+</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="begin">...
+&lt;DIV id="oDIV1" class="oElement1"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV1" attributeName="left" to="400"
+begin="0; restartBtn.click+2" dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite"/&gt;
+&lt;DIV id="oDIV2" class="oElement2"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV2" attributeName="left" to="400"
+begin="oDIV1.begin+1; restartBtn.click+1" dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite" /&gt;
+&lt;DIV id="oDIV3" class="oElement3"&gt;&lt;/DIV&gt;
+&lt;t:ANIMATE targetElement="oDIV3" attributeName="left" to="400"
+begin="oDIV1.begin+2; restartBtn.click" dur="3" accelerate="1" autoReverse="true"
+repeatCount="indefinite"/&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/overview/multiple_begin.htm" FEATURES="top=10px,left=50px,height=525px,width=650px,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="timeanimation.html" TARGET="_top">Basics of HTML+TIME Animation</A></LI><LI><A HREF="../time2/timeanimation_entry.html">HTML+TIME: Animation</A></LI><LI><A HREF="../time2/timemedia_entry.html">HTML+TIME: Media</A></LI><LI><A HREF="../time2/timecontainer_entry.html">HTML+TIME: Time Containers</A></LI><LI><A HREF="../time2_entry.html">HTML+TIME 2.0 Reference</A></LI><LI><A HREF="../time2/time_containers_ovw.html">HTML+TIME: Time Containers Overview</A></LI><LI><A HREF="../time2/jump_start.html">Getting Started with HTML+TIME</A></LI><LI><A HREF="../time2/timemisc_entry.html">Other HTML+TIME Elements</A></LI><LI><A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"></LI></UL><info><product rid="prod_IE" minver="5.5"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

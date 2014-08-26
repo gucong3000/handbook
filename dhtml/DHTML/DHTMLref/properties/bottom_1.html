@@ -1,0 +1,162 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>bottom Attribute | bottom</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>bottom Attribute | bottom Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves  the bottom position of the <span replace="1">object</span> in relation to the bottom of the next positioned object in the document hierarchy. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ bottom : <SPAN CLASS="clsRange">sBottom</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.bottom</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sBottom</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sBottom</SPAN></TD><TD><b>Variant</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">auto</SPAN></TD><TD>Default. Default position, according to the regular HTML layout of the page.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">length</SPAN></TD><TD>Floating-point number, followed by an absolute units designator (<span class="clsLiteral">cm</span>, <span class="clsLiteral">mm</span>, <span class="clsLiteral">in</span>, <span class="clsLiteral">pt</span>, <span class="clsLiteral">pc</span>, or <span class="clsLiteral">px</span>) or a relative units designator (<span class="clsLiteral">em</span> or <span class="clsLiteral">ex</span>). For more information about the supported length units, see <A HREF="/workshop/author/css/reference/lengthunits.html">CSS Length Units Reference</A>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">percentage</SPAN></TD><TD>Integer, followed by a percent sign (%). The value is a percentage of the height of the parent object.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/currentstyle.html">currentStyle</A>.
+The property has a default value of <SPAN CLASS="clsDefValue">
+auto</SPAN>. The Cascading Style Sheets (CSS) attribute is
+not  inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>bottom</B> attribute should be used only when the <A HREF="../properties/position.html">position</A>
+attribute is set; otherwise, the value of the <B>bottom</B> attribute is ignored.</P><P>Because the value of the <B>bottom</B> property is a string, the property cannot be used  in script to calculate the position of the object in the document; instead, the <A HREF="../properties/pixelbottom.html">pixelBottom</A> property or the <A HREF="../properties/posbottom.html">posBottom</A> property should be used.</P><P>For more information about how to access the dimension and location of objects on the page through the Dynamic HTML (DHTML) object model, see <A HREF="/workshop/author/om/measuring.html">Measuring Element Dimension and Location</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>bottom</B> attribute to set a <A HREF="../objects/div.html">div</A> object 50 pixels from the bottom of the client area. </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;DIV STYLE = "position:absolute; bottom:50px"&gt;
+. . .
+&lt;/DIV&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/rec-css2/" TARGET="_top">
+Cascading Style Sheets (CSS), Level 2 (CSS2)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/currentstyle.html">
+currentStyle</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5" HREF="../objects/defaults.html">
+defaults</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/runtimestyle.html">
+runtimeStyle</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../properties/pixeltop.html">pixelTop</A>, <A HREF="../properties/postop.html">posTop</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

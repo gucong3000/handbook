@@ -1,0 +1,104 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>MAXIMIZEBUTTON Attribute | maximizeButton</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>MAXIMIZEBUTTON Attribute | maximizeButton Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a Boolean value that indicates whether a Maximize button is displayed in the title bar of the HTML Application (HTA) window.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;HTA:APPLICATION&nbsp;<B>MAXIMIZEBUTTON</B>
+= <SPAN CLASS="clsRange">bShowButton</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD>[ <SPAN CLASS="clsRange">bShowButton</SPAN><B> =</B> ] <I>HTA:APPLICATION</I>.<B>maximizeButton</B></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">bShowButton</SPAN></TD><TD><b>Boolean</b> that specifies one of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">yes</SPAN></TD><TD>Default. Maximize button is displayed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">no</SPAN></TD><TD>Maximize button is not displayed.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read-only.
+The property has a default value of <SPAN CLASS="clsDefValue">
+yes</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;The <B>maximizeButton</B> property is read-only; however, the <B>MAXIMIZEBUTTON</B> attribute can be used to set the initial value. </DIV><P>The window must have a title bar or caption for the Minimize and Maximize buttons to display.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example shows how to retrieve the <B>maximizeButton</B> property.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Hello, World!&lt;/TITLE&gt;
+&lt;HTA:APPLICATION ID="oHTA"
+APPLICATIONNAME="myApp"
+CAPTION="yes"
+MAXIMIZEBUTTON="yes"
+&gt;
+&lt;SCRIPT&gt;
+alert("maximizeButton    = " + oHTA.maximizeButton);
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY SCROLL="no"&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;ce=5.5" HREF="../objects/hta.html">
+HTA:APPLICATION</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../hta/htaoverview.html">Introduction to HTML Applications (HTAs)</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

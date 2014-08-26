@@ -1,0 +1,97 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>BEHAVIOR Attribute | behavior</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>BEHAVIOR Attribute | behavior Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves how the text scrolls in the marquee. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;MARQUEE&nbsp;<B>BEHAVIOR</B>
+= <SPAN CLASS="clsRange">sScroll</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>MARQUEE</I>.<B>behavior</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sScroll</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sScroll</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">scroll</SPAN></TD><TD>Default. Marquee scrolls in the direction specified by the <A HREF="../properties/direction.html">direction</A> property. The text scrolls off the end and starts over.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">alternate</SPAN></TD><TD>Marquee scroll direction reverses when its content reaches the edge of the container. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">slide</SPAN></TD><TD>Marquee scrolls in the direction specified by the <B>direction</B> property. The text scrolls to the end and stops.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+scroll</SPAN>.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example moves a piece of text down the page using a <A HREF="../objects/marquee.html">marquee</A> object. </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;MARQUEE loop=1 height=200  width=740
+style="position:absolute; top:0; left:10"
+SCROLLAMOUNT=10 SCROLLDELAY=20 BEHAVIOR="SLIDE" DIRECTION="DOWN"&gt;
+&lt;UL&gt;Use Dynamic HTML to differentiate your content and create
+compelling Web sites
+&lt;/UL&gt;
+&lt;/MARQUEE&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is part of a proposed addition to <A HREF="http://www.w3.org/style/css/" TARGET="_top">
+Cascading Style Sheets (CSS)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/marquee.html">
+MARQUEE</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/dhtml/howto/flyingtext.html">How to Fly Text in DHTML</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

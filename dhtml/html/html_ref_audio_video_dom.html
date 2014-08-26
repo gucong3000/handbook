@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>HTML 5 视频/音频参考手册</title>
+
+</head>
+
+<body class="html" id="tags">
+
+<div id="wrapper">
+<div id="navsecond">
+
+<div id="course"><h2>参考手册</h2>
+<ul>
+<li><a href="index.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（字母排序）</a></li>
+<li><a href="html_ref_byfunc.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（功能排序）</a></li>
+<li><a href="html_ref_standardattributes.html" title="HTML 标准属性">HTML 属性</a></li>
+<li><a href="html_ref_eventattributes.html" title="HTML 事件属性">HTML 事件</a></li>
+<li class="currentLink"><a href="html_ref_audio_video_dom.html" title="HTML Audio/Video DOM 属性">HTML 视频/音频</a></li>
+<li><a href="html_ref_canvas.html" title="HTML Canvas 参考手册">HTML 画布</a></li>
+<li><a href="html_ref_dtd.html" title="HTML 元素和有效的 DTD">HTML 文档类型</a></li>
+<li><a href="html_ref_colornames.html" title="HTML 颜色名">HTML 颜色名</a></li>
+<li><a href="html_ref_charactersets.html" title="HTML 字符集">HTML 字符集</a></li>
+<li><a href="html_ref_ascii.html" title="HTML 7 比特 ASCII 代码 参考手册">HTML ASCII</a></li>
+<li><a href="html_ref_entities.html" title="HTML ISO-8859-1 参考手册">HTML ISO-8859-1</a></li>
+<li><a href="html_ref_symbols.html" title="HTML 符号实体">HTML 符号</a></li>
+<li><a href="html_ref_urlencode.html" title="HTML URL 编码">HTML URL 编码</a></li>
+<li><a href="html_ref_language_codes.html" title="HTML 语言代码参考手册">HTML 语言代码</a></li>
+<li><a href="html_ref_httpmessages.html" title="HTTP 状态消息">HTTP 消息</a></li>
+<li><a href="html_ref_httpmethods.html" title="HTTP 方法：GET 对比 POST">HTTP 方法</a></li>
+</ul>
+<h2>HTML 标签</h2>
+<ul>
+<li><a href="tag_comment.html" title="HTML &lt;!--&gt; 标签">&lt;!--&gt;</a></li>
+<li><a href="tag_doctype.html" title="HTML &lt;!DOCTYPE&gt; 标签">&lt;!DOCTYPE&gt;</a></li>
+<li><a href="tag_a.html" title="HTML &lt;a&gt; 标签">&lt;a&gt;</a></li>
+<li><a href="tag_abbr.html" title="HTML &lt;abbr&gt; 标签">&lt;abbr&gt;</a></li>
+<li><a href="tag_acronym.html" title="HTML &lt;acronym&gt; 标签">&lt;acronym&gt;</a></li>
+<li><a href="tag_address.html" title="HTML &lt;address&gt; 标签">&lt;address&gt;</a></li>
+<li><a href="tag_applet.html" title="HTML &lt;applet&gt; 标签">&lt;applet&gt;</a></li>
+<li><a href="tag_area.html" title="HTML &lt;area&gt; 标签">&lt;area&gt;</a></li>
+<li><a href="tag_article.html" title="HTML &lt;article&gt; 标签">&lt;article&gt;</a></li>
+<li><a href="tag_aside.html" title="HTML &lt;aside&gt; 标签">&lt;aside&gt;</a></li>
+<li><a href="tag_audio.html" title="HTML &lt;audio&gt; 标签">&lt;audio&gt;</a></li>
+<li><a href="tag_b.html" title="HTML &lt;b&gt; 标签">&lt;b&gt;</a></li>
+<li><a href="tag_base.html" title="HTML &lt;base&gt; 标签">&lt;base&gt;</a></li>
+<li><a href="tag_basefont.html" title="HTML &lt;basefont&gt; 标签">&lt;basefont&gt;</a></li>
+<li><a href="tag_bdi.html" title="HTML &lt;bdi&gt; 标签">&lt;bdi&gt;</a></li>
+<li><a href="tag_bdo.html" title="HTML &lt;bdo&gt; 标签">&lt;bdo&gt;</a></li>
+<li><a href="tag_big.html" title="HTML &lt;big&gt; 标签">&lt;big&gt;</a></li>
+<li><a href="tag_blockquote.html" title="HTML &lt;blockquote&gt; 标签">&lt;blockquote&gt;</a></li>
+<li><a href="tag_body.html" title="HTML &lt;body&gt; 标签">&lt;body&gt;</a></li>
+<li><a href="tag_br.html" title="HTML &lt;br&gt; 标签">&lt;br&gt;</a></li>
+<li><a href="tag_button.html" title="HTML &lt;button&gt; 标签">&lt;button&gt;</a></li>
+<li><a href="tag_canvas.html" title="HTML &lt;canvas&gt; 标签">&lt;canvas&gt;</a></li>
+<li><a href="tag_caption.html" title="HTML &lt;caption&gt; 标签">&lt;caption&gt;</a></li>
+<li><a href="tag_center.html" title="HTML &lt;center&gt; 标签">&lt;center&gt;</a></li>
+<li><a href="tag_cite.html" title="HTML &lt;cite&gt; 标签">&lt;cite&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;code&gt; 标签">&lt;code&gt;</a></li>
+<li><a href="tag_col.html" title="HTML &lt;col&gt; 标签">&lt;col&gt;</a></li>
+<li><a href="tag_colgroup.html" title="HTML &lt;colgroup&gt; 标签">&lt;colgroup&gt;</a></li>
+<li><a href="tag_command.html" title="HTML &lt;command&gt; 标签">&lt;command&gt;</a></li>
+<li><a href="tag_datalist.html" title="HTML &lt;datalist&gt; 标签">&lt;datalist&gt;</a></li>
+<li><a href="tag_dd.html" title="HTML &lt;dd&gt; 标签">&lt;dd&gt;</a></li>
+<li><a href="tag_del.html" title="HTML &lt;del&gt; 标签">&lt;del&gt;</a></li>
+<li><a href="tag_details.html" title="HTML &lt;details&gt; 标签">&lt;details&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;dfn&gt; 标签">&lt;dfn&gt;</a></li>
+<li><a href="tag_dialog.html" title="HTML &lt;dialog&gt; 标签">&lt;dialog&gt;</a></li>
+<li><a href="tag_dir.html" title="HTML &lt;dir&gt; 标签">&lt;dir&gt;</a></li>
+<li><a href="tag_div.html" title="HTML &lt;div&gt; 标签">&lt;div&gt;</a></li>
+<li><a href="tag_dl.html" title="HTML &lt;dl&gt; 标签">&lt;dl&gt;</a></li>
+<li><a href="tag_dt.html" title="HTML &lt;dt&gt; 标签">&lt;dt&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;em&gt; 标签">&lt;em&gt;</a></li>
+<li><a href="tag_embed.html" title="HTML &lt;embed&gt; 标签">&lt;embed&gt;</a></li>
+<li><a href="tag_fieldset.html" title="HTML &lt;fieldset&gt; 标签">&lt;fieldset&gt;</a></li>
+<li><a href="tag_figcaption.html" title="HTML &lt;figcaption&gt; 标签">&lt;figcaption&gt;</a></li>
+<li><a href="tag_figure.html" title="HTML &lt;figure&gt; 标签">&lt;figure&gt;</a></li>
+<li><a href="tag_font.html" title="HTML &lt;font&gt; 标签">&lt;font&gt;</a></li>
+<li><a href="tag_footer.html" title="HTML &lt;footer&gt; 标签">&lt;footer&gt;</a></li>
+<li><a href="tag_form.html" title="HTML &lt;form&gt; 标签">&lt;form&gt;</a></li>
+<li><a href="tag_frame.html" title="HTML &lt;frame&gt; 标签">&lt;frame&gt;</a></li>
+<li><a href="tag_frameset.html" title="HTML &lt;frameset&gt; 标签">&lt;frameset&gt;</a></li>
+<li><a href="tag_hn.html" title="HTML &lt;h1&gt; - &lt;h6&gt; 标签">&lt;h1&gt; - &lt;h6&gt;</a></li>
+<li><a href="tag_head.html" title="HTML &lt;head&gt; 标签">&lt;head&gt;</a></li>
+<li><a href="tag_header.html" title="HTML &lt;header&gt; 标签">&lt;header&gt;</a></li>
+<li><a href="tag_hr.html" title="HTML &lt;hr&gt; 标签">&lt;hr&gt;</a></li>
+<li><a href="tag_html.html" title="HTML &lt;html&gt; 标签">&lt;html&gt;</a></li>
+<li><a href="tag_i.html" title="HTML &lt;i&gt; 标签">&lt;i&gt;</a></li>
+<li><a href="tag_iframe.html" title="HTML &lt;iframe&gt; 标签">&lt;iframe&gt;</a></li>
+<li><a href="tag_img.html" title="HTML &lt;img&gt; 标签">&lt;img&gt;</a></li>
+<li><a href="tag_input.html" title="HTML &lt;input&gt; 标签">&lt;input&gt;</a></li>
+<li><a href="tag_ins.html" title="HTML &lt;ins&gt; 标签">&lt;ins&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;kbd&gt; 标签">&lt;kbd&gt;</a></li>
+<li><a href="tag_keygen.html" title="HTML &lt;keygen&gt; 标签">&lt;keygen&gt;</a></li>
+<li><a href="tag_label.html" title="HTML &lt;label&gt; 标签">&lt;label&gt;</a></li>
+<li><a href="tag_legend.html" title="HTML &lt;legend&gt; 标签">&lt;legend&gt;</a></li>
+<li><a href="tag_li.html" title="HTML &lt;li&gt; 标签">&lt;li&gt;</a></li>
+<li><a href="tag_link.html" title="HTML &lt;link&gt; 标签">&lt;link&gt;</a></li>
+<li><a href="tag_main.html" title="HTML &lt;main&gt; 标签">&lt;main&gt;</a></li>
+<li><a href="tag_map.html" title="HTML &lt;map&gt; 标签">&lt;map&gt;</a></li>
+<li><a href="tag_mark.html" title="HTML &lt;mark&gt; 标签">&lt;mark&gt;</a></li>
+<li><a href="tag_menu.html" title="HTML &lt;menu&gt; 标签">&lt;menu&gt;</a></li>
+<li><a href="tag_menuitem.html" title="HTML &lt;menuitem&gt; 标签">&lt;menuitem&gt;</a></li>
+<li><a href="tag_meta.html" title="HTML &lt;meta&gt; 标签">&lt;meta&gt;</a></li>
+<li><a href="tag_meter.html" title="HTML &lt;meter&gt; 标签">&lt;meter&gt;</a></li>
+<li><a href="tag_nav.html" title="HTML &lt;nav&gt; 标签">&lt;nav&gt;</a></li>
+<li><a href="tag_noframes.html" title="HTML &lt;noframes&gt; 标签">&lt;noframes&gt;</a></li>
+<li><a href="tag_noscript.html" title="HTML &lt;noscript&gt; 标签">&lt;noscript&gt;</a></li>
+<li><a href="tag_object.html" title="HTML &lt;object&gt; 标签">&lt;object&gt;</a></li>
+<li><a href="tag_ol.html" title="HTML &lt;ol&gt; 标签">&lt;ol&gt;</a></li>
+<li><a href="tag_optgroup.html" title="HTML &lt;optgroup&gt; 标签">&lt;optgroup&gt;</a></li>
+<li><a href="tag_option.html" title="HTML &lt;option&gt; 标签">&lt;option&gt;</a></li>
+<li><a href="tag_output.html" title="HTML &lt;output&gt; 标签">&lt;output&gt;</a></li>
+<li><a href="tag_p.html" title="HTML &lt;p&gt; 标签">&lt;p&gt;</a></li>
+<li><a href="tag_param.html" title="HTML &lt;param&gt; 标签">&lt;param&gt;</a></li>
+<li><a href="tag_pre.html" title="HTML &lt;pre&gt; 标签">&lt;pre&gt;</a></li>
+<li><a href="tag_progress.html" title="HTML &lt;progress&gt; 标签">&lt;progress&gt;</a></li>
+<li><a href="tag_q.html" title="HTML &lt;q&gt; 标签">&lt;q&gt;</a></li>
+<li><a href="tag_rp.html" title="HTML &lt;rp&gt; 标签">&lt;rp&gt;</a></li>
+<li><a href="tag_rt.html" title="HTML &lt;rt&gt; 标签">&lt;rt&gt;</a></li>
+<li><a href="tag_ruby.html" title="HTML &lt;ruby&gt; 标签">&lt;ruby&gt;</a></li>
+<li><a href="tag_s.html" title="HTML &lt;s&gt; 标签">&lt;s&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;samp&gt; 标签">&lt;samp&gt;</a></li>
+<li><a href="tag_script.html" title="HTML &lt;script&gt; 标签">&lt;script&gt;</a></li>
+<li><a href="tag_section.html" title="HTML &lt;section&gt; 标签">&lt;section&gt;</a></li>
+<li><a href="tag_select.html" title="HTML &lt;select&gt; 标签">&lt;select&gt;</a></li>
+<li><a href="tag_small.html" title="HTML &lt;small&gt; 标签">&lt;small&gt;</a></li>
+<li><a href="tag_source.html" title="HTML &lt;source&gt; 标签">&lt;source&gt;</a></li>
+<li><a href="tag_span.html" title="HTML &lt;span&gt; 标签">&lt;span&gt;</a></li>
+<li><a href="tag_strike.html" title="HTML &lt;strike&gt; 标签">&lt;strike&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;strong&gt; 标签">&lt;strong&gt;</a></li>
+<li><a href="tag_style.html" title="HTML &lt;style&gt; 标签">&lt;style&gt;</a></li>
+<li><a href="tag_sub.html" title="HTML &lt;sub&gt; 标签">&lt;sub&gt;</a></li>
+<li><a href="tag_summary.html" title="HTML &lt;summary&gt; 标签">&lt;summary&gt;</a></li>
+<li><a href="tag_sup.html" title="HTML &lt;sup&gt; 标签">&lt;sup&gt;</a></li>
+<li><a href="tag_table.html" title="HTML &lt;table&gt; 标签">&lt;table&gt;</a></li>
+<li><a href="tag_tbody.html" title="HTML &lt;tbody&gt; 标签">&lt;tbody&gt;</a></li>
+<li><a href="tag_td.html" title="HTML &lt;td&gt; 标签">&lt;td&gt;</a></li>
+<li><a href="tag_textarea.html" title="HTML &lt;textarea&gt; 标签">&lt;textarea&gt;</a></li>
+<li><a href="tag_tfoot.html" title="HTML &lt;tfoot&gt; 标签">&lt;tfoot&gt;</a></li>
+<li><a href="tag_th.html" title="HTML &lt;th&gt; 标签">&lt;th&gt;</a></li>
+<li><a href="tag_thead.html" title="HTML &lt;thead&gt; 标签">&lt;thead&gt;</a></li>
+<li><a href="tag_time.html" title="HTML &lt;time&gt; 标签">&lt;time&gt;</a></li>
+<li><a href="tag_title.html" title="HTML &lt;title&gt; 标签">&lt;title&gt;</a></li>
+<li><a href="tag_tr.html" title="HTML &lt;tr&gt; 标签">&lt;tr&gt;</a></li>
+<li><a href="tag_track.html" title="HTML &lt;track&gt; 标签">&lt;track&gt;</a></li>
+<li><a href="tag_tt.html" title="HTML &lt;tt&gt; 标签">&lt;tt&gt;</a></li>
+<li><a href="tag_u.html" title="HTML &lt;u&gt; 标签">&lt;u&gt;</a></li>
+<li><a href="tag_ul.html" title="HTML &lt;ul&gt; 标签">&lt;ul&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;var&gt; 标签">&lt;var&gt;</a></li>
+<li><a href="tag_video.html" title="HTML &lt;video&gt; 标签">&lt;video&gt;</a></li>
+<li><a href="tag_wbr.html" title="HTML &lt;wbr&gt; 标签">&lt;wbr&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTML 5 视频/音频参考手册</h1>
+
+<div id="tpn">
+<ul class="prenext">
+<li class="pre"><a href="html_ref_eventattributes.html" title="HTML 事件属性">HTML 事件</a></li>
+<li class="next"><a href="html_ref_canvas.html" title="HTML Canvas 参考手册">HTML 画布</a></li>
+</ul>
+</div>
+
+
+<div id="intro">
+<h2>HTML5 视频和音频的 DOM 参考手册</h2>
+
+<p>HTML5 DOM 为 &lt;audio&gt; 和 &lt;video&gt; 元素提供了方法、属性和事件。</p>
+
+<p>这些方法、属性和事件允许您使用 JavaScript 来操作 &lt;audio&gt; 和 &lt;video&gt; 元素。</p>
+</div>
+
+
+<div>
+<h2>HTML5 Audio/Video 方法</h2>
+
+<table class="dataintable">
+<tr>
+<th style="width:30%;">方法</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="av_met_addtexttrack.html" title="HTML5 Audio/Video DOM addTextTrack() 方法">addTextTrack()</a></td>
+<td>向音频/视频添加新的文本轨道</td>
+</tr>
+
+<tr>
+<td><a href="av_met_canplaytype.html" title="HTML5 Audio/Video DOM canPlayType() 方法">canPlayType()</a></td>
+<td>检测浏览器是否能播放指定的音频/视频类型</td>
+</tr>
+
+<tr>
+<td><a href="av_met_load.html" title="HTML5 Audio/Video DOM load() 方法">load()</a></td>
+<td>重新加载音频/视频元素</td>
+</tr>
+
+<tr>
+<td><a href="av_met_play.html" title="HTML5 Audio/Video DOM play() 方法">play()</a></td>
+<td>开始播放音频/视频</td>
+</tr>
+
+<tr>
+<td><a href="av_met_pause.html" title="HTML5 Audio/Video DOM pause() 方法">pause()</a></td>
+<td>暂停当前播放的音频/视频</td>
+</tr>
+</table>
+</div>
+
+
+<div>
+<h2>HTML5 Audio/Video 属性</h2>
+
+<table class="dataintable">
+<tr>
+<th style="width:30%;">属性</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="av_prop_audiotracks.html" title="HTML5 Audio/Video DOM audioTracks 属性">audioTracks</a></td>
+<td>返回表示可用音轨的 AudioTrackList 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_autoplay.html" title="HTML5 Audio/Video DOM autoplay 属性">autoplay</a></td>
+<td>设置或返回是否在加载完成后随即播放音频/视频</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_buffered.html" title="HTML5 Audio/Video DOM buffered 属性">buffered</a></td>
+<td>返回表示音频/视频已缓冲部分的 TimeRanges 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_controller.html" title="HTML5 Audio/Video DOM controller 属性">controller</a></td>
+<td>返回表示音频/视频当前媒体控制器的 MediaController 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_controls.html" title="HTML5 Audio/Video DOM controls 属性">controls</a></td>
+<td>设置或返回音频/视频是否显示控件（比如播放/暂停等）</td>
+</tr>
+
+<tr>
+<td>crossOrigin</td>
+<td>设置或返回音频/视频的 CORS 设置</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_currentsrc.html" title="HTML5 Audio/Video DOM currentSrc 属性">currentSrc</a></td>
+<td>返回当前音频/视频的 URL</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_currenttime.html" title="HTML5 Audio/Video DOM currentTime 属性">currentTime</a></td>
+<td>设置或返回音频/视频中的当前播放位置（以秒计）</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_defaultmuted.html" title="HTML5 Audio/Video DOM defaultMuted 属性">defaultMuted</a></td>
+<td>设置或返回音频/视频默认是否静音</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_defaultplaybackrate.html" title="HTML5 Audio/Video DOM defaultPlaybackRate 属性">defaultPlaybackRate</a></td>
+<td>设置或返回音频/视频的默认播放速度</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_duration.html" title="HTML5 Audio/Video DOM duration 属性">duration</a></td>
+<td>返回当前音频/视频的长度（以秒计）</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_ended.html" title="HTML5 Audio/Video DOM ended 属性">ended</a></td>
+<td>返回音频/视频的播放是否已结束</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_error.html" title="HTML5 Audio/Video DOM error 属性">error</a></td>
+<td>返回表示音频/视频错误状态的 MediaError 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_loop.html" title="HTML5 Audio/Video DOM loop 属性">loop</a></td>
+<td>设置或返回音频/视频是否应在结束时重新播放</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_mediagroup.html" title="HTML5 Audio/Video DOM mediaGroup 属性">mediaGroup</a></td>
+<td>设置或返回音频/视频所属的组合（用于连接多个音频/视频元素）</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_muted.html" title="HTML5 Audio/Video DOM muted 属性">muted</a></td>
+<td>设置或返回音频/视频是否静音</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_networkstate.html" title="HTML5 Audio/Video DOM networkState 属性">networkState</a></td>
+<td>返回音频/视频的当前网络状态</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_paused.html" title="HTML5 Audio/Video DOM paused 属性">paused</a></td>
+<td>设置或返回音频/视频是否暂停</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_playbackrate.html" title="HTML5 Audio/Video DOM playbackRate 属性">playbackRate</a></td>
+<td>设置或返回音频/视频播放的速度</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_played.html" title="HTML5 Audio/Video DOM played 属性">played</a></td>
+<td>返回表示音频/视频已播放部分的 TimeRanges 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_preload.html" title="HTML5 Audio/Video DOM preload 属性">preload</a></td>
+<td>设置或返回音频/视频是否应该在页面加载后进行加载</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_readystate.html" title="HTML5 Audio/Video DOM readyState 属性">readyState</a></td>
+<td>返回音频/视频当前的就绪状态</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_seekable.html" title="HTML5 Audio/Video DOM seekable 属性">seekable</a></td>
+<td>返回表示音频/视频可寻址部分的 TimeRanges 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_seeking.html" title="HTML5 Audio/Video DOM seeking 属性">seeking</a></td>
+<td>返回用户是否正在音频/视频中进行查找</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_src.html" title="HTML5 Audio/Video DOM src 属性">src</a></td>
+<td>设置或返回音频/视频元素的当前来源</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_startdate.html" title="HTML5 Audio/Video DOM startDate 属性">startDate</a></td>
+<td>返回表示当前时间偏移的 Date 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_texttracks.html" title="HTML5 Audio/Video DOM textTracks 属性">textTracks</a></td>
+<td>返回表示可用文本轨道的 TextTrackList 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_videotracks.html" title="HTML5 Audio/Video DOM videoTracks 属性">videoTracks</a></td>
+<td>返回表示可用视频轨道的 VideoTrackList 对象</td>
+</tr>
+
+<tr>
+<td><a href="av_prop_volume.html" title="HTML5 Audio/Video DOM volume 属性">volume</a></td>
+<td>设置或返回音频/视频的音量</td>
+</tr>
+</table>
+</div>
+
+
+<div>
+<h2>HTML5 Audio/Video 事件</h2>
+
+<table class="dataintable">
+<tr>
+<th style="width:30%;">事件</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>abort</td>
+<td>当音频/视频的加载已放弃时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_canplay.html" title="HTML5 Audio/Video DOM canplay 事件">canplay</a></td>
+<td>当浏览器可以播放音频/视频时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_canplaythrough.html" title="HTML5 Audio/Video DOM canplaythrough 事件">canplaythrough</a></td>
+<td>当浏览器可在不因缓冲而停顿的情况下进行播放时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_durationchange.html" title="HTML5 Audio/Video DOM durationchange 事件">durationchange</a></td>
+<td>当音频/视频的时长已更改时</td>
+</tr>
+
+<tr>
+<td>emptied</td>
+<td>当目前的播放列表为空时</td>
+</tr>
+
+<tr>
+<td>ended</td>
+<td>当目前的播放列表已结束时</td>
+</tr>
+
+<tr>
+<td>error</td>
+<td>当在音频/视频加载期间发生错误时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_loadeddata.html" title="HTML5 Audio/Video DOM loadeddata 事件">loadeddata</a></td>
+<td>当浏览器已加载音频/视频的当前帧时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_loadedmetadata.html" title="HTML5 Audio/Video DOM loadedmetadata 事件">loadedmetadata</a></td>
+<td>当浏览器已加载音频/视频的元数据时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_loadstart.html" title="HTML5 Audio/Video DOM loadstart 事件">loadstart</a></td>
+<td>当浏览器开始查找音频/视频时</td>
+</tr>
+
+<tr>
+<td>pause</td>
+<td>当音频/视频已暂停时</td>
+</tr>
+
+<tr>
+<td>play</td>
+<td>当音频/视频已开始或不再暂停时</td>
+</tr>
+
+<tr>
+<td>playing</td>
+<td>当音频/视频在已因缓冲而暂停或停止后已就绪时</td>
+</tr>
+
+<tr>
+<td><a href="av_event_progress.html" title="HTML5 Audio/Video DOM progress 事件">progress</a></td>
+<td>当浏览器正在下载音频/视频时</td>
+</tr>
+
+<tr>
+<td>ratechange</td>
+<td>当音频/视频的播放速度已更改时</td>
+</tr>
+
+<tr>
+<td>seeked</td>
+<td>当用户已移动/跳跃到音频/视频中的新位置时</td>
+</tr>
+
+<tr>
+<td>seeking</td>
+<td>当用户开始移动/跳跃到音频/视频中的新位置时</td>
+</tr>
+
+<tr>
+<td>stalled</td>
+<td>当浏览器尝试获取媒体数据，但数据不可用时</td>
+</tr>
+
+<tr>
+<td>suspend</td>
+<td>当浏览器刻意不获取媒体数据时</td>
+</tr>
+
+<tr>
+<td>timeupdate</td>
+<td>当目前的播放位置已更改时</td>
+</tr>
+
+<tr>
+<td>volumechange</td>
+<td>当音量已更改时</td>
+</tr>
+
+<tr>
+<td>waiting</td>
+<td>当视频由于需要缓冲下一帧而停止</td>
+</tr>
+</table>
+</div>
+
+
+<div id="bpn">
+<ul class="prenext">
+<li class="pre"><a href="html_ref_eventattributes.html" title="HTML 事件属性">HTML 事件</a></li>
+<li class="next"><a href="html_ref_canvas.html" title="HTML Canvas 参考手册">HTML 画布</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

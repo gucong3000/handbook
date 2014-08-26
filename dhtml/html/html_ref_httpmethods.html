@@ -1,0 +1,374 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<meta name="robots" content="all" />
+
+<meta name="author" content="w3school.com.cn" />
+<meta name="Copyright" content="Copyright W3school.com.cn All Rights Reserved." />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta http-equiv="imagetoolbar" content="false" />
+
+<link rel="stylesheet" type="text/css" href="c5.css" />
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+<title>HTTP 方法：GET 对比 POST</title>
+</head>
+
+<body class="html" id="xhtmlreference">
+<div id="wrapper">
+<div id="navsecond">
+
+<div id="course"><h2>参考手册</h2>
+<ul>
+<li><a href="index.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（字母排序）</a></li>
+<li><a href="html_ref_byfunc.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（功能排序）</a></li>
+<li><a href="html_ref_standardattributes.html" title="HTML 标准属性">HTML 属性</a></li>
+<li><a href="html_ref_eventattributes.html" title="HTML 事件属性">HTML 事件</a></li>
+<li><a href="html_ref_audio_video_dom.html" title="HTML Audio/Video DOM 属性">HTML 视频/音频</a></li>
+<li><a href="html_ref_canvas.html" title="HTML Canvas 参考手册">HTML 画布</a></li>
+<li><a href="html_ref_dtd.html" title="HTML 元素和有效的 DTD">HTML 文档类型</a></li>
+<li><a href="html_ref_colornames.html" title="HTML 颜色名">HTML 颜色名</a></li>
+<li><a href="html_ref_charactersets.html" title="HTML 字符集">HTML 字符集</a></li>
+<li><a href="html_ref_ascii.html" title="HTML 7 比特 ASCII 代码 参考手册">HTML ASCII</a></li>
+<li><a href="html_ref_entities.html" title="HTML ISO-8859-1 参考手册">HTML ISO-8859-1</a></li>
+<li><a href="html_ref_symbols.html" title="HTML 符号实体">HTML 符号</a></li>
+<li><a href="html_ref_urlencode.html" title="HTML URL 编码">HTML URL 编码</a></li>
+<li><a href="html_ref_language_codes.html" title="HTML 语言代码参考手册">HTML 语言代码</a></li>
+<li><a href="html_ref_httpmessages.html" title="HTTP 状态消息">HTTP 消息</a></li>
+<li class="currentLink"><a href="html_ref_httpmethods.html" title="HTTP 方法：GET 对比 POST">HTTP 方法</a></li>
+</ul>
+<h2>HTML 标签</h2>
+<ul>
+<li><a href="tag_comment.html" title="HTML &lt;!--&gt; 标签">&lt;!--&gt;</a></li>
+<li><a href="tag_doctype.html" title="HTML &lt;!DOCTYPE&gt; 标签">&lt;!DOCTYPE&gt;</a></li>
+<li><a href="tag_a.html" title="HTML &lt;a&gt; 标签">&lt;a&gt;</a></li>
+<li><a href="tag_abbr.html" title="HTML &lt;abbr&gt; 标签">&lt;abbr&gt;</a></li>
+<li><a href="tag_acronym.html" title="HTML &lt;acronym&gt; 标签">&lt;acronym&gt;</a></li>
+<li><a href="tag_address.html" title="HTML &lt;address&gt; 标签">&lt;address&gt;</a></li>
+<li><a href="tag_applet.html" title="HTML &lt;applet&gt; 标签">&lt;applet&gt;</a></li>
+<li><a href="tag_area.html" title="HTML &lt;area&gt; 标签">&lt;area&gt;</a></li>
+<li><a href="tag_article.html" title="HTML &lt;article&gt; 标签">&lt;article&gt;</a></li>
+<li><a href="tag_aside.html" title="HTML &lt;aside&gt; 标签">&lt;aside&gt;</a></li>
+<li><a href="tag_audio.html" title="HTML &lt;audio&gt; 标签">&lt;audio&gt;</a></li>
+<li><a href="tag_b.html" title="HTML &lt;b&gt; 标签">&lt;b&gt;</a></li>
+<li><a href="tag_base.html" title="HTML &lt;base&gt; 标签">&lt;base&gt;</a></li>
+<li><a href="tag_basefont.html" title="HTML &lt;basefont&gt; 标签">&lt;basefont&gt;</a></li>
+<li><a href="tag_bdi.html" title="HTML &lt;bdi&gt; 标签">&lt;bdi&gt;</a></li>
+<li><a href="tag_bdo.html" title="HTML &lt;bdo&gt; 标签">&lt;bdo&gt;</a></li>
+<li><a href="tag_big.html" title="HTML &lt;big&gt; 标签">&lt;big&gt;</a></li>
+<li><a href="tag_blockquote.html" title="HTML &lt;blockquote&gt; 标签">&lt;blockquote&gt;</a></li>
+<li><a href="tag_body.html" title="HTML &lt;body&gt; 标签">&lt;body&gt;</a></li>
+<li><a href="tag_br.html" title="HTML &lt;br&gt; 标签">&lt;br&gt;</a></li>
+<li><a href="tag_button.html" title="HTML &lt;button&gt; 标签">&lt;button&gt;</a></li>
+<li><a href="tag_canvas.html" title="HTML &lt;canvas&gt; 标签">&lt;canvas&gt;</a></li>
+<li><a href="tag_caption.html" title="HTML &lt;caption&gt; 标签">&lt;caption&gt;</a></li>
+<li><a href="tag_center.html" title="HTML &lt;center&gt; 标签">&lt;center&gt;</a></li>
+<li><a href="tag_cite.html" title="HTML &lt;cite&gt; 标签">&lt;cite&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;code&gt; 标签">&lt;code&gt;</a></li>
+<li><a href="tag_col.html" title="HTML &lt;col&gt; 标签">&lt;col&gt;</a></li>
+<li><a href="tag_colgroup.html" title="HTML &lt;colgroup&gt; 标签">&lt;colgroup&gt;</a></li>
+<li><a href="tag_command.html" title="HTML &lt;command&gt; 标签">&lt;command&gt;</a></li>
+<li><a href="tag_datalist.html" title="HTML &lt;datalist&gt; 标签">&lt;datalist&gt;</a></li>
+<li><a href="tag_dd.html" title="HTML &lt;dd&gt; 标签">&lt;dd&gt;</a></li>
+<li><a href="tag_del.html" title="HTML &lt;del&gt; 标签">&lt;del&gt;</a></li>
+<li><a href="tag_details.html" title="HTML &lt;details&gt; 标签">&lt;details&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;dfn&gt; 标签">&lt;dfn&gt;</a></li>
+<li><a href="tag_dialog.html" title="HTML &lt;dialog&gt; 标签">&lt;dialog&gt;</a></li>
+<li><a href="tag_dir.html" title="HTML &lt;dir&gt; 标签">&lt;dir&gt;</a></li>
+<li><a href="tag_div.html" title="HTML &lt;div&gt; 标签">&lt;div&gt;</a></li>
+<li><a href="tag_dl.html" title="HTML &lt;dl&gt; 标签">&lt;dl&gt;</a></li>
+<li><a href="tag_dt.html" title="HTML &lt;dt&gt; 标签">&lt;dt&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;em&gt; 标签">&lt;em&gt;</a></li>
+<li><a href="tag_embed.html" title="HTML &lt;embed&gt; 标签">&lt;embed&gt;</a></li>
+<li><a href="tag_fieldset.html" title="HTML &lt;fieldset&gt; 标签">&lt;fieldset&gt;</a></li>
+<li><a href="tag_figcaption.html" title="HTML &lt;figcaption&gt; 标签">&lt;figcaption&gt;</a></li>
+<li><a href="tag_figure.html" title="HTML &lt;figure&gt; 标签">&lt;figure&gt;</a></li>
+<li><a href="tag_font.html" title="HTML &lt;font&gt; 标签">&lt;font&gt;</a></li>
+<li><a href="tag_footer.html" title="HTML &lt;footer&gt; 标签">&lt;footer&gt;</a></li>
+<li><a href="tag_form.html" title="HTML &lt;form&gt; 标签">&lt;form&gt;</a></li>
+<li><a href="tag_frame.html" title="HTML &lt;frame&gt; 标签">&lt;frame&gt;</a></li>
+<li><a href="tag_frameset.html" title="HTML &lt;frameset&gt; 标签">&lt;frameset&gt;</a></li>
+<li><a href="tag_hn.html" title="HTML &lt;h1&gt; - &lt;h6&gt; 标签">&lt;h1&gt; - &lt;h6&gt;</a></li>
+<li><a href="tag_head.html" title="HTML &lt;head&gt; 标签">&lt;head&gt;</a></li>
+<li><a href="tag_header.html" title="HTML &lt;header&gt; 标签">&lt;header&gt;</a></li>
+<li><a href="tag_hr.html" title="HTML &lt;hr&gt; 标签">&lt;hr&gt;</a></li>
+<li><a href="tag_html.html" title="HTML &lt;html&gt; 标签">&lt;html&gt;</a></li>
+<li><a href="tag_i.html" title="HTML &lt;i&gt; 标签">&lt;i&gt;</a></li>
+<li><a href="tag_iframe.html" title="HTML &lt;iframe&gt; 标签">&lt;iframe&gt;</a></li>
+<li><a href="tag_img.html" title="HTML &lt;img&gt; 标签">&lt;img&gt;</a></li>
+<li><a href="tag_input.html" title="HTML &lt;input&gt; 标签">&lt;input&gt;</a></li>
+<li><a href="tag_ins.html" title="HTML &lt;ins&gt; 标签">&lt;ins&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;kbd&gt; 标签">&lt;kbd&gt;</a></li>
+<li><a href="tag_keygen.html" title="HTML &lt;keygen&gt; 标签">&lt;keygen&gt;</a></li>
+<li><a href="tag_label.html" title="HTML &lt;label&gt; 标签">&lt;label&gt;</a></li>
+<li><a href="tag_legend.html" title="HTML &lt;legend&gt; 标签">&lt;legend&gt;</a></li>
+<li><a href="tag_li.html" title="HTML &lt;li&gt; 标签">&lt;li&gt;</a></li>
+<li><a href="tag_link.html" title="HTML &lt;link&gt; 标签">&lt;link&gt;</a></li>
+<li><a href="tag_main.html" title="HTML &lt;main&gt; 标签">&lt;main&gt;</a></li>
+<li><a href="tag_map.html" title="HTML &lt;map&gt; 标签">&lt;map&gt;</a></li>
+<li><a href="tag_mark.html" title="HTML &lt;mark&gt; 标签">&lt;mark&gt;</a></li>
+<li><a href="tag_menu.html" title="HTML &lt;menu&gt; 标签">&lt;menu&gt;</a></li>
+<li><a href="tag_menuitem.html" title="HTML &lt;menuitem&gt; 标签">&lt;menuitem&gt;</a></li>
+<li><a href="tag_meta.html" title="HTML &lt;meta&gt; 标签">&lt;meta&gt;</a></li>
+<li><a href="tag_meter.html" title="HTML &lt;meter&gt; 标签">&lt;meter&gt;</a></li>
+<li><a href="tag_nav.html" title="HTML &lt;nav&gt; 标签">&lt;nav&gt;</a></li>
+<li><a href="tag_noframes.html" title="HTML &lt;noframes&gt; 标签">&lt;noframes&gt;</a></li>
+<li><a href="tag_noscript.html" title="HTML &lt;noscript&gt; 标签">&lt;noscript&gt;</a></li>
+<li><a href="tag_object.html" title="HTML &lt;object&gt; 标签">&lt;object&gt;</a></li>
+<li><a href="tag_ol.html" title="HTML &lt;ol&gt; 标签">&lt;ol&gt;</a></li>
+<li><a href="tag_optgroup.html" title="HTML &lt;optgroup&gt; 标签">&lt;optgroup&gt;</a></li>
+<li><a href="tag_option.html" title="HTML &lt;option&gt; 标签">&lt;option&gt;</a></li>
+<li><a href="tag_output.html" title="HTML &lt;output&gt; 标签">&lt;output&gt;</a></li>
+<li><a href="tag_p.html" title="HTML &lt;p&gt; 标签">&lt;p&gt;</a></li>
+<li><a href="tag_param.html" title="HTML &lt;param&gt; 标签">&lt;param&gt;</a></li>
+<li><a href="tag_pre.html" title="HTML &lt;pre&gt; 标签">&lt;pre&gt;</a></li>
+<li><a href="tag_progress.html" title="HTML &lt;progress&gt; 标签">&lt;progress&gt;</a></li>
+<li><a href="tag_q.html" title="HTML &lt;q&gt; 标签">&lt;q&gt;</a></li>
+<li><a href="tag_rp.html" title="HTML &lt;rp&gt; 标签">&lt;rp&gt;</a></li>
+<li><a href="tag_rt.html" title="HTML &lt;rt&gt; 标签">&lt;rt&gt;</a></li>
+<li><a href="tag_ruby.html" title="HTML &lt;ruby&gt; 标签">&lt;ruby&gt;</a></li>
+<li><a href="tag_s.html" title="HTML &lt;s&gt; 标签">&lt;s&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;samp&gt; 标签">&lt;samp&gt;</a></li>
+<li><a href="tag_script.html" title="HTML &lt;script&gt; 标签">&lt;script&gt;</a></li>
+<li><a href="tag_section.html" title="HTML &lt;section&gt; 标签">&lt;section&gt;</a></li>
+<li><a href="tag_select.html" title="HTML &lt;select&gt; 标签">&lt;select&gt;</a></li>
+<li><a href="tag_small.html" title="HTML &lt;small&gt; 标签">&lt;small&gt;</a></li>
+<li><a href="tag_source.html" title="HTML &lt;source&gt; 标签">&lt;source&gt;</a></li>
+<li><a href="tag_span.html" title="HTML &lt;span&gt; 标签">&lt;span&gt;</a></li>
+<li><a href="tag_strike.html" title="HTML &lt;strike&gt; 标签">&lt;strike&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;strong&gt; 标签">&lt;strong&gt;</a></li>
+<li><a href="tag_style.html" title="HTML &lt;style&gt; 标签">&lt;style&gt;</a></li>
+<li><a href="tag_sub.html" title="HTML &lt;sub&gt; 标签">&lt;sub&gt;</a></li>
+<li><a href="tag_summary.html" title="HTML &lt;summary&gt; 标签">&lt;summary&gt;</a></li>
+<li><a href="tag_sup.html" title="HTML &lt;sup&gt; 标签">&lt;sup&gt;</a></li>
+<li><a href="tag_table.html" title="HTML &lt;table&gt; 标签">&lt;table&gt;</a></li>
+<li><a href="tag_tbody.html" title="HTML &lt;tbody&gt; 标签">&lt;tbody&gt;</a></li>
+<li><a href="tag_td.html" title="HTML &lt;td&gt; 标签">&lt;td&gt;</a></li>
+<li><a href="tag_textarea.html" title="HTML &lt;textarea&gt; 标签">&lt;textarea&gt;</a></li>
+<li><a href="tag_tfoot.html" title="HTML &lt;tfoot&gt; 标签">&lt;tfoot&gt;</a></li>
+<li><a href="tag_th.html" title="HTML &lt;th&gt; 标签">&lt;th&gt;</a></li>
+<li><a href="tag_thead.html" title="HTML &lt;thead&gt; 标签">&lt;thead&gt;</a></li>
+<li><a href="tag_time.html" title="HTML &lt;time&gt; 标签">&lt;time&gt;</a></li>
+<li><a href="tag_title.html" title="HTML &lt;title&gt; 标签">&lt;title&gt;</a></li>
+<li><a href="tag_tr.html" title="HTML &lt;tr&gt; 标签">&lt;tr&gt;</a></li>
+<li><a href="tag_track.html" title="HTML &lt;track&gt; 标签">&lt;track&gt;</a></li>
+<li><a href="tag_tt.html" title="HTML &lt;tt&gt; 标签">&lt;tt&gt;</a></li>
+<li><a href="tag_u.html" title="HTML &lt;u&gt; 标签">&lt;u&gt;</a></li>
+<li><a href="tag_ul.html" title="HTML &lt;ul&gt; 标签">&lt;ul&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;var&gt; 标签">&lt;var&gt;</a></li>
+<li><a href="tag_video.html" title="HTML &lt;video&gt; 标签">&lt;video&gt;</a></li>
+<li><a href="tag_wbr.html" title="HTML &lt;wbr&gt; 标签">&lt;wbr&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTTP 方法：GET 对比 POST</h1>
+
+<div id="tpn">
+<ul class="prenext">
+<li class="pre"><a href="html_ref_httpmessages.html" title="HTTP 状态消息">HTTP 消息</a></li>
+<li class="next"><a href="index.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（字母排序）</a></li>
+</ul>
+</div>
+
+
+<div id="intro">
+<p><strong>两种最常用的 HTTP 方法是：GET 和 POST。</strong></p>
+</div>
+
+
+<div>
+<h2>什么是 HTTP？</h2>
+
+<p>超文本传输协议（HTTP）的设计目的是保证客户机与服务器之间的通信。</p>
+
+<p>HTTP 的工作方式是客户机与服务器之间的请求-应答协议。</p>
+
+<p>web 浏览器可能是客户端，而计算机上的网络应用程序也可能作为服务器端。</p>
+
+<p>举例：客户端（浏览器）向服务器提交 HTTP 请求；服务器向客户端返回响应。响应包含关于请求的状态信息以及可能被请求的内容。</p>
+</div>
+
+
+<div>
+<h2>两种 HTTP 请求方法：GET 和 POST</h2>
+
+<p>在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是：GET 和 POST。</p>
+
+<ul>
+<li><em>GET</em> - 从指定的资源请求数据。</li>
+<li><em>POST</em> - 向指定的资源提交要被处理的数据</li>
+</ul>
+</div>
+
+
+<div>
+<h2>GET 方法</h2>
+
+<p class="marked">请注意，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的：</p>
+
+<pre>/test/demo_form.html?name1=value1&amp;name2=value2</pre>
+
+<p>有关 GET 请求的其他一些注释：</p>
+
+<ul>
+<li>GET 请求可被缓存</li>
+<li>GET 请求保留在浏览器历史记录中</li>
+<li>GET 请求可被收藏为书签</li>
+<li>GET 请求不应在处理敏感数据时使用</li>
+<li>GET 请求有长度限制</li>
+<li>GET 请求只应当用于取回数据</li>
+</ul>
+</div>
+
+
+<div>
+<h2>POST 方法</h2>
+
+<p class="marked">请注意，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的：</p>
+
+<pre>
+POST /test/demo_form.html HTTP/1.1
+Host: w3schools.com
+name1=value1&amp;name2=value2
+</pre>
+
+<p>有关 POST 请求的其他一些注释：</p>
+
+<ul>
+<li>POST 请求不会被缓存</li>
+<li>POST 请求不会保留在浏览器历史记录中</li>
+<li>POST 不能被收藏为书签</li>
+<li>POST 请求对数据长度没有要求</li>
+</ul>
+</div>
+
+
+<div>
+<h2>比较 GET 与 POST</h2>
+
+<p>下面的表格比较了两种 HTTP 方法：GET 和 POST。</p>
+
+<table class="dataintable">
+<tr>
+<th style="width:20%;">&nbsp;</th>
+<th>GET</th>
+<th>POST</th>
+</tr>
+
+<tr>
+<td>后退按钮/刷新</td>
+<td>无害</td>
+<td>数据会被重新提交（浏览器应该告知用户数据会被重新提交）。</td>
+</tr>
+
+<tr>
+<td>书签</td>
+<td>可收藏为书签</td>
+<td>不可收藏为书签</td>
+</tr>
+
+<tr>
+<td>缓存</td>
+<td>能被缓存</td>
+<td>不能缓存</td>
+</tr>
+
+<tr>
+<td>编码类型</td>
+<td>application/x-www-form-urlencoded</td>
+<td>application/x-www-form-urlencoded 或 multipart/form-data。为二进制数据使用多重编码。</td>
+</tr>
+
+<tr>
+<td>历史</td>
+<td>参数保留在浏览器历史中。</td>
+<td>参数不会保存在浏览器历史中。</td>
+</tr>
+
+<tr>
+<td>对数据长度的限制</td>
+<td>是的。当发送数据时，GET 方法向 URL 添加数据；URL 的长度是受限制的（URL 的最大长度是 2048 个字符）。</td>
+<td>无限制。</td>
+</tr>
+
+<tr>
+<td>对数据类型的限制</td>
+<td>只允许 ASCII 字符。</td>
+<td>没有限制。也允许二进制数据。</td>
+</tr>
+
+<tr>
+<td>安全性</td>
+<td><p>与 POST 相比，GET 的安全性较差，因为所发送的数据是 URL 的一部分。</p>
+<p>在发送密码或其他敏感信息时绝不要使用 GET ！</p></td>
+<td>POST 比 GET 更安全，因为参数不会被保存在浏览器历史或 web 服务器日志中。</td>
+</tr>
+
+<tr>
+<td>可见性</td>
+<td>数据在 URL 中对所有人都是可见的。</td>
+<td>数据不会显示在 URL 中。</td>
+</tr>
+</table>
+</div>
+
+
+<div>
+<h2>其他 HTTP 请求方法</h2>
+
+<p>下面的表格列出了其他一些 HTTP 请求方法：</p>
+
+<table class="dataintable">
+<tr>
+<th style="width:20%;">方法</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>HEAD</td>
+<td>与 GET 相同，但只返回 HTTP 报头，不返回文档主体。</td>
+</tr>
+
+<tr>
+<td>PUT</td>
+<td>上传指定的 URI 表示。</td>
+</tr>
+
+<tr>
+<td>DELETE</td>
+<td>删除指定资源。</td>
+</tr>
+
+<tr>
+<td>OPTIONS</td>
+<td>返回服务器支持的 HTTP 方法。</td>
+</tr>
+
+<tr>
+<td>CONNECT</td>
+<td>把请求连接转换到透明的 TCP/IP 通道。</td>
+</tr>
+</table>
+</div>
+
+
+<div id="bpn">
+<ul class="prenext">
+<li class="pre"><a href="html_ref_httpmessages.html" title="HTTP 状态消息">HTTP 消息</a></li>
+<li class="next"><a href="index.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（字母排序）</a></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>SELECTION Attribute | selection</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>SELECTION Attribute | selection Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves whether the content can be selected with the mouse or keyboard.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;HTA:APPLICATION&nbsp;<B>SELECTION</B>
+= <SPAN CLASS="clsRange">sSelection</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD>[ <SPAN CLASS="clsRange">sSelection</SPAN><B> =</B> ] <I>HTA:APPLICATION</I>.<B>selection</B></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sSelection</SPAN></TD><TD><b>String</b> that specifies one of the following values. <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">yes</SPAN></TD><TD>Default. Content can be selected with the mouse or keyboard.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">no</SPAN></TD><TD>Content cannot be selected with the mouse or keyboard.
+</TD></TR></TABLE></TD></TR></TABLE><P>The property is read-only.
+The property has a default value of <SPAN CLASS="clsDefValue">
+yes</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;The <B>selection</B> property is read only, however the <B>SELECTION</B> attribute can be used to set the initial value. </DIV><P>Setting the <B>SELECTION</B> attribute to <SPAN CLASS="clsLiteral">no</SPAN> prevents the context menu from displaying.
+Setting the <A HREF="../hta/contextmenu.html">CONTEXTMENU</A> attribute to <SPAN CLASS="clsLiteral">yes</SPAN> has no effect in this case.</P><P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp; The use of content editable elements overrides the selection property. When the <A HREF="../properties/contenteditable.html">contentEditable</A> property is set to true anywhere in an HTML Application (HTA), any object may be selected.
+</DIV></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example shows how to retrieve the <B>selection</B> property.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;HTA:APPLICATION
+ID=oHTA
+CONTEXTMENU="yes"
+SELECTION="no"/&gt;
+&lt;TITLE&gt;HTA Properties&lt;/TITLE&gt;
+&lt;STYLE&gt;
+BODY {font-size: 8pt; font-family: Arial;}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;SCRIPT&gt;
+function readFun()
+{
+alert("The selection property is set to:  " + oHTA.selection);
+}
+&lt;/SCRIPT&gt;
+&lt;BODY&gt;
+&lt;P&gt;Read the property:
+&lt;INPUT TYPE="button"  VALUE="Test selection value" onClick="readFun()"/&gt;
+&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;ce=5.5" HREF="../objects/hta.html">
+HTA:APPLICATION</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../properties/contenteditable.html">contentEditable</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>Window 对象</title>
+
+</head>
+
+<body class="browserscripting" id="jsref">
+
+<div id="wrapper">
+
+<div id="navsecond">
+
+<div id="course"><h2>JS & DOM 参考手册</h2>
+<ul>
+<li><a href="index.html" title="JavaScript 和 HTML DOM 参考手册">参考手册目录</a></li>
+</ul>
+<h2>JavaScript 对象</h2>
+<ul>
+<li><a href="jsref_obj_array.html" title="JavaScript Array 对象参考手册">JS Array</a></li>
+<li><a href="jsref_obj_boolean.html" title="JavaScript Boolean 对象参考手册">JS Boolean</a></li>
+<li><a href="jsref_obj_date.html" title="JavaScript Date 对象参考手册">JS Date</a></li>
+<li><a href="jsref_obj_math.html" title="JavaScript Math 对象的参考手册">JS Math</a></li>
+<li><a href="jsref_obj_number.html" title="JavaScript Number 对象参考手册">JS Number</a></li>
+<li><a href="jsref_obj_string.html" title="JavaScript String 对象参考手册">JS String</a></li>
+<li><a href="jsref_obj_regexp.html" title="JavaScript RegExp 对象参考手册">JS RegExp</a></li>
+<li><a href="jsref_obj_global.html" title="JavaScript 全局对象参考手册">JS Functions</a></li>
+<li><a href="jsref_events.html" title="JavaScript 事件参考手册">JS Events</a></li>
+</ul>
+<h2>Browser 对象</h2>
+<ul>
+<li class="currentLink"><a href="dom_obj_window.html" title="HTML DOM Window 对象">Window</a></li>
+<li><a href="dom_obj_navigator.html" title="HTML DOM Navigator 对象">Navigator</a></li>
+<li><a href="dom_obj_screen.html" title="HTML DOM Screen 对象">Screen</a></li>
+<li><a href="dom_obj_history.html" title="HTML DOM History 对象">History</a></li>
+<li><a href="dom_obj_location.html" title="HTML DOM Location 对象">Location</a></li>
+</ul>
+<h2>HTML DOM 对象</h2>
+<ul>
+<li><a href="dom_obj_document.html" title="HTML DOM Document 对象">DOM Document</a></li>
+<li><a href="dom_obj_all.html" title="HTML DOM Element 对象">DOM Element</a></li>
+<li><a href="dom_obj_attributes.html" title="HTML DOM Attribute 对象">DOM Attribute</a></li>
+<li><a href="dom_obj_event.html" title="HTML DOM Event 对象">DOM Event</a></li>
+</ul>
+<h2>HTML 对象</h2>
+<ul>
+<li><a href="dom_obj_anchor.html" title="HTML DOM Anchor 对象">&lt;a&gt;</a></li>
+<li><a href="dom_obj_area.html" title="HTML DOM Area 对象">&lt;area&gt;</a></li>
+<li><a href="dom_obj_audio.html" title="HTML DOM Audio 对象">&lt;audio&gt;</a></li>
+<li><a href="dom_obj_base.html" title="HTML DOM Base 对象">&lt;base&gt;</a></li>
+<li><a href="dom_obj_body.html" title="HTML DOM Body 对象">&lt;body&gt;</a></li>
+<li><a href="dom_obj_blockquote.html" title="HTML DOM Blockquote 对象">&lt;blockquote&gt;</a></li>
+<li><a href="dom_obj_pushbutton.html" title="HTML DOM Button 对象">&lt;button&gt;</a></li>
+<li><a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">&lt;canvas&gt;</a></li>
+<li><a href="dom_obj_col.html" title="HTML DOM Column 对象">&lt;col&gt;</a></li>
+<li><a href="dom_obj_colgroup.html" title="HTML DOM ColumnGroup 对象">&lt;colgroup&gt;</a></li>
+<li><a href="dom_obj_datalist.html" title="HTML DOM Datalist 对象">&lt;datalist&gt;</a></li>
+<li><a href="dom_obj_del.html" title="HTML DOM Del 对象">&lt;del&gt;</a></li>
+<li><a href="dom_obj_details.html" title="HTML DOM Details 对象">&lt;details&gt;</a></li>
+<li><a href="dom_obj_dialog.html" title="HTML DOM Dialog 对象">&lt;dialog&gt;</a></li>
+<li><a href="dom_obj_embed.html" title="HTML DOM Embed 对象">&lt;embed&gt;</a></li>
+<li><a href="dom_obj_fieldset.html" title="HTML DOM Fieldset 对象">&lt;fieldset&gt;</a></li>
+<li><a href="dom_obj_form.html" title="HTML DOM Form 对象">&lt;form&gt;</a></li>
+<li><a href="dom_obj_frame.html" title="HTML DOM Frame 对象">&lt;frame&gt;</a></li>
+<li><a href="dom_obj_frameset.html" title="HTML DOM Frameset 对象">&lt;frameset&gt;</a></li>
+<li><a href="dom_obj_iframe.html" title="HTML DOM IFrame 对象">&lt;iframe&gt;</a></li>
+<li><a href="dom_obj_image.html" title="HTML DOM Image 对象">&lt;img&gt;</a></li>
+<li><a href="dom_obj_ins.html" title="HTML DOM Ins 对象">&lt;ins&gt;</a></li>
+<li><a href="dom_obj_button.html" title="HTML DOM Button 对象">&lt;input&gt; button</a></li>
+<li><a href="dom_obj_checkbox.html" title="HTML DOM Checkbox 对象">&lt;input&gt; checkbox</a></li>
+<li><a href="dom_obj_color.html" title="HTML DOM Color 对象">&lt;input&gt; color</a></li>
+<li><a href="dom_obj_date.html" title="HTML DOM Input Date 对象">&lt;input&gt; date</a></li>
+<li><a href="dom_obj_datetime.html" title="HTML DOM Datetime 对象">&lt;input&gt; datetime</a></li>
+<li><a href="dom_obj_datetime-local.html" title="HTML DOM Datetime Local 对象">&lt;input&gt; datetime-local</a></li>
+<li><a href="dom_obj_email.html" title="HTML DOM Email 对象">&lt;input&gt; email</a></li>
+<li><a href="dom_obj_fileupload.html" title="HTML DOM FileUpload 对象">&lt;input&gt; file</a></li>
+<li><a href="dom_obj_hidden.html" title="HTML DOM Hidden 对象">&lt;input&gt; hidden</a></li>
+<li><a href="dom_obj_input_image.html" title="HTML DOM Input Image 对象">&lt;input&gt; image</a></li>
+<li><a href="dom_obj_month.html" title="HTML DOM Month 对象">&lt;input&gt; month</a></li>
+<li><a href="dom_obj_number.html" title="HTML DOM Number 对象">&lt;input&gt; number</a></li>
+<li><a href="dom_obj_password.html" title="HTML DOM Password 对象">&lt;input&gt; password</a></li>
+<li><a href="dom_obj_range.html" title="HTML DOM Input Range 对象">&lt;input&gt; range</a></li>
+<li><a href="dom_obj_radio.html" title="HTML DOM Radio 对象">&lt;input&gt; radio</a></li>
+<li><a href="dom_obj_reset.html" title="HTML DOM Reset 对象">&lt;input&gt; reset</a></li>
+<li><a href="dom_obj_search.html" title="HTML DOM Input Search 对象">&lt;input&gt; search</a></li>
+<li><a href="dom_obj_submit.html" title="HTML DOM Submit 对象">&lt;input&gt; submit</a></li>
+<li><a href="dom_obj_text.html" title="HTML DOM Text 对象">&lt;input&gt; text</a></li>
+<li><a href="dom_obj_input_time.html" title="HTML DOM Input Time 对象">&lt;input&gt; time</a></li>
+<li><a href="dom_obj_url.html" title="HTML DOM Input URL 对象">&lt;input&gt; url</a></li>
+<li><a href="dom_obj_week.html" title="HTML DOM Week 对象">&lt;input&gt; week</a></li>
+<li><a href="dom_obj_keygen.html" title="HTML DOM Keygen 对象">&lt;keygen&gt;</a></li>
+<li><a href="dom_obj_label.html" title="HTML DOM Label 对象">&lt;label&gt;</a></li>
+<li><a href="dom_obj_legend.html" title="HTML DOM Legend 对象">&lt;legend&gt;</a></li>
+<li><a href="dom_obj_li.html" title="HTML DOM Li 对象">&lt;li&gt;</a></li>
+<li><a href="dom_obj_link.html" title="HTML DOM Link 对象">&lt;link&gt;</a></li>
+<li><a href="dom_obj_map.html" title="HTML DOM Map 对象">&lt;map&gt;</a></li>
+<li><a href="dom_obj_menu.html" title="HTML DOM Menu 对象">&lt;menu&gt;</a></li>
+<li><a href="dom_obj_menuitem.html" title="HTML DOM MenuItem 对象">&lt;menuitem&gt;</a></li>
+<li><a href="dom_obj_meta.html" title="HTML DOM Meta 对象">&lt;meta&gt;</a></li>
+<li><a href="dom_obj_meter.html" title="HTML DOM Meter 对象">&lt;meter&gt;</a></li>
+<li><a href="dom_obj_object.html" title="HTML DOM Object 对象">&lt;object&gt;</a></li>
+<li><a href="dom_obj_ol.html" title="HTML DOM Ol 对象">&lt;ol&gt;</a></li>
+<li><a href="dom_obj_optgroup.html" title="HTML DOM OptionGroup 对象">&lt;optgroup&gt;</a></li>
+<li><a href="dom_obj_option.html" title="HTML DOM Option 对象">&lt;option&gt;</a></li>
+<li><a href="dom_obj_param.html" title="HTML DOM Parameter 对象">&lt;param&gt;</a></li>
+<li><a href="dom_obj_progress.html" title="HTML DOM Progress 对象">&lt;progress&gt;</a></li>
+<li><a href="dom_obj_quote.html" title="HTML DOM Quote 对象">&lt;q&gt;</a></li>
+<li><a href="dom_obj_script.html" title="HTML DOM Script 对象">&lt;script&gt;</a></li>
+<li><a href="dom_obj_select.html" title="HTML DOM Select 对象">&lt;select&gt;</a></li>
+<li><a href="dom_obj_source.html" title="HTML DOM Source 对象">&lt;source&gt;</a></li>
+<li><a href="dom_obj_style.html" title="HTML DOM Style 对象">&lt;style&gt;</a></li>
+<li><a href="dom_obj_table.html" title="HTML DOM Table 对象">&lt;table&gt;</a></li>
+<li><a href="dom_obj_tabledata.html" title="HTML DOM TableCell 对象">&lt;td&gt;</a></li>
+<li><a href="dom_obj_tablehead.html" title="HTML DOM TableHeader 对象">&lt;th&gt;</a></li>
+<li><a href="dom_obj_tablerow.html" title="HTML DOM TableRow 对象">&lt;tr&gt;</a></li>
+<li><a href="dom_obj_textarea.html" title="HTML DOM Textarea 对象">&lt;textarea&gt;</a></li>
+<li><a href="dom_obj_time.html" title="HTML DOM Time 对象">&lt;time&gt;</a></li>
+<li><a href="dom_obj_title.html" title="HTML DOM Title 对象">&lt;title&gt;</a></li>
+<li><a href="dom_obj_track.html" title="HTML DOM Track 对象">&lt;track&gt;</a></li>
+<li><a href="dom_obj_video.html" title="HTML DOM Video 对象">&lt;video&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>Window 对象</h1>
+
+
+<div>
+<h2>Window 对象</h2>
+
+<p>Window 对象表示浏览器中打开的窗口。</p>
+
+<p>如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。</p>
+
+<p class="note"><span>注释：</span>没有应用于 window 对象的公开标准，不过所有浏览器都支持该对象。</p>
+</div>
+
+
+<div>
+<h2>Window 对象集合</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:25%">集合</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td class="no_wrap">frames[]</td>
+    <td>
+	<p>返回窗口中所有命名的框架。</p>
+	<p>该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架或 &lt;iframe&gt;。属性 frames.length 存放数组 frames[] 中含有的元素个数。注意，frames[] 数组中引用的框架可能还包括框架，它们自己也具有 frames[] 数组。</p>
+	</td>
+  </tr>
+  </table>
+</div>
+
+
+<div>
+<h2>Window 对象属性</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:25%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_win_closed.html">closed</a></td>
+    <td>返回窗口是否已被关闭。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_defaultstatus.html">defaultStatus</a></td>
+    <td>设置或返回窗口状态栏中的默认文本。</td>
+  </tr>
+  <tr>
+    <td><a href="dom_obj_document.html">document</a></td>
+    <td>对 Document 对象的只读引用。请参阅 <a href="dom_obj_document.html">Document 对象</a>。</td>
+  </tr>
+  <tr>
+    <td><a href="dom_obj_history.html">history</a></td>
+    <td>对 History 对象的只读引用。请参数 <a href="dom_obj_history.html">History 对象</a>。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_innerheight_innerwidth.html">innerheight</a></td>
+    <td>返回窗口的文档显示区的高度。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_innerheight_innerwidth.html">innerwidth</a></td>
+    <td>返回窗口的文档显示区的宽度。</td>
+  </tr>
+  <tr>
+    <td>length</td>
+    <td>设置或返回窗口中的框架数量。</td>
+  </tr>
+  <tr>
+    <td><a href="dom_obj_location.html">location</a></td>
+    <td>用于窗口或框架的 Location 对象。请参阅 <a href="dom_obj_location.html">Location 对象</a>。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_name.html">name</a></td>
+    <td>设置或返回窗口的名称。</td>
+  </tr>
+  <tr>
+    <td><a href="dom_obj_navigator.html">Navigator</a></td>
+    <td>对 Navigator 对象的只读引用。请参数 <a href="dom_obj_navigator.html">Navigator 对象</a>。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_opener.html">opener</a></td>
+    <td>返回对创建此窗口的窗口的引用。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_outerheight.html">outerheight</a></td>
+    <td>返回窗口的外部高度。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_outerwidth.html">outerwidth</a></td>
+    <td>返回窗口的外部宽度。</td>
+  </tr>
+  <tr>
+    <td>pageXOffset</td>
+    <td>设置或返回当前页面相对于窗口显示区左上角的 X 位置。</td>
+  </tr>
+  <tr>
+    <td>pageYOffset</td>
+    <td>设置或返回当前页面相对于窗口显示区左上角的 Y 位置。</td>
+  </tr>
+  <tr>
+    <td>parent</td>
+    <td>返回父窗口。</td>
+  </tr>
+  <tr>
+    <td><a href="dom_obj_screen.html">Screen</a></td>
+    <td>对 Screen 对象的只读引用。请参数 <a href="dom_obj_screen.html">Screen 对象</a>。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_self.html">self</a></td>
+    <td>返回对当前窗口的引用。等价于 Window 属性。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_status.html">status</a></td>
+    <td>设置窗口状态栏的文本。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_win_top.html">top</a></td>
+    <td>返回最顶层的先辈窗口。</td>
+  </tr>
+  <tr>
+    <td>window</td>
+    <td>window 属性等价于 self 属性，它包含了对窗口自身的引用。</td>
+  </tr>
+  <tr>
+    <td>
+	<ul>
+	<li>screenLeft</li>
+	<li>screenTop</li>
+	<li>screenX</li>
+	<li>screenY</li>
+	</ul>
+	</td>
+    <td>只读整数。声明了窗口的左上角在屏幕上的的 x 坐标和 y 坐标。IE、Safari 和 Opera 支持 screenLeft 和 screenTop，而 Firefox 和 Safari 支持 screenX 和 screenY。</td>
+  </tr>
+  </table>
+</div>
+
+
+<div>
+<h2>Window 对象方法</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:25%">方法</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="met_win_alert.html">alert()</a></td>
+    <td>显示带有一段消息和一个确认按钮的警告框。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_blur.html">blur()</a></td>
+    <td>把键盘焦点从顶层窗口移开。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_clearinterval.html">clearInterval()</a></td>
+    <td>取消由 setInterval() 设置的 timeout。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_cleartimeout.html">clearTimeout()</a></td>
+    <td>取消由 setTimeout() 方法设置的 timeout。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_close.html">close()</a></td>
+    <td>关闭浏览器窗口。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_confirm.html">confirm()</a></td>
+    <td>显示带有一段消息以及确认按钮和取消按钮的对话框。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_createpopup.html">createPopup()</a></td>
+    <td>创建一个 pop-up 窗口。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_focus.html">focus()</a></td>
+    <td>把键盘焦点给予一个窗口。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_moveby.html">moveBy()</a></td>
+    <td>可相对窗口的当前坐标把它移动指定的像素。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_moveto.html">moveTo()</a></td>
+    <td>把窗口的左上角移动到一个指定的坐标。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_open.html">open()</a></td>
+    <td>打开一个新的浏览器窗口或查找一个已命名的窗口。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_print.html">print()</a></td>
+    <td>打印当前窗口的内容。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_prompt.html">prompt()</a></td>
+    <td>显示可提示用户输入的对话框。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_resizeby.html">resizeBy()</a></td>
+    <td>按照指定的像素调整窗口的大小。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_resizeto.html">resizeTo()</a></td>
+    <td>把窗口的大小调整到指定的宽度和高度。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_scrollby.html">scrollBy()</a></td>
+    <td>按照指定的像素值来滚动内容。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_scrollto.html">scrollTo()</a></td>
+    <td>把内容滚动到指定的坐标。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_setinterval.html">setInterval()</a></td>
+    <td>按照指定的周期（以毫秒计）来调用函数或计算表达式。</td>
+  </tr>
+  <tr>
+    <td><a href="met_win_settimeout.html">setTimeout()</a></td>
+    <td>在指定的毫秒数后调用函数或计算表达式。</td>
+  </tr>
+</table>
+</div>
+
+
+<div>
+<h2>Window 对象描述</h2>
+
+<p>Window 对象表示一个浏览器窗口或一个框架。在客户端 JavaScript 中，Window 对象是全局对象，所有的表达式都在当前的环境中计算。也就是说，要引用当前窗口根本不需要特殊的语法，可以把那个窗口的属性作为全局变量来使用。例如，可以只写 <a href="dom_obj_document.html">document</a>，而不必写 window.document。</p>
+
+<p>同样，可以把当前窗口对象的方法当作函数来使用，如只写 alert()，而不必写 Window.alert()。</p>
+
+<p>除了上面列出的属性和方法，Window 对象还实现了核心 JavaScript 所定义的所有全局属性和方法。</p>
+
+<p>Window 对象的 window 属性和 <a href="prop_win_self.html">self 属性</a>引用的都是它自己。当你想明确地引用当前窗口，而不仅仅是隐式地引用它时，可以使用这两个属性。除了这两个属性之外，parent 属性、top 属性以及 frame[] 数组都引用了与当前 Window 对象相关的其他 Window 对象。</p>
+
+<p>要引用窗口中的一个框架，可以使用如下语法：</p>
+<pre>
+frame[i]		<span>//当前窗口的框架</span>
+self.frame[i]	<span>//当前窗口的框架</span>
+w.frame[i]	<span>//窗口 w 的框架</span>
+</pre>
+
+<p>要引用一个框架的父窗口（或父框架），可以使用下面的语法：</p>
+<pre>
+parent		<span>//当前窗口的父窗口</span>
+self.parent	<span>//当前窗口的父窗口</span>
+w.parent 		<span>//窗口 w 的父窗口</span>
+</pre>
+
+<p>要从顶层窗口含有的任何一个框架中引用它，可以使用如下语法：</p>
+<pre>
+top		<span>//当前框架的顶层窗口</span>
+self.top		<span>//当前框架的顶层窗口</span>
+f.top		<span>//框架 f 的顶层窗口</span>
+</pre>
+
+<p>新的顶层浏览器窗口由方法 Window.open() 创建。当调用该方法时，应把 open() 调用的返回值存储在一个变量中，然后使用那个变量来引用新窗口。新窗口的 <a href="prop_win_opener.html">opener 属性</a>反过来引用了打开它的那个窗口。</p>
+
+<p>一般来说，Window 对象的方法都是对浏览器窗口或框架进行某种操作。而 <a href="met_win_alert.html">alert() 方法</a>、<a href="met_win_confirm.html">confirm() 方法</a>和 <a href="met_win_prompt.html">prompt 方法</a>则不同，它们通过简单的对话框与用户进行交互。</p>
+</div>
+
+
+
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

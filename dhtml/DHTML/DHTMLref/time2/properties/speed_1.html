@@ -1,0 +1,106 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>speed Property (currTimeState) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>speed Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves the playback speed of an element at run time, which includes the cascading effect of the speed set for the parent time container.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax">[ <SPAN CLASS="clsRange">fcurrSpeed</SPAN><B> =</B> ] <I>currTimeState</I>.<B>speed</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">fcurrSpeed</SPAN></TD><TD><b>Floating-point</b> that
+receives the run-time speed of an element.</TD></TR></TABLE><P>The property is read-only.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The value of this read-only property reflects the speed settings inherited by the element from its parent time container. For example, if the <A HREF="../../time2/properties/speed.html">speed</A> properties of both an element's parent time container and the element itself are set to 0.5, the element plays back at 25% of its normal playback speed. In other words, the parent plays at 50% speed and the child plays at 50% of the parent speed, yielding a 25% playback speed for the child.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example accesses an element's <B>speed</B> property at run time.  Click the buttons to see the difference between the speed of the <A HREF="../../time2/elements/video.html">video</A> element and the value of the <B>speed</B> property exposed by the <A HREF="../../time2/objects/currtimestate.html">currTimeState</A> object. In this case, the speed value is the product of speed settings for the element and its parent.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="SPEED=&quot;2&quot;;speed=&quot;0.5&quot;">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;speed Property&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:PAR id="p1" SPEED="2" &gt;
+&lt;t:VIDEO id="v1" BEGIN="1" style="position:absolute; top:80px; left:20px;
+height:100px;"
+src="shuttle3.wmv"
+speed="1.5"
+/&gt;
+&lt;/t:PAR&gt;
+&lt;BUTTON class="time" style="position:absolute;top:200px" repeatCount="indefinite"
+onclick="alert('Run time speed: ' +  v1.currTimeState.speed);"&gt;
+Run time speed&lt;/BUTTON&gt;
+&lt;BUTTON class="time" style="position:absolute;top:200px;left:150px"
+repeatCount="indefinite" onclick="alert('Video element speed: ' + v1.speed);"&gt;
+Video element speed&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/speed_1.htm" FEATURES="top=10,left=50,height=525,width=625,status=0,resizeable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/objects/currtimestate.html">
+currTimeState</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

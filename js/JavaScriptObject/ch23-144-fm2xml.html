@@ -1,0 +1,565 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-140-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-152-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-144-fm2xml"></A><A NAME="jscript4-IDXTERM-3735"></A><A NAME="jscript4-IDXTERM-3736"></A><A NAME="IXT-23-55062"></A><A NAME="IXT-23-55063"></A><A NAME="IXT-23-55064"></A><A NAME="jscript4-IDXTERM-3740"></A><A NAME="IXT-23-55065"></A><A NAME="IXT-23-55066"></A><A NAME="IXT-23-55067"></A><A NAME="IXT-23-55068"></A><A NAME="IXTR3-1"></A><A NAME="IXT-23-55069"></A><A NAME="IXT-23-55070"></A><A NAME="IXT-23-55071"></A><A NAME="IXT-23-55072"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Date</i></b></td>
+
+<td align="right"><i>操作日期和时间的对象</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText"><A NAME="jscript4-IDXTERM-3735"></A>
+
+<A NAME="jscript4-IDXTERM-3736"></A>JavaScript
+
+1.0; JScript 1.0; ECMAScript v1</P>
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+<P class="docText"> 继承于 Object </P><A NAME="ch23-145-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new Date( )
+
+new Date(<TT><I>milliseconds</I></TT>)
+
+new Date(<TT><I>datestring</I></TT>)
+
+new Date(<TT><I>year</I></TT>, <TT><I>month</I></TT>, <TT><I>day</I></TT>, <TT><I>hours</I></TT>, <TT><I>minutes</I></TT>, <TT><I>seconds</I></TT>, <TT><I>ms</I></TT>)</PRE>
+
+
+
+<P class="docText">
+没有参数的构造函数Date()将把创建的Date对象设置为当前的日期和时间。如果传
+递给它的参数是一个数字，那么这个数字将被作为日期的内部数字表示，其单位是毫秒，就像方法getTime()的返回值一样。如果传递给它的参数是一个字符串，它就
+是日期的字符串表示，其格式就是方法Date.parse()接受的格式。否则，传递给该构造函数的参数是2～7个数字，它们分别指定了日期和时间的各个字段。除了前两
+个字段(年和月字段)外，其他所有字段都是可选的。注意，声明这些日期和时间的
+字段使用的都是本地时间，而不是UTC时间(类似于GMT时间)。参阅静态方法
+Date.UTC()。</P>
+
+
+
+<P class="docText">
+Date()还可以作为普通函数被调用，而不带有运算符new。以这种方式调用时，
+Date()将忽略传递给它的所有参数，返回当前日期和时间的字符串表示。</P>
+
+
+
+<A NAME="ch23-146-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<A NAME="IXT-23-55064"></A><DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>milliseconds</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">期望的日期距1970年1月1日午夜(UTC)的毫秒数。例如，假定传递的参数值为5000，那么创建的Date对象代表日期的就是1970年1月1日午夜过5秒。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>datestring</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个字符串，声明了日期，也可以同时声明时间。这个字符串的格式应该是方法Date.parse()能够接受的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>year</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">年份，一个四位数。例如，2001指的是2001年。为了与早期的JavaScript实现
+    兼容，如果它的值在0～99之间，则给它加上1900。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>month</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">月份，0(代表一月)到11(代表十二月)之间的一个整数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>day</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个月的某一天，1～31之间的一个整数。注意，这个参数将1作为它的最小值
+    而其他参数则以0为最小值。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>hours</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">小时，0(午夜)到23(晚上11点)之间的一个整数。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>minutes</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">分钟，0～59之间的一个整数。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>seconds</I></TT></span></DT>
+
+<DD>
+
+<P class="docList"> 秒，0～59之间的一个整数。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>ms</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">毫秒，0～999之间的一个整数。该参数是可选的。</P>
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-147-fm2xml"></A>
+
+<h4 class="docRefsectTitle">方法</h4>
+
+
+
+<P class="docText">Date对象没有可以直接读写的属性，所有对日期和时间值的访问都是通过方法执行的。Date对象的大多数方法采用两种形式，一种是使用本地时间进行操作，另一种是使用世界(UTC或GMT)时进行操作。如果方法的名字中有“UTC"，它将使用世界时进行操作。下面将这些方法对列在一起。例如，get[UTC]Day()指方法getDay()
+和getUTCDay()。</P>
+
+
+
+<P class="docText">只有Date对象才能调用Date方法，如果用其他类型的对象调用这些方法，将抛出异常TypeError。</P>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Date(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象所代表的月中的某一天，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Day(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 返回Date对象所代表的一周中的某一天，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]FullYear(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回日期中的年份，用四位数表示，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Hours(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象的小时字段，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Milliseconds(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 返回lDate对象的毫秒字段，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Minutes(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象的分钟字段，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Month(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象的月份字段，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">get[UTC]Seconds(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象的秒字殴，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">getTime(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象的内部毫秒表示。注意，该值独立于时区，所有没有单独的
+    getUTCtime()方法。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">getTimezoneOffset(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回这个日期的本地时间和UTC表示之间的时差，以分钟为单位。注意，是否是夏令时或在指定的日期中夏令时是否有效，将决定该方法的返回值。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">getYear(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回Date对象的年份。一般不使用这种方法，推荐使用的方法是getFullYear()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]Date(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的月中的某一天，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]FullYear(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的年份字段(月份和天数字段可选)，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]Hours(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的小时字段(分钟、秒和毫秒字段可选)，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]Milliseconds(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的毫秒字段，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]Minutes(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的分钟字段(秒和毫秒字段可选)，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]Month(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的月份字段(一个月的天数字段可选)，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">set[UTC]Seconds(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">设置Date对象的秒字段(毫秒字段可选)，采用本地时间或世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">setTime(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">使用毫秒的形式设置Date对象的各个字段。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">setYear(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 设置Date对象的年份字段。该方法被反对使用，推荐使用的方法是setFullYear()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toDateString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回日期的日期部分的字符串表示，采用本地时间。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toGMTString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将Date对象转换成一个字符串，采用GMT时间区。该方法被反对使用，推荐使
+    用的方法是toUTCString()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toLocaleDateString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回表示日期的日期部分的字符串，采用地方日期，使用地方日期格式化规约。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toLocaleString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将Date对象转换成·个字符串，采用本地时间和地方日期的格式化规约。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toLocaleTimeString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回日期的时间部分的字符串表示，采用本地时间，使用本地时间的格式化规约。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 将Date对象转换成—个字符串，采用本地时间。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toTimeString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 返回日期的时间部分的字符串表示，采用本地时间。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toUTCString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 将Date对象转换成一个字符串，采用世界时。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">valueOf(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将Date对象转换成它的内部毫秒格式。</P>
+</DD>
+</DL>
+
+
+
+<A NAME="ch23-148-fm2xml"></A>
+
+<h4 class="docRefsectTitle">静态方法</h4>
+
+
+
+<P class="docText">除了上面列出的实例方法之外，Date对象还定义了两个静态方法。这两个方法由构造函数Date()自身调用，而不是由Date对象调用：</P>
+
+
+
+<A NAME="IXTR3-1"></A><DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Date.parse(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">解析日期和时间的字符串表示，返回它的内部毫秒表示。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Date.UTC(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回指定的UTC日期和时间的毫秒表示。</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-149-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"> Date对象是JavaScript语言的一种内部数据类型。它由语法new Date()语法创建，
+  在前面的构造函数部分中已经说明了这种语法。</P>
+
+
+
+<P class="docText">创建了Date对象后，就可以使用多种方法来操作它。大多数方法只能用来设置或者获取对象的年份字段、月份字段、天数字段、小时字段、分钟字段以及秒字段，采用本地时间或UTC(世界时或GMT)时间。方法toString()以及它的变种可以把日期转换成人们能够读懂的字符串。所谓Date对象的内部表示就是距1970年1月1日午夜(GMT时间)的毫秒数，方法getTime()可以把Date对象转换为内部表示，方法
+setTime()可以把它从内部表示转换成其他形式。采用标准的毫秒格式时，日期和时间由一个整数表示，这使得日期算术变得格外简单。ECMAScript标准要求Date对象能够把1970年1月1日前后10亿天中的任意日期和时间表示为毫秒。这个范围在正
+负273～785年之间，所以JavaScript的时钟不会超过275755年。</P>
+
+
+
+<A NAME="ch23-150-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">一旦创建了Date对象，就可以用各种方法操作它：</P>
+
+
+
+<PRE>d = new Date(  );  // 获取当前日期和时间
+
+document.write('Today is: " + d.toLocaleDateString(  ) + '. ');  // 显示日期
+
+document.write('The time is: ' + d.toLocaleTimeString(  ));      // 显示时间
+
+var dayOfWeek = d.getDay(  );                          // 获取一周中的第几天
+
+var weekend = (dayOfWeek == 0) || (dayOfWeek == 6);  // 判断是否是周末</PRE>
+
+
+
+<P class="docText">Date对象的另一种常见用法是用某个时间的毫秒表示减去当前时间的毫秒表示来判断
+  两个时间的时差。下面的例子说明了这种用法：</P>
+
+
+
+<PRE>&lt;script language="JavaScript"&gt;
+
+today = new Date(  );      // 创建时间对象
+
+christmas = new Date(  );  // 获取当前日期对象
+
+christmas.setMonth(11);    // 把月份设置为11月
+
+christmas.setDate(25);     // 把日期设置为25号
+
+
+
+// 如果圣诞节已经过了，计算当前日期和圣诞节之间的毫秒数
+
+// 把它转换成天数
+
+//输出消息
+
+if (today.getTime(  ) &lt; christmas.getTime(  )) {
+
+    difference = christmas.getTime(  ) - today.getTime(  );
+
+    difference = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    document.write('Only ' + difference + ' days until Christmas!&lt;p&gt;');
+
+}
+
+&lt;/script&gt;
+
+
+
+// 此处是其余和HTML文档
+
+
+
+&lt;script language="JavaScript"&gt;
+
+// 下面用Data对象计时
+
+// 用1000除它，把毫秒转换成秒
+
+now = new Date(  );
+
+document.write('&lt;p&gt;It took ' +
+
+    (now.getTime(  )-today.getTime(  ))/1000 +
+
+    'seconds to load this page.');
+
+&lt;/script&gt;</PRE>
+
+
+
+<A NAME="ch23-151-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-214-fm2xml.html#ch23-214-fm2xml">Date.parse(  )</A>, <A class="docLink" HREF="ch23-321-fm2xml.html#ch23-321-fm2xml">Date.UTC(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-140-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-152-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

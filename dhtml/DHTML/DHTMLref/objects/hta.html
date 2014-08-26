@@ -1,0 +1,155 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>HTA:APPLICATION Element | HTA:APPLICATION</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>HTA:APPLICATION Element | HTA:APPLICATION Object
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Enables an extended object model for building  HTML Applications (HTA).</P><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>HTA:APPLICATION</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Attribute</TH><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../hta/applicationname.html">APPLICATIONNAME</A></NOBR></TD><TD><NOBR><A HREF="../hta/applicationname.html">applicationName</A></NOBR></TD><TD>
+Sets or retrieves the name of the HTML Application (HTA).</TD></TR><TR><TD><NOBR><A HREF="../hta/border.html">BORDER</A></NOBR></TD><TD><NOBR><A HREF="../hta/border.html">border</A></NOBR></TD><TD>
+Sets or retrieves the type of window border for the HTML Application (HTA). </TD></TR><TR><TD><NOBR><A HREF="../hta/borderstyle.html">BORDERSTYLE</A></NOBR></TD><TD><NOBR><A HREF="../hta/borderstyle.html">borderStyle</A></NOBR></TD><TD>
+Sets or retrieves the style set for the content border within the HTML Application (HTA) window.</TD></TR><TR><TD><NOBR><A HREF="../hta/caption.html">CAPTION</A></NOBR></TD><TD><NOBR><A HREF="../hta/caption.html">caption</A></NOBR></TD><TD>
+Sets or retrieves a Boolean value that indicates whether the window is set to display a title bar or caption, for the HTML Application (HTA).</TD></TR><TR><TD></TD><TD><NOBR><A HREF="../hta/commandline.html">commandLine</A></NOBR></TD><TD>
+Retrieves the argument used to launch the HTML Application (HTA).</TD></TR><TR><TD><NOBR><A HREF="../hta/contextmenu.html">CONTEXTMENU</A></NOBR></TD><TD><NOBR><A HREF="../hta/contextmenu.html">contextMenu</A></NOBR></TD><TD>
+Sets or retrieves whether the context menu is displayed when the right mouse button is clicked.</TD></TR><TR><TD><NOBR><A HREF="../hta/icon.html">ICON</A></NOBR></TD><TD><NOBR><A HREF="../hta/icon.html">icon</A></NOBR></TD><TD>
+Sets or retrieves the name and location of the icon specified in the HTML Application (HTA).</TD></TR><TR><TD><NOBR><A HREF="../hta/innerborder.html">INNERBORDER</A></NOBR></TD><TD><NOBR><A HREF="../hta/innerborder.html">innerBorder</A></NOBR></TD><TD>
+Sets or retrieves whether the inside 3-D border is displayed.</TD></TR><TR><TD><NOBR><A HREF="../hta/maximizebutton.html">MAXIMIZEBUTTON</A></NOBR></TD><TD><NOBR><A HREF="../hta/maximizebutton.html">maximizeButton</A></NOBR></TD><TD>
+Sets or retrieves a Boolean value that indicates whether a Maximize button is displayed in the title bar of the HTML Application (HTA) window.</TD></TR><TR><TD><NOBR><A HREF="../hta/minimizebutton.html">MINIMIZEBUTTON</A></NOBR></TD><TD><NOBR><A HREF="../hta/minimizebutton.html">minimizeButton</A></NOBR></TD><TD>
+Sets or retrieves a Boolean value that indicates whether a Minimize button is displayed in the title bar of the HTML Application (HTA) window.</TD></TR><TR><TD><NOBR><A HREF="../hta/navigable.html">NAVIGABLE</A></NOBR></TD><TD><NOBR><A HREF="../hta/navigable.html">navigable</A></NOBR></TD><TD>
+Sets or retrieves whether linked documents will be loaded in the main HTML Application (HTA) window or in a new browser window. </TD></TR><TR><TD><NOBR><A HREF="../hta/scroll.html">SCROLL</A></NOBR></TD><TD><NOBR><A HREF="../hta/scroll.html">scroll</A></NOBR></TD><TD>
+Sets or retrieves whether the scroll bars are displayed.</TD></TR><TR><TD><NOBR><A HREF="../hta/scrollflat.html">SCROLLFLAT</A></NOBR></TD><TD><NOBR><A HREF="../hta/scrollflat.html">scrollFlat</A></NOBR></TD><TD>
+Sets or retrieves whether the scroll bar is 3-D or flat.</TD></TR><TR><TD><NOBR><A HREF="../hta/selection.html">SELECTION</A></NOBR></TD><TD><NOBR><A HREF="../hta/selection.html">selection</A></NOBR></TD><TD>
+Sets or retrieves whether the content can be selected with the mouse or keyboard.</TD></TR><TR><TD><NOBR><A HREF="../hta/showintaskbar.html">SHOWINTASKBAR</A></NOBR></TD><TD><NOBR><A HREF="../hta/showintaskbar.html">showInTaskBar</A></NOBR></TD><TD>
+Sets or retrieves a value that indicates whether the HTML Application (HTA) is displayed in the Microsoft&#174; Windows&#174; taskbar.</TD></TR><TR><TD><NOBR><A HREF="../hta/singleinstance.html">SINGLEINSTANCE</A></NOBR></TD><TD><NOBR><A HREF="../hta/singleinstance.html">singleInstance</A></NOBR></TD><TD>
+Sets or retrieves a value that indicates whether only one instance of the specified HTML Application (HTA) can run at a time. </TD></TR><TR><TD><NOBR><A HREF="../hta/sysmenu.html">SYSMENU</A></NOBR></TD><TD><NOBR><A HREF="../hta/sysmenu.html">sysMenu</A></NOBR></TD><TD>
+Sets or retrieves a Boolean value that indicates whether a system menu is displayed in the HTML Application (HTA).</TD></TR><TR><TD><NOBR><A HREF="../hta/version.html">VERSION</A></NOBR></TD><TD><NOBR><A HREF="../hta/version.html">version</A></NOBR></TD><TD>
+Sets or retrieves the version number of the HTML Application (HTA).</TD></TR><TR><TD><NOBR><A HREF="../hta/windowstate.html">WINDOWSTATE</A></NOBR></TD><TD><NOBR><A HREF="../hta/windowstate.html">windowState</A></NOBR></TD><TD>
+Sets or retrieves the initial size of the HTA window.</TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P><DIV CLASS="clsNote"><B>
+Warning</B>&nbsp;&nbsp;HTAs can potentially expose the client machine to malicious script.  HTAs, like .exe files have read/write access to the files and system registry on the client machine. Powerful executables can be produced and delivered quickly with a few short script statements.  Use of HTAs is not recommended where security or the source of the file is questionable. </DIV></P><P>You can create an HTA by saving an existing HTML page with an .hta extension.  However, to set application window properties, such as those listed in the Members table, include the <B>HTA:APPLICATION</B> tag within the <A HREF="../objects/head.html">head</A> element.  </P><P>The <B>HTA:APPLICATION</B> element requires a closing tag.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTA:APPLICATION ... &gt; ... &lt;/HTA:APPLICATION&gt;</PRE>
+Because the <B>HTA:APPLICATION</B> element is an empty tag, it can also be closed using the following shortcut.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTA:APPLICATION ...  /&gt;</PRE></P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp; When using the shortcut, the forward slash must be preceded by a blank space.</DIV><P>This element is not rendered.</P><P>This element requires a closing tag.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example retrieves all the properties exposed by <B>HTA:APPLICATION</B>. </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;HTA Demo&lt;/TITLE&gt;
+&lt;HTA:APPLICATION ID="oHTA"
+APPLICATIONNAME="myApp"
+BORDER="thin"
+BORDERSTYLE="normal"
+CAPTION="yes"
+ICON=""
+MAXIMIZEBUTTON="yes"
+MINIMIZEBUTTON="yes"
+SHOWINTASKBAR="no"
+SINGLEINSTANCE="no"
+SYSMENU="yes"
+VERSION="1.0"
+WINDOWSTATE="maximize"/&gt;
+&lt;SCRIPT&gt;
+/* This function also retrieves the value of the commandLine property,
+which cannot be set as an attribute.  */
+function window.onload()
+{
+sTempStr = "applicationName  = " + oHTA.applicationName + "\n" +
+"border           = " + oHTA.border          + "\n" +
+"borderStyle      = " + oHTA.borderStyle     + "\n" +
+"caption          = " + oHTA.caption         + "\n" +
+"commandLine      = " + oHTA.commandLine     + "\n" +
+"icon             = " + oHTA.icon            + "\n" +
+"maximizeButton   = " + oHTA.maximizeButton  + "\n" +
+"minimizeButton   = " + oHTA.minimizeButton  + "\n" +
+"showInTaskBar    = " + oHTA.showInTaskbar   + "\n" +
+"singleInstance   = " + oHTA.singleInstance  + "\n" +
+"sysMenu          = " + oHTA.sysMenu         + "\n" +
+"version          = " + oHTA.version         + "\n" +
+"windowState      = " + oHTA.windowState     + "\n" ;
+oPre.innerText = sTempStr;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY SCROLL="no"&gt;
+&lt;PRE ID=oPre&gt;  &lt;/PRE&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="/workshop/samples/author/hta/hta_allEX.hta"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../hta/htaoverview.html">Introduction to HTML Applications (HTAs)</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,170 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="enhancedHover"
+ urn="ERiW.Snakevil.Product:HTC.attEnhancedHover"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontentready"
+	 onevent="hContentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onmouseover"
+	 onevent="hMouseOver()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onmouseout"
+	 onevent="hMouseOut()"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+// 时间循环句柄保存变量。
+__hInterval = null;
+// 行为应用权限。
+__bPermission = false;
+// 颜色值的 Red 部分是否增加。
+__bIncrColorR = false;
+// 颜色值的 Green 部分是否增加。
+__bIncrColorG = false;
+// 颜色值的 Blue 部分是否增加。
+__bIncrColorB = false;
+
+/**
+ * oncontentready 事件处理函数。
+ */
+function hContentReady() {
+	if ("A" != element.tagName) {
+		return;
+	}
+	__bPermission = true;
+	if (!element.getAttribute("title").length) {
+		var sTip = element.getAttribute("href");
+		if (0 == sTip.indexOf("mailto:")) {
+			sTip = "Mail to: " + sTip.substr(7);
+		}
+		else {
+			sTip = "Link to: " + sTip;
+		}
+		element.setAttribute("title", sTip);
+		sTip = null;
+		element.setAttribute("target", "_blank");
+	}
+}
+
+/**
+ * onmouseover 事件处理函数。
+ */
+function hMouseOver() {
+	if (!__bPermission) {
+		return;
+	}
+	with (element.runtimeStyle) {
+		textDecoration = "none";
+		color = fRandRgb();
+	}
+	__hInterval = window.setInterval(fFlash, 30);
+}
+
+/**
+ * onmouseout 事件处理函数。
+ */
+function hMouseOut() {
+	if (!__bPermission) {
+		return;
+	}
+	with (element.runtimeStyle) {
+		color = "";
+		textDecoration = "";
+	}
+	window.clearInterval(__hInterval);
+	__hInterval = null;
+}
+
+/**
+ * 链接字体闪动处理。
+ */
+function fFlash() {
+	var sColor = element.runtimeStyle.color.substr(1);
+	var iValueR = parseInt(sColor.substr(0, 2), 16);
+	var iValueG = parseInt(sColor.substr(2, 2), 16);
+	var iValueB = parseInt(sColor.substr(4, 2), 16);
+	// 根据 __bIncrColor? 来修正颜色值。
+	iValueR += 3 * (2 * __bIncrColorR - 1);
+	if (255 < iValueR) {
+		iValueR = 510 - iValueR;
+		__bIncrColorR = false;
+	}
+	else if (0 > iValueR) {
+		iValueR = 0 - iValueR;
+		__bIncrColorR = true;
+	}
+	iValueG += 3 * (2 * __bIncrColorG - 1);
+	if (255 < iValueG) {
+		iValueG = 510 - iValueG;
+		__bIncrColorG = false;
+	}
+	else if (0 > iValueG) {
+		iValueG = 0 - iValueG;
+		__bIncrColorG = true;
+	}
+	iValueB += 3 * (2 * __bIncrColorB - 1);
+	if (255 < iValueB) {
+		iValueB = 510 - iValueB;
+		__bIncrColorB = false;
+	}
+	else if (0 > iValueB) {
+		iValueB = 0 - iValueB;
+		__bIncrColorB = true;
+	}
+	// 组合颜色并更新。
+	sColor = "#";
+	var sFrag = iValueR.toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	sFrag = iValueG.toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	sFrag = iValueB.toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	element.runtimeStyle.color = sColor;
+}
+
+/**
+ * 生成随机的 RGB 颜色值。
+ */
+function fRandRgb() {
+	var sColor = "#";
+	var sFrag = Math.floor(256 * Math.random()).toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	__bIncrColorR = (0.5 < Math.random());
+	sFrag = Math.floor(256 * Math.random()).toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	__bIncrColorG = (0.5 < Math.random());
+	sFrag = Math.floor(256 * Math.random()).toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	__bIncrColorB = (0.5 < Math.random());
+	return sColor;
+}
+-->
+</SCRIPT>

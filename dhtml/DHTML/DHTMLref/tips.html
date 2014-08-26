@@ -1,0 +1,256 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>Tips and Tricks</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "common/";
+var gsGraphicsPath = "common/";
+var gsCodePath = "common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Tips and Tricks
+</H1></TD><TD ALIGN="right"><A HREF="default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>As with any type of programming, writing bug-free, efficient scripts that meet your expectations takes a bit of work. The following sections provide some tips and hints to make that work take less time and go more smoothly.</p><UL><LI><A TARGET="_self" HREF="#Checking_the_Interne">Checking the Internet Explorer Version Number</A></LI><LI><A TARGET="_self" HREF="#Canceling_a_Button_C">Canceling a Button Click</A></LI><LI><A TARGET="_self" HREF="#Preventing_a_Documen">Preventing a Document From Being Cached</A></LI><LI><A TARGET="_self" HREF="#Using_Objects">Using Objects</A></LI><LI><A TARGET="_self" HREF="#Replacing_Custom_Con">Replacing Custom Controls with DHTML</A></LI></UL><H2><A NAME="Checking_the_Interne"></A>Checking the Internet Explorer Version Number</H2><p>You should always check for the type and version of the client browser, so that your content degrades gracefully if the client browser does not support features on your Web site. </p><p>The easiest way to identify a browser and its characteristics (browser code name, version number, language, etc.) in script is through the Dynamic HTML (DHTML)?A HREF="objects/obj_navigator.html">navigator</A> object.  You can also access this object and its properties in C++ applications through the <A HREF="/workshop/browser/mshtml/reference/ifaces/iomnavigator/iomnavigator.html">IOmNavigator</A> interface.</p><p>The <A HREF="properties/useragent.html">userAgent</A> property of the <B>navigator</B> object returns a string that includes the browser and browser version.  The following example Microsoft&#174; JScript&#174; function runs on most browsers and returns the version number for any Microsoft Internet Explorer browser and zero for all other browsers. </p><PRE CLASS="clsCode" AUTOHILITE="1">function msieversion()
+// Return Microsoft Internet Explorer (major) version number, or 0 for others.
+// This function works by finding the "MSIE " string and extracting the version number
+// following the space, up to the semicolon
+{
+var ua = window.navigator.userAgent
+var msie = ua.indexOf ( "MSIE " )
+if ( msie &gt; 0 )        // is Microsoft Internet Explorer; return version number
+return parseFloat ( ua.substring ( msie+5, ua.indexOf ( ";", msie ) ) )
+else
+return 0    // is other browser
+}</PRE><p>When checking browser version numbers, always check for version numbers greater than or equal to a target version.  In this way, your Web site will be be compatible with future versions of the browser.  For example, if you have designed your content for the latest version of Internet Explorer, use that version number as a minimum version number. </p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Browsers often have several releases of a browser version. For example, 4.01, 5.0, 5.5 and 6.0b are all different versions of Internet Explorer.  The 'b' in 6.0b represents a beta version of Internet Explorer 6.</DIV><p>As of Internet Explorer 5, conditional comments are available as an alternative technique for detecting browser versions. Conditional comments have the advantage of not using a script block, which means that it is not always necessary to use scripting and DHTML when working with conditional comments. When no scripting is used in a Web page, no scripting engine needs to be loaded. Conditional comments are processed during the downloading and parsing phase, so only the content that is targeted for the browser loading the Web page is actually downloaded. Conditional comments can be combined freely with other browser detection techniques. For more information, see <A HREF="/workshop/author/dhtml/overview/ccomment_ovw.html">About Conditional Comments</A>.</p><H2><A NAME="Canceling_a_Button_C"></A>Canceling a Button Click</H2><p>The following HTML example shows a common scripting mistake related to event handling and canceling the default action.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Canceling the Default Action&lt;/TITLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function askConfirm()
+{ return window.confirm ("Choose OK to follow hyperlink, Cancel to
+not.")
+}
+&lt;/SCRIPT&gt;
+&lt;BODYonload="b3.onclick=askConfirm"&gt;
+&lt;!-- Try links with different hookups - should be canceled by "Cancel" to confirm dialog. --&gt;
+&lt;BR&gt;&lt;A NAME=b1 HREF="http://www.microsoft.com" onclick="askConfirm()"&gt;1 Without return (won't work)&lt;/A&gt;
+&lt;BR&gt;&lt;A NAME=b2 HREF="http://www.microsoft.com" onclick="return askConfirm()"&gt;2 With return (works)&lt;/A&gt;
+&lt;BR&gt;&lt;A NAME=b3 HREF="http://www.microsoft.com"&gt;3 Function pointer (works)&lt;/A&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p>The first <A HREF="objects/a.html">a</A> element in this example does not work properly. Without the <B>return</B> in the <A HREF="events/onclick.html">onclick</A>燡Script expression, the browser interprets the function expression, throws away the resulting value, and leaves the default action unaffected.</p><p>The other <B>a</B> elements correctly bind the return value to the event, hence the default action can be canceled when <SPAN CLASS="clsLiteral">false</SPAN> is returned.</p><H2><A NAME="Preventing_a_Documen"></A>Preventing a Document From Being Cached</H2><p>You can prevent a document from being cached by adding the following <A HREF="objects/meta.html">meta</A> tag to the document.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;META HTTP-EQUIV="Expires" CONTENT="0"&gt;</PRE><p>Preventing the document from being cached ensures that a fresh copy of the document will always be retrieved from the site, even during the user's current session, regardless of how the user has set the browser's caching options. This is useful if the content of the document changes frequently.</p><H2><A NAME="Using_Objects"></A>Using Objects</H2><p>Objects are Microsoft&#174; ActiveX&#174; Controls or other similar components that provide custom capabilities and services for HTML documents. You can add a control to your document using the <A HREF="objects/object.html">object</A> element, and you can gain access to the capabilities and services of the control using its properties and methods from script.</p><p>When using objects, be aware that DHTML extends every object by providing these additional properties:</p><table class="clsStd"><tr><td><A HREF="properties/align_0.html">align</A></td><td><A HREF="properties/classid.html">classid</A></td><td><A HREF="properties/code.html">code</A></td></tr><tr><td><A HREF="properties/codebase.html">codeBase</A></td><td><A HREF="properties/codetype.html">codeType</A></td></tr><tr><td><A HREF="properties/data.html">data</A></td><td><A HREF="properties/form.html">form</A></td></tr><tr><td><A HREF="properties/height_2.html">height</A></td><td><A HREF="properties/name_2.html">name</A></td></tr><tr><td><A HREF="properties/object.html">object</A></td><td><A HREF="properties/recordset.html">recordset</A></td></tr><tr><td><A HREF="properties/type_5.html">type</A></td><td><A HREF="properties/width_1.html">width</A></td></tr></table><p>If a control has properties with these same names, you will not be able to access the properties unless you preface the name with the <B>object</B> property. For example, assume that an ActiveX control is added to the document using the following:</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;OBJECT ID="MyControl" HEIGHT=100 WIDTH=200 CLASSID="clsid: ... "&gt;
+&lt;/PARAM NAME="width" VALUE="400"&gt;
+&lt;/OBJECT&gt;</PRE><p>In this example, there are two widths: an extended property set within the <B>object</B> element, and a property belonging to the control that is set using the <A HREF="objects/param.html">param</A> element. To access these from script, you use the following code.</p><PRE CLASS="clsCode" AUTOHILITE="1">alert(MyControl.width);   // this is Dynamic HTML's property; displays "200"
+alert(MyControl.object.width);  // this is the object's property; displays "400"
+</PRE><H2><A NAME="Replacing_Custom_Con"></A>Replacing Custom Controls with DHTML</H2><p>DHTML provides everything you need to generate animated effects without resorting to custom controls. For example, consider the following script, which is a replacement for the Path control.</p><PRE CLASS="clsCode" AUTOHILITE="1">var tickDuration;
+tickDuration = 50;
+var activeObjectCount;
+var activeObjects;
+var itemDeactivated;
+var tickGeneration;
+activeObjects = new Array();
+activeObjectCount = 0;
+timerRefcount = 0;
+itemDeactivated = false;
+tickGeneration = 0;
+function initializePath(e) {
+e.waypointX = new Array();
+e.waypointY = new Array();
+e.duration = new Array();
+}
+function addWaypoint(e, number, x, y, duration) {
+e.waypointX[number] = x;
+e.waypointY[number] = y;
+e.duration[number] = duration;
+}
+function compact() {
+var i, n, c;
+n = new Array();
+c = 0;
+itemDeactivated = false;
+for (i=0; i&lt;activeObjectCount; i++)  {
+if (activeObjects[i].active == true) {
+n[c] = activeObjects[i];
+c++;
+}
+}
+activeObjects = n;
+activeObjectCount = c;
+}
+function tick(generation) {
+if (generation &lt; tickGeneration) {
+// alert("Error "+generation);
+return;
+}
+//alert("tick: "+generation);
+if (itemDeactivated)
+compact();
+if (activeObjectCount == 0) {
+return;
+}
+else {
+for (i=0; i&lt;activeObjectCount; i++) {
+moveElement(activeObjects[i]);
+}
+window.setTimeout("tick("+generation+");", tickDuration);
+}
+}
+function start(e) {
+if (itemDeactivated)
+compact();
+activeObjects[activeObjectCount] = e;
+activeObjectCount++;
+if (activeObjectCount == 1) {
+tickGeneration++;
+tick(tickGeneration);
+}
+}
+function runWaypoint(e, startPoint, endPoint) {
+var startX, startY, endX, endY, duration;
+if (e.waypointX == null)
+return;
+startX = e.waypointX[startPoint];
+startY = e.waypointY[startPoint];
+endX = e.waypointX[endPoint];
+endY = e.waypointY[endPoint];
+duration = e.duration[endPoint];
+e.ticks = duration / tickDuration;
+e.endPoint = endPoint;
+e.active = true;
+e.currTick = 0;
+e.dx = (endX - startX) / e.ticks;
+e.dy = (endY - startY) / e.ticks;
+e.style.posLeft = startX;
+e.style.posTop = startY;
+start(e);
+}
+function moveElement(e) {
+e.style.posLeft += e.dx;
+e.style.posTop += e.dy;
+e.currTick++;
+if (e.currTick &gt; e.ticks) {
+e.active = false;
+itemDeactivated = true;
+if (e.onpathcomplete != null) {
+window.pathElement = e;
+e.onpathcomplete()
+}
+}
+}</PRE><p>To use this script in your document, do the following:</p><ol><li>Load the script using the <A HREF="properties/src_0.html">src</A> attribute of the <A HREF="objects/script.html">script</A> element. </li><li>Initialize the paths using the initializePath function. </li><li>Set the way points using the addWaypoint function. </li><li>Set the path-complete handlers using the runWaypoint function. </li></ol><p>The following sample document shows how this works.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;html&gt;
+&lt;body&gt;
+&lt;div id=Item1 style="position: absolute; left: 0; top: 0;"&gt;Item1&lt;/div&gt;
+&lt;div id=Item2 style="position: absolute; left: 0; top: 0;"&gt;Item2&lt;/div&gt;
+&lt;div id=Item3 style="position: absolute; left: 0; top: 0;"&gt;Item3&lt;/div&gt;
+&lt;div id=Item4 style="position: absolute; left: 0; top: 0;"&gt;Item4&lt;/div&gt;
+&lt;div id=Item5 style="position: absolute; left: 0; top: 0;"&gt;Item5&lt;/div&gt;
+&lt;div id=Item6 style="position: absolute; left: 0; top: 0;"&gt;Item6&lt;/div&gt;
+&lt;input type=button value="Start" onclick="runWaypoint(Item1, 0, 1); runWaypoint(Item2, 0, 1);"&gt;
+&lt;div id=Debug&gt;Generation&lt;/div&gt;
+&lt;script src="htmlpath.js"&gt;
+&lt;/script&gt;
+&lt;script&gt;
+// need to call initializePath on all objects that will be moved with this mechanism
+initializePath(Item1);
+initializePath(Item2);
+initializePath(Item3);
+initializePath(Item4);
+initializePath(Item5);
+initializePath(Item6);
+// the 0th waypoint is the initial position for waypoint #1
+// syntax is item, waypoint, endx, endy, duration in msecs
+addWaypoint(Item1, 0, 0, 0, 0);
+addWaypoint(Item1, 1, 200, 200, 2000);
+addWaypoint(Item2, 0, 100, 100, 0);
+addWaypoint(Item2, 1, 400, 100, 4000);
+addWaypoint(Item3, 0, 400, 400, 0);
+addWaypoint(Item3, 1, 200, 100, 1000);
+addWaypoint(Item4, 0, 0, 0, 0);
+addWaypoint(Item4, 1, 200, 200, 2000);
+addWaypoint(Item5, 0, 100, 100, 0);
+addWaypoint(Item5, 1, 400, 100, 4000);
+addWaypoint(Item6, 0, 400, 400, 0);
+addWaypoint(Item6, 1, 200, 100, 1000);
+function endfunction() {
+// syntax for runWaypoint is Item, start point, end point
+runWaypoint(Item3, 0, 1);
+runWaypoint(Item4, 0, 1);
+runWaypoint(Item5, 0, 1);
+runWaypoint(Item6, 0, 1);
+}
+function endfunction2() {
+runWaypoint(Item1, 0, 1);
+}
+Item1.onpathcomplete = endfunction;
+Item6.onpathcomplete = endfunction2;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV><info><product rid="prod_IE" minver="4.0"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform><platform rid="plat_ce" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

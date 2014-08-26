@@ -1,0 +1,92 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>VCARD_NAME Attribute | vcard_name</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>VCARD_NAME Attribute | vcard_name Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the <span class="clsLiteral">vCard</span> value of the <span replace="1">object</span> to use for the AutoComplete box.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>VCARD_NAME</B>
+= <SPAN CLASS="clsRange">sVCard</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>vcard_name</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sVCard</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sVCard</SPAN></TD><TD><b>String</b> that specifies one or more of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.City</SPAN></TD><TD>Business city mapped to the vCard.Business.City schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.Country</SPAN></TD><TD>Business country/region mapped to the vCard.Business.Country schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.Fax</SPAN></TD><TD>Business fax number mapped to the vCard.Business.Fax schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.Phone</SPAN></TD><TD>Business telephone number mapped to the vCard.Business.Phone schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.State</SPAN></TD><TD>Business state, province, or territory mapped to the vCard.Business.State schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.StreetAddress</SPAN></TD><TD>Business street address mapped to the vCard.Business.StreetAddress schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.URL</SPAN></TD><TD>Business Web site address mapped to the vCard.Business.URL schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Business.Zipcode</SPAN></TD><TD>Business postal code number mapped to the vCard.Business.Zipcode schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Cellular</SPAN></TD><TD>Cellular phone number mapped to the vCard.Cellular schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Company</SPAN></TD><TD>Company name mapped to the vCard.Company schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Department</SPAN></TD><TD>Company or agency department name mapped to the vCard.Department schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.DisplayName</SPAN></TD><TD>User-selected display name mapped to the vCard.DisplayName schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Email</SPAN></TD><TD>E-mail address mapped to the vCard.Email schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.FirstName</SPAN></TD><TD>First name mapped to the vCard.FirstName schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Gender</SPAN></TD><TD>Gender mapped to the vCard.Gender schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.City</SPAN></TD><TD>Home city mapped to the vCard.Home.City schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.Country</SPAN></TD><TD>Home country/region mapped to the vCard.Home.Country schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.Fax</SPAN></TD><TD>Home fax number to the vCard.Home.FAX schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.Phone</SPAN></TD><TD>Home telephone number to the vCard.Home.Phone schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.State</SPAN></TD><TD>Home state, province, or territory mapped to the vCard.Home.State schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.StreetAddress</SPAN></TD><TD>Home street address mapped to the vCard.Home.StreetAddress schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Home.Zipcode</SPAN></TD><TD>Home postal code number mapped to the vCard.Home.Zipcode schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Homepage</SPAN></TD><TD>Web page address mapped to the vCard.Homepage schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.JobTitle</SPAN></TD><TD>Company or agency job title mapped to the vCard.JobTitle schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.LastName</SPAN></TD><TD>Last name mapped to the vCard.LastName schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.MiddleName</SPAN></TD><TD>Middle name mapped to the vCard.MiddleName schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Notes</SPAN></TD><TD>Additional notes mapped to the vCard.Notes schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Office</SPAN></TD><TD>Office location mapped to the vCard.Office schema.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">vCard.Pager</SPAN></TD><TD>Pager number mapped to the vCard.Pager schema.</TD></TR></TABLE></TD></TR></TABLE><P>The property is write-only.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>A vCard is a standards-based way to refer to common personal information about a user.</P><P>When a <B>VCARD_NAME</B> attribute is specified, the AutoComplete box is populated with mapped values from the Profile Assistant and any other submitted values stored for that domain. For example, if a user enters an e-mail address into a text field that exposes a <B>VCARD_NAME</B> attribute set to <span class="clsLiteral">vCard.Email</span>, AutoComplete suggests any e-mail information provided in the Profile Assistant. If the user submits a different e-mail address, the new information becomes available on that domain for other text fields with the same <B>VCARD_NAME</B> value.</P><P>If the <B>VCARD_NAME</B> attribute is not specified, the name of the text field is used to map the submitted information. However, information from the Profile Assistant is not used.</P><P>You can disable the AutoComplete feature by specifying <span class="clsLiteral">no</span> to the <A HREF="../properties/autocomplete.html">AUTOCOMPLETE</A> attribute.</P><P>Even though you can map <A HREF="../objects/input_password.html">PASSWORD</A> values for AutoComplete, the browser can disable the ability to store this information. When this occurs, the browser prompts the user for a confirmation before storing the value.</P><P>The object model and a Web page do not have access to information provided by the AutoComplete feature until the user selects one of the suggestions for the text field.</P><P>This property is not supported in <A HREF="/workshop/author/hta/overview/htaoverview.html">HTML Applications</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>VCARD_NAME</B> attribute to map the value of the text field to the e-mail address specified by the Profile Assistant.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;INPUT
+TYPE = text NAME= "CustomerEmail"
+VCARD_NAME = "vCard.Email"
+&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/forms/autocomplete_ovr.html">Using AutoComplete in HTML Forms</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

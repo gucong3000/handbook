@@ -1,0 +1,302 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1>关于元素行为</h1>
+		<hr>
+		<p>元素行为是微软<span>Internet Explorer 5.5</span>中最有意义的新功能之一。它们提供了定义自定义元素并如一般的<span>HTML</span>元素一样在网页中使用的能力。元素行为可以使用脚本编写在一份<span>HTML</span>组件<span>(HTC)</span>文件中，也可以通过一个二进制编码的动态<span>HTML</span><span>(DHTML)</span>行为来实现。元素行为是封装的组件，因此它们可以添加新的有趣的功能以改进网页中内容、功能和样式的组织性。</p>
+		<p><span>DHTML</span>行为从<span>Internet Explorer 5</span>中开始引入，它可以通过设置层叠样式表<span>(CSS)</span>的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/behavior.asp"><span>behavior</span></A>属性或在脚本中使用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/addbehavior.asp"><span>addBehavior</span></A>方法来修改标准<span>HTML</span>元素的行为。这一部分的<span>DHTML</span>行为现在作为附加性行为来访问，以此区别使用不同的绑定机制和拥有其他独有特性的元素行为。</p>
+		<p>元素行为可用于实现从一个简单的滚动效果到复杂的交互式组件的任何内容。一个特殊的处理指令被用于向网页中导入元素行为，导入的同时关联到一个自定义元素。一旦元素行为下载完毕并解析完成，文档层次中就添加了一个元素并一直保持到文档关闭。在这个角度上看，元素行为与附加性行为完全不同。一个附加性行为异步地绑定到一个元素上并修改它的行为，而且它可以使用程序来完成附加或移除。</p>
+		<p><span>Internet Explorer 5.5</span>中元素行为给行为组件模型带来了一些改进。这些改进给附加性行为的已有功能提供了新的特征，并提供了更多的可靠性和活力。但是，附加性行为并未被元素行为所替代，在许多情况下依旧很有用。</p>
+		<p>元素行为的被命名为<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/viewlink.asp"><span>viewlink</span></A>的新特性，让<span>HTC</span>文件可以封装私有的文档树，并将其与主页面的内容区分开来。这向我们展现了另一个隐藏在<a href="intrviwlnk.html">《<span>ViewLink</span>简介》</A>中的可能的领域。</p>
+		<p>元素行为可以使用<span>HTC</span>文件或二进制编码的<span>DHTML</span>行为来实现，而这两种途径所使用的技术是有很大区别的。本文关注于如何使用<span>HTC</span>文件来编写元素行为。欲了解关于编写二进制编码的元素行为的更多信息，请阅读<a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/belementb.asp">《如何使用<span>ATL</span>创建二进制编码元素行为》</A>。</p>
+		<p>此文档中讨论下面的主题。</p>
+		<ul>
+			<li><a href="#Terminology">术语</A></li>
+			<li><a href="#Prerequisites">先决条件</A></li>
+			<li><a href="#Benefits">优势</A></li>
+			<li><a href="#Creating_Custom_Element">创建一个自定义元素</A></li>
+			<li><a href="#Creating_Rollover_Tag">创建一个滚动标签</A></li>
+			<li><a href="#Inline-Block_Elements">行内元素？还是块元素？</A></li>
+			<li><a href="#LightWeightHTCs">轻量的<span>HTC</span>文件</A></li>
+			<li><a href="#LiteralContent">固化内容</A></li>
+			<li><a href="#defaults_Object"><span>defaults</span>对象</A></li>
+			<li><a href="#Content_Custom_Elements">访问自定义元素的内容</A></li>
+			<li><a href="#Component_Initialization">组件初始化</A></li>
+			<li><a href="#Binary_Components">二进制编码的行为</A></li>
+			<li><a href="#Download_Permissions">下载许可</A></li>
+			<li><a href="#PrintingEBs">防止打印的难题</A></li>
+			<li><a href="#ParsingEBTags">使用空元素标签</A></li>
+			<li><a href="#related_topics">相关主题</A></li>
+		</ul>
+		<h2><LABEL>Terminology</LABEL>术语<a name="Terminology"></A></h2>
+		<p>此部分定义了本文中使用到的术语。</p>
+		<table>
+			<tr>
+				<th>附加性行为</th>
+				<td>异步方式绑定到标准<span>HTML</span>元素上的<span>DHTML</span>行为。可以使用<span>CSS</span>中的<B><span>behavior</span></B>属性或使用脚本中的<B><span>addBehavior</span></B>行为来附加<span>DHTML</span>行为。</td>
+			</tr>
+			<tr>
+				<th>元素行为</th>
+				<td><span>Internet Explorer 5.5</span>的特性，允许<span>DHTML</span>行为以同步方式转变为自定义元素。由元素行为转变来的自定义元素可以像其他元素一样在<span>HTML</span>文档中使用，该行为的功能绝对不会从该元素上移除。</td>
+			</tr>
+			<tr>
+				<th><span>viewlink</span></th>
+				<td>元素行为的特性，让<span>HTC</span>文件的内容可以显示在网页中。</td>
+			</tr>
+			<tr>
+				<th>主文档</th>
+				<td>客户端正在浏览的网页。</td>
+			</tr>
+			<tr>
+				<th>文档片段</th>
+				<td>独立存在于主文档正文内容之外的一个或多个<span>HTML</span>元素。<span>Viewlink</span>特性或其他诸如<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/appendchild.asp"><span>appendChild</span></A>的脚本方法，可以用于插入一个文档片段到主文档中并渲染此片段。</td>
+			</tr>
+			<tr>
+				<th>自定义元素</th>
+				<td>用户自行定义的元素，也可以理解为自定义标签。要使用自定义元素必需为<span>HTML</span>文档声明相应的命名空间。</td>
+			</tr>
+			<tr>
+				<th>主元素</th>
+				<td>实现<span>Viewlink</span>方式的元素行为的自定义元素。<span>Viewlink</span>让元素行为的文档片段可以作为主文档中的内容被渲染。</td>
+			</tr>
+			<tr>
+				<th>轻量的<span>HTC</span></th>
+				<td>不使用或不渲染其独有的<span>HTML</span>内容的<span>HTML</span>组件文件。当需要使组件的初始化过程最优化或尽可能提升网页的渲染速度时可用。</td>
+			</tr>
+			<tr>
+				<th>命名空间</th>
+				<td>可供自定义元素和属性使用的名称的集合。命名空间用于确保每个元素都能被唯一性的识别。欲了解更多的信息，请阅读<a href="http://msdn.microsoft.com/library/en-us/xmlsdk30/htm/xmtuttut5usingnamespaces.asp">《<span>XML</span>指南：使用命名空间》</A>。</td>
+			</tr>
+		</table>
+		<p>此总概关注于使用<span>HTC</span>文件来实现自定义元素的元素行为上。因此，除非是其他的一些特定情况，否则本总概中的元素行为都不通过二进制编码的形式实现。</p>
+		<p>虽然元素行为可用于定义自定义元素，但这并非自定义元素的唯一使用方法。例如，附加性行为同样可以加载到自定义元素上。</p>
+		<h2><LABEL>Prerequisites</LABEL>先决条件<a name="Prerequisites"></A></h2>
+		<p>你需要熟悉<span>DHTML</span>行为和<span>HTC</span>组件的概念。如果你才刚刚接触<span>DHTML</span>行为，那么总概<a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</A>和<a href="htcref.html"><span>HTC</span>参考</A>都有助于理解元素行为的基础知识。</p>
+		<h2><LABEL>Benefits</LABEL>优势<a name="Benefits"></A></h2>
+		<p>元素行为最主要的优势在于，它们让创建如同标准<span>HTML</span>元素一般能够在网页中使用的自定义元素变得可行。<span>Internet Explorer 5.5</span>是支持将自定义元素定义在<span>HTC</span>文件中的第一个浏览器。附加性行为重载了元素的默认行为，而元素行为则用于定义新的元素。自从元素行为封装入<span>HTC</span>文件开始，网页中使用自定义元素的实现过程就变得更容易组织，而主文档的内容也不再像之前那么混乱。<span>HTC</span>文件定义的<span>DHTML</span>行为可以用在同域的任何页面中，因此元素行为是创建强大的、复用性高的组件的一种卓越的途径。</p>
+		<p>从一个元素行为同步加载开始，其相应的自定义元素便立即在行为下载并解析完毕后完成它的初始化过程。同步绑定元素行为的用法使它们能够与正规的<span>HTML</span>元素和平相处并继续保持活性。元素行为的活性由其绑定机制决定，但对任何组件而言，元素行为的可靠性和功能性还是依靠于其实现的质量。元素行为无法通过脚本或其他的机制与其相应的自定义元素断开关联，在很多<span>DHTML</span>行为的程序中这都是一个很令人满意的特性。因此，元素行为应该被理解为真实的<span>HTML</span>元素；一旦它被解析并渲染，那么它就作为一个元素存在于文档树中。</p>
+		<p>以<span>HTC</span>文件编写的元素行为几乎可以实现二进制编码<span>DHTML</span>行为所能实现的所有效果。但实现使用<span>HTC</span>文件的元素行为明显要快捷的多，在使用脚本编写完功能后，唯一的结果便是开发者不再需要去学习微软的<span>Visual C++</span>来编写自定义的浏览器控件而减轻了痛苦。同样的，当你选择使用<span>HTC</span>文件来建立元素行为时，你明显不再受到组件可实现功能的选择范围的限制。唯一必需使用二进制<span>DHTML</span>行为的情形是：当你需要编写一个渲染行为或当组件不得不使用到查询服务。</p>
+		<p>在使用<span>HTC</span>文件来实现元素行为时浏览器安全的问题则比较简单，主要是因为客户端必需在二进制编码的组件在下载到客户端之前提供相应的许可权限。但当元素行为是以<span>HTC</span>文件的方式实现时，它自动作为网页的一部分而被下载，其结果是在浏览过程中组件下载过程对客户端而言是不可见的。<span>HTC</span>文件在<span>Internet Explorer</span>中的实现需要<span>HTC</span>文件放置在主文档的相同域中，否则会返回一个访问被拒绝的错误。</p>
+		<p>开发另人注目的交互性的网页需要几个技巧，另外需要编写者、程序员和设计师协同工作一起来开发网页。传统页面的编制工作意味着单一的<span>HTML</span>文档，其中包含一定的脚本、内容和排版。这种情况因<span>HTML</span>文档的普及的激发出来，但实际上一份<span>HTML</span>文件很难找到一个合适的方法来让一个团队进行合作。<span>HTC</span>文件的美丽之处正在于它将内容、脚本和样式封装到独立的容器中，让不同领域的专家只专注于自己的工作中。</p>
+		<p><span>Internet Explorer 5.5</span>中的行为组件模型给我们带来了很多基于组件的网络开发中的好处。就比如可以构建强大的<span>HTC</span>文件库系统，使代码更容易管理，而维护所需的消耗更加低廉。</p>
+		<h2><LABEL>Creating a Custom Element</LABEL>创建一个自定义元素<a name="Creating_Custom_Element"></A></h2>
+		<p>下面的步骤大致描述了网页中自定义元素创建和使用的基本过程。</p>
+		<ul>
+			<li>在<span>HTC</span>文件中定义元素行为。</li>
+			<li>在主文档中导入自定义元素的定义。</li>
+		</ul>
+		<p>使用<span>HTC</span>文件实现元素行为与附加性行为的编写非常相似。最主要的区别在于组件在主文档中的实现。对于附加性行为，行为通过设置<B><span>behavior</span></B>属性为<span>HTC</span>文件的地址来加载到<span>HTML</span>元素上，而元素行为这是在创建自定义元素时完成行为的绑定工作。</p>
+		<h3>定义元素行为</h3>
+		<p>要定义一个元素行为，主要的任务是编写<span>HTC</span>文件。每个<span>HTC</span>文件使用一个<a href="../elements/component.html"><span>PUBLIC:COMPONENT</span></A>元素；此元素提供了一个其他用于定义组件接口和设置组件默认属性的元素的容器。<B><span>HTC</span>参考</B>提供了所有可用在<B><span>PUBLIC:COMPONENT</span></B>元素中的子元素的信息。</p>
+		<p>元素行为使用<B><span>PUBLIC:COMPONENT</span></B>标签的<span>tagName</span>属性来指定自定义元素的名称。在下面的例子里实现了一个名为<span>checkers</span>的自定义元素。</p>
+		<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;checkers&quot;&gt;<br>&lt;/PUBLIC:COMPONENT&gt;<br></code>
+		<p>到目前为止，这个<span>checkers</span>标签的实现还仅仅完成了一个框架，还缺乏属性来设置其外观、功能强度、或其他别的内容。自定义元素的属性可以使用<a href="../elements/property.html"><span>PUBLIC:PROPERTY</span></A>属性来进行定义。下面的例子里给<span>checkers</span>增加了一个名为<span>boardWidth</span>的属性：</p>
+		<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;checkers&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:PROPERTY&nbsp;name=&quot;boardWidth&quot;&nbsp;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		<p><span>HTC</span>文件中的脚本函数可以设置为对其他组件或主文档中的脚本是公共可访问的。在下面的例子里，组件中又新增了一个<a href="../elements/method.html"><span>PUBLIC:METHOD</span></A>元素，它使用<span>newGame</span>函数来开始一盘新的<span>checkers</span>游戏。同样的，新增了<a href="../elements/attach.html"><span>PUBLIC:ATTACH</span></A>元素映射了用于处理<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseover.asp"><span>onmouseover</span></A>事件实例的<span>mouseover</span>函数。</p>
+		<div class="example">
+			<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;checkers&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:PROPERTY&nbsp;name=&quot;boardWidth&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:METHOD&nbsp;name=&quot;newGame()&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:ATTACH&nbsp;event=&quot;onmouseover&quot;&nbsp;onevent=&quot;mouseover()&quot;&nbsp;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;<br><br>&lt;SCRIPT&nbsp;language=&quot;Javascript&quot;&gt;<br>function&nbsp;newGame(){<br><U>//&nbsp;insert&nbsp;code&nbsp;to&nbsp;initialize&nbsp;a&nbsp;new&nbsp;game&nbsp;here</U><br>}<br><br>function&nbsp;mouseover(){<br><U>//&nbsp;insert&nbsp;code&nbsp;to&nbsp;handle&nbsp;mouseover&nbsp;events</U><br>}<br>&lt;/SCRIPT&gt;<br>&lt;BODY&gt;<br>&lt;/BODY&gt;</code>
+		</div>
+		<p>要完成这个行为，还需要在<B><span>PUBLIC:COMPONENT</span></B>元素中添加更多的元素，来定义<span>checkers</span>组件的其他方法、属性和事件处理函数。一份完成的<span>checkers</span>组件大体上还应该包含<span>checkers</span>游戏的执行脚本。一旦完成，那么<span>checkers</span>游戏的实现便完全封装在<span>Checkers.htc</span>文件中。</p>
+		<p>注意<span>checkers</span>组件的实现过程中并没有涉及到命名空间；命名空间是在主文档中声明的，此部分会在下一段中给出详细的解释。同一元素行为可以在单一的主文档中导入到不同的命名空间中，虽然这一技术并未在样例中使用，但对于很多其他类型的组件还是很有用处的。</p>
+		<p>正如例子所展示的，推荐将脚本块放置在<B><span>PUBLIC:COMPONENT</span></B>的定义之后。同样的，脚本块应该防止在<span>&lt;BODY&gt;</span>标签之前，或者直接放置在<span>&lt;/SPAN&gt;</span>标签之前。</p>
+		<p>欲了解关于在行为中使用<B><span>PUBLIC:COMPONENT</span></B>标签的信息，请阅读<a href="usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</A>。</p>
+		<h3>导入自定义元素</h3>
+		<p>主文档需要一些简单的附加信息来导入自定义元素。<span>HTML</span>文档首先声明一个命名空间，用于确保自定义信息是确保唯一的。下面的<span>HTML</span>元素通过<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/xmlns.asp"><span>XMLNS</span></A>属性声明了一个被命名为<span>games</span>的命名空间。设置这个属性让自定义元素可以在主文档中通过附加<span>"games"</span>前缀来被使用。</p>
+		<code>&lt;HTML&nbsp;XMLNS:games</code>
+		<p>下一步是导入自定义元素到此命名空间中。在下面的例子中，命名空间<span>games</span>导入了<span>Checkers.htc</span>文件中的<span>checkers</span>元素的实现内容。</p>
+		<code>&lt;?IMPORT&nbsp;namespace=&quot;games&quot;&nbsp;implementation=&quot;checkers.htc&quot;&nbsp;/&gt;</code>
+		<p><a href="../elements/import.html"><span>IMPORT</span></A>指令是在主文档中实现元素行为的真正关键之处。当浏览器开始处理<B><span>IMPORT</span></B>指令时，它将一直等待直到<span>HTC</span>文件完全下载完备，而后才继续处理后面的内容。此指令处理的方式是为什么行为会同步加载到自定义元素的根本性原因。</p>
+		<p>最后，自定义元素必须在主文档正文的某个地方添插进去。自定义元素可以如其他标签一样被使用，只是自定义元素将其命名空间作为前缀在使用。<span>checkers</span>游戏的自定义元素可以如下面这般被定义：</p>
+		<code>&lt;games:checkers&gt;&lt;/games:checkers&gt;</code>
+		<p>简单的自定义元素无须写成块元素的结构，所以在这种情况下也可以使用下面的方式。</p>
+		<code>&lt;games:checkers&nbsp;/&gt;</code>
+		<p>如果自定义元素在使用中并没有关闭标签，正如前面例子里的那样，最后一个元素属性必须与结束的<span>/&gt;</span>字符分隔开，或者该属性的值必须加上引号。阅读<a href="#ParsingEBTags">《使用空元素标签》</A>以获得更多的信息。</p>
+		<p>下面显示的，是实现了<span>checkers</span>元素的完成版本的<span>HTML</span>文件。</p>
+		<code>&lt;HTML&nbsp;xmlns:games&gt;<br>&lt;HEAD&gt;<br>&lt;?IMPORT&nbsp;namespace=&quot;games&quot;&nbsp;implementation=&quot;checkers.htc&quot;&nbsp;/&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;games:checkers&nbsp;/&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+		<p>现在创建元素行为的基本步骤已经介绍完毕，下面是时候继续实现一个更强功能的实例了。</p>
+		<h2><LABEL>Creating a Rollover Tag</LABEL>创建一个滚动标签<a name="Creating_Rollover_Tag"></A></h2>
+		<p>这个实例使用元素行为来创建一个实现了滚动效果的自定义元素。滚动是文本块比较常见的功能，在鼠标指针移至文本块上时，它改变了文本块的外观。它们用于提供可视的回执信息来指明该元素是可以被点击的。</p>
+		<p>一种较好的实现简单滚动效果的方法是使用附加性行为来改变<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/a.asp"><span>A</span></A>标签的行为，因为简单的滚动效果并不一定需要去创建自定义元素。不过本实例示范了一些经常使用于更复杂的应用程序中的实用技术。需要了解附加性行为如何实现滚动，请阅读<a href="http://msdn.microsoft.com/workshop/author/behaviors/howto/using.asp">《使用<span>DHTML</span>行为》</A>。</p>
+		<h3>创建<span>Rollover</span>组件</h3>
+		<p><span>HTC</span>文件包含了<span>rollover</span>标签的实现过程。该标签只有一个被命名为<span>href</span>的属性，是用户点击此<span>rollover</span>时的访问网页的超链接。</p>
+		<p><span>rollover</span>标签需要处理下面的事件：</p>
+		<ul>
+			<li><B><span>onmouseover</span></B>发生在当鼠标指针移至<span>rollover</span>元素的时候。事件处理函数改变文本颜色为红色，加上下划线，并将指针改变为手的形状。</li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseout.asp"><span>onmouseout</span></A>发生在当鼠标指针从<span>rollover</span>移开的时候。事件处理函数将文本还原为它的初始状态。</li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onclick.asp"><span>onclick</span></A>发生在该<span>rollover</span>被点击的时候。事件处理函数在确定设置了<span>href</span>属性之后载入该属性指定的网页。</li>
+		</ul>
+		<p>下面的实例展示了如何为<span>rollover</span>标签创建<span>HTC</span>文件。</p>
+		<ol>
+			<li>
+				<p>创建<span>HTC</span>文件。</p>
+				<p>创建一个命名为<span>rollover.htc</span>的文本文件并添加<B><span>PUBLIC:COMPONENT</span></B>标签。</p>
+				<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;rollover&quot;&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+				<p><B><span>PUBLIC:COMPONENT</span></B>标签指明该<span>HTC</span>文件包含了一个名为<span>"rollover"</span>的标签的实现过程。</p>
+			</li>
+			<li>
+				<p>添加属性定义。</p>
+				<p>在第一行之后，添加<span>href</span>属性的定义。</p>
+				<code>&lt;PUBLIC:PROPERTY&nbsp;name=&quot;href&quot;&nbsp;/&gt;</code>
+				<p>这个实例为<span>rollover</span>标签定义了属性<span>href</span>。</p>
+			</li>
+			<li>
+				<p>创建事件处理函数。</p>
+				<p>将<span>rollover</span>标签的三个不同事件附加上处理函数。</p>
+				<code>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onmouseover&quot;&nbsp;for=&quot;element&quot;&nbsp;onevent=&quot;Hilite()&quot;&nbsp;/&gt;<br>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onmouseout&quot;&nbsp;for=&quot;element&quot;&nbsp;onevent=&quot;UnHilite()&quot;&nbsp;/&gt;<br>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onclick&quot;&nbsp;for=&quot;element&quot;&nbsp;onevent=&quot;GotoLink()&quot;&nbsp;/&gt;</code>
+				<p>这个实例附加了下列事件到<span>rollover</span>元素上：</p>
+				<ul>
+					<li><B><span>onmouseover</span></B>触发<span>Hilite()</span></li>
+					<li><B><span>onmouseout</span></B>触发<span>UnHilite()</span></li>
+					<li><B><span>onclick</span></B>触发<span>GotoLink()</span></li>
+				</ul>
+			</li>
+			<li>
+				<p>编写事件处理函数脚本。</p>
+				<p>在<B><span>PUBLIC:COMPONENT</span></B>之后添加<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/script.asp"><span>&lt;SCRIPT&gt;</span></A>标签来封闭脚本和事件处理函数。</p>
+				<code>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>&lt;/SCRIPT&gt;</code>
+				<p>在<B><span>script</span></B>标签之间，添加每个事件处理函数的定义和其他用于实现行为功能的脚本。<span>Hilite</span>事件处理函数如下：</p>
+				<code>function&nbsp;Hilite()<br>{<br>&nbsp;&nbsp;normalColor&nbsp;=&nbsp;element.style.color;<br>&nbsp;&nbsp;normalDecoration&nbsp;=&nbsp;style.textDecoration;<br>&nbsp;&nbsp;element.style.color&nbsp;=&nbsp;&quot;red&quot;;<br>&nbsp;&nbsp;element.style.cursor&nbsp;=&nbsp;&quot;hand&quot;;<br>&nbsp;&nbsp;element.style.textDecoration&nbsp;=&nbsp;&quot;underline&quot;;<br>}</code>
+				<p><span>Hilite</span>事件处理函数保存了<span>rollover</span>标签内文本的颜色和文本修饰状态，并设置颜色为红色，设置鼠标指针为手形（指明这是一个超链接），同时还设置文本修饰为下划线。</p>
+				<p><span>UnHilite</span>事件处理函数如下：</p>
+				<code>function&nbsp;UnHilite()<br>{<br>&nbsp;&nbsp;element.style.color&nbsp;=&nbsp;normalColor;<br>&nbsp;&nbsp;element.style.textDecoration&nbsp;=&nbsp;normalDecoration;<br>&nbsp;&nbsp;element.style.cursor&nbsp;=&nbsp;&quot;&quot;;<br>}</code>
+				<p>此事件处理函数将<span>rollover</span>标签内文本的颜色和文本修饰状态还原为<span>Hilite</span>事件处理函数所保存的值。</p>
+				<p>最后，<span>GotoLink</span>事件处理函数如下：</p>
+				<code>function&nbsp;GotoLink()<br>{<br>&nbsp;&nbsp;if(element.href)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;location.href=element.href;<br>&nbsp;&nbsp;}<br>}</code>
+				<p>此事件处理函数检查是否定义了<span>href</span>属性，如果有定义，则跳转访问<span>href</span>属性指定的网页地址。</p>
+			</li>
+		</ol>
+		<p>到目前为止，<span>rollover</span>标签已经完全实现，可以在主文档中使用了。</p>
+		<h3>创建<span>Rollover</span>自定义标签</h3>
+		<p>此部分展示如何实现<span>rollover</span>自定义元素。</p>
+		<ol>
+			<li>
+				<p>创建<span>HTML</span>文件。</p>
+				<p>创建一份<span>HTML</span>文件并在文件的顶部声明使用的命名空间。此实例使用名为<span>addon</span>的命名空间。该命名空间的名称并不重要，但必须声明一个。</p>
+			</li>
+			<li>
+				<p>声明命名空间。</p>
+				<p>要声明自己的命名空间，使用：</p>
+				<code>&lt;HTML&nbsp;XMLNS:addon&gt;</code>
+			</li>
+			<li>
+				<p>导入标签的实现。</p>
+				<p>通过在<span>&lt;HTML</span>元素之后添加下面的指令以导入标签的实现过程：</p>
+				<code>&lt;?IMPORT&nbsp;namespace=&quot;addon&quot;&nbsp;implementation=&quot;rollover.htc&quot;&nbsp;/&gt;</code>
+				<p><span>IMPORT</span>标签是处理指令，或缩写为<span>PI</span>。使用<span>&lt;?</span>来替代<span>&lt;</span>字符开始该标签，以区别于规则的<span>HTML</span>元素。</p>
+			</li>
+			<li>
+				<p>添加新的自定义元素。</p>
+				<p>自定义元素现在就可以使用了。例如：</p>
+				<code>&lt;BODY&gt;<br>&lt;addon:rollover&nbsp;href=&quot;http://www.microsoft.com&quot;&gt;Visit&nbsp;the&nbsp;Microsoft&nbsp;Web&nbsp;Site&lt;/addon:rollover&gt;<br>&lt;/BODY&gt;</code>
+			</li>
+		</ol>
+		<p>当鼠标指针移至<span>rollover</span>标签时，该标签内文本的颜色变为红色，添加了下划线，同时鼠标指针变为手形。当鼠标指针移出该标签时，鼠标指针还原为箭头，同时文本返回其初始状态。如果用户点击了该标签内的文本，同时定义了<span>href</span>属性，该属性指定的网页地址被载入。</p>
+		<h2><LABEL>Inline vs. Block Elements</LABEL>行内元素？还是块元素？<a name="Inline-Block_Elements"></A></h2>
+		<p>默认的，元素行为在主文档中作为行内元素被渲染。需要将元素行为作为块元素被渲染，你需要设置元素的显示属性为<span>"block"</span>。</p>
+		<p>此样例<span>HTC</span>文件中的元素行为渲染为行内元素。样例中的脚本在元素被点击时设置主元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/display.asp"><span>display</span></A>属性为<span>"block"</span>。</p>
+		<div class="example">
+			<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;animals&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:ATTACH&nbsp;event=&quot;onclick&quot;&nbsp;onevent=&quot;makeBlock()&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>&nbsp;&nbsp;<U>//The&nbsp;element&nbsp;behavior&nbsp;renders&nbsp;as&nbsp;an&nbsp;inline&nbsp;element&nbsp;by&nbsp;default.</U><br>&nbsp;&nbsp;element.innerHTML&nbsp;=&nbsp;&quot;*Element&nbsp;behavior:&nbsp;Click&nbsp;me&nbsp;if&nbsp;you&nbsp;dare.&quot;;<br>&nbsp;&nbsp;element.style.cursor&nbsp;=&nbsp;&quot;hand&quot;;<br>&nbsp;&nbsp;element.style.backgroundColor&nbsp;=&nbsp;&quot;orange&quot;;<br>&nbsp;&nbsp;function&nbsp;makeBlock()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;element.innerHTML&nbsp;=&nbsp;&quot;Element&nbsp;behavior:&nbsp;Lions&nbsp;and&nbsp;tigers&nbsp;and&nbsp;bears.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;<U>//Setting&nbsp;the&nbsp;element's&nbsp;style&nbsp;to&nbsp;'block'&nbsp;renders&nbsp;it&nbsp;as&nbsp;a&nbsp;block&nbsp;element</U><br>&nbsp;&nbsp;&nbsp;&nbsp;<U>//in&nbsp;the&nbsp;primary&nbsp;page.</U><br>	&nbsp;&nbsp;element.style.display&nbsp;=&nbsp;&quot;block&quot;;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;&lt;/SCRIPT&gt;<br>&nbsp;&nbsp;&lt;BODY&gt;<br>&nbsp;&nbsp;&lt;/BODY&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		</div>
+		<p>此样例的主文档包含了文档片段。</p>
+		<div class="example">
+			<code>&lt;HTML&nbsp;XMLNS:element&gt;<br>&lt;HEAD&gt;<br>&lt;?IMPORT&nbsp;namespace=&quot;element&quot;&nbsp;implementation=&quot;animalBehavior2.htc&quot;&nbsp;/&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;BASEFONT&nbsp;face=&quot;Verdana&quot;&nbsp;size=&quot;4&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;DIV&nbsp;style=&quot;BACKGROUND-COLOR:&nbsp;green;&nbsp;color:&nbsp;white;&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Containing&nbsp;page:&nbsp;The&nbsp;tortoise&nbsp;and&nbsp;the&nbsp;hare.&nbsp;&lt;/DIV&gt;<br>&nbsp;&nbsp;&lt;ELEMENT:animals&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;DIV&nbsp;style=&quot;FONT-SIZE:&nbsp;x-small&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;P&gt;*Click&nbsp;the&nbsp;element&nbsp;behavior&nbsp;to&nbsp;change&nbsp;it&nbsp;into&nbsp;a&nbsp;block&nbsp;element.&lt;/P&gt;<br>&nbsp;&nbsp;&lt;/DIV&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+			<button href="../examples/"></button>
+		</div>
+		<h2><LABEL>Lightweight HTC Files</LABEL>轻量的<span>HTC</span>文件<a name="LightWeightHTCs"></A></h2>
+		<p><span>Internet Explorer</span>在主文档中为行为元素的每次实用都创建不同的文档树。当一份<span>HTC</span>文件实际上也是一份<span>HTML</span>文档时，一个由其内容组成的文档树会在其被解析的时候被建立。当大量的元素行为组合在单一页面时，其结果是使页面的载入变得异常缓慢。</p>
+		<p>事实上经常会有需要去编写一个并不含任何<span>HTML</span>的<span>HTC</span>文件；当需要完成这项任务时，<B><span>PUBLIC:COMPONENT</span></B>的新属性<span>lightweight</span>将开始有用起来。当这个属性被设置时，<span>HTC</span>文件会以尽可能高效的方式被处理。轻量的<span>HTC</span>的处理过程中，那些毫无用处的解析过程和创建的空文档树都被消除掉了。因此，使用一个轻量的<span>HTC</span>的结果是让页面载入的更快，尤其在同一自定义元素多次被实例化的时候。</p>
+		<p>如果一个组件包含一份文档片段并在主文档中使用<span>viewlink</span>来进行渲染，那么<span>HTC</span>文件会被非常高效的处理掉。在需要由<span>HTC</span>文件组成的应用程序中，行为并不需要使用<span>viewlink</span>来渲染内容，甚至简单到根本就没有内容需要渲染；在这种情况下，可以指定一个轻量的组件来纠正无用的内存开支。</p>
+		<p>因此，当组件在实现时如果无需拥有它自己的文档树，轻量的组件会是最好的实现选择。而达到这个目的的方法，就如下面实例所展示的，设置<B><span>PUBLIC:COMPONENT</span></B>元素的<span>lightweight</span>属性：</p>
+		<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;rollover&quot;&nbsp;lightweight=&quot;true&quot;&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		<p>轻量的<span>HTC</span>文件只支持下面的标签。</p>
+		<code>&lt;PUBLIC:COMPONENT&gt;<br>&lt;?IMPORT&gt;<br>&lt;PUBLIC:PROPERTY&gt;<br>&lt;PUBLIC:METHOD&gt;<br>&lt;PUBLIC:ATTACH&gt;<br>&lt;PUBLIC:DEFAULTS&gt;<br>&lt;SCRIPT&gt;<br>&lt;HTML&gt;</code>
+		<p>因为<span>rollover</span>标签实例在<span>HTC</span>文件中并未使用<span>HTML</span>，也因为它可以在一份常见的网页中多次使用，因此它是轻量元素行为的好样例。<span>checkers</span>自定义元素同样可以作为轻量的<span>HTC</span>文件来实现。</p>
+		<p>尽管轻量的<span>HTC</span>文件并没有自己的文档结构，并因此没有<a href="../objects/document.html"><span>document</span></A>对象可以引用，但实际上轻量的<span>HTC</span>文件依旧可以包含<span>HTML</span>，只是这些内容被忽略掉了。<span>HTC</span>文件中的脚本可以在主文档中以<a href="../objects/element.html"><span>element</span></A><B>.<span>document</span>.</B><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/createelement.asp"><span>createElement</span></A>的格式使用<B><span>createElement</span></B>方法来添加内容。</p>
+		<p>因为<span>&lt;?IMPORT&gt;</span>处理指定可以在轻量的<span>HTC</span>文件中使用，故可以嵌套<span>HTC</span>文件。</p>
+		<h2><LABEL>Literal Content</LABEL>固化内容<a name="LiteralContent"></A></h2>
+		<p>当自定义元素标记为固化内容时，因为不会被解析并渲染，开始和结束标签之间的内容可以达到很多目的。组件的作者可以操作自定义元素的内容，或以组件实现的目标方式进行解析。当固化内容的组件被定义时，自定义元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/innerhtml.asp"><span>innerHTML</span></A>并未被解析或添加到文档树中，但仍然可以通过脚本进行访问。<span>HTML</span>文档中最为常见的三个使用固化内容的元素是<span>&lt;SCRIPT&gt;</span>、<span>&lt;XML&gt;</span>和<span>&lt;STYLE&gt;</span>标签。</p>
+		<p>固化内容的元素行为需要指定<B><span>PUBLIC:COMPONENT</span></B>元素的<span>literalContent</span>属性：</p>
+		<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;myTag&quot;&nbsp;literalcontent=&quot;true&quot;&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		<p>当自定义元素以固化元素行为方式实现时，<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/innertext.asp"><span>innerText</span></A>属性是不可用的。任何设置该自定义元素的<B><span>innerText</span></B>的尝试都会导致错误。如果在脚本中获取固化内容的元素行为的<B><span>innerText</span></B>属性，<span>null</span>会被返回。</p>
+		<p><B><span>innerHTML</span></B>属性可以用于设置及获取自定义元素的固化内容。自定义元素的<B><span>innerHTML</span></B>属性在<a href="../events/contentready.html"><span>oncontentready</span></A>事件发生后才可用。否则，会出现一个错误以指明<B><span>innerHTML</span></B>属性当前不可用。</p>
+		<p><a href="../events/contentsave.html"><span>oncontentsave</span></A>事件发生在进行保存、复制、获取<B><span>innerText</span></B>、获取<B><span>innerHTML</span></B>或托拽操作的时候。因此该事件在编写固化内容的元素行为时是很有用处的。</p>
+		<p>可扩展标记语言<span>(XML)</span>的数据岛就是一个很好的固化内容的样例。欲获取更多信息，请阅读<a href="http://msdn.microsoft.com/library/en-us/xmlsdk30/htm/xmconxmldataislands.asp">《<span>XML</span>数据岛》</A>。</p>
+		<h2><LABEL>The defaults Object</LABEL><span>defaults</span>对象<a name="defaults_Object"></A></h2>
+		<p><a href="../objects/defaults.html"><span>defaults</span></A>对象用于设置及获取<span>HTC</span>文件的默认属性。此对象同样拥有声明方式，<a href="../elements/defaults.html"><span>PUBLIC:DEFAULTS</span></A>元素，用于<span>HTC</span>的组件定义部分中设置行为属性的初始状态。</p>
+		<p>当<B><span>viewlink</span></B>属性被设置为一个对象的包含文档的内容时，该元素行为的<span>viewlink</span>状态是肯定的。此时<B><span>viewlink</span></B>属性的值引用到文档片段上。默认的，<B><span>viewlink</span></B>属性的初始值为<span>null</span>，意味着不存在文档片段。欲了解更多信息，请阅读<a href="intrviwlnk.html">《<span>ViewLink</span>简介》</A>。</p>
+		<p><B><span>PUBLIC:DEFAULTS</span></B>元素的部分属性与<B><span>defaults</span></B>对象的部分属性是相对应的，因此你可以通过脚本或声明中的任意一种方式来设置属性。</p>
+		<p>下面的样例展示了<B><span>PUBLIC:DEFAULTS</span></B>元素如何为元素行为定义默认的<span>CSS</span>样式属性：</p>
+		<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;myTag&quot;&gt;<br>&lt;PUBLIC:DEFAULTS&nbsp;style=&quot;FONT-WEIGHT:bold;FONT-STYLE:italic&quot;&nbsp;tabstop=&quot;true&quot;&nbsp;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		<p>本样例中<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/tabstop.asp"><span>tabStop</span></A>属性同样设置为真，这意味着该元素行为存在于<span>TAB</span>移焦序列中并可以获得焦点。</p>
+		<h2><LABEL>Accessing the Content of Custom Elements</LABEL>访问自定义元素的内容<a name="Content_Custom_Elements"></A></h2>
+		<p>要访问自定义元素的内容，使用<B><span>element</span></B>对象。<span>HTC</span>文件中的脚本可以通过引用<B><span>element</span></B>对象来访问并修改自定义元素的内容。</p>
+		<code>element.style.color&nbsp;=&nbsp;&quot;red&quot;;</code>
+		<p>前面的实例改变了该标签包含的文本的颜色为红色。</p>
+		<p>主文档树同样在组件脚本中被访问到，但需使用下面的格式：</p>
+		<code>element.document</code>
+		<p>如果单独使用<B><span>document</span></B>对象，访问到的将是<span>HTC</span>文件的<B><span>document</span></B>对象。</p>
+		<h2><LABEL>Component Initialization</LABEL>组件初始化<a name="Component_Initialization"></A></h2>
+		<p>元素行为同步绑定到自定义元素上。因此无须添加事件处理函数来检测组件是否下载完毕并被解析。组件在执行时便已实时地被解析。</p>
+		<p><span>HTC</span>文件的行内脚本在浏览器可以运行该文件时便会被执行，因此这部分脚本的任何初始化操作都应仅仅应用到不依赖于自定义元素状态的物件上，或任何存在于主文档的内容上。</p>
+		<p>当<B><span>oncontentready</span></B>事件发生时，自定义元素的内容已被成功解析并建立。<span>HTC</span>文件如果需要设置任何应用到该自定义元素或其内容的属性，都应该添加一个此事件的处理函数。同样的，<B><span>oncontentready</span></B>是在脚本中初始化<span>viewlink</span>行为的正确事件。</p>
+		<p>当<a href="../events/documentready.html"><span>ondocumentready</span></A>事件发生时，文档已经完全解析并建立。如果组件的初始化过程涉及到主文档的结构，那么相应的代码应该放置在这里。<B><span>ondocumentready</span></B>事件通告组件，整个页面都已被载入，然后在主文档的<a href="http://msdn.microsoft.com/workshop/author/behaviors/reference/events/onload_1.asp"><span>onload</span></A>事件发生前，该事件便会发生。</p>
+		<p>一些新的方法，诸如<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/doscroll.asp"><span>doScroll</span></A>，需要主文档被完全载入。如果这些方法是任何初始化函数的一部分，那么这些代码应该在<B><span>ondocumentready</span></B>事件发生时便进行处理。</p>
+		<h2><LABEL>Binary Behaviors</LABEL>二进制编码的行为<a name="Binary_Components"></A></h2>
+		<p>元素行为同样可以使用二进制编码的<span>DHTML</span>行为实现。二进制编码的行为一般使用诸如<span>Visual C++</span>的语言进行编写。在这部分网页中二进制编码的<span>DHTML</span>行为的使用只是稍稍带过，二进制编码的行为如何编写并不在本文的涉及范围内。欲了解更多关于使用或编写二进制编码的行为的信息，请阅读<a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/creating.asp">《实现二进制编码的<span>DHTML</span>行为》</A>。</p>
+		<p>下面的代码样例说明了在主文档中导入二进制编码的<span>DHTML</span>行为的基本方法。</p>
+		<code>&lt;HTML&nbsp;XMLNS:mybb&gt;<br>&lt;HEAD&gt;<br>&lt;OBJECT&nbsp;id=&quot;mytag&quot;&nbsp;<U>...</U>&nbsp;&gt;&lt;/OBJECT&gt;<br>&lt;?IMPORT&nbsp;namespace=&quot;mybb&quot;&nbsp;implementation=&quot;#mytag&quot;&nbsp;/&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;MYBB:MYTAG&gt;&lt;/MYBB:MYTAG&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+		<p>样例在<span>&lt;HEAD&gt;</span>部分包含有<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/object.asp"><span>object</span></A>元素，二进制编码的<span>DHTML</span>行为推荐使用该元素来完成实现过程。该元素的<span>ID</span>属性值为<span>mytag</span>，其他属性为了简洁并未显示出来。二进制编码的行为使用了类似于<span>HTC</span>文件的导入方法，但<span>implementation</span>属性被设置为引用<B><span>object</span></B>元素标识的<span>#mytag</span>，而非<span>HTC</span>文件的地址。</p>
+		<p><B><span>IMPORT</span></B>处理指令可以出现在<span>HTML</span>文件的任何地方，但在实现二进制编码的行为时必须放置在<B><span>object</span></B>标签之前。另一个将<B><span>object</span></B>标签放置在头部分的原因是该标签并不渲染任何二进制编码的<span>DHTML</span>行为的内容，因此不应归在正文部分中。任何不在文档正文中的<B><span>object</span></B>标签都应放置在文档的头部分。<B><span>IMPORT</span></B>处理指令并不是<span>HTML</span>元素，它不会在主文档中被渲染，也不属于文档树的一部分。</p>
+		<h2><LABEL>Download Permissions</LABEL>下载许可<a name="Download_Permissions"></A></h2>
+		<p><span>HTC</span>的内容被理解为主文档的一部分，因此<span>HTC</span>文件被自动下载到浏览器，而无须在下载前由用户赋予权限。<span>HTC</span>文件的一个权限需求是必须放置在与主文档同域的地址上，否则会出现访问被拒绝的错误。欲了解关于组件下载情况的更多信息，请阅读《<B><span>HTC</span>参考</B>》和<a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</A>。</p>
+		<p>二进制编码的组件不同于<span>HTC</span>文件，它们基本上都以微软<span>ActiveX</span>组件的形式被处理，因此对安全性有更高的要求。一般来说，它们都需要用户确认以获取下载权限，除非主文档所在站点已被设置在安全设定中。</p>
+		<h2><LABEL>Preventing Printing Problems</LABEL>防止打印的难题<a name="PrintingEBs"></A></h2>
+		<p>如果元素行为通过脚本修改了主文档的元素树，当页面被打印时该元素行为的内容可能会出现两次。同样的，<span>HTC</span>文件中的脚本会被再次执行。通过添加下面的条件语句来封闭更改元素树的脚本，你可以解决掉打印的问题。</p>
+		<code>if(document.media&nbsp;!=&nbsp;&quot;print&quot;)&nbsp;{<br><U>//&nbsp;script&nbsp;that&nbsp;modifies&nbsp;the&nbsp;element&nbsp;tree&nbsp;goes&nbsp;here</U><br>}</code>
+		<h2><LABEL>Using Empty-Element Tags</LABEL>使用空元素标签<a name="ParsingEBTags"></A></h2>
+		<p>当你使用诸如<span>&lt;A:B&nbsp;/&gt;</span>的空元素标签时，结束的<span>/&gt;</span>字符串可能会被曲解为某个属性值得一部分。下面的表格展示了在空元素标签中定义属性并能被正确解析的各种方式。</p>
+		<table>
+			<tr>
+				<th>标签</th>
+				<th><span>Internet Explorer</span></th>
+				<th>注意</th>
+			</tr>
+			<tr>
+				<td class="value">&lt;A:B&nbsp;value=c/&gt;</td>
+				<td>不合法</td>
+				<td><span>Internet Explorer</span>无法判定该标签是否封闭，因此会尝试检索<span>&lt;/A:B&gt;</span>封闭标签。</td>
+			</tr>
+			<tr>
+				<td class="value">&lt;A:B&nbsp;value=c&nbsp;/&gt;</td>
+				<td>合法</td>
+				<td><span>c</span>之后的空格结束了<span>value</span>属性。</td>
+			</tr>
+			<tr>
+				<td class="value">&lt;A:B&nbsp;value=&quot;c&quot;/&gt;</td>
+				<td>合法</td>
+				<td><span>c</span>之后的引号结束了<span>value</span>属性。</td>
+			</tr>
+		</table>
+		<h2><LABEL>Related Topics</LABEL>相关主题<a name="related_topics"></A></h2>
+		<ul>
+			<li><a href="usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</A></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/howto/using.asp">《使用<span>DHTML</span>行为》</A></li>
+			<li><a href="http://msdn.microsoft.com/library/en-us/xmlsdk30/htm/xmconxmldataislands.asp">《<span>XML</span>数据岛》</A></li>
+			<li><a href="intrviwlnk.html">《<span>ViewLink</span>简介》</A></li>
+			<li><a href="uselitcontattr.html">《使用<span>literalContent</span>属性》</A></li>
+			<li><a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/creating.asp">《实现二进制编码的<span>DHTML</span>行为》</A></li>
+			<li><a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/belementb.asp">《如何使用<span>ATL</span>创建二进制编码元素行为》</A></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>IMPORT</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="obj_implementation.html" title="implementation 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>implementation 对象</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" style="vertical-align:top" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"> <A HREF="INPUT.html" title="INPUT 元素 | input 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>INPUT 元素 | input 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>IMPORT 处理指令</H1>
+<HR SIZE="1"><P>从元素行为中导入标签定义。</P>
+<P CLASS="clsRef">语法</P>
+<BLOCKQUOTE>
+<PRE CLASS="clsSyntax">&lt;?IMPORT
+&nbsp;&nbsp;&nbsp;&nbsp;namespace&nbsp;=&nbsp;"<I>sNameSpace</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;implementation&nbsp;=&nbsp;"<I>sImplementation</I>"
+&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">属性</P>
+<BLOCKQUOTE>
+<DL>
+<DT><B>namespace</B></DT>
+<DD>必需。指定了先前定义的标签定义将要导入的命名空间。</DD>
+<DT><B>implementation</B></DT>
+<DD>必需。下列值之一:
+<TABLE CLASS="clsStd">
+<TR>
+<TD><SPAN CLASS="clsLiteral">#default</SPAN></TD>
+<TD>Microsoft<SUP>&reg;</SUP> Internet Explorer 5.5 或更高版本内建的元素行为。</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsLiteral">#objectID</SPAN></TD>
+<TD>指定 <A HREF="../objects/OBJECT.html">object</A> 标签 <A HREF="../properties/id.html">id</A> 属性的字符串。</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">sImplementation</SPAN></TD>
+<TD>指定包含标签定义的 HTML 组件(HTC)文件。</TD>
+</TR>
+</TABLE>
+</DD>
+</DL>
+</BLOCKQUOTE>
+<P CLASS="clsRef">处理指令信息</P>
+<BLOCKQUOTE>
+<TABLE CLASS="clsStd">
+<TR>
+<TH TITLE="在父元素中允许的出现次数">出现次数</TH>
+<TD>无限</TD>
+</TR>
+<TR>
+<TH TITLE="可包含该元素的元素">父元素</TH>
+<TD><A HREF="../objects/BODY.html">BODY</A>, <A HREF="../objects/HEAD.html">head</A></TD>
+</TR>
+<TR>
+<TH>最低版本</TH>
+<TD>Internet Explorer5.5</TD>
+</TR>
+<TR>
+<TH>最低操作系统</TH>
+<TD>Windows95, Windows NT4.0</TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>在一个 Web 页上可以多次出现 <B>IMPORT</B> 处理指令(PI)。</P>
+<P>在 <A HREF="../objects/HTML.html">html</A> 标签中定义的 <A HREF="../properties/xmlns.html">XMLNS</A> 属性的值，必须与在 <B>IMPORT</B> 处理指令 <SPAN CLASS="clsLiteral">namespace</SPAN> 属性的值相对应。否则该导入标签定义将不会被使用。</P>
+<P>如果 <B>implementation</B> 属性的值非法则导入的标签将不会渲染。如果你正在使用 HTC 文件，那么该文件也必须遵从与行为相同的安全规则。要获得关于安全性更多的信息，请参看 <A HREF="/workshop/author/behaviors/overview.html">DHTML 行为</A>方面的文章。</P>
+<P><B>IMPORT</B> 处理指令可以放置在文档 <A HREF="../objects/BODY.html">body</A> 关闭标签之前的任何地方。但是，<B>IMPORT</B> 处理值令必须放置在使用导入标签定义的自定义元素第一次出现之前。如果 <B>IMPORT</B> 处理指令放置在自定义元素之后，行为就不会被附加到自定义元素上。这还意味着不应该使用 document.<A HREF="../methods/write.html">write</A> 方法向文档中添加 <B>IMPORT</B> 处理指令。</P>
+<P>作为 <B>IMPORT</B> 处理指令的一种替代形式，使用 <A HREF="../methods/doImport.html">doImport</A> 方法可以动态导入元素行为。<B>doImport</B> 方法一般与 <A HREF="../methods/createElement.html">createElement</A> 方法联合使用以便插入附加行为的自定义元素。</P>
+<P><B>IMPORT</B> 处理指令只在文档的初始化处理时执行。因此，使用元素行为的文档必须在 HTML 文件中包含 <B>IMPORT</B> 处理指令。假如 <B>IMPORT</B> 处理指令是在主文档中指定的，就可以使用 document.<B>write</B> 方法添加附加行为的自定义元素。</P>
+<P><B>IMPORT</B> 处理指令不是 <A HREF="../collections/all.html">all</A> 集合的成员。但是，<B>IMPORT</B> 处理指令的内容可通过 document.body.<A HREF="../properties/innerHTML.html">innerHTML</A> 属性访问。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子演示了 <B>IMPORT</B> 处理指令的用途。<B>html</B> 标签中定义的 <B>XMLNS</B> 属性被用于匹配 <B>IMPORT</B> 处理指令的 <SPAN CLASS="clsLiteral">namespace</SPAN> 属性。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:games&gt;
+&lt;?IMPORT namespace="games" implementation="checkers.htc"&gt;
+&lt;BODY&gt;
+&lt;games:checkers/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此处理指令的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="../methods/doImport.html">doImport</A>, <A HREF="/workshop/author/behaviors/overview/viewlink_ovw.html">Viewlink</A>, <A HREF="/workshop/author/behaviors/overview/elementb_ovw.html">元素行为</A>, <A HREF="/workshop/browser/hosting/printpreview/reference/behaviors/DeviceRect.html">DeviceRect</A></BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

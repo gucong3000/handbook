@@ -1,0 +1,183 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Introduction to HTML+TIME</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Introduction to HTML+TIME
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>HTML+TIME (Timed Interactive Multimedia Extensions), first released in Microsoft?Internet Explorer 5, adds timing and media synchronization support to HTML pages. Using a few Extensible Markup Language (XML)-based elements and attributes, you can add images, video, and sounds to an HTML page, and synchronize them with HTML text elements over a specified amount of time. In short, you can use HTML+TIME technology to quickly create multimedia-rich, interactive presentations, easily and with little or no scripting.</p><p>HTML+TIME 2.0 is based on the <A HREF="http://www.w3.org/tr/2000/wd-smil-boston-20000622/html-smil-profile.html" TARGET="_top">HTML+SMIL language profile</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"> in the <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"> working draft. <B>SMIL 2.0</B> is the W3C successor to SMIL 1.0.  HTML+TIME 2.0 is the successor to HTML+TIME 1.0.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;HTML+TIME 2.0 is available in minimal installations of Internet Explorer 5.5 and Internet Explorer 6.</DIV><p>This article covers the following topics:</p><UL><LI><A TARGET="_self" HREF="#Benefits">Benefits</A></LI><LI><A TARGET="_self" HREF="#Behaviors">HTML+TIME Behaviors and Elements</A></LI><LI><A TARGET="_self" HREF="#Model">HTML+TIME Timing Model</A></LI><LI><A TARGET="_self" HREF="#Authoring">Authoring HTML+TIME</A></LI><LI><A TARGET="_self" HREF="#Timelines">Exclusive, Sequential and Parallel Time Container Elements</A></LI><LI><A TARGET="_self" HREF="#Compatibility">Compatibility</A></LI><LI><A TARGET="_self" HREF="#Notes">HTML+TIME Implementation Notes</A></LI><LI><A TARGET="_self" HREF="#Newsgroup">HTML+TIME Newsgroup</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="Benefits"></A>Benefits</H2><p>The following section contains information about the benefits of using HTML+TIME.</p><UL><LI><A TARGET="_self" HREF="#Benefit1">Dynamic Content</A></LI><LI><A TARGET="_self" HREF="#Benefit2">Ease of Use</A></LI><LI><A TARGET="_self" HREF="#Benefit3">Scripting Support</A></LI></UL><H3><A NAME="Benefit1"></A>Dynamic Content</H3><p>You can use HTML+TIME to add dynamic, interactive content to your Web pages. For example, you can create slide-show-style Web presentations with synchronized text, images, audio, video, and streaming media. You can create these presentations so that they are timed, interactive, or a combination of both.</p><H3><A NAME="Benefit2"></A>Ease of Use</H3><p>To add timing to an HTML document, all you have to do is add some new attributes to existing HTML elements. Thus, you can leverage your existing HTML knowledge when you add timing to your page. The HTML+TIME attributes specify when an element appears on a page, how long it remains displayed, and how the surrounding HTML elements are affected. In addition to the attributes, some new XML-based elements have been created to simplify incorporating media into Web pages. For example, you can use the <SPAN CLASS="clsLiteral">excl</SPAN> element to specify when a sound file should start playing, when it should stop, and how many times it should repeat.</p><p>HTML elements can be grouped into hierarchical relationships to allow for easy manipulation of multiple HTML elements at once. Grouping is also used to specify whether HTML elements appear and disappear sequentially on the page, or use independent timing. Element grouping is specified either by using the <A HREF="../time2/elements/par.html">t:PAR</A>, <A HREF="../time2/elements/seq.html">t:SEQ</A>, or <A HREF="../time2/elements/excl.html">t:EXCL</A> elements in a document, or by setting the <A HREF="../time2/properties/timecontainer.html">TIMECONTAINER</A> attribute.</p><H3><A NAME="Benefit3"></A>Scripting Support</H3><p>With HTML+TIME, you can use persistent XML elements and attributes to add timing to your HTML page. This means you don't have to know how to program with scripting languages to make your pages more dynamic. However, for people who already know how to use scripting languages, HTML+TIME supports a complete object model that extends the existing DHTML Object Model. Thus, you can use HTML+TIME properties, methods, and events to add even more interactive features to your Web pages.</p><H2><A NAME="Behaviors"></A>HTML+TIME Behaviors and Elements</H2><p>HTML+TIME is implemented as a DHTML default behavior, one of the powerful new features introduced in Internet Explorer 5. For more information about behaviors, see the Related Topics section of this document.</p><p>You can use all the HTML+TIME attributes listed in the reference pages with any timed HTML element. For a list of HTML elements that can be timed, see the Applies To section of the <A HREF="../time2/time/behaviors/time.html">time</A> and <A HREF="../time2/behaviors/time2.html">time2</A> behavior reference pages.</p><H3><A NAME="update"></A>Internet Explorer 5.5 Update</H3><p>The <A HREF="../time2_entry.html">HTML+TIME 2.0 Reference</A> lists the features implemented by the <B>time2</B> behavior and supported in Internet Explorer 5.5 and later.</p><p>The <A HREF="../time2/time_entry.html">HTML+TIME 1.0 Reference</A> lists the features implemented by the <B>time</B> behavior and supported in Internet Explorer 5 and later.</p><H2><A NAME="Model"></A>HTML+TIME Timing Model</H2><p>Most traditional animation runtime systems use either rigid timelines or pure, event-based relationships to model time. The rigid timeline model makes it more difficult to create interactive content. In this environment, you must add "jumps" to another pseudo-timeline to introduce interactive elements. In event-based models, interaction is easier to define, but it is more difficult to create timeline behaviors, such as sequences and precise synchronization of media elements.</p><p>HTML+TIME unifies these two timing models, taking the best of each and simplifying the process of authoring timed, interactive content. In the HTML+TIME model, you can use timeline attributes to describe static, or determinate, timeline relationships. This makes it easy to place elements in time and to ensure synchronization among media elements. You can author interactive content using a simple variant on the timeline attributes, where the begin and/or end times are tied to an event. Therefore, the actual begin and/or end values are indeterminate when you author the document. In reality, these times are event-based, but they can be defined as though they had traditional timing. When the associated event occurs, such as a user clicking a button, the indeterminate timing relationship is defined by the time at which the event occurs. At this point, the element is added into the running timeline as though it had been defined from the beginning.</p><p>This unified model makes it easy to define an animation that has tightly synchronized media, and to add a number of interactive elements that start when the user does something. The interactive elements can have a duration and repeat count just like other timed elements, even though they begin in response to an event. You can apply a single set of tools for timing and synchronization to any element. This makes the model easier to learn and less complicated, without sacrificing any flexibility.</p><p>HTML+TIME defines a schedule, or timeline, for all the affected elements to follow. The document timeline starts as soon as the page loads and continues to progress as long as the browser renders the page. If timing is applied to media elements, such as audio or video files, you can specify that the timeline will be tightly synchronized with other elements or the entire document. By default, media files that are not ready to play when scheduled will slip along the timeline and begin playing as soon as they become available. You can pause and resume the document timeline using methods from the object model.</p><p>HTML elements behave differently when you add time attributes, depending on the HTML element type. Although other categories might exist for HTML elements, HTML+TIME primarily distinguishes between content and style elements. Content elements include all elements that describe content to be displayed on the page, including the media elements introduced with HTML+TIME (<A HREF="../time2/elements/animation.html">t:ANIMATION</A>, <A HREF="../time2/elements/audio.html">t:AUDIO</A>, <A HREF="../time2/elements/img.html">t:IMG</A>, <A HREF="../time2/elements/media.html">t:MEDIA</A>, and <A HREF="../time2/elements/video.html">t:VIDEO</A>. Commonly used content elements include <A HREF="../objects/p.html">p</A>, <A HREF="../objects/div.html">div</A>, <A HREF="../objects/span.html">span</A>, and table-related elements. Adding HTML+TIME attributes to a content element causes the element to appear and disappear over time. Style elements describe the style to be applied to an element. Commonly used style elements include <A HREF="../objects/b.html">b</A>, <A HREF="../objects/i.html">i</A>, and <A HREF="../objects/em.html">em</A>. Adding HTML+TIME attributes to a style element causes the style to be applied to and removed from the element over time. For more information about style elements, see the HTML+TIME Implementation Notes section of this document.</p><H2><A NAME="Authoring"></A>Authoring HTML+TIME</H2><p>Use the following steps to add timing to an HTML element.</p><UL><LI><A TARGET="_self" HREF="#Step1">Create an XML Namespace</A></LI><LI><A TARGET="_self" HREF="#Step2">Reference the time2 Behavior</A></LI><LI><A TARGET="_self" HREF="#Step3">Specify Beginning and Ending Times</A></LI><LI><A TARGET="_self" HREF="#Step4">Include an Action</A></LI></UL><H3><A NAME="Step1"></A>Create an XML Namespace</H3><p>When using any of the HTML+TIME elements, such as the <B>t:EXCL</B>, <B>t:SEQ</B> or <B>t:PAR</B> elements, you must declare the XML namespace <SPAN CLASS="clsLiteral">t:</SPAN> in the <A HREF="../objects/html.html">html</A> tag, as shown in the following line of code:</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;</PRE><p>To use the namespace, preface HTML+TIME elements with <SPAN CLASS="clsLiteral">t:</SPAN>. This string identifies the HTML+TIME elements as qualified XML namespace extensions. To establish <SPAN CLASS="clsLiteral">t:</SPAN> as the namespace, import the <B>time2</B> behavior into the namespace as shown in the following line of code:</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;</PRE><H3><A NAME="Step2"></A>Reference the time2 Behavior</H3><p>You must associate the element with the <B>time2</B> behavior, so that the element is affected by the document timeline. To accomplish this, you can add the inline <A HREF="../properties/style.html">STYLE</A> attribute to the HTML element as follows:</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;P STYLE="behavior:url(#default#time2)" ...&gt;</PRE><p>However, you might find it easier to associate an element with the <B>time2</B> behavior by creating a Cascading Style Sheets (CSS) class attribute, as shown in the following sample:</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="STYLE;.time;{behavior: url(#default#time2);};/STYLE">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+.
+.
+.
+&lt;P CLASS="time" ...&gt;
+.
+.
+.
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;It is not necessary to associate the <B>time2</B> behavior with HTML+TIME elements, such as <B>t:MEDIA</B>, <B>t:AUDIO</B>, and <B>t:VIDEO</B>, because they are defined by the behavior itself.</DIV><H3><A NAME="Step3"></A>Specify Beginning and Ending Times</H3><p>You must specify when the HTML element should appear and for how long. This is accomplished by including the <A HREF="../time2/properties/begin.html">BEGIN</A> and <A HREF="../time2/properties/end.html">END</A> attributes on the element. You can use the <A HREF="../time2/properties/dur.html">DUR</A> attribute instead of <B>END</B> to specify an ending time relative to the element's <B>BEGIN</B> time. However, there is no functional difference between <B>END</B> and <B>DUR</B>, so you can use either one. If you do not set a <B>BEGIN</B>, <B>END</B>, or <B>DUR</B> time, the default value causes an element to begin displaying when the page loads, and the element remains displayed indefinitely. Therefore, the element appears static, as though you have not set any timing on that element.</p><p>The following sample shows lines of text that appear every two seconds and remain displayed for five seconds.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P&gt;This text appears right away. More lines to follow...&lt;/P&gt;
+&lt;P CLASS="time" BEGIN="2" DUR="5" &gt;This appears after 2 seconds.&lt;/P&gt;
+&lt;P CLASS="time" BEGIN="4" DUR="5"&gt;This appears after 4 seconds.&lt;/P&gt;
+&lt;P CLASS="time" BEGIN="6" DUR="5"&gt;This appears after 6 seconds.&lt;/P&gt;
+&lt;P&gt;This is the last line.&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../common/samples/author/behaviors/overview1.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV><H3><A NAME="Step4"></A>Include an Action</H3><p>Although including an action is optional, you might want to use the <A HREF="../time2/properties/timeaction.html">TIMEACTION</A> attribute to specify the action that is taken while the element is active on the timeline. In the DHTML Object model, two properties are available on the <A HREF="../objects/obj_style.html">style</A> object for turning on and off the display of an element. HTML+TIME changes the value of these properties over time. With DHTML, you can set the <A HREF="../properties/visibility.html">visibility</A> property to <SPAN CLASS="clsLiteral">hidden</SPAN> or <SPAN CLASS="clsLiteral">visible</SPAN>. This property reserves space in the layout of the rendered document, as though the element is always visible. Therefore, the document does not reflow its contents as elements are dynamically displayed or hidden.</p><p>The default behavior for using HTML+TIME on a content element is <SPAN CLASS="clsLiteral">TIMEACTION="visibility"</SPAN>. In contrast, when the DHTML <A HREF="../properties/display.html">display</A> attribute is set to <SPAN CLASS="clsLiteral">none</SPAN> it does not reserve space in the rendered document. Therefore, the document reflows every time the value of the <B>display</B> attribute changes. To reflow the document using HTML+TIME, set the <B>TIMEACTION</B> attribute to <SPAN CLASS="clsLiteral">display</SPAN>.</p><p>As an alternative to displaying and hiding an element, you can set the <B>TIMEACTION</B> attribute to <SPAN CLASS="clsLiteral">style</SPAN> to make an inline style active on an element. If you use this option, any style property included on the element using the <B>STYLE</B> attribute is applied only while the element is active on the timeline; otherwise, the inline style is ignored. As of Internet Explorer 5.5, you can also modify the style of an element by specifying one or more class names for the <B>TIMEACTION</B> attribute.</p><p>When using a time container, you can set the <B>TIMEACTION</B> attribute to <SPAN CLASS="clsLiteral">none</SPAN> so that it performs no action. When this attribute is set to <SPAN CLASS="clsLiteral">none</SPAN>, only the child elements of the time container are visually affected while the timeline is active. If an element supports a Boolean <SPAN CLASS="clsLiteral">on</SPAN> property, you can use a <B>TIMEACTION</B> value of <SPAN CLASS="clsLiteral">onOff</SPAN> to make the <SPAN CLASS="clsLiteral">on</SPAN> property <SPAN CLASS="clsLiteral">true</SPAN> while the timeline is active on the element, or <SPAN CLASS="clsLiteral">false</SPAN> otherwise.</p><p>The following sample shows lines of text that appear every two seconds and remain displayed for five seconds. This is similar to the previous sample, but in this case the document reflows, as necessary, because the <B>TIMEACTION</B> attribute is set to <SPAN CLASS="clsLiteral">display</SPAN>. The <B>TIMEACTION</B> attribute is set to <SPAN CLASS="clsLiteral">style</SPAN> on the heading.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H1 CLASS="time" BEGIN="0" DUR="11" TIMEACTION="style" STYLE="Color:Red;"&gt;timeAction&lt;/H1&gt;
+&lt;P&gt;This text appears right away. More lines to follow...&lt;/P&gt;
+&lt;P CLASS="time" BEGIN="2" DUR="5" TIMEACTION="display"&gt;This appears after 2 seconds.&lt;/P&gt;
+&lt;P CLASS="time" BEGIN="4" DUR="5" TIMEACTION="display"&gt;This appears after 4 seconds.&lt;/P&gt;
+&lt;P CLASS="time" BEGIN="6" DUR="5" TIMEACTION="display"&gt;This appears after 6 seconds.&lt;/P&gt;
+&lt;P&gt;This is the last line.&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../common/samples/author/behaviors/overview2.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="Timelines"></A>Exclusive, Sequential and Parallel Time Container Elements</H2><p>You can use HTML+TIME to specify timing for individual elements displayed on the page. You can also use it to create a timeline that groups elements together and specifies their timing relative to each element's predecessor in the timeline. The following example uses the <B>TIMECONTAINER</B> attribute set to <SPAN CLASS="clsLiteral">excl</SPAN> to create a time container that allows only one element to play at a time.</p><desc></desc><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time" TIMECONTAINER="excl"&gt;
+&lt;DIV CLASS="time" BEGIN="0" DUR="2" TIMEACTION="display"&gt;First line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" BEGIN="2" DUR="2" TIMEACTION="display"&gt;Second line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" BEGIN="4" DUR="2" TIMEACTION="display"&gt;Third line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" BEGIN="6" TIMEACTION="display"&gt;Fourth line of text.&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../common/samples/author/behaviors/overview6.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV><p>You can easily create slide-show-style presentations using timing sequences to display a series of images, one after the other, along with synchronized text. The following example uses the <B>TIMECONTAINER</B> attribute to create a sequential time container.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time" TIMECONTAINER="seq"&gt;
+&lt;DIV CLASS="time" DUR="2" TIMEACTION="display"&gt;First line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" DUR="2" TIMEACTION="display"&gt;Second line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" DUR="2" TIMEACTION="display"&gt;Third line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" TIMEACTION="display"&gt;Fourth line of text.&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../common/samples/author/behaviors/overview3.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV><p>You must declare the duration of each element in the sequence. Since the duration is omitted on the last element, it remains displayed indefinitely. Grouping the elements in a sequence makes it easy to manipulate the entire group of elements at once, rather than individually. For example, you can add the <B>BEGIN</B> attribute to the sequence time container to make the entire sequence wait before it begins playing.</p><p>If you want to group elements without displaying them in a sequence, you can create a parallel timeline by setting the <B>TIMECONTAINER</B> attribute to <SPAN CLASS="clsLiteral">par</SPAN> on the time container element. In contrast to a sequence, you can use parallel timelines to display and hide elements without any implicit dependencies on other elements. This allows more than one element to be active on the timeline, and you can have as few or as many elements active on the timeline as you want—there is no minimum or maximum requirement. The following sample shows how a parallel timeline is used for repeating a group of elements with overlapping timelines.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time" REPEATCOUNT="5" DUR="10" TIMECONTAINER="par"&gt;
+&lt;DIV CLASS="time" BEGIN="0" DUR="4"&gt;First line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" BEGIN="2" DUR="4"&gt;Second line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" BEGIN="4" DUR="4"&gt;Third line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" BEGIN="6" DUR="4"&gt;Fourth line of text.&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../common/samples/author/behaviors/overview4.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV><p>Instead of using the <B>TIMECONTAINER</B> attribute to group HTML elements on a timeline, you can use the <B>t:PAR</B> or <B>t:SEQ</B> elements. For example, in the previous sample that shows a sequence, you could have used the <B>t:SEQ</B> element instead of the <B>div</B> to yield the same results.</p><p>The following example declares the XML namespace <SPAN CLASS="clsLiteral">t:</SPAN> in the <B>html</B> tag and imports the <B>time2</B> behavior into that namespace because it uses the <B>t:SEQ</B> custom element.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:SEQ&gt;
+&lt;DIV CLASS="time" DUR="2"&gt;First line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" DUR="2"&gt;Second line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time" DUR="2"&gt;Third line of text.&lt;/DIV&gt;
+&lt;DIV CLASS="time"&gt;Fourth line of text.&lt;/DIV&gt;
+&lt;/t:SEQ&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../common/samples/author/behaviors/overview5.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="Compatibility"></A>Compatibility</H2><p>HTML+TIME features are available as of Internet Explorer 5 and are not supported in earlier browser versions. If an earlier version of Internet Explorer or a non-Internet Explorer browser encounters a reference to a behavior, the style is ignored, and the element is rendered as normal on the page. However, scripting errors might occur in cases where the behavior being used exposes properties, methods, or events. To address these errors, you need to use some version-checking script.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;HTML+TIME works only if Internet Explorer 5 is installed with the typical set of components. If the minimal installation is used, HTML+TIME content is rendered statically, as though no timing has been defined.</DIV><H3><A NAME="unknown_20850"></A>Internet Explorer 5.5 Update</H3><p>All of the features of the <B>time</B> behavior are still available in Internet Explorer 5.5. However, we strongly recommend that you begin using the <B>time2</B> behavior, which implements the <B>HTML+SMIL language profile</B> as defined in the working draft of the <B>SMIL 2.0</B> specification.</p><H2><A NAME="Notes"></A>HTML+TIME Implementation Notes</H2><p>The following list contains information about the initial version of HTML+TIME in Internet Explorer 5, including differences between this implementation and the W3C submission.</p><ul><li>Style elements, such as <B>b</B>, <B>i</B>, and <B>em</B>, are not fully supported in the initial version of HTML+TIME. Instead, style elements are controlled in the same way as content elements: by displaying and hiding their contents. However, you can set the timing on inline styles associated with an element. For information about how to apply timing to an element's inline style, see the <B>TIMEACTION</B> attribute.</li><li>When adding timing to an image, use the new HTML+TIME <B>t:IMG</B> element instead of the HTML <A HREF="../objects/img.html">img</A> element.</li></ul><H2><A NAME="Newsgroup"></A>HTML+TIME Newsgroup</H2><p>The HTML+TIME newsgroup is a forum for users to share ideas, ask questions, and relay comments about HTML+TIME. The newsgroup is intended for user-to-user support; however, Microsoft does monitor it for product-feedback purposes. To access the newsgroup, use the following information with your favorite newsgroup reader.</p><ul><li>News server: msnews.microsoft.com </li><li>Newsgroup name: microsoft.public.windows.inetexplorer.ie5.programming.html+time </li></ul><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="/library/en-us/dnie40/html/css.html" TARGET="_top">A User's Guide to Style Sheets</A></LI><LI><A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="../time1/time_entry.html">HTML+TIME 1.0 Reference</A></LI><LI><A HREF="time2_entry.html">HTML+TIME 2.0 Reference</A></LI><LI><A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="../common/author/behaviors/howto/using.html">Using DHTML Behaviors</A></LI></UL><info><product rid="prod_IE" minver="5"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

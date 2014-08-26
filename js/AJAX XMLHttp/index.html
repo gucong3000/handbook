@@ -1,0 +1,143 @@
+<title>XmlHttp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel='shortcut icon' href='xmlhttp.ico' />
+<link rel='bookmark icon' href='xmlhttp.ico' />
+<style type="text/css">
+html, body {
+    margin: 0 8px;
+	font-size: 12px;
+	font-family: tahoma, "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif, "宋体", MingLiu, PMingLiu;
+	color: #000;
+	border: 0;
+	background: #FFF;
+}
+
+
+img {
+    border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #2C4F83;
+}
+a:visited {
+	color: #2C4F83;
+}
+a:hover, a:active {
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+#top {
+    margin-top: 10px;
+}
+
+#footer {
+    margin-top: 30px;
+	font-family: arial, verdana, tahoma;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 25px;
+}
+
+h1, h2, h3 {
+    font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	font-family: Arial, tahoma, verdana;
+}
+
+h4 {
+    font-size: 12px;
+	margin: 0;
+	padding: 0;
+	line-height: 22px;
+	font-weight: normal;
+}
+
+.t1 {
+    border: 0;
+	margin: 0;
+	padding:0;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+#visitor_count {
+    display: none;
+}
+</style>
+</head>
+<body>
+<div id="top">
+  <div id="div_logo"><img src="images/logo_xmlhttp.gif" alt="XmlHttp.CN" id="img_logo"/></div>
+</div>
+<div id="main">
+<h3>XmlHttp是什么？</h3>
+<p>
+最通用的定义为：XmlHttp是一套可以在Javascript、VbScript、Jscript等脚本语言中通过http协议传送或从接收XML及其他数据的一套API。XmlHttp最大的用处是可以更新网页的部分内容而不需要刷新整个页面。<br />
+来自MSDN的解释：XmlHttp提供客户端同http服务器通讯的协议。客户端可以通过XmlHttp对象(MSXML2.XMLHTTP.3.0)向http服务器发送请求并使用微软XML文档对象模型Microsoft® XML Document Object Model (DOM)处理回应。
+</p>
+<p>
+现在的绝对多数浏览器都增加了对XmlHttp的支持，IE中使用ActiveXObject方式创建XmlHttp对象，其他浏览器如：Firefox、Opera等通过window.XMLHttpRequest来创建xmlhttp对象。
+</p>
+<h3>XmlHttp对象参考：</h3>
+<h4>属性：</h4>
+<table class="t1" border="1" cellpadding="3">
+  <tr>
+    <td><a href="manual/onreadystatechange.html" title="">onreadystatechange*</a></td><td>指定当readyState属性改变时的事件处理句柄。只写</td>
+  </tr>
+  <tr>
+    <td><a href="manual/readystate.html" title="">readyState</a> </td><td>返回当前请求的状态，只读.</td>
+  </tr>
+  <tr>
+    <td><a href="manual/responsebody.html" title="">responseBody</a> </td><td>将回应信息正文以unsigned byte数组形式返回.只读</td>
+  </tr>
+  <tr>
+    <td><a href="manual/responsestream.html" title="">responseStream</a></td><td>以Ado Stream对象的形式返回响应信息。只读</td>
+  </tr>
+  <tr>
+    <td><a href="manual/responseText.html" title="">responseText</a></td><td>将响应信息作为字符串返回.只读</td>
+  </tr>
+  <tr>
+    <td><a href="manual/responsexml.html" title="">responseXML</a></td><td>将响应信息格式化为Xml Document对象并返回，只读</td>
+  </tr>
+  <tr>
+    <td><a href="manual/status.html" title="">status</a></td><td>返回当前请求的http状态码.只读</td>
+  </tr>
+  <tr>
+    <td><a href="manual/statustext.html" title="">statusText</a> </td><td>返回当前请求的响应行状态，只读</td>
+  </tr>
+</table>
+<p>* 表示此属性是W3C文档对象模型的扩展.</p>
+<h4>方法：</h4>
+<table class="t1" border="1" cellpadding="3">
+  <tr>
+    <td><a href="manual/abort.html" title="">abort</a></td><td>取消当前请求</td>
+  </tr>
+  <tr>
+    <td><a href="manual/getallresponseheaders.html" title="">getAllResponseHeaders</a></td><td>获取响应的所有http头</td>
+  </tr>
+  <tr>
+    <td><a href="manual/getresponseheader.html" title="">getResponseHeader</a></td><td>从响应信息中获取指定的http头</td>
+  </tr>
+  <tr>
+    <td><a href="manual/open.html" title="">open</a></td><td>创建一个新的http请求，并指定此请求的方法、URL以及验证信息(用户名/密码)</td>
+  </tr>
+  <tr>
+    <td><a href="manual/send.html" title="">send</a></td><td>发送请求到http服务器并接收回应</td>
+  </tr>
+  <tr>
+    <td><a href="manual/setrequestheader.html" title="">setRequestHeader</a></td><td>单独指定请求的某个http头</td>
+  </tr>
+</table>
+<br />
+<h4>事件：</h4>
+<em>无</em>
+</div>
+</body>
+</html>

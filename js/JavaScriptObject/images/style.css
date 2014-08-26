@@ -1,0 +1,665 @@
+.a1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 7.5pt;
+	color : #4B4B4B;
+	text-decoration : underline;
+}
+
+.a1:link {
+	text-decoration : underline;
+	color : #4B4B4B;
+}
+
+.a1:hover {
+	text-decoration : underline;
+	color : #9E0B0E;
+}
+
+.a2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color : #4B4B4B;
+	text-decoration : none;
+}
+
+.a2:link {
+	text-decoration : underline;
+	color : #4B4B4B;
+}
+
+.a2:hover {
+	text-decoration : underline;
+	color : #9E0B0E;
+}
+
+.a3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 7.5pt;
+	color : #4B4B4B;
+	text-decoration : none;
+}
+
+.a3:link {
+	text-decoration : underline;
+	color : #4B4B4B;
+}
+
+.a3:hover {
+	text-decoration : underline;
+	color : #9E0B0E;
+}
+
+.a4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color : #222222;
+	line-height: 18px;
+}
+
+.AdvancedSearchTextHighlight {
+	background-color: #f7e583;
+}
+	
+.bg {
+	background-color: #ffffff;
+}
+
+BODY {
+	background-color: white;
+	color: black;
+}
+
+.DefaultPageHeadline {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	line-height: 14pt;
+	font-weight: bold;
+}
+
+.DefaultPageText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+.dlg {
+	background-color: #faf9e7;
+}
+
+.entrybox1 {
+	border: 1px solid #E7D68E;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.FAQBoxHeadline { 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 9pt; 
+	color : #CC0033; 
+	text-decoration : none; 
+	font-weight: bold; 
+	line-height: 10pt
+}
+
+.FAQBoxQuestion { 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 8pt; 
+	color : #303030; 
+	line-height: 10pt; 
+	text-decoration : none;
+	font-weight: bold
+}
+
+.FAQBoxAnswer { 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 8pt; 
+	text-decoration : none; 
+	color : #4B4B4B; 
+	line-height: 10pt; 
+	font-weight: normal
+}
+
+.GroupNotesBorder {
+	background-color: #D0C7DE;
+}
+
+.GroupNotesEvenRows {
+	background-color: #F1EFF5;
+}
+
+.GroupNotesOddRows {
+}
+
+.GroupNotesTableHeading {
+	background-color: #DDD9E7;
+}
+
+.hdr1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	padding-left: 2px;
+	text-align: center;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	color: #0A0A0A;
+	vertical-align: middle;
+	line-height: 12px;
+}
+
+.ListByCatBorder {
+	background-color: #D0C7DC;
+}
+
+.ListByCatEvenRows {
+	font-size: 8pt;
+}
+
+.ListByCatOddRows {
+}
+
+.ListByCatTableHeading {
+	background-color: #f5deb3;
+}
+
+.logout {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color : #333333;
+	text-decoration : none;
+	background-color: #FFcc00;
+}
+
+.logout:hover {
+	text-decoration : none;
+	color : #9E0B0E;
+}
+
+.menuLeft {
+	background-color: #FFE583;
+}
+
+.menuRight {
+	background-color: #ffcc00;
+}
+
+.MyBookmarksBorder {
+	background-color:#D0C7DC;
+}
+
+.MyBookmarksEvenRows {
+	background-color: #F1EFF5;
+}
+
+.MyBookmarksOddRows {
+}
+
+.MyBookmarksTableHeading {
+	background-color: #DDD9E7;
+}
+
+.MyBookshelfBorder {
+	background-color: #D0C7DC;
+}
+
+.MyBookshelfSpacer {
+	background-color: #EDDFDF;
+}
+
+.MyBookshelfEvenRows {
+}
+
+.MyBookshelfOddRows {
+}
+
+.MyBookshelfTableHeading {
+}
+
+.MyNotesBorder {
+	background-color: #D0C7DC;
+}
+
+.MyNotesEvenRows {
+}
+
+.MyNotesOddRows {
+}
+
+.MyNotesTableHeading {
+	background-color: #DDD9E7;
+}
+
+.MyRecentPagesBorder {
+	background-color: #D0C7DE;
+}
+
+.MyRecentPagesEvenRows {
+	background-color: #F1EFF5;
+}
+
+.MyRecentPagesOddRows {
+}
+
+.MyRecentPagesTableHeading {
+	background-color: #DDD9E7;
+}
+
+.MyRecentSearchesBorder {
+	background-color: #D0C7DE;
+}
+
+.MyRecentSearchesEvenRows {
+	background-color:#F1EFF5;
+}
+
+.MyRecentSearchesOddRows {
+}
+
+.MyRecentSearchesTableHeading {
+	background-color: #DDD9E7;
+}
+
+.n1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color : #303030;
+	line-height: 16px;
+	text-decoration : none;
+	padding: 7px;
+}
+
+.navbtn {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight : bold;
+	color : #333333;
+	text-decoration : none;
+  background-color: #FFcc00;
+}
+.navbtn:hover {
+	text-decoration : none;
+	color : #9E0B0E;
+}
+
+.navbtnSel {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight : bold;
+	color : #FFFFFF;
+	text-decoration : none;
+  background-color: #9E2F37;
+}
+
+.NewThisWeekBorder {
+	background-color: #D0C7DE;
+}
+
+.NewThisWeekEvenRows {
+}
+
+.NewThisWeekOddRows {
+}
+
+.NewThisWeekTableHeading {
+	background-color: #DDD9E7;
+}
+
+.PQBannerText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color : #FFFFFF;
+	text-decoration : none;
+}
+
+.PreviewTableTitleBackground { 
+	color: #F3E583; 
+	font-weight: bold; 
+	font-size: 9pt; 
+	line-height: 20px; 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	text-decoration: none; 
+	background-color: #CC0000; 
+	text-align: left; 
+	font-weither: bold 
+}
+
+.PreviewTableBodyBackground { 
+	color: #303030; 
+	font-weight: normal; 
+	font-size: 8pt; 
+	line-height: 16px; 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	text-decoration: none; 
+	background-color: #FFD2D3
+}
+
+.printhdr {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+}
+
+.PublicNotesBorder {
+	background-color: #D0C7DE;
+}
+
+.PublicNotesEvenRows {
+}
+
+.PublicNotesOddRows {
+}
+
+.PublicNotesTableHeading {
+	background-color: #DDD9E7;
+}
+
+.RecommendedTitlesBorder {
+	background-color: #D0C7DC;
+}
+
+.RecommendedTitlesEvenRows {
+}
+
+.RecommendedTitlesOddRows {
+}
+
+.RecommendedTitlesTableHeading {
+	background-color: #DDD9E7;
+}
+
+.SearchResultBorder {
+	background-color:#D0C7DE;
+}
+
+.SearchResultEvenRows {
+	background-color: #ffffff;
+}
+
+.SearchResultOddRows {
+	background-color: #faf9e7;
+}
+
+.SearchResultTableHeading {
+	background-color: #f5deb3;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	padding-left: 2px;
+	text-align: center;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	color: #0A0A0A;
+	vertical-align: middle;
+	line-height: 12px;
+}
+
+.SectionSearchResultBorder {
+	background-color:#f5deb3;
+}
+
+.SectionSearchResultEvenRows {
+	background-color:#ffffff;
+}
+
+.SectionSearchResultOddRows {
+	background-color:#faf9e7;
+}
+
+.SectionSearchResultTableHeading {
+	background-color: #f5deb3;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	padding-left: 2px;
+	text-align: center;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+	color: #0A0A0A;
+	vertical-align: middle;
+	line-height: 12px;
+}
+
+.t1 { 
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12pt; color : #222222; ; 
+	font-weight: bold;
+}
+	
+.t2 { 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 9pt; 
+	font-weight : bold; 
+	text-decoration : none; 
+}
+
+.t3 { 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 8.5pt; 
+	font-weight : bold; 
+	text-decoration : none; 
+	background-color: #9D3036;
+	color: #FFFF7B;
+}	
+	
+.t4 { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight : bold;
+	text-decoration : none; 
+        background-color: #000000;
+	color: #FFFFFF;
+}
+
+.t5 { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight : bold;
+	text-decoration : none; 
+	color: #cc0000;
+	background-color: #F7E583;
+}
+
+.TextFrame {
+	background-color: #d1c8a1;
+}
+
+.toc {
+	background-color: #FFFFC1;
+}
+
+.Top5Border {
+	background-color: #D0C7DE;
+}
+	
+.Top5EvenRows {
+}
+
+.Top5OddRows {
+}
+
+.Top5TableHeading {
+	background-color:#DDD9E7;
+}
+
+.toplogo {
+	background-color: #FFCC00;
+}
+
+.topmenu {
+	background-color: #FFCC00;
+}
+
+.v1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color : #003399;
+	text-decoration : none;
+}
+
+.v1:link {
+	text-decoration : none;
+	color : #003399;
+}
+
+.v1:hover {
+	text-decoration : underline;
+	color : #9E0B0E;
+}
+
+.v2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color : #303030;
+	line-height: 16px;
+	text-decoration : none;
+}
+
+.v2:link {
+	text-decoration : none;
+	color : #303030;
+}
+.v3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration : none;
+	color : #4B4B4B;
+}
+
+.v3:link {
+	text-decoration : none;
+	color : #303030;
+}
+
+.v3:hover {
+	text-decoration : underline;
+	color : #9E0B0E;
+}
+
+.v4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	color : #303030;
+	line-height: 16px;
+	text-decoration : none;
+}
+
+.v4:link {
+	font-weight: bold;
+	text-decoration : none;
+	color : #303030;
+}
+
+.v4:hover {
+	font-weight: bold;
+	text-decoration : underline;
+	color : #9E0B0E;
+}
+
+.HelpHeaderBar {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	line-height: 14pt;
+	font-weight: bold;
+	background-color: #000066;
+	color: #FFFFFF;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+	padding-left: 5px;
+
+
+}
+.HelpNavLinks {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 12pt;
+	font-weight: bold;
+	color: #000066;
+	list-style-image: none;
+	list-style-type: none;
+	list-style-position: inside;
+
+}
+.HelpNavLinks2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 12pt;
+	font-weight: normal;
+	color: #000066;
+	list-style-image: none;
+	list-style-type: none;
+	list-style-position: inside;
+	text-indent: 5pt;
+
+}
+.HelpSectionHead {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+	font-style: normal;
+	line-height: 12pt;
+	font-weight: bold;
+	color: #000066;
+	text-align: left;
+}
+.HelpSectionSubHead {
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	line-height: 12pt;
+	font-weight: bold;
+	color: #000066;
+	text-align: left;
+}
+.HelpText {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: disc;
+}
+
+.vsmain {
+	text-align:center;
+	margin-top:2em;
+	}
+.vsmain1  {
+	margin:0 auto;
+	text-align:left;
+	width:800px;
+	}
+a {
+	text-decoration:none;
+	}
+table {
+	width:100%;
+	}
+	
+table.border1 {
+	border:solid 1px #ddd;
+	}	
+	

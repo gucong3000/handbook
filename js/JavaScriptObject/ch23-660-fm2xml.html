@@ -1,0 +1,169 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-656-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-667-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-660-fm2xml"></A><A NAME="IXT-23-55338"></A><A NAME="IXT-23-55339"></A><A NAME="IXT-23-55340"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object.hasOwnProperty(  )</i></b></td>
+
+<td align="right"><i>检查属性是否被继承</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.5; JScript 5.5; ECMAScript v3 </P><A NAME="ch23-661-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>object</I></TT>.hasOwnProperty(<TT><I>propname</I></TT>)</PRE>
+
+<A NAME="IXT-23-55338"></A>
+
+<A NAME="IXT-23-55339"></A>
+
+
+
+
+
+<A NAME="ch23-662-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>propname</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个字符串，包含object的属性名。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-663-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">如果object有propname指定的非继承属性，则返回true。如果object没有名为
+  propname指定的属性，或者它从原型对象继承了这一属性，则返回false。</P>
+
+
+
+
+
+<A NAME="ch23-664-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">JavaScript对象既可以有自己的属性，又可以从原型对象继承属性。
+  hasOwnProperty()方法提供了区分继承属性和非继承的局部属性的方法。</P>
+
+
+
+<A NAME="ch23-665-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var o = new Object(  );          // 创建对象
+
+o.x = 3.14;                      // 定义非继承的局部属性y
+
+o.hasOwnProperty("x");           // 返回 true: x 是O的局部属性
+
+o.hasOwnProperty("y");           // 返回 false: o 没有属性y
+
+o.hasOwnProperty("toString");    // 返回 false: toString属性是继承的</PRE>
+
+
+
+<A NAME="ch23-666-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-436-fm2xml.html#ch23-436-fm2xml">Function.prototype</A>, <A class="docLink" HREF="ch23-674-fm2xml.html#ch23-674-fm2xml">Object.propertyIsEnumerable(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-656-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-667-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

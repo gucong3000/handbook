@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=gb2312">
+<TITLE>VBScript语句</TITLE>
+<!--CSS_START-->
+<style>
+@import url(images/msdnie4a.css);
+</style>
+<link disabled rel="stylesheet" href="images/msdn_ie3.css">
+<link href="images/style.css" rel="stylesheet" type="text/css">
+<!--CSS_END-->
+</HEAD>
+<BODY>
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+    <H1>Date（日期/时间对象）</H1>
+    <TABLE>
+      <TR VALIGN="top">
+        <td><a  href="ch23-144-fm2xml.html">Date</a></td>
+        <TD >操作日期和时间的对象</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-152-fm2xml.html">Date.getDate( )</a></td>
+        <TD >返回一个月中的某一天</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-155-fm2xml.html">Date.getDay( )</a></td>
+        <TD >返回一周中的某一天</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-158-fm2xml.html">Date.getFullYear( )</a></td>
+        <TD >返回Date对象的年份字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-161-fm2xml.html">Date.getHours( )</a></td>
+        <TD >返回Date对象的小时字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-164-fm2xml.html">Date.getMilliseconds( )</a></td>
+        <TD >返回Date对象的毫秒字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-167-fm2xml.html">Date.getMinutes( )</a></td>
+        <TD >返回Date对象的分钟字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-170-fm2xml.html">Date.getMonth( )</a></td>
+        <TD >返回Date对象的月份字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-173-fm2xml.html">Date.getSeconds( )</a></td>
+        <TD >返回Date对象的秒字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-176-fm2xml.html">Date.getTime( )</a></td>
+        <TD >返回Date对象的毫秒表示</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-181-fm2xml.html">Date.getTimezoneOffset( )</a></td>
+        <TD >判断与GMT的时间差</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-185-fm2xml.html">Date.getUTCDate( )</a></td>
+        <TD >返回该天是一个月的哪一天(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-188-fm2xml.html">Date.getUTCDay( )</a></td>
+        <TD >返回该天是星期几(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-191-fm2xml.html">Date.getUTCFullYear( )</a></td>
+        <TD >返回年份(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-194-fm2xml.html">Date.getUTCHours( )</a></td>
+        <TD >返回Date对象的小时字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-197-fm2xml.html">Date.getUTCMilliseconds( )</a></td>
+        <TD >返回Date对象的毫秒字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-200-fm2xml.html">Date.getUTCMinutes( )</a></td>
+        <TD >返回Date对象的分钟字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-203-fm2xml.html">Date.getUTCMonth( )</a></td>
+        <TD >返回Date对象的月份(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-206-fm2xml.html">Date.getUTCSeconds( )</a></td>
+        <TD >返回Date对象的秒字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-209-fm2xml.html">Date.getYear( )</a></td>
+        <TD >返回Date对象的年份字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-214-fm2xml.html">Date.parse( )</a></td>
+        <TD >解析日期/时间字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-220-fm2xml.html">Date.setDate( )</a></td>
+        <TD >设置一个月的某一天</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-224-fm2xml.html">Date.setFullYear( )</a></td>
+        <TD >设置年份，也可以设置月份和天</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-228-fm2xml.html">Date.setHours( )</a></td>
+        <TD >设置Date对象的小时字段、分钟字段、秒字段和毫秒字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-232-fm2xml.html">Date.setMilliseconds( )</a></td>
+        <TD >设置Date对象的毫秒字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-236-fm2xml.html">Date.setMinutes( )</a></td>
+        <TD >设置Date对象的分钟字段和秒字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-240-fm2xml.html">Date.setMonth( )</a></td>
+        <TD >设置Date对象的月份字段和天字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-244-fm2xml.html">Date.setSeconds( )</a></td>
+        <TD >设置Date对象的秒字段和毫秒字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-248-fm2xml.html">Date.setTime( )</a></td>
+        <TD >以毫秒设置Date对象</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-252-fm2xml.html">Date.setUTCDate( )</a></td>
+        <TD >设置一个月中的某一天(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-256-fm2xml.html">Date.setUTCFullYear( )</a></td>
+        <TD >设置年份、月份和天(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-260-fm2xml.html">Date.setUTCHours( )</a></td>
+        <TD >设置Date对象的小时字段、分钟字段、秒字段和毫秒字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-264-fm2xml.html">Date.setUTCMilliseconds( )</a></td>
+        <TD >设置Date对象的毫秒字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-268-fm2xml.html">Date.setUTCMinutes( )</a></td>
+        <TD >设置Date对象的分钟字段和秒字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-272-fm2xml.html">Date.setUTCMonth( )</a></td>
+        <TD >设置Date对象的月份字段和天数字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-276-fm2xml.html">Date.setUTCSeconds( )</a></td>
+        <TD >设置Date对象的秒字段和毫秒字段(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-280-fm2xml.html">Date.setYear( )</a></td>
+        <TD >设置Date对象的年份字段</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-285-fm2xml.html">Date.toDateString( )</a></td>
+        <TD >返回Date对象日期部分作为字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-289-fm2xml.html">Date.toGMTString( )</a></td>
+        <TD >将Date转换为世界时字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-294-fm2xml.html">Date.toLocaleDateString( )</a></td>
+        <TD >回Date对象的日期部分作为本地已格式化的字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-298-fm2xml.html">Date.toLocaleString( )</a></td>
+        <TD >将Date转换为本地已格式化的字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-303-fm2xml.html">Date.toLocaleTimeString( )</a></td>
+        <TD >返回Date对象的时间部分作为本地已格式化的字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-307-fm2xml.html">Date.toString( )</a></td>
+        <TD >将Date转换为字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-312-fm2xml.html">Date.toTimeString( )</a></td>
+        <TD >返回Date对象日期部分作为字符串</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-316-fm2xml.html">Date.toUTCString( )</a></td>
+        <TD >将Date转换为字符串(世界时)</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-321-fm2xml.html">Date.UTC( )</a></td>
+        <TD >将Date规范转换成毫秒数</TD>
+      </TR>
+      <TR VALIGN="top">
+        <td><a  href="ch23-327-fm2xml.html">Date.valueOf( )</a></td>
+        <TD >将Date转换成毫秒表示</TD>
+      </TR>
+    </TABLE>
+  </div>
+</div>
+<BR>
+<script src="images/footer.js"></script>
+</BODY>
+</HTML>

@@ -1,0 +1,1146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html;charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>字符集识别</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+</HEAD>
+<BODY>
+<H1><A NAME="om40_ElementObjs">字符集识别</A></H1>
+<HR SIZE="1">
+<p>Microsoft<SUP>&reg;</SUP> Internet Explorer 使用文档中指定的字符集决定如何将文档中的字节翻译为在屏幕上或打印纸上可读的字符。缺省情况下，Internet Explorer 将使用服务器返回的 HTTP 内容类型中指定的字符集来决定此翻译。若此参数未给出，Internet Explorer 将使用文档中的 <A HREF="../objects/META.html">meta</A> 元素指定的字符集。若未指定 <B>meta</B> 元素则使用用户参数。</p>
+<p>你可以使用 <B>meta</B> 元素明确设定文档的字符集。在这种情况下，设置 <A HREF="../properties/httpEquiv.html">HTTP-EQUIV</A> 标签属性为 Content-Type 并在 <A HREF="../properties/content.html">CONTENT</A> 标签属性中指定字符集标识符。例如，下面的 <B>meta</B> 元素将把文档的字符集标识为 windows-1251。</p>
+<PRE CLASS="clsCode">
+&lt;META HTTP-EQUIV="Content-Type"
+CONTENT="text/html; CHARSET=windows-1251"&gt;
+</PRE>
+<p>要为整个文档应用字符集，你必须在 <A HREF="../objects/BODY.html">body</A> 元素前插入 <B>meta</B> 元素。为明确器件，该元素应该是 <A HREF="../objects/HEAD.html">head</A> 之后的第一个元素，这样所有浏览器就都可以在文档处理前翻译 <B>meta</B> 元素。<B>meta</B> 元素应用到包含该元素的文档。这意味着，组合文档(由两个或更多文档组成框架的文档)可以在不同的框架中使用不同的字符集。</p>
+<p>下面的标格包含了关于 Internet Explorer 5 支持的字符集的信息，以及下列信息。</p>
+<ul>
+<li><B>字符集友好名称</B> ─ 用于引用字符集的名称。</li>
+<li><B>首选字符集标签</B> ─ 在 Internet Explorer 中用于设置字符集的最普通标识符。例如，在上面的代码例子中字符集标签为 windows-1251。这些标识符用于外部数据。</li>
+<li><B>别名</B> ─ 可用于设置此字符集的其它标识符。这些标识符用于内部数据。</li>
+<li><B>IE 版本</B> ─ 支持所列字符集的 Internet Explorer 版本。</li>
+<li><B>最低 OS</B> ─ 支持所列字符集的最低操作系统版本。</li>
+<li><B>代码页</B> ─ 支持列出字符集的代码页。</li>
+<li><B>家族代码页</B> ─ 表明用于代表字符集中所有或大多数字符的 Microsoft Windows<SUP>&reg;</SUP> 代码页。</li>
+</ul>
+<H2>Microsoft Internet Explorer 5 中的字符集</H2>
+<table class="clsStd">
+<tr><th>字符集友好名称</th><th>首选字符集标签</th><th>别名</th><th>IE 版本</th><th>最低 OS</th><th>代码页</th><th>家族代码页</th></tr>
+<tr>
+<td>阿拉伯 (ASMO 708)</td>
+<td>ASMO-708</td>
+<td></td>
+<td>IE5</td>
+<td>Win95</td>
+<td>708</td>
+<td>1256</td>
+</tr>
+<tr>
+<td>阿拉伯 (DOS)</td>
+<td>DOS-720</td>
+<td></td>
+<td>IE5</td>
+<td>Win95</td>
+<td>720</td>
+<td>1256</td>
+</tr>
+<tr>
+<td>阿拉伯 (ISO)</td>
+<td>iso-8859-6</td>
+<td>arabic, csISOLatinArabic, ECMA-114, ISO_8859-6, ISO_8859-6:1987, iso-ir-127</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>28596</td>
+<td>1256</td>
+</tr>
+<tr>
+<td>阿拉伯 (Mac)</td>
+<td>x-mac-arabic</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10004</td>
+<td>1256</td>
+</tr>
+<tr>
+<td>阿拉伯 (Windows)</td>
+<td>windows-1256</td>
+<td>cp1256 </td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1256</td>
+<td>1256</td>
+</tr>
+<tr>
+<td>波罗的语 (DOS)</td>
+<td>ibm775</td>
+<td>CP500</td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>775</td>
+<td>1257</td>
+</tr>
+<tr>
+<td>波罗的语 (ISO)</td>
+<td>iso-8859-4</td>
+<td>csISOLatin4, ISO_8859-4, ISO_8859-4:1988, iso-ir-110, l4, latin4</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>28594</td>
+<td>1257</td>
+</tr>
+<tr>
+<td>波罗的语 (Windows)</td>
+<td>windows-1257</td>
+<td></td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1257</td>
+<td>1257</td>
+</tr>
+<tr>
+<td>中欧 (DOS)</td>
+<td>ibm852</td>
+<td>cp852</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>852</td>
+<td>1250</td>
+</tr>
+<tr>
+<td>中欧 (ISO)</td>
+<td>iso-8859-2</td>
+<td>csISOLatin2, iso_8859-2, iso_8859-2:1987, iso8859-2, iso-ir-101, l2, latin2</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>28592</td>
+<td>1250</td>
+</tr>
+<tr>
+<td>中欧 (Mac)</td>
+<td>x-mac-ce</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10029</td>
+<td>1250</td>
+</tr>
+<tr>
+<td>中欧 (Windows)</td>
+<td>windows-1250</td>
+<td>x-cp1250</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1250</td>
+<td>1250</td>
+</tr>
+<tr>
+<td>简体中文 (EUC)</td>
+<td>EUC-CN</td>
+<td>x-euc-cn</td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>51936</td>
+<td>936</td>
+</tr>
+<tr>
+<td>简体中文 (GB2312)</td>
+<td>gb2312</td>
+<td>chinese, CN-GB, csGB2312, csGB231280, csISO58GB231280, GB_2312-80, GB231280, GB2312-80, GBK, iso-ir-58</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>936</td>
+<td>936</td>
+</tr>
+<tr>
+<td>简体中文 (HZ)</td>
+<td>hz-gb-2312</td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>52936</td>
+<td>936</td>
+</tr>
+<tr>
+<td>简体中文 (Mac)</td>
+<td>x-mac-chinesesimp</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10008</td>
+<td>936</td>
+</tr>
+<tr>
+<td>繁体中文 (Big5)</td>
+<td>big5</td>
+<td>cn-big5, csbig5, x-x-big5</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>950</td>
+<td>950</td>
+</tr>
+<tr>
+<td>繁体中文 (CNS)</td>
+<td>x-Chinese-CNS</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20000</td>
+<td>950</td>
+</tr>
+<tr>
+<td>繁体中文 (Eten)</td>
+<td>x-Chinese-Eten</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20002</td>
+<td>950</td>
+</tr>
+<tr>
+<td>繁体中文 (Mac)</td>
+<td>x-mac-chinesetrad</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10002</td>
+<td>950</td>
+</tr>
+<tr>
+<td>西里尔语 (DOS)</td>
+<td>cp866</td>
+<td>ibm866</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>866</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>西里尔语 (ISO)</td>
+<td>iso-8859-5</td>
+<td>csISOLatin5, csISOLatinCyrillic, cyrillic, ISO_8859-5, ISO_8859-5:1988, iso-ir-144, l5</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>28595</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>西里尔语 (KOI8-R)</td>
+<td>koi8-r</td>
+<td>csKOI8R, koi, koi8, koi8r</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>20866</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>西里尔语 (KOI8-U)</td>
+<td>koi8-u</td>
+<td>koi8-ru</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>21866</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>西里尔语 (Mac)</td>
+<td>x-mac-cyrillic</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10007</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>西里尔语 (Windows)</td>
+<td>windows-1251</td>
+<td>x-cp1251</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1251</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>欧罗巴</td>
+<td>x-Europa</td>
+<td></td>
+<td>IE5</td>
+<td>n.a.</td>
+<td>29001</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>德语 (IA5)</td>
+<td>x-IA5-German</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20106</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>希腊语 (DOS)</td>
+<td>ibm737</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>737</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>希腊语 (ISO)</td>
+<td>iso-8859-7</td>
+<td>csISOLatinGreek, ECMA-118, ELOT_928, greek, greek8, ISO_8859-7, ISO_8859-7:1987, iso-ir-126</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>28597</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>希腊语 (Mac)</td>
+<td>x-mac-greek</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10006</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>希腊语 (Windows)</td>
+<td>windows-1253</td>
+<td></td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1253</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>希腊语, 现代 (DOS)</td>
+<td>ibm869</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>869</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>希伯莱语 (DOS)</td>
+<td>DOS-862</td>
+<td></td>
+<td>IE5</td>
+<td>Win95</td>
+<td>862</td>
+<td>1255</td>
+</tr>
+<tr>
+<td>希伯莱语 (ISO-Logical)</td>
+<td>iso-8859-8-i</td>
+<td>logical</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>38598</td>
+<td>1255</td>
+</tr>
+<tr>
+<td>希伯莱语 (ISO-Visual)</td>
+<td>iso-8859-8</td>
+<td>csISOLatinHebrew, hebrew, ISO_8859-8, ISO_8859-8:1988, ISO-8859-8, iso-ir-138, visual</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>28598</td>
+<td>1255</td>
+</tr>
+<tr>
+<td>希伯莱语 (Mac)</td>
+<td>x-mac-hebrew</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10005</td>
+<td>1255</td>
+</tr>
+<tr>
+<td>希伯莱语 (Windows)</td>
+<td>windows-1255</td>
+<td>ISO_8859-8-I, ISO-8859-8, visual</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1255</td>
+<td>1255</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (阿拉伯)</td>
+<td>x-EBCDIC-Arabic</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20420</td>
+<td>1256</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (西里尔俄语)</td>
+<td>x-EBCDIC-CyrillicRussian</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20880</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (西里尔塞尔维亚-保加利亚)</td>
+<td>x-EBCDIC-CyrillicSerbianBulgarian</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>21025</td>
+<td>1251</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (丹麦-挪威)</td>
+<td>x-EBCDIC-DenmarkNorway</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20277</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (丹麦-挪威-欧洲)</td>
+<td>x-ebcdic-denmarknorway-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1142</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (芬兰-瑞典)</td>
+<td>x-EBCDIC-FinlandSweden</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20278</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (芬兰-瑞典-欧洲)</td>
+<td>x-ebcdic-finlandsweden-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1143</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (芬兰-瑞典-欧洲)</td>
+<td>x-ebcdic-finlandsweden-euro</td>
+<td>X-EBCDIC-France</td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1143</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (法国-欧洲)</td>
+<td>x-ebcdic-france-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1147</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (德语)</td>
+<td>x-EBCDIC-Germany</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20273</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (德语-欧洲)</td>
+<td>x-ebcdic-germany-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1141</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (希腊语现代)</td>
+<td>x-EBCDIC-GreekModern</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>875</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (希腊语)</td>
+<td>x-EBCDIC-Greek</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20423</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (希伯莱语)</td>
+<td>x-EBCDIC-Hebrew</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20424</td>
+<td>1255</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (冰岛)</td>
+<td>x-EBCDIC-Icelandic</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20871</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (冰岛-欧洲)</td>
+<td>x-ebcdic-icelandic-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1149</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (国际-欧洲)</td>
+<td>x-ebcdic-international-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1148</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (意大利)</td>
+<td>x-EBCDIC-Italy</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20280</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (意大利-欧洲)</td>
+<td>x-ebcdic-italy-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1144</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (日语和日语片假名)</td>
+<td>x-EBCDIC-JapaneseAndKana</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>50930</td>
+<td>932</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (日语和日本-拉丁)</td>
+<td>x-EBCDIC-JapaneseAndJapaneseLatin</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>50939</td>
+<td>932</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (日语和美国-加拿大)</td>
+<td>x-EBCDIC-JapaneseAndUSCanada</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>50931</td>
+<td>932</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (日语片假名)</td>
+<td>x-EBCDIC-JapaneseKatakana</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20290</td>
+<td>932</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (朝鲜语和朝鲜语扩展)</td>
+<td>x-EBCDIC-KoreanAndKoreanExtended</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>50933</td>
+<td>949</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (朝鲜语扩展)</td>
+<td>x-EBCDIC-KoreanExtended</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20833</td>
+<td>949</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (多语种拉丁-2)</td>
+<td>CP870</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>870</td>
+<td>1250</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (简体中文)</td>
+<td>x-EBCDIC-SimplifiedChinese</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>50935</td>
+<td>936</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (西班牙)</td>
+<td>X-EBCDIC-Spain</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20284</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (西班牙-欧洲)</td>
+<td>x-ebcdic-spain-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1145</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (泰语)</td>
+<td>x-EBCDIC-Thai</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20838</td>
+<td>874</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (繁体中文)</td>
+<td>x-EBCDIC-TraditionalChinese</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>50937</td>
+<td>950</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (土耳其语拉丁-5)</td>
+<td>CP1026</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1026</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (土耳其语)</td>
+<td>x-EBCDIC-Turkish</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20905</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (英国)</td>
+<td>x-EBCDIC-UK</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20285</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (英国-欧洲)</td>
+<td>x-ebcdic-uk-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1146</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (美国-加拿大)</td>
+<td>ebcdic-cp-us</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>37</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>IBM EBCDIC (美国-加拿大-欧洲)</td>
+<td>x-ebcdic-cp-us-euro</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1140</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>冰岛语 (DOS)</td>
+<td>ibm861</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>861</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>冰岛语 (Mac)</td>
+<td>x-mac-icelandic</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10079</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>ISCII 阿萨姆语</td>
+<td>x-iscii-as</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57006</td>
+<td>57006</td>
+</tr>
+<tr>
+<td>ISCII 孟加拉语</td>
+<td>x-iscii-be</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57003</td>
+<td>57003</td>
+</tr>
+<tr>
+<td>ISCII 梵文</td>
+<td>x-iscii-de</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57002</td>
+<td>57002</td>
+</tr>
+<tr>
+<td>ISCII 瓜西拉</td>
+<td>x-iscii-gu</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57010</td>
+<td>57010</td>
+</tr>
+<tr>
+<td>ISCII 埃纳德语</td>
+<td>x-iscii-ka</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57008</td>
+<td>57008</td>
+</tr>
+<tr>
+<td>ISCII 马来西亚语</td>
+<td>x-iscii-ma</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57009</td>
+<td>57009</td>
+</tr>
+<tr>
+<td>ISCII 奥里雅</td>
+<td>x-iscii-or</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57007</td>
+<td>57007</td>
+</tr>
+<tr>
+<td>ISCII 旁遮普语</td>
+<td>x-iscii-pa</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57011</td>
+<td>57011</td>
+</tr>
+<tr>
+<td>ISCII 泰米尔语</td>
+<td>x-iscii-ta</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57004</td>
+<td>57004</td>
+</tr>
+<tr>
+<td>ISCII 泰卢固语</td>
+<td>x-iscii-te</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>57005</td>
+<td>57005</td>
+</tr>
+<tr>
+<td>日语 (EUC)</td>
+<td>euc-jp</td>
+<td>csEUCPkdFmtJapanese, Extended_UNIX_Code_Packed_Format_for_Japanese, x-euc, x-euc-jp</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>51932</td>
+<td>932</td>
+</tr>
+<tr>
+<td>日语 (JIS)</td>
+<td>iso-2022-jp</td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>50220</td>
+<td>932</td>
+</tr>
+<tr>
+<td>日语 (JIS-允许 1 字节假名 - SO/SI)</td>
+<td>iso-2022-jp</td>
+<td>_iso-2022-jp$SIO</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>50222</td>
+<td>932</td>
+</tr>
+<tr>
+<td>日语 (JIS-允许 1 字节假名)</td>
+<td>csISO2022JP</td>
+<td>_iso-2022-jp</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>50221</td>
+<td>932</td>
+</tr>
+<tr>
+<td>日语 (Mac)</td>
+<td>x-mac-japanese</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10001</td>
+<td>932</td>
+</tr>
+<tr>
+<td>日语 (Shift-JIS)</td>
+<td>shift_jis</td>
+<td>csShiftJIS, csWindows31J, ms_Kanji, shift-jis, x-ms-cp932, x-sjis</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>932</td>
+<td>932</td>
+</tr>
+<tr>
+<td>朝鲜语</td>
+<td>ks_c_5601-1987</td>
+<td>csKSC56011987, euc-kr, iso-ir-149, korean, ks_c_5601, ks_c_5601_1987, ks_c_5601-1989, KSC_5601, KSC5601</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>949</td>
+<td>949</td>
+</tr>
+<tr>
+<td>朝鲜语 (EUC)</td>
+<td>euc-kr</td>
+<td>csEUCKR</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>51949</td>
+<td>949</td>
+</tr>
+<tr>
+<td>朝鲜语 (ISO)</td>
+<td>iso-2022-kr</td>
+<td>csISO2022KR</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>50225</td>
+<td>949</td>
+</tr>
+<tr>
+<td>朝鲜语 (Johab)</td>
+<td>Johab</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>1361</td>
+<td>1361</td>
+</tr>
+<tr>
+<td>朝鲜语 (Mac)</td>
+<td>x-mac-korean</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10003</td>
+<td>949</td>
+</tr>
+<tr>
+<td>拉丁语 3 (ISO)</td>
+<td>iso-8859-3</td>
+<td>csISO, Latin3, ISO_8859-3, ISO_8859-3:1988, iso-ir-109, l3, latin3</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>28593</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>拉丁语 9 (ISO)</td>
+<td>iso-8859-15</td>
+<td>csISO, Latin9, ISO_8859-15, l9, latin9</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>28605</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>挪威语 (IA5)</td>
+<td>x-IA5-Norwegian</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20108</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>OEM 美国</td>
+<td>IBM437</td>
+<td>437, cp437, csPC8, CodePage437</td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>437</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>瑞典语 (IA5)</td>
+<td>x-IA5-Swedish</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20107</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>泰语 (Windows)</td>
+<td>windows-874</td>
+<td>DOS-874, iso-8859-11, TIS-620</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>874</td>
+<td>874</td>
+</tr>
+<tr>
+<td>土耳其语 (DOS)</td>
+<td>ibm857</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>857</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>土耳其语 (ISO)</td>
+<td>iso-8859-9</td>
+<td>csISO, Latin5, ISO_8859-9, ISO_8859-9:1989, iso-ir-148, l5, latin5</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>28599</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>土耳其语 (Mac)</td>
+<td>x-mac-turkish</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10081</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>土耳其语 (Windows)</td>
+<td>windows-1254</td>
+<td>ISO_8859-9, ISO_8859-9:1989, iso-8859-9, iso-ir-148, latin5</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1254</td>
+<td>1254</td>
+</tr>
+<tr>
+<td>Unicode</td>
+<td>unicode</td>
+<td>utf-16</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>1200</td>
+<td>1200</td>
+</tr>
+<tr>
+<td>Unicode (Big-Endian)</td>
+<td>unicodeFFFE</td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>1201</td>
+<td>1200</td>
+</tr>
+<tr>
+<td>Unicode (UTF-7)</td>
+<td>utf-7</td>
+<td>csUnicode11UTF7, unicode-1-1-utf-7, x-unicode-2-0-utf-7</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>65000</td>
+<td>1200</td>
+</tr>
+<tr>
+<td>Unicode (UTF-8)</td>
+<td>utf-8</td>
+<td>unicode-1-1-utf-8, unicode-2-0-utf-8, x-unicode-2-0-utf-8</td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>65001</td>
+<td>1200</td>
+</tr>
+<tr>
+<td>US-ASCII</td>
+<td>us-ascii</td>
+<td>ANSI_X3.4-1968, ANSI_X3.4-1986, ascii, cp367, csASCII, IBM367, ISO_646.irv:1991, ISO646-US, iso-ir-6us</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>20127</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>越南语 (Windows)</td>
+<td>windows-1258</td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>1258</td>
+<td>1258</td>
+</tr>
+<tr>
+<td>西欧 (DOS)</td>
+<td>ibm850</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>850</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>西欧 (IA5)</td>
+<td>x-IA5</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>20105</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>西欧 (ISO)</td>
+<td>iso-8859-1</td>
+<td>cp819, csISO, Latin1, ibm819, iso_8859-1, iso_8859-1:1987, iso8859-1, iso-ir-100, l1, latin1</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>28591</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>西欧 (Mac)</td>
+<td>macintosh</td>
+<td></td>
+<td>IE5</td>
+<td>Win2000</td>
+<td>10000</td>
+<td>1252</td>
+</tr>
+<tr>
+<td>西欧 (Windows)</td>
+<td>Windows-1252</td>
+<td>ANSI_X3.4-1968, ANSI_X3.4-1986, ascii, cp367, cp819, csASCII, IBM367, ibm819, ISO_646.irv:1991, iso_8859-1, iso_8859-1:1987, ISO646-US, iso8859-1, iso-8859-1, iso-ir-100, iso-ir-6, latin1, us, us-ascii, x-ansi</td>
+<td>IE5</td>
+<td>Win95</td>
+<td>1252</td>
+<td>1252</td>
+</tr>
+</table>
+<H2>不用于常规的内部字符集</H2>
+<p>下列字符集不用于常规用途，所以不要用它们标识文档。</p>
+<table class="clsStd">
+<tr><th>字符集友好名称</th><th>首选字符集标签</th><th>别名</th><th>IE 版本</th><th>最低 OS</th><th>代码页</th><th>家族代码页</th></tr>
+<tr>
+<td>用户定义的</td>
+<td>x-user-defined</td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>50000</td>
+<td>50000</td>
+</tr>
+<tr>
+<td>日语 (自动选择)</td>
+<td></td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>50932</td>
+<td>932</td>
+</tr>
+<tr>
+<td>自动选择</td>
+<td></td>
+<td></td>
+<td>IE5</td>
+<td>Win95</td>
+<td>50001</td>
+<td>50001</td>
+</tr>
+<tr>
+<td>朝鲜语 (自动选择)</td>
+<td></td>
+<td></td>
+<td>IE5, IE4</td>
+<td>Win95</td>
+<td>50949</td>
+<td>949</td></tr></table>
+</BODY>
+</HTML>

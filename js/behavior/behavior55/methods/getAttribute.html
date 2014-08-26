@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendBehaviors=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+collFriendMethods=new Array(
+'setAttribute','removeAttribute'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'saveFavorite','saveHistory','userData'
+);
+
+sStyle=
+'.cssDataStore {behavior:url(#default#userData);}\n'+
+'#idCodeDiv{width:100%;padding:12px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;}\n';
+
+sScript=
+'<script>\n'+
+'var oTextData,oBooleanData,oBtn1,oBtn2;\n'+
+'\n'+
+'function window.onload(){\n'+
+'oTextData=document.all("idTextData");\n'+
+'oBooleanData=document.all("idBooleanData");\n'+
+'oBtn1=document.all("idBtn1");\n'+
+'oBtn2=document.all("idBtn2");\n'+
+'}\n'+
+'\n'+
+'function rdl_saveData(){\n'+
+
+'var oXMLDoc=oTextData.XMLDocument;\n'+
+'var oNode=oXMLDoc.createNode(1,"Trunk", "");\n'+
+'oNode.setAttribute("sPersist1",oTextData.value);\n'+
+'oXMLDoc.documentElement.appendChild(oNode);\n'+
+
+'oBooleanData.setAttribute("sPersist2",oBooleanData.checked);\n'+
+'oTextData.save("oXMLBranch1");\n'+
+'oBooleanData.save("oXMLBranch2");\n'+
+'}\n'+
+'function rdl_loadData(){\n'+
+'oTextData.load("oXMLBranch1");\n'+
+'oBooleanData.load("oXMLBranch2");\n'+
+
+'var oXMLDoc=oTextData.XMLDocument;\n'+
+'var oItem=oXMLDoc.documentElement.childNodes.item(oXMLDoc.documentElement.childNodes.length-1);\n'+
+
+'oTextData.value=oItem.getAttribute("sPersist1");\n'+
+'oBooleanData.checked=oBooleanData.getAttribute("sPersist2");\n'+
+'}\n'+
+'function rdl_deleteData(){\n'+
+'oTextData.load("oXMLBranch1");\n'+
+'oBooleanData.load("oXMLBranch2");\n'+
+
+'var oXMLDoc=oTextData.XMLDocument;\n'+
+'var oItem=oXMLDoc.documentElement.childNodes.item(oXMLDoc.documentElement.childNodes.length-1);\n'+
+
+'oItem.removeAttribute("sPersist1");\n'+
+'oBooleanData.removeAttribute("sPersist2");\n'+
+'oTextData.save("oXMLBranch1");\n'+
+'oBooleanData.save("oXMLBranch2");\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<input class="cssDataStore" type="text" id="idTextData" value="有一个文本框"><br>\n'+
+'<input class="cssDataStore" type="checkbox" id="idBooleanData"><label for=idBooleanData>有一个选择框</label>\n'+
+'<br><br>\n'+
+'<input type="button" value=" 保存属性 " onclick="rdl_saveData();" id="idBtn2">\n'+
+'<input type="button" value=" 刷新 " onclick="window.location.reload();" id="idBtn3">\n'+
+'<input type="button" value=" 载入属性 " onclick="rdl_loadData();" id="idBtn1">\n'+
+'<input type="button" value=" 移除属性 " onclick="rdl_deleteData();" id="idBtn1">\n'+
+'<div id=idCodeDiv>请尝试修改上方文本框和选择框的属性，然后「保存」，然后「刷新」，再尝试「载入」。<\/div>\n';
+
+iWinWidth=380;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>getAttribute</span>版本：DHTML Object Model　返回值：有</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>vAttrValue</i><b> = </b><i> Object </i><b>.getAttribute ( </b><i>sAttrName</i><b> ) </b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> sAttrName </i></td><td nowrap><b>: </b></td><td>必选项。字符串(String)。指定持续性属性的名称。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap><i> vAttrValue </i></td><td nowrap><b>: </b></td><td>任何变量类型。假如一个显式属性不存在，则会返回一个空字符串。假如是自定义属性不存在，则会返回<b> null </b>。
+</td></tr>
+</table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+获取指定的属性的值。<br>
+<i> sAttrName </i>不是大小写敏感的。<br>
+对于<a href="behaviors/userdata.html"> userData </a>行为和<a href="behaviors/savesnapshot.html"> saveSnapshot </a>行为而言，<b> id </b>属性是必需的。对于<a href="behaviors/savehistory.html"> saveHistory </a>行为和<a href="behaviors/savefavorite.html"> saveFavorite </a>行为而言，<b> id </b>属性不是必需的，但是提供了可以提高性能，所以推荐使用。<br>
+此方法会优先超越( override ) DHTML 的<b> getAttribute </b>方法。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

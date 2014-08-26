@@ -1,0 +1,137 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>PATH Attribute | path Property (t:ANIMATEMOTION) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>PATH Attribute | path Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a set of values that describe a path as a function of time.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;t:ANIMATEMOTION&nbsp;<B>PATH</B>
+= <SPAN CLASS="clsRange">vPath</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>t:ANIMATEMOTION</I>.<B>path</B>(<I>val</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">vPath</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">vPath</SPAN></TD><TD><b>String</b> that
+specifies or receives a set of commands and values that describe a path. The values supported for this property are a subset of the Scalable Vector Graphics (SVG) path syntax. Two forms of the path commands are supported, absolute and relative. Note that these terms only apply to the definition of the path itself, rather than the animation using the path. Absolute commands must specify the coordinate system of the path values, whereas relative commands simply define the point as an offset from the current point. The following commands are supported:<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">m</SPAN></TD><TD>Relative "Move To" command. Starts a new subpath at the given x,y coordinate. If a moveto is followed by multiple pairs of coordinates, the subsequent pairs are treated as implicit "Line To" commands.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">M</SPAN></TD><TD>Absolute "Move To" command. Starts a new subpath at the given x,y coordinate. If a moveto is followed by multiple pairs of coordinates, the subsequent pairs are treated as implicit "Line To" commands.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">l</SPAN></TD><TD>Relative "Line To" command. Draws a line from the current point to the given x,y coordinate, which becomes the new current point. A number of coordinate pairs can be specified to draw a polyline.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">L</SPAN></TD><TD>Absolute "Line To" command. Draws a line from the current point to the given x,y coordinate, which becomes the new current point. A number of coordinate pairs can be specified to draw a polyline.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">h</SPAN></TD><TD>Relative "Horizontal Line To" command. Draws a line from the current point (cpx, cpy) to (x, cpy). Multiple values can be provided.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">H</SPAN></TD><TD>Absolute "Horizontal Line To" command. Draws a line from the current point (cpx, cpy) to (x, cpy).</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">v</SPAN></TD><TD>Relative "Vertical Line To" command. Draws a line from the current point (cpx, cpy) to (cpx, y). Multiple values can be provided.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">V</SPAN></TD><TD>Absolute "Vertical Line To" command. Draws a line from the current point (cpx, cpy) to (cpx, y).</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">z</SPAN></TD><TD>Relative "Closepath" command. Causes an automatic straight line to be drawn from the current point to the initial point of the current subpath.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">Z</SPAN></TD><TD>Absolute "Closepath" command. Causes an automatic straight line to be drawn from the current point to the initial point of the current subpath.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">c</SPAN></TD><TD>Relative "Cubic Bezier Curve To" command. Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as the control point at the beginning of the curve and (x2,y2) as the control point at the end of the curve. Multiple sets of coordinates can be specified to draw a polybezier.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">C</SPAN></TD><TD>Absolute "Cubic Bezier Curve To" command. Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as the control point at the beginning of the curve and (x2,y2) as the control point at the end of the curve. Multiple sets of coordinates can be specified to draw a polybezier.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Valid paths must begin with one of the two <B>move to</B> commands, <SPAN CLASS="clsLiteral">M</SPAN> or <SPAN CLASS="clsLiteral">m</SPAN>. This establishes a starting point, even if it is just <SPAN CLASS="clsLiteral">"M 0 0"</SPAN> or <SPAN CLASS="clsLiteral">"m 0 0"</SPAN>, which don't move the element.</P><P>When a path is combined with <SPAN CLASS="clsLiteral">linear</SPAN> or <SPAN CLASS="clsLiteral">spline</SPAN>?A HREF="../../time2/properties/calcmode.html">calcMode</A> settings, the number of values is defined to be the number of points defined by the path, unless there are <B>move to</B> commands within the path.  A <B>move to</B> command does not count as an additional point for the purpose of <A HREF="../../time2/properties/keytimes.html">keyTimes</A> and <A HREF="../../time2/properties/keysplines.html">keySplines</A>, and should not define an additional segment for the purposes of timing or interpolation. When a path is combined with a <SPAN CLASS="clsLiteral">paced</SPAN>?B>calcMode</B> setting, all <B>move to</B> commands are considered to have 0 length (that is, they always happen instantaneously), and should not be considered in computing the pacing. </P><P>The <I>vPath
+</I> string cannot include any <A HREF="../../common/author/css/reference/lengthunits.html">Cascading Style Sheets (CSS) length unit</A> abbreviations. If any of these (in,cm,mm,pt,pc,em,ex,px,%) are specified, no animation will occur.</P><p>When writing script to dynamically change the properties of an active animation, developers should consider a couple of issues. Because results might be unpredictable or undefined when you change the properties of an active animation, restart the animation with <A HREF="../../common/author/behaviors/reference/time/methods/beginelement.html">beginElement</A> after you have made the change. For example:
+</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+object.endElement();
+object.path="M 0 0 L 100 100";
+object.beginElement();
+&lt;/SCRIPT&gt;
+</PRE>
+To change an active animation from a path to a values list through script:
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+object.endElement();
+object.path=null;
+object.values="100,100;0,0";
+object.beginElement();
+&lt;/SCRIPT&gt;
+</PRE><P>
+For the <A HREF="../../time2/elements/animate.html">animate</A>, <A HREF="../../time2/elements/animatemotion.html">animateMotion</A>, and <A HREF="../../time2/elements/animatecolor.html">animateColor</A> objects, the <A HREF="../../time2/behaviors/time2.html">time2</A> behavior uses the following model to evaluate which properties to animate.
+<ul><li>The <B>path</B> property overrides any setting for the <A HREF="../../time2/properties/values.html">values</A>, <A HREF="../../time2/properties/from.html">from</A>, <A HREF="../../time2/properties/to.html">to</A>, or <A HREF="../../time2/properties/by.html">by</A> properties.</li><li>The <B>values</B> property, if specified, overrides any setting for the <B>from</B>, <B>to</B>, or <B>by</B> properties.</li><li>The <B>from</B> property is used unless the <B>values</B> or <B>path</B> properties are specified.</li><li>The <B>to</B> property, if specified, overrides any setting for the <B>by</B> property.</li><li>The <B>by</B> property doesn't override any properties.</li></ul></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates two ways to use the <B>path</B> attribute to animate a <A HREF="../../objects/div.html">div</A> along a square path.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;path Property&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time { behavior: url(#default#time2) }
+&lt;/STYLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="fixed" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;DIV ID="oDIV" CLASS="time"
+STYLE="position:absolute;top:50px;left:50px;height:100px;width:150px;
+background-color:yellow;text-align:center;font-color:black;
+font-size:large;border:solid black 1px;"&gt;How to use the
+&lt;B&gt;path&lt;/B&gt; attribute.
+&lt;/DIV&gt;
+&lt;t:ANIMATEMOTION targetElement="oDIV" begin="b1.click"
+path="M 0 0 L 100 0 v 100 h -100 V 0" dur="3" /&gt;
+&lt;DIV ID="oDIV2" CLASS="time"
+STYLE="position:absolute;top:50px;left:250px;height:100px;width:150px;
+background-color:yellow;text-align:center;font-color:black;
+font-size:large;border:solid black 1px;"&gt;Another way how
+to use the &lt;B&gt;path&lt;/B&gt; attribute.
+&lt;/DIV&gt;
+&lt;t:ANIMATEMOTION targetElement="oDIV2" begin="b1.click"
+path="m 0 0 L 100 0  100 100 0 100 z" dur="3" /&gt;
+&lt;BUTTON id="b1" style="position:absolute;top:275px;left:125px;"&gt;
+Click to begin / restart
+&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/path.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/elements/animatemotion.html">
+t:ANIMATEMOTION</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/properties/keysplines.html">keySplines</A>, <A HREF="../../time2/properties/keytimes.html">keyTimes</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

@@ -1,0 +1,117 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Shadow Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Shadow Element</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Defines a shadow for a shape.</P>
+<P>The following attributes modify a shadow.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Attribute</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_color.html"><STRONG>Color</STRONG></A></TD><TD bgcolor=#EEEEEE>Defines the color of a shadow.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_color2.html"><STRONG>Color2</STRONG></A></TD><TD bgcolor=#EEEEEE>Defines the second color of a shadow.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_id.html"><STRONG>ID</STRONG></A></TD><TD bgcolor=#EEEEEE>Specifies the unique identifier of a shadow.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_matrix.html"><STRONG>Matrix</STRONG></A></TD><TD bgcolor=#EEEEEE>Defines the perspective transform of a shadow.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_obscured.html"><STRONG>Obscured</STRONG></A></TD><TD bgcolor=#EEEEEE>Determines whether the shadow is transparent.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_offset.html"><STRONG>Offset</STRONG></A></TD><TD bgcolor=#EEEEEE>Defines how far the shadow extends past the shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_offset2.html"><STRONG>Offset2</STRONG></A></TD><TD bgcolor=#EEEEEE>Defines a second offset.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_on.html"><STRONG>On</STRONG></A></TD><TD bgcolor=#EEEEEE>Determines whether a shadow is displayed.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_opacity.html"><STRONG>Opacity</STRONG></A></TD><TD bgcolor=#EEEEEE>Determines the transparency of a shadow.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_origin.html"><STRONG>Origin</STRONG></A></TD><TD bgcolor=#EEEEEE>Defines the center of the shadow.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow_type.html"><STRONG>Type</STRONG></A></TD><TD bgcolor=#EEEEEE>Specifies the type of shadow.</TD></TR>
+</TABLE>
+<BR>
+<P class=RL><B>Remarks</B></P>
+<P>This element must be defined within a <A href="e_shape.html"><B>Shape</B></A> element.</P>
+<P>In addition, the <A href="shadow_on.html"><B>On</B></A> attribute must be set to <B>True</B>.
+<P>The following is the minimum code needed to produce a shadow.
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:rect
+&nbsp;&nbsp;&nbsp;fillcolor="green"
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:50;height:50"&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:shadow on="True"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:rect&gt;
+</PRE>
+<P>You may not notice the shadow unless you increase the <A href="shadow_offset.html"><B>Offset</B></A> values,
+since the default offset is 2pt,2pt.</P>
+<P class=RL><B>Examples</B></P>
+<P>Click <A href="t_shadow.html">here</A> to view a simple shape with a shadow.
+<P>Click <A href="x_shadow.html">here</A> to view a more complex sample.
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

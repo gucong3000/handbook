@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>PUBLIC:ATTACH</span>元素</h1>
+		<hr>
+		<p>绑定一个函数到某个事件上，这样在指定的对象上发生该事件时该函数会被调用。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;PUBLIC:ATTACH<br>&nbsp;&nbsp;event&nbsp;=&nbsp;&quot;<I>sEvent</I>&quot;<br>&nbsp;&nbsp;for&nbsp;=&nbsp;&quot;<I>sObject</I>&quot;<br>&nbsp;&nbsp;id&nbsp;=&nbsp;&quot;<I>sID</I>&quot;<br>&nbsp;&nbsp;onevent&nbsp;=&nbsp;&quot;<I>sEventHandler</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>EVENT</B></dt>
+				<dd>
+					<p>必需。字符串值；指定<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events.asp">动态<span>HTML</span><span>(DHTML)</span>事件</a>名称，或任何在<a href="../articles/htcref.html"><span>HTC</span>参考</a>中列举出来的适用于<span>HTML</span>组件<span>(HTC)</span>的事件的名称。</p>
+				</dd>
+				<dt><B>FOR</B></dt>
+				<dd>
+					<p>可选。字符串值；用于指定事件源的下列值中的一个。</p>
+					<table>
+						<tr>
+							<td class="value">document</td>
+							<td><a href="../objects/document.html"><span>document</span></a>对象的引用。</td>
+						</tr>
+						<tr>
+							<th class="value">element</th>
+							<td>默认值。附加有该行为的元素的引用。</td>
+						</tr>
+						<tr>
+							<td class="value">window</td>
+							<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_window.asp"><span>window</span></a>对象的引用。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>ID</B></dt>
+				<dd>
+					<p>可选。字符串值；在组件内用于识别该<B><span>PUBLIC:ATTACH</span></B>元素的唯一值。这个属性类似于<span>DHTML</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性。</p>
+				</dd>
+				<dt><B>ONEVENT</B></dt>
+				<dd>
+					<p>必需。字符串值；指定一段行内脚本或事件直接调用的处理函数。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Element Information</LABEL>元素信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th>父元素</th>
+					<td><a href="component.html"><span>PUBLIC:COMPONENT</span></a></td>
+				</tr>
+				<tr>
+					<th>子元素</th>
+					<td>无</td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>该<B><span>PUBLIC:ATTACH</span></B>元素是<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/attachevent.asp"><span>attachEvent</span></a>方法的声明模式。</p>
+			<p>当指定事件发生在附加有行为的元素上时，元素的事件处理定义首先被调用，然后才是行为的。如果一个元素附加有多个行为，且在该元素上有多个同一事件的处理定义，在元素的事件处理定义被调用之后，行为的事件处理函数随即被调用，但是以随机性的顺序。</p>
+			<p>如果<B><span>ONEVENT</span></B>有定义，不要给事件处理函数命名为一个已存在的<B><span>DHTML</span>事件</B>。使用一个已存在的<B><span>DHTML</span>事件</B>作为名称可能导致递归错误。</p>
+			<p>事件名称在所有的脚本语言中都是大小写敏感的。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>此范例使用了一份<span>HTC</span>来实现表格内容的展开和缩合。该<span>HTC</span>附加到元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onclick.asp"><span>onclick</span></a>事件上，然后在每次<B><span>onclick</span></B>事件发生时展开或缩合该列表。</p>
+			<div class="example">
+				<code>&lt;PUBLIC:PROPERTY&nbsp;name=&quot;child&quot;&nbsp;/&gt;<br>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onclick&quot;&nbsp;onevent=&quot;ExpandCollapse()&quot;&nbsp;/&gt;<br><br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>function&nbsp;ExpandCollapse()<br>{<br>&nbsp;&nbsp;var&nbsp;i;<br>&nbsp;&nbsp;var&nbsp;sDisplay;<br><br>&nbsp;&nbsp;<U>//&nbsp;Determine&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;list&nbsp;(expanded&nbsp;or&nbsp;collapsed)</U><br>&nbsp;&nbsp;<U>//&nbsp;based&nbsp;on&nbsp;the&nbsp;current&nbsp;display&nbsp;property&nbsp;of&nbsp;the&nbsp;child.</U><br>&nbsp;&nbsp;bCollapsed&nbsp;=&nbsp;(element.document.all(child).style.display&nbsp;==&nbsp;&quot;none&quot;);<br><br>&nbsp;&nbsp;if&nbsp;(bCollapsed)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;style.listStyleImage&nbsp;=&nbsp;&quot;url('/workshop/graphics/blueminus.gif')&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;element.document.all(child).style.display&nbsp;=&nbsp;&quot;&quot;;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;else<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;style.listStyleImage&nbsp;=&nbsp;&quot;url('/workshop/graphics/blueplus.gif')&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;element.document.all(child).style.display&nbsp;=&nbsp;&quot;none&quot;;<br>&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;</code>
+				<button href="../examples/"></button>
+			</div>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>setTimeout</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>setTimeout Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Evaluates an expression after a specified number of milliseconds has elapsed. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>iTimerID</I> = <I>window</I><B>.setTimeout(</B><I>vCode</I><B>, </B><I>iMilliSeconds</I><B> [</B><B>, </B><I>sLanguage</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>vCode</I></TD><TD>
+Required.
+<b>Variant</b> that specifies the function pointer or string that indicates the code to be executed when the specified interval has elapsed.</TD></TR><TR><TD><I>iMilliSeconds</I></TD><TD>
+Required.
+<b>Integer</b> that specifies the number of milliseconds.</TD></TR><TR><TD><I>sLanguage</I></TD><TD>
+Optional.
+<b>String</b> that specifies one of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">JScript</SPAN></TD><TD>Language is JScript.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">VBScript</SPAN></TD><TD>Language is VBScript.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">JavaScript</SPAN></TD><TD>Language is JavaScript.</TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>Integer. Returns an identifier that cancels the evaluation with the <A HREF="../methods/cleartimeout.html">clearTimeout</A> method. </P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>In versions earlier than Microsoft&#174; Internet Explorer 5, the first argument of <B>setTimeout</B> must be a string. Evaluation of the string is deferred until the specified interval elapses.</P><P>As of Internet Explorer 5, the first argument of <B>setTimeout</B> can be a string or a function pointer.</P><P>The specified expression or function is evaluated once. For repeated evaluation, use the <A HREF="../methods/setinterval.html">setInterval</A> method. </P><P>When you use the <B>setTimeout</B> method with <A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, the value of <I>vCode
+</I> should be a function pointer to call a function within the HTML Component (HTC) file or a string to call a function in the primary document. </P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example uses the <B>setTimeout</B> method to evaluate a simple expression after one second has elapsed.</P><PRE CLASS="clsCode" AUTOHILITE="1">window.setTimeout("alert('Hello, world')", 1000);</PRE><P>
+The following example uses the <B>setTimeout</B> method to evaluate a slightly more complex expression after one second has elapsed.</P><PRE CLASS="clsCode" AUTOHILITE="1">var sMsg = "Hello, world";
+window.setTimeout("alert(" + sMsg + ")", 1000);</PRE><P>
+This example uses the <B>setTimeout</B> method to hide a <A HREF="../objects/input_button.html">input type=button</A> object after three seconds. If the user clicks the Count Down button and then counts to three, the Now You See Me button disappears.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnHide(oToHide){
+window.setTimeout("fnHide2(" + oToHide.id + ")", 3000);
+}
+function fnHide2(sID){
+var o = eval(sID);
+o.style.display="none";
+}
+&lt;/SCRIPT&gt;
+&lt;INPUT TYPE=button VALUE="Count Down"
+ID="oHideButton" onclick="fnHide(this)"&gt;</PRE><P>
+This example uses a function pointer to pass the data. In this case, the data is stored in a global variable because it cannot be passed directly. In the preceding example, the <A HREF="../properties/id.html">ID</A> of the button is passed as a parameter to the function invoked by the <B>setTimeout</B> method. This is possible only when a string is passed as the first argument. </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+var g_oToHide = null;
+function fnHide(oToHide){
+g_oToHide = oToHide;
+window.setTimeout(fnHide2, 3000);
+}
+function fnHide2(sID){
+if (g_oToHide) {
+g_oToHide.style.display="none";
+}
+}
+&lt;/SCRIPT&gt;
+&lt;INPUT TYPE=button VALUE="Now you see me ..." ID="oHideButton"
+onclick="fnHide(this)"&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 3.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="3.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/obj_window.html">
+window</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/cleartimeout.html">clearTimeout</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

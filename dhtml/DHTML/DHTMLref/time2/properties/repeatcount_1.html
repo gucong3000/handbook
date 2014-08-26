@@ -1,0 +1,159 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>REPEATCOUNT Attribute | repeatCount Property (t:ANIMATE, t:ANIMATECOLOR, t:ANIMATEMOTION, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>REPEATCOUNT Attribute | repeatCount Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the number of times an element's timeline repeats.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft?Internet Explorer 6</B><P>
+The begin
+<apply-templates></apply-templates><B>repeatCount</B> applies to the
+<apply-templates></apply-templates><A HREF="../../time2/elements/transitionfilter.html">transitionFilter</A>.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>REPEATCOUNT</B>
+= <SPAN CLASS="clsRange">vRepetitions</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>repeatCount</B>(<I>time</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">vRepetitions</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">vRepetitions</SPAN></TD><TD><b>Variant</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">indefinite</SPAN></TD><TD>Timeline repeats indefinitely.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">repetitions</SPAN></TD><TD>Floating-point number or integer greater than 0 that specifies how many times the timeline repeats.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">1</SPAN></TD><TD>Default. Timeline runs only once.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+1</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This property supersedes the <A HREF="../../common/author/behaviors/reference/time/properties/repeat.html">repeat</A> property exposed by the <A HREF="../../common/author/behaviors/reference/time/behaviors/time.html">time</A> behavior.</P><P>If the <B>repeatCount</B> property is a floating-point number, the element's timeline multiplies the fractional amount by the simple duration (<A HREF="../../time2/properties/simpledur.html">simpleDur</A>) on the last iteration. For example, a <A HREF="../../time2/elements/seq.html">t:SEQ</A> with a <B>simpleDur</B> of 10 seconds and a <B>repeatCount</B> of 2.5 would result in a sequence that plays for a total of 25 seconds. In this case, the sequence completes two full iterations, and the last iteration ends after playing for 5 seconds (10 seconds x .5). </P><P>The current iteration of a repeat loop can be obtained on an active timeline using the <A HREF="../../time2/properties/repeatcount.html">repeatCount</A> property exposed by the <A HREF="../../time2/objects/currtimestate.html">currTimeState</A> object.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example shows how to repeat a parallel timeline container using the <B>REPEATCOUNT</B> attribute.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;repeatCount Property&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000"
+VLINK="#808080" ALINK="#000000"&gt;
+&lt;P&gt;Three paragraphs will be shown for three seconds each, and
+the entire process will be repeated three times.
+&lt;SPAN ID="parent" CLASS=time BEGIN="0" DUR="9" TIMECONTAINER="PAR"
+REPEATCOUNT="3" TIMEACTION="display"&gt;
+&lt;SPAN ID="span1" CLASS=time STYLE="COLOR:Red;" BEGIN="0"
+DUR="3" TIMEACTION="visibility"&gt;
+&lt;H3&gt;Paragraph 1&lt;/H3&gt;
+&lt;P&gt;This is paragraph number one.&lt;/P&gt;
+&lt;/SPAN&gt;
+&lt;SPAN ID="span2" CLASS=time STYLE="COLOR:Blue;" BEGIN="3"
+DUR="3" TIMEACTION="visibility"&gt;
+&lt;H3&gt;Paragraph 2&lt;/H3&gt;
+&lt;P&gt;This is paragraph number two.&lt;/P&gt;
+&lt;/SPAN&gt;
+&lt;SPAN ID="span2" CLASS=time STYLE="COLOR:Green;" BEGIN="6"
+DUR="3" TIMEACTION="visibility"&gt;
+&lt;H3&gt;Paragraph 3&lt;/H3&gt;
+&lt;P&gt;This is paragraph number three.&lt;/P&gt;
+&lt;/SPAN&gt;
+&lt;/SPAN&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/repeatCount.htm" FEATURES="top=50,left=50,height=380,width=600,statusbar=yes,resizable=1"></IMG></A></DIV><P>
+The example below uses the <B>REPEATCOUNT</B> attribute to repeat a transition on a <A HREF="../../objects/div.html">DIV</A>. The <B>REPEATCOUNT</B> attribute inside the <A HREF="../../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> element is set to <SPAN CLASS="clsLiteral">indefinite</SPAN>. However, the <B>DIV</B> below will only repeat for the duration of the <B>DIV</B> (in this case seven seconds).</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:TRANSITIONFILTER REPEATCOUNT="indefinite" TYPE="barnDoorWipe" DUR="3"
+TARGETELEMENT="oDiv1"/&gt;
+&lt;!-- The REPEATCOUNT property inside the transitionFilter is set to
+indefinite. However, the DIV below will only repeat for the duration
+of the DIV (in this case seven seconds).
+--&gt;
+&lt;DIV CLASS="time" ID="oDiv1" dur="7"  style="position:relative; left:20px;
+width:420px; height:100px; background-image:url(ART_time_progress.gif);
+background-repeat: no-repeat;"&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/ovwRepeatCount1.html" FEATURES="top=50,left=50,height=400,width=650,status=0"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/elements/animate.html">
+t:ANIMATE</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatecolor.html">
+t:ANIMATECOLOR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatemotion.html">
+t:ANIMATEMOTION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/properties/repeatdur.html">repeatDur</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

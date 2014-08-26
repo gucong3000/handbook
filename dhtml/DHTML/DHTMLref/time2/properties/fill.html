@@ -1,0 +1,152 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>FILL Attribute | fill Property (t:ANIMATE, t:ANIMATECOLOR, t:ANIMATEMOTION, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>FILL Attribute | fill Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the action an element takes if its timeline ends before the timeline on its parent element ends.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft?Internet Explorer 6</B><P>
+The
+<apply-templates></apply-templates><B>fill</B> property supports
+<apply-templates></apply-templates><SPAN CLASS="clsLiteral">transition</SPAN> as a new possible value.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>FILL</B>
+= <SPAN CLASS="clsRange">sAction</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>fill</B>(<I>f</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sAction</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sAction</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">freeze</SPAN></TD><TD>Element will remain in its state at the end of its timeline. The effective end of the element is dependent on the parent time container type. In a <A HREF="../../time2/elements/par.html">t:PAR</A> container, the element ends when the <B>t:PAR</B> ends. In a <A HREF="../../time2/elements/seq.html">t:SEQ</A> or an <A HREF="../../time2/elements/excl.html">t:EXCL</A> container, the element ends when the next element begins.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">hold</SPAN></TD><TD>Element will remain in its state at the end of its timeline until the end of the parent time container, regardless of the parent time container type.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">remove</SPAN></TD><TD>Element will not extend past the end of its timeline.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">transition</SPAN></TD><TD>Internet Explorer 6 and later. Element will remain in its state at the end of its timeline. The effective end of the element is dependent upon the subsequent transition of an overlapping element. The element ends when the overlapping element's transition ends. An element with a value of <SPAN CLASS="clsLiteral">transition</SPAN> will only work appropriately when the following conditions are met:
+<ul><li>The element is inside of a <B>t:SEQ</B> or <B>t:PAR</B> element.</li><li>The <A HREF="../../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> is a child of the element to be transitioned.</li><li>The parent element of the <B>t:TRANSITIONFILTER</B> must have a <A HREF="../../time2/properties/timecontainer.html">TIMECONTAINER</A> attribute value of <SPAN CLASS="clsLiteral">par</SPAN>.</li><li><A HREF="../../common/author/behaviors/reference/time/properties/autoreverse.html">t:AUTOREVERSE</A> is not used on the <B>t:TRANSITIONFILTER</B> element.</li><li>The elements overlap in layout. It is currently possible for the elements not to overlap and a value of <SPAN CLASS="clsLiteral">transition</SPAN> to have an effect. However, this should not be done because later versions of Internet Explorer may not support this behavior.</li></ul></TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>If an element is a time container (<B>t:SEQ</B>, for example), then the default value is <SPAN CLASS="clsLiteral">remove</SPAN>.</P><P>If an element is not a time container and specifies a <A HREF="../../time2/properties/dur.html">DUR</A>, <A HREF="../../time2/properties/end.html">END</A>, <A HREF="../../time2/properties/repeatdur.html">REPEATDUR</A>, or <A HREF="../../time2/properties/repeatcount_1.html">REPEATCOUNT</A>, then the default value is <SPAN CLASS="clsLiteral">remove</SPAN>.</P><P>If an element is not a time container and does not specify any of the above four attributes, then the default value is <SPAN CLASS="clsLiteral">freeze</SPAN>.</P><P>This property supersedes the <A HREF="../../common/author/behaviors/reference/time/properties/endhold.html">endHold</A> property.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example uses the <B>fill</B> attribute to set the action taken by the element
+when its timeline ends before the timeline of its parent element ends.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;fill Property&lt;/TITLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:excl id="t1" begin="0" DUR="15"&gt;
+&lt;DIV ID="div1" class="time" BEGIN="0" DUR="10" fill="freeze"&gt;
+This text has a duration of 10 seconds, but the time container has a
+duration of 15 seconds. This text will be displayed beyond its timeline
+until the timeline of its parent element ends.
+&lt;/DIV&gt;
+&lt;/t:excl&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/fill.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizeable=1"></IMG></A></DIV><P>
+The example below demonstrates setting the <B>FILL</B> attribute to <SPAN CLASS="clsLiteral">transition</SPAN>. Because the first and second images have the <B>FILL</B> attribute set to <SPAN CLASS="clsLiteral">transition</SPAN>, the first image will be visible while the second image transitions in and the second image will be visible as the third image transitions in. </P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="height:100px"&gt;
+&lt;t:SEQ REPEATCOUNT="indefinite" &gt;
+&lt;t:MEDIA STYLE="position:absolute;" src = "onepic.jpg" DUR="3"
+TIMECONTAINER="par" FILL="transition" &gt;
+&lt;t:TRANSITIONFILTER TYPE="fade" DUR="2"/&gt;
+&lt;/t:MEDIA&gt;
+&lt;t:MEDIA  STYLE="position:absolute;" SRC = "twopic.jpg" DUR="3"
+TIMECONTAINER="par" FILL="transition"  &gt;
+&lt;t:TRANSITIONFILTER TYPE="ClockWipe" DUR="2"/&gt;
+&lt;/t:MEDIA&gt;
+&lt;t:MEDIA  STYLE="position:absolute;" SRC = "threepic.jpg" DUR="3"
+TIMECONTAINER="par" &gt;
+&lt;t:TRANSITIONFILTER TYPE="barnDoorWipe" DUR="2"/&gt;
+&lt;/t:MEDIA&gt;
+&lt;/t:SEQ&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/fillEX1.html" FEATURES="top=50,left=50,height=450,width=550,status=0,resizeable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/elements/animate.html">
+t:ANIMATE</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatecolor.html">
+t:ANIMATECOLOR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatemotion.html">
+t:ANIMATEMOTION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/set.html">
+t:SET</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

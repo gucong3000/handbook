@@ -1,0 +1,125 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>t:END Attribute | end Property(deprecated) (t:AUDIO, t:IMG, t:MEDIA, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>t:END Attribute | end Property?deprecated)
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><DIV CLASS="clsBeta">
+This page documents a feature of HTML+TIME 1.0, which was released in Microsoft?Internet Explorer 5. We recommend that you migrate your content to the latest version of HTML+TIME, which implements the SMIL 2.0 Working Draft. See the <A HREF="../time.html">Introduction to HTML+TIME</A> overview for more information.</DIV><P>Sets or retrieves a value indicating the end time for the element, or the end of the simple duration when the element is set to <A HREF="../properties/repeat.html">repeat</A>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>XML</B></TH><TD>&lt;<SPAN CLASS="clsRange">ELEMENT</SPAN>&nbsp;<B>t:END</B>
+= <SPAN CLASS="clsRange">sTime</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>end</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sTime</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sTime</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">clock-value</SPAN></TD><TD>Clock value, such as <span class="clsRange">h:min:s.f</span>, described in <A HREF="../../time2/properties/time_formats.html">Time Formats</A>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">indefinite</SPAN></TD><TD>Element remains active on the timeline for an indefinite amount of time.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>t:END</B> attribute represents an absolute value along the parent element's timeline starting at zero seconds. By contrast, the <A HREF="../properties/dur.html">t:DUR</A> attribute represents a value relative to the value of the element's <A HREF="../properties/begin.html">t:BEGIN</A> attribute. Do not use the <B>t:END</B> attribute on the same element as the <B>t:DUR</B> attribute.</P><P>You must prefix the attribute with the <span class="clsLiteral">t:</span> namespace.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>t:END</B> attribute to display three lines of text, each with its own start time, but all with the same end time.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD W3 HTML//EN"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time  {behavior:url(#default#time);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY BGCOLOR="white"&gt;
+&lt;SPAN CLASS="time" STYLE="COLOR:Red;" t:BEGIN="0" t:END="10"
+t:TIMEACTION="visibility"&gt;
+&lt;H3&gt;Paragraph 1&lt;/H3&gt;
+&lt;P&gt;This is paragraph number one. It is displayed as soon as
+the page is loaded.&lt;/P&gt;
+&lt;/SPAN&gt;
+&lt;SPAN CLASS="time" STYLE="COLOR:Blue;" t:BEGIN="3" t:END="10"
+t:TIMEACTION="visibility"&gt;
+&lt;H3&gt;Paragraph 2&lt;/H3&gt;
+&lt;P&gt;This is paragraph number two. It is displayed three seconds
+after the page is loaded.&lt;/P&gt;
+&lt;/SPAN&gt;
+&lt;SPAN CLASS="time" STYLE="COLOR:Green;" t:BEGIN="6" t:END="10"
+t:TIMEACTION="visibility"&gt;
+&lt;H3&gt;Paragraph 3&lt;/H3&gt;
+&lt;P&gt;This is paragraph number three. It is displayed six seconds
+after the page is loaded.&lt;/P&gt;
+&lt;/SPAN&gt;
+&lt;P&gt;The preceding paragraphs have different start times, but they
+all have an end value of ten. Therefore, all three paragraphs will
+disappear when the timeline reaches ten seconds.&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../../common/samples/author/behaviors/time_end.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/submission/1998/14/" TARGET="_top">
+HTML+TIME (Timed Interactive Multimedia Extensions) 1.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5" HREF="../elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5" HREF="../elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5" HREF="../elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5" HREF="../elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5" HREF="../elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5" HREF="../behaviors/time.html">
+time</A>, <A PLATINFO="win32=5" HREF="../elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../time.html">Introduction to HTML+TIME</A>, <A HREF="../properties/endevent.html">t:ENDEVENT</A>, <A HREF="../properties/endhold.html">t:ENDHOLD</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

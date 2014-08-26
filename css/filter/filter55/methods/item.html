@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'length'
+);
+
+collFriendMethods=new Array(
+'namedItem'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'filters','frames','imports','styleSheets','TextRectangle'
+);
+
+collIE55=new Array(
+'TextRange'
+);
+
+sStyle='';
+
+sScript='';
+
+sCode='';
+
+iWinWidth=450;
+
+iWinHeight=320;
+
+bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>item</span>版本：DHTML Object Model　返回值：有</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>oItem</i><b> = </b><i>object</i><b> . item ( </b><i>vIndex</i><b> )</b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> vIndex </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer) | 字符串(String)<br>
+如果此参数使用的是整数值，则返回数组中的整数序号等于此参数值的对象。如此参数值等于<b> 0 </b>则返回数组中的第一个对象。<br>
+如果此参数值使用的是字符串值，则返回数组中所有<b> name </b>或<b> id </b>属性等于此参数值的对象。假如符合条件的对象数目多于一个，则返回的将是一个数组。
+</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap><i> oItem </i></td><td nowrap><b>: </b></td><td>必选项。对象(Object)。假如成功返回获取到的对象或数组。否则返回<b> null </b>。</td></tr>
+</table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+从<a href="../filters/filters.html"> filters </a>集合或其他集合中返回符合条件的对象。
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+oDiv.filters.item('DXImageTransform.Microsoft.Light').clear();<br>
+oDiv.filters['DXImageTransform.Microsoft.Light'].clear();<br>
+oDiv.filters.item(0).clear();<br>
+oDiv.filters.item[0].moveLight(0,180,60,20,false);<br>
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

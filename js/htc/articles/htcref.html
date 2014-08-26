@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>HTC</span>参考</h1>
+		<hr>
+		<p>从微软<span>Internet Explorer 5</span>引入开始，<span>HTML</span>组件<span>(HTC)</span>提供了以动态<span>HTML</span><span>(DHTML)</span>行为的方式，执行由脚本编写的组件的机制。以<span>.htc</span>扩展名保存的<span>HTC</span>实际上是一份包含了脚本和若干用于定义组件的<span>HTC</span>专有元素的<span>HTML</span>文件。此部分列举了这些元素，以及它们所支持的成员。</p>
+		<h2><LABEL>Processing Instructions</LABEL>处理指令</h2>
+		<blockquote>
+			<B><a href="../elements/import.html"><span>IMPORT</span></a></B>
+			<p>从元素行为中导入标签的定义。</p>
+		</blockquote>
+		<h2><LABEL>Objects</LABEL>对象</h2>
+		<blockquote>
+			<B><a href="../objects/document.html"><span>document</span></a></B>
+			<p>在给定的浏览器窗口中描述<span>HTML</span>文档。</p>
+			<B><a href="../objects/element.html"><span>element</span></a></B>
+			<p>返回主文档中附加有<a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">行为</a>的标记的引用。</p>
+			<B><a href="../objects/defaults.html"><span>defaults</span></a></B>
+			<p>使用程序设置一个元素行为的默认属性。</p>
+			<B><a href="../elements/attach.html"><span>PUBLIC:ATTACH</span></a></B>
+			<p>绑定一个函数到某个事件上，这样在指定的对象上发生该事件时该函数会被调用。</p>
+			<B><a href="../elements/component.html"><span>PUBLIC:COMPONENT</span></a></B>
+			<p>将文件内容识别为<span>HTC</span>。</p>
+			<B><a href="../elements/defaults.html"><span>PUBLIC:DEFAULTS</span></a></B>
+			<p>为一份<span>HTC</span>设置默认的属性。</p>
+			<B><a href="../elements/event.html"><span>PUBLIC:EVENT</span></a></B>
+			<p>定义一个该<span>HTC</span>的专有事件，并将其暴露给包含此<span>HTC</span>的文档。</p>
+			<B><a href="../elements/method.html"><span>PUBLIC:METHOD</span></a></B>
+			<p>定义一个该<span>HTC</span>的专有方法，并将其暴露给包含此<span>HTC</span>的文档。</p>
+			<B><a href="../elements/property.html"><span>PUBLIC:PROPERTY</span></a></B>
+			<p>定义一个该<span>HTC</span>的专有属性，并将其暴露给包含此<span>HTC</span>的文档。</p>
+		</blockquote>
+		<h2><LABEL>Methods</LABEL>方法</h2>
+		<blockquote>
+			<B><a href="../methods/createeventobject.html"><span>createEventObject</span></a></B>
+			<p>创建一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"><span>event</span></a>对象，其作用在于将事件的相关信息传递给<a href="../elements/event.html"><span>PUBLIC:EVENT</span></a>元素的<span><B>fire</B></span>方法。</p>
+		</blockquote>
+		<h2><LABEL>Events</LABEL>事件</h2>
+		<blockquote>
+			<B><a href="../events/contentready.html"><span>oncontentready</span></a></B>
+			<p>当附加有行为的元素其内容解析完成时，该事件发生。</p>
+			<B><a href="../events/contentsave.html"><span>oncontentsave</span></a></B>
+			<p>在附加有行为的元素其内容被保存或复制之前，该事件发生。</p>
+			<B><a href="../events/detach.html"><span>ondetach</span></a></B>
+			<p>在一个元素解除某行为的附加关系之前，该事件发生。</p>
+			<B><a href="../events/documentready.html"><span>ondocumentready</span></a></B>
+			<p>当包含该行为的文档其内容解析完陈时，该事件发生。</p>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

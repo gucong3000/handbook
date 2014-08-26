@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>currentStyle</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<LINK REL="stylesheet" HREF="../../common/common.css" TYPE="text/css">
+<SCRIPT>
+function checkColor(oObj) {
+if (oObj.currentStyle.backgroundColor == 'brown') {
+oObj.style.backgroundColor = 'white';
+alert(event.srcElement.tagName + " 对象的背景色已经更改。");
+}
+else {
+}
+}
+</SCRIPT>
+</HEAD>
+<BODY STYLE="background-color: 'white'; color: 'brown'; margin-right:5; margin-left:5" onclick="checkColor(this)" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<P>在这个例子中，文本的颜色已经设置为棕色。如果你单击已经着色的区域，并且背景颜色与文本颜色一样的话，checkColor 函数就会更改背景颜色以使得文本更具有可读性。此外，该函数不会完成任何功能。</P>
+<P>比较实现的方法是比较对象 currentStyle.<B>backgroundColor</B> 和值“brown”。</P>
+<P STYLE="background-color: 'antiquewhite'" onclick="checkColor(this)">
+这是 <B>P</B> 元素内的文本。
+<SPAN STYLE="background-color: 'pink'" onclick="checkColor(this)">
+这是 <B>P</B> 中 <B>SPAN</B> 内的文本。
+<SPAN STYLE="background-color: 'brown'" onclick="checkColor(this)">
+这是 <B>SPAN</B> 嵌套 <B>SPAN</B> 内的文本。
+</SPAN>
+</SPAN>
+</P>
+<BR><BR><BR>
+<CENTER>
+<HR>
+[用鼠标右键单击窗口的空白区域可查看源代码。]
+</CENTER>
+<BR><BR><BR>
+&copy; 2001 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

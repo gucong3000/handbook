@@ -1,0 +1,155 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>text-justify Attribute | textJustify</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>text-justify Attribute | textJustify Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves  the type of alignment used to justify text in the <span replace="1">object</span>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ text-justify : <SPAN CLASS="clsRange">sAlign</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.textJustify</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sAlign</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sAlign</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">auto</SPAN></TD><TD>Default. Allows the browser to determine which justification algorithm to apply.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">distribute</SPAN></TD><TD>Handles spacing much like the <SPAN CLASS="clsLiteral">newspaper</SPAN> value. This form of justification is optimized for documents in Asian languages, such as Thai.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">distribute-all-lines</SPAN></TD><TD>Justifies lines of text in the same way as the <SPAN CLASS="clsLiteral">distribute</SPAN> value, except that it also justifies the last line of the paragraph. This form of justification is intended for ideographic text.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">distribute-center-last</SPAN></TD><TD>Not implemented.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">inter-cluster</SPAN></TD><TD>Justifies lines of text that contain no inter-word spacing. This form of justification is optimized for documents in Asian languages.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">inter-ideograph</SPAN></TD><TD>Justifies lines of ideographic text, and increases or decreases both inter-ideograph and inter-word spacing.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">inter-word</SPAN></TD><TD>Aligns text by increasing the space between words. This value's spacing behavior is the fastest way to make all lines of text equal in length. Its justification behavior does not affect the last line of the paragraph.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">kashida</SPAN></TD><TD>Justifies lines of text by elongating characters at chosen points.  This form of justification is intended for Arabic script languages. Supported in Microsoft&#174; Internet Explorer 5.5 and later.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">newspaper</SPAN></TD><TD>Increases or decreases the spacing between letters and between words. It is the most sophisticated form of justification for Latin alphabets.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/currentstyle.html">currentStyle</A>.
+The property has a default value of <SPAN CLASS="clsDefValue">
+auto</SPAN>. The Cascading Style Sheets (CSS) attribute is
+inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>For this property to affect text layout, the <A HREF="../properties/textalign.html">textAlign</A> property must be set to <SPAN CLASS="clsLiteral">justify</SPAN>.</P><P>The property applies to block elements.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE>
+The following examples use the <B>text-justify</B> attribute and the <B>textJustify</B> property to align text within the object.<P>
+This example uses an inline style sheet to distribute all the lines within the object.</P><PRE CLASS="clsCode" AUTOHILITE="1">...
+&lt;DIV style="text-align:justify; text-justify:distribute-all-lines;"&gt;
+This example demonstrates how to use this property. This is
+something. This example demonstrates how to use this property.
+This is something. This example demonstrates how to this
+property. This is something. This example demonstrates how to use this
+property. This is something. This example demonstrates how to
+use this property. This is something. This example demonstrates
+how to use this property. This is something. This example
+demonstrates how to use this property. This is something.
+This example demonstrates how to use this property. This is
+something. This example demonstrates how to use this property.
+&lt;/DIV&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=25px,left=25px,height=370px,width=600px,statusbar=yes,resizable=1"></IMG></A></DIV><P>
+This example uses inline scripting to change the alignment of the text when an <A HREF="../events/onmouseover.html">onmouseover</A> event occurs.</P><PRE CLASS="clsCode" AUTOHILITE="1">...
+&lt;DIV style="cursor:hand; text-align:justify;"
+onmouseover="this.style.textJustify='distribute-all-lines';"
+onmouseout="this.style.textJustify='auto';"&gt;
+This example demonstrates how to use this property. This is
+something. This example demonstrates how to use this property.
+This is something. This example demonstrates how to this
+property. This is something. This example demonstrates how to use this
+property. This is something. This example demonstrates how to
+use this property. This is something. This example demonstrates
+how to use this property. This is something. This example
+demonstrates how to use this property. This is something.
+This example demonstrates how to use this property. This is
+something. This example demonstrates how to use this property.
+&lt;/DIV&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=25px,left=25px,height=370px,width=600px,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is part of a proposed addition to <A HREF="http://www.w3.org/style/css/" TARGET="_top">
+Cascading Style Sheets (CSS)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/currentstyle.html">
+currentStyle</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/runtimestyle.html">
+runtimeStyle</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

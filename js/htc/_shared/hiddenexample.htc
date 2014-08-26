@@ -1,0 +1,53 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="hiddenExample"
+ urn="ERiW.Snakevil.Product:HTC.attHiddenExample"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontentready"
+	 onevent="hnContentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="ondocumentready"
+	 onevent="hnDocumentReady()"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+/**
+ * oncontentready 事件处理函数。
+ */
+function hnContentReady() {
+	var sId = uniqueID;
+	element.setAttribute("id", sId);
+	var oTag = element.document.createElement("STRONG");
+	var oText = element.document.createTextNode("显示范例");
+	oTag.appendChild(oText);
+	oText = null;
+	oTag.attachEvent("onclick", function() {
+		toggleExample(sId);
+	});
+	element.insertAdjacentElement("beforeBegin", oTag);
+}
+
+/**
+ * ondocumentready 事件处理函数。
+ */
+function hnDocumentReady() {
+	if (element.document.getElementById("oScriptExample")) {
+		return;
+	}
+	var oScript = element.document.createElement("SCRIPT");
+	with (oScript) {
+		setAttribute("id", "oScriptExample");
+		setAttribute("src", "../_shared/example.js");
+	}
+	element.document.documentElement.firstChild.appendChild(oScript);
+}
+-->
+</SCRIPT>

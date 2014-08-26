@@ -1,0 +1,207 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>HTML+TIME: Media</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>HTML+TIME: Media
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p><A HREF="time.html">Introduction to HTML+TIME</A> provides extensive support for media playback through media container elements, a unified timeline model, a variety of media-specific attributes and properties, and system test attributes. These features make it easy for Web authors to provide tightly synchronized multimedia presentations, and to coordinate media with animation, without using script.</p><p>The following links provide access to the object model exposed by the <A HREF="../time2/behaviors/time2.html">time2</A> behavior.</p><p><P></P><H2>Overviews</H2><BLOCKQUOTE><B><A HREF="../time2/switch_ovw.html">About Content Selection: System Test Attributes and t:SWITCH</A></B><P><B>HTML+TIME</B> 2.0 provides authors with the option to display different elements based on system settings.</P><B><A HREF="../time2/time_seeking_ovw.html">Seeking With HTML+TIME</A></B><P>
+In HTML+TIME (Timed Interactive Multimedia Extensions) various types of media, animation, and other time elements can be played over a period of time. It is often desirable to be able to jump to any point on this time line. This process of jumping to different points on a time element's time line is called <I>seeking</I>.</P><B><A HREF="../time2/time_dom_ovw.html">Using the HTML+TIME Document Object Model (DOM)</A></B><P>
+All HTML+TIME objects are accessible through script at run time. This article introduces you to the HTML+TIME objects, methods, events, and properties available to your Web pages. </P></BLOCKQUOTE><P></P></p><p><P></P><H2>Tutorials</H2><BLOCKQUOTE><B><A HREF="../time2/incorporatetime2.html">Incorporate the time2 Behavior</A></B><P>
+This tutorial explains how to incorporate the <B>time2</B> behavior in your Web pages so you can begin using timelines, multimedia, and animation with HTML elements.</P></BLOCKQUOTE><P></P></p><p><P></P><H2>Media Elements and Objects</H2><BLOCKQUOTE><B><A HREF="../time2/elements/animation.html">animation</A></B><P>
+Defines a timed animation element in an HTML document.</P><B><A HREF="../time2/elements/audio.html">audio</A></B><P>
+Defines a timed audio element in an HTML document.</P><B><A HREF="../time2/objects/currtimestate.html">currTimeState</A></B><P>
+Contains information about an HTML+TIME timeline.</P><B><A HREF="../time2/elements/img.html">img</A></B><P>
+Defines a timed image element in an HTML document.</P><B><A HREF="../time2/elements/media.html">media</A></B><P>
+Defines a generic, timed media element in an HTML document.</P><B><A HREF="../time2/objects/playitem.html">playItem</A></B><P>
+Represents an individual media file in a <A HREF="../time2/collections/playlist.html">playList</A> collection.</P><B><A HREF="../time2/elements/ref.html">ref</A></B><P>
+Defines a reference to a generic timed element in an HTML document.</P><B><A HREF="../time2/elements/video.html">video</A></B><P>
+Defines a timed video element in an HTML document.</P></BLOCKQUOTE><P></P></p><p><P></P><H2>Attributes and Properties</H2><BLOCKQUOTE><B><A HREF="../time2/properties/abstract.html">abstract</A></B><P>
+Retrieves a description of the media file.</P><B><A HREF="../time2/properties/abstract_1.html">Abstract</A></B><P>
+Retrieves the <A HREF="../time2/properties/abstract_1.html">Abstract</A> content of the entry banner in an
+Advanced Stream Redirector (ASX) file using the <A HREF="../objects/obj_event.html">event</A> object. </P><B><A HREF="../time2/properties/accelerate.html">accelerate</A></B><P>
+Sets or retrieves a value that applies an acceleration to an element's timeline.</P><B><A HREF="../time2/properties/activedur.html">activeDur</A></B><P>
+Retrieves the total duration of the timeline.</P><B><A HREF="../time2/properties/activetime.html">activeTime</A></B><P>
+Retrieves the current point in time along the total active timeline, including repeats and time spent in reverse mode.</P><B><A HREF="../time2/properties/activetrack.html">activeTrack</A></B><P>
+Sets or retrieves the track, or <A HREF="../time2/objects/playitem.html">playItem</A> object, that is currently active in the <B>playList</B> collection.</P><B><A HREF="../time2/properties/author.html">author</A></B><P>
+Retrieves the name of the media file's author.</P><B><A HREF="../time2/properties/autoreverse.html">autoReverse</A></B><P>
+Sets or retrieves whether the timeline on an element begins playing in reverse immediately after completing in the forward direction.</P><B><A HREF="../time2/properties/banner.html">Banner</A></B><P>
+Retrieves the <A HREF="../time2/properties/banner.html">Banner</A> content of an
+entry in an ASX file  using the <B>event</B> object.</P><B><A HREF="../time2/properties/banner_1.html">Banner</A></B><P>
+Retrieves the <A HREF="../time2/properties/banner_1.html">Banner</A> content of an
+entry in an ASX file.</P><B><A HREF="../time2/properties/bannerabstract.html">BannerAbstract</A></B><P>
+Retrieves the <A HREF="../time2/properties/bannerabstract.html">BannerAbstract</A> content of an
+entry in an ASX file. </P><B><A HREF="../time2/properties/bannermoreinfo.html">BannerMoreInfo</A></B><P>
+Retrieves the <A HREF="../time2/properties/bannermoreinfo.html">BannerMoreInfo</A> content of an entry in an ASX file.</P><B><A HREF="../time2/properties/begin.html">begin</A></B><P>
+Sets or retrieves the delay time before the timeline begins playing on the element.</P><B><A HREF="../time2/properties/bufferingprogress.html">bufferingProgress</A></B><P>
+Retrieves a value that indicates the current percentage of buffering completed.</P><B><A HREF="../time2/properties/canpause.html">canPause</A></B><P>
+Retrieves a value that indicates whether the media file can be paused.</P><B><A HREF="../time2/properties/canseek.html">canSeek</A></B><P>
+Retrieves a value that indicates whether the media file is capable of locating a specific time in the media's duration.</P><B><A HREF="../time2/properties/clipbegin.html">clipBegin</A></B><P>
+Sets or retrieves the beginning point of a sub-clip of a continuous media object.</P><B><A HREF="../time2/properties/clipend.html">clipEnd</A></B><P>
+Sets or retrieves the end point of a sub-clip of a continuous media object.</P><B><A HREF="../time2/properties/copyright.html">copyright</A></B><P>
+Retrieves the copyright information associated with a media file.</P><B><A HREF="../time2/properties/currentframe.html">currentFrame</A></B><P>
+Retrieves a value that indicates the <A HREF="../time2/properties/currentframe.html">currentFrame</A> of the object.</P><B><A HREF="../time2/properties/decelerate.html">decelerate</A></B><P>
+Sets or retrieves a value that applies a deceleration to the end of a simple duration.</P><B><A HREF="../time2/properties/downloadcurrent.html">downloadCurrent</A></B><P>
+Retrieves a value that indicates the current number of bytes downloaded from streaming content. </P><B><A HREF="../time2/properties/downloadtotal.html">downloadTotal</A></B><P>
+Retrieves a value that indicates the total size of the file (in bytes) downloaded.</P><B><A HREF="../time2/properties/dur.html">dur</A></B><P>
+Sets or retrieves a value indicating the amount of time the element remains active or displayed.</P><B><A HREF="../time2/properties/end.html">end</A></B><P>
+Sets or retrieves a value indicating the end time for the element, or the end of the simple duration when the element is set to repeat.</P><B><A HREF="../time2/properties/fill.html">fill</A></B><P>
+Sets or retrieves the action an element takes if its timeline ends before the timeline on its parent element ends.</P><B><A HREF="../time2/properties/hasaudio.html">hasAudio</A></B><P>
+Retrieves a <b>Boolean</b> value that indicates whether the media contains audio.</P><B><A HREF="../time2/properties/hasdownloadprogress.html">hasDownloadProgress</A></B><P>
+Retrieves a <b>Boolean</b> value that indicates whether a media file has begun to download.</P><B><A HREF="../time2/properties/hasmedia.html">hasMedia</A></B><P>
+Retrieves a <b>Boolean</b> value that indicates whether the element is an <B>Introduction to HTML+TIME</B> media element.</P><B><A HREF="../time2/properties/hasplaylist.html">hasPlayList</A></B><P>
+Retrieves a <b>Boolean</b> value that indicates whether the element has a <B>playList</B> collection.</P><B><A HREF="../time2/properties/hasvisual.html">hasVisual</A></B><P>
+Retrieves a <b>Boolean</b> value that indicates whether the element can draw on the screen.</P><B><A HREF="../time2/properties/index.html">index</A></B><P>
+Retrieves the index value of the <B>playItem</B> object in the <B>playList</B> collection.</P><B><A HREF="../time2/properties/isactive.html">isActive</A></B><P>
+Retrieves a value that indicates whether the element is currently active on the timeline.</P><B><A HREF="../time2/properties/ismuted.html">isMuted</A></B><P>
+Retrieves a value indicating whether the element's audio is currently muted.</P><B><A HREF="../time2/properties/ison.html">isOn</A></B><P>
+Retrieves a value that specifies whether the element is active or holding on the timeline in its current state.</P><B><A HREF="../time2/properties/ispaused.html">isPaused</A></B><P>
+Retrieves a value that specifies whether the element is paused on the timeline.</P><B><A HREF="../time2/properties/latestmediatime.html">latestMediaTime</A></B><P>
+Retrieves a value that indicates the amount of time it takes for a media object to begin playing.</P><B><A HREF="../time2/properties/mediadur.html">mediaDur</A></B><P>
+Retrieves the duration of the element's media file.</P><B><A HREF="../time2/properties/mediaheight.html">mediaHeight</A></B><P>
+Retrieves the height of the element.</P><B><A HREF="../time2/properties/mediawidth.html">mediaWidth</A></B><P>
+Retrieves the width of the element.</P><B><A HREF="../time2/properties/mimetype.html">mimeType</A></B><P>
+Retrieves the MIME content-type of the <span replace="1">object</span>. </P><B><A HREF="../time2/properties/moreinfo.html">MoreInfo</A></B><P>
+Retrieves the <A HREF="../time2/properties/moreinfo.html">MoreInfo</A> content of
+an entry banner in an ASX file through
+the <B>event</B> object.</P><B><A HREF="../time2/properties/mute.html">mute</A></B><P>
+Sets or retrieves a value that indicates whether the audio is turned on or off.</P><B><A HREF="../time2/properties/parenttimebegin.html">parentTimeBegin</A></B><P>
+Retrieves the current element's begin time as an offset from the parent element's begin time.</P><B><A HREF="../time2/properties/parenttimeend.html">parentTimeEnd</A></B><P>
+Retrieves the current element's end time as an offset from the parent element's begin time.</P><B><A HREF="../time2/properties/player.html">player</A></B><P>
+Sets or retrieves the object used to render the media associated with this element.</P><B><A HREF="../time2/properties/playerobject.html">playerObject</A></B><P>
+Retrieves the object that plays media files.</P><B><A HREF="../time2/properties/progress.html">progress</A></B><P>
+Retrieves the current progress of the element's timeline.</P><B><A HREF="../time2/properties/rating.html">rating</A></B><P>
+Retrieves the rating of the media file.</P><B><A HREF="../time2/properties/repeatcount.html">repeatCount</A></B><P>
+Retrieves the current iteration in the repetition loop.</P><B><A HREF="../time2/properties/repeatcount_1.html">repeatCount</A></B><P>
+Sets or retrieves the number of times an element's timeline repeats.</P><B><A HREF="../time2/properties/repeatdur.html">repeatDur</A></B><P>
+Sets or retrieves the number of seconds that an element's timeline repeats.</P><B><A HREF="../time2/properties/restart.html">restart</A></B><P>
+Sets or retrieves the conditions under which an element can be restarted on a timeline.</P><B><A HREF="../time2/properties/segmentdur.html">segmentDur</A></B><P>
+Retrieves the duration of an element on a timeline in seconds, including <A HREF="../time2/properties/autoreverse.html">autoReverse</A>.</P><B><A HREF="../time2/properties/segmenttime.html">segmentTime</A></B><P>
+Retrieves the current point in time along a segment of time.</P><B><A HREF="../time2/properties/simpledur.html">simpleDur</A></B><P>
+Retrieves the duration of a repeat iteration.</P><B><A HREF="../time2/properties/simpletime.html">simpleTime</A></B><P>
+Retrieves an object's current point along its timeline from zero to its <A HREF="../time2/properties/dur.html">dur</A> value.</P><B><A HREF="../time2/properties/speed.html">speed</A></B><P>
+Sets or retrieves the playback speed of an element relative to its parent time container.</P><B><A HREF="../time2/properties/speed_1.html">speed</A></B><P>
+Retrieves the playback speed of an element at run time, which includes the cascading effect of the speed set for the parent time container.</P><B><A HREF="../time2/properties/src.html">src</A></B><P>
+Sets or retrieves the source URL of the media.</P><B><A HREF="../time2/properties/state.html">state</A></B><P>
+Retrieves the current state of the element's timeline.</P><B><A HREF="../time2/properties/statestring.html">stateString</A></B><P>
+Retrieves the current state of the element's timeline.</P><B><A HREF="../time2/properties/syncbehavior.html">syncBehavior</A></B><P>
+Sets or retrieves a value that indicates the synchronization rules for the element's timeline.</P><B><A HREF="../time2/properties/syncmaster.html">syncMaster</A></B><P>
+Sets or retrieves whether the time container must synchronize playback to this element.</P><B><A HREF="../time2/properties/synctolerance.html">syncTolerance</A></B><P>
+Sets or retrieves the time variance allowed on a timeline with locked synchronization.</P><B><A HREF="../time2/properties/timeaction.html">timeAction</A></B><P>
+Sets or retrieves what action is taken on the element while the timeline is active.</P><B><A HREF="../time2/properties/timecontainer.html">timeContainer</A></B><P>
+Sets or retrieves the type of timeline associated with an element.</P><B><A HREF="../time2/properties/timeparent.html">timeParent</A></B><P>
+Retrieves the parent time container element of the current element.</P><B><A HREF="../time2/properties/title.html">title</A></B><P>
+Retrieves the title of the media file.</P><B><A HREF="../time2/properties/type.html">type</A></B><P>
+Sets or retrieves the MIME type of the media object referenced by the <A HREF="../time2/properties/src.html">SRC</A> attribute.</P><B><A HREF="../time2/properties/updatemode.html">updateMode</A></B><P>
+Specifies or retrieves a value that indicates how the <span replace="1">object</span> is to be updated.</P><B><A HREF="../time2/properties/url.html">URL</A></B><P>
+Retrieves the URL specified by the Advanced Streaming Format (ASF) file script command after the <A HREF="../time2/events/onurlflip.html">onURLFlip</A> event is fired.</P><B><A HREF="../time2/properties/volume.html">volume</A></B><P>
+Sets or retrieves the volume of the media file.</P><B><A HREF="../time2/properties/volume_1.html">volume</A></B><P>
+Retrieves the playback volume of an element at run time.</P></BLOCKQUOTE><P></P></p><p><P></P><H2>Methods</H2><BLOCKQUOTE><B><A HREF="../time2/methods/activetimetoparenttime.html">activeTimeToParentTime</A></B><P>
+Converts a value in the element's active timeline to the corresponding point in the parent timeline.</P><B><A HREF="../time2/methods/activetimetosegmenttime.html">activeTimeToSegmentTime</A></B><P>
+Converts a value in the element's active timeline to the corresponding point in the segment timeline.</P><B><A HREF="../time2/methods/beginelement.html">beginElement</A></B><P>
+Starts the element on the timeline.</P><B><A HREF="../time2/methods/beginelementat.html">beginElementAt</A></B><P>
+Starts an element's timeline at the specified time.</P><B><A HREF="../time2/methods/documenttimetoparenttime.html">documentTimeToParentTime</A></B><P>
+Converts a value in the document timeline to the corresponding point in the element's parent timeline.</P><B><A HREF="../time2/methods/endelement.html">endElement</A></B><P>
+Stops the element on the timeline.</P><B><A HREF="../time2/methods/endelementat.html">endElementAt</A></B><P>
+Ends an element's timeline at the specified time.</P><B><A HREF="../time2/methods/parenttimetoactivetime.html">parentTimeToActiveTime</A></B><P>
+Converts a value in the parent timeline to the corresponding point in the element's active timeline.</P><B><A HREF="../time2/methods/parenttimetodocumenttime.html">parentTimeToDocumentTime</A></B><P>
+Converts a value in the element's parent timeline to the corresponding point in the document timeline.</P><B><A HREF="../time2/methods/pauseelement.html">pauseElement</A></B><P>
+Stops playing an element's timeline at the current point.</P><B><A HREF="../time2/methods/resetelement.html">resetElement</A></B><P>
+Removes any changes made to the element and returns the element to its original state.</P><B><A HREF="../time2/methods/resumeelement.html">resumeElement</A></B><P>
+Restarts the element's timeline from a paused state.</P><B><A HREF="../time2/methods/seekactivetime.html">seekActiveTime</A></B><P>
+Locates a specified point on the element's active timeline and begins playing from that point.</P><B><A HREF="../time2/methods/seekto.html">seekTo</A></B><P>
+Locates a specified point on the element's segment timeline, including repetitions, and begins playing from that point.</P><B><A HREF="../time2/methods/seektoframe.html">seekToFrame</A></B><P>
+Locates a specified frame in the object.</P><B><A HREF="../time2/methods/segmenttimetoactivetime.html">segmentTimeToActiveTime</A></B><P>
+Converts a value in the element's segment timeline to the corresponding point in the element's active timeline.</P><B><A HREF="../time2/methods/segmenttimetosimpletime.html">segmentTimeToSimpleTime</A></B><P>
+Converts a value in the element's segment timeline to the corresponding point in the element's simple timeline.</P><B><A HREF="../time2/methods/simpletimetosegmenttime.html">simpleTimeToSegmentTime</A></B><P>
+Converts a value in the element's simple timeline to the corresponding point in the element's segment timeline.</P></BLOCKQUOTE><P></P></p><p><P></P><H2>Events</H2><BLOCKQUOTE><B><A HREF="../time2/events/onbegin.html">onbegin</A></B><P>
+Fires when the timeline starts on an element.</P><B><A HREF="../time2/events/onend.html">onend</A></B><P>
+Fires when the timeline stops on an element.</P><B><A HREF="../time2/events/onmediacomplete.html">onmediacomplete</A></B><P>
+Fires when the element's associated media finish loading.</P><B><A HREF="../time2/events/onmediaerror.html">onmediaerror</A></B><P>
+Fires when an element's media file causes any error.</P><B><A HREF="../time2/events/onoutofsync.html">onoutofsync</A></B><P>
+Fires when the element loses synchronization with its associated timeline.</P><B><A HREF="../time2/events/onpause.html">onpause</A></B><P>
+Fires when the timeline on an element pauses.</P><B><A HREF="../time2/events/onrepeat.html">onrepeat</A></B><P>
+Fires when the timeline repeats on an element, beginning with the second iteration.</P><B><A HREF="../time2/events/onreset.html">onreset</A></B><P>
+Fires when the timeline reaches the value of the <A HREF="../time2/properties/begin.html">BEGIN</A> attribute or when the <A HREF="../time2/methods/resetelement.html">resetElement</A> method is called on the element.</P><B><A HREF="../time2/events/onresume.html">onresume</A></B><P>
+Fires when an element's timeline resumes from a paused state.</P><B><A HREF="../time2/events/onreverse.html">onreverse</A></B><P>
+Fires when the timeline on an element begins to play backward.</P><B><A HREF="../time2/events/onseek.html">onseek</A></B><P>
+Fires whenever a seek operation is performed on the element.</P><B><A HREF="../time2/events/onsyncrestored.html">onsyncrestored</A></B><P>
+Fires when synchronization is resumed between the element and its associated timeline.</P><B><A HREF="../time2/events/ontimeerror.html">ontimeerror</A></B><P>
+Fires whenever a time-specific error occurs, usually as a result of setting a property to an invalid value.</P><B><A HREF="../time2/events/ontrackchange.html">ontrackchange</A></B><P>
+The event fires when a track changes in a <B>playList</B> defined in an ASX file.</P><B><A HREF="../time2/events/onurlflip.html">onURLFlip</A></B><P>
+This event fires when an ASF file, played by a HTML+TIME?A HREF="../time2/elements/media.html">media</A> tag, processes script commands embedded in the ASF file.</P></BLOCKQUOTE><P></P></p><p><P></P><H2>Collections</H2><BLOCKQUOTE><B><A HREF="../time2/collections/playlist.html">playList</A></B><P>
+Retrieves a collection of <B>playItem</B> objects.</P></BLOCKQUOTE><P></P></p><p><P></P><P></P></p></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

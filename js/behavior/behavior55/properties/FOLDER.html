@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'anchorClick'
+);
+
+sStyle=
+'a {behavior:url(#default#anchorclick);}\n';
+
+sScript=
+'\n';
+
+sCode=
+'<a href = "folder.htm" folder = "d:\" target="_top">打开文件夹</a>\n';
+
+iWinWidth=360;
+
+iWinHeight=240;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>FOLDER | folder</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> XML </b></td>
+<td> <b>&lt; </b><i>Element</i><b> FOLDER = </b><i>sFolder</i><b> &gt; </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.folder = </b><i>sFolder</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sFolder </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。指定或检索正确的命名空间扩展、地址，或路径。
+</td></tr></table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+指定或检索正确的命名空间扩展、地址，或路径。<br>
+Microsoft&reg; Internet Explorer 5+ 会使用此属性替换<b> a </b>要素的<b> href </b>属性在浏览器窗口中显示网络目录视图。而不支持此属性的浏览器则依旧使用<b> href </b>属性进行导航。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

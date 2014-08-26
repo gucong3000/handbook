@@ -1,0 +1,124 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>isOn Property (currTimeState) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>isOn Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves a value that specifies whether the element is active or holding on the timeline in its current state.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax">[ <SPAN CLASS="clsRange">bHolding</SPAN><B> =</B> ] <I>currTimeState</I>.<B>isOn</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">bHolding</SPAN></TD><TD>
+Boolean that specifies one of the following values:<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD>Element is active on the timeline or paused at its end, waiting for the container's timeline to end.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">false</SPAN></TD><TD>Default. Element is not active, or is holding on the timeline.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read-only.
+The property has a default value of <SPAN CLASS="clsDefValue">
+false</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>An element must have the <A HREF="../../time2/properties/fill.html">fill</A> attribute set to <SPAN CLASS="clsLiteral">freeze</SPAN> or <SPAN CLASS="clsLiteral">hold</SPAN> to enable holding. This property is equivalent to the <A HREF="../../time2/properties/state.html">state</A> property when it returns a value of <span class="clsLiteral">4</span>.</P><P>An element is considered inactive when it is in a holding state. When an element is inactive, it can neither generate nor respond to events.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>isOn</B> property to retrieve a value that indicates whether the element is active or holding in its current state.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;isOn Property&lt;/TITLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;SCRIPT&gt;
+window.onload = fnOnLoad;
+function fnOnLoad()
+{
+// Set up a timer to watch the time values.
+window.setInterval(fnUpdateTimes, 10);
+}
+function fnUpdateTimes()
+{
+(a1.currTimeState.isOn == true ? s1.innerHTML='&lt;B&gt;&amp;nbsp;isOn:&amp;nbsp;&lt;/B&gt;True - Active' : s1.innerHTML='&lt;B&gt;&amp;nbsp;isOn:&amp;nbsp;&lt;/B&gt;False - Not active, or holding.');
+}
+&lt;/SCRIPT&gt;
+&lt;STYLE&gt;
+.time{behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;B&gt;Moving DIV timer:&lt;/B&gt;
+&lt;SPAN id="Timer3" class="time" dur="1" repeatCount="indefinite"
+onrepeat="innerText=parseInt(a1.currTimeState.activeTime);"&gt;0&lt;/SPAN&gt;
+&lt;t:excl id="t1" begin="indefinite" dur="5" repeatCount="5"&gt;
+&lt;t:ANIMATEMOTION ID="a1" targetElement="div1" to="200,0" begin="0"
+dur="2" autoReverse="true" /&gt;
+&lt;/t:excl&gt;
+&lt;DIV ID="div1" CLASS="time"	STYLE="position:relative;top:15px;left:25px;
+height:100px;width:100px;background-color:yellow;"&gt;&lt;/DIV&gt;
+&lt;SPAN id="s1" style="position:relative;top:40px;"&gt;&lt;B&gt;isOn:&lt;/B&gt;&lt;/SPAN&gt;
+&lt;P style="position:relative;top:40px;"&gt;
+&lt;BUTTON id="b1" onclick="t1.beginElement();"&gt;Start&lt;/BUTTON&gt;
+&lt;BUTTON id="b2" onclick="t1.endElement();"&gt;Stop&lt;/BUTTON&gt;
+&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/ison.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizeable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is a Microsoft extension to <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/objects/currtimestate.html">
+currTimeState</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/properties/isactive.html">isActive</A>, <A HREF="../../time2/properties/ispaused.html">isPaused</A>, <A HREF="../../time2/properties/state.html">state</A>, <A HREF="../../time2/properties/statestring.html">stateString</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

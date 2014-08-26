@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_object.css">
+<script src="rdl_object.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collElements=new Array();
+//collProperties=new Array();
+//collMethods=new Array();
+//collEvents=new Array();
+//collCollections=new Array();
+
+collProperties=new Array(
+new Array('length','','设置或检索集合内的对象数目。')
+);
+
+collMethods=new Array(
+new Array('item','从集合中返回符合条件的对象。'),
+new Array('namedItem','返回集合中 name 属性值或 id 属性值等于 sName 的对象或一组对象的集合。')
+);
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'BODY','BUTTON','DIV','FIELDSET','IMG','INPUT type=button','INPUT type=checkbox','INPUT type=file','INPUT type=image','INPUT type=password','INPUT type=radio','INPUT type=reset','INPUT type=submit','INPUT type=text','MARQUEE','nextID','SPAN','TABLE','TD','TEXTAREA','TH'
+);
+
+collIE50=new Array(
+'BDO','CUSTOM','RT','RUBY'
+);
+
+sStyle=
+'#idParentDIV{width:100%;height:80px;padding:6px;background-color:buttonshadow;}\n'+
+'#idDIV{width:80%;height:40px;background-color:#FF6633;color:#FFFFFF;padding:6px;filter:invert() flipH() flipV();}\n'+
+'#idCodeDiv{width:80%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'function window.onload(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'oCodeDiv.innerHTML="滤镜数目: "+oDiv.filters.length;\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDIV><div id=idDIV><img src="..\/images\/rdl_clock.jpg" width=78 height=60 style="float:left;" hspace=4>下面显示的数字是作用于我的滤镜数目。<\/div><\/div>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : ;<\/div>\n';
+
+iWinWidth=360;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>filters</span>版本：DHTML Object Model　数组集合</div>
+
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>oColl</i><b> = </b><i>object</i><b>.filters</b>
+</td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>oObject</i><b> = </b><i>object</i><b>.filters ( </b><i>vIndex</i><b> , </b><i>iSubIndex</i><b> ) </b>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle>取值：</div>
+<table>
+<tr><td nowrap><i> vIndex </i></td><td nowrap><b>: </b></td>
+<td><b>必选项</b>。整数值(Integer) | 字符串(String)<br>
+如果此参数使用的是整数值，则返回数组中的整数序号等于此参数值的要素。如此参数值等于<b> 0 </b>则返回数组中的第一个要素。<br>
+如果此参数值使用的是字符串值，则返回数组中所有<b> name </b>或<b> id </b>属性等于此参数值的要素。假如符合条件的要素数目多于一个，则返回的将是一个数组。</td></tr>
+<tr><td nowrap><i> iSubIndex </i></td><td nowrap><b>: </b></td>
+<td><b>可选项</b>。整数值(Integer) 。<br>
+当<i> vIndex </i>参数值为 字符串时，数组中所有<b> name </b>或<b> id </b>属性等于<i> vIndex </i>的要素将被作为一个数组获取，而
+此参数值便用于指定返回此数组中的整数序号等于此参数值的要素。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap><i> oColl </i></td><td nowrap><b>: </b></td><td>数组(Array)。返回作用于<i> object </i>的滤镜集合。</td></tr>
+<tr><td nowrap><i> oObject </i></td><td nowrap><b>: </b></td><td>对象(Object)。返回对被<i> object </i>包含的要素数组中的一个项目的引用。</td></tr>
+</table>
+
+<div class=cssColumnTitle id="idShit"></div>
+<div id=idSubContent></div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+获取作用于<i> object </i>的滤镜集合。
+
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

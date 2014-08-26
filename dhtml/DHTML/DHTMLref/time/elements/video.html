@@ -1,0 +1,133 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>t:VIDEO Element | video Behavior(deprecated) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>t:VIDEO Element | video Behavior?deprecated)
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><DIV CLASS="clsBeta">
+This page documents a feature of HTML+TIME 1.0, which was released in Microsoft?Internet Explorer 5. We recommend that you migrate your content to the latest version of HTML+TIME, which implements the SMIL 2.0 Working Draft. See the <A HREF="../time.html">Introduction to HTML+TIME</A> overview for more information.</DIV><P>Defines a timed video element in an HTML document.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>XML</TH><TD>
+&lt;t:VIDEO<SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN><SPAN class="clsLiteral"> STYLE="<A HREF="../../properties/behavior_1.html">behavior</A>:url('#default#time')"</SPAN> /&gt;
+</TD></TR><TR><TH>HTML</TH><TD>
+N/A</TD></TR><TR><TH ROWSPAN="2">Scripting</TH><TD>
+N/A</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sID</SPAN></TD><TD>String that specifies a unique identifier for the object.</TD></TR><TR></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>video</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Attribute</TH><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../properties/accelerate.html">t:ACCELERATE</A></NOBR></TD><TD><NOBR><A HREF="../properties/accelerate.html">accelerate</A></NOBR></TD><TD>
+Sets or retrieves a value that applies an acceleration to the element's local timeline.</TD></TR><TR><TD><NOBR><A HREF="../properties/autoreverse.html">t:AUTOREVERSE</A></NOBR></TD><TD><NOBR><A HREF="../properties/autoreverse.html">autoReverse</A></NOBR></TD><TD>
+Sets or retrieves whether the timeline on an element immediately begins playing in reverse after completing in the forward direction.</TD></TR><TR><TD><NOBR><A HREF="../properties/begin.html">t:BEGIN</A></NOBR></TD><TD><NOBR><A HREF="../properties/begin.html">begin</A></NOBR></TD><TD>
+Sets or retrieves the delay time before the timeline begins playing on the element.</TD></TR><TR><TD><NOBR><A HREF="../properties/beginafter.html">t:BEGINAFTER</A></NOBR></TD><TD><NOBR><A HREF="../properties/beginafter.html">beginAfter</A></NOBR></TD><TD>
+Sets or retrieves a value indicating that the timeline of an element starts when the referenced element ends.</TD></TR><TR><TD><NOBR><A HREF="../properties/beginevent.html">t:BEGINEVENT</A></NOBR></TD><TD><NOBR><A HREF="../properties/beginevent.html">beginEvent</A></NOBR></TD><TD>
+Sets or retrieves a value that starts the timeline of an element when the referenced event occurs.</TD></TR><TR><TD><NOBR><A HREF="../properties/beginwith.html">t:BEGINWITH</A></NOBR></TD><TD><NOBR><A HREF="../properties/beginwith.html">beginWith</A></NOBR></TD><TD>
+Sets or retrieves a value that starts an element's timeline at the same time as the referenced element.</TD></TR><TR><TD><NOBR><A HREF="../properties/clipbegin.html">t:CLIPBEGIN</A></NOBR></TD><TD><NOBR><A HREF="../properties/clipbegin.html">clipBegin</A></NOBR></TD><TD>
+Sets or retrieves the beginning point of a sub-clip of a continuous media object.</TD></TR><TR><TD><NOBR><A HREF="../properties/clipend.html">t:CLIPEND</A></NOBR></TD><TD><NOBR><A HREF="../properties/clipend.html">clipEnd</A></NOBR></TD><TD>
+Sets or retrieves the end point of a sub-clip of a continuous media object.</TD></TR><TR><TD><NOBR><A HREF="../properties/clocksource.html">t:CLOCKSOURCE</A></NOBR></TD><TD><NOBR><A HREF="../properties/clocksource.html">clockSource</A></NOBR></TD><TD>
+Sets or retrieves whether all the elements within the local time scope are synchronized with this element's timeline.</TD></TR><TR><TD></TD><TD><NOBR><A HREF="../properties/currtime.html">currTime</A></NOBR></TD><TD>
+Retrieves a value indicating the current time along the simple duration as defined by the element's <A HREF="../properties/dur.html">t:DUR</A> or <A HREF="../properties/end.html">t:END</A> attribute.</TD></TR><TR><TD><NOBR><A HREF="../properties/decelerate.html">t:DECELERATE</A></NOBR></TD><TD><NOBR><A HREF="../properties/decelerate.html">decelerate</A></NOBR></TD><TD>
+Sets or retrieves a value that applies a deceleration to the end of a simple duration.</TD></TR><TR><TD><NOBR><A HREF="../properties/dur.html">t:DUR</A></NOBR></TD><TD><NOBR><A HREF="../properties/dur.html">dur</A></NOBR></TD><TD>
+Sets or retrieves a value indicating the amount of time the element remains active or displayed.</TD></TR><TR><TD><NOBR><A HREF="../properties/end.html">t:END</A></NOBR></TD><TD><NOBR><A HREF="../properties/end.html">end</A></NOBR></TD><TD>
+Sets or retrieves a value indicating the end time for the element, or the end of the simple duration when the element is set to <A HREF="../properties/repeat.html">repeat</A>.</TD></TR><TR><TD><NOBR><A HREF="../properties/endevent.html">t:ENDEVENT</A></NOBR></TD><TD><NOBR><A HREF="../properties/endevent.html">endEvent</A></NOBR></TD><TD>
+Sets or retrieves a value indicating that the timeline of an element ends immediately when the referenced event occurs, regardless of the element's <B>repeat</B> count or <A HREF="../properties/repeatdur.html">repeatDur</A> property.</TD></TR><TR><TD><NOBR><A HREF="../properties/endhold.html">t:ENDHOLD</A></NOBR></TD><TD><NOBR><A HREF="../properties/endhold.html">endHold</A></NOBR></TD><TD>
+Sets or retrieves whether an element remains active if its timeline ends before the timeline on its parent element ends.</TD></TR><TR><TD><NOBR><A HREF="../properties/eventrestart.html">t:EVENTRESTART</A></NOBR></TD><TD><NOBR><A HREF="../properties/eventrestart.html">eventRestart</A></NOBR></TD><TD>
+Sets or retrieves whether the element should restart if a <A HREF="../properties/beginevent.html">beginEvent</A> call occurs while the local timeline is already running.</TD></TR><TR><TD><NOBR><A HREF="../properties/img.html">t:IMG</A></NOBR></TD><TD><NOBR><A HREF="../properties/img.html">img</A></NOBR></TD><TD>
+Sets or retrieves the URL of an alternate image to display if the MIME type is not supported on the user's computer.</TD></TR><TR><TD></TD><TD><NOBR><A HREF="../properties/localtime.html">localTime</A></NOBR></TD><TD>
+Retrieves a value indicating the current time along the local duration, as defined by the element's <A HREF="../properties/repeat.html">t:REPEAT</A> or <A HREF="../properties/repeatdur.html">t:REPEATDUR</A> attribute.</TD></TR><TR><TD><NOBR><A HREF="../properties/player.html">t:PLAYER</A></NOBR></TD><TD><NOBR><A HREF="../properties/player.html">player</A></NOBR></TD><TD>
+Sets or retrieves the object used to render the media associated with this element.</TD></TR><TR><TD></TD><TD><NOBR><A HREF="../properties/playerobject.html">playerObject</A></NOBR></TD><TD>
+Retrieves the object that plays media files.</TD></TR><TR><TD><NOBR><A HREF="../properties/repeat.html">t:REPEAT</A></NOBR></TD><TD><NOBR><A HREF="../properties/repeat.html">repeat</A></NOBR></TD><TD>
+Sets or retrieves the number of times an element's timeline repeats.</TD></TR><TR><TD><NOBR><A HREF="../properties/repeatdur.html">t:REPEATDUR</A></NOBR></TD><TD><NOBR><A HREF="../properties/repeatdur.html">repeatDur</A></NOBR></TD><TD>
+Sets or retrieves the number of seconds an element's timeline repeats.</TD></TR><TR><TD><NOBR><A HREF="../properties/src.html">t:SRC</A></NOBR></TD><TD><NOBR><A HREF="../properties/src.html">src</A></NOBR></TD><TD>
+Sets or retrieves the source URL of the media.</TD></TR><TR><TD><NOBR><A HREF="../properties/syncbehavior.html">t:SYNCBEHAVIOR</A></NOBR></TD><TD><NOBR><A HREF="../properties/syncbehavior.html">syncBehavior</A></NOBR></TD><TD>
+Sets or retrieves the synchronization rules for the element's timeline.</TD></TR><TR><TD></TD><TD><NOBR><A HREF="../properties/synctolerance.html">syncTolerance</A></NOBR></TD><TD>
+Retrieves the time variance allowed on a timeline with locked synchronization.</TD></TR><TR><TD><NOBR><A HREF="../properties/timeaction.html">t:TIMEACTION</A></NOBR></TD><TD><NOBR><A HREF="../properties/timeaction.html">timeAction</A></NOBR></TD><TD>
+Sets or retrieves what action is taken on the element while the timeline is active.</TD></TR><TR><TD><NOBR><A HREF="../properties/type.html">t:TYPE</A></NOBR></TD><TD><NOBR><A HREF="../properties/type.html">type</A></NOBR></TD><TD>
+Sets or retrieves the MIME type of the media object referenced by the <A HREF="../properties/src.html">t:SRC</A> attribute.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Events</P><DIV tabName="Events"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Event</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../events/onbegin.html">onbegin</A></NOBR></TD><TD>
+Fires when the timeline starts on an element.</TD></TR><TR><TD><NOBR><A HREF="../events/onend.html">onend</A></NOBR></TD><TD>
+Fires when the timeline stops on an element.</TD></TR><TR><TD><NOBR><A HREF="../events/onmediacomplete.html">onmediacomplete</A></NOBR></TD><TD>
+Fires when the element's associated media is finished loading.</TD></TR><TR><TD><NOBR><A HREF="../events/onmedialoadfailed.html">onmedialoadfailed</A></NOBR></TD><TD>
+Fires when an element's media file fails to load for any reason.</TD></TR><TR><TD><NOBR><A HREF="../events/onmediaslip.html">onmediaslip</A></NOBR></TD><TD>
+Fires when an element's media file fails to keep up with the defined timeline.</TD></TR><TR><TD><NOBR><A HREF="../events/onpause.html">onpause</A></NOBR></TD><TD>
+Fires when the timeline on an element pauses.</TD></TR><TR><TD><NOBR><A HREF="../events/onrepeat.html">onrepeat</A></NOBR></TD><TD>
+Fires when the timeline repeats on an element, beginning with the second iteration.</TD></TR><TR><TD><NOBR><A HREF="../events/onresume.html">onresume</A></NOBR></TD><TD>
+Fires when an element's timeline resumes from a paused state.</TD></TR><TR><TD><NOBR><A HREF="../events/onresync.html">onresync</A></NOBR></TD><TD>
+Fires when the element's associated media synchronization is interrupted.</TD></TR><TR><TD><NOBR><A HREF="../events/onreverse.html">onreverse</A></NOBR></TD><TD>
+Fires when the timeline on an element begins to play backward.</TD></TR><TR><TD><NOBR><A HREF="../events/onscriptcommand.html">onscriptcommand</A></NOBR></TD><TD>
+Fires when the Microsoft?Windows Media?Player control receives a synchronized command or URL.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Methods</P><DIV tabName="Methods"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Method</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../methods/beginelement.html">beginElement</A></NOBR></TD><TD>
+Starts the element on the timeline.</TD></TR><TR><TD><NOBR><A HREF="../methods/endelement.html">endElement</A></NOBR></TD><TD>
+Stops the element on the timeline.</TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The members listed in the preceding table might not be accessible through scripting until the <A HREF="../../objects/obj_window.html">window</A>.<A HREF="../../events/onload.html">onload</A> event fires. Waiting for this event to fire ensures that the page is completely loaded, that all behaviors have been applied to corresponding elements on the page, and that all the behavior's properties, methods, and events are available for scripting. Using any of the behavior-defined members before the <B>window</B>.<B>onload</B> event fires could result in a scripting error, indicating that the object does not support that particular member.</P><P>Although different media-based elements exist, there is no functional difference in their current implementation. However, you are encouraged to use elements such as <A HREF="../elements/audio.html">t:AUDIO</A>, <A HREF="../elements/img.html">t:IMG</A>, <A HREF="../elements/media.html">t:MEDIA</A>, and <B>t:VIDEO</B> for improved document readability and enhanced support.</P><P>The prefix <span class="clsLiteral">t</span> is used to associate this element with an XML namespace. You must include the following line of code in the <A HREF="../../objects/head.html">head</A> section of your HTML document when using this element.<PRE CLASS="clsCode" AUTOHILITE="1">&lt;XML:NAMESPACE PREFIX="t"/&gt;</PRE></P><P>The <B>t:VIDEO</B> element is available as of Microsoft Internet Explorer 5, only in the Microsoft?Win32?platform. </P></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="../time.html">Introduction to HTML+TIME</A>, <A HREF="../behaviors/time.html">time</A>, <A HREF="../../time2/behaviors/time2.html">time2</A>, <A HREF="../../common/author/behaviors/howto/using.html">Using DHTML Behaviors</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

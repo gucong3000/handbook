@@ -1,0 +1,143 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>dialogArguments</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>dialogArguments Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves the variable or array of variables passed into the modal dialog window. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax">[ <SPAN CLASS="clsRange">vVariables</SPAN><B> =</B> ] <I>window</I>.<B>dialogArguments</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">vVariables</SPAN></TD><TD>
+String, numeric, object, or array value that specifies arguments.</TD></TR></TABLE><P>The property is read-only.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>dialogArguments</B> property applies only to windows created using the <A HREF="../methods/showmodaldialog.html">showModalDialog</A> and <A HREF="../methods/showmodelessdialog.html">showModelessDialog</A> methods. </P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example shows how to retrieve information passed into a modal dialog window using the <B>dialogArguments</B> property. This example consists of two snippets of code, which correspond to two different files. One file launches the modal window and the other file stores the code for the modal window.</P><P>
+This file launches the modal window and sends an object to that modal window.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function fnLaunch()
+{
+var aForm;
+aForm = oForm.elements;
+var myObject = new Object();
+myObject.firstName = aForm.oFirstName.value;
+myObject.lastName = aForm.oLastName.value;
+// The object "myObject" is sent to the modal window.
+window.showModalDialog("modalDialogSource.htm", myObject, "dialogHeight:300px; dialogLeft:200px;");
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;BUTTON onclick="fnLaunch();" &gt;Launch The Window&lt;/BUTTON&gt;
+&lt;FORM ID= "oForm"&gt;
+First Name:
+&lt;INPUT TYPE="text" NAME="oFirstName" VALUE="Jane"&gt;
+&lt;BR&gt;
+Last Name:
+&lt;INPUT TYPE="text" NAME="oLastName" VALUE="Smith"&gt;
+&lt;/FORM&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><P>
+This file (modalDialogSource.htm), stores the code for the modal window. The object sent to this modal window is retrieved using the <B>dialogArguments</B> property.  </P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+var oMyObject = window.dialogArguments;
+var sFirstName = oMyObject.firstName;
+var sLastName = oMyObject.lastName;
+&lt;/SCRIPT&gt;
+&lt;title&gt;Untitled&lt;/title&gt;
+&lt;/head&gt;
+&lt;BODY STYLE="font-family: arial; font-size: 14pt; color: Snow;
+background-color: RosyBrown;"&gt;
+First Name:
+&lt;SPAN STYLE="color:00ff7f"&gt;
+&lt;SCRIPT&gt;
+document.write(sFirstName);
+&lt;/SCRIPT&gt;
+&lt;/SPAN&gt;
+&lt;BR&gt;
+Last Name:
+&lt;SPAN STYLE="color:00ff7f"&gt;
+&lt;SCRIPT&gt;
+document.write(sLastName);
+&lt;/SCRIPT&gt;
+&lt;/SPAN&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_window.html">
+window</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

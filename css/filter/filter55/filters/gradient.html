@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_object.css">
+<script src="rdl_object.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//var collElements=new Array();
+//var collProperties=new Array();
+//var collMethods=new Array();
+//var collEvents=new Array();
+//var collCollections=new Array();
+
+collProperties=new Array(
+new Array('enabled','Enabled','设置或检索滤镜是否激活。'),
+new Array('','GradientType','设置或检索色彩渐变的方向。'),
+new Array('startColorStr','StartColorStr','设置或检索色彩渐变的开始颜色和透明度。'),
+new Array('','StartColor','设置或检索色彩渐变的开始颜色。 '),
+new Array('EndColorStr','EndColorStr','设置或检索色彩渐变的结束颜色和透明度。'),
+new Array('','EndColor','设置或检索色彩渐变的结束颜色。')
+);
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'A','ACRONYM','ADDRESS','B','BDO','BIG','BLOCKQUOTE','BODY','BUTTON','CAPTION','CENTER','CITE','CODE','CUSTOM','DD','DEL','DFN','DIR','DIV','DL','DT','EM','FIELDSET','FONT','FORM','FRAME','Hn','IFRAME','FRAMESET','I','INS','IMG','INPUT type=button','INPUT type=checkbox','INPUT type=file','INPUT type=image','INPUT type=password','INPUT type=radio','INPUT type=reset','INPUT type=submit','INPUT type=text','KBD','LABEL','LEGEND','LI','MARQUEE','MENU','NOBR','OBJECT','OL','P','PLAINTEXT','PRE','Q','RT','RUBY','S','SAMP','SMALL','SPAN','STRIKE','STRONG','SUB','SUP','TABLE','TEXTAREA','TH','TD','TT','U','UL','VAR','XMP '
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FFFFFF;color:#FFFFFF;padding:6px;filter:progid:DXImageTransform.Microsoft.gradient();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.gradient(";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=options[selectedIndex].value;\n'+
+'with (document.all("idSel3")) var sValue3=options[selectedIndex].value;\n'+
+'oDiv.filters[0].StartColorStr=sValue1;\n'+
+'oDiv.filters[0].EndColorStr=sValue2;\n'+
+'oDiv.filters[0].GradientType=parseInt(sValue3);\n'+
+'oCodeDiv.innerHTML=sFilter+"startColorStr="+sValue1+",endColorStr="+sValue2+");";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_sex.gif" style="float:left;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="#FF0000FF">---开始颜色---\n'+
+'<option value="#FF0000FF">#FF0000FF\n'+
+'<option value="#DF06F0FF">#DF06F0FF\n'+
+'<option value="#800000FF">#800000FF\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="#FF000000">---结束颜色---\n'+
+'<option value="#FF000000">#FF000000\n'+
+'<option value="#00000000">#00000000\n'+
+'<option value="#5E0000FF">#5E0000FF\n'+
+'<\/select>\n'+
+'<select id="idSel3" onchange="rdl_change();">\n'+
+'<option value="1">---渐变方向---\n'+
+'<option value="1">1\n'+
+'<option value="0">0\n'+
+'<\/select>\n'+
+'<\/td><\/tr><\/table>\n'+
+'<div id=idCodeDiv>filter:progid:DXImageTransform.Microsoft.gradient();<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>Gradient</span>兼容性：IE5.5+</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td><td>
+<b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.Gradient ( enabled=</b><i>bEnabled</i><b> , startColorStr=</b><i>iWidth</i><b> , endColorStr=</b><i>iWidth</i><b> ) </b>
+</td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>object</i><b>.style.<a href="../properties/filter.html">filter</a> = "progid:DXImageTransform.Microsoft.Gradient ( </b><i>sProperties</i><b> ) "</b>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle id="idShit"></div>
+<div id=idSubContent></div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+在对象的背景和内容之间显示定制的色彩层。<br>
+当此效果通过转变显示时，在渐变册色彩层之上的文本程序性的初始化为透明的，当色彩渐变实现后，文本颜色会以其定义的值更新。
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+#idDiv{position:absolute; left:140px; height:400; width:400;filter:progid:DXImageTransform.Microsoft.gradient(enabled='false',startColorstr=#550000FF, endColorstr=#55FFFF00) ;}<br>
+#idDiv{position:absolute; left:140px; height:400; width:400;filter:progid:DXImageTransform.Microsoft.gradient() ;}<br>
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

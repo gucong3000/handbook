@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>Viewlink</span>简介</h1>
+		<hr>
+		<p><span>Viewlink</span>是元素行为的一个特性，让你可以编写完全封装的动态<span>HTML</span><span>(DHTML)</span>行为，并如同一个充满活力的自定义元素一般将其导入到网页中。<span>Viewlink</span>化的文档内容，也就是传统意义上的文档片段，在网页中如同规范的<span>HTML</span>内容一般渲染并运转。无论是二进制编码的<span>DHTML</span>行为还是脚本版的<span>HTML</span>组件<span>(HTC)</span>，都可以用于实现<span>Viewlink</span>化的元素行为，但是本总概主要还是关注于脚本版的<span>HTC</span>文件中的<span>Viewlink</span>的用法。</p>
+		<p>使用<span>Viewlink</span>的元素行为是高度封装的，因此它完全可以用于以高度模块化的方式设计并创建丰富多彩的网络应用程序。在其他的开发环境中，封装已被证实更加有利，也更加直观，如微软<span>Visual C++</span>和微软<span>Visual Basic</span>。而现在则已得到承认，封装在网络开发中也同样具有优势。</p>
+		<p>当使用<span>Viewlink</span>时，主文档中脚本对行为的渲染并不起作用——除非组件有公共的属性和方法才有这个可能。组件可以完全地封装，例如它的功能性、方法、样式属性都可以完全从主文档中隐藏。相反的，组件可以被设计为提供一些方法和属性的扩展接口，从而增强主文档与组件本身之间的交互。因此，<span>Internet Explorer 5.5</span>中的行为组件模型可谓为组件开发者们提供了一个很好的弹性。</p>
+		<p>在规范的元素行为和使用<span>Viewlink</span>的元素行为之间存在着一些很重要的差异。一个规范的元素行为定义了一个自定义元素；因此当讨论说某个元素行为使用了<span>Viewlink</span>时，主文档中的自定义元素实际上是作为主元素被访问的。区别主要是因为不同类型的元素行为在主文档树中有着不同的表现效果。<span>Viewlink</span>化的元素行为的文档片段并不出现在主文档树种，但是它会被显示出来。这是因为文档片段已经完全被<span>Viewlink</span>封装起来，而一个规范的元素行为中的文档片段则被直接追加到自定义元素上。这些区别意味着，在为各种不同类型的行为编写与其文档对象模型<span>(DOM)</span>相关的脚本时，格式上存在着一些细微的不同。</p>
+		<p>使用<span>HTC</span>文件编写的<span>DHTML</span>行为的一个好处是，它们无需安装在客户端机器上，而二进制编码的<span>DHTML</span>行为则一般都需要。<span>HTC</span>文件自动作为主网页的一部分进行下载并解析，因此得到的是更流利的浏览体验。脚本版本的组件在<span>Internet Explorer 5.5</span>中可以设计得非常强大，事实上，它们能够完成的工作与二进制编码的<span>DHTML</span>行为相差无几，而开发起来却要简单容易得多。</p>
+		<p>本文解释了如何使用<span>Viewlink</span>功能，也略述了使用<span>Viewlink</span>和元素行为时所能发现的主要优势。同时也有多个样例来演示如何编写自己的<span>Viewlink</span>化元素行为。</p>
+		<p>本文党主要讨论了下面的主题。</p>
+		<ul>
+			<li><a href="#Prerequisites">先决条件</a></li>
+			<li><a href="#Terminology">术语</a></li>
+			<li><a href="#Benefits">优势</a></li>
+			<li><a href="#Calendar_Sample">日历样例</a></li>
+			<li><a href="#Creating">创建<span>Viewlink</span></a></li>
+			<li><a href="#CSS_Inheritance"><span>CSS</span>继承</a></li>
+			<li><a href="#Inline-Block_Elements">行内元素？还是块元素？</a></li>
+			<li><a href="#Events">事件的起泡行程</a></li>
+			<li><a href="#Tabbing"><span>TAB</span>移焦</a></li>
+			<li><a href="#Themes">主题</a></li>
+			<li><a href="#Nesting">嵌套的<span>Viewlink</span></a></li>
+			<li><a href="#Security">安全性</a></li>
+			<li><a href="#related_topics">相关主题</a></li>
+		</ul>
+		<h2><label>Prerequisites</label>先决条件<a name="Prerequisites" id="Prerequisites"></a></h2>
+		<p>为了使阅读本文带来的好处能够最大化，您应该熟悉<span>DHTML</span>行为并对<span>HTC</span>文件编写的行为的基础原理有一定的了解。</p>
+		<p>尚对<span>DHTML</span>不熟悉的阅读者建议先去阅读这些文章：<a href="htcref.html">《<span>HTC</span>参考》</a>，<a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a>，和<a href="abelebeh.html">《关于元素行为》</a>。</p>
+		<p>因为<span>Viewlink</span>是元素行为的一个比较与众不同的特性——它将文档片段起来——因此<b>《关于元素行为》</b>是任何希望使用<span>Viewlink</span>的用户的必读文档。</p>
+		<h2><label>Terminology</label>术语<a name="Terminology" id="Terminology"></a></h2>
+		<p>此部分定义了用于描述<span>Viewlink</span>功能的术语。</p>
+		<table>
+			<tr>
+				<th>自定义元素</th>
+				<td>用户自行定义的元素，也可以理解为自定义标签。要使用自定义元素必需为<span>HTML</span>文档声明相应的命名空间。</td>
+			</tr>
+			<tr>
+				<th>文档片段</th>
+				<td>独立存在于主文档正文内容之外的一个或多个<span>HTML</span>元素。<span>Viewlink</span>特性或其他诸如<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/appendchild.asp"><span>appendChild</span></a>的脚本方法，可以用于插入一个文档片段到主文档中并渲染此片段。</td>
+			</tr>
+			<tr>
+				<th>元素行为</th>
+				<td><span>Internet Explorer 5.5</span>的特性，允许<span>DHTML</span>行为以同步方式转变为自定义元素。由元素行为转变来的自定义元素可以像其他元素一样在<span>HTML</span>文档中使用，该行为的功能绝对不会从该元素上移除。</td>
+			</tr>
+			<tr>
+				<th>主元素</th>
+				<td>实现<span>Viewlink</span>方式的元素行为的自定义元素。<span>Viewlink</span>让元素行为的文档片段可以作为主文档中的内容被渲染。</td>
+			</tr>
+			<tr>
+				<th>主文档</th>
+				<td>客户端正在浏览的使用了元素行为的网页。</td>
+			</tr>
+			<tr>
+				<th>命名空间</th>
+				<td>可供自定义元素和属性使用的名称的集合。命名空间用于确保每个元素都能被唯一性的识别。欲了解更多的信息，请阅读<a href="http://msdn.microsoft.com/library/en-us/xmlsdk30/htm/xmtuttut5usingnamespaces.asp">《<span>XML</span>指南：使用命名空间》</a>。</td>
+			</tr>
+		</table>
+		<p>在用于创建二进制编码的<span>DHTML</span>行为的技术与用户创建<span>HTC</span>文件的技术之间存在着一些不同之处，但这方面的讨论并不在本总概的讨论返回之内。因此，在本文中，元素行为和<span>Viewlink</span>的讨论大体上都基于<span>HTC</span>文件编写的<span>DHTML</span>行为。要了解更多关于二进制编码的行为的信息，请阅读文章<a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/creating.asp">《实现二进制编码的<span>DHTML</span>行为》</a>。</p>
+		<h2><label>Benefits</label>优势<a name="Benefits" id="Benefits"></a></h2>
+		<p>元素行为和<span>Viewlink</span>能力介绍于<span>Internet Explorer 5.5</span>，它们让你可以定义充满活力的自定义元素。<span>Internet Explorer 5.5</span>平台提供了一个坚实的基础，使创建完全封装的<span>DHTML</span>行为成为可能，使扩展规范的<span>HTML</span>元素的基本功能也成为可能。事实上，<span>Internet Explorer 5.5</span>中新出现的<span>DHTML</span>行为能力正是为了满足创建复杂多变的控制器和组件的需求。因此<span>Internet Explorer 5.5</span>鼓励开发可重用的组件，而这也正是最吸引人的地方，因为你仅仅使用附带脚本的<span>HTC</span>文件就可以实现。</p>
+		<p>下面的表格演示了元素行为使用和不使用<span>Viewlink</span>时的差别。左边展示的是一个应用了元素行为的简单的文档树结构。以黄色显示的自定义元素将文档片段内容也追加到主文档中。其结果是一颗由主文档和文档片段组成的文档树。右边展示的是实现了使用<span>Viewlink</span>的元素行为的主文档结构图，看起来要简单得多。只有主文档出现在主文档的树中，而文档片段则被完全封装起来。</p>
+		<img src="../_shared/vlinkstatic.gif">
+		<p><span>Viewlink</span>一个有用的功能在于它允许开发者可以根据需要使用嵌套<span>Viewlink</span>组件来将文档树分割为多个文档片段。在很多情况下这项功能可以将内容和脚本抽离分布在多个层次中以达到想要的效果。下面的日历样例演示了嵌套<span>Viewlink</span>组件的一种用法；它同样也演示了<span>Viewlink</span>其他的一些有趣的优势。</p>
+		<p>在<span>DHTML</span>行为的开发过程中可能会碰到许多问题，而通过使用<span>Viewlink</span>的元素行为，很多问题都可以避免。主文档树中的样式并不继承到<span>Viewlink</span>组件中，除非组件作者在设计时作出了允许的肯定。对组件内容非预期的格式化可以通过在<span>HTC</span>文件中定义样式而完全消除；这是因为<span>HTC</span>中的样式其优先级高于主文档中的样式。你也可以完全关闭样式继承；该技术在<a href="#CSS_Inheritance"><span>CSS</span>继承</a>部分做了详细的解释。</p>
+		<h2><label>Calendar Sample</label>日历样例<a name="Calendar_Sample" id="Calendar_Sample"></a></h2>
+		<p>此样例使用的<span>Calender</span>控件实现了两个不同的变种：其一是定义了一个元素行为，而其二是使用了<span>Viewlink</span>的元素行为。虽然在外观和功能上很相近，但<span>Calender</span>控件主要演示的是使用或不使用<span>Viewlink</span>时元素行为所表现出来的一些比较有趣的区别。</p>
+		<button href="../examples/"></button>
+		<p>每个组件都有一个按钮来显示<span>HTML</span>文档树，并根据不同变种的结果高亮标识出主文档结构的不同。在元素行为版本的主文档树结构相比<span>Viewlink</span>版本而言要复杂的多。元素行为版本的主文档由众多自定义元素的分支元素填充，而<span>Viewlink</span>版本则展示了<span>HTC</span>文件中的文档片段的内容是如何被封装的。该样例同样演示了不同变种之间在层叠样式表<span>(CSS)</span>继承上的差异性。按钮将背景色样式应用到主文档中的表格元素。当样式被应用时，元素行为内的元素继承了更新的样式属性。这个结果可能不是组件的设计需求里所预期想要的。而对于<span>Viewlink</span>版本的<span>Calender</span>，更改主文档的样式对<span>Calender</span>控制的渲染没有带来任何效果。</p>
+		<h2><label>Creating a Viewlink</label>创建<span>Viewlink</span><a name="Creating" id="Creating"></a></h2>
+		<p>在经历创建简单的<span>Viewlink</span>的步骤之前，先快速查阅一下<a href="../objects/defaults.html"><span>defaults</span></a>对象及其属性是很有必要的。该属性是理解元素行为如何使用<span>Viewlink</span>属性的基础。<b><span>defaults</span>对象拥有一些只应用于<span>Viewlink</span></b>的属性。</p>
+		<p><b><span>defaults</span></b>对象用于获取或设置元素行为的默认属性，因此<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/viewlink.asp"><span>viewLink</span></a>也是该对象的一个属性。当<b><span>viewLink</span></b>属性设置为包含文档内容的对象时，元素行为就确认为<span>Viewlink</span>。赋值给<b><span>viewLink</span></b>属性的对象是文档片段。默认情况下元素行为并没有定义为<span>Viewlink</span>，因此<b><span>viewLink</span></b>属性的初始值为<span>null</span>。</p>
+		<p><a href="../elements/defaults.html"><span>PUBLIC:DEFAULT</span></a>元素是<b><span>objects</span></b>对象的声明形式。<b><span>PUBLIC:DEFAULTS</span></b>元素支持的属性对应到<b><span>objects</span></b>对象所支持的属性集合；因此无论是脚本还是声明都可以用于设置<b><span>objects</span></b>对象的属性。<b><span>PUBLIC:DEFAULTS</span></b>元素用在<span>HTC</span>文件的组件部分，在这里<b><span>objects</span></b>对象的初始值才可以被设定。</p>
+		<p>创建并实现使用<span>Viewlink</span>的元素行为有三个必要步骤：</p>
+		<ul>
+			<li>创建一个元素行为。</li>
+			<li>定义<span>Viewlink</span>。</li>
+			<li>导入<span>HTC</span>文件到主文档。</li>
+		</ul>
+		<p>每一步都在下面部分进行了描述。</p>
+		<h3>创建元素行为</h3>
+		<p><span>Viewlink</span>是元素行为的一个特性，因此编写使用或不使用<span>Viewlink</span>的元素行为其过程都非常相似。创建元素行为的过程在<b>《关于元素行为》</b>一文中已有比较详细的介绍。</p>
+		<h3>定义<span>Viewlink</span></h3>
+		<p><span>Viewlink</span>可以使用脚本进行定义，也可以在<span>HTC</span>文件中的组件部分插入合适的声明来完成同样的目的。</p>
+		<p>要在主文档和文档片段之间使用脚本建立一个<span>Viewlink</span>，可以使用下面的语句。此语句应该放置在<span>HTC</span>文件中，最好是在<a href="../elements/component.html"><span>PUBLIC:COMPONENT</span></a>元素之后的脚本块中。</p>
+		<code>defaults.viewLink&nbsp;=&nbsp;document;</code>
+		<p><span>Viewlink</span>也可以在组件定义中声明。下面的例子里自动将<span>HTC</span>文件中文档片段的根元素链接到主文档上。</p>
+		<code>&lt;PUBLIC:DEFAULTS&nbsp;viewlinkcontent=&quot;true&quot;&nbsp;/&gt;</code>
+		<p><span>HTC</span>文件本质上是一份规范的<span>HTML</span>文档，因此它可以包含<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/head.asp"><span>head</span></a>和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/body.asp"><span>body</span></a>元素以及其他的标准<span>HTML</span>元素。但实际上只需要包括定义行为和文档内容的元素即可。例如使用<span>Viewlink</span>的元素行为，其<span>HTC</span>文件包含两个部分。第一个部分是组件定义，由<b><span>PUBLIC:COMPONENT</span></b>元素将相关其他元素包含进去。该元素包含了行为声明的方法、属性和事件的处理。不推荐将脚本块放置在这一部分中。第二部分是文档片段，使用<b><span>body</span></b>元素来包含其他的元素。此部分可使用任何静态<span>HTML</span>，然后将这些内容显示在主文档中。</p>
+		<p>这是一个使用<b><span>PUBLIC:DEFAULTS</span></b>元素来以声明的方式设置<span>Viewlink</span>的简单<span>HTC</span>文件。</p>
+		<code><u>&lt;!--&nbsp;&quot;Toolbar_Button.htc&quot;&nbsp;--&gt;</u><br>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;TOOLBAR_BUTTON&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:DEFAULTS&nbsp;viewlinkcontent=&quot;true&quot;&nbsp;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;<br>&lt;BODY&gt;<br>Some&nbsp;day&nbsp;this&nbsp;will&nbsp;be&nbsp;a&nbsp;toolbar&nbsp;button.<br>&lt;/BODY&gt;</code>
+		<h3>导入<span>HTC</span>文件到主文档</h3>
+		<p>本部分解释了如何导入一份<span>HTC</span>文件并将其中定义的使用<span>Viewlink</span>的元素行为实现。导入主元素到主文档中只是一个细微末节的步骤，但有必要注意主元素本身。正如上面的样例代码块所展示的，主元素的名称由<span>HTC</span>文件中<b><span>HTC:COMPONENT</span></b>元素的<span>tagName</span>属性进行声明。主元素使用命名空间作为其前缀，随后添加一个冒号<span>(:)</span>，再然后才是标签的名称。如果需要，主文档中可以包括很多个主元素信息。</p>
+		<p><span>Viewlink</span>在主文档中主元素所在的位置显示文档片段。主元素的内容除非行为初始化失败，否则并不在主文档中被渲染。如果组件初始化真的失败了，主元素的内容会被渲染，而非文档片段。主元素的内容在脚本中可以通过<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/innerhtml.asp"><span>innerHTML</span></a>和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/innertext.asp"><span>innerText</span></a>属性来访问。</p>
+		<h3>范例</h3>
+		<p>下面的<span>HTC</span>文件定义了一个名为<span>TOOLBAR_BUTTON</span>的自定义元素。移动鼠标指针到此按钮上时，就出现了一个<span>3-D</span>效果。而一旦鼠标指针移开，此效果就消失了。</p>
+		<p>在下面的例子中，组件等待<a href="../events/contentready.html"><span>oncontentready</span></a>来初始化<span>Viewlink</span>。<a href="../elements/attach.html"><span>PUBLIC:ATTACH</span></a>元素用于将<span>fnInit</span>函数作为事件处理函数映射到<b><span>oncontentready</span></b>事件。另一种附加函数以作事件处理用的方式是在脚本中使用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/attachevent.asp"><span>attachEvent</span></a>方法。</p>
+		<div class="example">
+			<code><u>&lt;!--&nbsp;&quot;Toolbar_Button.htc&quot;&nbsp;--&gt;</u><br>&lt;HEAD&gt;<br>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;TOOLBAR_BUTTON&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:ATTACH&nbsp;event=&quot;oncontentready&quot;&nbsp;onevent=&quot;fnInit()&quot;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;<br>&lt;STYLE&gt;<br>&nbsp;&nbsp;.clsButton&nbsp;{&nbsp;background-color:#D6D3CE;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:solid&nbsp;1px;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-color:#D6D3CE;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&lt;/STYLE&gt;<br>&lt;SCRIPT&nbsp;LANGUAGE=&quot;JScript&quot;&gt;<br><u>//&nbsp;Entry&nbsp;point</u><br>function&nbsp;fnInit()<br>{<br>&nbsp;&nbsp;var&nbsp;oButton&nbsp;=&nbsp;document.body;<br>&nbsp;&nbsp;oButton.className&nbsp;=&nbsp;&quot;clsButton&quot;;<br>&nbsp;&nbsp;oButton.innerHTML&nbsp;=&nbsp;&quot;&amp;nbsp;&quot;&nbsp;+&nbsp;element.innerHTML&nbsp;+&nbsp;&quot;&amp;nbsp;&quot;;<br>&nbsp;&nbsp;defaults.viewLink&nbsp;=&nbsp;document;<br>}<br><u>//&nbsp;Mouse&nbsp;handler&nbsp;functions</u><br>function&nbsp;fnMouseOver()<br>{<br>&nbsp;&nbsp;var&nbsp;oButton&nbsp;=&nbsp;document.body;<br>&nbsp;&nbsp;oButton.style.borderColor&nbsp;=&nbsp;&quot;ThreeDHighlight&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDDarkShadow&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDDarkShadow&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDHighlight&quot;;<br>&nbsp;&nbsp;oButton.style.cursor&nbsp;=&nbsp;&quot;hand&quot;;<br>}<br>function&nbsp;fnMouseOut()<br>{<br>&nbsp;&nbsp;var&nbsp;oButton&nbsp;=&nbsp;document.body;<br>&nbsp;&nbsp;oButton.style.borderColor&nbsp;=&nbsp;&quot;#D6D3CE&quot;;<br>&nbsp;&nbsp;oButton.style.cursor&nbsp;=&nbsp;&quot;default&quot;;<br>}<br>function&nbsp;fnOnMouseDown()<br>{<br>&nbsp;&nbsp;var&nbsp;oButton&nbsp;=&nbsp;document.body;<br>&nbsp;&nbsp;oButton.style.borderColor&nbsp;=&nbsp;&quot;ThreeDDarkShadow&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDHighlight&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDHighlight&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDDarkShadow&quot;;<br>}<br>function&nbsp;fnOnMouseUp()<br>{<br>&nbsp;&nbsp;var&nbsp;oButton&nbsp;=&nbsp;document.body;<br>&nbsp;&nbsp;oButton.style.borderColor&nbsp;=&nbsp;&quot;ThreeDHighlight&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDDarkShadow&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDDarkShadow&nbsp;&quot;&nbsp;+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;ThreeDHighlight&quot;;<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&nbsp;onmouseover=&quot;fnMouseOver()&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onmouseout=&quot;fnMouseOut()&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onmousedown=&quot;fnOnMouseDown()&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onmouseup=&quot;fnOnMouseUp()&quot;&gt;<br>&lt;/BODY&gt;</code>
+		</div>
+		<p>下一个文件是主文档，它使用了前一个文件实现的工具条按钮组件。</p>
+		<div class="example">
+			<code><u>&lt;!--&nbsp;&quot;Toolbar_Button.htm&quot;&nbsp;--&gt;</u><br>&lt;HTML&nbsp;XMLNS:CUSTOM&gt;<br>&lt;HEAD&gt;<br>&nbsp;&nbsp;&lt;TITLE&gt;Toolbar&nbsp;Button&nbsp;Demo&lt;/TITLE&gt;<br>&nbsp;&nbsp;&lt;?IMPORT&nbsp;namespace=&quot;CUSTOM&quot;&nbsp;implementation=&quot;Toolbar_Button.htc&quot;&gt;<br>&lt;STYLE&gt;<br>&nbsp;&nbsp;.clsButton&nbsp;{&nbsp;font-family:Arial,Helvetia,sans&nbsp;serif;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size:12;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&lt;/STYLE&gt;<br>&lt;SCRIPT&gt;<br>function&nbsp;fnClick()<br>{<br>&nbsp;&nbsp;alert(&quot;You&nbsp;clicked:&nbsp;&quot;&nbsp;+&nbsp;window.event.srcElement.innerText);<br>}<br>&lt;/SCRIPT&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br><u>&lt;!--&nbsp;DIV&nbsp;for&nbsp;the&nbsp;toolbar&nbsp;with&nbsp;TOOLBAR_BUTTONs&nbsp;inside.&nbsp;--&gt;</u><br>&lt;DIV&nbsp;style=&quot;BACKGROUND-COLOR:#D6D3CE;&quot;&gt;<br>&nbsp;&nbsp;&lt;CUSTOM:TOOLBAR_BUTTON&nbsp;class=&quot;clsButton&quot;&nbsp;onclick=&quot;fnClick()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;U&gt;N&lt;/U&gt;ew<br>&nbsp;&nbsp;&lt;/CUSTOM:TOOLBAR_BUTTON&gt;<br>&nbsp;&nbsp;&lt;CUSTOM:TOOLBAR_BUTTON&nbsp;class=&quot;clsButton&quot;&nbsp;onclick=&quot;fnClick()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;U&gt;O&lt;/U&gt;pen<br>&nbsp;&nbsp;&lt;/CUSTOM:TOOLBAR_BUTTON&gt;<br>&nbsp;&nbsp;&lt;CUSTOM:TOOLBAR_BUTTON&nbsp;class=&quot;clsButton&quot;&nbsp;onclick=&quot;fnClick()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;U&gt;S&lt;/U&gt;ave<br>&nbsp;&nbsp;&lt;/CUSTOM:TOOLBAR_BUTTON&gt;<br>&nbsp;&nbsp;&lt;CUSTOM:TOOLBAR_BUTTON&nbsp;class=&quot;clsButton&quot;&nbsp;onclick=&quot;fnClick()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&lt;U&gt;A&lt;/U&gt;s...<br>&nbsp;&nbsp;&lt;/CUSTOM:TOOLBAR_BUTTON&gt;<br>&lt;/DIV&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+			<button href="../examples/"></button>
+		</div>
+		<h3>取消<span>Viewlink</span></h3>
+		<p>当<span>Viewlink</span>被取消时，<span>HTC</span>文件的内容自动从主文档中消失。因为<span>Viewlink</span>从主文档中解除了附加关系，页面会自动更新。<span>Viewlink</span>组件的取消可以使用声明或者脚本来完成。下面的样例展示了如何使用脚本来取消<span>Viewlink</span>。</p>
+		<code>defaults.viewLink=null;</code>
+		<h2><label>CSS Inheritance</label><span>CSS</span>继承<a name="CSS_Inheritance" id="CSS_Inheritance"></a></h2>
+		<p><span>Viewlink</span>提供了在文档片段中封装<span>CSS</span>样式设定的能力。一般而言，主文档和文档片段中的<span>CSS</span>属性互不相关，但还是可以控制让主文档中的样式设定能够继承到文档片段中。</p>
+		<p><span>Viewlink</span>的默认设置是文档片段中设置在主元素的<span>CSS</span>属性会被其他元素所继承。组件作者可以直接在<span>HTC</span>文件中设置样式，来重载主文档中相应的<span>CSS</span>样式。组件中的样式优先于从主文档应用到主元素上的样式。<a href="abviwlnkcssihr.html">《关于<span>Viewlink</span>样式的继承》</a>一文提供了在不同<span>CSS</span>属性继承关系方面更为详尽的信息。</p>
+		<p><span>CSS</span>继承由<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/viewinheritstyle.asp"><span>viewInheritStyle</span>属性控制。如果该属性设置为<span>true</span></a>，那么主文档中可继承的<span>CSS</span>样式会被继承到文档片段中相应的元素。</p>
+		<p>使用上一部分中的工具条按钮样例时，按钮的字体可以通过在主元素上应用适当的<span>CSS</span>样式而改变为粗体。例如：</p>
+		<code>&lt;CUSTOM:TOOLBAR_BUTTON&nbsp;class=&quot;clsButton&quot;&nbsp;onclick=&quot;fnClick()&quot;&nbsp;style=&quot;FONT-WEIGHT:bold&quot;&gt;<br>&nbsp;&nbsp;&lt;U&gt;N&lt;/U&gt;ew<br>&lt;/CUSTOM:TOOLBAR_BUTTON&gt;</code>
+		<button href="../examples/"></button>
+		<p>按钮的文本颜色无法通过应用<span>CSS</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/color_1.asp"><span>color</span></a>属性来改变。这是因为在<span>HTC</span>文件的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/style.asp"><span>style</span></a>块中，<span>Viewlink</span>组件已经设置了<b><span>color</span></b>，因而重载了主文档中的样式设置。</p>
+		<code>&lt;STYLE&gt;<br>&nbsp;&nbsp;.clsButton&nbsp;{&nbsp;color:#0000FF;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:#D6D3CE;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:solid&nbsp;1px;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-color:#D6D3CE;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&lt;/STYLE&gt;</code>
+		<h2><label>Inline vs. Block Elements</label>行内元素？还是块元素？<a name="Inline-Block_Elements" id="Inline-Block_Elements"></a></h2>
+		<p>默认情况下元素行为在主文档中渲染为行内元素。哪怕是随着行为导入的块元素，也还是渲染为行内元素。如果你希望<span>Viewlink</span>渲染为块元素，你必须设置元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/display.asp"><span>display</span></a>属性为<span>block</span>。</p>
+		<p>在这个样例<span>HTC</span>文件中，文档片段包含一个<span>DIV</span>元素，这是一个块元素。但是，当主文档渲染时，主元素和它的<span>DIV</span>子元素都被处理为行内元素。样例中的脚本在元素被点击时设置其主元素的<b><span>display</span></b>属性为<span>block</span>。而子元素则继承了该<span>block</span>样式。</p>
+		<div class="example">
+			<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;animals&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:DEFAULTS&nbsp;viewlinkcontent=&quot;true&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;SCRIPT&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;element.style.backgroundColor&nbsp;=&nbsp;&quot;yellow&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;makeBlock()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>//Make&nbsp;the&nbsp;element&nbsp;a&nbsp;block&nbsp;element&nbsp;by&nbsp;setting&nbsp;the&nbsp;display&nbsp;style&nbsp;to&nbsp;'block.'</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>element.style.display&nbsp;=&nbsp;&quot;block&quot;;</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animalDiv.innerHTML&nbsp;=&nbsp;&quot;Viewlink&nbsp;behavior:&nbsp;The&nbsp;owl&nbsp;and&nbsp;the&nbsp;pussycat.&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&lt;/SCRIPT&gt;<br>&nbsp;&nbsp;&lt;BODY&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;DIV&nbsp;ID=&quot;animalDiv&quot;&nbsp;style=&quot;cursor:hand&quot;&nbsp;onclick=&quot;makeBlock()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Viewlink&nbsp;behavior:&nbsp;Click&nbsp;me&nbsp;if&nbsp;you&nbsp;dare.<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/DIV&gt;<br>&nbsp;&nbsp;&lt;/BODY&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		</div>
+		<p>包含文档片段的主文档样例。</p>
+		<div class="example">
+			<code>&lt;HTML&nbsp;XMLNS:VIEWLINK&gt;<br>&lt;?IMPORT&nbsp;namespace=&quot;VIEWLINK&quot;&nbsp;implementation=&quot;animalBehavior.htc&quot;&nbsp;/&gt;<br>&lt;BODY&gt;<br>&nbsp;&nbsp;&lt;DIV&nbsp;style=&quot;BACKGROUND-COLOR:&nbsp;green;&nbsp;COLOR:&nbsp;white;&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Containing&nbsp;page:&nbsp;The&nbsp;tortoise&nbsp;and&nbsp;the&nbsp;hare.&nbsp;&lt;/DIV&gt;<br>&nbsp;&nbsp;&lt;VIEWLINK:animals&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;DIV&nbsp;style=&quot;FONT-SIZE:&nbsp;x-small&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;P&gt;*Click&nbsp;the&nbsp;viewlink&nbsp;behavior&nbsp;to&nbsp;change&nbsp;it&nbsp;into&nbsp;a&nbsp;block&nbsp;element.&lt;/P&gt;<br>&nbsp;&nbsp;&lt;/DIV&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+			<button href="../examples/"></button>
+		</div>
+		<h2><label>Event Routing</label>事件的起泡行程<a name="Events" id="Events"></a></h2>
+		<p>此部分描述了事件是如何被<span>Viewlink</span>组件和主文档处理的。事件可以从文档片段发生到主文档中，且反之亦然。有一些事件是无法发生到<span>Viewlink</span>的，了解这一点很重要。也有另外一些事件需要单独考虑。</p>
+		<p>一般来说，可起泡的事件会从<span>Viewlink</span>组件起泡到主文档，而无法起泡的事件则不会。大部分用户事件，例如与键盘和鼠标相关的事件，都会在发生时从组件的文档片段起泡到主文档。绝大部分经常性使用的事件在<span>Viewlink</span>组件中是发生在主元素上。</p>
+		<p>如果一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onclick.asp"><span>onclick</span></a>事件发生在<span>HTC</span>文件的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/div.asp"><span>DIV</span></a>元素上，它会沿着<span>HTC</span>文件的树起泡到根元素。当不调用事件的<b><span>fire</span></b>方法时，<b><span>onclick</span></b>事件仍保留在<span>HTC</span>中而对主文档不可见。但在<span>Internet Explorer 5.5</span>中，<b><span>fire</span></b>方法会被自动调用，而事件则传递到主文档中。此外，发生在主元素上的事件会继续起泡到主文档树中。在主文档中，事件的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/srcelement.asp"><span>srcElement</span></a>属性会变更为主元素。</p>
+		<p>标准<span>DHTML</span>事件可以附加到文档片段中的元素上，但<span>HTC</span>独有的组件如<b><span>oncontentready</span></b>则不行。如需绑定<span>HTC</span>的专有事件，必须通过<b><span>PUBLIC:ATTACH</span></b>元素来完成。</p>
+		<p>如要得到一个完整的事件列表，以及它们是如何被<span>Viewlink</span>组件所处理的，请阅读<a href="abviwlnkevrt.html">《关于<span>Viewlink</span>事件的起泡行程》</a>一文。下面的部分描述了主要类型的事件及它们如何在<span>Viewlink</span>中工作。</p>
+		<h3>特殊场合的事件</h3>
+		<p>当事件发生在主文档中时，<span>Viewlink</span>行为的主元素就如同所有其他标签一样也会接收到事件的通告。例如，如果用户移动鼠标指针到一个<span>Viewlink</span>组件，一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseover.asp"><span>onmouseover</span></a>事件发生在主元素上。当用户移动鼠标指针离开该组件，一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseout.asp"><span>onmouseout</span></a>事件发生在主元素上。但是，当用户在<span>Viewlink</span>组件内部移动鼠标指针到不同的元素上时，发生的<b><span>onmouseover</span></b>和<b><span>onmouseout</span></b>事件并不会起泡到主文档中。特殊场合事件用于指明当鼠标和焦点事件发生时只会起泡到主元素。</p>
+		<h3>鼠标事件</h3>
+		<p>只有当<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseenter.asp"><span>onmouseenter</span></a>事件和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseleave.asp"><span>onmouseleave</span></a>事件发生在<span>HTC</span>树的根元素时，<b><span>onmouseover</span></b>和<b><span>onmouseout</span></b>事件才会发生在主元素上。</p>
+		<p><b><span>onmouseenter</span></b>事件和<b><span>onmouseleave</span></b>事件既无法起泡，也无法被取消。<b><span>onmouseenter</span></b>事件发生在鼠标指针进入某一个元素时，而<b><span>onmouseleave</span></b>事件则发生在鼠标指针离开该元素时。关键在于这些事件无法起泡。因此，这些事件从<span>HTC</span>起泡到主文档的唯一可能性，是发生在<span>HTC</span>树的根元素上。</p>
+		<p>例如，如果<b><span>onmouseenter</span></b>事件发生在根元素，那么<b><span>onmouseenter</span></b>事件和<b><span>onmouseover</span></b>事件会同时发生在主元素上。发生<b><span>onmouseleave</span></b>事件并产生相应的<b><span>onmouseout</span></b>事件的操作与上面的恰好相对。</p>
+		<p>对上述细节进行总结，当鼠标指针移至主文档中的主元素，<b><span>onmouseover</span></b>事件发生。当鼠标指针移出主元素，<b><span>onmouseout</span></b>事件发生。如果鼠标指针进入或离开<span>Viewlink</span>中的元素，相应的<b><span>onmouseover</span></b>事件和<b><span>onmouseout</span></b>事件并不起泡到主元素上，它们仍保留在<span>HTC</span>文件中。</p>
+		<h3>聚焦和失焦事件</h3>
+		<p>上面描述的鼠标事件的关系同样适用于<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onactivate.asp"><span>onactive</span></a>和<a href="http://msdn.microsoft.com/workshop/author/behaviors/library/mpc/onfocus.asp"><span>onfocus</span></a>，<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondeactivate.asp"><span>ondeactive</span></a>和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onblur.asp"><span>onblur</span></a>。</p>
+		<p>举例说明，当焦点在<span>Viewlink</span>文档片段中两个元素之间转移时，聚焦和失焦事件都不会起泡到主元素上；这是因为在事件发生的时候主文档中的主元素并未丢失焦点。因此，这些焦点事件处理的方式与鼠标事件极为相似。<b><span>onactive</span></b>事件和<b><span>ondeactive</span></b>事件无法被取消，且当着两个事件发生在<span>HTC</span>树的根元素上时，相应的<b><span>onfocus</span></b>事件和<b><span>onblur</span></b>事件会发生在主文档中的主元素上。</p>
+		<p><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforedeactivate.asp"><span>onbeforedeactivate</span></a>事件无法起泡但可以被取消。该事件的应用情况与上面所讨论的情况相同。例如，当用户在组件的两个元素间<span>TAB</span>移焦时，事件均不会起泡到主元素。因此，只有<span>HTC</span>树的根元素发生这些事件时，才会起泡到主元素上。另外，因为这些事件可以取消，主元素上的焦点事件也可以被取消。</p>
+		<h3>不会自动发生的事件</h3>
+		<p>发生在文档片段而无法起泡到主元素上的事件仍然可以通过脚本起泡。下面的例子展示了如何手动将文档片段发生的事件起泡到主文档中。</p>
+		<code><u>&lt;!--&nbsp;HTC&nbsp;file&nbsp;--&gt;</u><br>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;ABC&quot;&nbsp;/&gt;<br>&lt;PUBLIC:DEFAULTS&nbsp;viewlinkcontent=&quot;true&quot;&nbsp;/&gt;<br>&lt;BODY&gt;<br>&lt;DIV&nbsp;onmouseover=&quot;element.fireEvent('onmouseover',&nbsp;event)&quot;&gt;<br>&nbsp;&nbsp;Move&nbsp;the&nbsp;mouse&nbsp;over&nbsp;this&nbsp;text.<br>&lt;/DIV&gt;<br>&lt;/BODY&gt;</code>
+		<h2><label>Tabbing</label><span>TAB</span>移焦<a name="Tabbing" id="Tabbing"></a></h2>
+		<p><span>Viewlink</span>功能因为<span>Internet Explorer 5.5</span>中的新行为组件模型而可用，它使自定义标签可以渲染包含多个元素的文档片段。因此，在<span>Viewlink</span>文档中如何控制<span>TAB</span>移焦成为不得不考虑的问题。</p>
+		<p>默认情况下，<span>Viewlink</span>文档片段中的元素并不参与主文档中<span>TAB</span>移焦序列，但通过设置适当的属性，就可以使<span>Viewlink</span>内容参与到<span>TAB</span>移焦序列中来。</p>
+		<p>本部分描述的是如何去控制主文档与文档片段之间的<span>TAB</span>移焦。下面的属性可以用于控制<span>TAB</span>移焦序列：</p>
+		<ul>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/tabstop.asp"><span>tabStop</span></a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/tabindex.asp"><span>tabIndex</span></a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/viewmastertab.asp"><span>viewMasterTab</span></a></li>
+		</ul>
+		<p>在解释<span>Viewlink</span>组件中<span>TAB</span>移焦细节之前，了解一个普通网页中元素之间的<span>TAB</span>移焦的基本规则是很有必要的：</p>
+		<ul>
+			<li>所有<b><span>tabIndex</span></b>大于零的对象按照<b><span>tabIndex</span></b>升序排列，所有<b><span>tabIndex</span></b>相同的对象按照源文件中出现的先后顺序排列。</li>
+			<li>所有没有设置<b><span>tabIndex</span></b>或为零的对象，按照源文件中出现的先后顺序排列。</li>
+			<li><b><span>tabIndex</span></b>小于零的元素不出现在<span>TAB</span>移焦序列中。</li>
+		</ul>
+		<p>在<span>Viewlink</span>组件内，<span>TAB</span>移焦是独立的，并不受主文档中<span>TAB</span>移焦序列的影响。组件作者控制文档片段的<span>TAB</span>移焦，而页面作者控制主文档的<span>TAB</span>移焦。文档片段中的元素遵循着它们自己的<span>TAB</span>移焦序列，但仍然是由<b><span>tabIndex</span></b>属性定义。当主元素的<b><span>tabIndex</span></b>设置为大于零的值时，组件本身也参与到主文档的<span>TAB</span>移焦序列中。</p>
+		<p>在主文档元素间<span>TAB</span>移焦的期间，主元素依照上面列举的基本规则操作，就好像主文档中的其他元素一样。一旦主文档获得焦点，<span>TAB</span>移焦的控制权就转移到<span>Viewlink</span>组件中。而一旦<span>TAB</span>移焦到<span>Viewlink</span>组件内，<span>Viewlink</span>内的元素依照<span>TAB</span>移焦序列，在遵循基本规则的情况下依次获得焦点。而在文档片段中的<span>TAB</span>移焦遍历了所有元素之后，控制权则会返回主文档，并聚焦在<span>TAB</span>移焦序列中主元素之后的元素上。如果<span>TAB</span>移焦序列中主元素之后再没有其他元素，那么会在主文档中开始新一轮的<span>TAB</span>移焦。</p>
+		<p>主元素有一个名为<b><span>tabStop</span></b>的属性，用于初始化标签的状态。这也是<b><span>defaults</span></b>的一个属性。<b><span>tabStop</span></b>控制组件是否参与到<span>TAB</span>移焦中，其默认值为<span>false</span>。需要注意的是<b><span>tabStop</span></b>的设置会被<b><span>tabIndex</span></b>属性所重载。将主元素的<b><span>tabIndex</span></b>的值设置为负数会使组件不再参与<span>TAB</span>移焦，即便<span>HTC</span>组件的<b><span>tabStop</span></b>设置为<span>true</span>。</p>
+		<p>当主元素没有设置<b><span>tabIndex</span></b>且<span>HTC</span>文件没有设置<b><span>tabStop</span></b>时，<span>Viewlink</span>组件并不参与<span>TAB</span>移焦。因此，默认情况下<span>Viewlink</span>文档片段并不参与<span>TAB</span>移焦。</p>
+		<p><b><span>viewMasterTab</span></b>属性用于设置或获取<span>Viewlink</span>的主元素是否包含在主文档的<span>TAB</span>移焦序列中。默认情况下，主元素参与主文档的<span>TAB</span>移焦序列，即使<span>Viewlink</span>内并未定义<b><span>tabStop</span></b>。</p>
+		<h2><label>Themes</label>主题<a name="Themes" id="Themes"></a></h2>
+		<p><span>Internet Explorer 6</span>及后继版本中，应用到主文档的主题并不一定也应用到<span>Viewlink</span>组件。为了确保能够应用，你必需设置<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/meta.asp"><span>META</span></a>元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/httpequiv.asp"><span>HTTP-EQUIV</span></a>为<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/constants/response_headers.asp#MSTHEMECOMPATIBLE"><span>MSTHEMECOMPATIBLE</span></a>，<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/content.asp"><span>CONTENT</span></a>为<span>yes</span>。相应的，将<b><span>META</span></b>元素放置在<span>HTC</span>文件的<b><span>PUBLIC:COMPONENT</span></b>部分。请阅读<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/constants/response_headers.asp">《<span>HTTP</span>响应头》</a>以得到<b><span>HTTP-EQUIV</span></b>的可能值列表。</p>
+		<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;ABC&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;META&nbsp;http-equiv=&quot;MSThemeCompatible&quot;&nbsp;content=&quot;yes&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;PUBLIC:DEFAULTS&nbsp;viewlinkcontent=&quot;true&quot;&nbsp;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+		<h2><label>Nesting Viewlinks</label>嵌套的<span>Viewlink</span><a name="Nesting" id="Nesting"></a></h2>
+		<p>一份<span>HTC</span>文件可以导入到另一<span>HTC</span>文件中，以此达到组件嵌套的目的。嵌套既可以由一般的元素行为完成，也可由<span>Viewlink</span>完成。回忆日历组件使用<span>Viewlink</span>的情况，日历中的每一天都可以由另一个<span>Viewlink</span>来实现，以此来显示一个包含了当天约会记要的弹出窗口。实现<span>CALENDAR</span>标签的<span>HTC</span>文件中可以包含一个导入<span>DAY</span>标签的<a href="../elements/import.html"><span>IMPORT</span></a>处理指令。</p>
+		<p>下面是这种想法中的主文档。</p>
+		<div class="example">
+			<code>&lt;HTML&nbsp;XMLNS:CUSTOM&gt;<br>&lt;HEAD&gt;<br>&nbsp;&nbsp;&lt;TITLE&gt;Calendar&nbsp;Example&lt;/TITLE&gt;<br>&nbsp;&nbsp;&lt;?IMPORT&nbsp;namespace=&quot;CUSTOM&quot;&nbsp;implementation=&quot;calendar.htc&quot;&nbsp;/&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&lt;P&gt;Click&nbsp;a&nbsp;day&nbsp;in&nbsp;the&nbsp;calendar...&lt;/P&gt;<br>&lt;CUSTOM:CALENDAR/&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+		</div>
+		<p>然后是实现<span>CALENDAR</span>标签的<span>HTC</span>文件。注意该日历<span>HTC</span>文件包含了导入<span>day.htc</span>文件的处理指令，而且也在文档片段中包含了每一天的自定义元素。</p>
+		<div class="example">
+			<code>&lt;HTML&nbsp;XMLNS:DN&gt;<br>&lt;HEAD&gt;<br>&lt;?IMPORT&nbsp;namespace=&quot;DN&quot;&nbsp;implementation=&quot;day.htc&quot;&nbsp;/&gt;<br>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;CALENDAR&quot;&gt;<br>&nbsp;&nbsp;&lt;ATTACH&nbsp;event=&quot;oncontentready&quot;&nbsp;onevent=&quot;fnInit()&quot;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;<br>&lt;SCRIPT&gt;<br>function&nbsp;fnInit()<br>{<br>&nbsp;&nbsp;defaults.viewLink&nbsp;=&nbsp;document;<br>}<br>&lt;/SCRIPT&gt;<br>&lt;STYLE&gt;<br>&nbsp;&nbsp;TD&nbsp;{&nbsp;text-align:center;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border:solid&nbsp;1px;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cell-padding:2;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cell-spacing:2;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:50;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:50;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&lt;/STYLE&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&gt;<br>&nbsp;&nbsp;&lt;TABLE&nbsp;style=&quot;BORDER:solid&nbsp;1px;&nbsp;CELL-PADDING:2;&nbsp;CELL-SPACING:2;&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Sun&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Mon&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Tue&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Wed&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Thu&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Fri&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TH&gt;Sat&lt;/TH&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;1&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;2&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;3&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;4&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;5&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;6&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;7&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;8&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;9&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;10&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;11&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;12&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;13&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;14&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;15&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;16&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;17&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;18&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;19&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;20&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;21&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;22&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;23&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;24&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;25&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;26&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;27&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;28&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;TR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;29&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;30&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;TD&gt;&lt;DN:DAY&nbsp;value=&quot;31&quot;/&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/TR&gt;<br>&nbsp;&nbsp;&lt;/TABLE&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+		</div>
+		<p>最后是实现了<span>DAY</span>标签的<span>HTC</span>文件。</p>
+		<div class="example">
+			<code>&lt;PUBLIC:COMPONENT&nbsp;tagname=&quot;DAY&quot;&gt;<br>&nbsp;&nbsp;&lt;PROPERTY&nbsp;name=&quot;value&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;ATTACH&nbsp;event=&quot;oncontentready&quot;&nbsp;onevent=&quot;fnInit()&quot;&nbsp;/&gt;<br>&lt;/PUBLIC:COMPONENT&gt;<br>&lt;STYLE&gt;<br>&nbsp;&nbsp;.clsDay&nbsp;{&nbsp;width:50;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:50;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:lightyellow;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;align:center;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&lt;/STYLE&gt;<br>&lt;SCRIPT&gt;<br>function&nbsp;fnInit()<br>{<br>&nbsp;&nbsp;document.body.innerText&nbsp;=&nbsp;element.value;<br>&nbsp;&nbsp;document.body.className&nbsp;=&nbsp;&quot;clsDay&quot;;<br>&nbsp;&nbsp;defaults.viewLink&nbsp;=&nbsp;document;<br>}<br>function&nbsp;fnShowAppts()<br>{<br>&nbsp;&nbsp;alert(&quot;Show&nbsp;appointments&nbsp;for&nbsp;day&nbsp;&quot;&nbsp;+&nbsp;element.value&nbsp;+&nbsp;&quot;!&quot;);<br>}<br>&lt;/SCRIPT&gt;<br>&lt;BODY&nbsp;onclick=&quot;fnShowAppts()&quot;&gt;<br>&lt;/BODY&gt;</code>
+		</div>
+		<h2><label>Security</label>安全性<a name="Security" id="Security"></a></h2>
+		<p><span>Viewlink</span>的安全情况与其他<span>HTC</span>文件及元素行为的安全情况相同。请阅读<a href="abelebeh.html">《关于元素行为》</a>一文以了解更多的信息。</p>
+		<h2><label>Related Topics</label>相关主题<a name="related_topics" id="related_topics"></a></h2>
+		<ul>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/overview/customtags.asp">《在<span>Internet Explorer</span>中使用自定义标签》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+			<li><a href="usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/howto/using.asp">《使用<span>DHTML</span>行为》</a></li>
+			<li><a href="abelebeh.html">《关于元素行为》</a></li>
+			<li><a href="htcref.html">《<span>HTC</span>参考》</a></li>
+			<li><a href="uselitcontattr.html">《使用<span>literalContent</span>属性》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/creating.asp">《实现二进制编码的<span>DHTML</span>行为》</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

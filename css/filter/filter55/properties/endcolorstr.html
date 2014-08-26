@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'StartColorStr','StartColor','EndColor'
+);
+
+collFriendFilters=new Array(
+'Gradient'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Gradient'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FFFFFF;color:#FFFFFF;padding:6px;filter:progid:DXImageTransform.Microsoft.gradient();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.gradient(";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=options[selectedIndex].value;\n'+
+'with (document.all("idSel3")) var sValue3=options[selectedIndex].value;\n'+
+'oDiv.filters[0].StartColorStr=sValue1;\n'+
+'oDiv.filters[0].EndColorStr=sValue2;\n'+
+'oDiv.filters[0].GradientType=parseInt(sValue3);\n'+
+'oCodeDiv.innerHTML=sFilter+"startColorStr="+sValue1+",endColorStr="+sValue2+");";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_sex.gif" style="float:left;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="#FF0000FF">---开始颜色---\n'+
+'<option value="#FF0000FF">#FF0000FF\n'+
+'<option value="#DF06F0FF">#DF06F0FF\n'+
+'<option value="#800000FF">#800000FF\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="#FF000000">---结束颜色---\n'+
+'<option value="#FF000000">#FF000000\n'+
+'<option value="#00000000">#00000000\n'+
+'<option value="#5E0000FF">#5E0000FF\n'+
+'<\/select>\n'+
+'<select id="idSel3" onchange="rdl_change();">\n'+
+'<option value="1">---渐变方向---\n'+
+'<option value="1">1\n'+
+'<option value="0">0\n'+
+'<\/select>\n'+
+'<\/td><\/tr><\/table>\n'+
+'<div id=idCodeDiv>filter:progid:DXImageTransform.Microsoft.gradient();<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>EndColorStr</span>  版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/gradient.html">Gradient</a>').EndColorStr = </b><i>iWidth</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iWidth </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。32位 ARGB 格式色彩值。<br>
+其格式为<i> #AARRGGBB </i>。<i> AA </i>、<i> RR </i>、<i> GG </i>、<i> BB </i>为十六进制正整数。取值范围为<b> 00 - FF </b>。<i> RR </i>指定红色值，<i> GG </i>指定绿色值，<i> BB </i>指定蓝色值。<i> AA </i>指定透明度。<b> 00 </b>是完全透明。<b> FF </b>是完全不透明。超出取值范围的值将被恢复为默认值。<br>
+取值范围为<b> #FF000000 - #FFFFFFFF </b>。默认值为<span class=cssDefault><b> #FF000000 </b></span>。不透明黑色。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索色彩渐变的结束颜色和透明度。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

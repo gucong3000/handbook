@@ -1,0 +1,777 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>MSDN Online-Vector Markup Language Object Model Reference</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Vector Markup Language<BR>Object Model Reference</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<H2>Introduction</H2>
+<P><NOBR><A href="http://www.w3.org/TR/NOTE-VML">Vector Markup Language (VML)</A><IMG SRC="../common/leave-ms.gif" WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-MS link"></NOBR> is a text-based language that uses <NOBR><A href="http://www.w3.org/TR/REC-xml.html">XML</A><IMG SRC="../common/leave-ms.gif" WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-MS link"></NOBR> to extend HTML for the purpose of displaying vector graphic information. The VML Document Object Model (DOM) defines a programmatic interface for the manipulation of the document elements. This enables the user to dynamically create and modify vector graphics through a platform- and language-neutral interface. The VML DOM conforms to the  <NOBR><A
+href="http://www.w3.org/TR/REC-DOM-Level-1/">Document Object Model</A><IMG SRC="../common/leave-ms.gif" WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-MS link"></NOBR> specification.
+<P>VML uses the <A target="_self" target="_self" href="#shape_element"><B>Shape</B></A> element as the basic building block for vector graphic images. Once a shape is created, you can modify the shape through attributes or by attached subelements. For example, to change the color of a shape, assign a color value to the <B>FillColor</B> attribute.
+<PRE class="clsCode">myshape.fillcolor = "red"</PRE>
+<P>Several of the attributes of a shape are also <A target="_self" target="_self" href="#sub-elements">subelements</A> and have their own attributes, including the following:
+<UL>
+<LI><A target="_self" target="_self" href="#background_element"><B>Background</B></A>
+<LI><A target="_self" target="_self" href="#extrusion_element"><B>Extrusion</B></A>
+<LI><A target="_self" target="_self" href="#fill_element"><B>Fill</B></A>
+<LI><A target="_self" target="_self" href="#group_element"><B>Group</B></A>
+<LI><A target="_self" target="_self" href="#imagedata_element"><B>Imagedata</B></A>
+<LI><A target="_self" target="_self" href="#path_element"><B>Path</B></A>
+<LI><A target="_self" target="_self" href="#shadow_element"><B>Shadow</B></A>
+<LI><A target="_self" target="_self" href="#skew_element"><B>Skew</B></A>
+<LI><A target="_self" target="_self" href="#stroke_element"><B>Stroke</B></A>
+<LI><A target="_self" target="_self" href="#textpath_element"><B>TextPath</B></A>
+</UL>
+<P>The VML OM uses several <A target="_self" target="_self" href="#datatypes">data types</A> to define parameters. Datatypes prefixed with <B>Vg</B> are enumerations and those prefixed with <B>IVg</B> are objects. Click <A target="_self" target="_self" href="#datatypes">here</A> for a list. Minor datatypes are listed with specific parameters.
+<H2>Example</H2>
+<P>The following VBScript code shows how to create a simple shape:
+<PRE class="clsCode">
+Set MyRect = Document.CreateElement("v:Rect")
+Set R = MyDiv.AppendChild(MyRect)
+R.Style.Position = "absolute"
+R.Style.Width = 20
+R.Style.Height = 20
+R.Style.Top = 50
+R.Style.Left = 50
+R.FillColor = "red"
+</PRE>
+<P>In the above example, a shape is created by using the Document Object Model method <B>CreateElement</B>. The shape is a VML predefined Rect shape. Even though the object exists, it cannot be part of the document until it is attached to the document. Using the <B>AppendChild</B> method, the Rect is made a child of a <B>DIV</B> element called MyDiv. A few minimum style attributes (<B>Position</B>, <B>Width</B>, <B>Height</B>, <B>Top</B>, <B>Left</B>) are set to give the shape a specific size. Finally, a color is assigned with the <B>FillColor</B> attribute. Note that any scripting language or any language that can work with Document Object Model interfaces can be used.
+<H2>Setting up VML</H2>
+<P>One implementation of VML is through Microsoft Internet Explorer 5 or greater.0 or higher. To set up the rendering object correctly in a Web page, the following additions must be made:
+<ol>
+<LI>The schema must be set up in the initial &lt;HTML> tag as follows:
+<PRE class="clsCode">&lt;HTML xmlns:v="urn:schemas-microsoft-com:vml"></PRE>
+<LI>The rendering behavior must be part of the document's style:
+<PRE class="clsCode">&lt;STYLE>
+v\:* { behavior: url(#default#vml); }
+&lt;/STYLE>
+</PRE>
+</ol>
+<P>The following shows a sample HTML Web page set up correctly for VML showing the dynamic creation of a shape.
+<PRE class="clsCode">&lt;HTML xmlns:v="urn:schemas-microsoft-com:vml">
+&lt;HEAD>
+&lt;STYLE>
+v\:* { behavior: url(#default#vml); }
+&lt;/STYLE>
+&lt;TITLE>VML Sample&lt;/TITLE>
+&lt;/HEAD>
+&lt;BODY>
+&lt;DIV id="MyDiv">&lt;/DIV>
+&lt;SCRIPT ID="MYSCRIPT" LANGUAGE="VBScript">
+&lt;!--
+Set MyRect = Document.CreateElement("v:Rect")
+Set R = MyDiv.AppendChild(MyRect)
+R.Style.Position = "absolute"
+R.Style.Width = 20
+R.Style.Height = 20
+R.Style.Top = 50
+R.Style.Left = 50
+R.FillColor = "red"
+-->
+&lt;/SCRIPT>
+&lt;/BODY>
+&lt;/HTML>
+</PRE>
+<P>
+<P>Note that in beta versions, an ActiveX object tag and a different behavior style was required.</A>
+<P>
+<HR size = "1" /><H2>VML OM Reference</H2>
+<P>This reference defines the <A target="_self" target="_self" href="#shape_element"><B>Shape</B></A> element, <A target="_self" target="_self" href="#sub-elements">subelements</A>, and <A target="_self" target="_self" href="#datatypes">data types</A> that are used by the object model of VML.
+<P>
+<HR size = "1" /><H3 id="shape_element">Shape element</H3>
+<P>Shapes are the building blocks of graphical images defined by Vector Markup Language (VML). The shape is the top-level element and several subelements help define the nature of each shape.
+<P>VML provides predefined shapes:
+<UL><LI><STRONG>Arc</STRONG>
+<LI><STRONG>Curve</STRONG>
+<LI><STRONG>Line</STRONG>
+<LI><STRONG>PolyLine</STRONG>
+<LI><STRONG>Rect</STRONG>
+<LI><STRONG>RoundRect</STRONG>
+</UL>
+<DL><B>Shape attributes</B>
+<DT>Adj<DD><B>IVgAdjustments.</B> A comma-delimited list of numbers that are the parameters for the guide formulas that define the path of the shape.  Values may be omitted to allow for using defaults.  There can be up to 8 adjustment values.
+<DT>Alt<DD><B>String.</B> Alternative text associated with shape. Used for non-graphical browsing.
+<DT>Button<DD><B>VgTriState.</B> Displays button behavior on click.
+<DT>BWMode<DD><B>VgBlackWhiteMode.</B> Determines how shape will render in black-and-white view in apps or when printed to black-and-white printers.  Values include: <B>Color</B>, <B>Auto</B>, <B>GrayScale</B>, <B>LightGrayScale</B>, <B>InverseGray</B>, <B>GrayOutline</B>, <B>BlackTextAndLines</B>, <B>HighContrast</B>, <B>Black</B>, <B>White</B>, <B>Undrawn</B>. Default: <B>Auto</B>.
+<DT>BWNormal<DD><B>VgBlackWhiteMode.</B> When <B>BWMode</B> is <B>Auto</B>, this property is consulted for how to render the shape in normal black and white.  Values include: <B>Color</B>, <B>Auto</B>, <B>GrayScale</B>, <B>LightGrayScale</B>, <B>InverseGray</B>, <B>GrayOutline</B>, <B>BlackTextAndLines</B>, <B>HighContrast</B>, <B>Black</B>, <B>White</B>, <B>Undrawn</B>. Default: <B>Auto</B>.
+<DT>BWPure<DD><B>VgBlackWhiteMode.</B> When <B>BWMode</B> is <B>Auto</B>, this property is consulted for how to render the shape in pure B/W. Values include: <B>Color</B>, <B>Auto</B>, <B>GrayScale</B>, <B>LightGrayScale</B>, <B>InverseGray</B>, <B>GrayOutline</B>, <B>BlackTextAndLines</B>, <B>HighContrast</B>, <B>Black</B>, <B>White</B>, <B>Undrawn</B>. Default: <B>Auto</B>.
+<DT>ChildShapes<DD><B>IVgGroupShapes.</B> A collection of other shapes in this group.   This collection supports the standard <B>Length</B> and <B>Item</B> methods.
+<DT>Chromakey<DD><B>IVgColor.</B> A color value that will be transparent and show anything behind the shape.
+<DT>Control1<DD><B>Vector2D.</B> Control point for curve.
+<DT>Control2<DD><B>Vector2D.</B> Control point for curve.
+<DT>CoordOrigin<DD><B>Vector2D</B> The coordinates at the top left corner of the container rectangle. Range from 0 to infinity.
+<DT>CoordSize<DD><B>Vector2D.</B> The width and height of the coordinate space inside the reference rectangle of this shape.  If it is not specified, it is the same as the width and height of the rectangle.  Range from 0 to infinity. Default: "1000,1000".
+<DT>EndAngle<DD><B>VgAngleInDegrees.</B> End angle of shape.
+<DT>Extrusion<DD><B>IVgExtrusion.</B> Specifies the <B>Extrusion</B> object value for this shape.  See the <B>Extrusion</B> element for details.
+<DT>Fill<DD><B>VgFillFormat.</B> Specifies the fill value for this shape. See the <B>Fill</B> element for more details.
+<DT>FillColor<DD><B>IVgColor.</B> The primary color of the brush to use to fill the path of this shape.
+<DT>Filled<DD><B>VgTriState.</B> If <B>True</B>, the path defining the shape will be filled.  By default, it will be filled using a solid color unless there is a <B>Fill</B> subelement that specifies more complex fill properties.  If <B>False</B>, the fill is transparent.
+<DT>Flip<DD><B>VgFlipOrientation</B>. Values are:
+<UL>
+<LI><B>X</B>
+<LI><B>Y</B>
+<LI><B>XY</B>
+<LI><B>YX</B>
+</UL>
+<DT>ForceDash<DD><B>VgTriState.</B> Indication that a dashed outline should be rendered when there is no line and no fill for a shape.   This behavior is generally useful for making invisible shapes visible in editing applications so they can be selected and operated on, such as in an image map.
+<DT>Formulas<DD><B>IVgFormulas.</B> An array of formulas that defines a shape.
+<DT>From<DD><B>Vector2D.</B> Starting point of line.
+<DT>HRef<DD><B>String.</B> The URL to jump to if this shape is clicked.
+<DT>ImageData<DD><B>IVgImageData.</B> Image information if the shape is a picture. See the <B>ImageData</B> element for more information.
+<DT>OnEd<DD><B>VgTriState.</B> Hides all handles except the top left and bottom right, as in the handles for a straight line segment.
+<DT>Opacity<DD><B>VgFraction.</B> The opacity of the entire shape.  A number between 0.0 and 1.0.
+<DT>Path<DD><B>IVgPath.</B> A string containing the commands that define the path.
+<DT>Points<DD><B>IVgPoints.</B> A collection of points defining a shape.
+<DT>Print<DD><B>VgTriState.</B> If <B>True</B>, this shape is meant to be printed.
+<DT>Rotation<DD><B>VgAngleInDegrees.</B> Sets rotation of shape. Value is propagated to the shape style.
+<DT>Scale<DD><B>Vector2D.</B> Scale of shape.
+<DT>Shadow<DD><B>IVgShadow.</B> Specifies the shadow for this shape. See the <B>Shadow</B> element for details.
+<DT>Spt<DD>Reserved.
+<DT>StartAngle<DD><B>VgAngleInDegrees.</B> Start angle of shape.
+<DT>Stroke<DD><B>VgStrokeFormat.</B> See <B>Stroke</B> element for details.
+<DT>StrokeColor<DD><B>IVgColor.</B> The primary color of the brush to use to stroke the path of this shape.
+<DT>Stroked<DD><B>VgTriState.</B> If <B>True</B>, the path defining the shape will be stroked.
+<DT>StrokeWeight<DD><B>VGLength.</B> The width of the brush to use to stroke the path. Ranges between 0 and 1584.
+<DT>TextPath<DD><B>IVgTextPath.</B> Specifies the <B>TextPath</B> object of the shape. See the <B>TextPath</B> element for more information.
+<DT>To<DD><B>Vector2D.</B> End point of line.
+<DT>Type<DD><B>String.</B> Type of shape.
+</DL>
+<HR size = "1" /><h2 id="sub-elements">Subelements of the <A target="_self" target="_self" href="#shape_element">Shape</A> Element</H2>
+<P>The following subelements are part of the VML object model.
+<UL>
+<LI><A target="_self" target="_self" href="#background_element"><B>Background</B></A>
+<LI><A target="_self" target="_self" href="#extrusion_element"><B>Extrusion</B></A>
+<LI><A target="_self" target="_self" href="#fill_element"><B>Fill</B></A>
+<LI><A target="_self" target="_self" href="#group_element"><B>Group</B></A>
+<LI><A target="_self" target="_self" href="#imagedata_element"><B>Imagedata</B></A>
+<LI><A target="_self" target="_self" href="#path_element"><B>Path</B></A>
+<LI><A target="_self" target="_self" href="#shadow_element"><B>Shadow</B></A>
+<LI><A target="_self" target="_self" href="#skew_element"><B>Skew</B></A>
+<LI><A target="_self" target="_self" href="#stroke_element"><B>Stroke</B></A>
+<LI><A target="_self" target="_self" href="#textpath_element"><B>TextPath</B></A>
+</UL>
+<HR size = "1" /><H3 id="background_element">Background element</H3>
+<P>Describes the fill of the background of a page using VML fills.
+<DL><B>Attributes</B>
+<DT>BWMode<DD><B>VgBlackWhiteMode.</B> Determines how shape will render in black-and-white view in applications or when printed.
+<DT>BWNormal<DD><B>VgBlackWhiteMode.</B> When <B>BWMode</B> is <B>Auto</B>, this property is consulted for how to render the shape in normal black and white.
+<DT>BWPure<DD><B>VgBlackWhiteMode.</B> When <B>BWMode</B> is <B>Auto</B>, this property is consulted for how to render the shape in pure black and white.
+<DT>Fill<DD><B>VgFillFormat.</B> Specifies the fill for this shape. See <B>Fill</B> element for more information.
+<DT>FillColor<DD><B>IVgColor.</B> The primary color of the brush to use to fill the path of this shape. Duplicate of the <B>Color</B> value in the <B>Fill</B> element. The default is <B>white</B>.
+</DL>
+<HR size = "1" /><H3 id="extrusion_element">Extrusion element</H3>
+<P>Describes a 3-D extrusion of the shape.
+<DL><B>Attributes</B>
+<DT>AutoRotationCenter<DD><B>VgTriState.</B> If <B>True</B>, the center of rotation of the group of 3-D objects (in fact there is only ever one object in the group) is determined automatically to be the center of the group; otherwise it is determined by the <B>RotationCenter</B> parameters, which are a fraction  of the shape with 0,0,0 being the center.
+<DT>BackDepth<DD><B>VgLength.</B> Amount of backward extrusion. Ranges from 0 to 32767.
+<DT>Brightness<DD><B>VgPositiveNumber.</B> Overall brightness of the scene. Default is "20,000".
+<DT>Color<DD><B>IVgColor.</B> The color of the extrusion.  Only used if <B>ColorMode</B> is <B>Custom</B>.  Otherwise, <B>Auto</B> sets the extrusion effect color to the same as <B>FillColor</B>.
+<DT>ColorMode<DD><B>Vg3DColorMode.</B> Values are:
+<UL><LI><B>Auto</B> (default)
+<LI><B>Custom</B></UL>
+<DT>Diffusity<DD><B>VgPositiveNumber.</B> The ratio of incident to diffusely reflected light. Values less than 1.0 are normal but values higher than one can generate interesting effects.
+<DT>Edge<DD><B>VgLength.</B> Sets the size of a simulated rounded beveled edge. Ranges from 0 to 32767 in floating point pts. Default is "1pt".
+<DT>Facet<DD><B>VgPositiveNumber.</B> Sets the facet of the scene. Default is "30,000".
+<DT>ForeDepth<DD><B>VgLength.</B> Amount of forward extrusion. Ranges from 0 to 32767.
+<DT>LightFace<DD><B>VgTriState.</B> Determimes whether the front face of the object will respond to changes in the 3-D lighting, e.g., when an object rotates.
+<DT>LightHarsh<DD><B>VgTriState.</B> Harsh lighting for the primary light source. Default is <B>False</B>.
+<DT>LightHarsh2<DD><B>VgTriState.</B> Harsh lighting for the secondary light source. Default is <B>False</B>.
+<DT>LightLevel<DD><B>VgNumber.</B> Intensity of the primary light source. Default is "38000".
+<DT>LightLevel2<DD><B>VgNumber.</B> Intensity of the secondary light source. Default is "38000".
+<DT>LightPosition<DD><B>Vector3D.</B> Position of the primary light source. Default is "50000,0,10000".
+<DT>LightPosition2<DD><B>Vector3D.</B> Position of the secondary light source. Default is "-50000,0,10000".
+<DT>LockRotationCenter<DD><B>VgTriState.</B> "Lockrotationcenter" means that the rotation of the group is defined to be by rotation-angle[1] degrees about the <I>y</I>-axis on the page followed by rotation-angle[0] degrees about the <I>x</I>-axis. When <B>LockRotationCenter</B> is <B>False</B>, the rotation is defined to be by orientation-angle degrees about the vector defined by orientation. So, for example, <code>lockrotationcenter=false orientationangle=45 orientation=(0,1,0)</code> is equivalent to <code>lockrotationcenter=true rotationangle=(0,45)</code>.
+<DT>Metal<DD><B>VgTriState.</B> Causes specularly reflected light to be the material color instead of the light source color, making the object seem more metallic.
+<DT>On<DD><B>VgTriState.</B> Turns the display of the extrusion effect on and off.
+<DT>Orientation<DD><B>Vector3D.</B> Orientation of the camera.
+<DT>OrientationAngle<DD><B>VgAngleInDegrees.</B> Angle between the orientation of the camera and the <I>xy</I> plane.
+<DT>Plane<DD><B>Vg3DExtrudePlane.</B> Allows extrusion from planes orthogonal to the screen plane. Requires <B>ForeDepth</B> and <B>BackDepth</B> to be specified in drawing units instead of emus. Values are:
+<UL><LI><B>XY</B>
+<LI><B>ZX</B>
+<LI><B>YZ</B></UL>
+<DT>Render<DD><B>Vg3DRenderMode.</B> Values are:
+<UL><LI><B>Solid</B> (default)
+<LI><B>WireFrame</B>
+<LI><B>BoundingCube</B></UL>
+<DT>RotationAngle<DD><B>Vector2D.</B> <B>AngleX</B>, <B>AngleY</B>, or <B>AngleZ</B> is controlled by the <B>ShapeRotation</B> attribute.
+<DT>RotationCenter<DD><B>Vector3D.</B> Center of rotation.
+<DT>Shininess<DD><B>VgPositiveNumber.</B> Determines how concentrated or spread out specular reflection is. A high value would be 8 to 10 and would approximate a mirror, and a low value would be 2 to 3 and would approximate sequined clothing.  Values of 3 to 7 are recommended. High values will reflect pinpoint light sources.
+<DT>SkewAmt<DD><B>VgPercentage.</B> If <B>Type</B> is <B>Parallel</B>, attribute determines the amount of skew. Ranges from 0 to 100.
+<DT>SkewAngle<DD><B>VgAngleInDegrees.</B> If <B>Type</B> is <B>Parallel</B>, attribute determines the degree of skew. Default is "-45".
+<DT>Specularity<DD><B>VgPositiveNumber.</B> The ratio of incident to specularly reflected light. Values less than 1.0 are normal but values higher than one can generate interesting effects.
+<DT>Type<DD><B>VgExtrusionType.</B> Values are:
+<UL><LI><B>Parallel</B> (default)
+<LI><B>Perspective</B></UL>
+<DT>Viewpoint<DD><B>Vector3D.</B> The point where the scene is being viewed from.
+<DT>ViewpointOrigin<DD><B>Vector2D.</B> Can have values from 0.5 to -0.5 to position the origin of the viewpoint within the shape bounding box.
+</DL>
+<HR size = "1" /><H3 id="fill_element">Fill element</H3>
+<P>Describes how a path should be filled for fills more complex than a solid color.
+<DL><B>Attributes</B>
+<DT>AlignShape<DD><B>VgTriState.</B> Align the image with the shape. If <B>False</B>, align image with window.
+<DT>Angle<DD><B>VgAngleInDegrees.</B> The angle along which the gradient goes.  0 degrees is along the horizontal axis from left to right.
+<DT>Aspect<DD><B>VgAspectType.</B> <B>ImageSize</B> attribute will be adjusted to preserve the aspect of the image. Values include:
+<DL>
+<DT>Ignore<DD>Ignore aspect issues.
+<DT>AtLeast<DD>Image is at least as big as the image size.
+<DT>AtMost<DD>Image is no bigger than image size.</DL>
+<DT>Color<DD><B>IVgColor</B> The main fill color. Same as <B>FillColor</B> attribute in shape.
+<DT>Color2<DD><B>IVgColor.</B> The secondary color for a fill when image type is Pattern or a gradient fill.
+<DT>Colors<DD><B>IVgGradientColorArray.</B> Intermediate colors in the gradient and their relative positions along the gradient, e.g., ?0% red, 70% blue, 90% green?  Primary color (<B>Color</B> attribute in shape) is 0% and secondary color (<B>Color2</B> attribute) is 100%.
+<DT>Focus<DD><B>VgSignedPercentage.</B> Focal point for linear gradient fill. Values go from -100 to +100.
+<DT>FocusPosition<DD><B>Vector2D.</B> Position of the innermost rectangle for radial gradients. The vector is a fraction (0.0 - 1.0) of the shape's width and height.
+<DT>FocusSize<DD><B>Vector2D</B> Size of the innermost rectangle for radial gradients. The vector is a fraction (0.0 to 1.0) of the shape's width and height.
+<DT>Method<DD><B>VgSigmaType.</B> Values include:
+<UL><LI><B>None</B>
+<LI><B>Linear</B>
+<LI><B>Sigma</B>
+<LI><B>Any</B>
+</UL>
+Default is <B>Sigma</B>.
+<DT>On<DD><B>VgTriState.</B> Turns fill display on.  Same as <B>Fill</B> attribute in shape.
+<DT>Opacity<DD><B>VgFraction.</B> Opacity of the fill.
+<DT>Opacity2<DD><B>VgFraction.</B> The secondary opacity for gradients.
+<DT>Origin<DD><B>Vector2D.</B> Point relative to upper left corner of the image that is treated as the origin of the image. Default is the center of the image. The vector is a fraction (from 0.0 to 1.0) of the image's width and height.
+<DT>Position<DD><B>Vector2D.</B> Point in the reference rectangle of the shape to position the origin of the image. Default is the center of the container rectangle. The vector is a fraction (0.0 - 1.0) of the image's width and height.
+<DT>Size<DD><B>Vector2D.</B> The size of the image. Default is pixel size of the image. May be specified in absolute coordinates or percentage.
+<DT>Src<DD><B>String.</B> URL to an image to load for image and pattern fills.  This attribute must always be present and point to valid image data for a picture to appear.
+<DT>Type<DD><B>VgFillType.</B> May be one of the following types:
+<LI><B>Background</B>
+<LI><B>Frame</B>
+<LI><B>Gradient</B>
+<LI><B>GradientCenter</B>
+<LI><B>GradientRadial</B>
+<LI><B>GradientTitle</B>
+<LI><B>GradientUnscaled</B>
+<LI><B>Pattern</B>
+<LI><B>Solid</B>
+<LI><B>Tile</B>
+</UL><B>Tile</B>, <B>Pattern</B>, and <B>Frame</B> require the image attributes to be supplied. <B>Gradient</B> and <B>GradientRadial</B> require the gradient attributes to be supplied.
+</DL>
+<HR size = "1" /><H3 id="group_element">Group element</H3>
+<P>A group is a collection of individual shapes that can be positioned and transformed as a unit.
+<DL><B>Attributes</B>
+<DT>Item<DD><B>IVgShape.</B> Specified item in the array of shapes.
+<DT>Length<DD><B>Integer.</B> Number of shapes in this group.
+</DL>
+<HR size = "1" /><H3 id="imagedata_element">Imagedata element</H3>
+<P>Describes a picture to be rendered on top of a shape.
+<DL><B>Attributes</B>
+<DT>BiLevel<DD><B>VgTriState.</B> Display picture in only two colors (usually black and white).
+<DT>BlackLevel<DD><B>VgFraction.</B> Allows adjustment to set the level so that blacks appear as true blacks, and all other colors are visible as shades above black.
+<DT>Chromakey<DD><B>IvgColor.</B> Transparent color of picture.
+<DT>CropBottom<DD><B>VgNumber.</B> Crop distance from bottom of picture expressed as a percentage of picture size.
+<DT>CropLeft<DD><B>VgNumber.</B> Crop distance from left edge of picture expressed as a fraction of picture size (from 0.0 to 1.0).  However, "out-cropping" is supported and thus values of less than 0 and greater than 1 are supported; e.g., -5, 20 would out-crop the bounds 25X the picture size with 4/5 on one side of the picture.
+<DT>CropRight<DD><B>VgNumber.</B> Crop distance from right of picture expressed as a percentage of picture size.
+<DT>CropTop<DD><B>VgNumber.</B> Crop distance from top of picture expressed as a percentage of picture size.
+<DT>EmbossColor<DD><B>IVgColor.</B> This is set to a percentage of the shadow color to create an embossed picture effect.
+<DT>Gain<DD><B>VgPositiveNumber.</B> Adjusts the intensity of all colors.  Essentially sets how bright white will be. Ranges from 0 to 32767.
+<DT>Gamma<DD><B>VgFraction.</B> Gamma correction. Increasing it gives an image more contrast.
+<DT>GrayScale<DD><B>VgTriState.</B> Display picture in grayscale colors.
+<DT>Src<DD><B>String.</B> URL to an image to load for image and pattern fills.  This attribute must always be present and point to valid image data for a picture to appear.
+</DL>
+<HR size = "1" /><H3 id="path_element">Path element</H3>
+<P>Defines the path that makes up the shape, using a string that contains a rich set of "pen movement" commands.
+<DL><B>Attributes</B>
+<DT>Limo<DD><B>IVgVector2D.</B> Defines the point where the shape is stretched; e.g., for a giraffe shape, the limo point would be on the neck so when the shape is resized, the neck will stretch and the rest of the shape will maintain its dimensions.
+<DT>TextBoxRect<DD><B>IVgFixedRectangleArray.</B> Array containing the rectangles that define where text should go.
+<DT>V<DD><B>String.</B> Matches the <B>v</B> attribute on the <B>Path</B> tag. Note that path may correspond to <B>Path</B> attribute or element.
+<DT>Value<DD><B>String.</B> A text representation of the commands that define the path. <I>X</I> or <I>y</I>-coordinate values can be a reference to a formula in the form "@#" where # is the formula's ordinal number, e.g., "@2".
+This attribute string is made up of a rich set of commands including the following:
+<DL><B>Commands</B>
+<DT>ae (angleellipseto)<DD><B>center(</B><I>x,y</I><B>) size(</B><I>w,h</I><B>) start-angle, end-angle</B><br>
+Draw a segment of an ellipse. A straight line is drawn from the current point to the start point of the segment.
+<DT>al (angleelipse)<DD>Same as <B>ae</B> except that there is an implied <B>m</B> to the starting point of the segment.
+<DT>ar (arc)<DD>Same as <B>at</B>. However, a new subpath is started by an implied <B>m</B> to the start point of the arc.
+<DT>at (arcto)<DD><B>left, top, right, bottom, start(</B><I>x,y</I><B>) end(</B><I>x,y</I><B>)</B><br>The first four values define the bounding box of an ellipse.  The last four define two radial vectors.  A segment of the ellipse is drawn that starts at the angle defined by the <B>start</B> radius vector and ends at the angle defined by the <B>end</B> vector.  A straight line is drawn from the current point to the start of the arc.  The arc is always drawn in a counterclockwise direction.
+<DT>c (curveto)<DD><B>control1(</B><I>x,y</I><B>) control2(</B><I>x,y</I><B>) to (</B><I>x,y</I><B>)</B><br>
+Draw a cubic bezier curve from the current point to the coordinate given by the final two parameters, the control points given by the first four parameters. The current point becomes the endpoint of the bezier.
+<DT>e (end)<DD>End the current set of subpaths.  A given set of subpaths (as delimited by <B>end</B>) are filled using <B>eofill</B>.  Subsequent sets of subpaths are filled independently and superimposed on existing ones.
+<DT>l (lineto)<DD><I>x,y</I><br>Draw a line from the current point to the given <I>x,y</I>-coordinate, which becomes the new current point. Additional coordinate pairs may be specified to form a polyline, e.g., "l 10,13,45,27,89,-12".
+<DT>m (moveto)<DD><I>x,y</I><br>Start a new subpath at the given <I>x,y</I>-coordinate.
+<DT>nf (nofill)<DD>The current set of subpaths (delimited by <B>end</B>) will not be filled.
+<DT>ns (nostroke)<DD>The current set of subpaths (delimited by <B>end</B>) will not be stroked.
+<DT>qb (quadraticbezier)<DD><B>(controlpoint(</B><I>x</I><B>,</B><I>y</I><B>))*,end(</B><I>x</I><B>,</B><I>y</I><B>)</B><br>Defines one or more quadratic bezier curves by means of control points and an endpoint. Intermediate (on-curve) points are obtained by interpolation between successive control points similar to TrueType fonts.  The subpath need not be a start, in which case the subpath is closed and the last point defines the start point.
+<DT>qx (ellipticalquadrantx)<DD><B>end(</B><I>x,y</I><B>)</B><br>A quarter ellipse is drawn from the current point to the given endpoint.  The elliptical segment is initially tangential to a line parallel to the <I>x</I>-axis; i.e., the segment starts out horizontal.
+<DT>qy (ellipticalquadranty)<DD><B>end(</B><I>x,y</I><B>)</B><br>Same as <B>qx</B> except that the elliptical segment is initially tangential to a line parallel to the <I>y</I>-axis; i.e., the segment starts out vertical.
+<DT>r (rlineto)<DD><I>x,y</I><br>Draw a line from the current point to the relative coordinate (<I>cpx</I> + <I>x</I>, <I>cpy</I> + <I>y</I>). If additional coordinate pairs are given, each new point is computed relative to the last one.
+<DT>t (rmoveto)<DD><I>x,y</I><br>
+Start a new subpath at the relative coordinates (<I>cpx</I> + <I>x</I>, <I>cpy</I> + <I>y</I>) where <I>cpx</I>, <I>cpy</I> is the current position.
+<DT>v (curveto)<DD><B>control1(</B><I>x,y</I><B>) control2(</B><I>x,y</I><B>) to (</B><I>x,y</I><B>)</B><br>Cubic bezier curve using the given coordinates relative to the current point. All the points are computed relative to the same starting point.
+<DT>wa (clockwisearcto)<DD>Same as <B>at</B> but the arc is drawn in a clockwise direction.
+<DT>wr (clockwisearc)<DD>Same as <B>ar</B> but is drawn in a clockwise direction.
+<DT>x (close)<DD>Close the current subpath by drawing a straight line from the current point to the original <B>moveto</B> point.
+</DL>
+</DL>
+<HR size = "1" /><H3 id="shadow_element">Shadow element</H3>
+<P>Describes a shadow effect on a shape.
+<DL><B>Attributes</B>
+<DT>Color<DD><B>IVgColor.</B> Color of the primary shadow. Default is RGB(128,128,128)
+<DT>Color2<DD><B>IVgColor.</B> Color of the second shadow, or highlight in an embossed or engraved shadow. Default is RGB(203,203,203).
+<DT>Matrix<DD><B>IvgSkewMatrix.</B> A perspective transform matrix in the form, ?I>sxx,sxy,syx,syy,px,py</I>?[<I>s</I>=scale, <I>p</I>=perspective]. The <I>s</I> items specify how the shadow should scale with respect to the shape, and the <I>p</I> items specify how the shadow should skew with respect to the shape. For example, the following matrix resizes the shape by a factor of 2 and skews it by a factor of 4 in all directions:<br>
+?,2,2,2,4,4?br>
+This matrix is only used if the type of the shadow is set to <B>perspective</B>.
+<DT>Obscured<DD><B>VgTriState.</B> The shadow can be seen through if there is no fill on the shape. Default is <B>False</B>.
+<DT>Offset<DD><B>IVgSkewOffset.</B> Amount of <I>x,y</I> offset from the shape's location. Default is "2pt,2pt".
+<DT>Offset2<DD><B>Vector2D.</B> Amount of <I>x,y</I> second offset from the shape’s location.  Values are either an absolute measurement, or a fractional value of shape (-0.5 to +0.5).
+<DT>On<DD><B>VgTriState.</B> Turns the display of the shadow on and off.
+<DT>Opacity<DD><B>VgFraction.</B> Opacity of the shadow effect.
+<DT>Origin<DD><B>Vector2D</B> A pair of fractional values of shape from -0.5 to +0.5.
+<DT>Type<DD><B>VgShadowType.</B> Values are:
+<UL>
+<LI><B>Single</B> (default)
+<LI><B>Double</B>
+<LI><B>Perspective</B>
+<LI><B>ShapeRelative</B>
+<LI><B>DrawingRelative</B>
+<LI><B>Emboss</B>
+</UL>
+</DL>
+<HR size = "1" /><H3 id="skew_element">Skew element</H3>
+<P>Describes a perspective skew effect on a shape. The skew is applied to vector graphic data, not image data.
+<DL><B>Attributes</B>
+<DT>Matrix<DD><B>IVgSkewMatrix.</B> A perspective transform matrix in the form, ?I>sxx,sxy,syx,syy,px,py</I>?[<I>s</I>=scale, <I>p</I>=perspective]. If offset is in absolute units then <I>px,py</I> are in emu ^ -1 units; otherwise they are an inverse fraction of shape size.
+<DT>Offset<DD><B>IvgSkewOffset.</B> Amount of <I>x,y</I> offset from the shape's location. Default is "2pt,2pt".
+<DT>On<DD><B>VgTriState.</B> Turns the display of the skew on or off.
+<DT>Origin<DD><B>Vector2D.</B> A pair of fractional values of shape from -0.5 to +0.5.
+</DL>
+<HR size = "1" /><H3 id="stroke_element">Stroke element</H3>
+<P>Describes how to draw the path if something beyond a solid line with a solid color is desired.
+<DL><B>Atributes</B>
+<DT>Color<DD><B>VgTriState.</B> The color of the line. Same as <B>StrokeColor</B> attribute in <B>Shape</B> but overrides it.
+<DT>Color2<DD><B>IVgColor.</B> Secondary color. Used when <B>FillType</B> is <B>Pattern</B>.
+<DT>DashStyle<DD><B>VgLineDashStyle. </B> Dash style format. May be a specific value or a sequence of numbers with a user-defined dash pattern. Values are:
+<UL><LI><B>Solid</B> (default)
+<LI><B>ShortDash</B>
+<LI><B>ShortDot</B>
+<LI><B>ShortDashDot</B>
+<LI><B>ShortDashDotDot</B>
+<LI><B>Dot</B>
+<LI><B>Dash</B>
+<LI><B>DashDot</B>
+<LI><B>LongDash</B>
+<LI><B>LongDashDot</B>
+<LI><B>LongDashDotDot</B></UL>
+<DT>EndArrow<DD><B>VgArrowheadStyle.</B> Arrowhead for the end of the line. Values are:
+<UL><LI><B>None</B> (default)
+<LI><B>Block</B>
+<LI><B>Classic</B>
+<LI><B>Diamond</B>
+<LI><B>Oval</B>
+<LI><B>Open</B>
+<LI><B>Chevron</B>
+<LI><B>DoubleChevron</B></UL>
+<DT>EndArrowLength<DD><B>VgArrowHeadLength.</B> Arrowhead length for the end of the line. Values are:
+<UL><LI><B>Short</B>
+<LI><B>Medium</B> (default)
+<LI><B>Long</B></UL>
+<DT>EndArrowWidth<DD><B>VgArrowheadWidth.</B> Arrowhead width for the end of the line. Values are:
+<UL><LI><B>Narrow</B>
+<LI><B>Medium</B> (default)
+<LI><B>Wide</B></UL>
+<DT>EndCap<DD><B>VgLineEndCapStyle. </B> Values are:
+<UL><LI><B>Flat</B>
+<LI><B>Square</B>
+<LI><B>Round</B>
+</UL>
+<DT>FillType<DD><B>VgLineFillType.</B> Values are:
+<UL><LI><B>Solid</B> (default)
+<LI><B>Tile</B>
+<LI><B>Pattern</B>
+<LI><B>Frame</B></UL>
+<DT>ImageAlignShape<DD><B>VgTriState.</B> Align the image with the shape. If <B>False</B>, align image with window.
+<DT>ImageAspect<DD><B>VgAspectType.</B>  <B>ImageSize</B> attribute will be adjusted to preserve the aspect of the image. Values include:
+<DL>
+<DT>Ignore<DD>Ignore aspect issues.
+<DT>AtLeast<DD>Image is at least as big as the image size.
+<DT>AtMost<DD>Image is no bigger than image size.</DL>
+<DT>ImageSize<DD><B>Vector2D.</B> Size of the image to form the brush with. Default is the size of the image.
+<DT>JoinStyle<DD><B>VgLineJoinStyle.</B> Values are:
+<UL><LI><B>Round</B> (rounded joint)
+<LI><B>Bevel</B> (beveled joint)
+<LI><B>Miter</B> (miter joint)
+</UL>
+<DT>LineStyle<DD><B>VgLineStyle.</B> Values are:
+<UL><LI><B>Single</B>
+<LI><B>ThinThin</B> (1:1:1)
+<LI><B>ThinThick</B> (1:1:2)
+<LI><B>ThickThin</B> (2:1:1)
+<LI><B>ThickBetweenThin</B> (1:1:2:1:1)</UL>
+<DT>MiterLimit<DD><B>Length</B>. The maximum distance between the inner point and outer point of a joint.  This number is a multiple of the thickness of the line. Ranges from 0 to 32,767.
+<DT>On<DD><B>VgTriState.</B> Turns the display of the line on and off. Same as <B>Stroke</B> attribute in <B>Shape</B> but overrides it.
+<DT>Opacity<DD><B>VgFraction.</B> Opacity of the stroke.
+<DT>Src<DD><B>String.</B> URL to an image to load for image and pattern fills.  This attribute must always be present and point to valid image data for a picture to appear.
+<DT>StartArrow<DD><B>VgArrowheadStyle.</B> Arrowhead for the start of the line. Values are:
+<UL><LI><B>None</B> (default)
+<LI><B>Block</B>
+<LI><B>Classic</B>
+<LI><B>Diamond</B>
+<LI><B>Oval</B>
+<LI><B>Open</B>
+<LI><B>Chevron</B>
+<LI><B>DoubleChevron</B></UL>
+<DT>StartArrowLength<DD><B>VgArrowHeadLength.</B> Arrowhead length for the start of the line. Values are:
+<UL><LI><B>Short</B>
+<LI><B>Medium</B> (default)
+<LI><B>Long</B></UL>
+<DT>StartArrowWidth<DD><B>VgArrowheadWidth.</B> Arrowhead width for the start of the line. Values are:
+<UL><LI><B>Narrow</B>
+<LI><B>Medium</B> (default)
+<LI><B>Wide</B></UL>
+<DT>Weight<DD><B>VgLength.</B> Width of line. Ranges from 0 to 1584.
+<P><B>Note:</B> The <B>DashStyle</B> attribute allows the user to specify a custom-defined dash pattern.  This is done using a series of numbers. Dash styles are defined in terms of the length of the dash (the drawn part of the stroke) and the length of the space between the dashes. The lengths are relative to the line width; a length of "1" is equal to the line width. The <B>EndCap</B> style is applied to each dash, arrow styles are not. The string first defines the length of the dash then the length of the space. This may be repeated to form complex dash styles.  The string should always contain a pair of numbers; if it contains an odd number of numbers the last may be disregarded.  The following table lists some typical values and a description of the intended effect. "0" implies a dot that should be fourfold symmetrical (with round endcaps it should be a circle). If the line endcap is <B>Flat</B>, a viewer should choose a built-in operating system dash where possible (i.e., something that is fast to draw).  The following  shows some examples.<P>
+<DL>
+<DT>? 2?
+<DD>short-dashes (each dash and the space in between is twice the width of the line)
+<DT>? 2?
+<DD>dot (each dash is the width of the line while each space is twice the width of the line)
+<DT>? 2?
+<DD>dash (each dash is four times the width of the line while each space is twice the width of the line)
+<DT>? 2?
+<DD>long-dash
+<DT>? 2 1 2?
+<DD>dash dot
+<DT>? 2 1 2?
+<DD>long-dash dot
+<DT>? 2 1 2 1 2?
+<DD>long-dash dot dot</DL>
+</DL>
+<HR size = "1" /><H3 id="textpath_element">TextPath element</H3>
+<P>Describes a vector path based on the text data, font, and styles supplied. The text path is warped to conform to a <B>Path</B> element if supplied.
+<DL><B>Attributes</B>
+<DT>FitPath<DD><B>VgTriState.</B> Sizes the text to fill the path it lies out on.
+<DT>FitShape<DD><B>VgTriState.</B> Stretches the text path out to the edges of the shape box.
+<DT>On<DD><B>VgTriState.</B> Determines whether the character paths are displayed or not.
+<DT>String<DD><B>String.</B> The text to render as a text path.
+<DT>Trim<DD><B>VgTriState.</B> Removes any additional space reserved for ascenders and descenders if not used.
+<DT>XScale<DD><B>VgTriState.</B> Use straight <I>x</I> measurement instead of measuring along the path.
+</DL>
+<HR size = "1" /><h2 id="DataTypes">Data Types Used in the VML Object Model</H2>
+<P>The following data types are used by the VML Object Model.
+<UL>
+<LI><A target="_self" target="_self" href="#double_data"><B>Double</B></A>
+<LI><A target="_self" target="_self" href="#fixed_data"><B>Fixed</B></A>
+<LI><A target="_self" target="_self" href="#integer_data"><B>Integer</B></A>
+<LI><A target="_self" target="_self" href="#adjustments_data"><B>IVgAdjustments</B></A>
+<LI><A target="_self" target="_self" href="#color_data"><B>IVgColor</B></A>
+<LI><A target="_self" target="_self" href="#equation_data"><B>IVgEquation</B></A>
+<LI><A target="_self" target="_self" href="#fixedrectangle_data"><B>IVgFixedRectangle</B></A>
+<LI><A target="_self" target="_self" href="#fixedrectanglearray_data"><B>IVgFixedRectangleArray</B></A>
+<LI><A target="_self" target="_self" href="#formula_data"><B>IVgFormula</B></A>
+<LI><A target="_self" target="_self" href="#formulas_data"><B>IVgFormulas</B></A>
+<LI><A target="_self" target="_self" href="#gradientcolorarray_data"><B>IVgGradientColorArray</B></A>
+<LI><A target="_self" target="_self" href="#points_data"><B>IVgPoints</B></A>
+<LI><A target="_self" target="_self" href="#skewmatrix_data"><B>IVgSkewMatrix</B></A>
+<LI><A target="_self" target="_self" href="#skewoffset_data"><B>IVgSkewOffset</B></A>
+<LI><A target="_self" target="_self" href="#vector2d_data"><B>IVgVector2D</B></A>
+<LI><A target="_self" target="_self" href="#vector3d_data"><B>IVgVector3D</B></A>
+<LI><A target="_self" target="_self" href="#length_data"><B>Length</B></A>
+<LI><A target="_self" target="_self" href="#measure_data"><B>Measure</B></A>
+<LI><A target="_self" target="_self" href="#string_data"><B>String</B></A>
+<LI><A target="_self" target="_self" href="#blackwhitemode_data"><B>VgBlackWhiteMode</B></A>
+<LI><A target="_self" target="_self" href="#fraction_data"><B>VgFraction</B></A>
+<LI><A target="_self" target="_self" href="#tristate_data"><B>VgTriState</B></A>
+</UL>
+<HR size = "1" /><H3 id="double_data">Double data type</H3>
+<P>A double precision integer with range from -infinity to infinity.
+<HR size = "1" /><H3 id="fixed_data">Fixed data type</H3>
+<P>Floating point number with range from -32,766.0 to 32,766.0.
+<HR size = "1" /><H3 id="integer_data">Integer data type</H3>
+<P>An integer with a range from -infinity to infinity.
+<HR size = "1" /><H3 id="adjustments_data">IVgAdjustments data type</H3>
+<P>Collection of adjustments to a shape that can be used to change the dimensions of a shape. Adjustments can be used as temporary placeholders or for any reason you would use variables. There are only 8 adjustments in the collection.
+<DL><B>Attributes</B>
+<DT>Exists<DD><B>IVgTriState.</B> Determines whether a specified adjustment exists. Note that an index must be used; that is, <B>exists(</B><I>item</I><B>)</B> must be used to retrieve the existence of an item.
+<DT>Item<DD><B>Long.</B> Array of adjustments indexed from 0 to 7. Note that adjustments may be sparcely specified; that is, intermediate array values may not always be filled. For example, item 1, 3, and 5 could have values for a length of 3, with item(0), item(2), and item(4) specified. To see if an item exists, use the <B>Exists</B> attribute.
+<DT>Length<DD><B>Integer.</B> Number of adjustments. Can be no greater than 8.
+<DT>Value<DD><B>String.</B> Text representation of numeric values, with commas between each number.
+</DL>
+<HR size = "1" /><H3 id="color_data">IVgColor</H3>
+<P>Specifies a color.
+<DL><B>Attributes</B>
+<DT>RGB<DD><B>VgRGBType.</B> RGB value (<B>Long</B>) of the color. Only valid if <B>Type</B> is <B>RGB</B>.
+<DT>R<DD><B>Integer.</B> Red component of the color. Can range between 0 and 255.
+<DT>G<DD><B>Integer.</B> Green component of the color. Can range between 0 and 255.
+<DT>B<DD><B>Integer.</B> Blue component of the color. Can range between 0 and 255.
+<DT>String<DD><B>String.</B> Text representation of the color.
+<br>The following named color types are supported:
+<UL>
+<LI>Black (#000000)
+<LI>Silver (#C0C0C0)
+<LI>Gray (#808080)
+<LI>White (#FFFFFF)
+<LI>Maroon (#800000)
+<LI>Red (#FF0000)
+<LI>Purple (#800080)
+<LI>Fuchsia (#FF00FF)
+<LI>Green (#008000)
+<LI>Lime (#00FF00)
+<LI>Olive (#808000)
+<LI>Yellow (#FFFF00)
+<LI>Navy (#000080)
+<LI>Blue (#0000FF)
+<LI>Teal (#008080)
+<LI>Aqua (#00FFFF)
+</UL>
+<DT>Type<DD><B>VgColorType.</B> Type of color. One of the following types:
+<UL>
+<LI><B>Mixed</B>
+<LI><B>Named</B>
+<LI><B>RGB</B>
+<LI><B>Scheme</B>
+</UL>
+</DL>
+<HR size = "1" /><H3 id="equation_data">IVgEquation</H3>
+<P>Equations used for formulas.
+<DL><B>Attributes</B>
+<DT>Operation<DD><B>VgEquationOperationType</B> Name of operation to perform on the parameters. The following operations can be used in an equation:
+<DL><B>Operation</B>
+<DT>Abs<DD> Absolute value.<br>
+<B>abs(</B><I>v</I><B>)</B>
+<DT>Atan2<DD> Polar arithmetic--results in <B>fd</B> units (degrees multiplied by 65536).<br>
+<B>atan2(</B><I>p1,v</I><B>)</B>
+<DT>Cos<DD> Cosine, argument in <B>fd</B> units (degrees multiplied by 65536).<br>
+<I>v</I> * <B>cos(</B><I>p1</I><B>)</B>
+<DT>Cosatan2<DD> Preserves full accuracy in intermediate calculation.<br>
+<I>v</I> * <B>cos(atan2(</B><I>p2,p1</I><B>))</B>
+<DT>Ellipse<DD> Ellipse
+<DT>If<DD> Condition test.<br>
+<I>v</I> <B>></B> 0 <B>?</B> <I>p1</I> <B>:</B> <I>p2</I>
+<DT>Max<DD> The greater of two values.<br>
+<B>max(</B><I>v,p1</I><B>)</B>
+<DT>Mid<DD> Average<br>
+(<I>v</I> + <I>p1</I>)/2
+<DT>Min<DD> The lesser of two values.<br>
+<B>min(</B><I>v,p1</I><B>)</B>
+<DT>Mod<DD> Modulus.
+<DT>Product<DD> Used for multiplication and division.<br>
+<I>v</I> * <I>p1</I> / <I>p2</I>
+<DT>Sin<DD> Sine, argument in <B>fd</B> units (degrees multiplied by 65536).<br>
+<I>v</I> * <B>sin(</B><I>p1</I><B>)</B>
+<DT>Sinatan2<DD> Preserves full accuracy in intermediate calculation.<br>
+<I>v</I> * <B>sin(atan2(</B><I>p2,p1</I><B>))</B>
+<DT>Sqrt<DD> Result is positive and rounds down.<br>
+<B>sqrt(</B><I>v</I><B>)</B>
+<DT>Sum<DD> Used for addition and subtraction.<br>
+<I>v + p1 p2</I>
+<DT>Sumangle<DD> Existing angle (scaled by 65536), where <I>p1</I> and <I>p2</I> are in degrees.<br>
+<I>v + p1</I> * 65536 + <I>p2</I> * 65536
+<DT>Tan<DD> Tangent, argument is in <B>fd</B> units (degrees multiplied by 65536).<br>
+<I>v</I> * <B>tan(</B><I>p1</I><B>)</B>
+<DT>Val<DD> Defines a guide value from some other value.
+</DL>
+<DT>Param1<DD><B>Integer.</B> The first parameter.
+<DT>Paramtype1<DD><B>VgFormulaParamType.</B> The type of the first parameter. The following values are supported:
+<DL><B>Types</B>
+<DT>Value<DD>Parameter is simple value.
+<DT>AdjustmentReference<DD>Parameter is a reference to an adjustment. For example, if the first parameter is 1, then the value of the first adjustment will be used.
+<DT>FormulaReference<DD>Parameter is the result of a reference to the result of a previous formula. For example, if the first parameter is 2, then the result of formula 2 will be used.
+</DL>
+<DT>Param2<DD><B>Integer.</B> The second parameter.
+<DT>Paramtype2<DD><B>VgFormulaParamType</B> The type of parameter 2.
+<DT>Val<DD><B>Integer.</B> The result.
+<DT>Valtype2<DD><B>VgFormulaParamType.</B> The type of the result.
+</DL>
+<HR size = "1" /><H3 id="fixedrectangle_data">IVgFixedRectangle</H3>
+<P>Specifies a fixed rectangle.
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Text value specifying the path.
+<DT>Left<DD><B>Double.</B> Leftmost coordinate of the rectangle.
+<DT>Top<DD><B>Double.</B> Topmost coordinate of the rectangle.
+<DT>Right<DD><B>Double.</B> Rightmost coordinate of the rectangle.
+<DT>Bottom<DD><B>Double.</B> Bottommost coordinate of the rectangle.
+</DL>
+<HR size = "1" /><H3 id="fixedrectanglearray_data">IVgFixedRectangleArray</H3>
+<P>Array of fixed rectangles.
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Text representation of array.
+<DT>Length<DD><B>Integer.</B> Number of rectangles in this array.
+<DT>Item<DD><B>IVgFixedRectangle.</B> The rectangle object at the specified index.
+</DL>
+<HR size = "1" /><H3 id="formula_data">IVgFormula data type</H3>
+<P>Definitions for formulas that can vary the path of a shape or be used for other calculation purposes. Formulas can be based on the <B>Adj</B> attribute of a shape, which can change. Formulas can reference other formulas as well.
+<DL><B>Attributes</B>
+<DT>Eqn<DD><B>IVgEquation.</B> Each formula defines a single value as the result of the evaluation of the expression. The expression is defined by this attribute and has the general form of an operation followed by up to three arguments, which may be adjustment values (e.g., #2), the results of earlier formulas (e.g., @2), fixed numbers, or predefined values.</DL>
+<HR size = "1" /><H3 id="formulas_data"> IVgFormulas data type</H3>
+<P>A collection of formula objects.
+<DL><B>Attributes</B>
+<DT>Length<DD><B>Integer.</B> Number of formula objects in collection.
+<DT>Item<DD><B>IVgFormula.</B> A specific formula. Note that the formula array may be inherited fom the shape type.</DL>
+<HR size = "1" /><H3 id="gradientcolorarray_data">IVgGradientColorArray</H3>
+<P>An array of colors that define a gradient (blended range of colors).
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Specifies the array of colors; for example, "red .2; green .4; black .7"
+<DT>Length<DD><B>Integer.</B> Number of colors in the array.
+</DL>
+<DL><B>Methods</B>
+<DT>AddColor<DD><B>VgFraction</B>. Adds new color at endpoint specified by fraction. The new color is white by default and is the return value. The color can then be changed by reference.
+<DT>RemoveColor<DD><B>VgFraction.</B> Removes a color at endpoint specified by fraction. Note: if 0.0 or 1.0 does not exist, it is implied and the color white is used at that point.
+</DL>
+<HR size = "1" /><H3 id="points_data">IVgPoints datatype</H3>
+<P>Array of points that define a shape.
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Text representation of array.
+<DT>Length<DD><B>Integer.</B> Number of points in this array.
+<DT>Item<DD><B>IVgVector2D.</B> The point at the specified index.
+</DL>
+<HR size = "1" /><H3 id="skewmatrix_data">IVgSkewMatrix datatype</H3>
+<P>A matrix used for skewing shapes, a perspective transform matrix in the form, "<I>sxx,sxy,syx,syy,px,py</I>" [<I>s</I>=scale, <I>p</I>=perspective]. If offset is in absolute units, then <I>px,py</I> are in emu ^-1 units; otherwise they are an inverse fraction of shape size.
+<DL><B>Attributes</B>
+<DT>XtoX<DD><B>Double.</B>
+<DT>YtoX<DD><B>Double.</B>
+<DT>XtoY<DD><B>Double.</B>
+<DT>YtoY<DD><B>Double.</B>
+<DT>PerspectiveX<DD><B>Double.</B>
+<DT>PerspectiveY<DD><B>Double.</B>
+</DL>
+<HR size = "1" /><H3 id="skewoffset_data">IVgSkewOffset</H3>
+<P>Specifies the offset of the skew.
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Text representation of offset.
+<DT>X<DD><B>Double.</B> <I>X</I> component. Percentage or measure. If no units, then <B>ShapeRelative</B> type is implied; otherwise <B>Absolute</B> type is implied.
+<DT>Y<DD><B>Double.</B> <I>Y</I> component.
+<DT>Type<DD><B>VgSkewTransformType.</B> Specifies the type of transformation. Valid values are integer points ranging between -infinity and infinity.
+<DL><B>Type</B>
+<DT>ShapeRelative<DD>The values of the offset are percentages (ratios) of the original shape's size; e.g., a value of 0.5 means an offset half the size of the shape.
+<DT>Absolute<DD>The values are absolute units.
+</DL>
+</DL>
+<HR size = "1" /><H3 id="vector2d_data">IVgVector2D data type</H3>
+<P>Specifies a two-dimensional vector consisting of two <B>Double</B> numbers.
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Text representation of both vector numbers separated by a space.
+<DT>X<DD><B>Double.</B> <I>X</I> component of this vector.
+<DT>Y<DD><B>Double.</B> <I>Y</I> component of this vector.
+<DT>Type<DD><B>VgVectorType.</B> Expected units for this vector. Values are:
+<UL><LI><B>Measure</B>
+<LI><B>Length</B>
+<LI><B>AngleInDegrees</B>
+<LI><B>Fraction</B>
+<LI><B>Number</B>
+<LI><B>Percentage</B>
+<LI><B>Integer</B>
+</UL>
+</DL>
+<HR size = "1" /><H3 id="vector3d_data">IVgVector3D data type</H3>
+<P>Specifies a three-dimensional vector consisting of three <B>Double</B> numbers.
+<DL><B>Attributes</B>
+<DT>Value<DD><B>String.</B> Text representation of three vector numbers separated by a space.
+<DT>X<DD><B>Double.</B> <I>X</I> component of this vector.
+<DT>Y<DD><B>Double.</B> <I>Y</I> component of this vector.
+<DT>Z<DD><B>Double.</B> <I>Z</I> component of this vector.
+<DT>Type<DD><B>VgVectorType.</B> Expected units for this vector. Values are:
+<UL><LI><B>Measure</B>
+<LI><B>Length</B>
+<LI><B>AngleInDegrees</B>
+<LI><B>Fraction</B>
+<LI><B>Number</B>
+<LI><B>Percentage</B>
+<LI><B>Integer</B>
+</UL>
+</DL>
+<HR size = "1" /><H3 id="length_data">Length data type</H3>
+<P>A floating point number with a range from 0 to infinity.
+<HR size = "1" /><H3 id="measure_data">Measure data type</H3>
+<P>A floating point number from -infinity to infinity.
+<HR size = "1" /><H3 id="string_data">String data type</H3>
+<P>Character data of any length.
+<HR size = "1" /><H3 id="blackwhitemode_data">VgBlackWhiteMode</H3>
+<P>Rendering mode for black and white. Possible values are:
+<UL><LI><B>Color</B>
+<LI><B>Auto</B>
+<LI><B>GrayScale</B>
+<LI><B>LightGrayScale</B>
+<LI><B>InverseGray</B>
+<LI><B>GrayOutline</B>
+<LI><B>BlackTextAndLines</B>
+<LI><B>HighContrast</B>
+<LI><B>Black</B>
+<LI><B>White</B>
+<LI><B>Undrawn</B>
+</UL>
+<HR size = "1" /><H3 id="fraction_data">VgFraction data type</H3>
+<P>Floating point number with range from 0.0 to 1.0. Fractions can also be specified as a percentage; e.g., "50%".
+<HR size = "1" /><H3 id="tristate_data">VgTriState datatype</H3>
+<P>Enumeration used for values that can be one of three states:
+<UL><LI><B>TRUE</B>
+<LI><B>FALSE</B>
+<LI><B>MIXED</B>
+</UL>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

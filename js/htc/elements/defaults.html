@@ -1,0 +1,153 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>PUBLIC:ATTACH</span>元素</h1>
+		<hr>
+		<p>为一份<span>HTC</span>设置默认的属性。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;PUBLIC:DEFAULTS<br>&nbsp;&nbsp;canhavehtml&nbsp;=&nbsp;&quot;<I>bCanHaveHTML</I>&quot;<br>&nbsp;&nbsp;contenteditable&nbsp;=&nbsp;&quot;<I>bEditable</I>&quot;<br>&nbsp;&nbsp;style&nbsp;=&nbsp;&quot;<I>sStyle</I>&quot;<br>&nbsp;&nbsp;tabstop&nbsp;=&nbsp;&quot;<I>bIsTabStop</I>&quot;<br>&nbsp;&nbsp;viewinheritstyle&nbsp;=&nbsp;&quot;<I>bInheritsStyle</I>&quot;<br>&nbsp;&nbsp;viewlinkcontent&nbsp;=&nbsp;&quot;<I>bViewLinkContent</I>&quot;<br>&nbsp;&nbsp;viewmastertab&nbsp;=&nbsp;&quot;<I>bViewMasterTab</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>canHaveHTML</B></dt>
+				<dd>
+					<p>可选。布尔值；指定为下列值中的一个：</p>
+					<table>
+						<tr>
+							<td class="value">false</td>
+							<td>该<span>HTC</span>文件定义的标签中的内容不可以包含<span>HTML</span>标记。</td>
+						</tr>
+						<tr>
+							<td class="value">true</td>
+							<td>该<span>HTC</span>文件定义的标签中的内容可以包含<span>HTML</span>标记。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>contentEditable</B></dt>
+				<dd>
+					<p>可选。字符串值；指定为下列值中的一个：</p>
+					<table>
+						<tr>
+							<th class="value">inherit</th>
+							<td>默认值。对象从其父对象处继承内容是否允许被使用者编辑的能力。</td>
+						</tr>
+						<tr>
+							<td class="value">false</td>
+							<td>该<span>HTC</span>文件定义的标签中的内容是不可编辑的。</td>
+						</tr>
+						<tr>
+							<td class="value">true</td>
+							<td>该<span>HTC</span>文件定义的标签中的内容是可编辑的。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>style</B></dt>
+				<dd>
+					<p>可选。字符串值；指定该<span>HTC</span>文件定义的标签的样式。</p>
+				</dd>
+				<dt><B>tabStop</B></dt>
+				<dd>
+					<p>可选。布尔值；指定为下列值中的一个：</p>
+					<table>
+						<tr>
+							<th class="value">false</th>
+							<td>默认值。该<span>HTC</span>文件定义的标签不可以通过<span>TAB</span>移焦激活。</td>
+						</tr>
+						<tr>
+							<td class="value">true</td>
+							<td>该<span>HTC</span>文件定义的标签可以通过<span>TAB</span>移焦激活。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>viewInheritStyle</B></dt>
+				<dd>
+					<p>可选。布尔值；指定为下列值中的一个：</p>
+					<table>
+						<tr>
+							<td class="value">false</td>
+							<td><span>Viewlink</span>不从主<span>HTML</span>文件中继承样式。</td>
+						</tr>
+						<tr>
+							<th class="value">true</th>
+							<td>默认值。<span>Viewlink</span>从主<span>HTML</span>文件中继承样式。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>viewLinkContent</B></dt>
+				<dd>
+					<p>可选。布尔值；指定为下列值中的一个：</p>
+					<table>
+						<tr>
+							<th class="value">false</th>
+							<td>默认值。该<span>HTC</span>文件的文档中的标记不作<span>Viewlink</span>使用。</td>
+						</tr>
+						<tr>
+							<td class="value">true</td>
+							<td>该<span>HTC</span>文件的文档中的标记作<span>Viewlink</span>使用。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>viewMasterTab</B></dt>
+				<dd>
+					<p>可选。布尔值；指定为下列值中的一个：</p>
+					<table>
+						<tr>
+							<td class="value">false</td>
+							<td><span>Viewlink</span>的主元素并不包含在主文档的<span>TAB</span>移焦序列中。</td>
+						</tr>
+						<tr>
+							<th class="value">true</th>
+							<td>默认值。<span>Viewlink</span>的主元素包含在主文档的<span>TAB</span>移焦序列中。</td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Element Information</LABEL>元素信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th>父元素</th>
+					<td><a href="component.html"><span>PUBLIC:COMPONENT</span></a></td>
+				</tr>
+				<tr>
+					<th>子元素</th>
+					<td>无</td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>要获得更多的关于在一份<span>HTC</span>文件中使用<B><span>viewLinkContent</span></B>属性的信息，阅读文章<a href="../articles/intrviwlnk.html">《<span>Viewlink</span>简介》</a>的<a href="../articles/intrviwlnk.html#Creating">《创建<span>Viewlink</span>》</a>部分。</p>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+				<li><a href="../articles/intrviwlnk.html">《<span>Viewlink</span>简介》</a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

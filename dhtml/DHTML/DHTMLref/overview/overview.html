@@ -1,0 +1,171 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>Introduction to</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Introduction to Persistence
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Persistence enables authors to specify an object to persist on the client during the current and future sessions using <A HREF="/workshop/author/behaviors/overview.html">Dynamic HTML (DHTML) behaviors</A>. Persistence allows Microsoft&#174; Internet Explorer 5 and later to retain Web page information, styles, variables, and state. For example, a collapsible list of links within a table of contents can remain expanded to the user's choice upon leaving and later returning to the page. Or, a search engine query form can retain the last-used search string.</p><p>Persistence is implemented as a <A HREF="../properties/behavior_1.html">behavior</A>. The new persistence behaviors include:
+<ul><li><A HREF="../behaviors/savefavorite.html">saveFavorite</A>&#151;persists page state and information when the web page is saved as a favorite.</li><li><A HREF="../behaviors/savehistory.html">saveHistory</A>&#151;persists page state and information within the current session's memory.</li><li><A HREF="../behaviors/savesnapshot.html">saveSnapshot</A>&#151;persists page state and information directly in the page when users save the Web page to their hard disk.</li><li><A HREF="../behaviors/userdata.html">userData</A>&#151;persists page state and information within an Extensible Markup Language (XML) store, a hierarchical data structure.</li></ul></p><p>Persistence creates new opportunities for the author. Information that persists beyond a single page without support from the server, or within the finite scope of <A HREF="../properties/cookie.html">cookies</A>, can increase the speed of navigation and content authoring.</p><p>These behaviors can be used to preserve information in the browser's history, in favorites, in an XML store, or directly within a Web page saved to disk. When a user returns to a persisted page, the state of the page can be restored. By allowing information to safely reside on the client, fewer server transactions are required. Custom start pages and Web applications prosper because information can continue to exist without the paternal support of the server, or repeated server queries. A Web page can remain interactive to a degree, after the connection with the host has been severed, by persisting required information on the client.</p><UL><LI><A TARGET="_self" HREF="#benefits">Benefits</A></LI><LI><A TARGET="_self" HREF="#using">Using Persistence</A></LI><LI><A TARGET="_self" HREF="#example">Example Uses of Persistence</A></LI><LI><A TARGET="_self" HREF="#dxml">Persisting Content in XML</A></LI><LI><A TARGET="_self" HREF="#howto">Persistence How-Tos</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="benefits"></A>Benefits</H2><p>Use of persistence in Internet Explorer 5 breaks away from the tradition of using cookies and session files to store information. The Microsoft model for client-server relationships using persistence and Internet Explorer 5 is pragmatic; it maintains the same-domain security policy associated with cookies while increasing storage and management capabilities.</p><table class="clsStd"><tr><th></th><th>Server solutions</th><th>Persistence solutions</th></tr><tr><th>Start pages</th><td>Custom start pages often rely on cookies and server-side databases to preserve client-specific information. Storing information such as <A HREF="../behaviors/clientcaps.html">client capabilities</A>, favorite styles, and favorite content requires additional queries to the server to retrieve the information. This results in increased download time for the client and increased processing demands on the server.</td><td>Persistence via DHTML behaviors allows a page author to store information on the client. This reduces the need to query a server database for client-specific information and increases the overall performance of the page. Persistence stores the data hierarchically, making it more accessible.</td></tr><tr><th>Web apps</th><td>Web-based applications have remained tied to the server for the back-end strength and processing power they require. A Web site that includes a basic form to be sent in e-mail uses a server to handle the request, or a script to process any e-mail beyond a conventional note.</td><td>A persistent Web page can be saved with its form values intact, making it easier to transfer or preserve an entire document. Persistence introduces a new paradigm for Web applications by giving authors the ability to produce complex Web-based applications that take advantage of the client's processing power.</td></tr><tr><th>Forms</th><td>Advanced search engines and information entry and retrieval forms often rely on session variables and files to preserve information across Web pages. The server must send and store the same information with each new visit to the Web page, taxing the Web server and the Internet line.</td><td>While there is some information that should remain on the server, the rest can be stored on the client. Client-side scripting within each Web page can perform the necessary validation routines, leaving the server to higher-level security concerns. Since persisted information maintains a similar same-domain security structure as cookies, the client can be assured that rogue Web sites will not glean such information from their computers.</td></tr></table><H2><A NAME="using"></A>Using Persistence</H2><p>Persistence behaviors require certain conditions before they can be used. A <A HREF="../objects/meta.html">meta</A> tag directs the browser that the page is persistent. Persistent elements are identified with a <A HREF="../properties/classname.html">CLASS</A> and an <A HREF="../properties/id.html">ID</A> property. The <A HREF="../events/onsave.html">onsave</A> and <A HREF="../events/onload_1.html">onload</A> event handlers can be defined for nondefault handling.</p><table class="clsStd"><tr><th>Behavior</th><th>Description</th></tr><tr><th><B>saveFavorite</B></th><td>Persists an object across sessions when the page has been saved as a favorite.
+<p>The <A HREF="../methods/getattribute_2.html">getAttribute</A> and <A HREF="../methods/setattribute_1.html">setAttribute</A> methods are used to store information on a persistent object. The <B>onload</B> and <B>onsave</B> event handlers can be used to call the methods. </p><p>The <B>saveFavorite</B> behavior is ideal for persisting user-selected styles within a favorite or shortcut. The persisted information is stored within each favorite, allowing multiple favorites with different persisted information to exist.</p></td></tr><tr><th><B>saveHistory</B></th><td>Persists an object during the current session.
+<p>The <B>getAttribute</B> and <B>setAttribute</B> methods can be used to store information on objects participating in persistence. The <B>onload</B> and <B>onsave</B> event handlers can be used to call the methods. </p><p>The <B>saveHistory</B> behavior is ideal for storing information only while the browser is open, such as page state for collapsible content, or dynamic styles.</p></td></tr><tr><th><B>saveSnapshot</B></th><td>Persists an object across sessions when a page has been saved as Web Page, HTML Only.
+<p>Form elements persist automatically. Script blocks designated to persist can contain only variables. Script objects and comments are removed. Qualifying variables from external sources on persisting script blocks are inserted. </p><p>The <B>saveSnapshot</B> behavior is ideal for persisting Web application information to the client's disk for later retrieval.</p></td></tr><tr><th><B>userData</B></th><td>Persists an object across sessions in a UserData store (an arbitrary storage facility) when the object has been explicitly saved.
+<p>Form elements, styles, and dynamic values can be persisted using the <B>getAttribute</B> and <B>setAttribute</B> methods, and then explicitly saved using the <A HREF="../methods/load.html">load</A> and <A HREF="../methods/save.html">save</A> methods.</p><p>The <B>userData</B> behavior is ideal for persisting information across sessions and storing information in a hierarchical structure. It provides a good alternative to using cookies. The capacity of the <B>userData</B> store is 64 KB per page, with a limit of 640 KB per domain, for restricted sites. For security reasons, a <B>userData</B> store is available only in the same directory and with the same protocol used to persist the store.</p></td></tr></table><DIV CLASS="clsNote"><B><IMG alt="security note" src="../common/UI_security_bang_16.gif"></IMG> Security Alert</B>&nbsp;&nbsp;Using these behavior incorrectly can compromise the security of your application. The <B>saveFavorite</B>, <B>saveSnapshot</B>, and <B>userData</B> behaviors persist data as plain text in a saved Web page. Text is not encrypted and therefore not secure. Any application that has access to the drive where the page is saved also has access to the data and can tamper with it. Therefore, it is recommended that you not persist sensitive data like credit card numbers. For more information, see <A HREF="/workshop/author/behaviors/sec_behaviors.html">Security Considerations: DHTML and Default Behaviors</A>. </DIV><p>An <B>ID</B> is not required for the <B>saveFavorite</B> and <B>saveHistory</B> behaviors, but is recommended for performance. The <A HREF="../objects/style.html">style</A> element also can be set inline on a persistent object.</p><H2><A NAME="example"></A>Example Uses of Persistence</H2><p>The following examples show how to use behaviors to implement persistence. </p><p>The following examples shows the <B>saveFavorite</B> behavior.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!-- Tell the browser the page is persistent--&gt;
+&lt;META NAME="save" CONTENT="favorite"&gt;
+&lt;!-- Define the class for the persistent object--&gt;
+&lt;STYLE&gt;
+.saveFavorite {behavior:url(#default#savefavorite);}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// Record information to the persistent object as an attribute.
+function fnSave(){
+oPersistInput.setAttribute("sPersistAttr",oPersistInput.value);
+}
+// Retrieve information from a persistent object.
+function fnLoad(){
+oPersistInput.value=oPersistInput.getAttribute("sPersistAttr");
+}
+&lt;/SCRIPT&gt;
+:
+&lt;!-- The CLASS enables the object to persist, the event handlers
+fire the scripted functions.--&gt;
+&lt;INPUT
+TYPE="text"
+CLASS="saveFavorite"
+ID="oPersistInput"
+onload="fnLoad()"
+onsave="fnSave()"
+&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="/workshop/samples/author/persistence/saveFavorite_1.htm"></IMG></A></DIV><p>The following example shows the <B>saveHistory</B> behavior.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!-- Tell the browser the page is persistent--&gt;
+&lt;META NAME="save" CONTENT="history"&gt;
+&lt;!-- Define the class for the persistent object--&gt;
+&lt;STYLE&gt;
+.saveHistory {behavior:url(#default#savehistory);}
+&lt;/STYLE&gt;
+:
+&lt;!-- The default behavior is to persist form elements.
+When the saveHistory behavior is defined, form elements
+will not persist unless they have a class.
+--&gt;
+This persists:
+&lt;INPUT TYPE="text" CLASS="saveHistory" ID="oPersistInput"&gt;
+This does not persist:
+&lt;INPUT TYPE="text"&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="/workshop/samples/author/persistence/saveHistory_1.htm"></IMG></A></DIV><p>The following example shows the <B>saveSnapshot</B> behavior.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!-- Tell the browser the page is persistent--&gt;
+&lt;META NAME="save" CONTENT="snapshot"&gt;
+&lt;!-- Define the class for the persistent object--&gt;
+&lt;STYLE&gt;
+.saveSnapshot {behavior:url(#default#savesnapshot);}
+&lt;/STYLE&gt;
+:
+&lt;!-- When the page is saved, the information entered in the
+persistent form element will be inserted as the value
+within the HTML file.--&gt;
+&lt;INPUT TYPE=text CLASS=saveSnapshot ID=oPersistInput&gt;
+:</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="/workshop/samples/author/persistence/saveSnapshot_1.htm"></IMG></A></DIV><p>The following example shows the <B>userData</B> behavior.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!-- Define the class for the persistent object--&gt;
+&lt;STYLE&gt;
+.userData {behavior:url(#default#userdata);}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function fnSaveInput(){
+// Persistent information is stored as an attribute
+// on the persistent object, and saved within a
+// UserData store.
+var oPersist=oPersistForm.oPersistInput;
+oPersist.setAttribute("sPersist",oPersist.value);
+oPersist.save("oXMLBranch");
+}
+function fnLoadInput(){
+// Persistent information is loaded from a UserData store
+// and the value is restored from the persisted attribute.
+var oPersist=oPersistForm.oPersistInput;
+oPersist.load("oXMLBranch");
+oPersistInput.value=oPersistInput.getAttribute("sPersist");
+}
+&lt;/SCRIPT&gt;
+:
+&lt;FORM ID="oPersistForm"&gt;
+&lt;INPUT class=userData type=text id=oPersistInput&gt;
+&lt;INPUT type=button value="Load" onclick="fnLoadInput()"&gt;
+&lt;INPUT type=button value="Save" onclick="fnSaveInput()"&gt;
+&lt;/FORM&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="/workshop/samples/author/persistence/userData_1.htm"></IMG></A></DIV><H2><A NAME="dxml"></A>Persisting Content in XML</H2><p>The <A HREF="../properties/xmldocument.html">XMLDocument</A> property allows the <B>saveFavorite</B>, <B>saveHistory</B>, and <B>userData</B> behaviors to access the <A HREF="/library/en-us/xmlsdk30/htm/xmmscxmlreference.html" TARGET="_top">XML Document Object Model (DOM)</A>. Using the <B>XML DOM</B>, persistent objects have access to the objects, properties, and methods that allow the author to build hierarchical data structures.</p><PRE CLASS="clsCode" AUTOHILITE="1">var oXMLDocument=oPersistText.XMLDocument;
+var oNode=oXMLDocument.createNode("element","MyElement", "");
+oNode.nodeValue="The value of MyElement";
+oXMLDocument.documentNode.insertNode("MyElement");</PRE><p>In XML, this would yield:</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;MyElement&gt;The value of MyElement&lt;/MyElement&gt;</PRE><H2><A NAME="howto"></A>Persistence How-Tos</H2><p>Persistence introduces a broad expanse of possibilities. The following how-to articles cover some of the more interesting, albeit easy-to-employ, uses of persistence.</p><ul><li><B>saveFavorite</B><ul><li><A HREF="/workshop/author/persistence/howto/persiststyles.html">Persisting Custom and Dynamic Styles</A></li></ul></li><li><B>saveHistory</B><ul><li><A HREF="/workshop/author/persistence/howto/tocstate.html">Persisting Collapsible Table of Contents State</A></li></ul></li><li><B>saveSnapshot</B><ul><li><A HREF="/workshop/author/persistence/howto/formdata.html">Persisting Form Data</A></li></ul></li><li><B>userData</B><ul><li><A HREF="/workshop/author/persistence/howto/sessiondata.html">Persisting Session Information</A></li></ul></li></ul><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="../behaviors/clientcaps.html">Client Capabilities</A></LI><LI><A HREF="../reference.html">Default Behaviors Reference</A></LI></UL><info><product rid="prod_IE" minver="5"></product><product rid="plat_win" minver="95"></product><product rid="plat_nt" minver="5.0"></product></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

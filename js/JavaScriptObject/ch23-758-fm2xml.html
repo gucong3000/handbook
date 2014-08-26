@@ -1,0 +1,190 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-755-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-766-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-758-fm2xml"></A><A NAME="IXT-23-55380"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>RegExp.test(  )</i></b></td>
+
+<td align="right"><i>检测一个字符串是否匹配某个模式</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 </P><A NAME="ch23-759-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>regexp</I></TT>.test(<TT><I>string</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-760-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>string</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要检测的字符串。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-761-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">如果字符串string中含有与regexp匹配的文本，就返回true，否则返回false。</P>
+
+
+
+
+
+<A NAME="ch23-762-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">TypeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">调用该方法的对象不是RegExp时，抛出该异常。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-763-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法test()将检测字符串string，看它是否含有与regexp相匹配的文本。如果
+  string中含有这样的文本，该方法将返回true，否则，返回false。调用RegExp对象r的test()方法，给它传递字符串s，等价于下面的表达式：</P>
+
+
+
+<PRE>(r.exec(s) != null) </PRE>
+
+
+
+<A NAME="ch23-764-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var pattern = /java/i;
+
+pattern.test("JavaScript");   // 返回 true
+
+pattern.test("ECMAScript");   // 返回 false</PRE>
+
+
+
+<A NAME="ch23-765-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-736-fm2xml.html#ch23-736-fm2xml">RegExp.exec(  )</A>, <A class="docLink" HREF="ch23-751-fm2xml.html#ch23-751-fm2xml">RegExp.lastIndex</A>, <A class="docLink" HREF="ch23-830-fm2xml.html#ch23-830-fm2xml">String.match(  )</A>, <A class="docLink" HREF="ch23-837-fm2xml.html#ch23-837-fm2xml">String.replace(  )</A>,
+
+<A class="docLink" HREF="ch23-876-fm2xml.html#ch23-876-fm2xml">String.substring(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-755-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-766-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-643-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-656-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-648-fm2xml"></A><A NAME="jscript4-IDXTERM-4000"></A><A NAME="IXT-23-55320"></A><A NAME="IXT-23-55321"></A><A NAME="IXT-23-55322"></A><A NAME="IXT-23-55323"></A><A NAME="IXT-23-55324"></A><A NAME="IXT-23-55325"></A><A NAME="IXT-23-55326"></A><A NAME="IXT-23-55327"></A><A NAME="IXT-23-55328"></A><A NAME="IXT-23-55329"></A><A NAME="IXT-23-55330"></A><A NAME="IXT-23-55331"></A><A NAME="IXT-23-55332"></A><A NAME="IXT-23-55333"></A><A NAME="IXT-23-55334"></A><A NAME="IXT-23-55335"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object</i></b></td>
+
+<td align="right"><i>含有所有JavaScript对象的特性的超类</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText"><A NAME="jscript4-IDXTERM-4000"></A>JavaScript 1.0; JScript 1.0; ECMAScript v1
+
+</P><A NAME="ch23-649-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new Object(  ) 
+
+new Object(<TT><I>value</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-650-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>value</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">可选的参数，声明了要转换成Number对象、Boolean对象或String对象的原始值(即数字、布尔值或字符串)。JavaScript 1.1之前的版本和ECMAScript Vl不支持该对象。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-651-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">如果没有给构造函数传递value参数，那么它将返回一个新创建的Object实例。如果指定了原始的value参数，构造函数将创建并返回原始值的包装对象，即Number对象、Boolean对象或String对象。当不使用new运算符，将Object()构造函数作为函数调用时，它的行为与使用new运算符时一样。</P>
+
+
+
+
+
+<A NAME="ch23-652-fm2xml"></A>
+
+<h4 class="docRefsectTitle">属性</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">constructor</span></span></span></DT>
+
+<DD>
+
+<P class="docList">对一个JavaScript函数的引用，该函数是对象的构造函数。</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-653-fm2xml"></A>
+
+<h4 class="docRefsectTitle">方法</h4>
+
+
+
+<A NAME="IXT-23-55320"></A><A NAME="IXT-23-55321"></A><A NAME="IXT-23-55322"></A><A NAME="IXT-23-55323"></A><A NAME="IXT-23-55324"></A><A NAME="IXT-23-55325"></A><A NAME="IXT-23-55326"></A><A NAME="IXT-23-55327"></A><A NAME="IXT-23-55328"></A><A NAME="IXT-23-55329"></A><A NAME="IXT-23-55330"></A><A NAME="IXT-23-55331"></A><A NAME="IXT-23-55332"></A><A NAME="IXT-23-55333"></A><A NAME="IXT-23-55334"></A><DL class="docList"><A NAME="IXT-23-55320"></A><A NAME="IXT-23-55321"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">hasOwnProperty(  )</span></span>
+
+</span></DT>
+
+<DD>
+
+<P class="docList">检查对象是否有局部定义的(非继承的)、具有特定名字的属性。</P>
+</DD>
+
+<A NAME="IXT-23-55322"></A><A NAME="IXT-23-55323"></A><A NAME="IXT-23-55324"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">isPrototypeOf(  )</span></span>
+
+
+
+</span></DT>
+
+<DD>
+
+<P class="docList">检查对象是否是指定对象的原型。</P>
+</DD>
+
+<A NAME="IXT-23-55325"></A><A NAME="IXT-23-55326"></A><A NAME="IXT-23-55327"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">propertyIsEnumerable(  )</span></span>
+
+
+
+</span></DT>
+
+<DD>
+
+<P class="docList">检查指定的属性是否存在，以及是否能用for/in循环枚举。</P>
+</DD>
+
+<A NAME="IXT-23-55328"></A><A NAME="IXT-23-55329"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toLocaleString(  )</span></span>
+
+</span></DT>
+
+<DD>
+
+<P class="docList">返回对象地方化的字符串表示。该方法的默认实现只调用toString()方法，但子类可以覆盖它，提供本地化。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回对象的字符串表示。Object类提供的该方法的实现相当普通，并且没有提供更多有用的信息。Object的子类通过定义自己的toString()方法覆盖了这一方法(toString()方法能够生成更有用的结果)。</P>
+</DD>
+
+<A NAME="IXT-23-55333"></A><A NAME="IXT-23-55334"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">valueOf(  )</span></span>
+
+</span></DT>
+
+<DD>
+
+<P class="docList">返回对象的原始值(如果存在)。对于类型为Object的对象，该方法只返回对象自身。Object的子类(如Number和Boolean)覆盖了该方法，返回的是与对象相关的原始数值。</P>
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-654-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">Object类是JavaScript语言的内部数据类型。它是其他JavaScript对象的超类，因此其他对象都继承了Object类的方法和行为。</P>
+
+
+
+<P class="docText"> 除了用上面所示的Object()构造函数，还可以用Object直接量语法创建并初始化对象。</P>
+
+
+
+<A NAME="ch23-655-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-37-fm2xml.html#ch23-37-fm2xml">Array</A>, <A class="docLink" HREF="ch23-129-fm2xml.html#ch23-129-fm2xml">Boolean</A>, <A class="docLink" HREF="ch23-399-fm2xml.html#ch23-399-fm2xml">Function</A>, <A class="docLink" HREF="ch23-436-fm2xml.html#ch23-436-fm2xml">Function.prototype</A>, <A class="docLink" HREF="ch23-584-fm2xml.html#ch23-584-fm2xml">Number</A>, <A class="docLink" HREF="ch23-771-fm2xml.html#ch23-771-fm2xml">String</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-643-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-656-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

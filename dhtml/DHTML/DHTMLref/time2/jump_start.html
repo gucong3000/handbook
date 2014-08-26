@@ -1,0 +1,139 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Getting Started with HTML+TIME</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Getting Started with HTML+TIME
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>HTML+TIME (Timed Interactive Multimedia Extensions) makes it fast and easy to support timed, animated, and multimedia content on your pages. Using a few Extensible Markup Language (XML)-based elements and attributes, you can synchronize media playback with text and other elements and animate your content without the need for script. Because HTML+TIME adds timing to a document through new attributes on existing HTML elements, you can leverage your existing HTML knowledge when you add timing to a page. For more complex pages, most of the functionality provided by the <A HREF="../time2/behaviors/time2.html">time2</A> behavior is also available for scripting.</p><H2><A NAME="what"></A>What Can I Do With HTML+TIME?</H2><p>Here's a quick list of ways you can create more dynamic and exciting page content with HTML+TIME.
+<ul><li>Create a simple image viewer or slide show. You can find examples in <A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>.</li><li>Play a video or audio presentation accompanied by captions or subtitles.</li><li>Animate text and graphics to create a banner—check out the <A HREF="../common/samples/author/behaviors/htmltime/animations/adbanner.htm" TARGET="_top">HTML+TIME Ad Banner</A> sample.</li><li>Select among different media content depending on system settings.</li><li>Coordinate text and images to enhance a document.</li><li>Apply filters and transitions to timed elements—view a sample in <A HREF="../common/samples/author/behaviors/htmltime/animations/timedemos.htm" TARGET="_top">Creating Animations for HTML+TIME</A>. For further information, see <A HREF="transition_ovw.html">Using HTML+TIME Transitions</A>.</li></ul></p><p>This overview summarizes how to implement the <B>time2</B> behavior in your Web pages and provides quick explanations and examples concerning timelines, media elements, and animation. </p><UL><LI><A TARGET="_self" HREF="#how">How it Works: the Time2 Behavior</A></LI><LI><A TARGET="_self" HREF="#timing">Easy Timeline Control</A></LI><LI><A TARGET="_self" HREF="#media">Support Multimedia Presentations</A></LI><LI><A TARGET="_self" HREF="#animation">Animate Content With or Without Script</A></LI></UL><H3><A NAME="how"></A>How it Works: the Time2 Behavior</H3><p>Because Microsoft?Internet Explorer 5.5 provides support for HTML+TIME through an <A HREF="elementb_ovw.html">element behavior</A>, you must add declarations for the <B>time2</B> behavior to your page. The <B>time2</B> behavior is available as of Internet Explorer 5.5 in the Microsoft Win32?platform.</p><p>The prefix <SPAN CLASS="clsLiteral">t:</SPAN> associates an element with an XML namespace. You must declare the XML namespace in the <A HREF="../objects/html.html">html</A> tag of your document when using the element.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;</PRE><p>You must then import the tag definitions from the <B>time2</B> behavior by using the <A HREF="../pi/import.html">IMPORT</A> processing instruction.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;</PRE><p>Finally, you need to associate your element or elements with the <B>time2</B> behavior. You can do this inline on a given element:</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV STYLE="behavior:url(#default#time2)";}... </PRE><p>If you plan to use HTML+TIME features with more than a couple of elements on the page, you might find it less cumbersome to associate elements with the <B>time2</B> behavior by creating a Cascading Style Sheets (CSS) class attribute.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time"...
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/jumpstart_template.htm" FEATURES="top=10px,left=50px,height=525px,width=625px,status=0,resizable=1"></IMG></A></DIV><p>The <B>Show Me</B> button provides a short page template you can use to get started. Just copy the HTML and paste it into your Web document.</p><p>For more information about referencing the <B>time2</B> behavior, see <A HREF="time.html">Introduction to HTML+TIME</A>.</p><H3><A NAME="timing"></A>Easy Timeline Control</H3><p>The HTML+TIME model offers a combination of static and event-based timeline control. Timeline properties like <A HREF="../time2/properties/dur.html">dur</A> (duration), <A HREF="../time2/properties/end.html">end</A>, and <A HREF="../time2/properties/begin.html">begin</A> describe relationships along a static timeline, which makes it easy to define tightly synchronized timing for media playback. On the other hand, you can also define interactive, event-based timeline attributes. When your event fires on an element, that element's timeline is added to the running timeline as defined by the element's other attributes. </p><p>The time container elements available in HTML+TIME are <A HREF="../time2/elements/par.html">t:PAR</A>, <A HREF="../time2/elements/seq.html">t:SEQ</A>, and <A HREF="../time2/elements/excl.html">t:EXCL</A>. These container elements specify whether the timelines of the elements they contain can run concurrently (<B>t:PAR</B>), sequentially (<B>t:SEQ</B>), or exclusively (<B>t:EXCL</B>). For example, to ensure that a video file and accompanying audio track play at the same time, wrap the two media objects in a <B>t:PAR</B> container. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:PAR&gt;
+&lt;t:VIDEO SRC="lion.mpg"&gt;
+&lt;t:AUDIO SRC="roar.aiff"/&gt;
+&lt;/t:PAR&gt;
+</PRE><p>Alternatively, you might want several elements to play in succession. The <B>t:SEQ</B> container allows you to play multiple elements, relative to the container timeline, without setting a specific <B>begin</B> time for each one.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:SEQ ID="parent" BEGIN="0" DUR="indefinite" &gt;
+&lt;DIV ID="div1" CLASS="time" DUR="3"&gt;Please...&lt;/DIV&gt;
+&lt;DIV ID="div2" CLASS="time" DUR="3"&gt;...don't swim in the lake...&lt;/DIV&gt;
+&lt;DIV ID="div3" CLASS="time" DUR="3"&gt;...late in the afternoon...&lt;/DIV&gt;
+&lt;DIV ID="div4" CLASS="time" DUR="3" FILL="hold" &gt;...when the crocodiles
+come out for exercise.&lt;/DIV&gt;
+&lt;/t:SEQ&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/jumpstart_1.htm" FEATURES="top=10px,left=50px,height=325px,width=625px,status=0,resizable=1"></IMG></A></DIV><p>Use the <B>t:EXCL</B> element to specify that only one child element can play at a time, even if overlapping <B>begin</B> and duration values are set for child elements. The following example uses a <B>t:EXCL</B> container instead of <B>t:SEQ</B>. Notice that div1 is interrupted by div4, even though div1 has a duration of 6. Because div3 has no begin time set, it is ignored by the parent <B>t:EXCL</B> container. You can use the <A HREF="../time2/elements/priorityclass.html">t:PRIORITYCLASS</A> element with <B>t:EXCL</B> to set rules for overlapping and interrupting child timelines.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:EXCL ID="parent" BEGIN="0" DUR="indefinite" &gt;
+&lt;DIV ID="div1" CLASS="time" BEGIN="0" DUR="6"&gt;Please...&lt;/DIV&gt;
+&lt;DIV ID="div2" CLASS="time" BEGIN="6" DUR="6"&gt;...don't swim in the
+lake...&lt;/DIV&gt;
+&lt;DIV ID="div3" CLASS="time" DUR="3"&gt;...late in the afternoon...&lt;/DIV&gt;
+&lt;DIV ID="div4" CLASS="time" BEGIN=3 DUR="3" &gt;...when the crocodiles
+come out for exercise...&lt;/DIV&gt;
+&lt;/t:EXCL&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/jumpstart_2.htm" FEATURES="top=10px,left=50px,height=325px,width=625px,status=0,resizable=1"></IMG></A></DIV><p>HTML+TIME offers a number of properties and attributes to help you specify timing details, including <B>begin</B>, <B>dur</B>, <A HREF="../time2/properties/fill.html">fill</A>, <A HREF="../time2/properties/repeatcount.html">repeatCount</A>, <A HREF="../time2/properties/repeatdur.html">repeatDur</A>, <A HREF="../time2/properties/speed.html">speed</A>, <A HREF="../time2/properties/accelerate.html">accelerate</A>, and <A HREF="../time2/properties/restart.html">restart</A>. For more detailed information about the timing model, see the <A HREF="../common/author/behaviors/time.html#Model">HTML+TIME Timing Model</A>.</p><H3><A NAME="media"></A>Support Multimedia Presentations</H3><p>HTML+TIME provides some particularly useful features for supporting multimedia presentations on the page, beginning with a set of XML-defined media elements: <A HREF="../time2/elements/audio.html">audio</A>, <A HREF="../time2/elements/img.html">img</A>, <A HREF="../time2/elements/media.html">media</A>, <A HREF="../time2/elements/ref.html">ref</A>, and <A HREF="../time2/elements/video.html">video</A>. You can control the timeline of a media object by setting its <B>dur</B>, <B>speed</B>, <B>end</B>, and other attributes in the same way you would for another timed element, butHTML+TIME provides more media-specific properties as well.</p><p>For example, you can apply timing to sub-clips of a given video or audio file, as long as the file format supports clipping, by setting the <A HREF="../time2/properties/clipend.html">clipEnd</A> and <A HREF="../time2/properties/clipbegin.html">clipBegin</A> properties. If your media source will load over a network—and consequently might be delayed in loading—you can determine whether and how the media element's timeline can "slip" relative to the parent element timeline by setting the <A HREF="../time2/properties/syncbehavior.html">syncBehavior</A> and <A HREF="../time2/properties/synctolerance.html">syncTolerance</A> properties. Conversely, you can specify that a time container synchronizes playback to a designated element by setting the <A HREF="../time2/properties/syncmaster.html">syncMaster</A> property on that element. </p><p>In some cases, you might want to present media files that are appropriate for particular users. If your page displays a video, for example, you might want your page to accompany the video with a soundtrack file in either Spanish or Japanese, depending on the user's language settings. Suppose further that for users who speak neither Spanish nor Japanese, you want your presentation to display a synchronized subtitles file in English and to play background music instead of narration. To accomplish all these distinctions, you can use system test attributes and the <A HREF="../time2/elements/switch.html">t:SWITCH</A> element to play only those elements that match the appropriate system settings. Supported attributes include <A HREF="../time2/properties/systembitrate.html">systemBitrate</A>, <A HREF="../time2/properties/systemcaptions.html">systemCaptions</A>, <A HREF="../time2/properties/systemlanguage.html">systemLanguage</A>, and <A HREF="../time2/properties/systemoverduborsubtitle.html">systemOverdubOrSubtitle</A>. For more information about using the <A HREF="../time2/elements/switch.html">switch</A> element and system test attributes, see <A HREF="../time2/switch_ovw.html">About Content Selection: System Test Attributes and t:SWITCH</A>.</p><H3><A NAME="animation"></A>Animate Content With or Without Script</H3><p>As described in <A HREF="timeanimation.html" TARGET="_top">Basics of HTML+TIME Animation</A>, you can add animation effects with HTML+TIME by changing the value of properties over time. Roughly speaking, you can set HTML+TIME attributes and properties on two kinds of elements.  By setting timing attributes for content elements, like the familiar <A HREF="../objects/div.html">DIV</A> element or the <B>t:EXCL</B> time container element, you make those elements appear or disappear over time.  Adding timing to a style property, like <A HREF="../properties/height_1.html">height</A> or <A HREF="../properties/position.html">position</A>, causes the style to be applied or removed over time as the value of the property changes. In this way, you can animate elements' content, position, and appearance.</p><p>Four elements are available to animate other elements on the page: <A HREF="../time2/elements/animate.html">t:ANIMATE</A>, <A HREF="../time2/elements/animatecolor.html">t:ANIMATECOLOR</A>, <A HREF="../time2/elements/animatemotion.html">t:ANIMATEMOTION</A>, and <A HREF="../time2/elements/set.html">t:SET</A>. <B>t:ANIMATE</B> is a generic element that can animate most properties of HTML elements. The <B>t:ANIMATECOLOR</B> element does just what you'd expect—changes the value of color properties—whereas <B>t:ANIMATEMOTION</B> animates the <A HREF="../properties/top_0.html">top</A> and <A HREF="../properties/left.html">left</A> properties of an element to change its position. Similarly, the <B>t:SET</B> element enables you to set an attribute or property value for a specified duration, though this setting expires when the duration ends. </p><p>The following example uses each of these animation elements to apply simple animation effects to some familiar text. Notice that it's necessary to set a property explicitly on a given <B>DIV</B> in order to animate that property. Furthermore, you must designate each property you want to animate by setting the <A HREF="../time2/properties/attributename.html">attributeName</A> property on each animation element. Because each <B>t:ANIMATE</B>, <B>t:ANIMATECOLOR</B>, or <B>t:ANIMATEMOTION</B> element is a child of the <B>DIV</B> it animates, the <A HREF="../time2/properties/targetelement.html">targetElement</A> property is implied in each case, even though it's set for the animation elements in this example.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="t:ANIMATE;t:ANIMATECOLOR;t:ANIMATEMOTION">
+&lt;t:PAR&gt;
+&lt;DIV ID="div1" CLASS="time" BEGIN="0"
+STYLE="background-color:yellow;text-align:center;width:25px;
+position:relative"&gt;
+Please...
+&lt;t:ANIMATE id="widen" begin="0" targetElement="div1"
+attributeName="width" from="25" to="570" calcmode="paced" dur="5"
+fill="hold"/&gt;
+&lt;/DIV&gt;
+&lt;DIV ID="div2" CLASS="time" BEGIN="widen.end"&gt;
+...don't swim in the lake...&lt;/DIV&gt;
+&lt;DIV ID="div3" CLASS="time" BEGIN="widen.end + 2" STYLE="color:yellow"&gt;
+...late in the afternoon...
+&lt;t:ANIMATECOLOR id="goblue" begin="widen.end + 2" targetElement="div3"
+attributeName="color" to="blue" dur="3" fill="hold"/&gt;
+&lt;/DIV&gt;
+&lt;DIV ID="div4" CLASS="time" BEGIN="goblue.end"
+STYLE="position:absolute;top:230px;left:20px"&gt;
+...when the crocodiles come out for exercise.
+&lt;t:ANIMATEMOTION id="upfromunder" begin="goblue.end"
+targetElement="div4" attributeName="top" from="0, 200" to="0, 5"
+calcmode="linear" accelerate="0.8" dur="4" fill="hold"/&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/jumpstart_3.htm" FEATURES="top=10px,left=50px,height=550px,width=625px,status=0,resizable=1"></IMG></A></DIV><p>In the example above, each successive child timeline is set to begin when the preceding animation ends—in other words, its <A HREF="../time2/properties/begin.html">BEGIN</A> attribute is set relative to the ID of the preceding animation element. However, you could also set those child timelines relative to the parent <B>t:PAR</B> timeline if, for instance, you wanted to coordinate another time container with the animated text shown here.</p><p>For more information about using the HTML+TIME animation features, see <B>Basics of HTML+TIME Animation</B> and the <A HREF="../time2/timeanimation_entry.html">HTML+TIME: Animation</A> reference.</p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="timeanimation.html" TARGET="_top">Basics of HTML+TIME Animation</A></LI><LI><A HREF="../time2/begin_ovw.html">Initiating Timed Elements with the begin Attribute</A></LI><LI><A HREF="../time2/switch_ovw.html">About Content Selection: System Test Attributes and t:SWITCH</A></LI><LI><A HREF="../common/author/behaviors/overview/elementb_ovw.html">About Element Behaviors</A></LI></UL><info><product rid="prod_IE" minver="5.5"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

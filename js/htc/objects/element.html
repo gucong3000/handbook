@@ -1,0 +1,45 @@
+<!doctype html>
+<html xmlns:snv="ERiW.Snakevil.Product:HTC">
+<head>
+<meta name="Author" content="Snakevil">
+<?IMPORT namespace="snv" implementation="../_shared/listable.htc">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>element</span>对象</h1>
+		<hr>
+		<p>返回主文档中附加有<a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">行为</a>的标记的引用。</p>
+		<h2><label>Members Table</label>成员表</h2>
+		<blockquote>
+			<p>下面的表中列举了<b><span>element</span></b>对象暴露出来的成员。</p>
+			<snv:listable>
+				<catalog name="方法">
+					<listitem name="createEventObject" link="http://msdn.microsoft.com/workshop/components/htc/reference/methods/createeventobject.asp"><!--[CDATA[创建一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"--><span>event</span>对象，使之可以传递事件关联信息到<a href="../elements/event.html"><span>PUBLIC:EVENT</span></a>元素的<b><span>fire</span></b>方法。]]&gt;</listitem>
+				</catalog>
+			</snv:listable>
+		</blockquote>
+		<h2><label>Remarks</label>注意</h2>
+		<blockquote>
+			<p>附加有行为的元素所有的属性、方法和事件都可以在<span>HTML</span>组件<span>(HTC)</span>中通过此对象进行访问。在<span>HTC</span>中<b><span>element</span></b>对象是用于指定属性、方法和事件的默认对象。因此，它们可以不使用<b><span>element</span></b>关键字而直接被指定。</p>
+		</blockquote>
+		<h2><label>Examples</label>范例</h2>
+		<blockquote>
+			<p>此范例使用了一个行为来实现表格内容的展开和缩合。<span>HTC</span>附加到元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseover.asp"><span>onmouseover</span></a>事件上并将元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/color_1.asp"><span>color</span></a>属性设置为红色。元素的<span>color</span>可以直接通过<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_style.asp"><span>style</span></a>对象直接进行切换，而无须通过<b><span>element</span>.<span>style</span></b>来访问它。<span>HTC</span>同样将<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/cursor.asp"><span>cursor</span></a>属性设置为<span>&quot;hand&quot;</span>来提示用户此元素可以通过点击来切换它的子元素的可视状态。</p>
+			<code>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onmouseover&quot;&nbsp;onevent=&quot;Hilite&quot;&nbsp;/&gt;<br><br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>var&nbsp;prevColor;<br><br>function&nbsp;Hilite()<br>{<br>&nbsp;&nbsp;prevColor&nbsp;=&nbsp;style.color;&nbsp;&nbsp;<br>&nbsp;&nbsp;element.style.color&nbsp;&nbsp;=&nbsp;&quot;red&quot;;<br>&nbsp;&nbsp;element.style.cursor&nbsp;=&nbsp;&quot;hand&quot;;<br>}<br>&lt;/SCRIPT&gt;</code>
+			<button href="../examples/"></button>
+		</blockquote>
+		<h2><label>See Also</label>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

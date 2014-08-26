@@ -1,0 +1,113 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>TO Attribute | to Property (t:TRANSITIONFILTER) (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>TO Attribute | to Property
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a value that indicates the point in the transition's progress at which the transition ends.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;t:TRANSITIONFILTER&nbsp;<B>TO</B>
+= <SPAN CLASS="clsRange">sTo</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>t:TRANSITIONFILTER</I>.<B>to</B>(<I>val</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sTo</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sTo</SPAN></TD><TD><b>String</b> that
+specifies or receives the ending progress value of the transition. Legal values are real numbers in the range 0.0-1.0.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">1.0</SPAN></TD><TD>Default. End transition at the end of the transition progress.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+1.0</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <A HREF="../../time2/properties/by_1.html">by</A> property should not be used on the same element as the <B>to</B> property. If both properties are specified, the <B>by</B> value is ignored. </P><P>The transition can transition in or out depending on how the <B>to</B> and <A HREF="../../time2/properties/from.html">from</A> properties are set. For example, if the <B>from</B> property had a value of <SPAN CLASS="clsLiteral">1.0</SPAN> and the <B>to</B> property had a value of <SPAN CLASS="clsLiteral">0.0</SPAN>, the transition would appear to transition out. However, to set the transition to go out, you would typically use the <A HREF="../../time2/properties/mode.html">mode</A> property.  </P><P>The value specified for the <B>to</B> property is ignored if the <A HREF="../../time2/properties/values_1.html">values</A> attribute is specified.</P><p>When writing script to dynamically change the properties of an active animation, developers should consider a couple of issues. Because results might be unpredictable or undefined when you change the properties of an active animation, restart the animation with <A HREF="../../common/author/behaviors/reference/time/methods/beginelement.html">beginElement</A> after you have made the change. For example:
+</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+object.endElement();
+object.to='0.8';
+object.beginElement();
+&lt;/SCRIPT&gt;
+</PRE><P>
+For the <A HREF="../../time2/elements/animate.html">animate</A>, <A HREF="../../time2/elements/animatemotion.html">animateMotion</A>, and <A HREF="../../time2/elements/animatecolor.html">animateColor</A> objects, the <A HREF="../../time2/behaviors/time2.html">time2</A> behavior uses the following model to evaluate which properties to animate.
+<ul><li>The <A HREF="../../time2/properties/values.html">values</A> property, if specified, overrides any setting for the <B>from</B>, <A HREF="../../time2/properties/to.html">to</A>, or <A HREF="../../time2/properties/by.html">by</A> properties.</li><li>The <B>from</B> property is used unless the <B>values</B> or <A HREF="../../time2/properties/path.html">path</A> properties are specified.</li><li>The <B>to</B> property, if specified, overrides any setting for the <B>by</B> property.</li><li>The <B>by</B> property doesn't override any properties.</li></ul></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example shows how to use the <B>to</B> property to stop a transition part way through the transition.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:TRANSITIONFILTER FROM="0.3" TO="0.7"  TYPE="barWipe" DUR="3"
+TARGETELEMENT="oDiv1" /&gt;
+&lt;DIV CLASS="time" ID="oDiv1" DUR="9"  STYLE=" font:bold x-large fantasy;
+width:400px; height:100px; background:#CC3333;color:#FFFFFF;"&gt;
+&lt;SPAN STYLE="position:relative; top:20px;margin:160;"&gt;TRANSITION!&lt;/SPAN&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/toEX1.html" FEATURES="top=50,left=50,height=400,width=650,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../common/author/behaviors/overview/transition_ovw.html#progress">Using HTML+TIME Transitions</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

@@ -1,0 +1,809 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>methods</TITLE>
+<STYLE TYPE="text/css">
+@import url("common/common.css");
+</style>
+</HEAD>
+<BODY>
+<H1><A NAME="om40_ElementObjs">DHTML 方法</A></H1>
+<HR SIZE="1">
+<P>下面列出了由动态 HTML(DHTML) 对象模型定义的方法。</P>
+<P CLASS="clsRef">方法</P>
+<BLOCKQUOTE>
+<TABLE CLASS="clsStd">
+<TR>
+<TD><A HREF="methods/add.html">add</A></TD>
+<TD>向 <A HREF="collections/areas.html">areas</A>, <A HREF="collections/controlRange.html">controlRange</A> 或 <A HREF="collections/options.html">options</A> 集合中添加一个元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/add_1.html">add</A></TD>
+<TD>创建一个新的 <A HREF="objects/namespace.html">namespace</A> 对象并将其添加到集合中。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/addBehavior.html">addBehavior</A></TD>
+<TD>给<span replace="1">元素</span>附加一个<A HREF="/workshop/author/behaviors/overview.html">行为</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/AddChannel.html">AddChannel</A></TD>
+<TD>显示一个对话框，允许用户输入指定的频道，或当已安装时更改频道的 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/AddDesktopComponent.html">AddDesktopComponent</A></TD>
+<TD>向 Microsoft<SUP>&reg;</SUP> 活动桌面<SUP>&reg;</SUP> 中添加 Web 站点或图像。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/AddFavorite.html">AddFavorite</A></TD>
+<TD>出现一个对话框提示用户将指定的 URL 添加到<B>收藏夹</B>内。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/addImport.html">addImport</A></TD>
+<TD>为指定样式表向 <A HREF="collections/imports.html">imports</A> 集合中添加样式表。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/addPageRule.html">addPageRule</A></TD>
+<TD>为样式表创建新的 <A HREF="objects/page.html">page</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/addReadRequest.html">addReadRequest</A></TD>
+<TD>向读取需求队列中添加项。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/addRule.html">addRule</A></TD>
+<TD>为样式表创建新规则。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/alert.html">alert</A></TD>
+<TD>显示包含由应用程序自定义消息的对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/appendChild.html">appendChild</A></TD>
+<TD>给<span replace="1">对象</span>追加一个子元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/appendData.html">appendData</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>向<span replace="1">对象</span>末尾添加新的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/applyElement.html">applyElement</A></TD>
+<TD>使得<span replace="1">元素</span>成为其它元素的子元素或父元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/assign.html">assign</A></TD>
+<TD>装入新的 HTML 文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/attachEvent.html">attachEvent</A></TD>
+<TD>将指定函数绑定到事件，以便每当该事件在对象上触发时都调用该函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/AutoCompleteSaveForm.html">AutoCompleteSaveForm</A></TD>
+<TD>将指定表单保存到自动完成数据存储中。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/AutoScan.html">AutoScan</A></TD>
+<TD>通过完成模板传递指定查询试图连接到 Web 服务器。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/back.html">back</A></TD>
+<TD>从历史列表中装入前一个 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/blur.html">blur</A></TD>
+<TD>使<span replace="1">元素</span>失去焦点并触发 <A HREF="events/onblur.html">onblur</A> 事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/choosecolordlg.html">ChooseColorDlg</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>打开系统颜色选择对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clear_a.html">clear</A></TD>
+<TD>清除选中区的内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clear_b.html">clear</A></TD>
+<TD>目前尚未支持。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clearAttributes.html">clearAttributes</A></TD>
+<TD>从<span replace="1">对象</span>中删除全部标签属性和值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clearData.html">clearData</A></TD>
+<TD>通过 <A HREF="objects/obj_dataTransfer.html">dataTransfer</A> 或 <A HREF="objects/clipboardData.html">clipboardData</A> 对象从剪贴板删除一种或多种数据格式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clearInterval.html">clearInterval</A></TD>
+<TD>使用 <A HREF="methods/setInterval.html">setInterval</A> 方法取消先前开始的间隔事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clearRequest.html">clearRequest</A></TD>
+<TD>清除读取需求队列中的全部需求，以便准备一个新的配置信息需求。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/clearTimeout.html">clearTimeout</A></TD>
+<TD>取消先前用 <A HREF="methods/setTimeout.html">setTimeout</A> 方法设置的超时事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/click.html">click</A></TD>
+<TD>触发 <A HREF="events/onclick.html">onclick</A> 事件来模拟单击。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/cloneNode.html">cloneNode</A></TD>
+<TD>从文档层次中复制对<span replace="1">对象</span>的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/close_0.html">close</A></TD>
+<TD>关闭当前浏览器窗口或 HTML 应用程序(HTA)。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/close_1.html">close</A></TD>
+<TD>关闭输出流并强制将数据发送到显示。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/collapse.html">collapse</A></TD>
+<TD>将插入点移动到当前范围的开始或结尾。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/compareEndPoints.html">compareEndPoints</A></TD>
+<TD>比较 <A HREF="objects/obj_TextRange.html">TextRange</A> 对象的结束点和其它范围的结束点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/componentFromPoint.html">componentFromPoint</A></TD>
+<TD>通过特定事件返回对象在指定坐标下的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/confirm.html">confirm</A></TD>
+<TD>显示一个确认对话框，其中包含一个可选的消息和确定取消按钮。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/contains.html">contains</A></TD>
+<TD>检查<span replace="1">对象</span>中是否包含给定元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createAttribute.html">createAttribute</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>以指定<A HREF="properties/name_2.html">名称</A>创建 <A HREF="objects/Attribute.html">attribute</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createCaption.html">createCaption</A></TD>
+<TD>在<A HREF="objects/TABLE.html">表格</A>中创建空的 <A HREF="objects/CAPTION.html">caption</A> 元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createComment.html">createComment</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>以指定<A HREF="properties/data.html">数据</A>创建 <A HREF="objects/COMMENT.html">comment</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createControlRange.html">createControlRange</A></TD>
+<TD>创建一个非文本元素的 <B>controlRange</B> 集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createDocumentFragment.html">createDocumentFragment</A></TD>
+<TD>创建一个新文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createElement.html">createElement</A></TD>
+<TD>为指定标签创建一个元素的实例。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createEventObject.html">createEventObject</A></TD>
+<TD>生成当使用 <A HREF="methods/fireEvent.html">fireEvent</A> 方法时用于传递事件相关信息的 <A HREF="objects/obj_event.html">event</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createPopup.html">createPopup</A></TD>
+<TD>创建<A HREF="objects/popup.html">弹出</A>窗口。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createRange.html">createRange</A></TD>
+<TD>从当前文本选中区中创建 <B>TextRange</B> 对象，或从控件选中区中创建 <B>controlRange</B> 集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createRangeCollection.html">createRangeCollection</A></TD>
+<TD>从当前选中区中创建一个 <B>TextRange</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createStyleSheet.html">createStyleSheet</A></TD>
+<TD>为文档创建样式表。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createTextNode.html">createTextNode</A></TD>
+<TD>从指定值中创建文本字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createTextRange.html">createTextRange</A></TD>
+<TD>为<span replace="1">元素</span>创建一个 <B>TextRange</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createTFoot.html">createTFoot</A></TD>
+<TD>在<B>表格</B>中创建空的 <A HREF="objects/TFOOT.html">tFoot</A> 元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/createTHead.html">createTHead</A></TD>
+<TD>在<B>表格</B>中创建空的 <A HREF="objects/THEAD.html">tHead</A> 元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/deleteCaption.html">deleteCaption</A></TD>
+<TD>从<B>表格</B>中删除 <B>caption</B> 元素及其内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/deleteCell.html">deleteCell</A></TD>
+<TD>从表格行及 <A HREF="collections/cells.html">cells</A> 集合中删除指定单元格(<A HREF="objects/TD.html">td</A>)。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/deleteData.html">deleteData</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从<span replace="1">对象</span>中删除指定范围的字符。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/deleteRow.html">deleteRow</A></TD>
+<TD>从表格及 <A HREF="collections/rows.html">rows</A> 集合中删除指定行(<A HREF="objects/TR.html">tr</A>)。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/deleteTFoot.html">deleteTFoot</A></TD>
+<TD>从<B>表格</B>中删除 <B>tFoot</B> 元素及其内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/deleteTHead.html">deleteTHead</A></TD>
+<TD>从<B>表格</B>中删除 <B>tHead</B> 元素及其内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/detachEvent.html">detachEvent</A></TD>
+<TD>从事件中取消指定函数的绑定，这样当事件触发时函数就不会收到通知了。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/doImport.html">doImport</A></TD>
+<TD>动态导入元素行为。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/doReadRequest.html">doReadRequest</A></TD>
+<TD>执行所有位于读取需求队列中的需求。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/doScroll.html">doScroll</A></TD>
+<TD>模拟对滚动条组件的单击。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/dragDrop.html">dragDrop</A></TD>
+<TD>初始化拖曳事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/duplicate.html">duplicate</A></TD>
+<TD>返回 <B>TextRange</B> 的副本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/elementFromPoint.html">elementFromPoint</A></TD>
+<TD>返回指定 x 和 y 坐标的元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/empty.html">empty</A></TD>
+<TD>取消当前选中区，将选中区类型设置为 none，将其 item 属性设置为 <SPAN CLASS="clsLiteral">null</SPAN>。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/execCommand.html">execCommand</A></TD>
+<TD>在当前文档、当前选中区或给定范围上执行命令。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/execScript.html">execScript</A></TD>
+<TD>以给定语言执行指定的脚本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/expand.html">expand</A></TD>
+<TD>扩展范围以便完全包含指定单位的范围。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/findText.html">findText</A></TD>
+<TD>在文本中搜索文本并将范围的开始和结束点设置为包围搜索字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/fireEvent.html">fireEvent</A></TD>
+<TD>触发<span replace="1">对象</span>的指定事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/firstPage.html">firstPage</A></TD>
+<TD>显示绑定表格的数据集的第一页记录。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/focus.html">focus</A></TD>
+<TD>使得元素得到焦点并执行由 <A HREF="events/onfocus.html">onfocus</A> 事件指定的代码。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/forward.html">forward</A></TD>
+<TD>从历史列表中装入下一个 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getAdjacentText.html">getAdjacentText</A></TD>
+<TD>返回邻接文本字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getAttribute.html">getAttribute</A></TD>
+<TD>获取指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getAttribute_1.html">getAttribute</A></TD>
+<TD>从 <A HREF="objects/userProfile.html">userProfile</A> 对象中返回命名属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getAttributeNode.html">getAttributeNode</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取由 <B>attribute</B>.<A HREF="properties/name_2.html">name</A> 属性引用的 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getBookmark.html">getBookmark</A></TD>
+<TD>获取可用于使 <A HREF="methods/moveToBookmark.html">moveToBookmark</A> 返回相同范围的书签(白底字符串)。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getBoundingClientRect.html">getBoundingClientRect</A></TD>
+<TD>获取指定 <A HREF="objects/TextRectangle.html">TextRectangle</A> 对象集合绑定的对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getClientRects.html">getClientRects</A></TD>
+<TD>获取描述对象内容或客户区内布局的矩形集合。每个矩形都描述了一条直线。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getData.html">getData</A></TD>
+<TD>通过 <B>dataTransfer</B> 或 <B>clipboardData</B> 对象从剪贴板获取指定格式的数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getElementById.html">getElementById</A></TD>
+<TD>获取对 <A HREF="properties/id.html">ID</A> 标签属性为指定值的第一个对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getElementsByName.html">getElementsByName</A></TD>
+<TD>根据 <A HREF="properties/name_2.html">NAME</A> 标签属性的值获取对象的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getElementsByTagName.html">getElementsByTagName</A></TD>
+<TD>获取基于指定元素名称的对象集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getExpression.html">getExpression</A></TD>
+<TD>获取给定属性的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/getNamedItem.html">getNamedItem</A></TD>
+<TD>使用 <A HREF="collections/attributes.html">attributes</A> 集合获取由 <A HREF="properties/name_2.html">name</A> 属性指定的 <B>attribute</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/go.html">go</A></TD>
+<TD>从历史列表中装入 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/hasChildNodes.html">hasChildNodes</A></TD>
+<TD>返回表明<span replace="1">对象</span>是否有子对象的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/hasFeature.html">hasFeature</A></TD>
+<TD>返回表明<span replace="1">对象</span>是否实现了指定的文档对象模型(DOM)标准的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/hasFocus.html">hasFocus</A></TD>
+<TD>获取表明<span replace="1">对象</span>目前是否拥有焦点的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/hide.html">hide</A></TD>
+<TD>关闭弹出窗口。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/ImportExportFavorites.html">ImportExportFavorites</A></TD>
+<TD>处理导入和导出 Microsoft<SUP>&reg;</SUP> Internet Explorer<SUP>&reg;</SUP> 收藏夹。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/inRange.html">inRange</A></TD>
+<TD>返回一个范围是否被另一个范围包含。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertAdjacentElement.html">insertAdjacentElement</A></TD>
+<TD>在指定位置插入元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertAdjacentHTML.html">insertAdjacentHTML</A></TD>
+<TD>在指定位置的元素中插入给定的 HTML 文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertAdjacentText.html">insertAdjacentText</A></TD>
+<TD>在指定位置插入给定的文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertBefore.html">insertBefore</A></TD>
+<TD>在文档层次中插入元素作为父对象的子结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertCell.html">insertCell</A></TD>
+<TD>在表格行(<B>tr</B>)中创建新单元格，并将单元格添加到 <B>cells</B> 集合中。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertData.html">insertData</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>在<span replace="1">对象</span>的指定偏移量处插入新字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/insertRow.html">insertRow</A></TD>
+<TD>在表格中创建新行(<B>tr</B>)，并将行添加到 <B>rows</B> 集合中。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/isEqual.html">isEqual</A></TD>
+<TD>返回指定范围是否与当前范围相等。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/IsSubscribed.html">IsSubscribed</A></TD>
+<TD>获取表明客户是否订阅了给定频道的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item.html">item</A></TD>
+<TD>从 <A HREF="collections/all.html">all</A> 集合或各种其它集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_1.html">item</A></TD>
+<TD>从 <A HREF="collections/filters.html">filters</A> 集合或各种其它集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_2.html">item</A></TD>
+<TD>从 <B>attributes</B> 集合中获取元素的标签属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_3.html">item</A></TD>
+<TD>从 <A HREF="collections/behaviorUrns.html">behaviorUrns</A> 集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_4.html">item</A></TD>
+<TD>从 <A HREF="collections/namespaces.html">namespaces</A> 集合中获取 <B>namespace</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_5.html">item</A></TD>
+<TD>从 <A HREF="collections/rules.html">rules</A> 集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_6.html">item</A></TD>
+<TD>从 <A HREF="collections/pages.html">pages</A> 集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_7.html">item</A></TD>
+<TD>从 <B>controlRange</B> 集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_8.html">item</A></TD>
+<TD>从 <A HREF="collections/bookmarks.html">bookmarks</A> 集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_9.html">item</A></TD>
+<TD>从 <A HREF="collections/childNodes.html">childNodes</A> 或 <A HREF="collections/children.html">children</A> 集合中获取对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/item_10.html">item</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取指定块格式化标签名称的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/javaEnabled.html">javaEnabled</A></TD>
+<TD>返回 Java 是否已启用。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/lastPage.html">lastPage</A></TD>
+<TD>显示绑定表格的数据集的最后一页记录。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/mergeAttributes.html">mergeAttributes</A></TD>
+<TD>复制所有读/写标签属性到指定元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/move.html">move</A></TD>
+<TD>折叠给定文本范围并将空范围移动给定单位数。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveBy.html">moveBy</A></TD>
+<TD>将窗口的位置移动指定 <I>x</I> 和 <I>y</I> 偏移值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveEnd.html">moveEnd</A></TD>
+<TD>更改范围的结束位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveRow.html">moveRow</A></TD>
+<TD>将<B>表格</B>行移动到新位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveStart.html">moveStart</A></TD>
+<TD>更改范围的开始位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveTo.html">moveTo</A></TD>
+<TD>将窗口左上角的屏幕位置移动到指定的 <I>x</I> 和 <I>y</I> 位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveToBookmark.html">moveToBookmark</A></TD>
+<TD>移动到书签。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveToElementText.html">moveToElementText</A></TD>
+<TD>移动文本范围以便范围的开始和结束位置能够完全包含给定元素的文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/moveToPoint.html">moveToPoint</A></TD>
+<TD>将文本范围的开始和结束位置移动到给定点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/nameditem.html">namedItem</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从指定集合中获取对象或集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/namedRecordset.html">namedRecordset</A></TD>
+<TD>获取与来自于数据源对象(DSO)的命名数据成员相对应的记录集对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/navigate.html">navigate</A></TD>
+<TD>在当前窗口中装入指定 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/NavigateAndFind.html">NavigateAndFind</A></TD>
+<TD>前往指定的 URL 并选中指定文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/nextPage.html">nextPage</A></TD>
+<TD>显示绑定表格的数据集的下一页记录。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/normalize.html">normalize</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>合并邻接 <B>TextNode</B> 对象以便生成一个常规的文档对象模型。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/open_0.html">open</A></TD>
+<TD>打开新窗口并装入给定 URL 的文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/open_1.html">open</A></TD>
+<TD>此方法以两种方式工作。该方法打开一个文档用于收集 <A HREF="methods/write.html">write</A> 和 <A HREF="methods/writeln.html">writeln</A> 方法的输出。在这种情况下，只使用前两个参数 url 和 name。若指定了附加参数，此方法将打开一个窗口，这与 <B>window</B> 对象的 <A HREF="objects/obj_window.html">window</A>.<A HREF="methods/open_0.html">open</A> 方法相同。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/parentElement_1.html">parentElement</A></TD>
+<TD>获取给定文本范围的父元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/pasteHTML.html">pasteHTML</A></TD>
+<TD>将 HTML 文本粘贴入给定文本范围，替换范围内任何先前的文本和 HTML 元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/previousPage.html">previousPage</A></TD>
+<TD>显示绑定表格的数据集的上一页记录。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/print.html">print</A></TD>
+<TD>打印与窗口关联的文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/prompt.html">prompt</A></TD>
+<TD>显示一个提示对话框，其中带有一条消息和一个输入框。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/queryCommandEnabled.html">queryCommandEnabled</A></TD>
+<TD>返回表明指定命令是否可于给定文档当前状态下使用 <A HREF="methods/execCommand.html">execCommand</A> 命令成功执行的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/queryCommandIndeterm.html">queryCommandIndeterm</A></TD>
+<TD>返回表明指定命令是否处于模糊状态的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/queryCommandState.html">queryCommandState</A></TD>
+<TD>返回表明命令当前状态的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/queryCommandSupported.html">queryCommandSupported</A></TD>
+<TD>返回表明当前命令是否在当前区域上支持的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/queryCommandValue.html">queryCommandValue</A></TD>
+<TD>返回文档、范围或当前选中区对于给定命令的当前值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/recalc.html">recalc</A></TD>
+<TD>重新计算当前文档中的全部动态属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/refresh.html">refresh</A></TD>
+<TD>刷新表格中的内容。当调用 <A HREF="methods/removeRule.html">removeRule</A> 这样的方法后这可能是必需的，因为此时页面可能不会自动更新。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/releaseCapture.html">releaseCapture</A></TD>
+<TD>释放当前文档中<span replace="1">对象</span>的鼠标捕捉。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/reload.html">reload</A></TD>
+<TD>重新装入当前页面。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/remove.html">remove</A></TD>
+<TD>从集合中删除一个元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeAttribute.html">removeAttribute</A></TD>
+<TD>删除<span replace="1">对象</span>的给定标签属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeAttributeNode.html">removeAttributeNode</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从对象中删除删除 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeBehavior.html">removeBehavior</A></TD>
+<TD>分离<span replace="1">元素</span>的<B>行为</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeChild.html">removeChild</A></TD>
+<TD>从元素上删除子结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeExpression.html">removeExpression</A></TD>
+<TD>从指定属性中删除表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removenameditem.html">removeNamedItem</A></TD>
+<TD>从使用 <B>attributes</B> 集合的元素中删除带有指定 <B>name</B> 属性的  <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeNode.html">removeNode</A></TD>
+<TD>从文档层次中删除<span replace="1">对象</span>。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/removeRule.html">removeRule</A></TD>
+<TD>删除 <A HREF="objects/obj_styleSheet.html">styleSheet</A> 对象中的已有样式规则，并调整对应 <B>rules</B> 集合的索引。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/replace.html">replace</A></TD>
+<TD>装入指定 URL 的另外文档来替换当前文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/replaceAdjacentText.html">replaceAdjacentText</A></TD>
+<TD>替换元素的邻接文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/replaceChild.html">replaceChild</A></TD>
+<TD>用新的子元素替换已有的子元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/replaceData.html">replaceData</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>将<span replace="1">对象</span>中指定范围的字符替换为新字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/replaceNode.html">replaceNode</A></TD>
+<TD>用其它元素替换<span replace="1">对象</span>。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/reset.html">reset</A></TD>
+<TD>模拟单击对所调用表单重置按钮的单击。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/resizeBy.html">resizeBy</A></TD>
+<TD>更改窗口的当前位置缩放指定的 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/resizeTo.html">resizeTo</A></TD>
+<TD>将窗口的大小更改为指定的宽度和高度值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/scroll.html">scroll</A></TD>
+<TD>将窗口滚动到自左上角起指定的 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/scrollBy.html">scrollBy</A></TD>
+<TD>将窗口滚动 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/scrollIntoView.html">scrollIntoView</A></TD>
+<TD>将<span replace="1">对象</span>滚动到可见范围内，将其排列到窗口顶部或底部。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/scrollTo.html">scrollTo</A></TD>
+<TD>将窗口滚动到指定的 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/select_0.html">select</A></TD>
+<TD>突出显示表单元素的输入区域。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/select_1.html">select</A></TD>
+<TD>将当前选中区置为当前对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setActive.html">setActive</A></TD>
+<TD>设置<span replace="1">对象</span>为当前对象而不将对象置为焦点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setAttribute.html">setAttribute</A></TD>
+<TD>设置指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setAttributeNode.html">setAttributeNode</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置 <B>attribute</B> 对象为对象的一部分。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setCapture.html">setCapture</A></TD>
+<TD>设置属于当前文档的<span replace="1">对象</span>的鼠标捕捉。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setData.html">setData</A></TD>
+<TD>以指定格式给 <B>dataTransfer</B> 或 <B>clipboardData</B> 对象赋予数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setEndPoint.html">setEndPoint</A></TD>
+<TD>根据其它范围的结束点设置某范围的结束点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setExpression.html">setExpression</A></TD>
+<TD>设置指定对象的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setInterval.html">setInterval</A></TD>
+<TD>每经过指定毫秒值后计算一个表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setnameditem.html">setNamedItem</A></TD>
+<TD>向使用 <B>attributes</B> 集合的元素中添加一个 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/setTimeout.html">setTimeout</A></TD>
+<TD>经过指定毫秒值后计算一个表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/show.html">show</A></TD>
+<TD>在屏幕上显示弹出窗口。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/ShowBrowserUI.html">ShowBrowserUI</A></TD>
+<TD>打开指定的浏览器对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/showHelp.html">showHelp</A></TD>
+<TD>显示帮助文件。此方法可用于 Microsoft HTML 帮助。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/showModalDialog.html">showModalDialog</A></TD>
+<TD>创建一个显示指定 HTML 文档的模式对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/showModelessDialog.html">showModelessDialog</A></TD>
+<TD>创建一个显示指定 HTML 文档的非模式对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/splitText.html">splitText</A></TD>
+<TD>在指定索引处分割文本结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/start.html">start</A></TD>
+<TD>开始滚动字幕。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/stop.html">stop</A></TD>
+<TD>停止字幕的滚动。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/submit.html">submit</A></TD>
+<TD>提交表单。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/substringData.html">substringData</A><IMG SRC="common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从<span replace="1">对象</span>中析取一定范围的字符。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/swapNode.html">swapNode</A></TD>
+<TD>交换文档层次中两个对象的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/tags.html">tags</A></TD>
+<TD>拥有指定 HTML 标签名称的<span replace="1">对象</span>集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/taintEnabled.html">taintEnabled</A></TD>
+<TD>返回是否允许数据污点。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/urns.html">urns</A></TD>
+<TD>获取附加了指定<B>行为</B>的全部对象的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/write.html">write</A></TD>
+<TD>在指定窗口的文档中写入一个或多个 HTML 表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="methods/writeln.html">writeln</A></TD>
+<TD>在指定窗口的文档中写入一个或多个 HTML 表达式，后面追加一个换行符。</TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

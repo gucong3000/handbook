@@ -1,0 +1,181 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>About the DHTML Object</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>About the DHTML Object Model
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>The Dynamic HTML (DHTML)燚ocument Object Model (DOM) allows authors direct, programmable access to the individual components of their Web documents, from individual elements to containers. This access, combined with the event model, allows the browser to react to user input, execute scripts on the fly, and display the new content without downloading additional documents from a server. The DHTML燚OM puts sophisticated interactivity within easy reach of the average HTML author.</p><UL><LI><A TARGET="_self" HREF="#unknown_860">What Is the Object Model?</A></LI><LI><A TARGET="_self" HREF="#unknown_508">Accessing Elements with Script</A></LI><LI><A TARGET="_self" HREF="#unknown_1">Events: Bubbling, Canceling, and Handling</A></LI><LI><A TARGET="_self" HREF="#unknown_256">Handling Rollover Effects</A></LI><LI><A TARGET="_self" HREF="#unknown_581">Canceling Events</A></LI><LI><A TARGET="_self" HREF="#unknown_924">Special Considerations</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="unknown_860"></A>What Is the Object Model?</H2><p>The object model is the mechanism that makes DHTML programmable. It doesn't require that authors learn new HTML tags, and it doesn't involve any new authoring technologies. In fact, the object model builds on functionality that authors have used to create content for previous browsers. Remember setting the value for a <A HREF="../objects/form.html">form</A> element in script, or adding mouseover events to links in Microsoft&#174; Internet Explorer 3.0? If so, you've been using a limited form of the object model to access your HTML with script.</p><p>What's different in the current object model is that now every HTML element is programmable. This means every HTML element on the page can have script behind it that can be used to interact with user actions and change the page content dynamically. This event model lets a document react when the user has done something on the page, such as moving the mouse pointer over a particular element, pressing a key, or entering information into a form input. Each event can be linked to a script that tells the browser to modify the content on the fly, without having to go back to the server for a new file. The advantages to this are that authors will be able to create interactive Web sites with fewer pages, and users do not have to wait for new pages to download from Web servers, increasing the speed of their browsing and the performance of the Internet as a whole.</p><H2><A NAME="unknown_508"></A>Accessing Elements with Script</H2><p>Every HTML element is a scriptable object in the object model, with its own set of <A HREF="../properties.html">properties</A>, <A HREF="../methods.html">methods</A>, and <A HREF="../events.html">events</A>. However, to write script for each element object, the author must know how to get to an element. </p><p>The object model focuses on collections of elements, a hierarchy of groupings that the elements fall into. The most important of these collections are the <A HREF="../collections/all.html">all</A> collection and the <A HREF="../collections/children.html">children</A> collection. A DHTML document is a structured arrangement of elements, and in the following example, each element has a scope of influence that depends on where in the document the tags appear. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;BODY&gt;
+&lt;DIV&gt;
+&lt;P&gt;Some text in a
+&lt;B&gt;paragraph&lt;/B&gt;
+&lt;/P&gt;
+&lt;IMG id=image1 src="mygif.gif"&gt;
+&lt;/DIV&gt;
+&lt;IMG id=image2 src="mygif.gif"&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><p>In the preceding example, the <A HREF="../objects/div.html">div</A> object contains (and is the parent of) the <A HREF="../objects/p.html">p</A> object and the <A HREF="../objects/img.html">img</A> object called image1. Conversely, image1 and the <B>p</B> are children of the <B>div</B>. The <B>img</B> object called image2, however, is a child of the <A HREF="../objects/body.html">body</A> object.</p><p>Each element object has an <B>all</B> collection that contains all the elements that are beneath that element in the hierarchy, and a <B>children</B> collection that contains only the elements that are direct descendants of that element. In the preceding example, the <A HREF="../objects/b.html">b</A> would be in the <B>div</B> object's <B>all</B> collection, but would not appear in the <B>div</B> object's <B>children</B> collection. Similarly, the <B>div</B> is a member of the <B>body</B> object's <B>children</B> collection, but the <B>p</B> is not.</p><p>In addition to these collections for each element, the document itself (represented by the document object) has a number of element and nonelement collections. The most important collection is an <B>all</B> collection that contains all the elements on the Web page. This collection is the primary way to access elements through script. For more information about using collections, see <A HREF="/workshop/author/om/scripting_elements_collections.html">Scripting with Elements and Collections</A>.</p><H2><A NAME="unknown_1"></A>Events: Bubbling, Canceling, and Handling</H2><p>Clicking a button, moving the mouse pointer over part of the Web page, selecting some text on the page&#151;these actions all fire events, and a DHTML author can write code to run in response to the event. This particular piece of code is generally known as an event handler, because that's what it does, it handles events. </p><p>Event handling is not unique to Internet Explorer 4.0 or even Internet Explorer 3.0; Netscape Navigator 3.x and Communicator also handle events. However, in Internet Explorer 4.0, the HTML elements on a Web page that are the source of the events, and the types of events that are generated, have been greatly expanded. Previously, only a small set of HTML elements could generate events, such as anchors, image maps, form elements, applications, and objects. With the Internet Explorer 4.0 event model, every HTML element on the page can be the source for a full set of mouse and keyboard events. </p><p>The following is a set of common events that every HTML element generates in Internet Explorer 4.0. </p><table class="clsStd"><tr><td><B>Mouse event</B></td><td><B>Generated when the user:</B></td></tr><tr><td><A HREF="../events/onmouseover.html">onmouseover</A></td><td>Moves the mouse pointer over (that is, enters) an element. </td></tr><tr><td><A HREF="../events/onmouseout.html">onmouseout</A></td><td>Moves the mouse pointer off (that is, exits) an element.</td></tr><tr><td><A HREF="../events/onmousedown.html">onmousedown</A></td><td>Presses any of the mouse buttons. </td></tr><tr><td><A HREF="../events/onmouseup.html">onmouseup</A></td><td>Releases any of the mouse buttons. </td></tr><tr><td><A HREF="../events/onmousemove.html">onmousemove</A></td><td>Moves the mouse pointer within an element. </td></tr><tr><td><A HREF="../events/onclick.html">onclick</A></td><td>Clicks the left mouse button on an element. </td></tr><tr><td><A HREF="../events/ondblclick.html">ondblclick</A></td><td>Double-clicks the left mouse button on an element. </td></tr><tr><td><B>Keyboard event</B></td><td><B>Generated when the user:</B></td></tr><tr><td><A HREF="../events/onkeypress.html">onkeypress</A></td><td>Presses and releases a key (full down-and-up cycle). However, if a key is held down, multiple <B>onkeypress</B> events are fired. </td></tr><tr><td><A HREF="../events/onkeydown.html">onkeydown</A></td><td>Presses a key. Only a single event is fired, even if the key is held down. </td></tr><tr><td><A HREF="../events/onkeyup.html">onkeyup</A></td><td>Releases a key. </td></tr></table><p>To help authors build code that is compact, simpler, and easier to maintain, Internet Explorer 4.0 introduces event bubbling as a new way to handle events. Microsoft Windows&#174;, OS/2, OSF Motif, and almost every other graphical user interface (GUI) platform uses this technique to process events in their user interfaces. However, event bubbling is new to HTML and provides an efficient model for incorporating event handling into Web documents. </p><p>Previously, if an HTML element generated an event, but no event handler was registered for it, the event would disappear, never to be seen again. Event bubbling simply passes these unhandled events to the parent element for handling. The event continues up ("bubbles up") the element hierarchy until it is handled, or until it reaches the topmost object, the <A HREF="../objects/obj_document.html">document</A> object.</p><p>Event bubbling is useful because it:</p><ul><li>Allows multiple common actions to be handled centrally. </li><li>Reduces the amount of overall code in the Web page. </li><li>Reduces the number of code changes required to update a document. </li></ul><p>The following is a simple example of event bubbling in action.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;BODY&gt;
+&lt;DIV id=OuterDiv style="background-color: red" onmouseover="alert(window.event.srcElement.id);"&gt;
+This is some text
+&lt;IMG id=InnerImg&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/dom_01.htm"></IMG></A></DIV><p>On this page, when the user moves the mouse pointer over the text, the text "OuterDiv" appears in a dialog box. If the user moves the mouse pointer over the image, the text "InnerImg" appears in a dialog box. </p><p>Notice that the <B>onmouseover</B> event for the <B>img</B> object was handled even though it does not have an event handler. Why is this? The <B>onmouseover</B> event from the <B>img</B> object bubbles up to its parent element, which is the <B>div</B> object. Because the <B>div</B> object has an event handler registered for the <B>onmouseover</B> event, it fires and generates the specified dialog window. </p><p>Every time an event is fired, a special property on the <A HREF="../objects/obj_window.html">window</A> object is created. This special property contains the <A HREF="../objects/obj_event.html">event</A> object. The <B>event</B> object contains context information about the event that just fired, including mouse location, keyboard status, and, most importantly, the source element of the event. </p><p>The source element is the element that causes the event to fire, and is accessed using the <A HREF="../properties/srcelement.html">srcElement</A> property on the <B>window.event</B> object. </p><p>In the preceding example, the dialog box displays the <A HREF="../properties/id.html">id</A> property of the event's <B>srcElement</B>.</p><H2><A NAME="unknown_256"></A>Handling Rollover Effects</H2><p>An author creates a rollover effect to make part of a page react when the user moves the mouse pointer over it. With Internet Explorer 4.0, the process of creating a rollover effect is greatly simplified. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.Item {
+cursor: hand;
+font-family: verdana;
+font-size: 20;
+font-style: normal;
+background-color: blue;
+color: white
+}
+.Highlight {
+cursor: hand;
+font-family: verdana;
+font-size: 20;
+font-style: italic;
+background-color: white;
+color: blue
+}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;SPAN class=Item&gt;Milk&lt;/SPAN&gt;
+&lt;SPAN class=Item&gt;Cookies&lt;/SPAN&gt;
+&lt;SPAN class=Item&gt;Eggs&lt;/SPAN&gt;
+&lt;SPAN class=Item&gt;Ham&lt;/SPAN&gt;
+&lt;SPAN class=Item&gt;Cheese&lt;/SPAN&gt;
+&lt;SPAN class=Item&gt;Pasta&lt;/SPAN&gt;
+&lt;SPAN class=Item&gt;Chicken&lt;/SPAN&gt;
+&lt;SCRIPT&gt;
+function rollon() {
+if (window.event.srcElement.className == "Item") {
+window.event.srcElement.className = "Highlight";
+}
+}
+document.onmouseover = rollon;
+function rolloff() {
+if (window.event.srcElement.className == "Highlight") {
+window.event.srcElement.className = "Item";
+}
+}
+document.onmouseout = rolloff;
+&lt;/SCRIPT&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/dom_02.htm"></IMG></A></DIV><p>In the preceding example, seven <A HREF="../objects/span.html">span</A> objects are initially set to use the class Item. When the mouse pointer moves over any one of those elements, it will be changed to use the class Highlight. </p><p>Innovations in Internet Explorer 4.0 enable the following: </p><ul><li>Events now can be generated from a <B>span</B> object. Previously, an author would have had to wrap each <B>span</B> in an anchor to get the right events. </li><li>With event bubbling, events can be captured at the <B>document</B> object level. You do not need to create separate event handlers for each element that participate in the effect. For example, should the author add HTML to the page, these additional elements will participate in the event model without changing a single line of script. Notice that the <B>document</B> object is the "super parent" for all elements in the document body. </li></ul><H2><A NAME="unknown_581"></A>Canceling Events</H2><p>All events bubble to their parent element (and, recursively, all the way up to the <B>document</B> object) unless the event is canceled. To cancel an event, you must set the <A HREF="../properties/cancelbubble.html">window.event.cancelBubble</A> property to "true" in the event handler. Note that unless canceled, events will bubble up the hierarchy and be handled by all parent elements registered to the event, even if the event has already been handled. </p><p>Canceling event bubbling should not be confused with canceling the default action for the event. Some events (for example, the <B>onclick</B> event on an anchor) have a default action. When an anchor is clicked, its default action is to navigate the current window to the URL specified in the <A HREF="../properties/src_0.html">src</A> property. Returning "false" from an event handler, or setting <A HREF="../properties/returnvalue_1.html">window.event.returnValue</A> to "false", cancels the default action but does not cancel event bubbling unless <B>window.event.cancelBubble</B> is also set. Conversely, canceling an event's bubbling doesn't cancel its default action. </p><p>The last example shows how to use event bubbling to apply a common effect to a set of elements. If you want to exclude an element from that effect, simply change the following line of code, from: </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SPAN class=Item&gt;Ham&lt;/SPAN&gt;</PRE><p>to:</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SPAN class=Item onmouseover="window.event.cancelBubble = true;"
+onmouseout="window.event.cancelBubble = true;"&gt;Ham&lt;/SPAN&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/dom_03.htm"></IMG></A></DIV><p>No matter how many times the user moves the mouse pointer over the word Ham, it will not change style. This is because both the <B>onmouseover</B> and <B>onmouseout</B> events are canceled; they did not bubble through to the <B>document</B>, so the <B>document</B> was never given the opportunity to handle those events for the word Ham.</p><H2><A NAME="unknown_924"></A>Special Considerations</H2><p>At any one time, you can have an <B>onmouseover</B> event only on a single object. Consider the following case: </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;DIV id=MyDiv&gt;
+&lt;IMG id=MyImg&gt;
+&lt;/DIV&gt;</PRE><p>If you were to move your mouse pointer over the <B>img</B>, the order of events would be as follows: </p><PRE CLASS="clsCode" AUTOHILITE="1">MyDiv:: onmouseover
+MyDiv:: onmouseout
+MyImg:: onmouseover</PRE><p>Moving your mouse pointer off the <B>img</B> fires the MyDiv::onmouseover event again.</p><p>At times, the author might want to detect when the mouse pointer moves outside a <B>div</B> to perform a special effect. It is not enough to simply trap the <B>onmouseout</B> event. To make this easier, Internet Explorer 4.0 indicates the source element (<A HREF="../properties/fromelement.html">fromElement</A>) and target element (<A HREF="../properties/toelement.html">toElement</A>) for the <B>onmouseover</B> and <B>onmouseout</B> events. You can use these properties in combination with the <A HREF="../methods/contains.html">contains</A> method to tell when the mouse pointer moves outside a region. </p><p>The following example shows how to use these properties and methods. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;BODY id=Body&gt;
+&lt;DIV id=OuterDiv style="width: 100px; height: 50px; background: red"
+onmouseover="over();" onmouseout="out();"&gt;
+&lt;IMG id=Img1&gt;
+&lt;IMG id=Img2&gt;
+&lt;IMG id=Img3&gt;
+&lt;/DIV&gt;
+&lt;SCRIPT&gt;
+function over() {
+var s;
+s = "onmouseover: "+window.event.srcElement.id+" from: "+
+window.event.fromElement.id+" to: "+window.event.toElement.id;
+alert(s);
+}
+function out() {
+var s;
+s = "onmouseout: "+window.event.srcElement.id+" from: "+
+window.event.fromElement.id+" to: "+window.event.toElement.id;
+alert(s);
+if (!(OuterDiv.contains(window.event.toElement))) {
+alert("Out Now");
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/dhtml/overview/dom_04.htm"></IMG></A></DIV><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="/workshop/author/om/windows_frames_dialogs.html">Working with Windows, Frames, and Dialog Boxes</A></LI><LI><A HREF="/workshop/author/om/scripting_elements_collections.html">Scripting with Elements and Collections</A></LI><LI><A HREF="/workshop/author/om/event_model.html">Understanding the Event Model</A></LI><LI><A HREF="/workshop/author/om/xframe_scripting_security.html">About Cross-Frame Scripting and Security</A></LI></UL><info><product rid="prod_IE" minver="4.0"></product></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

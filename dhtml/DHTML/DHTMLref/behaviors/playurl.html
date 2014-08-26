@@ -1,0 +1,94 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>playURL</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>playURL Method
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Loads media from a URL into the Media Bar and starts playback.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>mediaBar</I><B>.playURL(</B><I>sURL</I><B>, </B><I>sMIME</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sURL</I></TD><TD>
+Required.
+<b>String</b> that specifies the URL of the media to play.</TD></TR><TR><TD><I>sMIME</I></TD><TD>
+Required.
+<b>String</b> that specifies the Multipurpose Internet Mail Extensions (MIME) type of the media to play. Cannot be NULL.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>You must specify the MIME type for <I>sMIME
+</I>. If the MIME type specified is invalid but not NULL, the <A HREF="../behaviors/openstate.html">openState</A> property returns 21 ("The player is opening a URL whose type is not known") while Internet Explorer attempts to determine the media's MIME type.  Internet Explorer can handle the media appropriately, even if the MIME type specified in <I>sMIME
+</I> is incorrect.  However, if no MIME type is specified, the Media Bar does not play the media. For more information about MIME types, see <A HREF="http://www.microsoft.com/technet/treeview/default.html?url=/TechNet/prodtechnol/iis/evaluate/mimeiis.html" TARGET="_top">MIME Types in IIS</A>.</P><P>You must also specify an absolute <A HREF="/workshop/networking/predefined/http.html">http</A>, <A HREF="/workshop/networking/predefined/https.html">https</A>, or <A HREF="/workshop/networking/predefined/ftp.html">ftp</A> address for the media with <I>sURL
+</I>. Unlike the HTML page loaded in the media pane, the media player itself cannot serve as a reference point to a particular domain for uplevel or downlevel directories. Therefore, specify an absolute URL in calls to <B>playURL</B>.</P><P>If no media is currently playing in the Media Bar, any attempt to access media attribute information with <A HREF="../behaviors/getiteminfo.html">getItemInfo</A>, <A HREF="../behaviors/getattributename.html">getAttributeName</A>, or <A HREF="../behaviors/attributecount.html">attributeCount</A> returns a script error.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+In the following example, a button loaded in the Media Bar content area starts playback of an ASX file.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;INPUT type=button onclick="divMedia.playURL(
+'http://msdn.microsoft.com/workshop/samples/author/behaviors/media/mediabar_1.asx',
+'video/x-ms-asf');" value='Play the ASX file'/&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="about:blank" FEATURES="top=10,left=50,height=600,width=800,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../behaviors/mediabar.html">
+mediaBar</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

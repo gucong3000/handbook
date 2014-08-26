@@ -1,0 +1,456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>window</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="WBR.html" title="WBR 元素 | wbr 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>WBR 元素 | wbr 对象</A> <A HREF="XML.html" title="XML 元素 | xml 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>XML 元素 | xml 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>window 对象</H1>
+<HR SIZE="1"><P>代表浏览器中一个打开的窗口。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>window</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/closed.html">closed</A></TD>
+<TD>获取引用窗口是否已关闭。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/defaultStatus.html">defaultStatus</A></TD>
+<TD>设置或获取要在窗口底部的状态栏上显示的缺省信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dialogArguments.html">dialogArguments</A></TD>
+<TD>设置或获取传递给模式对话框窗口的变量或变量数组。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dialogHeight.html">dialogHeight</A></TD>
+<TD>设置或获取模式对话框的高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dialogLeft.html">dialogLeft</A></TD>
+<TD>设置或获取模式对话框的左坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dialogTop.html">dialogTop</A></TD>
+<TD>设置或获取模式对话框的顶坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dialogWidth.html">dialogWidth</A></TD>
+<TD>设置或获取模式对话框的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/frameElement.html">frameElement</A></TD>
+<TD>获取在父<A HREF="obj_document.html">文档</A>中生成 <B>window</B> 的 <A HREF="FRAME.html">frame</A> 或 <A HREF="IFRAME.html">iframe</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/length.html">length</A></TD>
+<TD>设置或获取集合中对象的数目。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/name_5.html">name</A></TD>
+<TD>设置或获取表明窗口名称的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offscreenBuffering.html">offscreenBuffering</A></TD>
+<TD>设置或获取对象在对用户可见之前是否要先在屏幕外绘制。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/opener.html">opener</A></TD>
+<TD>设置或获取创建当前窗口的窗口的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parent.html">parent</A></TD>
+<TD>获取对象层次中的父<B>窗口</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/returnValue_0.html">returnValue</A></TD>
+<TD>设置或获取从模式对话框返回的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/screenLeft.html">screenLeft</A></TD>
+<TD>获取浏览器客户区左上角相对于屏幕左上角的 x 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/screenTop.html">screenTop</A></TD>
+<TD>获取浏览器客户区左上角相对于屏幕左上角的 y 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/self.html">self</A></TD>
+<TD>获取对当前窗口或框架的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/status_0.html">status</A></TD>
+<TD>设置或获取位于窗口底部状态栏的信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/top_1.html">top</A></TD>
+<TD>获取最顶层的祖先窗口。</TD></TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/frames.html">frames</A></TD>
+<TD>获取给定文档定义或与给定窗口关联的文档定义的所有 <B>window</B> 对象的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">事件</P>
+<DIV tabName="事件" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>事件</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../events/onactivate.html">onactivate</A></TD>
+<TD>当<span replace="1">对象</span>设置为<A HREF="../properties/activeElement.html">活动元素</A>时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onafterprint.html">onafterprint</A></TD>
+<TD><span replace="1">对象</span>所关联的文档打印或打印预览后立即在对象上触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onbeforedeactivate.html">onbeforedeactivate</A></TD>
+<TD>在 <A HREF="./properties/activeElement.html">activeElement</A> 从当前<span replace="1">对象</span>变为父文档其它对象之前立即触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onbeforeprint.html">onbeforeprint</A></TD>
+<TD><span replace="1">对象</span>的关联文档打印或打印预览前在对象上触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onbeforeunload.html">onbeforeunload</A></TD>
+<TD>在页面将要被卸载前触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onblur.html">onblur</A></TD>
+<TD>在<span replace="1">对象</span>失去输入焦点时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/oncontrolselect.html">oncontrolselect</A></TD>
+<TD>当用户将要对该<span replace="1">对象</span>制作一个<SPAN CLASS="clsGlossary" title="显示用户选中的内容和缩放句柄。可使用对象的方法获取并修改选中区的 HTML 文本。元素的例子为选中包括图像、表格和任意绝对定位的元素中的控件。">控件选中区</SPAN>时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/ondeactivate.html">ondeactivate</A></TD>
+<TD>当 <B>activeElement</B> 从当前<span replace="1">对象</span>变为父文档其它对象时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onerror.html">onerror</A></TD>
+<TD>当<span replace="1">对象</span>装载过程中发生错误时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onfocus.html">onfocus</A></TD>
+<TD>当<span replace="1">对象</span>获得焦点时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onhelp.html">onhelp</A></TD>
+<TD>当用户在浏览器为当前窗口时按 F1 键时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onload.html">onload</A></TD>
+<TD>在浏览器完成对象的装载后立即触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onmove.html">onmove</A></TD>
+<TD>当<span replace="1">对象</span>移动时触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onmoveend.html">onmoveend</A></TD>
+<TD>当<span replace="1">对象</span>停止移动时触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onmovestart.html">onmovestart</A></TD>
+<TD>当<span replace="1">对象</span>开始移动时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onresize.html">onresize</A></TD>
+<TD>当<span replace="1">对象</span>的大小将要改变时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onresizeend.html">onresizeend</A></TD>
+<TD>当用户更改完控件选中区中<span replace="1">对象</span>的尺寸时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onresizestart.html">onresizestart</A></TD>
+<TD>当用户开始更改控件选中区中<span replace="1">对象</span>的尺寸时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onscroll.html">onscroll</A></TD>
+<TD>当用户滚动<span replace="1">对象</span>的滚动条时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onunload.html">onunload</A></TD>
+<TD>在<span replace="1">对象</span>卸载前立即触发。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/alert.html">alert</A></TD>
+<TD>显示包含由应用程序自定义消息的对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/attachEvent.html">attachEvent</A></TD>
+<TD>将指定函数绑定到事件，以便每当该事件在对象上触发时都调用该函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/blur.html">blur</A></TD>
+<TD>使<span replace="1">元素</span>失去焦点并触发 <A HREF="../events/onblur.html">onblur</A> 事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/clearInterval.html">clearInterval</A></TD>
+<TD>使用 <A HREF="../methods/setInterval.html">setInterval</A> 方法取消先前开始的间隔事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/clearTimeout.html">clearTimeout</A></TD>
+<TD>取消先前用 <A HREF="../methods/setTimeout.html">setTimeout</A> 方法设置的超时事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/close_0.html">close</A></TD>
+<TD>关闭当前浏览器窗口或 HTML 应用程序(HTA)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/confirm.html">confirm</A></TD>
+<TD>显示一个确认对话框，其中包含一个可选的消息和确定取消按钮。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/createPopup.html">createPopup</A></TD>
+<TD>创建<A HREF="popup.html">弹出</A>窗口。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/detachEvent.html">detachEvent</A></TD>
+<TD>从事件中取消指定函数的绑定，这样当事件触发时函数就不会收到通知了。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/execScript.html">execScript</A></TD>
+<TD>以给定语言执行指定的脚本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/focus.html">focus</A></TD>
+<TD>使得元素得到焦点并执行由 <A HREF="../events/onfocus.html">onfocus</A> 事件指定的代码。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveBy.html">moveBy</A></TD>
+<TD>将窗口的位置移动指定 <I>x</I> 和 <I>y</I> 偏移值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveTo.html">moveTo</A></TD>
+<TD>将窗口左上角的屏幕位置移动到指定的 <I>x</I> 和 <I>y</I> 位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/navigate.html">navigate</A></TD>
+<TD>在当前窗口中装入指定 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/open_0.html">open</A></TD>
+<TD>打开新窗口并装入给定 URL 的文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/print.html">print</A></TD>
+<TD>打印与窗口关联的文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/prompt.html">prompt</A></TD>
+<TD>显示一个提示对话框，其中带有一条消息和一个输入框。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/resizeBy.html">resizeBy</A></TD>
+<TD>更改窗口的当前位置缩放指定的 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/resizeTo.html">resizeTo</A></TD>
+<TD>将窗口的大小更改为指定的宽度和高度值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/scroll.html">scroll</A></TD>
+<TD>将窗口滚动到自左上角起指定的 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/scrollBy.html">scrollBy</A></TD>
+<TD>将窗口滚动 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/scrollTo.html">scrollTo</A></TD>
+<TD>将窗口滚动到指定的 x 和 y 偏移量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setActive.html">setActive</A></TD>
+<TD>设置<span replace="1">对象</span>为当前对象而不将对象置为焦点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setInterval.html">setInterval</A></TD>
+<TD>每经过指定毫秒值后计算一个表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setTimeout.html">setTimeout</A></TD>
+<TD>经过指定毫秒值后计算一个表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/showHelp.html">showHelp</A></TD>
+<TD>显示帮助文件。此方法可用于 Microsoft HTML 帮助。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/showModalDialog.html">showModalDialog</A></TD>
+<TD>创建一个显示指定 HTML 文档的模式对话框。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/showModelessDialog.html">showModelessDialog</A></TD>
+<TD>创建一个显示指定 HTML 文档的非模式对话框。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">对象</P>
+<DIV tabName="对象" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>对象</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="obj_clientInformation.html">clientInformation</A></TD>
+<TD>包含关于 Web 浏览器的信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="clipboardData.html">clipboardData</A></TD>
+<TD>提供了对于预定义的剪贴板格式的访问，以便在编辑操作中使用。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_document.html">document</A></TD>
+<TD>代表给定浏览器窗口中的 HTML 文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_event.html">event</A></TD>
+<TD>代表事件状态，如事件发生的元素，键盘状态，鼠标位置和鼠标按钮状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="external.html">external</A></TD>
+<TD>允许访问由 Microsoft<SUP>&reg;</SUP> Internet Explorer 浏览器组件宿主应用程序提供的附加对象模型。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_history.html">history</A></TD>
+<TD>包含了用户已浏览的 URL 的信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_location.html">location</A></TD>
+<TD>包含关于当前 URL 的信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_navigator.html">navigator</A></TD>
+<TD>包含关于 Web 浏览器的信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_screen.html">screen</A></TD>
+<TD>包含关于客户屏幕和渲染能力的信息。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>你可以使用 <B>window</B> 对象获取关于窗口状态的信息。你还可以使用此对象或的对窗口文档、窗口中发生的事件和影响窗口的浏览器的访问。</P>
+<P>典型情况下，浏览器会在其打开一个 HTML 文档时创建一个对应的 <B>window</B> 对象。但是，如果一个文档定义了一个或多个框架(即，包含一个或多个 <B>frame</B> 或 <B>iframe</B> 标签)，浏览器就会为原始文档创建一个 <B>window</B> 对象，再为每个框架创建额外的 <B>window</B> 对象。这些额外的对象是原始窗口的 <span class="clsLiteral">子窗口</span>，可能被原始窗口中发生的事件所影响。例如，关闭原始窗口将导致关闭全部子窗口。如果想要创建新窗口(以及对应的 window 对象)，可以使用像 <A HREF="../methods/open_0.html">open</A>, <A HREF="../methods/showModalDialog.html">showModalDialog</A> 和 <A HREF="../methods/showModelessDialog.html">showModelessDialog</A> 这样的方法。</P>
+<P>你可以对任何计算结果为 <B>window</B> 对象的变量或表达式应用任何 window 的属性、方法或集合，而不用管窗口是怎么创建的。除此以外，你可以在当前窗口中直接使用全部的属性、方法和集合──也就是说，无需在前面附加计算结果为当前 <B>window</B> 对象的表达式。但是，为了使得代码更加便于阅读以及避免潜在的漏洞，许多作者在访问当前窗口的属性、方法和集合时使用 <B>window</B> 关键字。此关键字总是代表当前窗口。</P>
+<DIV CLASS="clsNote"><B>注意</B> 窗口的属性、方法和集合的名称都是保留关键字，无法用于变量或例程的名称。</DIV>
+<P>下面的表格列出了 <B>window</B> 对象某些属性的相关信息。</P>
+<P>
+<table class="clsStd">
+<tr><th>属性</th><th>方法</th><th>描述</th></tr>
+<tr>
+<td><A HREF="../properties/opener.html">opener</A></td>
+<td><A HREF="../methods/open_0.html">open</A></td>
+<td><A HREF="../properties/opener.html">opener</A> 属性仅在使用 <B>window</B>.<A HREF="../methods/open_0.html">open</A> 方法打开的页面中可用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parent.html">parent</A>, <A HREF="../properties/top_1.html">top</A></td>
+<td>无</td>
+<td><A HREF="../properties/parent.html">parent</A> 和 <A HREF="../properties/top_1.html">top</A> 属性对 <B>frame</B> 或 <B>iframe</B> 内打开的窗口可用。这两个属性分别返回立即父窗口和最上层的祖先窗口。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parent.html">parent</A>, <A HREF="../properties/top_1.html">top</A></td>
+<td><A HREF="../methods/open_0.html">open</A></td>
+<td><B>parent</B> 和 <B>top</B> 属性对于通过 <B>open</B> 方法打开或以对话框打开并返回到当前窗口的窗口可用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/length.html">length</A></td>
+<td>无</td>
+<td>不管窗口是怎么打开的，<A HREF="../properties/length.html">length</A> 属性总是返回窗口中的框架数目。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dialogArguments.html">dialogArguments</A>, <A HREF="../properties/dialogHeight.html">dialogHeight</A>, <A HREF="../properties/dialogLeft.html">dialogLeft</A>, <A HREF="../properties/dialogTop.html">dialogTop</A>, <A HREF="../properties/dialogWidth.html">dialogWidth</A>, <A HREF="../properties/returnValue_0.html">returnValue</A></td>
+<td><A HREF="../methods/showModalDialog.html">showModalDialog</A> 和 <A HREF="../methods/showModelessDialog.html">showModelessDialog</A></td>
+<td>这些属性仅对用列出的两个方法<B>showModalDialog</B> 和 <B>showModelessDialog</B> 打开的窗口可用。</td>
+</tr>
+</table>
+</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子在当前窗口显示了警告框。</P>
+<PRE id="abc" CLASS="clsCode" AUTOHILITE="1">
+alert("简单的消息。")
+</PRE>
+<P>下面的示例检查当前窗口是否包含子窗口，如果是的话，显示这些子窗口的名称。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+if ( window.frames != null ) {
+for ( i = 0; i&lt; window.frames.length; i++ )
+window.alert ("子窗口 " +i+ " 的名称为 "+window.frames(i).name);
+}
+</PRE>
+<P>下面的示例显示了窗口 <A HREF="../events/onload.html">onload</A> 事件的简单事件处理句柄。由于没有“window”元素，<A HREF="BODY.html">body</A> 元素将作为下列 window 对象事件的宿主：<B>onblur</B>, <A HREF="../events/onbeforeunload.html">onbeforeunload</A>, <B>onfocus</B>, <B>onload</B> 和 <A HREF="../events/onunload.html">onunload</A>。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;BODY onload="window.status='页面已装载!'"&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

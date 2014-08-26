@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_indexlist_com.css">
+<script src="rdl_indexlist_com.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+sTitleText='Filters & Transitions';
+sPrefix='filters/';
+
+collFriendLists = new Array(
+'Collections','Filters','Methods','Properties','Attributes','Events'
+);
+
+collHeadNotes = new Array(
+'滤镜(Filters & Transitions)','兼容性(Compatibility)','简介(Description)'
+);
+
+collListItems = new Array(
+new Array(
+'Head','界面滤镜　Procedural Surfaces'
+),
+new Array(
+'55','AlphaImageLoader','IE5.5+','在对象容器边界内，在对象的背景和内容之间显示一张图片。并提供对此图片的剪切和改变尺寸的操作。'
+),
+new Array(
+'55','Gradient','IE5.5+','在对象的背景和内容之间显示定制的色彩层。'
+),
+
+
+new Array('Head','静态滤镜　Static Filters'),
+new Array('40','Alpha','IE4.0+','调整对象内容的透明度。你可以设置整体透明度，或线性渐变和放射渐变的透明度。'),
+new Array('55','BasicImage','IE5.5+','用于色彩处理，图像旋转，或对象内容的透明度。'),
+new Array('55','Blur','IE5.5+','制作对象内容的模糊效果。'),
+new Array('40','Chroma','IE4.0+','将对象中指定的颜色显示为透明。'),
+new Array('55','Compositor','IE5.5+','依据初始对象和新对象色彩的特定混合方式显示新的对象内容。'),
+new Array('40','DropShadow','IE4.0+','制作对象的阴影效果。'),
+new Array('55','Emboss','IE5.5+','用灰度值为对象内容制作浮雕纹理效果。'),
+new Array('55','Engrave','IE5.5+','用灰度值为对象内容制作浮雕纹理效果。'),
+new Array('40','Glow','IE4.0+','环绕对象内容边缘添加辉光制作发热效果。辉光将出现在对象边界内的内容的最外轮廓之外。'),
+new Array('40','Light','IE4.0+','为对象的内容建立光照效果。'),
+new Array('40','MaskFilter','IE4.0+','将对象内容的透明像素用 color 参数指定的颜色显示作为一个遮罩，而非透明像素则转为透明。使用 BasicImage 滤镜能够更有效率的实现这一效果。 '),
+new Array('55','Matrix','IE5.5+','使用矩阵变形实现对象内容的改变尺寸、旋转、上下或左右反转。'),
+new Array('40','MotionBlur','IE4.0+','为对象内容制作运动模糊效果。'),
+new Array('40','Shadow','IE4.0+','为对象内容建立阴影效果。'),
+new Array('40','Wave','IE4.0+','为对象内容建立波纹扭曲效果。'),
+new Array('55','ICMFilter','IE5.5+','根据颜色配置文件(.icm)转换对象的色彩内容。'),
+new Array('40','Gray','IE4.0+','灰度显示对象内容。'),
+new Array('40','FlipH','IE4.0+','水平翻转对象内容。'),
+new Array('40','FlipV','IE4.0+','垂直翻转对象内容。'),
+new Array('40','Invert','IE4.0+','反相显示对象内容。'),
+new Array('40','Xray','IE4.0+','以X光效果显示对象内容。'),
+new Array('80','Redirect','无','目前未被支持。'),
+
+new Array('Head','转换滤镜　Transitions'),
+new Array('55','Barn','IE5.5+','用模拟开关门效果转换对象内容。'),
+new Array('55','Blinds','IE5.5+','用百叶窗开关效果转换对象内容。'),
+new Array('55','CheckerBoard','IE5.5+','用类似国际象棋棋盘的网格推拉效果转换对象内容。'),
+new Array('55','Fade','IE5.5+','用渐隐效果转换对象内容。'),
+new Array('55','GradientWipe','IE5.5+','用滚动渐隐效果转换对象内容。'),
+new Array('55','Inset','IE5.5+','用对角扩张效果转换对象内容。'),
+new Array('55','Iris','IE5.5+','用特殊形状剪切轮廓扩张或收缩显示效果转换对象内容。'),
+new Array('55','Pixelate','IE5.5+','在转换的前半段，对象内容先显示为矩形色块拼贴，然后矩形的宽度由一个像素增加至 MaxSquare 属性所设置的值。每个矩形的颜色由其所覆盖区域的像素的颜色平均值决定。接下来的转换的后半段，矩形被还原为新内容具体的图像像素，显示出新的内容。'),
+new Array('55','RadialWipe','IE5.5+','用放射状擦除效果转换对象内容。效果类似汽车挡风玻璃的刮雨刀。'),
+new Array('55','RandomBars','IE5.5+','用随机发生的线条转换对象内容。'),
+new Array('55','RandomDissolve','IE5.5+','用随机像素溶解效果转换对象内容。'),
+new Array('55','Slide','IE5.5+','用滑条抽离效果转换对象内容。'),
+new Array('55','Spiral','IE5.5+','用矩形螺旋方式转换对象内容。'),
+new Array('55','Stretch','IE5.5+','用拉伸(缩)变形效果转换对象内容。'),
+new Array('55','Strips','IE5.5+','用锯齿边覆盖效果转换对象内容。'),
+new Array('55','Wheel','IE5.5+','用风车叶轮旋转效果转换对象内容。'),
+new Array('55','Zigzag','IE5.5+','用类似擦地板的效果转换对象内容。'),
+new Array('40','BlendTrans','IE4.0+','用渐隐效果转换对象内容。'),
+new Array('40','RevealTrans','IE4.0+','提供了24种转换对象内容的效果。')
+
+);
+
+</script>
+
+</body>
+</html>
+
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

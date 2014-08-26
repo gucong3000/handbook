@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Slide'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Slide'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;filter:progid:DXImageTransform.Microsoft.Slide();}\n'+
+'#idDiv1{width:200px;height:100px;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:3;visibility:hidden;}\n'+
+'#idDiv2{width:200px;height:100px;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:4;visibility:visible;}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sBaseStr="filter : progid:DXImageTransform.Microsoft.Slide ( ";\n'+
+'var oParentDiv,oCodeDiv;\n'+
+'function rdl_doInit(e){\n'+
+'oParentDiv=document.all("idParentDiv");\n'+
+'oCodeDiv=document.all("idCodeDiv");\n'+
+'rdl_play();\n'+
+'}\n'+
+'function rdl_change(e){\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=options[selectedIndex].value;\n'+
+'with (document.all("idSel3")) var sValue3=options[selectedIndex].value;\n'+
+'oCodeDiv.innerHTML=sBaseStr+"duration="+sValue1+",bands="+sValue2+",slideStyle="+sValue3+" ) ;";\n'+
+'with (oParentDiv.filters[0]) {\n'+
+'Duration=sValue1;Bands=sValue2;SlideStyle=sValue3;\n'+
+'}\n'+
+'}\n'+
+'\n'+
+'function rdl_play(){\n'+
+'with (oParentDiv) {\n'+
+'if (children[0].style.visibility=="hidden") children[1].style.visibility="visible";\n'+
+'else children[1].style.visibility="hidden";\n'+
+'filters[0].Apply();\n'+
+'if (children[0].style.visibility=="hidden") children[0].style.visibility="visible";else children[0].style.visibility="hidden";\n'+
+'if (children[1].style.visibility=="hidden") children[1].style.visibility="visible";else children[1].style.visibility="hidden";\n'+
+'filters[0].play();\n'+
+'}\n'+
+'}\n'+
+'window.onload=rdl_doInit;\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv1><img src="..\/images\/rdl_body1.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> A </b>。<\/div>\n'+
+'<div id=idDiv2><img src="..\/images\/rdl_body2.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> B </b>。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id=idSel1 onchange="rdl_change();">\n'+
+'<option value="0.5" style="font-weight:bold;">---Duration---\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="4">4\n'+
+'<option value="5">5\n'+
+'<option value="6">6\n'+
+'<option value="12">12\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id=idSel2 onchange="rdl_change();">\n'+
+'<option value="1" style="font-weight:bold;">---Bands---\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="5">5\n'+
+'<option value="20">20\n'+
+'<option value="10">10\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id=idSel3 onchange="rdl_change();">\n'+
+'<option value="HIDE" style="font-weight:bold;">---SlideStyle---\n'+
+'<option value="HIDE">HIDE\n'+
+'<option value="PUSH">PUSH\n'+
+'<option value="SWAP">SWAP\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<input type=button value=" Play " onclick="if (oParentDiv!=null) rdl_play();">\n'+ 
+'<\/td><td>\n'+
+'<input type=button value=" Stop " onclick="if (oParentDiv!=null) oParentDiv.filters[0].stop();">\n'+ 
+'<\/td><\/tr><\/table>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Slide ()<\/div>\n';
+
+iWinWidth=480;
+
+iWinHeight=360;
+
+//bRunCode=false;
+
+//bElements=false;
+
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>slideStyle | SlideStyle</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/slide.html">Slide</a> ( slideStyle</b> = <i>sStyle</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/slide.html">Slide</a>').SlideStyle = </b><i>sStyle</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sStyle </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。<span class=cssDefault><b>HIDE</b></span> | <b>PUSH</b> | <b>SWAP</b>
+<table>
+<tr><td nowrap><b> HIDE </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。在新内容上抽离旧内容。</td></tr>
+<tr><td nowrap><b> PUSH </b></td><td nowrap><b>: </b></td><td>抽离旧内容时同步同向拉进新内容。</td></tr>
+<tr><td nowrap><b> SWAP </b></td><td nowrap><b>: </b></td><td>在抽离的同时交换新旧内容。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滑条抽离效果的方式。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

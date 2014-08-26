@@ -1,0 +1,179 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-667-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-682-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-674-fm2xml"></A><A NAME="IXT-23-55344"></A><A NAME="IXT-23-55345"></A><A NAME="IXT-23-55346"></A><A NAME="IXT-23-55347"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object.propertyIsEnumerable(  )</i></b></td>
+
+<td align="right"><i>是否可以通过for/in循环看到属性</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.5; JScript 5.5; ECMAScript v3 </P><A NAME="ch23-675-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>object</I></TT>.propertyIsEnumerable(<TT><I>propname</I></TT>)</PRE><A NAME="IXT-23-55344"></A> <A NAME="IXT-23-55345"></A> <A NAME="IXT-23-55346"></A>
+
+<A NAME="IXT-23-55347"></A>
+
+
+
+
+
+<A NAME="ch23-676-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>propname</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个字符串，包含object原型的名字。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-677-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">如果object具有名为propname的非继承属性，而且该属性是可枚举的(即用for/in循环可以枚举出它)，则返回true。
+</P>
+
+
+
+
+
+<A NAME="ch23-678-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">用for/in语句可以遍历一个对象“可枚举”的属性。但并非—个对象的所有属性都是可枚举的，通过JavaScript代码添加到对象的属性是可枚举的，而内部对象的预定义属性(如方法)通常是不可枚举的。propertylsEnumerable()方法提供了区分可枚举属性和不可枚举属性的方法。但要注意，ECMAScript标准规定，propertyIsEnumerable()方法不检测原型链，这意味着它只适用于对象的局部属性，不能检测继承属性的可枚举性。</P>
+
+
+
+<A NAME="ch23-679-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var o = new Object(  );                // 创建一个对象
+
+o.x = 3.14;                            // 定义—个属性
+
+o.propertyIsEnumerable("x");           // true属性x是局部的、可枚举的
+
+o.propertyIsEnumerable("y");           //false：o没有属性y
+
+o.propertyIsEnumerable("toString");    //false：toStrlng属性是继承的
+
+Object.prototype.propertyIsEnumerable("toString");  // false: 枚举的</PRE>
+
+
+
+<A NAME="ch23-680-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">当标准限制propertylsEnumerable()方法只能检测非继承属性时，明显是错的。
+    Internet Explorer 5.5按标准实现了该方法。Nestacpe 6.0实现的propertyIsEnumerable()方法考虑了原型链。虽然这种方法可取，但它与标准冲突，所以Netscape 6.1修改了它，以便与IE 5.5匹配。由于标准中有这个错误，因此该方法不是那么有用。</P>
+
+
+
+<A NAME="ch23-681-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-436-fm2xml.html#ch23-436-fm2xml">Function.prototype</A>, <A class="docLink" HREF="ch23-660-fm2xml.html#ch23-660-fm2xml">Object.hasOwnProperty(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-667-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-682-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>popup</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="plainText.html" title="PLAINTEXT 元素 | plainText 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>PLAINTEXT 元素 | plainText 对象</A> <A HREF="PRE.html" title="PRE 元素 | pre 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>PRE 元素 | pre 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>popup 对象</H1>
+<HR SIZE="1"><P>一种特殊的顶层窗口，主要用于出现在应用程序主窗口之外的对话框、消息框和其它临时窗口。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>popup</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/document.html">document</A></TD>
+<TD>获取给定<B>弹出</B>窗口中的 HTML <A href="obj_document.html">文档</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isOpen.html">isOpen</A></TD>
+<TD>获取表明<B>弹出</B>窗口是否已打开的值。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/hide.html">hide</A></TD>
+<TD>关闭弹出窗口。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/show.html">show</A></TD>
+<TD>在屏幕上显示弹出窗口。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.5 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子演示了 <B>popup</B> 对象的使用。该代码创建了弹出窗口并显示之。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+var oPopup = window.createPopup();
+var oPopupBody = oPopup.document.body;
+oPopupBody.innerHTML = "在这里显示 &lt;B&gt;HTML&lt;/B&gt;。";
+oPopup.show(100, 100, 200, 50, document.body);
+&lt;/SCRIPT&gt;
+</PRE>
+<P>下面的例子演示了 <B>popup</B> 对象的几种不同用途。</P>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.5 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../samples/popup/default.html"></IMG></A>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="../methods/createPopup.html">createPopup</A></BLOCKQUOTE></DIV>
+</BODY>
+</HTML>

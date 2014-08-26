@@ -1,0 +1,263 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Shape Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Shape Element</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Top level element used to describe a shape.</P>
+<P>The following attributes modify a shape.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Attribute</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_adj.html"><B>Adj</B></A></TD><TD bgcolor=#EEEEEE> Specifies an adjustment value used to define values for a formula. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_allinc.html"><B>AllowInCell</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a shape can be placed in a table. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_allovl.html"><B>AllowOverlap</B></A></TD><TD bgcolor=#EEEEEE>Determines if a shape can overlap other shapes. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_alt.html"><B>Alt</B></A></TD><TD bgcolor=#EEEEEE>Defines alternative text to be displayed instead of a graphic. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_boboco.html"><B>BorderBottomColor</B></A></TD><TD bgcolor=#EEEEEE>Bottom border color of an inline shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_boleco.html"><B>BorderLeftColor</B></A></TD><TD bgcolor=#EEEEEE>Left border color of an inline shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_borico.html"><B>BorderRightColor</B></A></TD><TD bgcolor=#EEEEEE>Right border color of an inline shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_botoco.html"><B>BorderTopColor</B></A></TD><TD bgcolor=#EEEEEE>Top border color of an inline shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_bullet.html"><B>Bullet</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a shape is a graphical bullet. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_button.html"><B>Button</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a shape will be processed as a button. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_bwmode.html"><B>BWMode</B></A></TD><TD bgcolor=#EEEEEE>Determines how a shape will render for black-and-white output devices. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_bwnorm.html"><B>BWNormal</B></A></TD><TD bgcolor=#EEEEEE>  Defines the black-and-white mode for normal black-and-white output devices. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_bwpure.html"><B>BWPure</B></A></TD><TD bgcolor=#EEEEEE>  Defines the black-and-white mode for pure black-and-white output devices. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_class.html"><B>Class</B></A></TD><TD bgcolor=#EEEEEE>Refers to a definition of a CSS style. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_contyp.html"><B>ConnectorType</B></A></TD><TD bgcolor=#EEEEEE> Indicates the type of connector used for joining shapes. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_coorig.html"><B>CoordOrig</B></A></TD><TD bgcolor=#EEEEEE>Specifies the coordinate unit origin of the rectangle that bounds a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_corsiz.html"><B>CoordSize</B></A></TD><TD bgcolor=#EEEEEE>Specifies the horizontal and vertical units of the rectangle that bounds a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_doclno.html"><B>DoubleClickNotify</B></A></TD><TD bgcolor=#EEEEEE>Sends an event message when a shape is double-clicked. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_fillco.html"><B>FillColor</B></A></TD><TD bgcolor=#EEEEEE>Defines the brush color that fills the closed path of a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_filled.html"><B>Filled</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the closed path will be filled. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_flip.html"><B>Flip</B></A></TD><TD bgcolor=#EEEEEE>Switches the orientation of a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_forcda.html"><B>ForceDash</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a dashed outline is used to draw a shape when a shape has no line or fill. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_height.html"><B>Height</B></A></TD><TD bgcolor=#EEEEEE>Specifies the height of the shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hr.html"><B>HR</B></A></TD><TD bgcolor=#EEEEEE>Specifies that a shape is a horizontal rule.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hralig.html"><B>HRAlign</B></A></TD><TD bgcolor=#EEEEEE> Defines the alignment of a horizontal rule. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_href.html"><B>HRef</B></A></TD><TD bgcolor=#EEEEEE>Defines a URL for a shape. When the shape is clicked, the browser will load the URL. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hrhite.html"><B>HRHeight</B></A></TD><TD bgcolor=#EEEEEE>Defines the thickness of a horizontal rule. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hrnosh.html"><B>HRNoShade</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a horizontal rule will be displayed with 3-D shading. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hrpct.html"><B>HRPct</B></A></TD><TD bgcolor=#EEEEEE>Defines the length of a horizontal rule as a percentage of page width. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hrstd.html"><B>HRStd</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a shape is a standard horizontal rule. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_hrweig.html"><B>HRWidth</B></A></TD><TD bgcolor=#EEEEEE>Defines the length of a horizontal rule. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_id.html"><B>ID</B></A></TD><TD bgcolor=#EEEEEE>Provides a unique identifier for an element. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_left.html"><B>Left</B></A></TD><TD bgcolor=#EEEEEE>Determines the position of the shape relative to the element   left of it in the document flow. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_marbot.html"><B>Margin-Bottom</B></A></TD><TD bgcolor=#EEEEEE>Specifies the bottom edge of the shape's containing rectangle relative to the shape anchor. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_marlef.html"><B>Margin-Left</B></A></TD><TD bgcolor=#EEEEEE>Specifies the left edge of the shape's containing rectangle relative to the shape anchor.  </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_marrig.html"><B>Margin-Right</B></A></TD><TD bgcolor=#EEEEEE>Specifies the right edge of the shape's containing rectangle relative to the shape anchor.  </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_martop.html"><B>Margin-Top</B></A></TD><TD bgcolor=#EEEEEE>Specifies the top edge of the shape's containing rectangle relative to the shape anchor. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mspoho.html"><B>MSO-Position-Horizontal</B></A></TD><TD bgcolor=#EEEEEE>Specifies the horizontal positioning data for objects in Microsoft Word. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mpohor.html"><B>MSO-Position-Horizontal-Relative</B></A></TD><TD bgcolor=#EEEEEE>Specifies relative horizontal position data for objects in Microsoft Word. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mspovl.html"><B>MSO-Position-Vertical</B></A></TD><TD bgcolor=#EEEEEE>Specifies the vertical position data for objects in Microsoft Word. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mpovlr.html"><B>MSO-Position-Vertical-Relative</B></A></TD><TD bgcolor=#EEEEEE>Specifies relative vertical position data for objects in Microsoft Word. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mwrdib.html"><B>MSO-Wrap-Distance-Bottom</B></A></TD><TD bgcolor=#EEEEEE>Defines the distance from the bottom side of the shape to the text that wraps around it. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mwrdil.html"><B>MSO-Wrap-Distance-Left</B></A></TD><TD bgcolor=#EEEEEE>Defines the distance from the left side of the shape to the text that wraps around it. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mwrdir.html"><B>MSO-Wrap-Distance-Right</B></A></TD><TD bgcolor=#EEEEEE>Defines the distance from the right side of the shape to the text that wraps around it. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mwrdit.html"><B>MSO-Wrap-Distance-Top</B></A></TD><TD bgcolor=#EEEEEE>Defines the distance from the shape top to the text that wraps around it. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mswred.html"><B>MSO-Wrap-Edited</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the wrap coordinates were customized by the user.  </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mswrmo.html"><B>MSO-Wrap-Mode</B></A></TD><TD bgcolor=#EEEEEE>Defines the wrapping mode for text. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_oleico.html"><B>OLEIcon</B></A></TD><TD bgcolor=#EEEEEE>Determines whether an OLE object will be displayed as an icon. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_oned.html"><B>OnEd</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the extra handles of a shape are hidden. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_mouovr.html"><B>OnMouseOver</B></A></TD><TD bgcolor=#EEEEEE>Triggers a mouse event for a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_path.html"><B>Path</B></A></TD><TD bgcolor=#EEEEEE>Specifies the line that makes up the edges of a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_positn.html"><B>Position</B></A></TD><TD bgcolor=#EEEEEE>Defines the type of positioning used to place an element. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_prefre.html"><B>PreferRelative</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the original size of an object is saved after reformatting. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_print.html"><B>Print</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the shape will be printed. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_regpid.html"><B>ReGroupID</B></A></TD><TD bgcolor=#EEEEEE>Defines a previous group for a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_relpos.html"><B>RelativePosition</B></A></TD><TD bgcolor=#EEEEEE>Defines a relative position for an object. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_rotatn.html"><B>Rotation</B></A></TD><TD bgcolor=#EEEEEE> Defines the angle that a shape is rotated. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_rulini.html"><B>RuleInitiator</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a rules engine will be used. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_rulpro.html"><B>RuleProxy</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a proxy for the rules engine will be used. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_spt.html"><B>Spt</B></A></TD><TD bgcolor=#EEEEEE>Defines a number used internally by Microsoft Office to identify types of shapes. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_strcol.html"><B>StrokeColor</B></A></TD><TD bgcolor=#EEEEEE>Defines the brush color that strokes the path of a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_strokd.html"><B>Stroked</B></A></TD><TD bgcolor=#EEEEEE>Defines whether the path will be stroked. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_strwgt.html"><B>StrokeWeight</B></A></TD><TD bgcolor=#EEEEEE>Defines the brush thickness that strokes the path of a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_tablim.html"><B>TableLimits</B></A></TD><TD bgcolor=#EEEEEE>List of minimum height values for each row in a table. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_tabpro.html"><B>TableProperties</B></A></TD><TD bgcolor=#EEEEEE>Determines table properties. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_target.html"><B>Target</B></A></TD><TD bgcolor=#EEEEEE>Defines a frame or window that a URL will be displayed in. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_title.html"><B>Title</B></A></TD><TD bgcolor=#EEEEEE>Defines the text displayed when the mouse pointer moves over the shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_top.html"><B>Top</B></A></TD><TD bgcolor=#EEEEEE>Defines the position of the shape relative to the element above it in the flow of the page. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_type.html"><B>Type</B></A></TD><TD bgcolor=#EEEEEE>Defines a reference to the ID of a <B>ShapeType</B> element. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_usedra.html"><B>UserDrawn</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the user has added the shape to a master slide. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_usehid.html"><B>UserHidden</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a script anchor is hidden. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_visibi.html"><B>Visibility</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a shape is displayed. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_width.html"><B>Width</B></A></TD><TD bgcolor=#EEEEEE>Defines the width of the shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_wracor.html"><B>WrapCoords</B></A></TD><TD bgcolor=#EEEEEE>Defines the bounding polygon that surrounds a shape. </TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="a_zindex.html"><B>Z-Index</B></A></TD><TD bgcolor=#EEEEEE>Determines the display order of overlapping shapes. </TD></TR>
+</TABLE>
+<BR>
+<P><B>Remarks</B></P>
+<P>This element may appear by itself
+or within a <B>Group</B> element.</P>
+<P>The following is the minimum code needed to produce a
+shape. You must define the <STRONG>FillColor</STRONG>,
+<STRONG>Position</STRONG>, <STRONG>Top</STRONG>, <STRONG>Left</STRONG>,
+<STRONG>Width</STRONG>, <STRONG>Height </STRONG> and <STRONG>Path</STRONG> attributes or the shape will not be
+rendered.</P>
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:shape
+&nbsp;&nbsp;&nbsp;fillcolor="green"
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:200;height:200"
+&nbsp;&nbsp;&nbsp;path = "m 1,1 l 1,200, 200,200, 200,1 x e"&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:shape&gt;
+</PRE>
+<P>In addition, you must put the following code in your <B>HTML</B> element of your web page to obtain
+the correct schemas for VML and Microsoft Office Extensions. If you are not using Office Extensions,
+you can omit the second schema.</P>
+<PRE class="clsCode">
+xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+</PRE>
+<P>You must also have the following in your <B>STYLE</B> element to
+register the behavior of VML and Microsoft Office Extensions.
+If you are not using Office Extensions, you can omit
+the second behavior definition.</P>
+<PRE class="clsCode">
+v\:* { behavior: url(#default#VML); }
+o\:* { behavior: url(#default#VML); }
+</PRE>
+<BR>
+<P><B>Valid Subelements</B></P>
+<P>The following are subelements of <B>Shape</B>.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Element</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="callout.html"><B>Callout</B></A></TD><TD bgcolor=#EEEEEE>Defines a callout for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion.html"><B>Extrusion</B></A></TD><TD bgcolor=#EEEEEE>Defines an extrusion for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="fill.html"><B>Fill</B></A></TD><TD bgcolor=#EEEEEE>Defines a fill for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="formula.html"><B>Formulas</B></A></TD><TD bgcolor=#EEEEEE>Defines formulas for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="handles.html"><B>Handles</B></A></TD><TD bgcolor=#EEEEEE>Defines handles for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image\imagedata.html"><B>Imagedata</B></A></TD><TD bgcolor=#EEEEEE>Defines image data for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="locks\locks.html"><B>Locks</B></A></TD><TD bgcolor=#EEEEEE>Defines a lock for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="path.html"><B>Path</B></A></TD><TD bgcolor=#EEEEEE>Defines a path for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shadow.html"><B>Shadow</B></A></TD><TD bgcolor=#EEEEEE>Defines a shadow for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="skew.html"><B>Skew</B></A></TD><TD bgcolor=#EEEEEE>Defines a skew for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="stroke.html"><B>Stroke</B></A></TD><TD bgcolor=#EEEEEE>Defines a stroke for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="textbox.html"><B>TextBox</B></A></TD><TD bgcolor=#EEEEEE>Defines a textbox for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="textpath.html"><B>TextPath</B></A></TD><TD bgcolor=#EEEEEE>Defines a text path for a shape.</TD></TR>
+</TABLE>
+<BR>
+<P><B>Other Elements</B></P>
+<P>The following top-level elements work with <B>Shape</B>.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Element</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="group.html"><B>Group</B></A></TD><TD bgcolor=#EEEEEE>Defines a group of shapes.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="shaptype.html"><B>ShapeType</B></A></TD><TD bgcolor=#EEEEEE>Defines a template for shapes.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="e_vmlframe.html"><B>VMLFrame</B></A></TD><TD bgcolor=#EEEEEE>Defines a frame for an external shape.</TD></TR>
+</TABLE>
+<BR>
+<P><B>Predefined Shapes</B></P>
+<P>Predefined shapes are the same as normal shapes except that some of them have additional attributes. The following shapes are predefined.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Element</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="rect.html"><B>Rect</B></A></TD><TD bgcolor=#EEEEEE>Defines a rectangle for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="roundrect.html"><B>RoundRect</B></A></TD><TD bgcolor=#EEEEEE>Defines a round rect for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="line.html"><B>Line</B></A></TD><TD bgcolor=#EEEEEE>Defines a line for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="polyline.html"><B>Polyline</B></A></TD><TD bgcolor=#EEEEEE>Defines a polyline for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="oval.html"><B>Oval</B></A></TD><TD bgcolor=#EEEEEE>Defines an oval for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="image.html"><B>Image</B></A></TD><TD bgcolor=#EEEEEE>Defines an image for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="curve.html"><B>Curve</B></A></TD><TD bgcolor=#EEEEEE>Defines a curve for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="arc.html"><B>Arc</B></A></TD><TD bgcolor=#EEEEEE>Defines an arc for a shape.</TD></TR>
+</TABLE>
+<BR>
+<P><B>See Also</B></P>
+<A href="vmlom.html#datatypes"><B>Data Types</B></A>
+<BR><BR>
+<P><B>Example</B></P>
+<P>The following code comprises a sample VML Web page:</P>
+<PRE class="clsCode">
+&lt;HTML xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+v\:* { behavior: url(#default#VML);}
+o\:* { behavior: url(#default#VML);}
+&lt;/STYLE&gt;
+&lt;TITLE&gt;VML Sample&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:shape
+&nbsp;&nbsp;&nbsp;fillcolor="green"
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:200;height:200"
+&nbsp;&nbsp;&nbsp;path = "m 1,1 l 1,200, 200,200, 200,1 x e"&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:shape&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+<P>Click <A href="vmldemos.html">here</A> to see VML demos.</P>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

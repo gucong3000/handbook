@@ -1,0 +1,281 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-580-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-592-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-584-fm2xml"></A><A NAME="jscript4-IDXTERM-3970"></A><A NAME="IXT-23-55291"></A><A NAME="IXT-23-55292"></A><A NAME="IXT-23-55293"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Number</i></b></td>
+
+<td align="right"><i>对数字的支持</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2.0; ECMAScript v1</P>
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText"> 继承于 Object </P><A NAME="ch23-585-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new Number(<TT><I>value</I></TT>)
+
+Number(<TT><I>value</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-586-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>value</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要创建的Number对象的数值，或是要转换成数字的值。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-587-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">当Number()和运算符new一起作为构造函数使用时，它返回一个新创建的Number对象。如果不用new运算符，把Number()作为一个函数来调用，它将把自己的参数转换成一个原始的数值，并且返回这个值(如果转换失败，返回NaN)。</P>
+
+
+
+
+
+<A NAME="ch23-588-fm2xml"></A>
+
+<h4 class="docRefsectTitle">常量</h4>
+
+
+
+<A NAME="IXT-23-55291"></A><DL class="docList"><A NAME="IXT-23-55291"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Number.MAX_VALUE</span></span></span></DT>
+
+<DD>
+
+<P class="docList">可表示的最大的数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Number.MIN_VALUE</span></span></span></DT>
+
+<DD>
+
+<P class="docList">可表示的最小的数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Number.NaN</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 非数字值。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Number.NEGATIVE_INFINITY</span></span></span></DT>
+
+<DD>
+
+<P class="docList">负无穷大；溢出时返回该值。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Number.POSITIVE_INFINITY</span></span></span></DT>
+
+<DD>
+
+<P class="docList">正无穷大；溢出时返回该值。</P>
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-589-fm2xml"></A>
+
+<h4 class="docRefsectTitle">方法</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数字转换成字符串，使用指定的基数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toLocaleString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数字转换成字符串，使用本地数字格式规约。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toFixed(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数字转换成字符串，结果的小数点后有指定位数的数字。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toExponential(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数字转换成字符串，结果采用指数计数法，小数点后有指定位数的数字。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toPrecision(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数字转换成字符串，结果中包含指定位数的行效数字。采用指数计数法或定点计数法，由数字的大小和指定的有效数字位数决定采用哪种方法。</P>
+</DD>
+</DL>
+
+
+
+<A NAME="ch23-590-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">在JavaScript中，数字是—种基本的数据类型。在JavaScriptl.1中，JavaScript
+    还支持Number对象，该对象是原始数值的包装对象。JavaScript在必要时会自动地进行原始数据和对象之间的转换。在JavaScript 1.1中，可以用构造函数Number()
+    明确地创建一个Number对象，尽管这样做并没有什么必要。</P>
+
+
+
+<P class="docText">构造函数Number()还可以不与运算符new—起使用，而直接作为转换函数来使用。
+    以这种方式调用Number()时，它会把自己的参数转换成一个数字，然后返回转换后的原始数值(或NaN)。</P>
+
+
+
+<P class="docText"> 构造函数Number()通常还用作5个有用的数字常量的占位符，这5个有用的数字常量分别是可表示的最大的数、可表示的最小的数、正无穷大、负无穷大和特殊的非数
+    字值。注意，这些值都是构造函数Number()自身的属性，而不是单独的Number对象的属性。例如，可以采用如下的形式使用属性MAX_VALUE：</P>
+
+
+
+<PRE>var biggest = Number.MAX_VALUE </PRE>
+
+
+
+<P class="docText">但是却不能使用：</P>
+
+
+
+<PRE>var n = new Number(2);
+
+var biggest = n.MAX_VALUE </PRE>
+
+
+
+<P class="docText">作为比较，看一下toStrlng()和Number对象的其他方法，它们是每个Number对象的方法，而不是Number()构造函数的方法。前面提到过，在必要时，JavaScript
+    会自动地把原始数值转换成Number对象。这就是说，调用Number方法的既可以是Number对象，也可以是原始数字值。</P>
+
+
+
+<PRE>var value = 1234;
+
+var binary_value = n.toString(2); </PRE>
+
+
+
+<A NAME="ch23-591-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-454-fm2xml.html#ch23-454-fm2xml">Infinity</A>, <A class="docLink" HREF="ch23-470-fm2xml.html#ch23-470-fm2xml">Math</A>, <A class="docLink" HREF="ch23-580-fm2xml.html#ch23-580-fm2xml">NaN</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-580-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-592-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

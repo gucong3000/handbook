@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>dataTransfer</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<LINK REL="stylesheet" HREF="../../common/common.css" TYPE="text/css">
+<SCRIPT>
+// This code relates to the dataTransfer example
+function InitiateDrag()
+{
+event.dataTransfer.setData("URL", oSource.href);
+}
+function FinishDrag()
+{
+oTarget.innerText = event.dataTransfer.getData("URL");
+}
+</SCRIPT>
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<H1>dataTransfer 对象示例</H1>
+<P>这个例子演示了如何使用 <B>dataTransfer</B> 对象的 <B>setData</B> 和 <B>getData</B> 方法，以便能够启用链接 <B>HREF</B> 的拖曳。此功能使得将快捷方式拖曳到其他应用程序和桌面成为可能。</P>
+<UL>
+<LI>要查看测试锚链接的 <B>HREF</B>，将其拖曳划过写有“将连接拖曳到这里”的文本区。
+<LI>要创建快捷方式，请将锚文本拖曳到其它应用程序或桌面。
+</UL><BR><BR>
+<A ID="oSource" HREF="about:Example_Complete" onclick="return(false)" ondragstart="InitiateDrag()">测试锚</A>
+<BR><BR>
+<SPAN ID="oTarget" ondragenter="FinishDrag()" STYLE="background-color:thistle">将链接拖曳到这里</SPAN>
+<BR><BR>
+<BR><BR><BR>
+&copy; 2001 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

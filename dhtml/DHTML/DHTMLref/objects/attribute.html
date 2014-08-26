@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>attribute</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="AREA.html" title="AREA 元素 | area 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>AREA 元素 | area 对象</A> <A HREF="B.html" title="B 元素 | b 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>B 元素 | b 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>attribute 对象</H1>
+<HR SIZE="1"><P>以对象的形式代表了 HTML 元素的标签属性或属性。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>attribute</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/expando.html">expando</A></TD>
+<TD>设置或获取表明是否可<span replace="1">对象</span>内创建任意变量的值。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/firstChild.html">firstChild</A></TD>
+<TD>获取<span replace="1">对象</span>的 <A href="../collections/childNodes.html">childNodes</A> 集合的第一个子对象的引用。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/lastChild.html">lastChild</A></TD>
+<TD>获取该对象 <B>childNodes</B> 集合中最后一个子对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/name_2.html">NAME</A></TD>
+<TD><A HREF="../properties/name_2.html">name</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的名称。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/nextSibling.html">nextSibling</A></TD>
+<TD>获取对此对象的下一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/nodeName.html">nodeName</A></TD>
+<TD>获取特定结点类型的名称。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/nodeType.html">nodeType</A></TD>
+<TD>获取所需结点的类型。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/nodeValue.html">nodeValue</A></TD>
+<TD>设置或获取结点的值。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/ownerDocument.html">ownerDocument</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置或获取<span replace="1">结点</span>关联的 <A href="obj_document.html">document</A> 对象。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/parentNode.html">parentNode</A></TD>
+<TD>获取文档层次中的父对象。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/previousSibling.html">previousSibling</A></TD>
+<TD>获取对此对象的上一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/specified.html">specified</A></TD>
+<TD>获取是否指定了该属性。</TD>
+</TR>
+<TR>
+<TD></TD>
+<TD><A HREF="../properties/value_7.html">value</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置或获取<span replace="1">对象</span>的值。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH>
+<TR>
+<TD><A HREF="../collections/attributes.html">attributes</A></TD>
+<TD>获取对象标签属性的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/childNodes.html">childNodes</A></TD>
+<TD>获取作为指定对象直接后代的 <A HREF="../elements.html">HTML 元素</A>和 <A HREF="TextNode.html">TextNode</A> 对象的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH>
+<TR>
+<TD><A HREF="../methods/appendChild.html">appendChild</A></TD>
+<TD>给<span replace="1">对象</span>追加一个子元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/cloneNode.html">cloneNode</A></TD>
+<TD>从文档层次中复制对<span replace="1">对象</span>的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/hasChildNodes.html">hasChildNodes</A></TD>
+<TD>返回表明<span replace="1">对象</span>是否有子对象的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertBefore.html">insertBefore</A></TD>
+<TD>在文档层次中插入元素作为父对象的子结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeChild.html">removeChild</A></TD>
+<TD>从元素上删除子结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceChild.html">replaceChild</A></TD>
+<TD>用新的子元素替换已有的子元素。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>attribute</B> 对象可通过 <A HREF="../collections/attributes.html">attributes</A> 集合访问。</P>
+<P>一个合法的标签属性或属性可以是应用于该对象的任何动态 HTML (DHTML)<A HREF="../properties.html">属性</A>或<A HREF="../events.html">事件</A>，或者是<A HREF="../properties/expando.html">扩展属性</A>。</P>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>这个例子使用 <B>attribute</B> 对象来创建<A HREF="../properties/specified.html">已指定</A>的属性清单。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnFind(){
+for(var i=0;i&lt;oList.attributes.length;i++){
+if(oList.attributes[i].specified){
+alert(oList.attributes[i].nodeName + " = "
++ oList.attributes[i].nodeValue);
+}
+}
+}
+&lt;/SCRIPT&gt;
+&lt;UL onclick="fnFind()"&gt;
+&lt;LI ID = "oList" ACCESSKEY = "L"&gt;列表项目 1
+&lt;/UL&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

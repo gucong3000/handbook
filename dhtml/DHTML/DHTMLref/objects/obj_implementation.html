@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>implementation</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="IMG.html" title="IMG 元素 | img 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>IMG 元素 | img 对象</A> <A HREF="IMPORT.html" title="IMPORT 处理指令"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>IMPORT 处理指令</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>implementation 对象<IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" style="vertical-align:top" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></H1>
+<HR SIZE="1"><P>包含了关于对象支持的模块信息。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>implementation</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH>
+<TR>
+<TD><A HREF="../methods/hasFeature.html">hasFeature</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>返回表明<span replace="1">对象</span>是否实现了指定的文档对象模型(DOM)标准的值。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在<A HREF="http://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/" TARGET="_top">万维网协会(W3C)文档对象模型(DOM) 级别 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="obj_document.html">document</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

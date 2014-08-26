@@ -1,0 +1,127 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Type Attribute</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Type Attribute</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size="1" />
+<P></P>
+<P>Defines a reference to the ID of a <STRONG><A href="./shaptype/shaptype.html">ShapeType</A></STRONG> element. Read/write <B>String</B>.</P>
+<P><B>Applies To</B></P>
+<P><A href="e_shape.html"><B>Shape</B></A> </P>
+<P><STRONG>Tag Syntax</STRONG> </P>
+<P><P><B>&lt;v:</B><I>element</I><STRONG> type="</STRONG><EM>expression</EM><B>"&gt;</B></P>
+<P><STRONG>Script Syntax</STRONG> </P>
+<P><I>element</I><B>.type</B>=<B>"</B><I>#expression</I><B>"</B></P>
+<P><I>expression</I>=<I>element</I><B>.type</B></P>
+<P><B>Remarks</B></P>
+<P class=ObjectProperty>If the <STRONG>Type
+</STRONG>attribute references the ID of a <STRONG>ShapeType </STRONG>element,
+the fills, paths, and strokes of the <STRONG>ShapeType </STRONG>are used as
+templates to create the shape. Values derived from <STRONG>ShapeType
+</STRONG> can be overridden by individual shape values.
+<P>If used in tags, the string value must begin with a number sign (#) symbol.</P>
+<P><I>VML Standard Attribute</I></P>
+<P><B>Example</B></P>
+<P>A <STRONG>ShapeType </STRONG>shape is created
+with the "mytype" as an ID.</P>
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:shapetype id="mytype"
+&nbsp;&nbsp;&nbsp;fillcolor="red" strokecolor="blue"
+&nbsp;&nbsp;&nbsp;coordorigin="0 0" coordsize="200 200"&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:path v="m 0,0 l 0,200, 200,200, 200,0 x e"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:shapetype&gt;
+</PRE>
+<P>Then if you create a shape using the <B>ShapeType</B> values, the shape will have the attributes of
+the "mytype" <STRONG>ShapeType</STRONG>; that is, "shape01" will have a red fill
+with a blue stroke.
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:shape id="shape01" type="#mytype"
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:20;height:20"&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:shape&gt;
+</PRE>
+<P>You can override the inherited values, for example, by changing the color to green.
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:shape id="shape02" type="#mytype"
+&nbsp;&nbsp;&nbsp;fillcolor="green"
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:20;height:20"&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:shape&gt;
+</PRE>
+<P><A href=".\examples\x_type.html"><STRONG>Type
+</STRONG>Attribute Example</A>. (Requires Microsoft Internet Explorer 5 or greater.)</P>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

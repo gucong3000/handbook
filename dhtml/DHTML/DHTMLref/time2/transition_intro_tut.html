@@ -1,0 +1,844 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>How to Create An Animated Presentation Using HTML+TIME Transitions (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>How to Create An Animated Presentation Using HTML+TIME Transitions
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>This tutorial shows you how to use HTML+TIME (Timed Interactive Multimedia Extensions) transitions to make an animated presentation. This presentation consists of several elements transitioning in and out of view. This is an example of using HTML+TIME transitions to coordinate the transitioning of several elements with one another. No scripting is used. Click the following <B>Show Me</B> button to see the presentation that will be created in this tutorial.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialsamples/intro_example2_tut.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><p>One of the greatest advantages of using HTML+TIME transitions for an application like the preceding is the simplicity of the code. By working through this tutorial, you can discover some basic techniques that enable you to create your own presentations using HTML+TIME transitions.</p><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#firstLook">A Quick Look At the Code</A></LI><LI><A TARGET="_self" HREF="#shell">Setting the Stage</A></LI><LI><A TARGET="_self" HREF="#main">Step-by-Step Transitions</A></LI><LI><A TARGET="_self" HREF="#caveots">Notes About This Sample</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2><p>This article assumes you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into great detail on how to add a behavior to your page nor does it cover how to declare a namespace and use custom tags, as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>. You should have some understanding of HTML+TIME transitions; for an overview, see <A HREF="../common/author/behaviors/overview/transition_ovw.html">Using HTML+TIME Transitions</A>.</p><H2><A NAME="firstLook"></A>A Quick Look At the Code</H2><p>To start, have a quick look at the code of the entire sample. Later on, this code is explained in greater detail, but for now, it might be useful to have a preview of what is needed to make the tutorial sample.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin" TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe" DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"  DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+&lt;P&gt;&lt;P&gt;
+&lt;!-- Next, this SPAN fades in and then fades out --&gt;
+&lt;SPAN  ID="oSpan2" BEGIN="oSpan1.begin+3" TIMEACTION="display" CLASS="time" DUR="4"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan2.begin" TYPE="fade" DUR="2"  /&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2TranOut" MODE="out" BEGIN="oSpan2.end - 1" TYPE="fade" DUR="1"/&gt;
+A Fast and Simple way to add visual transitions to your media elements.
+&lt;/SPAN&gt;
+&lt;!-- This SPAN transitions into the same area that oSpan2 was. --&gt;
+&lt;SPAN ID="oSpan3" BEGIN="oSpan2TranOut.end" CLASS="time" DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2Tran" MODE="in" BEGIN="oSpan3.begin" TYPE="pushWipe" DUR="2" /&gt;
+All Types of Media Can Be Transitioned Using HTML+TIME Transitions
+&lt;/SPAN&gt;
+&lt;!-- This is the caption to appear over the image. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="caption time" DUR="8" ID="oCaption1"
+BEGIN="oSpan2Tran.end+1"&gt;
+&lt;t:TRANSITIONFILTER ID="oCaption1TranIn" MODE="in" BEGIN="oCaption1.begin" TYPE="fade" DUR="2" /&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oCaption1.end - 2" TYPE="fade" DUR="2" /&gt;
+Images
+&lt;/DIV&gt;
+&lt;!-- This is the image. It begins at the same time as the caption above it.--&gt;
+&lt;t:IMG TIMEACTION="display" CLASS="showOff" DUR="indefinite" ID="oImage" SRC="../common/samples/author/behaviors/media/ART_fruit_2.gif"
+BEGIN="oCaption1TranIn.end" END="oCaption1.end"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oImage.begin" TYPE="clockWipe" DUR="2" /&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oImage.end - 2" TYPE="clockWipe" DUR="2" /&gt;
+&lt;/t:img&gt;
+&lt;!-- This is the caption to appear over a DIV --&gt;
+&lt;DIV timeAction="display" CLASS="caption time" DUR="indefinite" ID="oCaption2"
+BEGIN="oCaption1.end + .5"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oCaption2.begin" TYPE="fade" DUR="2" /&gt;
+And More...
+&lt;/DIV&gt;
+&lt;!-- This is the last DIV to transition in. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="time showOff" DUR="indefinite" ID="oDiv"
+begin="oCaption2.begin + 2"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oDiv.begin" TYPE="ellipseWipe" DUR="2" /&gt;
+&lt;button&gt;Renderable Elements&lt;/button&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialsamples/intro_example2_tut.htm" FEATURES="top=50,left=50,height=550,width=580,status=0"></IMG></A></DIV><p>Much of the preceding code is inside of the <A HREF="../objects/style.html">STYLE</A> block. This code is important for this sample to render correctly; it is stored away from the functional elements for clarity. The rest of the code is mostly a collection of <A HREF="../objects/div.html">DIV</A> and <B>STYLE</B> elements contained inside one <B>DIV</B>. Many of these elements have <A HREF="../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> elements applied to them. These elements and their corresponding <B>t:TRANSITIONFILTER</B> elements are timed to transition the elements in and out of view one after the other, giving an appearance of a presentation. Notice that no scripting is involved. This tutorial walks through each of the following steps to create the sample.
+<ol><li>Write the miscellaneous code needed for the sample to work properly.
+<ul><li>Write the code that is needed to instantiate the HTML+TIME behavior.</li><li>Write the formatting code that will be needed by the menu in a <B>STYLE</B> tag.</li></ul></li><li>Build the presentation step by step by demonstrating and discussing the code needed for each transition that occurs on the individual time elements.</li></ol></p><H2><A NAME="shell"></A>Setting the Stage</H2><p>To use HTML+TIME elements and use the <B>time2</B> behavior, the following code is needed. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+.
+.
+.
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><p>For more information about creating an XML namespace and referencing the <B>time2</B> behavior, see <A HREF="../common/author/behaviors/time.html#Authoring">Authoring HTML+TIME</A>.</p><p>Next, add the formatting code inside of the <B>STYLE</B> tags. All of the elements in this sample derive their formatting from here. By separating formatting code from rendered elements, the functional code is simplified.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+</PRE><H2><A NAME="main"></A>Step-by-Step Transitions</H2><p>Now I will walk you through each step of building this document. After each step, you can render the code and see the effect.</p><H3>Make a Container DIV</H3><p>This sample consists of a larger container <B>DIV</B> (looks like a green chalkboard) that is the background for the display. Inside of this container <B>DIV</B> are several inner timed elements with <B>t:TRANSITIONFILTER</B> elements applied to them that create the display. When the display is over, the container <B>DIV</B> transitions out and ends its active period. All of the inner elements transition out with their parent. Let's first make this container <B>DIV</B>.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;/DIV&gt;
+</PRE><p>The <A HREF="../time2/properties/dur.html">DUR</A> attribute is set to 29 seconds; this is the total duration of the presentation.</p><p>The <B>DIV</B> must have <I>layout</I> in order to have an HTML+TIME transition applied to it. This <B>DIV</B> gains layout by having its <A HREF="../properties/width_2.html">width</A> and <A HREF="../properties/height_2.html">height</A> specified from the upper <B>STYLE</B> tag.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="width:500px;;height:450;">
+#oContainer
+{
+.
+.
+width:500px;
+height:450;
+.
+.
+}
+</PRE><p>All of the elements that are transitioned in this sample gain layout in this way. For more information about what is needed to gain layout, see <A HREF="../common/author/behaviors/overview/transition_ovw.html#whatTransition">What Can Be Transitioned?</A>.</p><p>To transition this element into view, we apply a <B>t:TRANSITIONFILTER</B> to the <B>DIV</B> with a <A HREF="../time2/properties/mode.html">MODE</A> attribute value of <SPAN CLASS="clsLiteral">in</SPAN>. Note that the value of <SPAN CLASS="clsLiteral">in</SPAN> did not have to be included because this is the default value. It is included merely for clarity.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="&lt;t:TRANSITIONFILTER ID=&quot;oContainerTranIn&quot; MODE=&quot;in&quot; BEGIN=&quot;oContainer.begin&quot;;TYPE=&quot;ellipseWipe&quot; DUR=&quot;1&quot;/&gt;">
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;/DIV&gt;
+</PRE><p>Notice that the <A HREF="../time2/properties/begin.html">BEGIN</A> attribute for the <B>t:TRANSITIONFILTER</B> directly specifies the beginning time of the element that the <B>t:TRANSITIONFILTER</B> is applied to.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="BEGIN=&quot;oContainer.begin&quot;;ID=&quot;oContainer&quot;">
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;/DIV&gt;
+</PRE><p>This is a clear and simple way to coordinate the beginning of a <B>t:TRANSITIONFILTER</B> to the beginning of the transition element that is being transitioned into view and is used throughout the sample.</p><p>To transition this element out of view, we apply a second <B>t:TRANSITIONFILTER</B> to the <B>DIV</B> with a <B>MODE</B> attribute value of <SPAN CLASS="clsLiteral">out</SPAN>.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="&lt;t:TRANSITIONFILTER MODE=&quot;out&quot; BEGIN=&quot;oContainer.end - 2&quot; TYPE=&quot;barnDoorWipe&quot;;DUR=&quot;2&quot;/&gt;">
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;/DIV&gt;
+</PRE><p>This <B>t:TRANSITIONFILTER</B> begins 2 seconds before the container ends.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+BEGIN="oContainer.end - 2"
+</PRE><p>We do this because the duration for the <B>t:TRANSITIONFILTER</B> as specified by the <B>DUR</B> attribute is set to a value of two. This facilitates a complete transition out that ends exactly when the active period of the container <B>DIV</B> ends. By timing the elements this way, the transition out appears as a smooth transition from visible to invisible. This same type of timing is done on all of the elements that transition out of view in this sample.</p><p>Let's take a look at the sample so far.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Code that corresponds to the last step in the tutorial is surrounded by comments in bold.</DIV><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="Here is the code of the last step;End of the code of the last step">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- Here is the code of the last step --&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;/DIV&gt;
+&lt;!-- End of the code of the last step --&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/introTutIntermediate1.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><H3>Make the Heading Text</H3><p>Next, add the elements inside of the container <B>DIV</B> that display initially.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+</PRE><p>The HTML code stays visible throughout the display so no <B>t:TRANSITIONFILTER</B> with a <B>MODE</B> value of <SPAN CLASS="clsLiteral">out</SPAN> is needed. Notice that the <B>BEGIN</B> attribute for the <B>t:TRANSITIONFILTER</B> references the end of the <B>t:TRANSITIONFILTER</B> that transitions the previous element into view.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="BEGIN=&quot;oContainerTranIn.end + 1&quot;;ID=&quot;oContainerTranIn&quot;">
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+</PRE><p>This is a convenient way to time an element's begin time in relation to the active period of a <B>t:TRANSITIONFILTER</B> element, rather than just the active periods of rendered timed elements. In this case, the next element begins just as the previous element finishes transitioning into view.</p><p>Let's take a look at the sample after the step.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="Here is the code of the last step;End of the code of the last step">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;!-- Here is the code of the last step --&gt;
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+&lt;!-- End of the code of the last step --&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/introTutIntermediate2.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><H3>Make the ''A Fast and Simple way...'' SPAN</H3><p>Next, a <A HREF="../objects/span.html">span</A> with some text is displayed. The <B>span</B> displays only for a moment and then transitions out of view.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;P&gt;&lt;P&gt;
+&lt;!-- Next, this SPAN fades in and then fades out --&gt;
+&lt;SPAN  ID="oSpan2" BEGIN="oSpan1.begin+3" TIMEACTION="display" CLASS="time"
+DUR="4"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan2.begin" TYPE="fade" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2TranOut" MODE="out" BEGIN="oSpan2.end - 1"
+TYPE="fade" DUR="1"/&gt;
+A Fast and Simple way to add visual transitions to your media elements.
+&lt;/SPAN&gt;
+</PRE><p>Let's take a look at the sample after the step.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="Here is the code of the last step;End of the code of the last step">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;DIV ALIGN="center"&gt;
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+&lt;!-- Here is the code of the last step --&gt;
+&lt;P&gt;&lt;P&gt;
+&lt;!-- Next, this SPAN fades in and then fades out --&gt;
+&lt;SPAN  ID="oSpan2" BEGIN="oSpan1.begin+3" TIMEACTION="display" CLASS="time"
+DUR="4"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan2.begin" TYPE="fade" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2TranOut" MODE="out" BEGIN="oSpan2.end - 1"
+TYPE="fade" DUR="1"/&gt;
+A Fast and Simple way to add visual transitions to your media elements.
+&lt;/SPAN&gt;
+&lt;!-- End of the code of the last step --&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/introTutIntermediate3.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><H3>Make the ''All Types of Media...'' SPAN</H3><p>Once the <SPAN CLASS="clsLiteral">oSpan2</SPAN>?A HREF="../objects/span.html">SPAN</A> transitions out, another <B>SPAN</B> transitions into the same place as <SPAN CLASS="clsLiteral">oSpan2</SPAN> was.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!-- This SPAN transitions into the same area that oSpan2 was. --&gt;
+&lt;SPAN ID="oSpan3" BEGIN="oSpan2TranOut.end" CLASS="time" DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2Tran" MODE="in" BEGIN="oSpan3.begin"
+TYPE="pushWipe" DUR="2" /&gt;
+All Types of Media Can Be Transitioned Using HTML+TIME Transitions
+&lt;/SPAN&gt;
+</PRE><p>Let's take a look at the sample after the step.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="Here is the code of the last step;End of the code of the last step">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+&lt;P&gt;&lt;P&gt;
+&lt;!-- Next, this SPAN fades in and then fades out --&gt;
+&lt;SPAN  ID="oSpan2" BEGIN="oSpan1.begin+3" TIMEACTION="display" CLASS="time"
+DUR="4"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan2.begin" TYPE="fade" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2TranOut" MODE="out" BEGIN="oSpan2.end - 1"
+TYPE="fade" DUR="1"/&gt;
+A Fast and Simple way to add visual transitions to your media elements.
+&lt;/SPAN&gt;
+&lt;!-- Here is the code of the last step --&gt;
+&lt;!-- This SPAN transitions into the same area that oSpan2 was. --&gt;
+&lt;SPAN ID="oSpan3" BEGIN="oSpan2TranOut.end" CLASS="time" DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2Tran" MODE="in" BEGIN="oSpan3.begin" TYPE="pushWipe" DUR="2" /&gt;
+All Types of Media Can Be Transitioned Using HTML+TIME Transitions
+&lt;/SPAN&gt;
+&lt;!-- End of the code of the last step  --&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/introTutIntermediate4.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><H3>Create the image and its Caption</H3><p>An image with a caption above it is displayed next. Other elements appear in the same space as these elements, so these elements each have <B>t:TRANSITIONFILTER</B> elements assigned to them to transition the elements out of view.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!-- This is the caption to appear over the image. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="caption time" DUR="8" ID="oCaption1"
+BEGIN="oSpan2Tran.end+1"&gt;
+&lt;t:TRANSITIONFILTER ID="oCaption1TranIn" MODE="in" BEGIN="oCaption1.begin"
+TYPE="fade" DUR="2" /&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oCaption1.end - 2" TYPE="fade" DUR="2"/&gt;
+Images
+&lt;/DIV&gt;
+&lt;!-- This is the image. It begins at the same time as the caption above
+it. --&gt;
+&lt;t:IMG TIMEACTION="display" CLASS="showOff" DUR="indefinite" ID="oImage" SRC="../common/samples/author/behaviors/media/ART_fruit_2.gif"
+BEGIN="oCaption1TranIn.end" END="oCaption1.end"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oImage.begin" TYPE="clockWipe" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oImage.end - 2" TYPE="clockWipe" DUR="2"/&gt;
+&lt;/t:img&gt;
+</PRE><p>Let's take a look at the sample after the step.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="Here is the code of the last step;End of the code of the last step">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+&lt;CENTER&gt;Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+&lt;P&gt;&lt;P&gt;
+&lt;!-- Next, this SPAN fades in and then fades out --&gt;
+&lt;SPAN  ID="oSpan2" BEGIN="oSpan1.begin+3" TIMEACTION="display" CLASS="time"
+DUR="4"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan2.begin" TYPE="fade" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2TranOut" MODE="out" BEGIN="oSpan2.end - 1"
+TYPE="fade" DUR="1"/&gt;
+A Fast and Simple way to add visual transitions to your media elements.
+&lt;/SPAN&gt;
+&lt;!-- This SPAN transitions into the same area that oSpan2 was. --&gt;
+&lt;SPAN ID="oSpan3" BEGIN="oSpan2TranOut.end" CLASS="time" DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2Tran" MODE="in" BEGIN="oSpan3.begin"
+TYPE="pushWipe" DUR="2" /&gt;
+All Types of Media Can Be Transitioned Using HTML+TIME Transitions
+&lt;/SPAN&gt;
+&lt;!-- Here is the code of the last step --&gt;
+&lt;!-- This is the caption to appear over the image. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="caption time" DUR="8" ID="oCaption1"
+BEGIN="oSpan2Tran.end+1"&gt;
+&lt;t:TRANSITIONFILTER ID="oCaption1TranIn" MODE="in" BEGIN="oCaption1.begin"
+TYPE="fade" DUR="2" /&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oCaption1.end - 2" TYPE="fade" DUR="2"/&gt;
+Images
+&lt;/DIV&gt;
+&lt;!-- This is the image. It begins at the same time as the caption above
+it. --&gt;
+&lt;t:IMG TIMEACTION="display" CLASS="showOff" DUR="indefinite" ID="oImage" SRC="../common/samples/author/behaviors/media/ART_fruit_2.gif"
+BEGIN="oCaption1TranIn.end" END="oCaption1.end"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oImage.begin" TYPE="clockWipe" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oImage.end - 2" TYPE="clockWipe" DUR="2"/&gt;
+&lt;/t:img&gt;
+&lt;!-- End of the code of the last step --&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/introTutIntermediate5.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><H3>Create the Display DIV with its Caption</H3><p>A display <B>DIV</B> with a caption over it transitions into the same place as the last elements. Shortly after these elements transition in, the container <B>DIV</B> transitions out and ends its time line. Naturally, all inner elements still visible transition out with their parent.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!-- This is the caption to appear over a DIV --&gt;
+&lt;DIV timeAction="display" CLASS="caption time" DUR="indefinite" ID="oCaption2"
+BEGIN="oCaption1.end + .5"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oCaption2.begin" TYPE="fade" DUR="2"/&gt;
+And More...
+&lt;/DIV&gt;
+&lt;!-- This is the last DIV to transition in. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="time showOff" DUR="indefinite" ID="oDiv"
+begin="oCaption2.begin + 2" /&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oDiv.begin" TYPE="ellipseWipe" DUR="2"/&gt;
+Renderable Elements
+&lt;/DIV&gt;
+&lt;/CENTER&gt;
+</PRE><p>Let's take a look at the completed sample.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="Here is the code of the last step;End of the code of the last step">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+.caption
+{
+font-size:large;
+width:300px;
+margin-top:20;
+margin-bottom:15;
+color:gold;
+font-weight:bold;
+background:#3366CC
+}
+.showOff
+{
+width:180px;
+height:160px;
+padding:10;
+background-color:white;
+font-size:small;
+color:blue;
+border-width:3px;
+border-style:solid;
+border-color:gold;
+}
+#oContainer
+{
+background:#3366CC;
+border:6px ridge #FFCC99;
+padding:10px;
+font-family:arial;
+color:white;
+font-size:x-large;
+width:500px;
+height:450px;
+text-align:center;
+}
+#oSpan1 {color:gold; width:30px; font-weight:bold; font-size:52pt; background:#3366CC}
+#oSpan2 {font-size:large;width:450px; background:#3366CC}
+#oSpan3 {text-align:center;color:white;font-size:large;width:450px; background:#3366CC}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The oContainer DIV contains all of the content. --&gt;
+&lt;DIV ID="oContainer" CLASS="time" DUR="29"&gt;
+&lt;t:TRANSITIONFILTER ID="oContainerTranIn" MODE="in" BEGIN="oContainer.begin"
+TYPE="ellipseWipe" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oContainer.end - 2" TYPE="barnDoorWipe"
+DUR="2"/&gt;
+&lt;!-- When the container DIV transitions out, all of the child elements
+transition out with it. --&gt;
+Introducing HTML+TIME&lt;BR&gt;
+&lt;!-- The transitioning elements appear in the order they appear on the time
+line. This SPAN is the first thing to transition in.  --&gt;
+&lt;SPAN  ID="oSpan1" BEGIN="oContainerTranIn.end + 1" CLASS="time"
+DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan1.begin" TYPE="barWipe" DUR="2" /&gt;
+Transitions
+&lt;/SPAN&gt;
+&lt;P&gt;&lt;P&gt;
+&lt;!-- Next, this SPAN fades in and then fades out --&gt;
+&lt;SPAN  ID="oSpan2" BEGIN="oSpan1.begin+3" TIMEACTION="display" CLASS="time"
+DUR="4"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oSpan2.begin" TYPE="fade" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2TranOut" MODE="out" BEGIN="oSpan2.end - 1"
+TYPE="fade" DUR="1"/&gt;
+A Fast and Simple way to add visual transitions to your media elements.
+&lt;/SPAN&gt;
+&lt;!-- This SPAN transitions into the same area that oSpan2 was. --&gt;
+&lt;SPAN ID="oSpan3" BEGIN="oSpan2TranOut.end" CLASS="time" DUR="indefinite"&gt;
+&lt;t:TRANSITIONFILTER ID="oSpan2Tran" MODE="in" BEGIN="oSpan3.begin"
+TYPE="pushWipe" DUR="2" /&gt;
+All Types of Media Can Be Transitioned Using HTML+TIME Transitions
+&lt;/SPAN&gt;
+&lt;!-- This is the caption to appear over the image. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="caption time" DUR="8" ID="oCaption1"
+BEGIN="oSpan2Tran.end+1"&gt;
+&lt;t:TRANSITIONFILTER ID="oCaption1TranIn" MODE="in" BEGIN="oCaption1.begin"
+TYPE="fade" DUR="2" /&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oCaption1.end - 2" TYPE="fade" DUR="2"/&gt;
+Images
+&lt;/DIV&gt;
+&lt;!-- This is the image. It begins at the same time as the caption above
+it. --&gt;
+&lt;t:IMG TIMEACTION="display" CLASS="showOff" DUR="indefinite" ID="oImage" SRC="../common/samples/author/behaviors/media/ART_fruit_2.gif"
+BEGIN="oCaption1TranIn.end" END="oCaption1.end"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oImage.begin" TYPE="clockWipe" DUR="2"/&gt;
+&lt;t:TRANSITIONFILTER MODE="out" BEGIN="oImage.end - 2" TYPE="clockWipe" DUR="2"/&gt;
+&lt;/t:img&gt;
+&lt;!-- Here is the code of the last step --&gt;
+&lt;!-- This is the caption to appear over a DIV --&gt;
+&lt;DIV timeAction="display" CLASS="caption time" DUR="indefinite" ID="oCaption2"
+BEGIN="oCaption1.end + .5"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oCaption2.begin" TYPE="fade" DUR="2"/&gt;
+And More...
+&lt;/DIV&gt;
+&lt;!-- This is the last DIV to transition in. --&gt;
+&lt;DIV TIMEACTION="display" CLASS="time showOff" DUR="indefinite" ID="oDiv"
+begin="oCaption2.begin + 2"&gt;
+&lt;t:TRANSITIONFILTER MODE="in" BEGIN="oDiv.begin" TYPE="ellipseWipe" DUR="2" /&gt;
+&lt;button&gt;Renderable Elements&lt;/button&gt;
+&lt;/DIV&gt;
+&lt;!-- End of the code of the last step --&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialsamples/intro_example2_tut.htm" FEATURES="top=50,left=50,height=550,width=520,status=0"></IMG></A></DIV><H2><A NAME="caveots"></A>Notes About This Sample</H2><p>There are two important notes to make about this sample.</p><p>First, as already mentioned, all the elements of this sample gain their layout by having their widths and/or heights specified. Alternatively, these elements could have had layout by giving their <A HREF="../properties/position.html">position</A> property a value of <SPAN CLASS="clsLiteral">absolute</SPAN> or <SPAN CLASS="clsLiteral">relative</SPAN>. Doing this can be a convenient way to position elements exactly where you want them. However, there is a trade-off by doing this. Positioning elements in this way takes them out of the flow of the document, and these elements no longer transition with their parent elements. For this sample, this would mean that each inner positioned element would have to be transitioned out independently of the parent. Rather than have these extra transition elements, this sample used other formatting attributes and elements to provide proper positioning such as <A HREF="../properties/margin.html">margins</A>, <A HREF="../properties/padding.html">padding</A>, <A HREF="../objects/p.html">P</A> tags, and so forth.  </p><p>Secondly, you may have noticed the following attribute in some of the elements.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+TIMEACTION="display"
+</PRE><p>The <A HREF="timeaction.html">timeAction</A> property determines what action is taken on the element while the time line is active. This attribute was included in elements that transitioned out of view and would have another element transition into the same area. A value of <SPAN CLASS="clsLiteral">display</SPAN> specifies that as the element changes between active and inactive states, the surrounding HTML elements dynamically reflow within the page. Without this, the new element would render as though the inactive element were still there and would not transition into the same area. </p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="transition_ovw.html">Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_basic_tut.html">How to Create a Basic HTML+TIME Transition</A></LI><LI><A HREF="transition_menu_tut.html">How to Make An Animated Menu Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_slide_show_tut.html">How to Make a Slide Show Using HTML+TIME Transitions</A></LI></UL><info><product rid="prod_IE" minver="6"></product><platform rid="plat_win" minver="98"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

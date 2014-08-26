@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Shadow','MotionBlur'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'Shadow','MotionBlur'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:100px;padding:6px;background-color:#FFFFFF;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.MotionBlur();}\n';
+
+sScript=
+'<script>\n'+
+'function window.onload(){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'oDiv.onfilterchange=new Function("with (this.filters[0]) {Direction+=45}");\n'+
+'with (oDiv.filters[0]) {Direction=45}\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_body0.jpg" style="float:left;border:1px solid #000000;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<\/div>\n';
+
+iWinWidth=400;
+
+iWinHeight=240;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>direction | Direction</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpdirectioning=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b> ( direction</b> = <i>iOffset</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b>').Direction = </b><i>iOffset</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iOffset </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。默认单位为角度。<b>0</b> | <b>45</b> | <b>90</b> | <b>135</b> | <b>180</b> | <span class=cssDefault><b>225</b></span> | <b>270</b> | <b>315</b><br>
+<table>
+<tr><td nowrap><b> 0 </b></td><td nowrap><b>: </b></td><td>上。</td></tr>
+<tr><td nowrap><b> 45 </b></td><td nowrap><b>: </b></td><td>右上。</td></tr>
+<tr><td nowrap><b> 90 </b></td><td nowrap><b>: </b></td><td>下。</td></tr>
+<tr><td nowrap><b> 135 </b></td><td nowrap><b>: </b></td><td>右下。</td></tr>
+<tr><td nowrap><b> 180 </b></td><td nowrap><b>: </b></td><td>下。</td></tr>
+<tr><td nowrap><b> 225 </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。左下。</td></tr>
+<tr><td nowrap><b> 270 </b></td><td nowrap><b>: </b></td><td>左。</td></tr>
+<tr><td nowrap><b> 315 </b></td><td nowrap><b>: </b></td><td>左上。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滤镜效果的运动偏移方向。小于<b> 0 </b>或大于<b> 360 </b>的值会自动转换为<b> 0 - 360 </b>之间的值。例如，<b> -45 </b>会转换为<b> 315 </b>。
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

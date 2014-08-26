@@ -1,0 +1,215 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-378-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-392-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-385-fm2xml"></A><A NAME="IXT-23-55199"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>eval(  )</i></b></td>
+
+<td align="right"><i>执行字符串中的JavaScript代码</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.0; JScript 1.0; ECMAScript v1 </P><A NAME="ch23-386-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>eval(<TT><I>code</I></TT>) </PRE>
+
+<A NAME="IXT-23-55199"></A>
+
+
+
+<A NAME="ch23-387-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>code</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">执行字符串中的JavaScript代码。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-388-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">计算code得到的值(如果存在的话)。</P>
+
+
+
+
+
+<A NAME="ch23-389-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">SyntaxError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">说明code中没有合法的JavaScript表达式或语句。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">EvalError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">说明非法调用了eval()，例如使用的标识符不是“eval”。参阅下面描述的对该
+    函数的限制。</P>
+</DD>
+
+<DT><I><span class="docPubcolor">其他异常</span></I></DT>
+
+<DD>
+
+<P class="docList">如果传递给eval()的JavaScript代码生成了一个异常，eval()将把那个异常传递给调用者。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-390-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">
+  eval()是全局方法，它将执行含有JavaScript代码的字符串。如果code含有一个表达式，eval()将计算这个表达式，并返回它的值。如果code含有一个或多个JavaScript语句，eval()将执行这些语句，如果最后一个语句有返回值，它还会返回这个值。如果code没有返回任何值，eval()将返回undefined。最后，如果code
+    抛出了一个异常，eval()将把这个异常传递给调用者。
+</P>
+
+
+
+<P class="docText">虽然eval()给JavaScript语言提供了非常强大的功能，但在实际程序中极少用它。常见的用法是编写作为递归的JavaScript解释器的程序，或者编写动态生成并计算
+    JavaScript代码的程序。</P>
+
+
+
+<P class="docText"> 大部分使用字符串参数的JavaScript函数和方法都会接受其他类型的参数，在继续操作之前把这些参数值转换成字符串。但eval()的行为不是这样。如果code参数不是原始的字符串，它将不作任何改变地返回。所以，要注意，当打算传递给eval()原始字符串值时，不要粗心地给它传递String对象。</P>
+
+
+
+<P class="docText">考虑到实现的效率，ECMAScriptv3标准给eval()方法的使用加上了一条与众不同的限制。如果试图覆盖eval属性或把eval()方法赋予另一个属性，并通过该属性调用它，则ECMAScript实现允许抛出一个EvalError异常。</P>
+
+
+
+<A NAME="ch23-391-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>eval("1+2");  // 返回 3
+// 用客户端JavaScrlpt的方法提示用户输入表达式并显示出计算结果
+// 详见客户端的方法Window.alert()和Window.prompt()
+try {
+
+    alert("Result: " +  eval(prompt("Enter an expression:","")));
+
+}
+
+catch(exception) {
+
+    alert(exception);
+
+}
+
+var myeval = eval;  // 抛出EvalError异常
+
+myeval("1+2");      //抛出EvalError异常</PRE>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-378-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-392-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

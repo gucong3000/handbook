@@ -1,0 +1,101 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>apply</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>apply Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Captures the initial display of an object's content for a transition. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><SPAN CLASS="clsRange">object</SPAN>.<A HREF="../collections/filters.html">filters</A>.<A HREF="../methods/item.html">item</A>(<BR>&nbsp;&nbsp;&nbsp;&nbsp;"DXImageTransform.Microsoft.<I>filter-name</I>").<B>apply(</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Once the <B>apply</B> method is called, changes to the object's properties are not displayed until you call the <A HREF="../filters/play.html">play</A> method to start the transition. </P><P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp; You must change the <A HREF="../objects/obj_style.html">style</A>.<A HREF="../properties/visibility.html">visibility</A> property for a child element to be part of the transition. Otherwise, changes to child element properties are displayed immediately.</DIV></P><P>When you call the <B>play</B> method, the transition reveals the resulting changes in content (object property and child element <B>style</B>.<B>visibility</B> changes).</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=4.0;unix=4.0" HREF="../filters/blendtrans.html">
+BlendTrans</A>, <A PLATINFO="win32=4.0;unix=4.0" HREF="../filters/revealtrans.html">
+RevealTrans</A>, <A PLATINFO="win32=5.5" HREF="../filters/barn.html">
+Barn</A>, <A PLATINFO="win32=5.5" HREF="../filters/blinds.html">
+Blinds</A>, <A PLATINFO="win32=5.5" HREF="../filters/composite.html">
+Compositor</A>, <A PLATINFO="win32=5.5" HREF="../filters/fade.html">
+Fade</A>, <A PLATINFO="win32=5.5" HREF="../filters/gradientwipe.html">
+GradientWipe</A>, <A PLATINFO="win32=5.5" HREF="../filters/inset.html">
+Inset</A>, <A PLATINFO="win32=5.5" HREF="../filters/iris.html">
+Iris</A>, <A PLATINFO="win32=5.5" HREF="../filters/pixelate.html">
+Pixelate</A>, <A PLATINFO="win32=5.5" HREF="../filters/radialwipe.html">
+RadialWipe</A>, <A PLATINFO="win32=5.5" HREF="../filters/randombars.html">
+RandomBars</A>, <A PLATINFO="win32=5.5" HREF="../filters/randomdissolve.html">
+RandomDissolve</A>, <A PLATINFO="win32=5.5" HREF="../filters/slide.html">
+Slide</A>, <A PLATINFO="win32=5.5" HREF="../filters/spiral.html">
+Spiral</A>, <A PLATINFO="win32=5.5" HREF="../filters/stretch.html">
+Stretch</A>, <A PLATINFO="win32=5.5" HREF="../filters/strips.html">
+Strips</A>, <A PLATINFO="win32=5.5" HREF="../filters/wheel.html">
+Wheel</A>, <A PLATINFO="win32=5.5" HREF="../filters/zigzag.html">
+Zigzag</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

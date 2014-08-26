@@ -1,0 +1,264 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Matrix</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/glossary.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/glossary.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Matrix Filter
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Resizes, rotates, or reverses the content of the <span replace="1">object</span> using matrix transformation.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH VALIGN="top" CLASS="clsSynCell" ROWSPAN="1">HTML</TH><TD NOWRAP="1" CLASS="clsSynCell"><DIV CLASS="clsHi">&lt;<SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">ELEMENT </SPAN></SPAN><SPAN CLASS="clsLiteral">STYLE=<BR>"filter:progid:DXImageTransform.Microsoft.Matrix(<SPAN CLASS="clsRange">sProperties</SPAN>)"</SPAN> ... &gt;</DIV></TD><TD CLASS="clsSynCell">Internet Explorer
+5.5 or later</TD></TR><TR><TH VALIGN="top" ROWSPAN="1">Scripting</TH><TD NOWRAP="1" CLASS="clsSynCell"><DIV CLASS="clsHi"><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN CLASS="clsLiteral">.<A HREF="../objects/obj_style.html">style</A>.filter =<BR>"progid:DXImageTransform.Microsoft.Matrix(<SPAN CLASS="clsRange">sProperties</SPAN>)"</SPAN></DIV></TD><TD CLASS="clsSynCell">Internet Explorer
+5.5 or later</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sProperties</SPAN></TD><TD>String that specifies one or more properties exposed by the filter.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>Matrix</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Attribute</TH><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../filters/dx.html">Dx</A></NOBR></TD><TD><NOBR><A HREF="../filters/dx.html">Dx</A></NOBR></TD><TD>
+Sets or retrieves the <SPAN CLASS="clsLiteral">X</SPAN> component of the augmenting vector for linear transformations.</TD></TR><TR><TD><NOBR><A HREF="../filters/dy.html">Dy</A></NOBR></TD><TD><NOBR><A HREF="../filters/dy.html">Dy</A></NOBR></TD><TD>
+Sets or retrieves the <SPAN CLASS="clsLiteral">Y</SPAN> component of the augmenting vector for linear transformations.</TD></TR><TR><TD><NOBR><A HREF="../filters/enabled.html">enabled</A></NOBR></TD><TD><NOBR><A HREF="../filters/enabled.html">Enabled</A></NOBR></TD><TD>
+Sets or retrieves a value that indicates whether the filter is enabled. </TD></TR><TR><TD><NOBR><A HREF="../filters/filtertype.html">FilterType</A></NOBR></TD><TD><NOBR><A HREF="../filters/filtertype.html">FilterType</A></NOBR></TD><TD>
+Sets or retrieves the method used to define pixels of new content.</TD></TR><TR><TD><NOBR><A HREF="../filters/m11.html">M11</A></NOBR></TD><TD><NOBR><A HREF="../filters/m11.html">M11</A></NOBR></TD><TD>
+Sets or retrieves the first row/first column matrix entry for linear transformations.</TD></TR><TR><TD><NOBR><A HREF="../filters/m12.html">M12</A></NOBR></TD><TD><NOBR><A HREF="../filters/m12.html">M12</A></NOBR></TD><TD>
+Sets or retrieves the first row/second column matrix entry for linear transformations.</TD></TR><TR><TD><NOBR><A HREF="../filters/m21.html">M21</A></NOBR></TD><TD><NOBR><A HREF="../filters/m21.html">M21</A></NOBR></TD><TD>
+Sets or retrieves the second row/first column matrix entry for linear transformations.</TD></TR><TR><TD><NOBR><A HREF="../filters/m22.html">M22</A></NOBR></TD><TD><NOBR><A HREF="../filters/m22.html">M22</A></NOBR></TD><TD>
+Sets or retrieves the second row/second column matrix entry for linear transformations.</TD></TR><TR><TD><NOBR><A HREF="../filters/sizingmethod_2.html">SizingMethod</A></NOBR></TD><TD><NOBR><A HREF="../filters/sizingmethod_2.html">SizingMethod</A></NOBR></TD><TD>
+Sets or retrieves a value that indicates whether the container is resized to fit the resulting image.</TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Use the <B>Matrix</B> filter to create the following simple effects.
+<ul><li>Flip horizontal. Negate the <A HREF="../filters/m11.html">M11</A> and <A HREF="../filters/m12.html">M12</A> entry values.</li><li>Flip vertical. Negate the <A HREF="../filters/m21.html">M21</A> and <A HREF="../filters/m22.html">M22</A> entry values. </li><li>Resize. Multiply each matrix entry by the same factor. The content size changes in proportion to the multiple used. See the following examples. </li><li>Rotate. Adjust the default matrix entries by the appropriate trigonometry function. See the following examples. </li></ul></P><P>These effects are possible through the use of linear transforms. The <B>Matrix</B> filter creates a linear transformation of the displayed content with a <SPAN CLASS="clsLiteral">2x2</SPAN> matrix augmented by a linear vector. Maximizing the effects available with the linear transform matrix requires a thorough understanding of linear algebra. However, for the simple functions described previously, no linear algebra is required.</P><P>The final image produced by the <B>Matrix</B> filter is an interpolation of the previous content.  Using the <A HREF="../properties/padding.html">padding</A> property minimizes the chance of clipping at the edge of the final image.</P><P>The object that the filter is applied to must have  <A HREF="/workshop/author/css/overview/measurementandlocation.html#intro">layout</A> before the filter effect displays.  You can give the object  <B>layout</B> by setting the <A HREF="../properties/height_1.html">height</A> or <A HREF="../properties/width_1.html">width</A> property, setting the <A HREF="../properties/position.html">position</A> property to <SPAN CLASS="clsLiteral">absolute</SPAN>, setting the <A HREF="../properties/writingmode.html">writingMode</A> property to <SPAN CLASS="clsLiteral">tb-rl</SPAN>, or setting the <A HREF="../properties/contenteditable.html">contentEditable</A> property to <SPAN CLASS="clsLiteral">true</SPAN>.  </P><P>You can assign multiple filters or transitions to an object by declaring each in the <A HREF="../properties/filter.html">filter</A> property of the object. The following <A HREF="../objects/div.html">div</A> declaration assigns two filters and a <SPAN CLASS="clsLiteral">Wheel</SPAN> transition to a <B>div</B> element.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;DIV STYLE="width:100%; filter:
+progid:DXImageTransform.Microsoft.MotionBlur(strength=13, direction=310)
+progid:DXImageTransform.Microsoft.Blur(pixelradius=2)
+progid:DXImageTransform.Microsoft.Wheel(duration=3);"&gt;
+Blurry text with smudge of gray.&lt;/div&gt;     </PRE>
+When multiple filters are applied to an object, each filter is process in source order, with the exception of <SPAN CLASS="clsGlossary" onmouseover="showDef()" onmouseout="clearDef()" G_RID="term_procedural_surfaces">procedural surfaces</SPAN>, which are computed first. To emphasize a filter's effect, place it last in source order or on the object's parent. Always place transitions last in source order.
+</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+You can script a resizing function for the <B>Matrix</B> filter by multiplying each matrix entry by a common multiple. The resulting filter increases or decreases the size of the oObj input object and its content by the value of <SPAN CLASS="clsLiteral">flMultiplier</SPAN>.
+</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+&lt;!-- fnResize function --&gt;
+//oObj input requires an matrix filter applied.
+//flMultiplier input defines the amount by which the oObj is resized.
+function fnResize(oObj,flMultiplier)
+{
+oObj.filters.item(0).M11 *= flMultiplier;
+oObj.filters.item(0).M12 *= flMultiplier;
+oObj.filters.item(0).M21 *= flMultiplier;
+oObj.filters.item(0).M22 *= flMultiplier;
+}
+&lt;/SCRIPT&gt;
+</PRE><P>
+You can script a more complex rotating function by applying trigonometry functions to the entries of the <B>Matrix</B> filter. Given an object with a <B>Matrix</B> filter applied, the object is rotated by the angle entered.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+var deg2radians = Math.PI * 2 / 360;
+&lt;!-- fnSetRotation function --&gt;
+//oObj input requires an matrix filter applied.
+//deg input defines the requested angle of rotation.
+{    rad = deg * deg2radians ;
+costheta = Math.cos(rad);
+sintheta = Math.sin(rad);
+oObj.filters.item(0).M11 = costheta;
+oObj.filters.item(0).M12 = -sintheta;
+oObj.filters.item(0).M21 = sintheta;
+oObj.filters.item(0).M22 = costheta;
+}
+&lt;/SCRIPT&gt;
+</PRE><P>
+You can combine the two previous functions and create a simple animation. The animation is driven by the <A HREF="../events/onfilterchange.html">onfilterchange</A> event.  The following example spins and expands the text of a <B>div</B> object. You can animate other style-related properties in this manner.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;&lt;!-- fnSetRotation function --&gt;
+//oObj input requires that a matrix filter be applied.
+//deg input defines the requested angle of rotation.
+var deg2radians = Math.PI * 2 / 360;
+function fnSetRotation(oObj, deg)
+{    rad = deg * deg2radians ;
+costheta = Math.cos(rad);
+sintheta = Math.sin(rad);
+oObj.filters.item(0).M11 = costheta;
+oObj.filters.item(0).M12 = -sintheta;
+oObj.filters.item(0).M21 = sintheta;
+oObj.filters.item(0).M22 = costheta;
+}
+&lt;!-- fnResize function --&gt;
+//oObj input requires that a matrix filter be applied.
+//flMultiplier input defines the amount by which the oObj is resized.
+function fnResize(oObj, flMultiplier)
+{    oObj.filters.item(0).M11 *= flMultiplier;
+oObj.filters.item(0).M12 *= flMultiplier;
+oObj.filters.item(0).M21 *= flMultiplier;
+oObj.filters.item(0).M22 *= flMultiplier;
+}
+var iCount = 400;
+&lt;!-- fnSpin function --&gt;
+function fnSpin(oObj)
+{
+&lt;!-- The function chosen for flMultiple defines size changes in the animation. --&gt;
+var flMultiple = iCount/720;
+iCount += 4;
+&lt;!-- The number of 360-degree rotations is three. --&gt;
+if (iCount&gt;=360*3)     {
+oObj.onfilterchange = null;
+}
+fnSetRotation(oObj, iCount);
+fnResize(oObj, flMultiple);
+}
+&lt;/SCRIPT&gt;
+&lt;!-- When loaded, the onfilterchange event is fired as the filter makes
+its initial settings.  This starts the animation.--&gt;
+&lt;DIV ID="oDiv" STYLE="position:absolute;
+filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"
+onfilterchange="fnSpin(this)" &gt;
+&lt;DIV STYLE=" background-color: lightblue; padding:5;"&gt;
+SOME TEXT&lt;BR/&gt;
+SOME TEXT&lt;BR/&gt;
+SOME TEXT&lt;BR/&gt;
+SOME TEXT&lt;BR/&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=600,width=500,menubar=yes, toolbar=no, status=yes, scrollbars=yes, resizable=yes"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5.5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win32=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5.5" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win32=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5.5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win32=5.5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5.5" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win32=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5.5" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win32=5.5" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win32=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5.5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win32=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5.5" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win32=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5.5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win32=5.5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win32=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5.5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win32=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win32=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win32=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5.5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/filter/filters.html#Scripting_Filters">Scripting Filters</A>, <A HREF="/workshop/author/filter/filters.html#Filter_Design_Consid">Filter Design Considerations</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

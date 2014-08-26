@@ -1,0 +1,199 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-682-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-692-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-687-fm2xml"></A><A NAME="IXT-23-55350"></A><A NAME="IXT-23-55351"></A><A NAME="IXT-23-55352"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object.toString(  )</i></b></td>
+
+<td align="right"><i>定义一个对象的字符串表示</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.0; JScript 2.0; ECMAScript v1 </P><A NAME="ch23-688-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>object</I></TT>.toString( )</PRE><A NAME="IXT-23-55350"></A>
+
+<A NAME="IXT-23-55351"></A> <A NAME="IXT-23-55352"></A>
+
+
+
+
+
+<A NAME="ch23-689-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">表示对象的字符串。</P>
+
+
+
+
+
+<A NAME="ch23-690-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">这里的方法toString()并不是在JavaScript程序中经常显示调用的那个toString()方法。它是在对象中定义的一个方法，当系统需要把对象转换成字符串时就会调用它。</P>
+
+
+
+<P class="docText">当在字符串环境中使用对象时，JavaScript系统就会调用toString()方法把那个对象转换成字符串。例如，假定—个函数期望得到的参数是字符串，那么把对象传递给它时，系统就会将这个对象转换成字符串：</P>
+
+
+
+<PRE>alert(my_object); </PRE>
+
+
+
+<P class="docText">同样，在用运算符“+”连接字符串时，对象也会被转换成字符串：</P>
+
+
+
+<PRE>var msg = 'My object is: ' + my_object; </PRE>
+
+
+
+<P class="docText"> 调用方法toStrlng()时不给它传递任何参数，它返回的应该是一个字符串。要使这个字符串有用，它的值就必须以调用toString()方法的对象的值为基础。</P>
+
+
+
+<P class="docText">当用JavaScript自定义一个类时，为这个类定义一个toString()方法很有用。如果没有给它定义toString()方法，那么这个对象将继承Object类的默认toString()方法。这个方法返回的字符串形式如下：</P>
+
+
+
+<PRE>[object <TT><I>class</I></TT>] </PRE>
+
+
+
+<P class="docText">这里，class是一个对象类，其值可以是“Object”、“String”、“Number”、“Function”、
+    “Window”、“Document”，等等。这种行为有时对确定未知对象的类型或类有用。但由于大多数对象都有自定义的tostring()版本，所以必须明确地对对象o调用
+    Object.toString()，代码如下所示：</P>
+
+
+
+<PRE>Object.prototype.toString.apply(o); </PRE>
+
+
+
+<P class="docText">注意，这种识别未知对象的方法只适用于内部对象。如果你定义了自己的对象类，那么它的类是“Object”。在这种情况下，可以用Obiect.constructor属性获取更多有关对象的信息。</P>
+
+
+
+<P class="docText">在调试JavaScript程序时，toString()方法非常有用，使用它可以输出对象，查看它们的值。因此，为你创建的每个对象类都定义toString()方法很有用。</P>
+
+
+
+<P class="docText">虽然tostring()方法通常由系统自动调用，但你也可以自己调用它。例如，在JavaScript不能自动把对象转换成字符串的环境中，可以明确地调用toString()方法来实现这一点：</P>
+
+
+
+<PRE>y = Math.sqrt(x);       // 计算一个数
+
+ystr = y.toString(  );  // 转换为—个字符串</PRE>
+
+
+
+<P class="docText">注意，在这个例子中，数字具有内部的toStrlng()方法，可以用该方法进行强制性的转换。</P>
+
+
+
+<P class="docText">在其他的环境中，即使JavaScript可以自动地进行转换，你也可以调用toString()方法，因为对toString()的明确调用可以使代码更加清晰：
+
+</P>
+
+
+
+<PRE>alert(my_obj.toString(  )); </PRE>
+
+
+
+<A NAME="ch23-691-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-656-fm2xml.html#ch23-656-fm2xml">Object.constructor</A>, <A class="docLink" HREF="ch23-682-fm2xml.html#ch23-682-fm2xml">Object.toLocaleString(  )</A>, <A class="docLink" HREF="ch23-692-fm2xml.html#ch23-692-fm2xml">Object.valueOf(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-682-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-692-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

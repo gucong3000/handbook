@@ -1,0 +1,158 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>dropEffect</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>dropEffect Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the type of drag-and-drop operation and the type of cursor to display.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>dataTransfer</I>.<B>dropEffect</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sCursorStyle</SPAN> ]</PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sCursorStyle</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">copy</SPAN></TD><TD>Copy cursor is displayed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">link</SPAN></TD><TD>Link cursor is displayed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">move</SPAN></TD><TD>Move cursor is displayed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">none</SPAN></TD><TD>Default. No cursor is specified. Instead, the no-drop cursor is displayed.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+none</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>For <B>dropEffect</B> to work, it must be used with the <A HREF="../properties/effectallowed.html">effectAllowed</A> property. These properties are set on the source object of a drag-and-drop operation. The <B>effectAllowed</B> property determines which drag-and-drop operations are available from the source object. The <B>dropEffect</B> property determines which drag-and-drop operations are allowed on the target object. For example, the source object might set the <B>effectAllowed</B> property to <SPAN CLASS="clsLiteral">all</SPAN> drag-and-drop operations, while the target object specifies that the <B>dropEffect</B> allows only <SPAN CLASS="clsLiteral">copy</SPAN> operations.</P><P>The recommended technique for dropping text is to set the <B>dropEffect</B> in the target object's event handler function for the following events: <A HREF="../events/ondragenter.html">ondragenter</A>, <A HREF="../events/ondragover.html">ondragover</A>, and <A HREF="../events/ondrop.html">ondrop</A>. The <B>effectAllowed</B> property must be set in one of the source object's drag-and-drop event handlers, such as the <A HREF="../events/ondragstart.html">ondragstart</A> event.</P><P>The target object of a drag-and-drop operation can set the <B>dropEffect</B> during the <B>ondragenter</B>, <B>ondragover</B>, and <B>ondrop</B> events. To display the desired cursor until the final drop, the default action of the <B>ondragenter</B>, <B>ondragover</B>, and <B>ondrop</B> events must be canceled and the <B>dropEffect</B> must be set. Otherwise, the copy cursor, move cursor, or link cursor set by this property displays only until the first valid drop target is intersected, at which point the cursor is replaced by the drop/no-drop cursor for the rest of the drag operation. </P><P>Microsoft&#174; Internet Explorer delivers default drag-and-drop functionality for <A HREF="../objects/a.html">a</A>, <A HREF="../objects/img.html">img</A>, <A HREF="../objects/textarea.html">textArea</A>, and <A HREF="../objects/input_text.html">input type=text</A>. When one of these objects is the source element, the default drop effect cannot be overridden by setting the <B>dropEffect</B> property of the target element. Instead, the source object's default behavior must be canceled.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>dropEffect</B> and <B>effectAllowed</B> properties of the <A HREF="../objects/obj_datatransfer.html">dataTransfer</A> object to display the move cursor.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Example of the effectAllowed and dropEffect Properties&lt;/TITLE&gt;
+&lt;SCRIPT&gt;
+// This function is called when the user
+//  initiates a drag-and-drop operation.
+function fnHandleDragStart()
+{
+var oData = window.event.dataTransfer;
+// Set the effectAllowed on the source object.
+oData.effectAllowed = "move";
+}
+// This function is called by the target
+//  object in the ondrop event.
+function fnHandleDrop()
+{
+var oTarg = window.event.srcElement;
+var oData = window.event.dataTransfer;
+// Cancel default action.
+fnCancelDefault();
+// Set the content of the oTarget to the information stored
+//  in the data transfer object in the desired format.
+oTarg.innerText += oData.getData("text");
+}
+// This function sets the dropEffect when the user moves the
+//  mouse over the target object.
+function fnHandleDragEnter()
+{
+var oData = window.event.dataTransfer;
+// Cancel default action.
+fnCancelDefault();
+// Set the dropEffect for the target object.
+oData.dropEffect = "move";
+}
+function fnCancelDefault()
+{
+// Cancel default action.
+var oEvent = window.event;
+oEvent.returnValue = false;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;H1&gt;Example of the effectAllowed and dropEffect Properties&lt;/H1&gt;
+&lt;P&gt;The code in this example sets the &lt;B&gt;effectAllowed&lt;/B&gt; property
+to &lt;SPAN CLASS="literal"&gt;move&lt;/SPAN&gt;. It sets the &lt;B&gt;dropEffect&lt;/B&gt;
+property to display the move cursor. The default action must be
+canceled in all events that are handled&amp;#151;in this example,
+&lt;B&gt;ondragstart&lt;/B&gt;, &lt;B&gt;ondragover&lt;/B&gt;, &lt;B&gt;ondragenter&lt;/B&gt;, and
+&lt;B&gt;ondrop&lt;/B&gt;.&lt;/P&gt;
+&lt;B&gt;
+[not this text]
+&lt;SPAN ID="oSource" ondragstart="fnHandleDragStart()"&gt;
+[select and drag this text]
+&lt;/SPAN&gt;
+[not this text]
+&lt;/B&gt;
+&lt;P&gt;&lt;BR&gt;&lt;P&gt;
+&lt;DIV ID="oTarget"
+STYLE="background:beige;
+height:100;
+width:200;
+border:solid black 1px;"
+ondrop="fnHandleDrop()"
+ondragover="fnCancelDefault()"
+ondragenter="fnHandleDragEnter()"&gt;
+[drop text here]
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/obj_datatransfer.html">
+dataTransfer</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/datatransfer/overview.html">About DHTML Data Transfer</A>, <A HREF="../methods/cleardata.html">clearData</A>, <A HREF="../properties/effectallowed.html">effectAllowed</A>, <A HREF="../methods/getdata.html">getData</A>, <A HREF="../methods/setdata.html">setData</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

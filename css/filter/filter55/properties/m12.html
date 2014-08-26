@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Matrix'
+);
+
+collFriendProperties=new Array(
+'Dx','Dy','M11','M21','M22'  
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Matrix'
+);
+
+sStyle=
+'#idParentDiv{width:100%;overflow-y:hidden;padding:6px;height:350px;background-color:buttonshadow;color:#FFFFFF;}\n'+
+'#idDiv{width:290px;text-align:left;padding:6px;background-color:#000000;font-family:tahoma,Arial;filter:progid:DXImageTransform.Microsoft.Matrix(M11=1.0, sizingmethod="auto expand");}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var fM11,fM12,fM21,fM22,fDx,fDy,sType,sMethod;\n'+
+'var oDiv,oCodeDiv,oTxtRotation,oBtnRotation;\n'+
+'var i=0;\n'+
+'\n'+
+'function rdl_SetRotation(deg) {\n'+
+'var deg2rad=Math.PI*2/360;\n'+
+'rad=deg*deg2rad;\n'+
+'costheta = Math.cos(rad);\n'+
+'sintheta = Math.sin(rad);\n'+
+'with (oDiv.filters.item(0)) {\n'+
+'M11=costheta;M12=-sintheta;M21=sintheta;M22=costheta;\n'+
+'}\n'+
+'rdl_UpdateMatrix();\n'+
+'}\n'+
+'\n'+
+'function rdl_DoAnimation(){\n'+
+'oDiv.onfilterchange=rdl_DoAnimation;\n'+
+'i+=5;\n'+
+'if (i>359) {\n'+
+'i=0;\n'+
+'}\n'+
+'rdl_SetRotation(i);\n'+
+'}\n'+
+'\n'+
+'function rdl_UpdateMatrix() {\n'+
+'with (oDiv.filters.item(0)) {\n'+
+'fM11=Math.round(M11*10)/10;fM12=Math.round(M12*10)/10;fM21=Math.round(M21*10)/10;fM22=Math.round(M22*10)/10;\n'+
+'fDx=Math.round(Dx*10)/10;fDy=Math.round(Dy*10)/10;sType=FilterType;sMethod=SizingMethod;\n'+
+'}\n'+
+'}\n'+
+'\n'+
+'function window.onload(){\n'+
+'oDiv=document.all("idDiv");\n'+
+'rdl_UpdateMatrix();\n'+
+'rdl_DoAnimation();\n'+
+'}\n'+
+'\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv><div id=idDiv>\n'+
+'<img src="..\/images\/rdl_body5.jpg" align="right"><h2 >Matrix Filter<\/h2><b>Written by Rain1977.<br>All rights reserved . Terms of Use .<\/b>\n'+
+'<\/div><\/div>\n';
+
+iWinWidth=480;
+
+iWinHeight=500;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>M12 | M12&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:M12ImageTransform.Microsoft.<a href="../filters/matrix.html">Matrix</a> ( M12</b> = <i>fM12</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('M12ImageTransform.Microsoft.<a href="../filters/matrix.html">Matrix</a>').M12 = </b><i>fM12</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> fM12 </i></td><td nowrap><b>: </b></td><td>
+浮点数(Float)。默认值为<span class=cssDefault><b> 0.0 </b></span>。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索线性转换的第一行/第二列矩阵输入。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

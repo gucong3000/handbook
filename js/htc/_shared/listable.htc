@@ -1,0 +1,179 @@
+<HEAD>
+	<PUBLIC:COMPONENT
+	 literalcontent="true"
+	 name="listTable"
+	 tagname="listable"
+	 urn="ERiW.Snakevil.Product:HTC.eleListTable"
+	>
+		<PUBLIC:DEFAULTS
+		 canhavehtml="false"
+		 contenteditable="false"
+		 tabstop="false"
+		 viewinheritstyle="false"
+		 viewlinkcontent="true"
+		 viewmastertab="false"
+		/>
+		<PUBLIC:ATTACH
+		 event="oncontentready"
+		 onevent="hnContentReady()"
+		/>
+		<PUBLIC:ATTACH
+		 event="ondocumentready"
+		 onevent="hnDocumentReady()"
+		/>
+	</PUBLIC:COMPONENT>
+
+	<LINK rel="stylesheet" type="text/css" href="listable.css" />
+
+	<SCRIPT language="JScript" type="text/javascript">
+	<!--
+	// 数据树存放控件。
+	__oDataTree = null;
+	// 判断是否已渲染。
+	__bRendered = false;
+	// 纪录所有列表编号数组变量。
+	__aListIDs = [];
+
+	/**
+	 * oncontentready 事件处理函数。
+	 */
+	function hnContentReady() {
+		fnRender();
+	}
+
+	/**
+	 * ondocumentready 事件处理函数。
+	 */
+	function hnDocumentReady() {
+		var sXml = "<LISTTABLE>"
+			+ element.innerHTML
+			+ "</LISTTABLE>";
+		// 创建数据控件。
+		var oDom = new ActiveXObject("Msxml2.DOMDocument");
+		with (oDom) {
+			async = false;
+			resolveExternals = false;
+			validateOnParse = false;
+			preserveWhiteSpace = false;
+			loadXML(sXml);
+		}
+		if (0 != oDom.parseError.errorCode) {
+			document.body.innerHTML = "<H6>" + oDom.parseError.reason + "</H6>";
+			return;
+		}
+		__oDataTree = oDom;
+		// 渲染数据。
+		fnRender();
+	}
+
+	/**
+	 * 渲染数据。
+	 */
+	function fnRender() {
+		if ((null == __oDataTree) || __bRendered) {
+			return;
+		}
+		__bRendered = true;
+		var sHtmlSelector = "<TABLE id=\"list\" cellspacing=\"0\""
+			+ " cellpadding=\"4\" border=\"0\">"
+			+ "<TR><TH>显示：</TH></TR>";
+		var sHtmlScreen = sID = sName = "";
+		var oRoot = __oDataTree.documentElement, oCatalog, oItem;
+		for (var ii = 0; ii < oRoot.childNodes.length; ii++) {
+			oCatalog = oRoot.childNodes[ii];
+			sID = "snv__" + Math.random().toString().substr(2, 8);
+			__aListIDs[__aListIDs.length] = sID;
+			sName = oCatalog.getAttribute("name");
+			sHtmlSelector += "<TR><TD id=\"" + sID + "\""
+				+ " onclick=\"fnShow(this)\""
+				+ " onmouseout=\"fnDisHover(this)\""
+				+ " onmouseover=\"fnHover(this)\""
+				+ ">" + sName + "</TD></TR>";
+			sHtmlScreen += "<DIV id=\"" + sID + "__\">"
+				+ "<TABLE><TR><TH>" + sName + "</TH>"
+				+ "<TH>描述</TH></TR>";
+			for (var jj = 0; jj < oCatalog.childNodes.length; jj++) {
+				oItem = oCatalog.childNodes[jj];
+				sHtmlScreen += "<TR><TD><A href=\"" + oItem.getAttribute("link")
+					+ "\"><SPAN>" + oItem.getAttribute("name")
+					+ "</SPAN></A></TD><TD>" + oItem.firstChild.text
+					+ "</TD></TR>";
+			}
+			sHtmlScreen += "</TABLE></DIV>";
+		}
+		sHtmlSelector += "</TABLE>";
+		if (!__aListIDs.length) {
+			document.body.innerHTML = "<H6>No Content.</H6>";
+			return;
+		}
+		document.getElementById("selector").innerHTML = sHtmlSelector;
+		document.getElementById("screen").innerHTML = sHtmlScreen;
+		sID = __aListIDs[0];
+		fnShow(document.getElementById(sID));
+	}
+
+	/**
+	 * 鼠标移至时改变背景色。
+	 */
+	function fnHover(obj) {
+		if ("" == obj.runtimeStyle.backgroundColor) {
+			obj.runtimeStyle.backgroundColor = "#EEEEE9";
+		}
+	}
+
+	/**
+	 * 鼠标移走时还原背景色。
+	 */
+	function fnDisHover(obj) {
+		if ("#eeeee9" == obj.runtimeStyle.backgroundColor) {
+			obj.runtimeStyle.backgroundColor = "";
+		}
+	}
+
+	/**
+	 * 隐藏所有列表。
+	 */
+	function fnHideAll() {
+		var sID, oNode;
+		for (var ii = 0; ii < __aListIDs.length; ii++) {
+			sID = __aListIDs[ii];
+			oNode = document.getElementById(sID);
+			oNode.runtimeStyle.backgroundColor = "";
+			sID += "__";
+			oNode = document.getElementById(sID);
+			oNode.style.display = "none";
+		}
+	}
+
+	/**
+	 * 显示列表。
+	 */
+	function fnShow(obj) {
+		fnHideAll();
+		var sID = obj.id;
+		obj.runtimeStyle.backgroundColor = "#CCCCC8";
+		sID += "__";
+		var oNode = document.getElementById(sID);
+		oNode.style.display = "block";
+		document.getElementById("title").innerText = obj.innerText;
+	}
+	-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+	<TABLE id="main" cellspacing="1" cellpadding="0" border="0">
+		<THEAD>
+			<TR>
+				<TD colspan="3" id="title"></TD>
+			</TR>
+		</THEAD>
+		<TBODY>
+			<TR>
+				<TD id="selector" valign="top"></TD>
+				<TD id="separator"></TD>
+				<TD id="screen" valign="top"></TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+</BODY>

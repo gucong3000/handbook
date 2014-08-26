@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>无标题</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<LINK REL="stylesheet" HREF="../../common/common.css" TYPE="text/css">
+</HEAD>
+<BODY ID="idBody" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<CENTER>
+<P>表格将会试图在整个窗口内渲染不超出窗口，而不管窗口的尺寸大小。但是，<B>TD</B> 对象的 <B>currentStyle</B>.width 将返回设置的值 而不是渲染的值。</P>
+<TABLE BORDER>
+<TR>
+<TD WIDTH=1100 ID="oID_1">文本</TD>
+</TR>
+</TABLE>
+<SCRIPT>
+alert("TD 对象的宽度是 " + oID_1.currentStyle.width + "。\n窗口的宽度是 " + idBody.clientWidth + "px。\n屏幕的宽度是 " + screen.width + "px。");
+</SCRIPT>
+<BR><BR><BR>
+<HR>
+[用鼠标右键单击窗口的空白区域可查看源代码。]
+</CENTER>
+<BR><BR><BR>
+&copy; 2001 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

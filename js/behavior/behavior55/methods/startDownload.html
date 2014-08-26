@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendBehaviors=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'download'
+);
+
+sStyle=
+'@media all {\n'+
+'rdl\\:download {behavior:url(#default#download);}\n'+
+'}\n'+
+'#idParentDiv{width:100%;overflow:hidden;overflow-y:auto;padding:8px;height:180px;background-color:buttonshadow;color:#FFFFFF;}\n';
+
+sScript=
+'<script>\n'+
+'function rdl_download(s){\n'+
+'idParentDiv.innerHTML=s;\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<rdl:download id="idDownload" />\n'+
+'<div id=idParentDiv>&nbsp;</div>\n'+
+'<br><br>\n'+
+'<input type=button onclick="idDownload.startDownload(window.opener.location,rdl_download);" value=" 下载文件 ">\n';
+
+iWinWidth=380;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>startDownload</span>版本：DHTML Object Model　返回值：无</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i> Object </i><b>.startDownload ( </b><i>sUrl</i><b> , </b><i>fpCallback</i><b> ) </b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> sUrl </i></td><td nowrap><b>: </b></td><td>必选项。字符串(String)。指定下载文件的地址。</td></tr>
+<tr><td nowrap><i> fpCallback </i></td><td nowrap><b>: </b></td><td>必选项。指定下载完成后要执行的代码的函数的指针。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap>无</td></tr>
+</table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+下载指定的文件。<br>
+<i> fpCallback </i>参数指向的回调函数需要指定一个唯一的参数。当文件下载成功后，文件内容会作为此参数的值传递给函数。<br>
+此方法仅仅对于文本文件而言返回的是文档的全部文本内容，假如被下载的文件是其他的格式，则返回的是此格式而非文件内容。<br>
+请注意，当<i> fpCallback </i>参数指向的回调函数是 Microsoft&reg; Visual Basic&reg; 脚本时，您需要使用<b> GetRef </b>函数获取此回调函数的指针。请参看下面的示例代码。
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+&lt;script language="VBScript"&gt;<br>
+function onDownloadDone(s) <br>
+MsgBox s<br>
+End Function<br>
+&lt;/script&gt;<br>
+<br>
+&lt;rdl:download id="oDownload" style="behavior:url(#default#download)" /&gt;<br>
+&lt;div onclick="oDownload.startDownload('download.htm',GetRef('onDownloadDone')"&gt; 下载 &lt;/div&gt;
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

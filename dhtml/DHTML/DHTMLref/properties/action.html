@@ -1,0 +1,112 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>ACTION Attribute | action</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>ACTION Attribute | action Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the URL to which the <A HREF="../objects/form.html">form</A> content is sent for processing.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>ACTION</B>
+= <SPAN CLASS="clsRange">sURL</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>action</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sURL</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sURL</SPAN></TD><TD><b>String</b> that
+specifies or receives the URL to use. If a relative path is specified, the base URL of the document is assumed.</TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The way the data is submitted depends on the value of the <A HREF="../properties/method.html">method</A> and <A HREF="../properties/encoding.html">encoding</A> properties.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example uses the <B>ACTION</B> attribute to post a form to a specified URL.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;FORM ACTION="http://example.microsoft.com/sample.html"
+METHOD="POST"&gt;
+Enter your name: &lt;INPUT NAME="FName"&gt;&lt;BR&gt;
+Favorite Ice Cream Flavor:
+&lt;SELECT NAME="Flavor"&gt;
+&lt;OPTION VALUE="Chocolate"&gt;Chocolate
+&lt;OPTION VALUE="Strawberry"&gt;Strawberry
+&lt;OPTION VALUE="Vanilla" SELECTED&gt;Vanilla
+&lt;/SELECT&gt;
+&lt;P&gt;&lt;INPUT TYPE=SUBMIT&gt;
+&lt;/FORM&gt;
+&lt;/HTML&gt;</PRE><P>
+This example uses the <B>ACTION</B> attribute to specify a URL for the <A HREF="/workshop/networking/predefined/mailto.html">mailto</A> protocol.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;form ACTION="mailto:sales@widgets.com" method=GET&gt;
+&lt;input name=subject type=hidden
+value="Widget%20Product%20Information%20Request"&gt;
+Enter your full mailing address&lt;BR&gt;
+&lt;TextArea name=body cols=40&gt;&lt;/textarea&gt;
+&lt;input type=submit value="Send Request"
+&lt;/form&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/rec-html32.html" TARGET="_top">
+HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"> and
+is defined in <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">
+World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/isindex.html">
+ISINDEX</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

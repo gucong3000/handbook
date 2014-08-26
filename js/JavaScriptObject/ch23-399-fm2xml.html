@@ -1,0 +1,276 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-392-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-409-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-399-fm2xml"></A><A NAME="jscript4-IDXTERM-3882"></A><A NAME="IXT-23-55204"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Function</i></b></td>
+
+<td align="right"><i>JavaScript的函数</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText"><A NAME="jscript4-IDXTERM-3882"></A>JavaScript 1.0; JScript 1.0; ECMAScript
+
+ v1</P>
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText"> 继承于 Object </P><A NAME="ch23-400-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>function <TT><I>functionname</I></TT>(<TT><I>argument_name_list</I></TT>) // 函数定义语句
+{
+    <TT><I>body</I></TT> 
+} 
+
+function (<TT><I>argument_name_list</I></TT>) { <TT><I>body</I></TT> } // 未命名的函数直接量，JavaScript 1.2引入<TT><I>
+functionname</I></TT>(<TT><I>argument_value_list</I></TT>)      // 函数调用
+</PRE>
+
+
+
+<A NAME="ch23-401-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new Function(<TT><I>argument_names...</I></TT>, <TT><I>body</I></TT>) // avaScript 1.1和其后的版本支持它</PRE>
+
+
+
+<A NAME="ch23-402-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>argument_names...</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">任意多个字符串参数，每个字符串命名一个或多个要创建的Function对象的参数。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>body</I></TT></span></DT>
+
+<DD>
+
+<P class="docList"> 一个字符串，指定函数的主体，可以含有任意多条JavaScript语句，这些语句之间用分号隔开，可以给该构造函数引用前面的参数设置的任何参数名。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-403-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">新创建的Function对象。调用该函数，将执行body指定的JavaScript代码。</P>
+
+
+
+
+
+<A NAME="ch23-404-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">SyntaxError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">说明在参数body或某个argument_names参数中存在JavaScript语法错误。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-405-fm2xml"></A>
+
+<h4 class="docRefsectTitle">属性</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">arguments[]</span></span></span></DT>
+
+<DD>
+
+<P class="docList">一个参数数组，元素是传递给函数的参数。反对使用该属性。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">caller</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 对调用当前函数的Function对象的引用，如果当前函数由顶层代码调用，这个属性的值为null。反对使用该属性。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">length</span></span></span></DT>
+
+<DD>
+
+<P class="docList">在声明函数时指定的命名参数的个数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">prototype</span></span></span></DT>
+
+<DD>
+
+<P class="docList">一个对象，用于构造函数，这个对象定义的属性和方法由构造函数创建的所有对象共享。</P>
+</DD>
+</DL>
+
+
+
+<A NAME="ch23-406-fm2xml"></A>
+
+<h4 class="docRefsectTitle">方法</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">apply(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将函数作为指定对象的方法来调用，传递给它的是指定的参数数组。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">call(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将函数作为指定对象的方法来调用，传递给它的是指定的参数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回函数的字符串表示。</P>
+</DD>
+</DL>
+
+
+
+<A NAME="ch23-407-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55204"></A> 函数是JavaScript的一种基本数据类型。注意，虽然可以用这里介绍的Function()构造函数创建函数对象，
+  但这样做效率不高，在大多数情况下，建议使用函数定义语句或函数直接量来定义函数。</P>
+
+
+
+<P class="docText">在JavaScriptl.1及以后版本中，函数主体会被自动地给予一个局部变量arguments，它引用一个Arguments对象。该对象是一个数组，元素是传递给函数的参数值。不要将这一属性和上面介绍的反对使用的属性argumentsl)相混淆。详见“Arguments”的参考页。</P>
+
+
+
+<A NAME="ch23-408-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-22-fm2xml.html#ch23-22-fm2xml">Arguments</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-392-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-409-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

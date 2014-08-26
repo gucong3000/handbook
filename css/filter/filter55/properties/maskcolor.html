@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'BasicImage'
+);
+
+collFriendProperties=new Array(
+'grayScale','mirror','Invert ','Mask','opacity','Rotation','XRay'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'BasicImage'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:100px;padding:6px;background-color:buttonshadow;position:relative;background-image:url(../images/rdl_lake.jpg);}\n'+
+'#idDiv{width:80%;height:80px;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.BasicImage(mask=1);}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n'+
+'input{padding:1px 4px 0px 4px;letter-spacing:1px;}\n'
+
+sScript=
+'<script>\n'+
+'var sFilter="oDiv.filters[\'DXImageTransform.Microsoft.BasicImage\'].Mask=bMask;\\r\\noDiv.filters[\'DXImageTransform.Microsoft.BasicImage\'].MaskColor=bColor;";\n'+
+'function rdl_change(e){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=options[selectedIndex].value;\n'+
+'oDiv.filters[0].Mask=sValue1;\n'+
+'oDiv.filters[0].MaskColor=parseInt(sValue2);\n'+
+'oCodeDiv.innerHTML=sFilter.replace(/bMask/g,sValue1);\n'+
+'oCodeDiv.innerHTML=oCodeDiv.innerHTML.replace(/bColor/g,sValue2);\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_shape.gif" style="float:left;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="1">---Mask---\n'+
+'<option value="0">0\n'+
+'<option value="1">1\n'+
+'<\/select>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="0x000000">---MaskColor---\n'+
+'<option value="0x00A651">0x00A651\n'+
+'<option value="0xFF9900">0xFF9900\n'+
+'<option value="0x996666">0x996666\n'+
+'<option value="0xFF6633">0xFF6633\n'+
+'<option value="0xFFFFFF">0xFFFFFF\n'+
+'<option value="0x0000FF">0x0000FF\n'+
+'<\/select>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.BasicImage(mask=1);<\/div>\n';
+
+
+iWinWidth=360;
+
+iWinHeight=350;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>MaskColor</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/basicimage.html">BasicImage</a>').MaskColor = </b><i>iColor</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iColor </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。32位 ARGB 格式色彩值。<br>
+其格式为<i> 0xAARRGGBB </i>。<i> AA </i>、<i> RR </i>、<i> GG </i>、<i> BB </i>为十六进制正整数。取值范围为<b> 00 - FF </b>。<i> RR </i>指定红色值，<i> GG </i>指定绿色值，<i> BB </i>指定蓝色值。<i> AA </i>指定透明度。<b> 00 </b>是完全透明。<b> FF </b>是完全不透明。<br>
+取值范围为<b> 0x00000000 - 0xFFFFFFFF </b>。默认值为<span class=cssDefault><b> 0x00000000 </b></span>。不透明黑色。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索遮罩(<a href="../properties/mask.html"> Mask </a>)颜色。
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+oDiv.filters['DXImageTransform.Microsoft.BasicImage'].Mask=1;<br>
+oDiv.filters['DXImageTransform.Microsoft.BasicImage'].MaskColor=0xFF9900;
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

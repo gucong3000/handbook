@@ -1,0 +1,114 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>CALCMODE Attribute | calcMode Property (t:TRANSITIONFILTER) (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>CALCMODE Attribute | calcMode Property
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the interpolation mode for the progress of the <A HREF="../../time2/elements/transitionfilter.html">transitionFilter</A>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;t:TRANSITIONFILTER&nbsp;<B>CALCMODE</B>
+= <SPAN CLASS="clsRange">sMode</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>t:TRANSITIONFILTER</I>.<B>calcMode</B>(<I>calcmode</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sMode</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sMode</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values:<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">discrete</SPAN></TD><TD>The progress of the transition jumps from one value to the next, without any interpolation.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">linear</SPAN></TD><TD>Default. The transition uses simple linear interpolation between values to calculate the animation function.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+linear</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Use the <B>calcMode</B> attribute to determine how the specified values of the <A HREF="../../time2/properties/values_1.html">values</A>, <A HREF="../../time2/properties/to_1.html">to</A>, <A HREF="../../time2/properties/by_1.html">by</A>, and <A HREF="../../time2/properties/from_1.html">from</A> attributes are interpreted. For an illustration of this, see the following example.</P><P>When this property is set to a value of <SPAN CLASS="clsLiteral">discrete</SPAN>, the duration of the animation is divided into equal time periods that depend on the values assigned to one or more of the following attributes: <A HREF="../../time2/properties/to.html">TO</A>, <A HREF="../../time2/properties/from.html">FROM</A>, <A HREF="../../time2/properties/by.html">BY</A>, <A HREF="../../time2/properties/values.html">VALUES</A>, or <A HREF="../../time2/properties/path.html">PATH</A>. As one time period moves to the next, the animation jumps to the next value with no interpolation. Here is a list of examples.
+<ul><li><B>VALUES = "0.3;0.6;0.8"</B><p>The animation spends 1/3 of its duration at each value (0.3, 0.6, and 0.8).</p></li><li><B>VALUES = "0.3;0.6"</B><p>The animation spends 1/2 of its duration at each value (0.3 and 0.6).</p></li><li><B>FROM = "0" TO = "0.8"</B><p>When the <B>FROM</B> and <B>TO</B> or <B>BY</B> attributes are used together, 1/2 of its duration is spent at the value of the <B>FROM</B> attribute and 1/2 of its duration is spent at the value of the <B>TO</B> or <B>BY</B> attribute (0 and 0.8).</p></li><li><B>TO = "0.8"</B><p>When the <B>FROM</B> attribute is omitted, the animation spends 100% of its duration at the value of the <B>TO</B> or <B>BY</B> attribute (0.8).</p></li></ul></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example shows how the <B>calcMode</B> property determines the way the <B>values</B> attribute is interpreted.  </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time{behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv1.begin" TYPE="barWipe" DUR="5"
+TARGETELEMENT="oDiv1" VALUES=".1;.17;.27;.37;.47;.56;.65;.71;.82;.92;1.0"
+CALCMODE="discrete"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv1.begin" TYPE="barWipe" DUR="5"
+TARGETELEMENT="oDiv2" VALUES=".1;.17;.27;.37;.47;.56;.65;.71;.82;.92;1.0"
+CALCMODE="linear"/&gt;
+&lt;INPUT TYPE="button" ID="oStartButton" VALUE="Start Transition"&gt;
+&lt;P&gt;
+&lt;DIV CLASS="time"  begin="oStartButton.click" ID="oDiv1" DUR="indefinite"
+STYLE="position:relative; left:20px; width:420px; height:100px;
+background-image:url(ART_time_progress.gif); background-repeat: no-repeat;"&gt;
+&lt;/DIV&gt;
+&lt;DIV CLASS="time"  begin="oStartButton.click" ID="oDiv2" DUR="indefinite"
+STYLE="position:relative; left:20px; width:420px; height:100px;
+background-image:url(ART_time_progress.gif); background-repeat: no-repeat;"&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/calcModeEX1.html" FEATURES="top=50,left=50,height=450,width=750,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../common/author/behaviors/overview/transition_ovw.html#progress">Using HTML+TIME Transitions</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

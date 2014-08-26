@@ -1,0 +1,134 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-648-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-660-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-656-fm2xml"></A><A NAME="IXT-23-55336"></A><A NAME="IXT-23-55337"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object.constructor</i></b></td>
+
+<td align="right"><i>对象的构造函数</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2.0; ECMAScript v1 <A NAME="IXT-23-55336"></A></P><A NAME="ch23-657-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>object</I></TT>.constructor</PRE><A NAME="IXT-23-55337"></A>
+
+
+
+<A NAME="ch23-658-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">对象的constructor属性引用了该对象的构造函数。例如，如果用Array()构造函
+  数创建一个数组，那么a.constructor引用的就是Array：</P>
+
+
+
+<PRE>a = new Array(1,2,3);   // 创建一个对象
+
+a.constructor == Array  //计算结果为true</PRE>
+
+
+
+<P class="docText">onstructor属性常用于判断未知对象的类型。给定了一个未知的值，就可以使用typeof运算符来判断它是原始的值还是对象。如果它是对象，就可以使用constructor属性来判断对象的类型。例如，下面的函数用来判断一个给定的值是否是数组：</P>
+
+
+
+<PRE>function isArray(x) {
+
+    return ((typeof x == "object") &amp;&amp; (x.constructor == Array));
+
+} </PRE>
+
+
+
+<P class="docText">但是要注意，虽然这种方法适用于JavaScript核心语言的内部对象，但对于“主对象”，如Window这样的客户端JavaScript对象，这种方法就不一定适用了。Object.toString()方法的默认实现提供了另一种判断未知对象类型的方法。</P>
+
+
+
+<A NAME="ch23-659-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-687-fm2xml.html#ch23-687-fm2xml">Object.toString(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-648-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-660-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

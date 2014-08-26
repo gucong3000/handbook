@@ -1,0 +1,221 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>progress Property (currTimeState) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>progress Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves the current progress of the element's timeline.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax">[ <SPAN CLASS="clsRange">fProgress</SPAN><B> =</B> ] <I>currTimeState</I>.<B>progress</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">fProgress</SPAN></TD><TD>
+Floating-point that receives the current progress along the element's timeline, as compared to the element's <A HREF="../../time2/properties/simpledur.html">simpleDur</A> property. Valid values for this property are in the range between 0.0 and 1.0.</TD></TR></TABLE><P>The property is read-only.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The value of this property is continuously updated for the duration of the element's timeline. If the <A HREF="../../time2/properties/autoreverse.html">autoReverse</A> property is set to <SPAN CLASS="clsLiteral">true</SPAN>, then <B>progress</B> begins decrementing from 1 until it reaches 0, or the end of the timeline.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows how to display the progress of the timeline as a percentage.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;progress Property&lt;/TITLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+// Update the SPAN container with the progress value
+function update() {
+var pro = movie.currTimeState.progress;
+var sPro = pro.toString();    // convert to a string
+if (movie.currTimeState.stateString != "holding") {
+if (pro != 0) {
+if (sPro.substr(2,1) == "0") {
+sPro = sPro.substr(3,1);  // single digit (1-9)
+}
+else {
+sPro = sPro.substr(2,2);  // double digit (10-99)
+}
+}
+else {
+sPro = "0";
+}
+}
+else {
+sPro = "100";        // Timestate is holding at the end
+}
+progressText.innerText = sPro + "%";    // Set the span
+}
+// Update each button based on the current timeline state
+function updateBtns() {
+switch (movie.currTimeState.stateString) {
+case "active":
+if (movie.currTimeState.isPaused == true) {
+playBtn.disabled = true;
+stopBtn.disabled = false;
+pauseBtn.disabled = true;
+resumeBtn.disabled = false;
+}
+else {
+playBtn.disabled = true;
+stopBtn.disabled = false;
+pauseBtn.disabled = false;
+resumeBtn.disabled = true;
+}
+break;
+case "inactive":
+playBtn.disabled = false;
+stopBtn.disabled = true;
+pauseBtn.disabled = true;
+resumeBtn.disabled = true;
+break;
+case "holding":
+playBtn.disabled = false;
+stopBtn.disabled = true;
+pauseBtn.disabled = true;
+resumeBtn.disabled = true;
+break;
+}
+}
+&lt;/SCRIPT&gt;
+&lt;SCRIPT FOR="document" EVENT="onclick" LANGUAGE="JScript"&gt;
+updateBtns();
+&lt;/SCRIPT&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+BODY{font-size: 12pt;}
+&lt;/STYLE&gt;
+&lt;XML:NAMESPACE PREFIX="t"/&gt;
+&lt;/HEAD&gt;
+&lt;BODY ID="docBody" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED"
+BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000"
+onload="update(); updateBtns();"&gt;
+&lt;BLOCKQUOTE CLASS="body"&gt;
+&lt;!-- Timer for refreshing the displayed progress --&gt;
+&lt;SPAN ID="timer" CLASS="time" BEGIN="movie.begin" DUR=".25"
+REPEATCOUNT="indefinite" onrepeat="update();" FILL="FREEZE"&gt;
+&lt;/SPAN&gt;
+&lt;!-- Container to display current progress --&gt;
+&lt;SPAN STYLE="color:#FFFFFF; background-color:#000000;
+position:relative; top:70px; left:240px; padding:2;"&gt;Progress:
+&lt;SPAN STYLE="font-family:courier; font-weight:bold;
+color:#FFFFFF;" ID="progressText"&gt;0%&lt;/SPAN&gt;
+&lt;/SPAN&gt;
+&lt;TABLE  CELLSPACING="5" STYLE="background-color:#EEEEEE;"
+ID="proSpan"&gt;
+&lt;TR&gt;
+&lt;TD STYLE="background-color:Silver; padding:5;"&gt;
+&lt;SPAN&gt;Video Controls:&amp;nbsp;
+&lt;BUTTON ID="playBtn" onclick="movie.beginElement();"&gt;Play
+&lt;/BUTTON&gt;&amp;nbsp;
+&lt;BUTTON ID="stopBtn" onclick="movie.endElement();
+txSeq.endElement();"&gt;Stop&lt;/BUTTON&gt;&amp;nbsp;
+&lt;BUTTON ID="pauseBtn" onclick="movie.pauseElement();
+txSeq.pauseElement();"&gt;Pause&lt;/BUTTON&gt;&amp;nbsp;
+&lt;BUTTON ID="resumeBtn" onclick="movie.resumeElement();
+txSeq.resumeElement();"&gt;Resume&lt;/BUTTON&gt;&lt;/SPAN&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;t:VIDEO CLASS="time" ID="movie"
+SRC="../../common/samples/author/behaviors/media/movie.avi"
+BEGIN="indefinite" FILL="FREEZE" onend="updateBtns();
+update();"/&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD ID="caption" STYLE="background-color:Silver;"
+ALIGN="CENTER"&gt;
+&lt;t:SEQ ID="txSeq" CLASS="time" BEGIN="movie.begin+.5"&gt;
+&lt;SPAN ID="ten" CLASS="time" DUR="1"&gt;Ten&lt;/SPAN&gt;
+&lt;SPAN ID="go" CLASS="time" DUR="2"&gt;We're go for
+main engine start&lt;/SPAN&gt;
+&lt;SPAN ID="seven" CLASS="time" DUR="1"&gt;7&lt;/SPAN&gt;
+&lt;SPAN ID="six" CLASS="time" DUR="1"&gt;6&lt;/SPAN&gt;
+&lt;SPAN ID="start" CLASS="time" BEGIN="1" DUR="1"&gt;
+Start&lt;/SPAN&gt;
+&lt;SPAN ID="three" CLASS="time" DUR="1"&gt;3&lt;/SPAN&gt;
+&lt;SPAN ID="two" CLASS="time" DUR="1"&gt;2&lt;/SPAN&gt;
+&lt;SPAN ID="one" CLASS="time" DUR="1"&gt;1&lt;/SPAN&gt;
+&lt;SPAN ID="zero" CLASS="time" DUR="1"&gt;0&lt;/SPAN&gt;
+&lt;SPAN ID="liftoff" CLASS="time" DUR="2"&gt;
+and lift off!&lt;/SPAN&gt;
+&lt;SPAN ID="liftoff2" CLASS="time" DUR="1.75"&gt;
+Lift off, Americans return to space&lt;/SPAN&gt;
+&lt;SPAN ID="liftoff2" CLASS="time" DUR="2"&gt;
+as Discovery clears the tower.&lt;/SPAN&gt;
+&lt;SPAN ID="last" CLASS="time" BEGIN="1" DUR="3"&gt;
+Roger all, Discovery.&lt;/SPAN&gt;
+&lt;/t:SEQ&gt;&amp;nbsp;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/SPAN&gt;
+&lt;/BLOCKQUOTE&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/progress.htm" FEATURES="top=50,left=50,height=400,width=400,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is a Microsoft extension to <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/objects/currtimestate.html">
+currTimeState</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

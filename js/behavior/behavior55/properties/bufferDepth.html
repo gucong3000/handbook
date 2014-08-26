@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendBehaviors=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'clientCaps'
+);
+
+sStyle=
+'#idDiv{width:100%;line-height:16px;font-size:11px;}\n'+
+'@media all {\n'+
+'rdl\\:clientCaps {behavior:url(#default#clientCaps);display:none;}\n'+
+'}\n';
+
+sScript=
+'<script>\n'+
+'function window.onload(e){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'var oClientCaps=document.all("idClientCaps");\n'+
+'var sTempStr=\n'+
+'"屏幕工作区高度(availHeight) = " + oClientCaps.availHeight + "\\r\\n" +\n'+
+'"屏幕工作区宽度(availWidth) = " + oClientCaps.availWidth + "\\r\\n" +\n'+
+'"显示缓冲深度(Buffer Depth) = " + oClientCaps.bufferDepth + "\\r\\n" +\n'+
+'"色彩显示深度(Color Depth) = " + oClientCaps.colorDepth + "\\r\\n" +\n'+
+'"连接类型(connectionType) = " + oClientCaps.connectionType + "\\r\\n" +\n'+
+'"客户端Cookies(cookieEnabled) = " + oClientCaps.cookieEnabled + "\\r\\n" +\n'+
+'"处理器(cpuClass) = " + oClientCaps.cpuClass + "\\r\\n" +\n'+
+'"屏幕垂直分辨率(height) = " + oClientCaps.height + "\\r\\n" +\n'+
+'"虚拟机(javaEnabled) = " + oClientCaps.javaEnabled + "\\r\\n" +\n'+
+'"系统平台(platform) = " + oClientCaps.platform + "\\r\\n" +\n'+
+'"系统语言(systemLanguage) = " + oClientCaps.systemLanguage + "\\r\\n" +\n'+
+'"用户语言(userLanguage) = " + oClientCaps.userLanguage + "\\r\\n" +\n'+
+'"屏幕水平分辨率(width) = " + oClientCaps.width + "\\r\\n" ;\n'+
+'oDiv.innerHTML = sTempStr;\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<rdl:clientCaps id=idClientCaps /><div id=idDiv><\/div>\n';
+
+iWinWidth=450;
+
+iWinHeight=350;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>bufferDepth</span>版本：DHTML Object Model　只读</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>iBitsPerPixel</i><b> = </b><i>Object</i><b>.bufferDepth</b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iBitsPerPixel </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。
+<table>
+<tr><td nowrap><b> 0 </b></td><td nowrap><b>: </b></td>
+<td><b>默认值</b>。无外部缓冲发生。<a href="../properties/colorDepth.html"> colorDepth </a>特性设置为屏幕深度。</td></tr>
+<tr><td nowrap><b> -1 </b></td><td nowrap><b>: </b></td>
+<td>缓冲区深度依据屏幕深度调整。<a href="../properties/colorDepth.html"> colorDepth </a>特性设置为屏幕深度。</td></tr>
+<tr><td nowrap><b> 1, 4, 8, 15, 16, 24, 32 </b></td><td nowrap><b>: </b></td>
+<td>离屏缓冲依据指定的位/象素的值发生。<a href="../properties/colorDepth.html"> colorDepth </a>特性也被设为相同的值。<b> 15 </b>等于16位/象素。因为在 5-5-5 的 红-绿-蓝 布局里只使用了 15 位。</td></tr>
+</table>
+</td></tr></table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+检索离屏位图缓冲区的色彩每个象素所使用的位数。<br>
+不被支持的值会导致此特性值返回<b> -1 </b>。<br>
+当此特性值为<b> -1 </b>并且用户改变了影响显示深度的系统设置时，缓冲区深度会自动更新到新的深度。但是当此特性值为有效值时，前述的情况不会发生。<br>
+可参阅<b> screen </b>对象的<b> bufferDepth </b>特性。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

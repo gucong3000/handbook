@@ -1,0 +1,186 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-18-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-28-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-22-fm2xml"></A><A NAME="IXT-23-55016"></A><A NAME="IXT-23-55017"></A><A NAME="IXT-23-55018"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Arguments</i></b></td>
+
+<td align="right"><i>一个函数的参数和其他属性</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2.0; ECMAScript v1</P>
+
+
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText"> 继承于 Object </P><A NAME="ch23-23-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>arguments
+
+arguments[<TT><I>n</I></TT>]</PRE>
+
+
+
+<A NAME="ch23-24-fm2xml"></A>
+
+<h4 class="docRefsectTitle">元素</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55016"></A>
+
+Arguments对象只在函数体中定义。虽然技术上说来，它不是数组，但Arguments对
+象有带编号的属性，这些属性可以作为数组元素，而且它有length属性，该属性声
+明了数组元素的个数。它的元素是作为参数传递给函数的值。元素0是第—个参数，
+元素1是第二个参数，以此类推。所有作为参数传递的值都会成为Arguments对象的
+数组元素，无论函数声明中是否有这些参数的名字。</P>
+
+
+
+<A NAME="ch23-25-fm2xml"></A>
+
+<h4 class="docRefsectTitle">属性</h4>
+
+
+
+<A NAME="IXT-23-55017"></A><A NAME="IXT-23-55018"></A><DL class="docList"><A NAME="IXT-23-55017"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">callee</span></span></span></DT>
+
+<DD>
+
+<P class="docList">对当前正在执行的函数的引用。</P>
+
+</DD>
+
+<A NAME="IXT-23-55018"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">length</span></span></span></DT>
+
+<DD>
+
+<P class="docList">传递给函数的参数个数，同时也是Arguments对象中的数组元素个数。
+
+</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-26-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">
+
+当一个函数被调用时，会为该函数创建一个Arguments对象，局部变量arguments也
+会自动地初始化以便引用那个Arguments对象。Arguments对象的主要用途是提供一
+种方法，用来确定传递给函数的参数个数并且引用未命名的参数。除了数组元素和属
+性length之外，属性callee可以使未命名的函数引用自身。
+
+
+
+</P>
+
+
+
+<P class="docText">大多数情况下，可以将Arguments对象看做是具有callee属性的数组。但它不是Array类的实例，Arguments.1ength属性没有Array.1ength属性的专有行为，所以不能用它来改变数组的大小。
+
+</P>
+
+
+
+<P class="docText">Arguments对象有一个非常特殊的特性。当函数具有命名的参数时，Arguments对象的数组元素是存放函数参数的局部变量的同义词。Arguments对象和参数名提供了引用同一个变量的两种不同方法。用参数名改变参数值，会改变用Arguments对象得到的值，改变用Arguments对象得到的参数值，也会改变用参数名得到的值。
+
+</P>
+
+
+
+<A NAME="ch23-27-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-399-fm2xml.html#ch23-399-fm2xml">Function</A> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-18-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-28-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

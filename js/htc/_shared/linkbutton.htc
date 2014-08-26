@@ -1,0 +1,71 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="linkButton"
+ urn="ERiW.Snakevil.Product:HTC.attLinkButton"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontentready"
+	 onevent="hnContentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="ondocumentready"
+	 onevent="hnDocumentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onclick"
+	 onevent="hnClick()"
+	/>
+	<PUBLIC:PROPERTY
+	 name="href"
+	 INTERNALNAME="__sPageTarget"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+// HREF 属性内部访问变量。
+__sPageTarget = null;
+// 窗口句柄存储变量。
+__sWinHandler = "";
+
+/**
+ * oncontentready 事件处理函数。
+ */
+function hnContentReady() {
+	var oText = element.document.createTextNode("运行实例");
+	element.appendChild(oText);
+}
+
+/**
+ * ondocumentready 事件处理函数。
+ */
+function hnDocumentReady() {
+	if (element.document.getElementById("oScriptExample")) {
+		return;
+	}
+	var oScript = element.document.createElement("SCRIPT");
+	with (oScript) {
+		setAttribute("id", "oScriptExample");
+		setAttribute("src", "../_shared/example.js");
+	}
+	element.document.documentElement.firstChild.appendChild(oScript);
+}
+
+/**
+ * onclick 事件处理函数。
+ */
+function hnClick() {
+	if ((null == __sPageTarget) || !__sPageTarget.length) {
+		return;
+	}
+	if (!__sWinHandler.length) {
+		__sWinHandler = uniqueID;
+	}
+	showExample(__sPageTarget, __sWinHandler);
+}
+-->
+</SCRIPT>

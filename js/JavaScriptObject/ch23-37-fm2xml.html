@@ -1,0 +1,339 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-32-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-47-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-37-fm2xml"></A><A NAME="jscript4-IDXTERM-3697"></A><A NAME="IXT-23-55021"></A><A NAME="IXT-23-55022"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Array</i></b></td>
+
+<td align="right"><i>对数组的内部支持</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText"><A NAME="jscript4-IDXTERM-3697"></A>JavaScript
+
+ 1.1; JScript 2.0; ECMAScript v1</P>
+
+
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText"> 继承于 Object </P><A NAME="ch23-38-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new Array( )
+
+new Array(<TT><I>size</I></TT>)
+
+new Array(<TT><I>element0</I></TT>, <TT><I>element1</I></TT>, ..., <TT><I>elementn</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-39-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>size</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">期望的数组元素个数。返回的数组，1ength域将被设为size的值。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>element0, ... elementn</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">两个或多个值的参数列表。当使用这些参数来调用构造函数Array()时，新创建的数组的元素就会被初始化为这些值，它的length域也会被设置为参数的个数。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-40-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">新创建并被初始化了的数组。如果调用构造函数Array()时没有使用参数，那么返回的数组为空，length域为0。当调用构造函数时只传递给它一个数字参数，该构造函数将返回具有指定个数、元素为undefined的数组。当用其他参数调用Array{)时，
+    该构造函数将用参数指定的值初始化数组。当把构造函数作为函数调用，不使用new运算符时，它的行为与使用new运算符调用它时的行为完全一样。</P>
+
+
+
+
+
+<A NAME="ch23-41-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">RangeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">当只传递给Array()构造函数一个整数参数size时，如果size是负数，或者大子2<SUP>32 </SUP>-1，将抛出RangeError异常。
+
+
+</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-42-fm2xml"></A>
+
+<h4 class="docRefsectTitle">直接量语法</h4>
+
+
+
+<P class="docText">ECMAScript v3规定了数组直接量的语法，JavaScript 1.2和JScript 3.0实现了它。可以把—个用逗号分隔的表达式列表放在方括号中，创建并初始化—个数组。这些表达式的值将成为数组元素。例如：</P>
+
+
+
+<PRE>var a = [1, true, 'abc'];
+
+var b = [a[0], a[0]*2, f(x)]; </PRE>
+
+
+
+<A NAME="ch23-43-fm2xml"></A>
+
+<h4 class="docRefsectTitle">属性</h4>
+
+
+
+<A NAME="IXT-23-55021"></A><A NAME="IXT-23-55022"></A><DL class="docList"><A NAME="IXT-23-55021"></A><A NAME="IXT-23-55022"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">length</span></span>
+
+</span></DT>
+
+<DD>
+
+<P class="docList">一个可读可写的整数，声明了数组中的元素个数。如果数组中的元素不连续，它就是比数组中的最后—个元素的下标大1的整数。改变这个属性的值将截断或扩展数组。</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-44-fm2xml"></A>
+
+<h4 class="docRefsectTitle">方法</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">concat(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">给数组添加元素。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">join(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将数组中所有元素都转换为字符串，然后连接在一起。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">pop(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">从数组尾部删除一个项目。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">push(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把一个项目添加到数组的尾部。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">reverse(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">在原数组上颠倒数组中元素的顺序。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">shift(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">将数组的头部元素移出数组头部。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">slice(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回一个数组的子数组。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">sort(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">在原数组上对数组元素进行排序。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">splice(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">插入、删除或替换一个数组元素。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toLocaleString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数组转换为一个局部字符串。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">把数组转换为字符串。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">unshift(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">在数组的头部插入一个元素。</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-45-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">数组是JavaScript的基本语句特性。</P>
+
+
+
+<A NAME="ch23-46-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-32-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-47-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>namedItem</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>namedItem Method
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves an object or a collection from the specified collection.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>oItem</I> = <I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I><B>.namedItem(</B><I>sName</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sName</I></TD><TD>
+Required.
+<b>String</b> that specifies the <A HREF="../properties/name_2.html">name</A> or <A HREF="../properties/id.html">id</A> property of the object to retrieve.  A collection is returned if more than one match is made.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>Returns an object or a collection of objects if successful, or null otherwise.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This method first searches for an object with a matching <B>id</B> attribute. If a match is not found, the method then searches for an object with a matching <B>name</B> attribute, but only on those elements that are allowed a name attribute.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows how to use the <B>namedItem</B> method to retrieve a <A HREF="../objects/div.html">div</A> and change its <A HREF="../properties/innertext.html">innerText</A> property.</P><PRE CLASS="clsCode" AUTOHILITE="1">    &lt;DIV id="oDIV1"&gt;This text will not change.&lt;/DIV&gt;
+&lt;DIV id="oDIV2"&gt;This text will change.&lt;/DIV&gt;
+&lt;BUTTON onclick="document.all.namedItem('oDIV2').innerText='Changed!';"&gt;
+Change Option
+&lt;/BUTTON&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This method is defined in <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">
+World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../collections/all.html">
+all</A>, <A PLATINFO="win32=6" HREF="../collections/anchors.html">
+anchors</A>, <A PLATINFO="win32=6" HREF="../collections/applets.html">
+applets</A>, <A PLATINFO="win32=6" HREF="../collections/areas.html">
+areas</A>, <A PLATINFO="win32=6" HREF="../collections/boundelements.html">
+boundElements</A>, <A PLATINFO="win32=6" HREF="../collections/cells.html">
+cells</A>, <A PLATINFO="win32=6" HREF="../collections/elements.html">
+elements</A>, <A PLATINFO="win32=6" HREF="../collections/embeds.html">
+embeds</A>, <A PLATINFO="win32=6" HREF="../collections/forms.html">
+forms</A>, <A PLATINFO="win32=6" HREF="../collections/images.html">
+images</A>, <A PLATINFO="win32=6" HREF="../collections/links.html">
+links</A>, <A PLATINFO="win32=6" HREF="../collections/mimetypes.html">
+mimeTypes</A>, <A PLATINFO="win32=6" HREF="../collections/options.html">
+options</A>, <A PLATINFO="win32=6" HREF="../collections/plugins_0.html">
+plugins</A>, <A PLATINFO="win32=6" HREF="../collections/rows.html">
+rows</A>, <A PLATINFO="win32=6" HREF="../collections/scripts.html">
+scripts</A>, <A PLATINFO="win32=6" HREF="../collections/tbodies.html">
+tBodies</A>, <A PLATINFO="win32=6" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=6" HREF="../collections/filters.html">
+filters</A>, <A PLATINFO="win32=6" HREF="../collections/frames.html">
+frames</A>, <A PLATINFO="win32=6" HREF="../collections/imports.html">
+imports</A>, <A PLATINFO="win32=6" HREF="../collections/stylesheets.html">
+styleSheets</A>, <A PLATINFO="win32=6" HREF="../collections/textrange.html">
+TextRange</A>, <A PLATINFO="win32=6" HREF="../collections/text_rectangle.html">
+TextRectangle</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

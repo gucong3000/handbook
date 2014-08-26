@@ -1,0 +1,250 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>How to Create a Basic HTML+TIME Transition (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>How to Create a Basic HTML+TIME Transition
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>This tutorial shows you how to use HTML+TIME (Timed Interactive Multimedia Extensions) transitions to allow an element to transition into view and then transition the element out of view. This is an example of using HTML+TIME transitions at a very basic level. Click the following <B>Show Me</B> button to see the sample you can create.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/basic_example_tut.htm" FEATURES="top=50,left=50,height=350,width=290,status=0,resizable=1"></IMG></A></DIV><p></p><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#firstLook">A Quick Look At the Code</A></LI><LI><A TARGET="_self" HREF="#shell">Setting the Stage</A></LI><LI><A TARGET="_self" HREF="#into_view">Transition into View</A></LI><LI><A TARGET="_self" HREF="#out_view">Transition out of View</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2>
+This article assumes you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into great detail on how to add a behavior to your page nor does it cover how to declare a namespace and use custom tags, as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>.
+<H2><A NAME="firstLook"></A>A Quick Look At the Code</H2><p>To start, have a quick look at the code of the entire sample. Later on, this code is explained in greater detail, but for now, it might be useful to have a preview of what is needed to make the sample.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv
+{
+border:2px solid black;
+font:18pt arial;
+padding:20;
+color:#000000;
+background-color:#FFCC00;
+width:270px;
+height:270px;
+}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oDiv" BEGIN="1" CLASS="time" DUR="8"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" TYPE="fade"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.end - 3" DUR="3" MODE="out" TYPE="pushWipe"/&gt;
+This DIV Transitions In, Stays For Two Seconds, And&lt;br&gt; Then Transitions Out.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/basic_example_tut.htm" FEATURES="top=50,left=50,height=350,width=290,status=0,resizable=1"></IMG></A></DIV><p>As you can see, the code is relatively short. Besides the <A HREF="../objects/div.html">DIV</A> element, there are only two <A HREF="../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> elements inside of the body of the document. It is these <B>t:TRANSITIONFILTER</B> elements and the attributes inside of them that control the timing and characteristics of the transition that is applied to the <B>DIV</B> element. This tutorial walks through each of the following steps to create the sample.
+<ol><li>Write the miscellaneous code needed for the sample to work properly.
+<ul><li>Write the code that is needed to instantiate the HTML+TIME behavior.</li><li>Write the formatting code that will be needed by the menu in a <A HREF="../objects/style.html">STYLE</A> tag.</li><li>Create the time element that is to be transitioned.</li></ul></li><li>Create the <B>t:TRANSITIONFILTER</B> element that transitions the time element into view.</li><li>Create the <B>t:TRANSITIONFILTER</B> element that transitions the time element out of view.</li></ol></p><H2><A NAME="shell"></A>Setting the Stage</H2><p></p><ol><li><p>To use HTML+TIME elements and use the time2 behavior, the following code is needed. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><p>For more information about creating an XML namespace and referencing the <B>time2</B> behavior, see <A HREF="../common/author/behaviors/time.html#Authoring">Authoring HTML+TIME</A>.</p></li><li><p>Next, we add the formatting code inside of the <B>STYLE</B> tags. The <B>DIV</B> element in this sample derives its formatting from here. By separating formatting code from rendered elements, the functional code is simplified.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv
+{
+border:2px solid black;
+font:18pt arial;
+padding:20;
+color:#000000;
+background-color:#FFCC00;
+width:270px;
+height:270px;
+}
+&lt;/STYLE&gt;
+</PRE></li><li><p>You must then create an element that you want to transition. For this sample, we use a <B>DIV</B>.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV id="oDiv" STYLE="width:270" CLASS="time" BEGIN="3" DUR="8"&gt;
+This DIV Transitions In, Stays For Two Seconds, And Then Transitions Out.
+&lt;/DIV&gt;
+</PRE><p>Let's take a closer look at this <B>DIV</B>. There are a number of features worth mentioning.</p>
+First, the element must have <I>layout</I> in order to have an HTML+TIME transition applied to it. The <B>DIV</B> in this tutorial gains layout by having the <A HREF="../properties/width_2.html">width</A> and <A HREF="../properties/height_2.html">height</A> specified inside the <B>STYLE</B> tag that you included.
+<PRE CLASS="clsCode" AUTOHILITE="1" HILITE="width:270px;;height:270px;">
+&lt;STYLE&gt;
+#oDiv
+{
+.
+.
+width:270px;
+height:270px;
+.
+.
+}
+&lt;/STYLE&gt;
+</PRE><p>For more information about what is needed to gain layout, see <A HREF="../common/author/behaviors/overview/transition_ovw.html#whatTransition">What Can Be Transitioned?</A>.</p><p>
+The <A HREF="../common/delivery/msicd/reference/class.html">CLASS</A> attribute is set to <SPAN CLASS="clsLiteral">time</SPAN>, which applies the <B>time2</B> behavior to the <B>DIV</B>. This, too, is needed allows the <B>DIV</B> to have the transition applied to it.
+</p><p>
+The <A HREF="../time2/properties/begin.html">BEGIN</A> attribute had a value of <SPAN CLASS="clsLiteral">3</SPAN>. This means that the element appears three seconds after the page loads.
+</p><p>
+The <A HREF="../time2/properties/dur.html">DUR</A> attribute is set to a value of <SPAN CLASS="clsLiteral">8</SPAN> (eight seconds). Because we want to transition the <B>DIV</B> out of view, it must have a finite duration that it is visible. The period of time that the element is visible is known as the active period of the element.
+</p></li></ol><p>Let's take a look at the sample so far.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv
+{
+border:2px solid black;
+font:18pt arial;
+padding:20;
+color:#000000;
+background-color:#FFCC00;
+width:270px;
+height:270px;
+}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oDiv" BEGIN="1" CLASS="time" DUR="8"&gt;
+This DIV Transitions In, Stays For Two Seconds, And&lt;br&gt; Then Transitions Out.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/basicTutIntermediate1.htm" FEATURES="top=50,left=50,height=350,width=290,status=0,resizable=1"></IMG></A></DIV><p>As you can see, the <B>DIV</B> appears and disappears, but no transitions take place yet. Next, we see how to transition the <B>DIV</B> into view.</p><H2><A NAME="into_view"></A>Transition into View</H2><p>The first <B>t:TRANSITIONFILTER</B> in the example controls the <B>DIV</B> transitioning into view.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="t:TRANSITIONFILTER BEGIN=&quot;oDiv.begin&quot; DUR=&quot;3&quot; TYPE=&quot;fade&quot;/">
+&lt;DIV id="oDiv" STYLE="width:270" CLASS="time" BEGIN="3" DUR="8" &gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" TYPE="fade"/&gt;
+This DIV Transitions In, Stays For Two Seconds, And Then Transitions Out.
+&lt;/DIV&gt;
+</PRE><p>
+The <B>BEGIN</B> attribute is set to <SPAN CLASS="clsLiteral">oDiv.begin</SPAN>. This specifies that the transition element is to begin at the same time as the <B>DIV</B> on the time line. It is important to realize that <B>t:TRANSITIONFILTER</B> elements have a beginning, duration of activity, and end that correspond to the state of the transition. Because the <B>DIV</B> appears to transition from invisible to visible, the <B>t:TRANSITIONFILTER</B> begins at the same time as the <B>DIV</B>. Of course, the <B>t:TRANSITIONFILTER</B> could be started at any time during the active period of the <B>DIV</B> but the results would probably be undesirable.
+</p><p>
+The <B>DUR</B> attribute specifies how long the <B>t:TRANSITIONFILTER</B> is active. This specifies how long the transition takes to complete. The transition finishes after three seconds; therefore, the <B>DIV</B> becomes fully visible after three seconds. At this point, three seconds of the <B>DIV</B>'s total active duration of eight seconds has already expired.
+</p><p>
+The <A HREF="../time2/properties/type_1.html">TYPE</A> attribute specifies the kind of transition that takes place. In this case, the transition fades into view.
+</p><p>Here is the sample so far.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv
+{
+border:2px solid black;
+font:18pt arial;
+padding:20;
+color:#000000;
+background-color:#FFCC00;
+width:270px;
+height:270px;
+}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oDiv" BEGIN="1" CLASS="time" DUR="8"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" TYPE="fade"/&gt;
+This DIV Transitions In, Stays For Two Seconds, And&lt;br&gt; Then Transitions Out.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/basicTutIntermediate2.htm" FEATURES="top=50,left=50,height=350,width=290,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="out_view"></A>Transition out of View</H2><p>The second <B>t:TRANSITIONFILTER</B> in the example controls the <B>DIV</B> transitioning out of view.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="&lt;t:TRANSITIONFILTER BEGIN=&quot;oDiv.end - 3&quot; DUR=&quot;3&quot; MODE=&quot;out&quot; TYPE=&quot;pushWipe&quot;/&gt;">
+&lt;DIV id="oDiv" STYLE="width:270" CLASS="time" BEGIN="3" DUR="8" &gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" TYPE="fade"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.end - 3" DUR="3" MODE="out" TYPE="pushWipe"/&gt;
+This DIV Transitions In, Stays For Two Seconds, And Then Transitions Out.
+&lt;/DIV&gt;
+</PRE><p>The <A HREF="../time2/properties/mode.html">MODE</A> attribute is set to <SPAN CLASS="clsLiteral">out</SPAN>. This attribute specifies whether the <B>DIV</B> becomes more or less visible as the transition proceeds. The value of <SPAN CLASS="clsLiteral">out</SPAN> specifies that the <B>DIV</B> becomes less visible. A value of <SPAN CLASS="clsLiteral">in</SPAN> would specify that it becomes more visible. Because <SPAN CLASS="clsLiteral">in</SPAN> is the default value, the <A HREF="../time2/properties/mode.html">mode</A> attribute did not need to be included in the first <B>t:TRANSITIONFILTER</B> element.</p><p>The <B>BEGIN</B> attribute is set to <SPAN CLASS="clsLiteral">oDiv.begin - 3</SPAN>. This <B>t:TRANSITIONFILTER</B> element begins three seconds before the <B>DIV</B> ends on the time line. The <A HREF="../time2/properties/dur_1.html">DUR</A> value of this <B>t:TRANSITIONFILTER</B> is three seconds, so the transition ends at the exact same time as the <B>DIV</B> ends. Like the first transition, it is important to get this timing right. For instance, if the <B>t:TRANSITIONFILTER</B> begins too early, the <B>DIV</B> would transition out for a moment, appear again, and then disappear when the active period of the <B>DIV</B> elapsed. If the <B>t:TRANSITIONFILTER</B> starts too late, the <B>DIV</B> would transition out part of the way and then suddenly disappear because the <B>t:TRANSITIONFILTER</B> cannot extend the duration of the <B>DIV</B>. As expected, if the active periods of the <B>t:TRANSITIONFILTER</B> and the <B>DIV</B> do not overlap at all, no transition occurs on the <B>DIV</B>. </p><p>Here is the completed sample.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv
+{
+border:2px solid black;
+font:18pt arial;
+padding:20;
+color:#000000;
+background-color:#FFCC00;
+width:270px;
+height:270px;
+}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oDiv" BEGIN="1" CLASS="time" DUR="8"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" TYPE="fade"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin+5" DUR="3" MODE="out" TYPE="pushWipe"/&gt;
+This DIV Transitions In, Stays For Two Seconds, And&lt;br&gt; Then Transitions Out.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/basic_example_tut.htm" FEATURES="top=50,left=50,height=350,width=290,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="transition_ovw.html">Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_intro_tut.html">How to Create An Animated Presentation Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_menu_tut.html">How to Make An Animated Menu Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_slide_show_tut.html">How to Make a Slide Show Using HTML+TIME Transitions</A></LI></UL><info><product rid="prod_IE" minver="6"></product><platform rid="plat_win" minver="98"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

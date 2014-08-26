@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>TextRectangle</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<SCRIPT>
+document.parentWindow.status = "";
+var timid = -1;
+var timoID_2 = -1;
+var nLine;
+var nPosInLine;
+var oRcts;
+var nDivLen;
+var nEraser;
+function LoadDone() {
+oTextRange = document.body.createTextRange();
+oRcts = oTextRange.getClientRects();   // 获得范围的绑定矩形
+nLine = 0;
+oBndRct = obj.getBoundingClientRect();
+nDivLen = oBndRct.right - oBndRct.left + 1;
+MoveTo();
+}
+function MoveTo() {
+if(nLine >= oRcts.length) {
+nLine = 0;
+}
+obj.style.top = oRcts[nLine].top;
+nPosInLine = oRcts[nLine].left;
+nEraser = 0;
+timoID_2 = setInterval("MoveToInLine()",60);
+}
+function MoveToInLine() {
+if(nPosInLine >= oRcts[nLine].right - nDivLen) {
+clearInterval(timoID_2);
+timoID_2 = -1;
+obj.style.left = oRcts[nLine].right - nDivLen;
+nLine++;
+timid = setTimeout("MoveTo()", 100);
+return;
+}
+if(nEraser == 0) {
+nEraser = 1; im.src = "dot.gif";
+} else {
+nEraser = 0; im.src = "dot.gif";
+}
+obj.style.left = nPosInLine;
+nPosInLine += 3;
+}
+function End() {
+if(timid != -1)
+clearInterval(timid);
+timid = -1;
+if(timoID_2 != -1)
+clearInterval(timoID_2);
+timoID_2 = -1;
+}
+</SCRIPT>
+</HEAD>
+<BODY ID="bodyid" onload="LoadDone()" onresize="End();LoadDone()" onunload="End()" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<P STYLE="text-align:center">
+<B>悄悄的我走了</B>
+<BR>
+<P ALIGN="center">悄悄的<BR>我走了<BR>
+<UL>
+<LI>悄悄的我走了
+</UL>
+<UL>
+<LI>悄悄的</LI>
+<LI>悄悄的我走了</LI>
+<LI>悄悄的我走了, 正如</LI>
+<LI>悄悄的我走了, 正如我悄悄的来</LI>
+</UL>
+<P><BLOCKQUOTE>
+请注意, 如果你更改窗口大小的话, 坐标也不会调整, 因为坐标是在 <B>onload</B> 的时候设置的。</BLOCKQUOTE>
+<CENTER>
+<BR><BR><BR>
+<HR>
+用鼠标右键单击窗口的任何地方查看源代码。
+</CENTER>
+<DIV ID="obj" STYLE="position:absolute"><IMG ID="im" SRC="dot.gif" WIDTH="16" HEIGHT="16" border="0" alt="*">  </DIV>
+</P>
+<BR><BR><BR>
+&copy;  2002 Microsoft Corporation. 版权所有
+</BLOCKQUOTE>
+</BODY>
+</HTML>

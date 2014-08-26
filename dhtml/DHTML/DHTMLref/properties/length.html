@@ -1,0 +1,126 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>length</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>length Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the number of objects in a collection.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+This property now applies to the
+<apply-templates></apply-templates><A HREF="../objects/comment.html">comment</A> object.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>N/A</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>length</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">iLength</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">iLength</SPAN></TD><TD><b>Integer</b> that
+specifies or receives the number of objects.</TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/comment.html">COMMENT</A>, <A HREF="../collections/pages.html">pages</A>.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <A HREF="../objects/obj_window.html">window</A>.<B>length</B> property returns the number of frames contained in a window.</P><P>The <B>comment</B>.<B>length</B> property returns the number of characters in the object.</P><P>Although this property is read-only for most of the objects listed in the Applies To section objects, it is read/write for the <A HREF="../collections/areas.html">areas</A> collection (image maps), the <A HREF="../collections/options.html">options</A> collection (select boxes), and the <A HREF="../objects/select.html">select</A> object.</P><P>In all other cases, this property has read-only permission, which means you can retrieve, but cannot change, its current value.</P><P>The <A HREF="../objects/form.html">form</A>.<B>length</B> property does not count <A HREF="../objects/input_image.html">input type=image</A> elements. To access all elements contained in a form, use the <A HREF="../collections/children.html">children</A> collection.</P><P>For Microsoft Windows&#174; CE only, this collection will always be empty.</P></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">
+World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/all.html">
+all</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../collections/anchors.html">
+anchors</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/applets.html">
+applets</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/areas.html">
+areas</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../collections/attributes.html">
+attributes</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../collections/behaviorurns.html">
+behaviorUrns</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/bookmarks.html">
+bookmarks</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../collections/boundelements.html">
+boundElements</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/cells.html">
+cells</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../collections/childnodes.html">
+childNodes</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/children.html">
+children</A>, <A PLATINFO="win32=6" HREF="../objects/comment.html">
+COMMENT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../collections/controlrange.html">
+controlRange</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../collections/elements.html">
+elements</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/embeds.html">
+embeds</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/filters.html">
+filters</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../collections/forms.html">
+forms</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/frames.html">
+frames</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/images.html">
+images</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/imports.html">
+imports</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../collections/links.html">
+links</A>, <A PLATINFO="win32=5.5" HREF="../collections/namespaces.html">
+namespaces</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../collections/options.html">
+options</A>, <A PLATINFO="win32=5.5" HREF="../collections/pages.html">
+pages</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/plugins_0.html">
+plugins</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/rows.html">
+rows</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/rules.html">
+rules</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/scripts.html">
+scripts</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/stylesheets.html">
+styleSheets</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../collections/tbodies.html">
+tBodies</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../collections/text_rectangle.html">
+TextRectangle</A>, <A PLATINFO="win32=5.5" HREF="../collections/textrange.html">
+TextRange</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_window.html">
+window</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/form.html">
+FORM</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

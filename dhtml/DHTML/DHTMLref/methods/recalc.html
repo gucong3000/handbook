@@ -1,0 +1,162 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>recalc</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>recalc Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Recalculates all dynamic properties in the current document.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>document</I><B>.recalc(</B><B> [</B><I>bForceAll</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>bForceAll</I></TD><TD>
+Optional.
+<b>Boolean</b> that specifies one of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">false</SPAN></TD><TD>Default. Recalculates only those expressions that have changed since the last recalculation.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD>Recalculates all expressions in the document.</TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Implicit dependencies, internal property changes, and related properties can cause some expressions not to recalculate, even though the properties being referenced might have changed. For example, resizing the main window changes the <A HREF="../properties/clientwidth.html">clientWidth</A> property. Expressions that reference <A HREF="../properties/clientwidth.html">clientWidth</A> might not be recalculated, because the change might not be recognized.</P><P>Implicit dependencies refer to properties that can be altered by changes in other properties. For example, the <A HREF="../properties/height_0.html">height</A> of a <A HREF="../objects/div.html">div</A> implicitly depends on the <A HREF="../properties/innerhtml.html">innerHTML</A> of the <B>div</B>. However, if an expression references the <B>height</B>, a change in the <B>innerHTML</B>, which might alter the <B>height</B>, does not cause a recalculation of the expression on a subsequent call to <B>recalc</B>.</P><P>Related properties can access or manipulate data or behaviors through one or more other properties. For example, <A HREF="../properties/pixelleft.html">pixelLeft</A> and <A HREF="../properties/posleft.html">posLeft</A> can set or retrieve the left position of the element. However, if an expression that references <B>pixelLeft</B> and <B>posLeft</B> is altered, the expression might not be recalculated on subsequent calls to <B>recalc</B>.</P><P>Related properties that can cause this behavior include the following: <A HREF="../properties/clientheight.html">clientHeight</A>, <A HREF="../properties/clientleft.html">clientLeft</A>, <A HREF="../properties/clienttop.html">clientTop</A>, <B>clientWidth</B>, <B>height</B>, <A HREF="../properties/left.html">left</A>, <A HREF="../properties/offsetheight.html">offsetHeight</A>, <A HREF="../properties/offsetleft.html">offsetLeft</A>, <A HREF="../properties/offsettop.html">offsetTop</A>, <A HREF="../properties/offsetwidth.html">offsetWidth</A>, <A HREF="../properties/pixelheight.html">pixelHeight</A>, <B>pixelLeft</B>, <A HREF="../properties/pixeltop.html">pixelTop</A>, <A HREF="../properties/pixelwidth.html">pixelWidth</A>, <A HREF="../properties/posheight.html">posHeight</A>, <B>posLeft</B>, <A HREF="../properties/postop.html">posTop</A>, <A HREF="../properties/poswidth.html">posWidth</A>, and <A HREF="../properties/top_0.html">top</A>.</P><P>To force recalculations of all expressions, you should refer to the same property name or manually call <B>recalc</B><B>(true)</B>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example uses the <B>recalc</B> method in HTML and script to help create a timer.  If the calls to <B>recalc</B> are commented out, the timer does not work correctly.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Recalc Example&lt;/TITLE&gt;
+&lt;STYLE&gt;
+BUTTON {font-size:14;width:150}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+var timerID = null;
+var seconds = 0;
+//
+// This function is called when the page loads.
+// It sets up a couple of expressions.
+//
+function init()
+{
+A.style.setExpression("width","seconds*10");
+B.setExpression("innerText","seconds.toString()");
+}
+//
+// This function gets calls once a second and updates the seconds
+// variable. Notice that without recalc, the expressions aren't
+// updated until the mouse is moved.
+//
+function timer()
+{
+seconds++;
+document.recalc();
+}
+//
+// starts the timer
+//
+function starttimer()
+{
+if (timerID == null)
+{
+timerID = setInterval("timer()", 1000);
+startButton.disabled = true;
+stopButton.disabled = false;
+}
+}
+//
+// stops the timer
+//
+function stoptimer()
+{
+if (timerID != null)
+{
+clearInterval(timerID);
+timerID = null;
+startButton.disabled = false;
+stopButton.disabled = true;
+}
+}
+//
+//  resets the timer
+//
+function resettimer()
+{
+seconds = 0;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="init()"&gt;
+&lt;DIV id=A style="background-color:lightblue" &gt;&lt;/DIV&gt;
+&lt;DIV id=B style="color:hotpink;font-weight:bold"&gt;&lt;/DIV&gt;
+&lt;BR&gt;
+&lt;BUTTON id="startButton" onclick="starttimer()"&gt;Start the Timer&lt;/BUTTON&gt;&lt;/BR&gt;
+&lt;BUTTON id="stopButton" DISABLED="true" onclick="stoptimer()"&gt;Stop the Timer&lt;/BUTTON&gt;&lt;BR&gt;
+&lt;BUTTON id="resetButton" onclick="resettimer()"&gt;Reset the Timer&lt;/BUTTON&gt;&lt;BR&gt;
+&lt;P style="width:320;color:peru;background-color:wheat"&gt;
+This example illustrates the use of document.recalc().  If the calls
+to recalc are omitted in this example, expressions will not be updated
+until the mouse is moved.
+&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/obj_document.html">
+document</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>, <A HREF="../methods/getexpression.html">getExpression</A>, <A HREF="../methods/removeexpression.html">removeExpression</A>, <A HREF="../methods/setexpression.html">setExpression</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

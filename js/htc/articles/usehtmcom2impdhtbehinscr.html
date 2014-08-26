@@ -1,0 +1,154 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1>使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为</h1>
+		<hr>
+		<p>动态<span>HTML</span><span>(DHTML)</span>行为是可以使用一定方式实现的组件。在很长一段时间内，编写组件的任务被限制使用微软<span>Visual C++</span>、<span>Visual Basic</span>和<span>Java</span>。</p>
+		<p>从微软<span>Internet Explorer 5</span>开始，脚本开发者可以使用<span>HTML</span>组件技术<span>(HTC)</span>或微软视窗脚本组件<span>(WSC)</span>来以脚本的方式实现他们自己的<span>DHTML</span>行为。使用的脚本可以使<span>Visual Basic</span>的脚本版本<span>(VBScript)</span>，微软<span>JScript</span>（兼容于<span>ECMA 262</span>语言规范），或任何支持微软<span>ActiveX</span>脚本接口的第三方脚本语言。</p>
+		<p>本文主要讲述如何在脚本中使用<span>HTC</span>文件来创建行为的步骤。要了解更多关于如何使用<span>WSC</span>来创建行为的信息，请阅读<a href="http://msdn.microsoft.com/library/en-us/script56/html/vtoriMicrosoftWindowsScriptTechnologies.asp">《微软视窗脚本技术》</a>。</p>
+		<p>本手册假定阅读者对脚本编程已有很好的理解，同时熟悉于<span>HTC</span>和<span>DHTML</span>行为。如何使用<span>Visual C++</span>实现行为并不包含在本章的涉及范围内。要了解更多关于<span>DHTML</span>行为、<span>HTC</span>、<span>WSC</span>和<span>Visual C++</span>中有关行为实现的接口，请阅读<a href="#related_topics">《相关主题》</a>。</p>
+		<p>在阅读完本文后，你应该能够使用你习惯的脚本语言来实现行为，将脚本从内容中抽离出来，并感受到封装和网站代码高重用所带来的好处。</p>
+		<p>文本分成下面的部分：</p>
+		<ul>
+			<li><a href="#HTC"><span>HTC</span>总概</a></li>
+			<li><a href="#Walktrough">创建<span>HTC</span></a></li>
+			<li><a href="#Properties">属性的暴露</a></li>
+			<li><a href="#InternalName">使用<span>INTERNALNAME</span>属性</a></li>
+			<li><a href="#Methods">方法的暴露</a></li>
+			<li><a href="#Events">自定义事件的暴露</a></li>
+			<li><a href="#Notifications">接收通告</a></li>
+			<li><a href="#ScopingRules">范围解释规则</a></li>
+			<li><a href="#Timing">时间上的考虑</a></li>
+			<li><a href="#Enhancements">行为对<span>DHTML</span>对象模型的强化</a></li>
+			<li><a href="#related_topics">相关主题</a></li>
+		</ul>
+		<h2><LABEL>HTC Overview</LABEL><span>HTC</span>总概<a name="HTC"></a></h2>
+		<p>从<span>Internet Explorer 5</span>引入的<span>HTC</span>提供了一种在脚本中实现<span>DHTML</span>行为的简单机制。一份<span>HTC</span>文件实际上就是一份<span>HTML</span>文件，只是以<span>.htc</span>的后缀名保存下来。<span>HTC</span>文件包括了脚本和一系列其独有的自定义元素来暴露定义组件功能的属性、方法和事件。</p>
+		<p>作为一份<span>HTML</span>文件，<span>HTC</span>同样可以像<span>DHTML</span>一般访问页面中的所有元素。这意味着在<span>HTC</span>中所有的独有元素都可以通过各自的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性在脚本中当作对象进行访问。这让脚本可以把<span>HTC</span>独有元素的所有属性和方法作为对象的属性和方法来进行操作。</p>
+		<p>你可以使用<span>HTC</span>实现这些行为：</p>
+		<ul>
+			<li>暴露属性和方法。属性和方法分别由<a href="../elements/property.html"><span>PUBLIC:PROPERTY</span></a>和<a href="../elements/method.html"><span>PUBLIC:METHOD</span></a>元素进行定义。要了解更多关于属性和方法暴露的信息，请阅读<a href="#Properties">《属性的暴露》</a>和<a href="#Methods">《方法的暴露》</a>。</li>
+			<li>暴露自定义事件。事件由<a href="../elements/event.html"><span>PUBLIC:EVENT</span></a>元素定义并使用该元素的<B><span>fire</span></B>方法发生至其包含文档。另外，<a href="../methods/createeventobject.html"><span>createEventObject</span></a>方法让<span>HTC</span>可以在事件发生时设置其相关信息。要了解更多关于事件暴露的信息，请阅读<a href="#Events">《自定义事件的暴露》</a>。</li>
+			<li>访问包含文档的<span>DHTML</span>对象模型。<span>HTC</span>中的<a href="../objects/element.html"><span>element</span></a>对象返回行为所附加的元素。利用这个对象，<span>HTC</span>可以访问包含文档和它的对象模型（属性、方法和事件）。</li>
+			<li>接收通告。利用<a href="../elements/attach.html"><span>PUBLIC:ATTACH</span></a>元素，浏览器通告<span>HTC</span>标准<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events.asp"><span>DHTML</span>事件</a>和两个<span>HTC</span>独有事件<a href="../events/contentready.html"><span>oncontentready</span></a>及<a href="../events/documentready.html"><span>ondocumentready</span></a>的发生。</li>
+		</ul>
+		<p>要了解关于本部分所描述的每个<span>HTC</span>元素、属性、方法和事件的详细信息，请阅读<a href="htcref.html">《<span>HTC</span>参考》</a>。</p>
+		<h2><LABEL>Creating an HTC</LABEL>创建<span>HTC</span><a name="Walktrough"></a></h2>
+		<p>创建<span>HTC</span>的步骤，通过下面的这个实现鼠标高亮效果的实例进行示范。</p>
+		<ol>
+			<li>
+				<p>创建一份只有大致框架的<span>HTC</span>文件。一份常见的<span>HTC</span>文件由可选择为自封闭的<a href="../elements/component.html"><span>&lt;PUBLIC:COMPONENT&gt;</span></a>块和一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/script.asp"><span>&lt;SCRIPT&gt;</span></a>块组成。并以<span>.htc</span>的后缀进行保存。</p>
+				<code>&lt;PUBLIC:COMPONENT&gt;<br>&nbsp;&nbsp;&lt;SCRIPT&gt;<br>&nbsp;&nbsp;&lt;/SCRIPT&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+			</li>
+			<li>
+				<p>将实现行为功能的代码填充到<B><span>script</span></B>块中。</p>
+				<p>在下面的代码中，<B><span>PUBLIC:ATTACH</span></B>元素用于建立<span>HTC</span>的通告接收机制，以使<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseover.asp"><span>onmouseover</span></a>和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseout.asp"><span>onmouseout</span></a>事件可以发生在该元素上。这让鼠标指针移至元素时，<span>HTC</span>可以通过切换元素的颜色来达到高亮的效果。</p>
+				<div class="example">
+					<code>&lt;PUBLIC:COMPONENT&gt;<br>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onmouseover&quot;&nbsp;onevent=&quot;Hilite()&quot;&nbsp;/&gt;<br>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onmouseout&quot;&nbsp;&nbsp;onevent=&quot;Restore()&quot;&nbsp;/&gt;<br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>&nbsp;&nbsp;var&nbsp;normalColor,&nbsp;normalSpacing;<br>&nbsp;&nbsp;function&nbsp;Hilite()<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<U>//&nbsp;save&nbsp;original&nbsp;values</U><br>&nbsp;&nbsp;&nbsp;&nbsp;normalColor&nbsp;&nbsp;=&nbsp;runtimeStyle.color;<br>&nbsp;&nbsp;&nbsp;&nbsp;normalSpacing=&nbsp;runtimeStyle.letterSpacing;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.color&nbsp;&nbsp;=&nbsp;&quot;red&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.letterSpacing&nbsp;=&nbsp;2;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;function&nbsp;Restore()<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<U>//&nbsp;restore&nbsp;original&nbsp;values</U><br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.color&nbsp;&nbsp;=&nbsp;normalColor;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.letterSpacing&nbsp;=&nbsp;normalSpacing;<br>&nbsp;&nbsp;}<br>&lt;/SCRIPT&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+				</div>
+				<p><B>注意：</B> <B><span>element</span></B>对象返回行为所附加的元素，因此提供了一种访问元素的对象模型的方法。而另外你也可以直接使用属性、方法或者事件的名称来访问该元素的属性、方法和事件。在上面的实例中，注意是如何直接引用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/runtimestyle.asp"><span>runtimeStyle</span></a>来切换颜色的，而不是完整方式里的<B><span>element.runtimeStyle</span></B>。</p>
+			</li>
+			<li>
+				<p>一旦实现，此<span>HTC</span>就可以在页面中使用来达到预期的鼠标移至的高亮效果了。</p>
+				<code>&lt;HEAD&gt;<br>&lt;STYLE&gt;<br>&nbsp;&nbsp;LI&nbsp;{behavior:url(&quot;hilite.htc&quot;)}<br>&lt;/STYLE&gt;<br>&lt;/HEAD&gt;<br>&lt;P&gt;Mouse&nbsp;over&nbsp;the&nbsp;two&nbsp;list&nbsp;items&nbsp;below&nbsp;to&nbsp;see&nbsp;this&nbsp;effect.<br>&lt;UL&gt;<br>&nbsp;&nbsp;&lt;LI&gt;HTML&nbsp;Authoring&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;LI&gt;Dynamic&nbsp;HTML&lt;/LI&gt;<br>&lt;/UL&gt;</code>
+				<button href="../examples/"></button>
+			</li>
+		</ol>
+		<h2><LABEL>Exposing Properties</LABEL>属性的暴露<a name="Properties"></a></h2>
+		<p><span>HTC</span>可以使用<B><span>PUBLIC:PROPERTY</span></B>元素将其需要的属性暴露出来。</p>
+		<p>例如，上面的鼠标指针移至的高亮效果实例，可以扩展为暴露一个<span>hiliteColor</span>属性，从而让你可以设置文本高亮后的颜色。你可以如下面的代码一般使用<B><span>PUBLIC:PROPERTY</span></B>元素来定义这个属性。</p>
+		<code>&lt;PUBLIC:PROPERTY&nbsp;name=&quot;hiliteColor&quot;&nbsp;/&gt;</code>
+		<p>一旦定义了这个属性，<span>HTC</span>中的代码就可以访问它，见下面的例子。注意此段代码是如何在包含页没有设置属性的值时将属性值设置为红色的。</p>
+		<code>&lt;PUBLIC:PROPERTY&nbsp;name=&quot;hiliteColor&quot;&nbsp;/&gt;<br>&lt;PUBLIC:ATTACH&nbsp;event=&quot;onload&quot;&nbsp;for=&quot;window&quot;&nbsp;onevent=&quot;initColors()&quot;&nbsp;&nbsp;/&gt;<br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>function&nbsp;initColors()<br>{<br>&nbsp;&nbsp;<U>//&nbsp;initialize&nbsp;the&nbsp;property</U><br>&nbsp;&nbsp;hiliteColor&nbsp;=&nbsp;(hiliteColor&nbsp;==&nbsp;null)&nbsp;?&nbsp;&quot;red&quot;&nbsp;:&nbsp;hiliteColor;<br>}<br>&lt;/SCRIPT&gt;</code>
+		<p>下面的例子将高亮效果应用到内容表格中，在鼠标指针移至文本时改变超链接的颜色。注意不同列表的高亮颜色各自不同是如何实现的。正如上面一段所解释的，如果包含页没有设置<span>hiliteColor</span>属性，颜色默认为红色。</p>
+		<div class="example">
+			<code>&lt;STYLE&gt;<br>&nbsp;&nbsp;.CollapsingAndHiliting&nbsp;{behavior:url(ul.htc)&nbsp;url(hilite2.htc)}<br>&nbsp;&nbsp;A&nbsp;{behavior:url(hilite2.htc)}<br>&lt;/STYLE&gt;<br>&lt;UL&gt;<br>&nbsp;&nbsp;&lt;LI&nbsp;class=&quot;CollapsingAndHiliting&quot;&nbsp;child=&quot;Topics1&quot;&gt;HTML&nbsp;Authoring&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;UL&nbsp;id=&quot;Topics1&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Beginner's&nbsp;Guide&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;IE4.0&nbsp;Authoring&nbsp;Tips&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;HTML&nbsp;Coding&nbsp;Tips&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Table&nbsp;Cell&nbsp;Backgrounds&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Drop&nbsp;Caps&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Quote&nbsp;Server&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;HTML&nbsp;Wizard&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Dr.&nbsp;HTML&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;HTML&nbsp;Coding&nbsp;FAQ&nbsp;for&nbsp;Internet&nbsp;Explorer&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;SGML&nbsp;DTD&nbsp;for&nbsp;Internet&nbsp;Explorer&nbsp;3.0&nbsp;Markup&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Authoring&nbsp;Basics&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Authoring&nbsp;Effective&nbsp;Pages&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Designing&nbsp;Efficient&nbsp;Pages&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;hilitecolor=&quot;green&quot;&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;Using&nbsp;Frames&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;/UL&gt;<br>&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;href=&quot;/workshop/author/default.asp&quot;&gt;HTML&nbsp;Help&nbsp;Authoring&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;LI&nbsp;class=&quot;CollapsingAndHiliting&quot;&nbsp;child=&quot;Topics2&quot;&gt;HTML&nbsp;References&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;UL&nbsp;id=&quot;Topics2&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;href=&quot;/workshop/author/default.htm&quot;&gt;Elements&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;href=&quot;/workshop/author/default.htm&quot;&gt;Character&nbsp;Sets&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;/UL&gt;<br>&nbsp;&nbsp;&lt;LI&nbsp;class=&quot;CollapsingAndHiliting&quot;&nbsp;child=&quot;Topics3&quot;&gt;HTML&nbsp;Applications&nbsp;(HTA)&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;UL&nbsp;id=&quot;Topics3&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;href=&quot;/workshop/author/default.htm&quot;&gt;Overview&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;LI&gt;&lt;A&nbsp;href=&quot;/workshop/author/default.htm&quot;&gt;Reference&lt;/A&gt;&lt;/LI&gt;<br>&nbsp;&nbsp;&lt;/UL&gt;<br>&lt;/UL&gt;</code>
+			<button href="../examples/"></button>
+		</div>
+		<p><B>注意：</B> 行为通过暴露自己与元素暨定义属性同名的属性可以重载元素的默认行为。例如，页面中一个行为应用到<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/a.asp"><span>A</span></a>元素，那么该行为暴露自己的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/href_1.asp"><span>href</span></a>属性会真实有效地重载<B><span>A</span></B>元素的默认<B><span>href</span></B>属性。</p>
+		<h2><LABEL>Using the INTERNALNAME Attribute</LABEL>使用<span>INTERNALNAME</span>属性<a name="InternalName"></a></h2>
+		<p>当<span>HTC</span>暴露出一个属性时，可以在<a href="../elements/property.html"><span>PUBLIC:PROPERTY</span></a>元素中同时指定<B><span>NAME</span></B>属性和<B><span>INTERNALNAME</span></B>属性。如果都指定了，那么<span>NAME</span>用于在包含文档中访问该属性，而<span>INTERNALNAME</span>用于在<span>HTC</span>中访问相同的属性。</p>
+		<p>在指定一个属性的<span>INTERNALNAME</span>时，变量名称需要全局声明并在组件内被其他部分访问之前就完成初始化。没有这样做会导致两种可能的后果，其一是出现脚本错误指明该变量没有被定义，而其二是从包含文档中得到错误的数值。</p>
+		<p>在<B><span>PUBLIC:PROPERTY</span></B>声明中指定<span>PUT</span>或<span>GET</span>中的任意一个都会导致<span>INTERNALNAME</span>被忽略。因为<span>PUT</span>和<span>GET</span>处理函数的操作优先级要高于<span>INTERNALNAME</span>。</p>
+		<h2><LABEL>Exposing Methods</LABEL>方法的暴露<a name="Methods"></a></h2>
+		<p>使用<a href="../elements/method.html"><span>PUBLIC:METHOD</span></a>可以让<span>HTC</span>暴露其所需的方法。代码如下：</p>
+		<code>&lt;PUBLIC:METHOD&nbsp;name=&quot;startFlying&quot;&nbsp;/&gt;</code>
+		<p>一旦方法被定义，正如下例所示的，该方法可以直接在<span>HTC</span>的代码中使用。此例实现了页面中一组文本的飞行效果。</p>
+		<div class="example">
+			<code>&lt;PUBLIC:METHOD&nbsp;name=&quot;tick&quot;&nbsp;/&gt;<br>&lt;PUBLIC:METHOD&nbsp;name=&quot;startFlying&quot;&nbsp;/&gt;<br><U>:</U><br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>var&nbsp;currCount;<br>var&nbsp;flyCount;<br>var&nbsp;flying;<br>var&nbsp;msecs;<br>var&nbsp;oTop,&nbsp;oLeft;<br>msecs&nbsp;=&nbsp;50;<br>flyCount&nbsp;=&nbsp;20;<br>flying&nbsp;=&nbsp;false;<br>runtimeStyle.position&nbsp;=&nbsp;&quot;relative&quot;;<br>runtimeStyle.visibility&nbsp;=&nbsp;&quot;hidden&quot;;<br>window.attachEvent(&quot;onload&quot;,&nbsp;onload);<br>function&nbsp;onload()<br>{<br>&nbsp;&nbsp;<U>//&nbsp;delay&nbsp;commences&nbsp;from&nbsp;the&nbsp;window.onLoad&nbsp;event</U><br>&nbsp;&nbsp;if&nbsp;(delay&nbsp;!=&nbsp;&quot;none&quot;)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;window.setTimeout(uniqueID+&quot;.tick()&quot;,&nbsp;delay);<br>&nbsp;&nbsp;}<br>}<br>function&nbsp;tick()<br>{<br>&nbsp;&nbsp;if&nbsp;(flying&nbsp;==&nbsp;false)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;startFlying();<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;else<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;doFly();<br>&nbsp;&nbsp;}<br>}<br>function&nbsp;startFlying()<br>{<br>&nbsp;&nbsp;if&nbsp;(fromX==null&nbsp;&&&nbsp;fromY==null)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(from==&quot;top&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posTop&nbsp;=&nbsp;-offsetTop-offsetHeight;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;(from==&quot;bottom&quot;)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posTop&nbsp;=&nbsp;element.document.body.clientHeight;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;(from==&quot;right&quot;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posLeft&nbsp;=&nbsp;element.document.body.clientWidth;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posLeft&nbsp;=&nbsp;-offsetLeft-offsetWidth;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;else<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posTop&nbsp;=&nbsp;fromY;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posLeft&nbsp;=&nbsp;fromX;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;runtimeStyle.visibility&nbsp;=&nbsp;&quot;visible&quot;;<br>&nbsp;&nbsp;flying&nbsp;=&nbsp;true;<br>&nbsp;&nbsp;oTop&nbsp;=&nbsp;runtimeStyle.posTop;<br>&nbsp;&nbsp;oLeft&nbsp;=&nbsp;runtimeStyle.posLeft;<br>&nbsp;&nbsp;currCount&nbsp;=&nbsp;0;<br>&nbsp;&nbsp;doFly();<br>}<br>function&nbsp;doFly()<br>{<br>&nbsp;&nbsp;var&nbsp;dt,&nbsp;dl;<br>&nbsp;&nbsp;currCount++;<br>&nbsp;&nbsp;dt&nbsp;=&nbsp;oTop&nbsp;/&nbsp;flyCount;<br>&nbsp;&nbsp;dl&nbsp;=&nbsp;oLeft&nbsp;/&nbsp;flyCount;<br>&nbsp;&nbsp;runtimeStyle.posTop&nbsp;-=&nbsp;dt;<br>&nbsp;&nbsp;runtimeStyle.posLeft&nbsp;-=&nbsp;dl;<br>&nbsp;&nbsp;if&nbsp;(currCount&nbsp;&lt;&nbsp;flyCount)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;window.setTimeout(uniqueID+&quot;.tick();&quot;,&nbsp;msecs);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;else<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posTop&nbsp;=&nbsp;0;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.posLeft&nbsp;=&nbsp;0;<br>&nbsp;&nbsp;&nbsp;&nbsp;flying&nbsp;=&nbsp;false;<br>&nbsp;&nbsp;&nbsp;&nbsp;evObj&nbsp;=&nbsp;createEventObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;evObj.setAttribute(&quot;resulty&quot;,&nbsp;uniqueID);	<br>&nbsp;&nbsp;&nbsp;&nbsp;finished.fire(evObj);<br>&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;</code>
+			<button href="../examples/"></button>
+		</div>
+		<p><B>注意：</B>与<B><span>PUBLIC:PROPERTY</span></B>元素相似，在声明<B><span>PUBLIC:METHOD</span></B>时也可以指定一个<span>INTERNALNAME</span>属性。其与<span>NAME</span>属性用途的区别也类似于<B><span>PUBLIC:PROPERTY</span></B>属性的用途差异。另外，行为可以通过暴露与元素暨定义方法同名的方法来重载元素的默认行为。例如，当页面中某个行为应用到<B><span>A</span></B>元素时，该行为暴露的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/click.asp"><span>click</span></a>方法会重载<B><span>A</span></B>元素的默认<B><span>click</span></B>方法。</p>
+		<h2><LABEL>Exposing Custom Events</LABEL>自定义事件的暴露<a name="Events"></a></h2>
+		<p>使用<a href="../elements/event.html"><span>PUBLIC:EVENT</span></a>元素，<span>HTC</span>可以定义自己的事件并将它们暴露给包含页。</p>
+		<p>下面的代码演示了由<span>HTC</span>实现的计算器如何使用<B><span>PUBLIC:EVENT</span></B>元素自定义了一个事件：<span>onResultChange</span>。当包含页发生该事件时，其事件对象设置了<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/expando.asp"><span>expando</span></a>属性并被传递回页面。</p>
+		<code>&lt;PUBLIC:EVENT&nbsp;name=&quot;onResultChange&quot;&nbsp;id=&quot;rcID&quot;&nbsp;/&gt;<br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br><U>:</U><br>oEvent&nbsp;=&nbsp;createEventObject();<br>oEvent.result&nbsp;=&nbsp;sResult;<br>rcID.fire&nbsp;(oEvent);<br><U>:</U><br>&lt;/SCRIPT&gt;</code>
+		<p>下面的实例展示了此包含页是如何工作的。</p>
+		<div class="example">
+			<code>&lt;HTML&nbsp;XMLNS:InetSDK&gt;<br>&lt;HEAD&gt;<br>&lt;TITLE&gt;Calculator&nbsp;Sample&lt;/TITLE&gt;<br>&lt;STYLE&gt;<br>&nbsp;&nbsp;INPUT&nbsp;{font-family:&nbsp;Courier&nbsp;New}<br>&nbsp;&nbsp;@media&nbsp;all&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;InetSDK\:CALC&nbsp;{behavior:url(Engine.htc)}<br>&nbsp;&nbsp;}<br>&lt;/STYLE&gt;<br>&lt;LINK&nbsp;rel=&quot;stylesheet&quot;&nbsp;href=&quot;/workshop/basicSDKIE4.css&quot;&nbsp;type=&quot;text/css&quot;&gt;<br>&lt;/HEAD&gt;<br>&lt;BODY&nbsp;bgcolor=&quot;#FFFFFF&quot;&gt;<br>&lt;BLOCKQUOTE&nbsp;class=&quot;body&quot;&gt;<br>&lt;P&gt;<br>&lt;InetSDK:CALC&nbsp;id=&quot;myCalc&quot;&nbsp;onResultChange=&quot;resultWindow.innerText&nbsp;=window.event.result&quot;&gt;<br>&lt;TABLE&gt;<br>&lt;TR&gt;<br>&lt;TD&nbsp;colspan=&quot;5&quot;&gt;<br>&lt;DIV&nbsp;id=&quot;resultWindow&quot;&nbsp;style=&quot;PADDING:5;&nbsp;BACKGROUND-COLOR:buttonface&quot;&nbsp;align=&quot;right&quot;&gt;0.&lt;/DIV&gt;<br>&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;7&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;8&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;9&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;/&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;C&nbsp;&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;4&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;5&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;6&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;*&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;%&nbsp;&quot;&nbsp;disabled=&quot;true&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;1&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;2&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;3&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;-&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;1/x&quot;&nbsp;disabled=&quot;true&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;0&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;+/-&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;.&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;+&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;=&nbsp;&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;/TABLE&gt;<br>&lt;/InetSDK:CALC&gt;<br>&lt;/BLOCKQUOTE&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+			<button href="../examples/"></button>
+		</div>
+		<p><B>注意：</B> 行为可以通过暴露与元素暨定义事件同名的自定义事件来重载元素的默认行为。例如，当行为附加到页面中的<B><span>A</span></B>元素上时，其暴露的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onclick.asp"><span>onclick</span></a>事件会重载<B><span>A</span></B>元素的默认<B><span>onclick</span></B>事件。</p>
+		<h2><LABEL>Receiving Notifications</LABEL>接收通告<a name="Notifications"></a></h2>
+		<p><span>HTC</span>可以通过<B><span>PUBLIC:ATTACH</span></B>元素可以附加到包含页中发生的事件上。使用这个元素，<span>HTC</span>可以很好的处理标准的<B><span>DHTML</span>事件</B>上，就如同处理<B><span>HTC</span>参考</B>中所列举的<span>HTC</span>独有事件一般。</p>
+		<p><B>注意：</B> <span>HTC</span>同样可以使用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/attachevent.asp"><span>attachEvent</span></a>方法接收来自包含文档的通告，但是这种方法有着以下缺陷：</p>
+		<ul>
+			<li><B><span>attachEvent</span></B>只能附加标准的<span>DHTML</span>事件，而无法处理独有事件。</li>
+			<li><span>HTC</span>在解除与元素的附加关系后仍然会持续性地接收到来自包含页的通告。但是，<span>HTC</span>可以在<a href="../events/detach.html"><span>detach</span></a>事件发生时调用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/detachevent.asp"><span>detachEvent</span></a>方法来处理。注意使用<B><span>PUBLIC:ATTACH</span></B>元素附加的事件是会随着行为附加关系的解除而自动解除附加关系的。</li>
+		</ul>
+		<h2><LABEL>Scope Rules</LABEL>范围解释规则<a name="ScopingRules"></a></h2>
+		<p>在使用<span>HTC</span>时涉及到三个命名空间：行为的，元素的，和包含页的。因此可以设置一些范围解释规则来帮助<span>HTC</span>解决命名空间选择上的潜在冲突。其中的优先级从高到低排列的结果如下：</p>
+		<ul>
+			<li>行为</li>
+			<li>行为所附加的元素</li>
+			<li>包含文档的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_window.asp"><span>window</span></a>对象</li>
+		</ul>
+		<p>这意味着如果<span>HTC</span>定义了一个名为<span>event</span>的全局变量，那么在<span>HTC</span>中所有对<span>event</span>的引用都会指向这个全局变量。而在<span>HTC</span>中正确的访问<B><span>window</span></B>对象的<span>event</span>属性的方法是使用<B><span>window</span>.</B><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"><span>event</span></a>。</p>
+		<p>注意下面例子中是如何利用区域解释规则来解决名称的冲突的。</p>
+		<ul>
+			<li><span>attachEvent</span> - 处理为元素的<B><span>attachEvent</span></B>方法，即等同于调用<B><span>element.attachEvent</span></B>。</li>
+			<li><span>normalColor</span> - 处理为脚本最上方定义的行为中的全局变量。</li>
+			<li><span>runtimeStyle</span> - 处理为元素的<B><span>runtimeStyle</span></B>属性。</li>
+		</ul>
+		<div class="example">
+			<code>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>var&nbsp;normalColor,&nbsp;normalSpacing;<br>attachEvent(&quot;onmouseover&quot;,&nbsp;event_onmouseover);<br>attachEvent(&quot;onmouseout&quot;,&nbsp;&nbsp;event_onmouseout);<br>function&nbsp;event_onmouseover()<br>{<br>&nbsp;&nbsp;<U>//&nbsp;save&nbsp;original&nbsp;values</U><br>&nbsp;&nbsp;normalColor&nbsp;&nbsp;=&nbsp;style.color;<br>&nbsp;&nbsp;normalSpacing=&nbsp;style.letterSpacing;<br>&nbsp;&nbsp;runtimeStyle.color&nbsp;&nbsp;=&nbsp;&quot;red&quot;;<br>&nbsp;&nbsp;runtimeStyle.letterSpacing&nbsp;=&nbsp;2;<br>}<br>function&nbsp;event_onmouseout()<br>{<br>&nbsp;&nbsp;<U>//&nbsp;restore&nbsp;original&nbsp;values</U><br>&nbsp;&nbsp;runtimeStyle.color&nbsp;&nbsp;=&nbsp;normalColor;<br>&nbsp;&nbsp;runtimeStyle.letterSpacing&nbsp;=&nbsp;normalSpacing;<br>}<br>&lt;/SCRIPT&gt;</code>
+		</div>
+		<h2><LABEL>Timing Considerations</LABEL>时间上的考虑<a name="Timing"></a></h2>
+		<p>在创作行为时，了解该行为何时应用到元素是很重要的。在应用之前，由文档设置的行为的属性，是无法通过脚本访问的。</p>
+		<p>要确保行为完全下载并应用到元素，需要等待<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onreadystatechange.asp"><span>onreadystatechange</span></a>事件的发生，并检查元素的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/readystate_1.asp"><span>readyState</span></a>属性是否被设置为<span>complete</span>。在此事件发生之前，任何尝试使用行为定义的成员都会导致错误的发生，该错误提示对象并不支持指定的属性或者方法。</p>
+		<p><B>注意：</B> 在行为和其包含文档被解析并渲染之后，行为接收到<B><span>oncontentready</span></B>事件和<B><span>ondocumentready</span></B>事件的通知。<B><span>oncontentready</span></B>事件的通知接收于元素内容被完全解析时。<B><span>ondocumentready</span></B>事件的通知接收于包括脚本、图片、<span>ActiveX</span>控制和所有其他页面涉及到的文件在内的网页文档完全下载并解析完毕时。</p>
+		<h2><LABEL>Behavior-Related Enhancements to the DHTML Object Model</LABEL>行为对<span>DHTML</span>对象模型的强化<a name="Enhancements"></a></h2>
+		<p>从<span>Internet Explorer 5</span>开始，<span>DHTML</span>对象模型为支持行为作了以下强化。</p>
+		<ul>
+			<li>层叠样式表<span>(CSS)</span>属性<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/behavior_1.asp"><span>behavior</span></a>将行为应用到元素。</li>
+			<li><B><span>attachEvent</span></B>方法让<span>HTC</span>可以指定一个函数接收在任何情况下对象发生相应事件时的通告。而<B><span>detachEvent</span></B>方法则让<span>HTC</span>停止该函数继续接收该事件的通告。</li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/uniqueid.asp"><span>uniqueID</span></a>属性让<span>HTC</span>可以给元素指定<B><span>ID</span></B>属性。当<span>HTC</span>将代码注入到包含页时，如果出现指定行为应用到的元素<B><span>ID</span></B>的需求，这个属性就很有用处。</li>
+			<li>在不使用<span>CSS</span>的情况下，<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/addbehavior.asp"><span>addBehavior</span></a>和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/removebehavior.asp"><span>removeBehavior</span></a>方法提供了一种动态的方法来讲行为附加到页面中的元素上，或解除现有的附加关系。</li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/collections/behaviorurns.asp"><span>behaviorUrns</span></a>集合标示了当前附加到文档中的所有行为的<span>URN</span>。</li>
+			<li><B><span>event</span></B>对象的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/srcurn.asp"><span>srcUrn</span></a>属性指明了发生事件的行为的<span>URN</span>。</li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scopename.asp"><span>scopeName</span></a>和<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/tagurn.asp"><span>tagUrn</span></a>属性共同标示了为元素定义的命名空间。</li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/urns.asp"><span>urns</span></a>方法标示了指定行为当前所附加到的所有对象。</li>
+		</ul>
+		<h2><LABEL>Related Topics</LABEL>相关主题<a name="related_topics"></a></h2>
+		<p>下面的超链接提供了更多关于<span>DHTML</span>行为的信息。</p>
+		<ul>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/howto/using.asp">《使用<span>DHTML</span>行为》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/browser/behaviors/howto/creating.asp">《实现二进制编码的<span>DHTML</span>行为》</a></li>
+			<li><a href="htcref.html">《<span>HTC</span>参考》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/browser/behaviors/reference/reference.asp">《<span>DHTML</span>行为<span>C++</span>参考》</a></li>
+			<li><a href="http://msdn.microsoft.com/library/en-us/script56/html/vtoriMicrosoftWindowsScriptTechnologies.asp">《微软视窗脚本技术》</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

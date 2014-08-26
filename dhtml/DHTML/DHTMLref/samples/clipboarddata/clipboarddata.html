@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>setData 和 getData</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<STYLE TYPE="text/css">
+DIV.clsSource {
+position:absolute;top:235;left:45;width:300;
+border:solid red 2px;
+background-color:aquamarine;
+font-size:18;font-family:宋体;
+}
+DIV.clsTarget {
+position:absolute;top:270;left:45;width:300;
+border:solid blue 2px;
+background-color:gold;
+font-size:18;font-family:宋体;
+}
+SPAN.clsData{
+position:absolute;top:310;left:50;width:115;
+font-weight:bold;
+}
+INPUT.clsText{
+position:absolute;top:310;left:175;
+}
+BODY {font-size:9pt}
+</STYLE>
+<SCRIPT>
+var bResult;
+// 选中要剪切的文本。在剪切事件中文本选中区的尾随空格导致剪
+// 切选快捷菜单项目保持无效。
+function fnLoad() {
+var r = document.body.createTextRange();
+r.findText(oSource.innerText);
+r.select();
+}
+// 启用剪切快捷菜单项目，该项目在 DIV 上时缺省为无效
+function fnBeforeCut() {
+event.returnValue = false;
+}
+// 以文本格式给 window.clipboardData 对象赋予数据。
+// 将 setData 方法的结果 (Boolean) 显示在下面的输入框内。
+function fnCut(){
+event.returnValue = false;
+bResult = window.clipboardData.setData("Text",oSource.innerText);
+oSource.innerText = "";
+tText.innerText += bResult;
+}
+// 启用粘贴快捷菜单项目，该项目在 DIV 上时缺省也为无效
+function fnBeforePaste() {
+event.returnValue = false;
+}
+// 在 onpaste 中取消 returnValue 以便输入文本，该操作有缺省
+// 的行为。
+function fnPaste() {
+event.returnValue = false;
+oTarget.innerText = window.clipboardData.getData("Text");
+}
+</SCRIPT>
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000" onload="fnLoad()">
+<BLOCKQUOTE CLASS="body">
+<BR><BR>
+<P>这个例子演示了如何通过快捷菜单与 <B>clipboardData</B> 对象一起使用 <B>setData</B> 和 <B>getData</B> 方法执行剪切或粘贴操作。</P>
+<B>步骤</B>
+<OL>
+<LI>如果还没有被选中的话，请选中出现在上面文本框中的文字。避免选中额外的空格。</LI>
+<LI>用鼠标右键单击选中区域，然后从快捷菜单中选择<b>剪切</b>选项。<B>setData</B> 方法将在页面下方的输入框中返回一个 <I>true</I> 或 <I>false</I> 的值。</LI>
+<LI>选中文本“将文本粘贴在这里”。用鼠标右键单击选中区，然后从快捷菜单中选择<b>粘贴</b>选项。</LI>
+</OL>
+<DIV CLASS="clsSource" ID="oSource" onbeforecut="fnBeforeCut()" oncut="fnCut()">选中并剪切此文本</DIV>
+<DIV CLASS="clsTarget" ID="oTarget" onbeforepaste="fnBeforePaste()" onpaste="fnPaste()">将文本粘贴在这里</DIV><BR>
+<SPAN CLASS="clsData">setData 结果:</SPAN>
+<INPUT CLASS="clsText" ID="tText" TYPE="text" READONLY VALUE="" SIZE="6" TABINDEX="-1">
+</BLOCKQUOTE>
+</BODY>
+</HTML>

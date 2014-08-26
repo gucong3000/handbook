@@ -1,0 +1,332 @@
+
+</head>
+<BODY>
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Spice Up Your Web Pages with HTML+TIME (HTML+TIME Technical Articles) (HTML+TIME Technical Articles)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie.css" />
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<H1><A NAME=top IDX_TYPE=sbngen IDX_CONCEPT=XML><A NAME="htmltime"></A>Spice Up Your Web Pages with HTML+TIME<HR SIZE=1 /></A></H1>
+<P>Debbie Newman<BR>
+Microsoft Corporation<BR>
+May 2000</P>
+<P><B>Summary:</B> This article provides an introduction to HTML+TIME in Microsoft Internet Explorer 5.5.</P>
+<IMG SRC="../common/disclaimer.gif"> <B><I><FONT COLOR="RED">Disclaimer: The inline samples in this article will not function correctly unless you are running Internet Explorer 5.5. In addition, the inline samples may not be compatible with the FrontPage HTML Editor.</FONT></I></B>
+<P><A href="http://www.microsoft.com/windows/ie/download/ie55.htm"><IMG ALT="Download Internet Explorer 5.5" BORDER="0" HEIGHT="16" WIDTH="16" src="../common/icodownl.gif"></A>
+<A href="http://www.microsoft.com/windows/ie/download/ie55.htm" TITLE="Download Internet Explorer 5.5">Download Internet Explorer 5.5</A></P>
+<P><B>Contents</B></P>
+<P><A HREF="#htmltime_attributes">HTML+TIME Attributes</A><BR>
+<A HREF="#htmltime_declaringbeh">Declaring HTML+TIME Behaviors</A><BR>
+<A HREF="#htmltime_basictiming">Basic Timing ExamplesBegin and Dur Attributes</A><BR>
+<A HREF="#htmltime_interactivity">Interactivity</A><BR>
+<A HREF="#htmltime_containers">HTML+TIME Containers</A><BR>
+<A HREF="#htmltime_media">Media</A><BR>
+<A HREF="#htmltime_switchtext">Switch Element and Text Attributes</A><BR>
+<A HREF="#htmltime_smil2.0">SMIL 2.0</A><BR>
+</P>
+<P>In this "Internet age" with the proliferation of Web pages for every imaginable topic, it is becoming increasingly important to draw users into a page and keep them engaged with the topic at hand. Creating interesting and interactive pages encourages the user to remain on the page as long as possible and gives the Web page author more of a chance to get the point across. </P>
+<P>HTML+TIME provides a declarative means to add multimedia and interactivity to Web pages. As the content creator, you don't need to know script to use HTML+TIME, so you can focus on creating the content instead of learning a programming language. </P>
+<P>The basic concept behind HTML+TIME is that you control when items come and go on a page. Those items can be images, text, movie clips, sound, HTML elements, or styles. You can tell an item to show up on the page at a certain time, such as 10 seconds after the page loads, or to show up at the same time as another item or at a time relative to another item, or to come and go in response to user interaction such as a button click. In addition to the item's begin time, you can provide a duration, end, or repeat count.</P>
+<H2><A NAME="htmltime_attributes"></A>HTML+TIME Attributes</H2>
+<P>HTML+TIME provides attributes you can use to specify an element's timing behavior. This section briefly introduces the <B>begin</B>, <B>dur</B>, <B>repeatCount</B>, <B>repeatDur</B>, and <B>end</B> attributes.</P>
+<P>The <MSHelp:link keywords="inet_htmltime_begin_scr" TABINDEX="0">begin</MSHelp:link> attribute specifies the time or times at which an element begins, relative to its parent's timeline. For example, begin="4" means that the element begins 4 seconds after its parent begins. The body begins when the page loads (at time 0). You can specify multiple begin times by separating them with semicolons. In addition to specific times, an element can also begin in response to an event like a button click or in relation to the beginning or end of another element. The special value "indefinite" means that the begin time is some time in the future and has yet to be resolved.</P>
+<P>Example begin times:
+<UL type=disc>
+<LI>begin="18"  begin 18 seconds after parent.<BR><BR></LI>
+<LI>begin="5;10;15;20"  begin at 5, 10, 15, and 20 seconds after parent.<BR><BR></LI>
+<LI>begin="theButton.click"  begin when the element with the ID "theButton" is clicked.<BR><BR></LI>
+<LI>begin="theDiv.begin"  begin when the element with the ID "theDiv" begins.<BR><BR></LI>
+<LI>begin="theSpan.end"  begin when the element with the ID "theSpan" ends.<BR><BR></LI>
+<LI>begin="0;theButton.click"  begin at 0 and when the element with the ID "theButton" is clicked.</LI>
+</UL>
+<P class=indent><B>Note</B>   the parent's timeline can cut short the timeline of its child. For example, if the parent ends at time 20, then its child cannot begin after that time. The child ends if it is active when its parent ends.</P>
+<P>The <MSHelp:link keywords="inet_htmltime_dur_scr" TABINDEX="0">dur</MSHelp:link> attribute specifies the length of the <I>simple duration</I>, which is the basic duration of the presentation of the element. The presentation might include making the element appear or disappear, or it might include applying a style to the element. The <B>dur</B> attribute must be a single value greater than 0. The special value "indefinite" indicates that the duration should last forever. However, the duration can still be cut short by an explicit end (using the <B>end</B> attribute) or the end of the parent.</P>
+<P>Example <B>dur</B> values:
+<UL type=disc>
+<LI>dur="5"<BR><BR></LI>
+<LI>dur="indefinite"</LI>
+</UL>
+<P>The <MSHelp:link keywords="inet_htmltime_dur_scr" TABINDEX="0">repeatCount</MSHelp:link> attribute specifies the number of times the element should repeat its simple duration. Fractional values (such as 2.5) are allowed and indicate a partial repeat of the last iteration. In the case of 2.5, the element will repeat two and a half times. The special value "indefinite" indicates that the repeat should last forever, subject to the duration of the parent.</P>
+<P>The <MSHelp:link keywords="inet_htmltime_repeatDur_scr" TABINDEX="0">repeatDur</MSHelp:link> attribute is similar to <B>repeatCount</B> but specifies the amount of time (rather than the number of times) to repeat the simple duration. For example, if <B>dur</B> specifies a simple duration of 5 and <B>repeatDur</B> is 12.5, then the simple duration will repeat two and a half times (12.5/5=2.5). The special value "indefinite" indicates that the repeat duration should last forever, subject to the duration of the parent.</P>
+<P>The simple duration combined with the effect of any repeats defines the <I>active duration</I>.</P>
+<P>The <MSHelp:link keywords="inet_htmltime_end_scr" TABINDEX="0">end</MSHelp:link> attribute specifies the end of the active duration. As with <B>begin</B>, you can specify multiple end values separated by semicolons. The special value "indefinite" means the end is sometime in the future and has yet to be resolved. An end time overrides the duration and can cut short or extend the duration if both are specified on the same element. </P>
+<P>In contrast to <B>dur</B>, which specifies a duration relative to the element's begin time, <B>end</B> is an absolute time in relation to the element's parent's timeline. For example, if begin="3" and dur="5" and <B>end</B>, <B>repeatCount</B>, and <B>repeatDur</B> are not specified, then the element will end 5 seconds after it begins, which is 8 seconds on the parent's timeline. However, if end="5", then the element will end at 5 seconds on the parent's timeline.</P>
+<P>HTML+TIME provides a number of additional attributes that provide additional control over items on the page, but the attributes above give you the foundation to begin using HTML+TIME.</P>
+<H2><A NAME="htmltime_declaringbeh"></A>Declaring HTML+TIME Behaviors</H2>
+<P>Microsoft Internet Explorer 5.5 provides support for HTML+TIME through a series of element behaviors. To enable HTML+TIME content on your page, you need to add some declarations for the element behaviors to the top of the page.</P>
+<P>First, make sure the &lt;html&gt; element includes the namespace declaration for HTML+TIME, as follows:</P>
+<PRE CLASS="clsCode">&lt;html xmlns:t ="urn:schemas-microsoft-com:time"&gt;
+</PRE>
+<P>Second, within your style block, declare the HTML+TIME version 2.0 (TIME2) behavior.</P>
+<PRE><code>&lt;style&gt;
+.time { behavior: url(#default#TIME2); }
+&lt;/style&gt;
+</code></PRE>
+<P>Third, immediately following your style block, add the declaration to import the TIME2 behavior as an element behavior.</P>
+<PRE><code>
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+</code></PRE>
+<P>Here is a skeleton HTML page that includes the required declarations for HTML+TIME in Internet Explorer 5.5. You
+can copy the example as a basis for your own HTML+TIME pages.</P>
+<PRE><code>
+&lt;html xmlns:t ="urn:schemas-microsoft-com:time" &gt;
+&lt;head&gt;
+&lt;style&gt;
+.time { behavior: url(#default#time2) }
+&lt;/style&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- Replace this line with your content --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></PRE>
+<H2><A NAME="htmltime_basictiming"></A>Basic Timing Examples  Begin and Dur Attributes</H2>
+<P>Once you've added the necessary declarations to the top of the page, you can begin adding timing within the page. Add <I>class="time"</I> to an element to attach the time behavior to that element. You can then use the HTML+TIME attributes such as <B>begin</B> and <B>dur</B> to cause HTML elements to appear and disappear from the page in response to the times you specify. The <B>dur</B> attribute indicates the length of time (duration) that the timing will be applied. </P>
+<P>The following example (Example 1) illustrates several aspects of timing.</P>
+<PRE><code>&lt;p id=example1 class="time" begin="0; example1.end+2" dur="1"&gt;HTML+TIME allows you
+to control when HTML elements come and go.&lt;/p&gt;
+</code></PRE>
+<P>The time class attaches to the paragraph and handles the time-specific attributes <B>begin</B> and <B>dur</B>.</P>
+<P>The example has two begin times: 0 and example1.end+2. The first begin time (0) displays the paragraph beginning when the page begins (at 0 seconds). The second begin time (example1.end+2) is more complex and consists of several parts. The ID of this paragraph is "example1", and "example1.end" indicates the simple end of this paragraph. The "+2" is an offset indicating 2 seconds after the simple end of the paragraph. Therefore, the second begin means to begin again 2 seconds after the paragraph has ended.</P>
+<P>The paragraph first displays at 0 seconds for 1 second and then ends its simple duration. When its simple duration ends, the paragraph disappears and then begins again 2 seconds after its previous end (example1.end+2). It displays again for its duration, ends its simple duration, and begins again 2 seconds later, repeating the pattern forever (or until its parent ends), since the second begin time is triggered every time the paragraph ends.</P>
+<P>Below is a live version of the example illustrated above.</P>
+<P class=label><B>Example 1. In this example, the sentence "HTML+TIME allows you to control when HTML elements come and go" below will appear to blink.</B></P>
+<P><blockquote>
+<p id=example1 class="time" begin="0; example1.end+2" dur="1">
+HTML+TIME allows you to control when HTML elements come and go.
+</p>
+</blockquote></P>
+For a more straightforward example, you could specify one begin time (for example, 10), and the paragraph would begin at that time and disappear after the specified duration. It would not begin again, since that one time had already occurred. </P>
+<P>The following HTML fragment shows the syntax for a paragraph that begins at time 10, displays for 5 seconds, and does not begin again.</P>
+<PRE><code>&lt;p class="time" begin="10" dur="5"&gt;<I>text</I>&lt;/p&gt;
+</code></PRE>
+<P>Example 1 uses a repeating pattern instead of the simple example above to make sure you have a chance to watch it come and go. </P>
+<P>You can also specify a list of begin times (for example, "10;17;30;95") to cause the paragraph to begin at those times, display for the duration, and disappear again until the next begin time. Once all of the begin times have been exhausted, the paragraph will not display again.</P>
+<P>The following HTML fragment shows the syntax for a paragraph with the list of begin times specified above. The paragraph displays beginning at each of the begin times in turn, displays for the 6-second duration, and disappears until the next begin time when it again displays for 6 seconds and then disappears until the next begin time. After it has completed the list of begin times, it does not begin again.</P>
+<PRE><code>&lt;p class="time" begin="10;17;30;95" dur="6"&gt;<I>text</I>&lt;/p&gt;
+</code></PRE>
+<P>The same syntax applies to other HTML elements besides &lt;p&gt;, such as &lt;div&gt;, &lt;span&gt;, &lt;img&gt;, &lt;h1&gt;, &lt;h2&gt;, and so on. You can apply timing to multiple elements on the page and synchronize their display or time them independently. Example 2 displays text and an image together. The text begins and ends in a repeating pattern, similar to the begin and end in Example 1, beginning again 2 seconds after it ends. The image begins 1.5 seconds after the text begins (example2.begin+1.5) and ends when the text ends (example2.end). </P>
+<P class=label><B>Example 2. In this example, the text "Introducing Seattle at night" will appear first, followed by a photograph of Seattle.</B></P>
+<P><blockquote>
+<h3 id=example2 class="time" begin="0; example2.end+2" dur="5">
+Introducing Seattle at night...
+</h3>
+<img class="time" begin="example2.begin+1.5" end="example2.end" src="../common/seattle.jpg"
+style="height=150; width=300" />
+</blockquote>
+<P>The following HTML fragment shows the syntax used to achieve the timing in Example 2.</P>
+<PRE><code>
+&lt;h3 id=example2 class="time" begin="0; example2.end+2" dur="5"&gt;
+Introducing Seattle at night...
+&lt;/h3&gt;
+&lt;img class="time" begin="example2.begin+1.5" end="example2.end" src="Seattle.jpg"
+style="height=150; width=300" /&gt;</code></PRE>
+The image source, height, and width are the same attributes that apply to an &lt;img&gt; element that does not include timing. The <B>end</B> attribute (end="example2.end") indicates an absolute end time for the image, in contrast to the <B>dur</B> used on the heading element (&lt;h3&gt;) in this example. The <B>end</B> attribute causes the image to end when the heading (&lt;h3&gt;) ends. The <B>dur</B> attribute is added to the begin time of the &lt;h3&gt; to determine when the heading ends, since an end time is not specified on the heading. Web pages probably use <B>dur</B> more often than <B>end</B> and do not typically use both <B>dur</B> and <B>end</B> at the same time. We will leave the discussion of the finer distinctions between the two for a later time.</P>
+<P>You can time any number of elements on a page, making the page progressively more active.</P>
+<H2><A NAME="htmltime_interactivity"></A>Interactivity</H2>
+<P>You can add user interaction to your Web pages by allowing elements to begin or end in response to events, as in the following example.</P>
+<P class=label><B>Example 3. In this example, clicking the paragraph below will cause the photograph to appear.</B></P>
+<P id=startExample><B>Click this paragraph</B> to display an image. The begin time for the image is startExample.click; startExample is the ID of this paragraph. The image appears when this paragraph is clicked and ends after the specified duration. Click this paragraph again to restart. The HTML fragment to accomplish this behavior follows:</P>
+<PRE><code>&lt;img class="time" begin="startExample.click" dur="5" src="Seattle.jpg"
+style="height=150; width=300/&gt;</code></PRE>
+<P><blockquote>
+<img class="time" begin="startExample.click" dur="5" src="../common/seattle.jpg" style="height=150; width=300" />
+</blockquote>
+</P>
+<H2><A NAME="htmltime_containers">HTML+TIME Containers</A></H2>
+<P>A time container is an element that enforces time relationships between its child elements. HTML+TIME provides three time containers that provide assistance in common scenarios:
+<UL type=disc>
+<LI><MSHelp:link keywords="inet_htmltime_par_scr" TABINDEX="0">&lt;t:par&gt;</MSHelp:link>  timed children run in <I>parallel</I>.<BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_seq_scr" TABINDEX="0">&lt;t:seq&gt;</MSHelp:link>  timed children run in <I>sequence</I>, one after another; only one child can be active at a time.<BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_excl_scr" TABINDEX="0">&lt;t:excl&gt;</MSHelp:link>  timed children run <I>exclusively</I>, in any order; the exclusive time container automatically stops all other children when one child is activated; as in a sequence, only one child can be active at a time.</LI>
+</UL>
+<P>The "t:" prefix on all the time containers matches the "t" namespace qualifier declared at the top of Web pages that use HTML+TIME. </P>
+<H3>&lt;t:par&gt; Time Container</H3>
+<P>The previous examples in this article are children of a &lt;t:par&gt; because they are children of the &lt;body&gt; element, and the body is implicitly a &lt;t:par&gt; time container. </P>
+<P>The following example uses a parallel time container to wrap a timed paragraph and have it repeat forever, subject to the active time of the time container's parent. The paragraph uses class="time" and the <B>begin</B> and <B>dur</B> attributes, much like the examples already discussed in this article. The paragraph begins at 1 second, displays for 3 seconds, and then repeats because of the <B>repeatCount</B> on the &lt;t:par&gt;, beginning again 1 second later. The pattern repeats until the time container's parent ends.</P>
+<PRE><code>&lt;t:par repeatCount="indefinite"&gt;
+&lt;p class="time" begin="1" dur="3"&gt;Paragraph uses repeatCount to come and go.&lt;/p&gt;
+&lt;/t:par&gt;
+</code></PRE>
+<P class=label><B>Example 4. In the example below, the sentence "Paragraph uses repeatCount to come and go" begins at 1 second and displays for 3 seconds. At that point the child ends and the parent repeats, beginning the child again 1 second later. </B></P>
+<P><t:par repeatCount="indefinite">
+<blockquote>
+<p class="time" begin="1" dur="3">Paragraph uses repeatCount to come and go.</p>
+</blockquote>
+</t:par></p>
+<H3>&lt;t:seq&gt; Time Container</H3>
+<P>Sequence time containers are designed to provide slideshow functionality. The following example uses the &lt;t:seq&gt; combined with &lt;t:par&gt; to provide a slideshow of several images. Each &lt;t:par&gt; groups an image together with a div that contains a corresponding caption. The sequence displays the image/caption pairs one after another to form the slideshow. The indefinite <B>repeatCount</B> causes the sequence to continue cycling through the slideshow.</P>
+<P>This example also sets the <MSHelp:link keywords="inet_htmltime_timeAction_scr" TABINDEX="0">timeAction</MSHelp:link> attribute to "display" to prevent the page from reserving space in the layout for each image and caption. That means all the images and captions appear in the same location on the page, as is typical with a slideshow. </P>
+<PRE><code>&lt;t:seq repeatCount="indefinite"&gt;
+&lt;t:par&gt;
+&lt;img class="time" begin="0" dur="3" timeAction="display" src="Seattle.jpg"
+style="height=150; width=300" /&gt;
+&lt;div class="time" begin="0" dur="3" timeAction="display"&gt;Seattle&lt;/div&gt;
+&lt;/t:par&gt;
+&lt;t:par&gt;
+&lt;img class="time" dur="3" timeAction="display" src="OlympicMtns.jpg"
+style="height=150; width=300" /&gt;
+&lt;div class="time" dur="3" timeAction="display"&gt;Olympic Mountains&lt;/div&gt;
+&lt;/t:par&gt;
+&lt;t:par&gt;
+&lt;img class="time" dur="3" timeAction="display" src="ferry.jpg"
+style="height=150; width=300" /&gt;
+&lt;div class="time" dur="3" timeAction="display"&gt;Seattle Ferry&lt;/div&gt;
+&lt;/t:par&gt;
+&lt;t:par&gt;
+&lt;img class="time" dur="3" timeAction="display" src="ggbridge.jpg"
+style="height=150; width=300" /&gt;
+&lt;div class="time" dur="3" timeAction="display"&gt;Golden Gate Bridge&lt;/div&gt;
+&lt;/t:par&gt;
+&lt;/t:seq&gt;
+</code></PRE>
+<P class=label><B>Example 5. In the example below, a slideshow of four photographs will appear. When the final element in the sequence ends, the sequence repeats from the beginning. The sequence continues forever due to the "indefinite" repeatCount.</B></P>
+<P><blockquote>
+<t:seq repeatCount="indefinite">
+<t:par>
+<img class="time" begin="0" dur="3" timeAction="display" src="../common/Seattle.jpg" style="height=150; width=300" />
+<div class="time" begin="0" dur="3" timeAction="display">Seattle</div>
+</t:par>
+<t:par>
+<img class="time" dur="3" timeAction="display" src="../common/OlympicMtns.jpg" style="height=150; width=300" />
+<div class="time" dur="3" timeAction="display">Olympic Mountains</div>
+</t:par>
+<t:par>
+<img class="time" dur="3" timeAction="display" src="../common/ferry.jpg" style="height=150; width=300" />
+<div class="time" dur="3" timeAction="display">Seattle Ferry</div>
+</t:par>
+<t:par>
+<img class="time" dur="3" timeAction="display" src="../common/ggbridge.jpg" style="height=150; width=300" />
+<div class="time" dur="3" timeAction="display">Golden Gate Bridge</div>
+</t:par>
+</t:seq>
+</blockquote>
+</P>
+<H3>&lt;t:excl&gt; Time Container</H3>
+<P>The example below displays one of four images, depending on the button that is clicked. The &lt;t:excl&gt; time container takes care of turning off all of the other images when you select an image. Once again, timeAction="display" ensures that all of the images display in the same location. </P>
+<PRE><code>
+&lt;button id=seattle&gt;Seattle&lt;/button&gt;
+&lt;button id=ferry&gt;Seattle Ferry&lt;/button&gt;
+&lt;button id=olympics&gt;Olympic Mountains&lt;/button&gt;
+&lt;button id=bridge&gt;Golden Gate Bridge&lt;/button&gt;
+&lt;t:excl dur="indefinite"&gt;
+&lt;img class="time" begin="0;seattle.click" dur="indefinite" timeAction="display"
+src="Seattle.jpg" style="height=150; width=300" /&gt;
+&lt;img class="time" begin="ferry.click" dur="indefinite" timeAction="display" src="ferry.jpg"
+style="height=150; width=300" /&gt;
+&lt;img class="time" begin="olympics.click" dur="indefinite" timeAction="display"
+src="OlympicMtns.jpg" style="height=150; width=300" /&gt;
+&lt;img class="time" begin="bridge.click" dur="indefinite" timeAction="display" src="ggbridge.jpg"
+style="height=150; width=300" /&gt;
+&lt;/t:excl&gt;
+</code></PRE>
+<P class=label><B>Example 6. This example displays four buttons; when each button is clicked, a different image is displayed.</B></P>
+<P><blockquote>
+<button id=seattle>Seattle</button>
+<button id=ferry>Seattle Ferry</button>
+<button id=olympics>Olympic Mountains</button>
+<button id=bridge>Golden Gate Bridge</button>
+</blockquote>
+<blockquote>
+<t:excl dur="indefinite">
+<img class="time" begin="0;seattle.click" dur="indefinite" timeAction="display" src="../common/Seattle.jpg" style="height=150; width=300" />
+<img class="time" begin="ferry.click" dur="indefinite" timeAction="display" src="../common/ferry.jpg" style="height=150; width=300" />
+<img class="time" begin="olympics.click" dur="indefinite" timeAction="display" src="../common/OlympicMtns.jpg" style="height=150; width=300" />
+<img class="time" begin="bridge.click" dur="indefinite" timeAction="display" src="../common/ggbridge.jpg" style="height=150; width=300" />
+</t:excl>
+</blockquote></P>
+<H2><A NAME="htmltime_media">Media</A></H2>
+<P>HTML+TIME provides the following elements for playback of media, such as audio, video clips, and images:
+<UL type=disc>
+<LI><MSHelp:link keywords="inet_htmltime_media_scr" TABINDEX="0">&lt;t:media&gt;</MSHelp:link><BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_video_scr" TABINDEX="0">&lt;t:video&gt;</MSHelp:link><BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_audio_scr" TABINDEX="0">&lt;t:audio&gt;</MSHelp:link><BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_img_scr" TABINDEX="0">&lt;t:img&gt;</MSHelp:link><BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_animation_scr" TABINDEX="0">&lt;t:animation&gt;</MSHelp:link><BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_ref_scr" TABINDEX="0">&lt;t:ref&gt;</MSHelp:link><BR><BR></LI>
+</UL>
+<P>These elements are synonyms of one another, and their function is identical. The variety of media elements allows the author to provide self-documenting content. For example, you could use the &lt;t:audio&gt; element when playing a sound clip and the &lt;t:video&gt; element when playing a video clip. You could use the &lt;t:animation&gt; element for animated gifs and the &lt;t:img&gt; element for still images, similar to the traditional HTML &lt;img&gt; element. &lt;t:media&gt; is a generic element that could refer to all media, as is the &lt;t:ref&gt; element, because it stands for a reference to another file.</P>
+<P>The media elements support the <B>begin</B>, <B>dur</B>, <B>end</B>, <B>repeatCount</B>, <B>repeatDur</B>, and <B>timeAction</B> attributes already discussed in this article, as well as attributes not yet covered. A few attributes specific to the media elements include the following:
+<UL type=disc>
+<LI><MSHelp:link keywords="inet_htmltime_src_scr" TABINDEX="0">src</MSHelp:link>  source media file to play, like the source used with &lt;img&gt;<BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_clipBegin_scr" TABINDEX="0">clipBegin</MSHelp:link>  position in which to begin playback in a media clip<BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_clipend_scr" TABINDEX="0">clipend</MSHelp:link>  position in which to end playback in a media clip<BR><BR></LI>
+<LI><MSHelp:link keywords="inet_htmltime_player_scr" TABINDEX="0">player</MSHelp:link>  player to use to play back the media. HTML+TIME includes a default player so you don't have to specify a player in most cases. You can specify the CLSID of a player or use the special values "dmusic" for DirectMusic playback or "dvd" for DVD playback.</LI>
+</UL>
+<PRE><code>
+&lt;button id=startMedia&gt;Play&lt;/button&gt;
+&lt;button id=stopMedia&gt;Stop&lt;/button&gt;
+&lt;t:media begin="startMedia.click" end="stopMedia.click" src="clock.avi" mute="true"
+timeAction="display" style="height=150; width=150" /&gt;
+</code></PRE>
+<P class=label><B>Example 7. The following example plays a video clip when you click the Play button and stops when you click the Stop button. The example also mutes the audio from the clip.</B></P>
+<P><button id=startMedia>Play</button>
+<button id=stopMedia>Stop</button>
+<t:media begin="startMedia.click" end="stopMedia.click" src="clock.avi" mute="true" timeAction="display" style="height=150; width=150" /></P>
+<PRE><code>
+&lt;button id=startMedia2&gt;Play using clipBegin&lt;/button&gt;
+&lt;button id=stopMedia2&gt;Stop&lt;/button&gt;
+&lt;t:media begin="startMedia2.click" end="stopMedia2.click" clipBegin="6" src="clock.avi"
+mute="true" timeAction="display" style="height=150; width=150" /&gt;
+</code></PRE>
+<B>Example 8. The following example uses clipBegin</B> <B>to begin playback 6 seconds into the movie. To see the effect, compare playback of this clip with playback to the same clip above that does not use clipBegin. Playback begins when you click the Play using clipBegin button and ends when you click the Stop button.</B></P>
+<P><button id=startMedia2>Play using clipBegin</button>
+<button id=stopMedia2>Stop</button>
+<t:media begin="startMedia2.click" end="stopMedia2.click" clipBegin="6" src="clock.avi" mute="true"
+timeAction="display" style="height=150; width=150" /></P>
+<H2><A NAME="htmltime_switchtext"></A>Switch Element and Test Attributes</H2>
+<P>Internet Explorer 5.5 introduces support for the &lt;t:switch&gt; element and the <B>systemCaptions</B>, <B>systemBitrate</B>,  <B>systemOverdubOrSubtitle</B>, and <B>systemLanguage</B> test attributes. The &lt;t:switch&gt; element allows you to list several alternate choices and display content, depending on which choice is true on the user's machine.</P>
+<P class=label><B>Example 9. HTML+TIME Accessibility  Switch on Captions. This example detects whether your system captions are on or off. Only the correct match (on or off) should be displayed. Check ShowSounds on the Sound tab in the Control Panel Accessibility applet to change your system settings to use captions. Refresh this page to see the result of the new setting.</B></P>
+<P>The source for the example follows:</P>
+<PRE><code>&lt;t:switch id=switchID&gt;
+&lt;p id=choice1 systemCaptions="on"&gt;on&lt;/p&gt;
+&lt;p id=choice2 systemCaptions="off"&gt;off&lt;/p&gt;
+&lt;/t:switch&gt;</code></PRE>
+<P><blockquote>
+<p>Your caption settings are:</p>
+<t:switch id=switchID>
+<p id=choice1 systemCaptions="on">on</p>
+<p id=choice2 systemCaptions="off">off</p>
+</t:switch>
+</blockquote>
+<B>Example 10. HTML+TIME Language  Switch on System Language Setting. This example detects the system language setting in the Regional Options in the Control Panel and displays a text fragment in Spanish, Portuguese, or English, depending on the system language setting.</B></P>
+<P>The source for the example follows:</P>
+<PRE><code>&lt;t:switch&gt;
+&lt;span class="time" systemLanguage="es" &gt;Somos interdependientes (Espanol)&lt;/span&gt;
+&lt;span class="time" systemLanguage="pt" &gt;Ns somos interdependentes (Portuguese)&lt;/span&gt;
+&lt;span class="time" systemLanguage="en" &gt;We are interdependent (English)&lt;/span&gt;
+&lt;span class="time"&gt;None of the above&lt;/span&gt;
+&lt;/t:switch&gt;</code></PRE>
+<P><blockquote>
+<p>Your language settings are:</p>
+<t:switch>
+<span class="time" systemLanguage="es" >Somos interdependientes (Espanol)</span>
+<span class="time" class=time systemLanguage="pt" >Ns somos interdependentes (Portuguese)</span>
+<span class="time" systemLanguage="en" >We are interdependent (English)</span>
+<span class="time">None of the above</span>
+</t:switch>
+</blockquote>
+<H2><A NAME="htmltime_smil2.0">SMIL 2.0</A></H2>
+<P>HTML+TIME is the Microsoft implementation of the HTML+SMIL profile in SMIL 2.0. SMIL 2.0 is the next version of the Synchronized Multimedia Integration Language (SMIL) specification that many companies, including Microsoft, are working to define together at the Worldwide Web Consortium (W3C). The latest public working draft is available on the W3C site at <A HREF="http://www.w3.org/TR/smil20/">http://www.w3.org/TR/smil20/</A> <IMG SRC="../common/leave-ms.gif" WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-MS link">.</P>
+<P>The HTML+SMIL Language profile defined by the latest SMIL 2.0 working draft specifies that HTML is used for layout in the HTML+SMIL profile rather than using the separate SMIL Language for layout. </P>
+<P>Internet Explorer 5.5 includes support for the SMIL Timing and Synchronization module, SMIL 2.0 Animation module, SMIL Media Object module, and SMIL Integration module. </P>
+<H2>Summary</H2>
+<P>Internet Explorer 5.5 opens the world of rich, interactive, synchronized, accessible multimedia to the content developer. Many exciting new features abound, and we've only scratched the surface so far. </P>
+<H2>Additional Information</H2>
+<P>For more information, check out <MSHelp:link keywords="_inet_currTime_Property_scr" TABINDEX="0">HTML+TIME</MSHelp:link>. </P>
+</TD> </TR> </TABLE>
+</BODY> </html>

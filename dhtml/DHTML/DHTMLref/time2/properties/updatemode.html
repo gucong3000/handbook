@@ -1,0 +1,126 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>UPDATEMODE Attribute | updateMode Property (t:ANIMATION, t:AUDIO, t:IMG, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>UPDATEMODE Attribute | updateMode Property
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Specifies or retrieves a value that indicates how the <span replace="1">object</span> is to be updated.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>UPDATEMODE</B>
+= <SPAN CLASS="clsRange">sMode</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>updateMode</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sMode</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sMode</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">Auto</SPAN></TD><TD>Automatically assigns a new value to the property being set and updates the object. The property maintains the <A HREF="../../time2/properties/repeatcount.html">repeatCount</A> and <A HREF="../../time2/properties/segmenttime.html">segmentTime</A> values of the element and is similar to resetting followed by a <A HREF="../../time2/methods/seekto.html">seekTo</A> for the object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">Reset</SPAN></TD><TD>Default. Resets the node to its initial state after the change.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+Reset</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <A HREF="../../common/author/behaviors/reference/time/methods/beginelement.html">beginElement</A> method called on an object with <B>updateMode</B> set to <SPAN CLASS="clsLiteral">Reset</SPAN> will be ignored.</P><P>The table below describes what attribute/property can be updated and the effects that the <B>updateMode</B> property has on it.</P><P><table class="clsStd"><tr><th>Attribute/Property</th><th>Behavior</th></tr><tr><td><A HREF="../../time2/properties/dur.html">dur</A></td><td>Recalculates (<A HREF="../../methods/recalc.html">recalc</A>) the entire timing and does a seek.</td></tr><tr><td><A HREF="../../time2/properties/repeatcount.html">repeatCount</A></td><td>Recalculates (<A HREF="../../methods/recalc.html">recalc</A>) the entire timing and does a seek.</td></tr><tr><td><A HREF="../../time2/properties/repeatdur.html">repeatDur</A></td><td>Recalculates (<A HREF="../../methods/recalc.html">recalc</A>) the entire timing and does a seek.</td></tr><tr><td><A HREF="../../time2/properties/autoreverse.html">autoReverse</A></td><td>Recalculates (<A HREF="../../methods/recalc.html">recalc</A>) the entire timing and does a seek.</td></tr><tr><td><A HREF="../../time2/properties/speed.html">speed</A></td><td>Recalculates (<A HREF="../../methods/recalc.html">recalc</A>) the entire timing and does a seek.</td></tr><tr><td><A HREF="../../time2/properties/end.html">end</A></td><td>Updates the <A HREF="../../time2/properties/end.html">end</A> value as necessary.</td></tr><tr><td><A HREF="../../time2/properties/begin.html">begin</A></td><td>Does the equivalent of <A HREF="../../time2/methods/resetelement.html">resetElement</A>.</td></tr><tr><td><A HREF="../../time2/properties/restart.html">restart</A></td><td>No immediate effect. Any future begins or sync arc changes are affected.</td></tr><tr><td><A HREF="../../time2/properties/fill.html">fill</A></td><td>Updates the <A HREF="../../time2/properties/ison.html">isOn</A> property as appropriate.</td></tr></table></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example demonstrates how the <B>updateMode</B> property is used. Choose the new <A HREF="../../time2/properties/speed.html">speed</A>, <B>updateMode</B> values, and click the "Change to new speed" button to implement the change for the <A HREF="../../common/browser/hosting/printpreview/reference/properties/media.html">MEDIA</A> object.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="updateMode">&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function doChange(){
+oMedia.updateMode = oMode.options.value;
+oMedia.speed = newspeed.options.value;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;CENTER&gt;
+&lt;t:video updateMode="reset" style="width:175px; height:150px;"
+id="oMedia" src="../../common/samples/author/behaviors/media/movie.avi"/&gt;
+...
+&lt;BR&gt;
+Select &lt;B&gt;updateMode&lt;/B&gt; value: &lt;SELECT name="oMode"&gt;
+&lt;OPTION value="auto"&gt;Auto&lt;/OPTION&gt;
+&lt;OPTION value="reset" selected&gt;Reset&lt;/OPTION&gt;
+&lt;/SELECT&gt;
+&lt;BR&gt;
+Enter new speed &lt;SELECT name="newspeed"&gt;
+&lt;OPTION value="0.25"&gt;25% Playback Speed&lt;/OPTION&gt;
+&lt;OPTION value="0.5"&gt;50% Playback Speed&lt;/OPTION&gt;
+&lt;OPTION value="0.75"&gt;75% Playback Speed&lt;/OPTION&gt;
+&lt;OPTION value="1" selected&gt;100% Playback Speed (Default)&lt;/OPTION&gt;
+&lt;OPTION value="2"&gt;200% Playback Speed&lt;/OPTION&gt;
+&lt;/SELECT&gt;&lt;BR&gt;
+&lt;BUTTON onClick="doChange();"&gt;Click to change to new speed&lt;/BUTTON&gt;&amp;nbsp;
+&lt;BUTTON onClick="document.body.beginElement()"&gt;Restart&lt;/BUTTON&gt;
+&lt;/CENTER&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/updateMode.htm" FEATURES="top=50,left=50,height=510,width=600,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

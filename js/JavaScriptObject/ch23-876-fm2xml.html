@@ -1,0 +1,185 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-868-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-883-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-876-fm2xml"></A><A NAME="IXT-23-55412"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.substring(  )</i></b></td>
+
+<td align="right"><i>返回字符串的一个子串</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.0; JScript 1.0, ECMAScript v1 </P><A NAME="ch23-877-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.substring(<TT><I>from</I></TT>, <TT><I>to</I></TT>)</PRE>
+
+<A NAME="IXT-23-55412"></A>
+
+
+
+
+
+<A NAME="ch23-878-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>from</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个整数，声明了要抽取的子串的第一个字符在string中的位置。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>to</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个可选的整数，比要抽取的子串的最后一个字符在string中的位置多1。如果省略了该参数，返回的子串直到字符串的结尾。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-879-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">一个新字符串，其长度为to-from，存放的是字符串string的一个子串。这个新字符串含有的字符是从string中的from处到to-1处复制的。</P>
+
+
+
+
+
+<A NAME="ch23-880-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">String.substring()将返回字符串string的子串，由from到to之间的字符构成，
+  包括位于from的字符，不包括位于to的字符。</P>
+
+
+
+<P class="docText">如果参数from与to相等，那么该方法返回的就是一个空串(即长度为0的字符串)。
+  如果from比to大，那么该方法在抽取子串之前会先交换这两个参数。</P>
+
+
+
+<P class="docText">要记住，该子串包括from处的字符，不包括to处的字符。虽然这样看来有违直觉，
+  但这种系统一个值得注意重要特性是，返回的子串的长度总等于to-from。</P>
+
+
+
+
+
+<A NAME="ch23-881-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">在JavaScript的Netscape实现中，如果明确地把语言版本设置为1.2(如把&lt;script&gt;标记的language性质设置为1.2)，那么如果from比to大，该方法不能正确地交换它的参数，而是返回空串。
+
+</P>
+
+
+
+<A NAME="ch23-882-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-781-fm2xml.html#ch23-781-fm2xml">String.charAt(  )</A>, <A class="docLink" HREF="ch23-808-fm2xml.html#ch23-808-fm2xml">String.indexOf(  )</A>, <A class="docLink" HREF="ch23-815-fm2xml.html#ch23-815-fm2xml">String.lastIndexOf(  )</A>,
+
+<A class="docLink" HREF="ch23-852-fm2xml.html#ch23-852-fm2xml">String.slice(  )</A>, <A class="docLink" HREF="ch23-868-fm2xml.html#ch23-868-fm2xml">String.substr(  )</A>
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-868-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-883-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

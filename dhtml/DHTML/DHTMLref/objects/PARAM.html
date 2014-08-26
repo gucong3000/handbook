@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>PARAM 元素 | param</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="page.html" title="page 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>page 对象</A> <A HREF="plainText.html" title="PLAINTEXT 元素 | plainText 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>PLAINTEXT 元素 | plainText 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>PARAM 元素 | param 对象</H1>
+<HR SIZE="1"><P>设置 <A HREF="APPLET.html">APPLET</A>、<A HREF="EMBED.html">EMBED</A> 或 <A HREF="OBJECT.html">OBJECT</A> 元素的属性初始值。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>param</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH width=52>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/dataFld_2.html">DATAFLD</A></TD>
+<TD><A HREF="../properties/dataFld_2.html"></A></TD>
+<TD>设置用于数据绑定的给定数据源的字段。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dataFormatAs_1.html">DATAFORMATAS</A></TD>
+<TD><A HREF="../properties/dataFormatAs_1.html"></A></TD>
+<TD>设置或获取如何渲染提供给<span replace="1">对象</span>的数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dataSrc_1.html">DATASRC</A></TD>
+<TD><A HREF="../properties/dataSrc_1.html"></A></TD>
+<TD>设置或获取用于数据绑定的数据源。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/name_4.html">NAME</A></TD>
+<TD><A HREF="../properties/name_4.html">name</A></TD>
+<TD>设置或获取元素的输入参数的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/type_11.html">TYPE</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD><A HREF="../properties/type_11.html">type</A></TD>
+<TD>设置或获取 <A HREF="../properties/value_5.html">value</A> 标签属性指明的资源内容类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/value_5.html">VALUE</A></TD>
+<TD><A HREF="../properties/value_5.html">value</A></TD>
+<TD>设置或获取元素的输入参数值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/valuetype.html">VALUETYPE</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD><A HREF="../properties/valuetype.html">valueType</A></TD>
+<TD>设置或获取 <B>value</B> 标签属性的数据类型。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>PARAM</B> 元素仅在 <B>APPLET</B>, <B>EMBED</B> 和 <B>OBJECT</B> 元素内有效。</P>
+<P><DIV CLASS="clsNote"><B>注意</B> 由 <B>PARAM</B> 元素设置的属性不可由 <B>PARAM</B> 对象变更。</DIV></P>
+<P>在 <B>APPLET</B>, <B>EMBED</B> 或 <B>OBJECT</B> 元素实例创建完成后，由 <B>PARAM</B> 元素设置的属性无法用 <B>param</B> 对象更改。要更改对象的属性，请使用由对象引出的脚本属性。</P>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的 HTML 中可用。</P>
+<P>此元素不会被渲染。</P>
+<P>此元素不需要关闭标签。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子显示了 Internet Explorer 数据绑定组件的 <A HREF="../properties/outerHTML.html">outerHTML</A>，这样你就可以查看由 <B>PARAM</B> 元素指定的属性。执行这样的检查可以在调试 <B>OBJECT</B> 元素属性时收集信息。除非重新初始化 <B>outerHTML</B> 对象，否则无法编辑对象的 <B>outerHTML</B> 属性。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+// 下面的 OBJECT CLASSID 是 Microsoft
+// Internet Explorer 数据绑定组件
+// 仅使用下面的 HTML 并单击按钮
+&lt;OBJECT
+ID=tdcContents
+CLASSID="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83"&gt;
+&lt;PARAM NAME="DataURL" VALUE="DataBinding.csv"&gt;
+&lt;/OBJECT&gt;
+&lt;BUTTON onclick="oTxt.value=tdcContents.outerHTML"&gt;
+显示对象的 outerHTML&lt;/BUTTON&gt;&lt;BR/&gt;
+&lt;TEXTAREA ID="oTxt"  STYLE="height:400; width:450;padding:3; overflow=auto;"&gt; &lt;/TEXTAREA&gt;
+// 单击按钮后会在 TEXTAREA 中以未格式化的形式显示对象
+// PARAM 元素的完整列表如下:
+&lt;OBJECT id=tdcContents classid=clsid:333C7BC4-460F-11D0-BC04-0080C7055A83&gt;
+&lt;PARAM NAME="RowDelim" VALUE="&amp;#10;"&gt;&lt;PARAM NAME="FieldDelim" VALUE=","&gt;
+&lt;PARAM NAME="TextQualifier" VALUE='"'&gt;&lt;PARAM NAME="EscapeChar" VALUE=""&gt;
+&lt;PARAM NAME="UseHeader" VALUE="0"&gt;&lt;PARAM NAME="SortAscending" VALUE="-1"&gt;
+&lt;PARAM NAME="SortColumn" VALUE=""&gt;&lt;PARAM NAME="FilterValue" VALUE=""&gt;
+&lt;PARAM NAME="FilterCriterion" VALUE="??"&gt;&lt;PARAM NAME="FilterColumn" VALUE=""&gt;
+&lt;PARAM NAME="CharSet" VALUE=""&gt;&lt;PARAM NAME="Language" VALUE=""&gt;
+&lt;PARAM NAME="CaseSensitive" VALUE="-1"&gt;&lt;PARAM NAME="Sort" VALUE=""&gt;
+&lt;PARAM NAME="Filter" VALUE=""&gt;&lt;PARAM NAME="AppendData" VALUE="0"&gt;
+&lt;PARAM NAME="DataURL" VALUE="DataBinding.csv"&gt;
+&lt;PARAM NAME="ReadyState" VALUE="4"&gt;
+&lt;/OBJECT&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/html4/" TARGET="_top">HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 和<A HREF="http://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/" TARGET="_top">万维网协会(W3C)文档对象模型(DOM) 级别 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

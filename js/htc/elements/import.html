@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>IMPORT</span>处理指令</h1>
+		<hr>
+		<p>从元素行为中导入标签的定义。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;?IMPORT<br>&nbsp;&nbsp;namespace&nbsp;=&nbsp;&quot;<I>sNameSpace</I>&quot;<br>&nbsp;&nbsp;implementation&nbsp;=&nbsp;&quot;<I>sImplementation</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>namesapce</B></dt>
+				<dd>
+					<p>必需。字符串值；指定标签定义要导入的一个已定义的命名空间。</p>
+				</dd>
+				<dt><B>implementation</B></dt>
+				<dd>
+					<p>必需。下列值之一：</p>
+					<table>
+						<tr>
+							<td calss="value">#default</td>
+							<td><span>Internet Explorer 5.5</span>及后继版本中浏览器内嵌的元素行为。</td>
+						</tr>
+						<tr>
+							<td class="value">#objectID</td>
+							<td>字符串值；指定<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/object.asp"><span>object</span></a>标签的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>id</span></a>属性。</td>
+						</tr>
+						<tr>
+							<td class="value"><I>SImplementation</I></td>
+							<td>字符串值；指定包含标签定义的<span>HTML</span>组件<span>(HTC)</span>文件。</td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Processing Intruction Information</LABEL>处理指令信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th>出现次数</th>
+					<td>无限制</td>
+				</tr>
+				<tr>
+					<th>父元素</th>
+					<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/head.asp"><span>HEAD</span></a>，<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/body.asp"><span>BODY</span></a></td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5.5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span>，<span>Windows CE 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>一个页面中可以使用多次<B><span>IMPORT</span></B>处理指令。</p>
+			<p><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/html.asp"><span>HTML</span></a>标签的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/xmlns.asp"><span>XMLNS</span></a>属性必须符合<B><span>IMPORT</span></B>处理指令定义的<span>namespace</span>属性值。否则导入的标签定义无法正常使用。</p>
+			<p>导入的标签如果<B><span>implementation</span></B>属性值无效将无法被渲染。如果你使用一份<span>HTC</span>文件，则它必须遵循所有行为都相同的安全准则。欲了解安全方面的更多信息，请阅读<a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a>。</p>
+			<p><B><span>IMPORT</span></B>处理指令可以放置在文档正文结束前的任何地方。但是，导入某个自定义标签的<B><span>IMPORT</span></B>处理指令必须放置在该标签第一次被使用之前。如果<B><span>IMPORT</span></B>处理指令放置在自定义元素之后，行为会无法附加到自定义元素上。这也意味着<span>document.</span><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/write.asp"><span>write</span></a>方法无法用于向文档中添加<B><span>IMPORT</span></B>处理指令。</p>
+			<p>作为<B><span>IMPORT</span></B>处理指令的替代方法，使用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/doimport.asp"><span>doImport</span></a>方法来动态导入元素行为。<B><span>doImport</span></B>方法用于与<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/createelement.asp"><span>createElement</span></a>方法联合添加附加了元素行为的自定义元素。</p>
+			<p><B><span>IMPORT</span></B>处理指令只在文档的初始化解析过程中才会被处理。因此使用了元素行为的文档必须在<span>HTML</span>文件中包括相应的<B><span>IMPORT</span></B>处理指令。当主文档中已经指定了<B><span>IMPORT</span></B>处理指令之后，<span>document.<B>write</B></span>方法可以用于添加自定义元素及附加行为。</p>
+			<p><B><span>IMPORT</span></B>处理指令不是<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/collections/all.asp"><span>all</span></a>集合的成员之一。但是其内容可以被<span>document.body.</span><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/innerhtml.asp"><span>innerHTML</span></a>属性访问到。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>下面的样例演示了<B><span>IMPORT</span></B>处理指令的用法。<B><span>HTML</span></B>标签中定义的<B><span>XMLNS</span></B>属性用于匹配<B><span>IMPORT</span></B>处理指令<span>namespace</span>属性。</p>
+			<code>&lt;HTML&nbsp;xmlns:games&gt;<br>&lt;?IMPORT&nbsp;namespace=&quot;games&quot;&nbsp;implementation=&quot;checkers.htc&quot;&nbsp;/&gt;<br>&lt;BODY&gt;<br>&lt;games:checkers&nbsp;/&gt;<br>&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+		</blockquote>
+		<h2><LABEL>Standards Information</LABEL></h2>
+		<blockquote>
+			<p>没有应用于此处理指令的公共标准。</p>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/doimport.asp"><span>doImport</span></a></li>
+				<li><a href="../articles/intrviwlnk.html">《<span>Viewlink</span>简介》</a></li>
+				<li><a href="../articles/abelebeh.html">《关于元素行为》</a></li>
+				<li><a href="http://msdn.microsoft.com/workshop/browser/hosting/printpreview/reference/behaviors/devicerect.asp"><span>DeviceRect</span></a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

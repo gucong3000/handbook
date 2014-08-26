@@ -1,0 +1,106 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>SYNCBEHAVIOR Attribute | syncBehavior Property (t:ANIMATION, t:AUDIO, t:EXCL, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>SYNCBEHAVIOR Attribute | syncBehavior Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a value that indicates the synchronization rules for the element's timeline.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>SYNCBEHAVIOR</B>
+= <SPAN CLASS="clsRange">sRule</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>syncBehavior</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sRule</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sRule</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">canSlip</SPAN></TD><TD>Element does not have to be synchronized with the parent element's timeline. This allows an HTML page enough flexibility to handle network problems.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">locked</SPAN></TD><TD>Element must be synchronized with the parent element's timeline. For example, a parent element's timeline does not progress until the child element's media is ready to be played.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>You must use this property with the <A HREF="../../time2/properties/syncmaster.html">SYNCMASTER</A> attribute to determine which elements to synchronize within the document. If a media file isn't ready when the timeline begins, the <SPAN CLASS="clsLiteral">canSlip</SPAN> value enables the parent timeline to continue without interruption. The timeline on the element associated with the media begins as soon as the file loads.</P><P>If you set an element's <B>SYNCBEHAVIOR</B> attribute to <SPAN CLASS="clsLiteral">locked</SPAN>, the parent timeline must pause and wait for the element to catch up. If the parent element's timeline is also locked, the scope of the synchronization behavior is extended to include all of the timed children of the parent's own parent element. If all timelines are locked, the entire document pauses when an element cannot maintain its synchronization.</P><P>The <B>SYNCBEHAVIOR</B> attribute applies to the  media delivery of an element, or to the sync relationship of the timeline defined by a time container. If there is a delay or interruption in either the media element or the time container, the <B>SYNCBEHAVIOR</B> attribute controls how the media element is delivered while the rest of the document continues to play.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>syncBehavior</B> property to show how to set the synchronization rules of a timeline.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="syncBehavior">...
+&lt;DIV style="position:absolute;left:300"&gt;
+...
+&lt;t:PAR id="par2" timeAction="display" &gt;
+&lt;t:media id="oMedia1" begin="0s" dur="20s" timeAction="display"
+syncMaster="true" syncBehavior="locked"
+src="\workshop\samples\author\behaviors\media\shuttle3.avi"  /&gt;
+&lt;/t:PAR&gt;
+&lt;/DIV&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/syncbehavior.htm" FEATURES="top=50,left=50,height=550,width=600,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/excl.html">
+t:EXCL</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/properties/synctolerance.html">syncTolerance</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

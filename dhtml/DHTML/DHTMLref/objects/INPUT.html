@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>INPUT 元素 | input</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="IMPORT.html" title="IMPORT 处理指令"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>IMPORT 处理指令</A> <A HREF="INPUT_button.html" title="INPUT type=button 元素 | input type=button 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>INPUT type=button 元素 | input type=button 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>INPUT 元素 | input 对象</H1>
+<HR SIZE="1"><P>创建各种表单输入控件。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>input</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH width=52>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/accept.html">ACCEPT</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD><A HREF="../properties/accept.html">accept</A></TD>
+<TD>设置或获取以逗号分隔的内容类型列表。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/align_0.html">ALIGN</A></TD>
+<TD><A HREF="../properties/align_0.html">align</A></TD>
+<TD>设置或获取<span replace="1">对象</span>针对其邻接文本如何排列。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/alt.html">ALT</A></TD>
+<TD><A HREF="../properties/alt.html">alt</A></TD>
+<TD>设置或获取用于替代<span replace="1">图像</span>的文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/complete.html"></A></TD>
+<TD><A HREF="../properties/complete.html">complete</A></TD>
+<TD>获取<span replace="1">对象</span>是否已完全装入。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dynsrc.html">DYNSRC</A></TD>
+<TD><A HREF="../properties/dynsrc.html">dynsrc</A></TD>
+<TD>设置或获取要在窗口中显示的视频剪辑或 VRML 世界。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/hspace.html">HSPACE</A></TD>
+<TD><A HREF="../properties/hspace.html">hspace</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的水平边距。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/loop.html">LOOP</A></TD>
+<TD><A HREF="../properties/loop.html">loop</A></TD>
+<TD>设置或获取声音或视频剪辑在激活时的循环播放次数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lowsrc.html">LOWSRC</A></TD>
+<TD><A HREF="../properties/lowsrc.html">lowsrc</A></TD>
+<TD>设置或获取要显示的较低分辨率图像。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/start_1.html">start</A></TD>
+<TD><A HREF="../properties/start_1.html">start</A></TD>
+<TD>设置或获取视频剪辑文件应该开始播放的时间。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/useMap.html">USEMAP</A></TD>
+<TD><A HREF="../properties/useMap.html">useMap</A></TD>
+<TD>设置或获取用于客户端图像映射的 URL，通常带有一个书签扩展(#name)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/value_1.html">VALUE</A></TD>
+<TD><A HREF="../properties/value_1.html">value</A></TD>
+<TD>获取控件的默认或选中值。</TD>
+</TR>
+<TR>
+<TD><A href="../properties/vspace.html">VSPACE</A></TD>
+<TD><A href="../properties/vspace.html">vspace</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的垂直边距。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">行为</P>
+<DIV tabName="行为" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>行为</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="/workshop/author/behaviors/library/mask/mask.html">mask</A></TD>
+<TD>为 <A HREF="../objects.html">DHTML 对象</A>指定遮罩编辑行为。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">样式</P>
+<DIV tabName="样式" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>样式标签属性</TH><TH>样式属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/layoutFlow.html">layout-flow</A></TD>
+<TD><A HREF="../properties/layoutFlow.html">layoutFlow</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容的方向和绕排方向。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textUnderlinePosition.html">text-underline-position</A></TD>
+<TD><A HREF="../properties/textUnderlinePosition.html">textUnderlinePosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性中设置的下划线的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wordWrap.html">word-wrap</A></TD>
+<TD><A HREF="../properties/wordWrap.html">wordWrap</A></TD>
+<TD>设置或获取当内容超过其容器边界时是否断词。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/writingMode.html">writing-mode</A></TD>
+<TD><A HREF="../properties/writingMode.html">writingMode</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容的方向和绕排。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的放大比例。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>INPUT</B> 元素的 <A HREF="../properties/type_7.html">TYPE</A> 标签属性用于指定下列表单输入控件之一:</P>
+<P><table class="clsStd">
+<tr>
+<TD><A HREF="INPUT_button.html">button</A></td>
+<TD><A HREF="INPUT_checkbox.html">checkbox</A></td>
+<TD><A HREF="INPUT_file.html">file</A></td>
+<TD><A HREF="INPUT_hidden.html">hidden</A></td>
+<TD><A HREF="INPUT_image.html">image</A></td>
+</tr>
+<tr>
+<TD><A HREF="INPUT_password.html">password</A></td>
+<TD><A HREF="INPUT_radio.html">radio</A></td>
+<TD><A HREF="INPUT_reset.html">reset</A></td>
+<TD><A HREF="INPUT_submit.html">submit</A></td>
+<TD><A HREF="INPUT_text.html">text</A></td>
+</tr>
+</table></P>
+<P>此元素是一个内嵌元素。</P>
+<P>此元素不需要关闭标签。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子演示了如何使用 <B>INPUT</B> 元素创建不同类型的输入控件。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;FORM ACTION="http://intranet/survey" METHOD=POST&gt;
+&lt;P&gt;姓名&lt;/P&gt;
+&lt;BR&gt;&lt;INPUT NAME="CONTROL1" TYPE=TEXT VALUE="你的姓名"&gt;
+&lt;P&gt;密码&lt;/P&gt;
+&lt;BR&gt;&lt;INPUT TYPE="PASSWORD" NAME="CONTROL2"&gt;
+&lt;P&gt;颜色&lt;/P&gt;
+&lt;BR&gt;&lt;INPUT TYPE="RADIO" NAME="CONTROL3" VALUE="0" CHECKED&gt;红色
+&lt;INPUT TYPE="RADIO" NAME="CONTROL3" VALUE="1"&gt;绿色
+&lt;INPUT TYPE="RADIO" NAME="CONTROL3" VALUE="2"&gt;蓝色
+&lt;P&gt;评论&lt;/P&gt;
+&lt;BR&gt;&lt;INPUT TYPE="TEXT" NAME="CONTROL4" SIZE="20,5" MAXLENGTH="250"&gt;
+&lt;P&gt;&lt;INPUT NAME="CONTROL5" TYPE=CHECKBOX CHECKED&gt;发送收条&lt;/P&gt;
+&lt;P&gt;&lt;INPUT TYPE="SUBMIT" VALUE="确定"&gt;&lt;INPUT TYPE="RESET" VALUE="重置"&gt;&lt;/P&gt;
+&lt;/FORM&gt;
+</PRE>
+<DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 和<A HREF="http://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/" TARGET="_top">万维网协会(W3C)文档对象模型 (DOM) 级别 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="BUTTON.html">button</A>, <A HREF="SELECT.html">select</A>, <A HREF="TEXTAREA.html">textArea</A></BLOCKQUOTE>
+</BODY>
+</HTML>

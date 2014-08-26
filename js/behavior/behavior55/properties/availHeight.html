@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendBehaviors=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'clientCaps'
+);
+
+sStyle=
+'#idDiv{width:100%;line-height:16px;font-size:11px;}\n'+
+'@media all {\n'+
+'rdl\\:clientCaps {behavior:url(#default#clientCaps);display:none;}\n'+
+'}\n';
+
+sScript=
+'<script>\n'+
+'function window.onload(e){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'var oClientCaps=document.all("idClientCaps");\n'+
+'var sTempStr=\n'+
+'"屏幕工作区高度(availHeight) = " + oClientCaps.availHeight + "\\r\\n" +\n'+
+'"屏幕工作区宽度(availWidth) = " + oClientCaps.availWidth + "\\r\\n" +\n'+
+'"显示缓冲深度(Buffer Depth) = " + oClientCaps.bufferDepth + "\\r\\n" +\n'+
+'"色彩显示深度(Color Depth) = " + oClientCaps.colorDepth + "\\r\\n" +\n'+
+'"连接类型(connectionType) = " + oClientCaps.connectionType + "\\r\\n" +\n'+
+'"客户端Cookies(cookieEnabled) = " + oClientCaps.cookieEnabled + "\\r\\n" +\n'+
+'"处理器(cpuClass) = " + oClientCaps.cpuClass + "\\r\\n" +\n'+
+'"屏幕垂直分辨率(height) = " + oClientCaps.height + "\\r\\n" +\n'+
+'"虚拟机(javaEnabled) = " + oClientCaps.javaEnabled + "\\r\\n" +\n'+
+'"系统平台(platform) = " + oClientCaps.platform + "\\r\\n" +\n'+
+'"系统语言(systemLanguage) = " + oClientCaps.systemLanguage + "\\r\\n" +\n'+
+'"用户语言(userLanguage) = " + oClientCaps.userLanguage + "\\r\\n" +\n'+
+'"屏幕水平分辨率(width) = " + oClientCaps.width + "\\r\\n" ;\n'+
+'oDiv.innerHTML = sTempStr;\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<rdl:clientCaps id=idClientCaps /><div id=idDiv><\/div>\n';
+
+iWinWidth=450;
+
+iWinHeight=350;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>availHeight</span>版本：DHTML Object Model　只读</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>iHeight</i><b> = </b><i>Object</i><b>.availHeight</b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iHeight </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。单位为像素(<b>px</b>)。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+检索系统屏幕工作区的高度。不包括 Microsoft&reg; Windows&reg; taskbar  。<br>
+可参阅<b> screen </b>对象的<b> availHeight </b>特性。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>动态属性示例</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<SCRIPT>
+window.onload=fnInit;
+function fnInit(){
+oDiv.style.left=document.body.clientWidth/2 - oDiv.offsetWidth/2;
+oDiv.style.top=oMark.offsetHeight + oMark.offsetTop + 10;
+document.recalc();
+}
+function fnGoExpress(){
+oDiv.style.setExpression("left","document.body.clientWidth/2 - oDiv.offsetWidth/2");
+oDiv.style.setExpression("top","oMark.offsetHeight + oMark.offsetTop + 10");
+}
+</SCRIPT>
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<H1>动态属性示例</H1>
+<P>在这个例子中，<b>DIV</b> 元素将会定位在页面内容的水平垂直中心。一旦重新缩放窗口这个位置就不对了。使用表达式做为 <b>top</b> 和 <b>left</b> 属性的值，也就是位置等式将会在等式中任何一个被引用的属性发生变化后动态调整。单击“将位置变为动态”按钮可以用 <b>setExpression</b> 方法将 <b>top</b> 和 <b>left</b> 属性设置为表达式。再次重新缩放窗口，这次位置就会自动调整了。
+</P>
+<P>
+<INPUT ID="oMark" TYPE=button VALUE="将位置变为动态" onclick="fnGoExpress()">
+</P>
+<DIV ID="oDiv" STYLE="background-color: #CFCFCF; position: absolute; top: 0; left: 0; font-size: 12pt; font-family: Arial; font-weight: bold;">
+示例 DIV
+</DIV>
+<BR><BR><BR>
+&copy; 2002 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

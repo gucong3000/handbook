@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Matrix'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Matrix'
+);
+
+sStyle=
+'#idParentDiv{width:100%;overflow-y:scroll;padding:6px;height:180px;background-color:buttonshadow;color:#FFFFFF;}\n'+
+'#idDiv{width:290px;text-align:left;padding:6px;background-color:#000000;font-family:tahoma,Arial;filter:progid:DXImageTransform.Microsoft.Matrix(M11=1.0, sizingmethod="auto expand");}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.Matrix(";\n'+
+'var fM11,fM12,fM21,fM22,fDx,fDy,sType,sMethod;\n'+
+'var oDiv,oCodeDiv,oTxtRotation,oBtnRotation;\n'+
+'var i=0;\n'+
+'\n'+
+'function rdl_SetRotation(deg) {\n'+
+'var deg2rad=Math.PI*2/360;\n'+
+'rad=deg*deg2rad;\n'+
+'costheta = Math.cos(rad);\n'+
+'sintheta = Math.sin(rad);\n'+
+'with (oDiv.filters.item(0)) {\n'+
+'M11=costheta;M12=-sintheta;M21=sintheta;M22=costheta;\n'+
+'}\n'+
+'rdl_UpdateMatrix();\n'+
+'}\n'+
+'\n'+
+'function rdl_DoAnimation(){\n'+
+'oDiv.onfilterchange=rdl_DoAnimation;\n'+
+'i+=5;\n'+
+'if (i>359) {\n'+
+'i=0;\n'+
+'oDiv.onfilterchange=null;\n'+
+'}\n'+
+'rdl_SetRotation(i);\n'+
+'}\n'+
+'\n'+
+'function rdl_UpdateMatrix() {\n'+
+'with (oDiv.filters.item(0)) {\n'+
+'fM11=Math.round(M11*10)/10;fM12=Math.round(M12*10)/10;fM21=Math.round(M21*10)/10;fM22=Math.round(M22*10)/10;\n'+
+'fDx=Math.round(Dx*10)/10;fDy=Math.round(Dy*10)/10;sType=FilterType;sMethod=SizingMethod;\n'+
+'}\n'+
+'oCodeDiv.innerHTML=sFilter+"SizingMethod="+sMethod+",FilterType="+sType+",Dx="+fDx+",Dy="+fDy+",M11="+fM11+",M12="+fM12+",M21="+fM21+",M22="+fM22+");";\n'+
+'}\n'+
+'\n'+
+'function rdl_Load(e){\n'+
+'oDiv=document.all("idDiv");\n'+
+'oCodeDiv=document.all("idCodeDiv");\n'+
+'oTxtRotation=document.all("idTxtRotation");\n'+
+'oBtnRotation=document.all("idBtnRotation");\n'+
+'var oSelType=document.all("idSelType");\n'+
+'var oSelSize=document.all("idSelSize");\n'+
+'oSelType.onchange=new Function("with (this) oDiv.filters.item(0).filtertype=options(selectedIndex).value;rdl_UpdateMatrix();");\n'+
+'oSelSize.onchange=new Function("with (this) oDiv.filters.item(0).SizingMethod=options(selectedIndex).value;rdl_UpdateMatrix();");\n'+
+'oTxtRotation.onclick=new Function("if (this.value.length>4) this.value=0;");\n'+
+'oBtnRotation.onclick=new Function("rdl_SetRotation(oTxtRotation.value);");\n'+
+'rdl_UpdateMatrix();\n'+
+'}\n'+
+'\n'+
+'function rdl_DoHFlip(e){\n'+
+'with (oDiv.filters.item(0)) {M11=0-M11;M12=0-M12;}\n'+
+'rdl_UpdateMatrix();\n'+
+'}\n'+
+'\n'+
+'function rdl_DoVFlip(e){\n'+
+'with (oDiv.filters.item(0)) {M21=0-M21;M22=0-M22;}\n'+
+'rdl_UpdateMatrix();\n'+
+'}\n'+
+'\n'+
+'window.onload=rdl_Load;\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv><div id=idDiv>\n'+
+'<img src="..\/images\/rdl_body5.jpg" align="right"><h2 >Matrix Filter<\/h2><b>Written by Rain1977.<br>All rights reserved . Terms of Use .<\/b>\n'+
+'<\/div><\/div>\n'+
+'\n'+
+'<br>\n'+
+'<table><tr>\n'+
+'<td><input type=button value=左右反转 onclick="rdl_DoHFlip();"><input type=button value="上下反转" onclick="rdl_DoVFlip();"><\/td>\n'+
+'<td ><input id=idTxtRotation type=text value="输入角度数字" size=14><\/input>&nbsp;<input id=idBtnRotation type=button value="旋转"><\/td>\n'+
+'<td ><select id=idSelSize><option value="auto expand">auto expand<\/option><option value="clip to original">clip to original<\/option><\/select><\/td>\n'+
+'<td ><select id=idSelType><option value="bilinear">Bilinear<\/option><option value="nearest">Nearest Neighbour<\/option><\/select><\/td>\n'+
+'<td><input type=button value="动画" onclick="rdl_DoAnimation();"><\/td>\n'+
+'<\/tr><\/table>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter<\/div>\n';
+
+iWinWidth=630;
+
+iWinHeight=410;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>SizingMethod | SizingMethod&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:FilterTypeImageTransform.Microsoft.<a href="../filters/matrix.html">Matrix</a> ( SizingMethod</b> = <i>sMethod</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('FilterTypeImageTransform.Microsoft.<a href="../filters/matrix.html">Matrix</a>').SizingMethod = </b><i>sMethod</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sMethod </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。<span class=cssDefault><b>clip to original</b></span> | <b>auto expand</b>
+<table>
+<tr><td nowrap><b> clip to original </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。容器不改变尺寸。</td></tr>
+<tr><td nowrap><b> auto expand </b></td><td nowrap><b>: </b></td><td>容器改变尺寸以适应目标图像。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索容器是否改变尺寸去适应目标图像。
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

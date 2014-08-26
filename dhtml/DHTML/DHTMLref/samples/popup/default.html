@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>用 IE 5.5</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+</HEAD>
+<LINK ID="oCSS" REL=STYLESHEET HREF="popup.css" TYPE="text/css">
+<SCRIPT TYPE="text/jscript" LANGUAGE="JScript">
+var oPopup = window.createPopup()
+function goPop(oHeight)
+{
+var oPopupBody = oPopup.document.body;
+var lefter = event.offsetY+10;
+var topper = event.offsetX+10;
+oPopupBody.innerHTML = styleDiv.innerHTML;
+oPopup.show(topper, lefter, 200, oHeight, document.body);
+document.body.onmouseup = closePopup;
+}
+function goContext(oHeight)
+{
+var oPopupBody = oPopup.document.body;
+var lefter = event.offsetY+10;
+var topper = event.offsetX+10;
+oPopupBody.innerHTML = oContext.innerHTML;
+oPopup.show(topper, lefter, 207, oHeight, document.body);
+document.body.onmouseup = closePopup;
+}
+function closePopup()
+{
+oPopup.hide();
+}
+function fillPopup(titler, texter, linker)
+{
+oTitle.innerText=titler;
+oText.innerText=texter;
+oLinkStore.innerText=linker;
+}
+</SCRIPT>
+</HEAD>
+<BODY STYLE="font-family:verdana; font-size:70%" oncontextmenu="goContext('88'); return false" >
+<DIV CLASS="bar title">创建动态弹出元素</DIV>
+<DIV STYLE="width:600">
+<DIV CLASS="desbar">
+<P>Microsoft<SUP>&reg;</SUP> Internet Explorer 5.5 中新的弹出特性提供了创建快捷菜单、对话框、弹出提示和词汇表的便捷方式。全部这些内容都可用 DHTML 创建。</P>
+<P>用右键单击主文档的任何位置，都将显示一个使用弹出窗口的自定义快捷菜单。选择快捷菜单中的选项将把下面的 IFRAME 带到相关页面中。</P>
+<IFRAME  SRC="iframe4popup.htm" ID="oIframe" STYLE="position:relative; top:10; left:10;  width:95%; height:150;"></IFRAME>
+<BR><BR><BR>单击下面段落中的加粗元素可以查看使用弹出窗口创建的词汇表。<BR><BR>
+<DIV STYLE="padding:10px; border:1px solid #cccccc">
+使用 <SPAN TITLE="单击此处查看定义" onclick=" fillPopup('Internet Explorer','用于浏览万维网的应用程序','http://www.microsoft.com/ie'); goPop('100');" STYLE="cursor:hand"><B>IE 5.5</B></SPAN> 创建动态的弹出元素现在变得前所未有的容易，<SPAN TITLE="单击此处查看定义" onclick=" fillPopup('Microsoft Corp.','工作的极佳地点','http://www.microsoft.com'); goPop('100');" STYLE="cursor:hand"><B>Microsoft</B></SPAN> 的开发者已经将其实现于 Web 浏览器的最新版本中。要获得关于如何使用<SPAN TITLE="单击此处查看定义" onclick=" fillPopup('弹出','一种顶层窗口，主要用于对话框、消息框和其它临时窗口。','http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/popup.asp'); goPop('100');" STYLE="cursor:hand"><B>弹出</B></SPAN>对象和其它<SPAN TITLE="单击此处查看定义" onclick=" fillPopup('DHTML','动态超文本标记语言','http://msdn.microsoft.com/workshop'); goPop('100');" STYLE="cursor:hand"><B>DHTML</B></SPAN> 特性的帮助，请看<SPAN TITLE="单击此处查看定义" onclick=" fillPopup('MSDN','Microsoft 开发者网络','http://msdn.microsoft.com'); goPop('100');" STYLE="cursor:hand"><B>MSDN Web 工作室</B></SPAN>。<BR><BR>
+</DIV>
+<BR>
+<DIV ID="styleDiv" STYLE="display:none">
+<DIV STYLE="position:absolute; top:0; left:0; background:#ffffff; border:1px solid #6699cc; width:200; height:100px; font-family:verdana; font-size:9pt; border:1px solid black;   z-index:3 ;">
+<DIV ID="oTitle" STYLE="position:relative; width:100%; background:#ffffff; height:20px; font-weight:bold; padding:5px; font-size:9pt; filter:progid:DXImageTransform.Microsoft.Gradient(endColorstr='#00ffffff', startColorstr='#FF99CCFF', gradientType='1'); ">提示标题</DIV>
+<DIV ID="oText" STYLE="padding:5px"></DIV>
+<DIV ID="oLink" STYLE="cursor:hand; font-weight:bold; color:#6699CC; padding:5px; font-size:9pt;" onclick="parent.oIframe.location.href =oLinkStore.innerText">去看看...</DIV>
+<DIV ID="oLinkStore" STYLE="display:none" ></DIV>
+</DIV>
+</DIV>
+<DIV ID="oContext" STYLE="display:none;z-index:1000">
+<DIV STYLE="position:relative; top:0; left:0; border:2px solid black;  border-top:2px solid #cccccc; border-left:2px solid #cccccc; background:#666666; height:130px; width:207px;">
+<DIV STYLE="position:relative; top:0; left:0; background:#cccccc; border:1px solid black; border-top: 1px solid white; border-left:1px solid white; height:20px; color:black; font-family:verdana; font-weight:bold; padding:2px; padding-left:10px; font-size:9pt; cursor:hand" onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='#cccccc'" onclick="parent.oIframe.location.href='iframe4popup.htm';"><IMG SRC="home.gif" ALIGN="absmiddle">&nbsp;&nbsp;首页</DIV>
+<DIV STYLE="position:relative; top:0; left:0; background:#cccccc; border:1px solid black; border-top: 1px solid white; border-left:1px solid white; height:20px; color:black; font-family:verdana; font-weight:bold; padding:2px; padding-left:10px; font-size:9pt; cursor:hand" onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='#cccccc'" onclick="parent.oIframe.location.href='http://search.microsoft.com';"><IMG SRC="search.gif" ALIGN="absmiddle">&nbsp;&nbsp;搜索</DIV>
+<DIV STYLE="position:relative; top:0; left:0; background:#cccccc; border:1px solid black; border-top: 1px solid white; border-left:1px solid white; height:20px; color:black; font-family:verdana; font-weight:bold; padding:2px; padding-left:10px; font-size:8pt; cursor:hand" onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='#cccccc'" onclick="parent.oIframe.location.href='http://www.microsoft.com/ie';"><IMG SRC="ielogo.gif" ALIGN="absmiddle">&nbsp;&nbsp;Intenet Explorer</DIV>
+<DIV STYLE="position:relative; top:0; left:0; background:#cccccc; border:1px solid black; border-top: 1px solid white; border-left:1px solid white; height:20px; color:black; font-family:verdana; font-weight:bold; padding:2px; padding-left:10px; font-size:8px; cursor:hand" onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='#cccccc'" onclick="parent.oIframe.location.href='http://www.microsoft.com/info/cpyright.htm';">&#169;2000 2001 Microsoft Corporation</DIV>
+</DIV>
+</DIV>
+</DIV>
+</DIV>
+<DIV CLASS="bar" STYLE="position:absolute; top:467px; padding:5px; padding-left:10">
+&#169; 2002 Microsoft Corporation. 版权所有。
+</DIV>
+</BODY>
+</HTML>

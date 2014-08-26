@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'makeShadow','pixelRadius'
+);
+
+collFriendFilters=new Array(
+'Blur'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Blur'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:100px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idTopDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:6px;position:absolute;z-index:4;left:6px;top:6px;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.Blur(makeShadow=true,pixelRadius=3.0,shadowOpacity=0.8);}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.Blur(";\n'+
+'var sCodeEnd="startX=0, startY=0, finishX=100, finishY=100,";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oTopDiv=document.all("idTopDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=parseFloat(options[selectedIndex].value);\n'+
+'with (document.all("idSel3")) var sValue3=parseFloat(options[selectedIndex].value);\n'+
+'if (sValue1=="true") oTopDiv.style.visibility="visible"; else oTopDiv.style.visibility="hidden";\n'+
+'oDiv.filters[0].MakeShadow=sValue1;\n'+
+'oDiv.filters[0].PixelRadius=sValue2;\n'+
+'oDiv.filters[0].ShadowOpacity=sValue3;\n'+
+'oCodeDiv.innerHTML=sFilter+"makeShadow="+sValue1+",pixelRadius="+sValue2+",shadowOpacity="+sValue3+");";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idTopDiv><img src="../images/rdl_clock.jpg" style="float:left;" width=78 height=60>请从下方选择滤镜参数的值。<\/div>\n'+
+'<div id=idDiv><img src="../images/rdl_clock.jpg" style="float:left;" width=78 height=60>请从下方选择滤镜参数的值。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="false">---MakeShadow---\n'+
+'<option value="true" selected>true\n'+
+'<option value="false">false\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="2.0">---PixelRadius---\n'+
+'<option value="1.0">1.0\n'+
+'<option value="5.0">5.0\n'+
+'<option value="0.0">0.0\n'+
+'<option value="3.0">3.0\n'+
+'<option value="10.0">10.0\n'+
+'<\/td><td>\n'+
+'<\/select>\n'+
+'<select id="idSel3" onchange="rdl_change();">\n'+
+'<option value="0.75">---ShadowOpacity---\n'+
+'<option value="0.25">0.25\n'+
+'<option value="0.5">0.5\n'+
+'<option value="0.0">0.0\n'+
+'<option value="1.0">1.0\n'+
+'<\/select>\n'+
+'<\/td><\/tr><\/table>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Blur(makeShadow=true,pixelRadius=3.0,shadowOpacity=0.8) ; <\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=320;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>shadowOpacity | ShadowOpacity</span> 版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/blur.html">Blur</a> ( shadowOpacity</b> = <i>fOpacity</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/blur.html">Blur</a>').ShadowOpacity = </b><i>fOpacity</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> fOpacity </i></td><td nowrap><b>: </b></td><td>
+可选项。浮点数(Float)。<br>取值范围为<b> 0.0 - 1.0 </b>。<b> 0.0 </b>为完全透明。<b> 1.0 </b>为完全不透明。默认值为<span class=cssDefault><b> 0.75 </b></span>。当此参数值不在取值范围内时，此参数使用默认值<span class=cssDefault><b> 0.75 </b></span>。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索在<a href="../filters/blur.html"> Blur </a>滤镜中使用<a href="../properties/makeshadow.html"> makeShadow </a>制作成的阴影的透明度(暗度)。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

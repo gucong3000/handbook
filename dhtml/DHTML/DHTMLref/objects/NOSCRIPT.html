@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>NOSCRIPT 元素 | noScript</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="NOFRAMES.html" title="NOFRAMES 元素 | noFrames 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>NOFRAMES 元素 | noFrames 对象</A> <A HREF="OBJECT.html" title="OBJECT 元素 | object 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>OBJECT 元素 | object 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>NOSCRIPT 元素 | noScript 对象</H1>
+<HR SIZE="1"><P>指定要在不支持脚本的浏览器显示的 HTML。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>noScript</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH width=52>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/canHaveHTML.html"></A></TD>
+<TD><A HREF="../properties/canHaveHTML.html">canHaveHTML</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否可以包含丰富的 HTML 标签的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/id.html">ID</A></TD>
+<TD><A HREF="../properties/id.html">id</A></TD>
+<TD>获取标识<span replace="1">对象</span>的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isContentEditable.html"></A></TD>
+<TD><A HREF="../properties/isContentEditable.html">isContentEditable</A></TD>
+<TD>获取表明用户是否可编辑<span replace="1">对象</span>内容的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isDisabled.html"></A></TD>
+<TD><A HREF="../properties/isDisabled.html">isDisabled</A></TD>
+<TD>获取表明用户是否可与该<span replace="1">对象</span>交互的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/ismultiline.html"></A></TD>
+<TD><A href="../properties/ismultiline.html">isMultiLine</A></TD>
+<TD>获取表明<span replace="1">对象</span>的内容是包含一行还是多行的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentElement.html"></A></TD>
+<TD><A HREF="../properties/parentElement.html">parentElement</A></TD>
+<TD>获取对象层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/readystate.html"></A></TD>
+<TD><A HREF="../properties/readystate.html">readyState</A></TD>
+<TD>获取<span replace="1">对象</span>的当前状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scopeName.html"></A></TD>
+<TD><A HREF="../properties/scopeName.html">scopeName</A></TD>
+<TD>获取为该元素定义的<A HREF="/library/en-us/xmlsdk30/htm/xmtuttut5usingnamespaces.html">命名空间</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tagUrn.html"></A></TD>
+<TD><A HREF="../properties/tagUrn.html">tagUrn</A></TD>
+<TD>设置或获取在命名空间声明中指定的统一资源名称(URN)。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">行为</P>
+<DIV tabName="行为" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>行为</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../behaviors/clientcaps.html">clientCaps</A></TD>
+<TD>提供关于 Internet Explorer 支持的特性的信息，以及提供即用即装的方法。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/download.html">download</A></TD>
+<TD>下载文件并在下载完成后通知一个指定的回调函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/homepage.html">homePage</A></TD>
+<TD>包含关于用户主页的信息。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/behaviorUrns.html">behaviorUrns</A></TD>
+<TD>返回标识附加到该<span replace="1">元素</span>行为的统一资源名称(URN)字符串的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">事件</P>
+<DIV tabName="事件" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>事件</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../events/onreadystatechange.html">onreadystatechange</A></TD>
+<TD>当<span replace="1">对象</span>状态变更时触发。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/addBehavior.html">addBehavior</A></TD>
+<TD>给<span replace="1">元素</span>附加一个<A HREF="../../../behaviors/overview.html">行为</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/componentFromPoint.html">componentFromPoint</A></TD>
+<TD>通过特定事件返回对象在指定坐标下的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/fireEvent.html">fireEvent</A></TD>
+<TD>触发<span replace="1">对象</span>的指定事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttributeNode.html">getAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取由 <B>attribute</B>.<A HREF="../properties/name_2.html">name</A> 属性引用的 <A HREF="attribute.html">attribute</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/normalize.html">normalize</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>合并邻接 <A HREF="TextNode.html">TextNode</A> 对象以便生成一个常规的文档对象模型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeAttributeNode.html">removeAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从对象中删除删除 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeBehavior.html">removeBehavior</A></TD>
+<TD>分离<span replace="1">元素</span>的<B>行为</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttributeNode.html">setAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置 <B>attribute</B> 对象为对象的一部分。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">样式</P>
+<DIV tabName="样式" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>样式标签属性</TH><TH>样式属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD>设置或获取 <B>DHTML 行为</B>的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAutospace.html">text-autospace</A></TD>
+<TD><A HREF="../properties/textAutospace.html">textAutospace</A></TD>
+<TD>设置或获取自动留空和文本的窄空间宽度调整。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textUnderlinePosition.html">text-underline-position</A></TD>
+<TD><A HREF="../properties/textUnderlinePosition.html">textUnderlinePosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性中设置的下划线的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的放大比例。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的 HTML 中可用，在 Internet Explorer 4.0 的脚本中可用。</P>
+<P>此元素是内嵌元素。</P>
+<P>此元素需要关闭标签。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html40/default.htm" TARGET="_top">HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

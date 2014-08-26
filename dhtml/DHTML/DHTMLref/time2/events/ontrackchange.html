@@ -1,0 +1,121 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>ontrackchange Event (t:AUDIO, t:MEDIA, t:REF, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>ontrackchange Event
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>The event fires when a track changes in a <A HREF="../../time2/collections/playlist.html">playList</A> defined in an Advanced Stream Redirector (ASX) file.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT </SPAN><B>ontrackchange</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>ontrackchange</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>ontrackchange</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>ontrackchange</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>No</TD></TR><TR><TH>To invoke</TH><TD>
+Change track in a <B>playList</B>.</TD></TR><TR><TH>Default action</TH><TD>
+Calls the associated event handler.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Available Properties</P><BLOCKQUOTE><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../../time2/properties/abstract_1.html">Abstract</A></TH></TR><TR><TH><A HREF="../../time2/properties/banner.html">Banner</A></TH></TR><TR><TH><A HREF="../../time2/properties/moreinfo.html">MoreInfo</A></TH></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This is an example entry in an ASX file.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;ASX Version="1.0" PreviewMode="No" &gt;
+&lt;entry&gt;
+&lt;title&gt;First title&lt;/title&gt;
+&lt;author&gt;Unknown 1&lt;/author&gt;
+&lt;copyright&gt;1998&lt;/copyright&gt;
+&lt;abstract&gt;WAV File&lt;/abstract&gt;
+&lt;ref href=""/&gt;
+&lt;banner href = "first_title.gif" &gt;
+&lt;moreinfo href = "first_title.doc" /&gt;
+&lt;abstract&gt;Visit the first abstract Web site&lt;/abstract&gt;
+&lt;/banner&gt;
+&lt;/entry&gt;
+&lt;/asx&gt;</PRE><P>
+In the following example, the <B>ontrackchange</B> event
+fires when a user changes the track in the playlist by clicking the 'Previous Track' or 'Next Track' buttons.</P><PRE CLASS="clsCode" AUTOHILITE="1">...
+function trackChange(){
+banner1.innerText = event.Banner;
+bannerabstract1.innerText = event.Abstract;
+bannermoreinfo1.innerText = event.MoreInfo;
+}
+...
+&lt;t:media id="m1" src="../../common/samples/author/behaviors/media/media.asx"
+onmediacomplete="updateBtns();updateFields();"
+ontrackchange="trackChange();"/&gt;
+...
+&lt;B&gt;Banner:&lt;/B&gt;&amp;nbsp;&amp;nbsp;&lt;SPAN id="banner1"&gt;&lt;/SPAN&gt;
+&lt;BR&gt;
+&lt;B&gt;Abstract for banner:&lt;/B&gt;&amp;nbsp;&amp;nbsp;&lt;SPAN id="bannerabstract1"&gt;&lt;/SPAN&gt;
+&lt;BR&gt;
+&lt;B&gt;More information on banner:&lt;/B&gt;&amp;nbsp;&amp;nbsp;&lt;SPAN id="bannermoreinfo1"&gt;&lt;/SPAN&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/ontrackchange.htm" FEATURES="top=25px,left=25px,height=475px,width=600px,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=6" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

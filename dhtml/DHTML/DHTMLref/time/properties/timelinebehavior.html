@@ -1,0 +1,123 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>timelineBehavior Property(deprecated) (time) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>timelineBehavior Property?deprecated)
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><DIV CLASS="clsBeta">
+This page documents a feature of HTML+TIME 1.0, which was released in Microsoft?Internet Explorer 5. We recommend that you migrate your content to the latest version of HTML+TIME, which implements the SMIL 2.0 Working Draft. See the <A HREF="../time.html">Introduction to HTML+TIME</A> overview for more information.</DIV><P>Retrieves a Microsoft?DirectAnimation?number object containing the timeline behavior associated with the specified object.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>XML</B></TH><TD>N/A</TD></TR><TR><TH><B>Scripting</B></TH><TD>[ <SPAN CLASS="clsRange">oBehavior</SPAN><B> =</B> ] <I>time</I>.<B>timelineBehavior</B></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">oBehavior</SPAN></TD><TD><b>Object</b> that specifies the DirectAnimation number object containing the behavior associated with the specified object.</TD></TR></TABLE><P>The property is read-only.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This property is deprecated.</P><P>This property allows you to incorporate multimedia elements, such as 2-D and 3-D animated images and sounds, into an HTML page with the <A HREF="../../behaviors/anim.html">anim:DA</A> element. Use this property with HTML+TIME timelines to control DirectAnimation content. This property is not part of the HTML+TIME specification.</P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;To ensure that pages using this property display properly in Microsoft Internet Explorer, complete the following steps:
+<p><ul><li>Use <SPAN CLASS="clsLiteral">#time</SPAN> instead of <SPAN CLASS="clsLiteral">#default#time</SPAN> for the behavior declaration. </li><li>Include the time object in your page. The class identifier used to specify this object is <SPAN CLASS="clsLiteral">476C391C-3E0D-11D2-B948-00C04FA32195</SPAN>. </li></ul></p><p>These actions are necessary only for pages that use HTML+TIME timelines to control DirectAnimation content.</p></DIV></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>timelineBehavior</B> property to apply a timeline, created with HTML+TIME, to a simple animation that rotates an image.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;progressBehavior&lt;/TITLE&gt;
+&lt;XML:NAMESPACE PREFIX="anim"/&gt;
+&lt;STYLE&gt;
+.time       { behavior: url(#time); }
+anim\:DA    { behavior: url(#default#anim); }
+&lt;/STYLE&gt;
+&lt;OBJECT ID="time" CLASSID="CLSID:476C391C-3E0D-11D2-B948-00C04FA32195"&gt;
+&lt;/OBJECT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P&gt;The image begins rotating three seconds after the page loads and
+continues rotating for five seconds.&lt;/P&gt;
+&lt;SPAN ID="spanImg" CLASS="time" t:TIMEACTION="visibility" t:BEGIN="3"
+t:DUR="5"&gt;
+&lt;/SPAN&gt;
+&lt;DIV ALIGN="center"&gt;
+&lt;anim:DA ID="da1" STYLE="width:200; height:200; z-index: -1;" /&gt;
+&lt;/DIV&gt;
+&lt;BR&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+&lt;!--
+// Assign a variable to the DA statics library
+m = da1.statics;
+// Create the DAImage
+img1 = m.ImportImage("../../common/sun.gif");
+// Rotate the image at a rate of 60 degrees/second
+img2 = img1.Transform(m.Rotate2RateDegrees(60));
+// Apply the HTML+TIME timeline to the DAImage
+img3 = img2.SubstituteTime(spanImg.timelineBehavior);
+da1.image = img3;
+//--&gt;
+&lt;/SCRIPT&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../../common/samples/author/behaviors/timelineBehavior.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is a Microsoft extension to <A HREF="http://www.w3.org/submission/1998/14/" TARGET="_top">
+HTML+TIME (Timed Interactive Multimedia Extensions)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5" HREF="../behaviors/time.html">
+time</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../time.html">Introduction to HTML+TIME</A>, <A HREF="../properties/onoffbehavior.html">onOffBehavior</A>, <A HREF="../properties/progressbehavior.html">progressBehavior</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

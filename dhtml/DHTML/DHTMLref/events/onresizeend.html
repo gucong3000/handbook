@@ -1,0 +1,199 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onresizeend</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/glossary.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/glossary.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onresizeend Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires when the user finishes changing the dimensions of the <span replace="1">object</span> in a <SPAN CLASS="clsGlossary" onmouseover="showDef()" onmouseout="clearDef()" G_RID="term_control_selection">control selection</SPAN>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT </SPAN><B>onresizeend</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onresizeend</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onresizeend</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onresizeend</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>Yes</TD></TR><TR><TH>Cancels</TH><TD>No</TD></TR><TR><TH>To invoke</TH><TD>
+Release the sizing handle of an object during a drag operation in a control <A HREF="../objects/obj_selection.html">selection</A>.</TD></TR><TR><TH>Default action</TH><TD>
+The object's display area conforms to the coordinates of the sizing handles when the drag operation is complete.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Event Object Properties</P><BLOCKQUOTE><P>Although event handlers in the DHTML Object Model do not receive parameters directly, a handler can query an <A HREF="../objects/obj_event.html">event</A> object for data.</P><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/altkey.html">altKey</A></TH><TD>
+Sets or retrieves a value that indicates the state of the ALT key. </TD></TR><TR><TH><A HREF="../properties/altleft.html">altLeft</A></TH><TD>
+Sets or retrieves a value that indicates the state of the left ALT key.</TD></TR><TR><TH><A HREF="../properties/button.html">button</A></TH><TD>
+Sets or retrieves the mouse button pressed by the user. </TD></TR><TR><TH><A HREF="../properties/cancelbubble.html">cancelBubble</A></TH><TD>
+Sets or retrieves whether the current event should bubble up the hierarchy of event handlers. </TD></TR><TR><TH><A HREF="../properties/clientx.html">clientX</A></TH><TD>
+Sets or retrieves the x-coordinate of the mouse pointer's position relative to the client area of the window, excluding window decorations and scroll bars.</TD></TR><TR><TH><A HREF="../properties/clienty.html">clientY</A></TH><TD>
+Sets or retrieves the y-coordinate of the mouse pointer's position relative to the client area of the window, excluding window decorations and scroll bars.</TD></TR><TR><TH><A HREF="../properties/ctrlkey.html">ctrlKey</A></TH><TD>
+Sets or retrieves the state of the CTRL key. </TD></TR><TR><TH><A HREF="../properties/ctrlleft.html">ctrlLeft</A></TH><TD>
+Sets or retrieves the state of the left CTRL key.
+</TD></TR><TR><TH><A HREF="../properties/fromelement.html">fromElement</A></TH><TD>
+Sets or retrieves the object from which activation or the mouse pointer is exiting during the  event. </TD></TR><TR><TH><A HREF="../properties/offsetx.html">offsetX</A></TH><TD>
+Sets or retrieves the x-coordinate of the mouse pointer's position relative to the object firing the event. </TD></TR><TR><TH><A HREF="../properties/offsety.html">offsetY</A></TH><TD>
+Sets or retrieves the y-coordinate of the mouse pointer's position relative to the object firing the event. </TD></TR><TR><TH><A HREF="../properties/returnvalue_1.html">returnValue</A></TH><TD>
+Sets or retrieves the return value from the event. </TD></TR><TR><TH><A HREF="../properties/screenx.html">screenX</A></TH><TD>
+Retrieves the x-coordinate of the mouse pointer's position relative to the user's screen. </TD></TR><TR><TH><A HREF="../properties/screeny.html">screenY</A></TH><TD>
+Sets or retrieves the y-coordinate of the mouse pointer's position relative to the user's screen. </TD></TR><TR><TH><A HREF="../properties/shiftkey.html">shiftKey</A></TH><TD>
+Sets or retrieves the state of the SHIFT key. </TD></TR><TR><TH><A HREF="../properties/shiftleft.html">shiftLeft</A></TH><TD>
+Retrieves the state of the left SHIFT key.
+</TD></TR><TR><TH><A HREF="../properties/srcelement.html">srcElement</A></TH><TD>
+Sets or retrieves the object that fired the event. </TD></TR><TR><TH><A HREF="../properties/toelement.html">toElement</A></TH><TD>
+Sets or retrieves a reference to the object toward which the user is moving the mouse pointer.</TD></TR><TR><TH><A HREF="../properties/type_4.html">type</A></TH><TD>
+Sets or retrieves the event name from the event object. </TD></TR><TR><TH><A HREF="../properties/x.html">x</A></TH><TD>
+Sets or retrieves the x-coordinate, in pixels, of the mouse pointer's position relative to a relatively positioned  parent element.</TD></TR><TR><TH><A HREF="../properties/y.html">y</A></TH><TD>
+Sets or retrieves the y-coordinate, in pixels, of the mouse pointer's position relative to a relatively positioned  parent element.</TD></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Only content editable objects can be included in a <SPAN>control selection</SPAN>.  You can make objects content editable by setting the <A HREF="../properties/contenteditable.html">contentEditable</A> property to <SPAN CLASS="clsLiteral">true</SPAN> or by placing the parent document in design mode.</P></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this event.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/area.html">
+AREA</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/obj_document.html">
+document</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/embed.html">
+EMBED</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_hidden.html">
+INPUT type=hidden</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/obj_window.html">
+window</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

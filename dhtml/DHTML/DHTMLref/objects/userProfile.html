@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>userProfile</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="UL.html" title="UL 元素 | ul 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>UL 元素 | ul 对象</A> <A HREF="VAR.html" title="VAR 元素 | var 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>VAR 元素 | var 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>userProfile 对象</H1>
+<HR SIZE="1"><P>提供了允许脚本对用户配置信息请求读取访问并执行读取操作的方法。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>userProfile</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/addReadRequest.html">addReadRequest</A></TD>
+<TD>向读取需求队列中添加项。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/clearRequest.html">clearRequest</A></TD>
+<TD>清除读取需求队列中的全部需求，以便准备一个新的配置信息需求。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/doReadRequest.html">doReadRequest</A></TD>
+<TD>执行所有位于读取需求队列中的需求。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttribute_1.html">getAttribute</A></TD>
+<TD>从 <B>userProfile</B> 对象中返回命名属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttribute.html">setAttribute</A></TD>
+<TD>设置指定标签属性的值。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>脚本请求将会在执行读写前排队。这将简化用户的体验，因为每执行一批请求的配置文件访问许可只需要一次提示。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>这个脚本示例在客户端运行，它将使用 <B>userProfile</B> 对象从配置文件信息中读取不同的值。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+// 读取多个配置文件属性时排队。
+navigator.userProfile.addReadRequest("vcard.displayname");
+navigator.userProfile.addReadRequest("vcard.gender");
+// 请求访问信息。
+navigator.userProfile.doReadRequest(usage-code, "Acme Corporation");
+// 现在将执行访问信息的读取操作。
+name = navigator.userProfile.getAttribute("vcard.displayname");
+gender = navigator.userProfile.getAttribute("vcard.gender");
+// 脚本现在可以使用“name”和“gender”属性个性化内容
+// 或者向服务器发送回信息了。
+// 清除请求队列以便将来再次请求。
+navigator.userProfile.clearRequest();
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0" HREF="obj_clientInformation.html">clientInformation</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0" HREF="obj_navigator.html">navigator</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

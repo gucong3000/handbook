@@ -1,0 +1,898 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>COLGROUP 元素 | colGroup</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="COL.html" title="COL 元素 | col 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>COL 元素 | col 对象</A> <A HREF="COMMENT.html" title="COMMENT 元素 | comment 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>COMMENT 元素 | comment 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>COLGROUP 元素 | colGroup 对象</H1>
+<HR SIZE="1"><P>指定表格中一列或一组列的默认属性。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>colGroup</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH width=52>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/align_3.html">ALIGN</A></TD>
+<TD><A HREF="../properties/align_3.html">align</A></TD>
+<TD>设置或获取<span replace="1">对象</span>相对于显示或表格的排列方式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/atomicSelection.html">ATOMICSELECTION</A></TD>
+<TD><A HREF="../properties/atomicSelection.html"></A></TD>
+<TD>指定<span replace="1">元素</span>及其内容是否可以一不可见单位统一选择。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/bgColor.html">BGCOLOR</A></TD>
+<TD><A HREF="../properties/bgColor.html"></A></TD>
+<TD>设置<span replace="1">对象</span>后面的背景颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/canHaveChildren.html"></A></TD>
+<TD><A HREF="../properties/canHaveChildren.html">canHaveChildren</A></TD>
+<TD>获取表明对象是否可以包含子对象的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/canHaveHTML.html"></A></TD>
+<TD><A HREF="../properties/canHaveHTML.html">canHaveHTML</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否可以包含丰富的 HTML 标签的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/className.html">CLASS</A></TD>
+<TD><A HREF="../properties/className.html">className</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的类。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clientHeight.html"></A></TD>
+<TD><A HREF="../properties/clientHeight.html">clientHeight</A></TD>
+<TD>获取<span replace="1">对象</span>的高度，不计算任何边距、边框、滚动条或可能应用到该<span replace="1">对象</span>的补白。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clientLeft.html"></A></TD>
+<TD><A HREF="../properties/clientLeft.html">clientLeft</A></TD>
+<TD>获取 <A HREF="../properties/offsetLeft.html">offsetLeft</A> 属性和客户区域的实际左边之间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clientTop.html"></A></TD>
+<TD><A HREF="../properties/clientTop.html">clientTop</A></TD>
+<TD>获取 <A HREF="../properties/offsetTop.html">offsetTop</A> 属性和客户区域的实际顶端之间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clientWidth.html"></A></TD>
+<TD><A HREF="../properties/clientWidth.html">clientWidth</A></TD>
+<TD>获取<span replace="1">对象</span>的宽度，不计算任何边距、边框、滚动条或可能应用到该<span replace="1">对象</span>的补白。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dir.html">DIR</A></TD>
+<TD><A HREF="../properties/dir.html">dir</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的阅读顺序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/firstChild.html"></A></TD>
+<TD><A HREF="../properties/firstChild.html">firstChild</A></TD>
+<TD>获取<span replace="1">对象</span>的 <A HREF="../collections/childNodes.html">childNodes</A> 集合的第一个子对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/id.html">ID</A></TD>
+<TD><A HREF="../properties/id.html">id</A></TD>
+<TD>获取标识<span replace="1">对象</span>的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/innerHTML.html"></A></TD>
+<TD><A HREF="../properties/innerHTML.html">innerHTML</A></TD>
+<TD>设置或获取位于<span replace="1">对象</span>起始和结束标签内的 HTML。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isContentEditable.html"></A></TD>
+<TD><A HREF="../properties/isContentEditable.html">isContentEditable</A></TD>
+<TD>获取表明用户是否可编辑<span replace="1">对象</span>内容的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isDisabled.html"></A></TD>
+<TD><A HREF="../properties/isDisabled.html">isDisabled</A></TD>
+<TD>获取表明用户是否可与该<span replace="1">对象</span>交互的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/ismultiline.html"></A></TD>
+<TD><A href="../properties/ismultiline.html">isMultiLine</A></TD>
+<TD>获取表明<span replace="1">对象</span>的内容是包含一行还是多行的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isTextEdit.html"></A></TD>
+<TD><A HREF="../properties/isTextEdit.html">isTextEdit</A></TD>
+<TD>获取是否可使用该对象创建一个 <A HREF="obj_TextRange.html">TextRange</A> <span replace="1">对象</span>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lang.html">LANG</A></TD>
+<TD><A HREF="../properties/lang.html">lang</A></TD>
+<TD>设置或获取要使用的语言。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lastChild.html"></A></TD>
+<TD><A HREF="../properties/lastChild.html">lastChild</A></TD>
+<TD>获取该对象 <B>childNodes</B> 集合中最后一个子对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nextSibling.html"></A></TD>
+<TD><A HREF="../properties/nextSibling.html">nextSibling</A></TD>
+<TD>获取对此对象的下一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeName.html"></A></TD>
+<TD><A HREF="../properties/nodeName.html">nodeName</A></TD>
+<TD>获取特定结点类型的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeType.html"></A></TD>
+<TD><A HREF="../properties/nodeType.html">nodeType</A></TD>
+<TD>获取所需结点的类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeValue.html"></A></TD>
+<TD><A HREF="../properties/nodeValue.html">nodeValue</A></TD>
+<TD>设置或获取结点的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetHeight.html"></A></TD>
+<TD><A HREF="../properties/offsetHeight.html">offsetHeight</A></TD>
+<TD>获取<span replace="1">对象</span>相对于版面或由父坐标 <A HREF="../properties/offsetParent.html">offsetParent</A> 属性指定的父坐标的高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetLeft.html"></A></TD>
+<TD><A HREF="../properties/offsetLeft.html">offsetLeft</A></TD>
+<TD>获取<span replace="1">对象</span>相对于版面或由 <B>offsetParent</B> 属性指定的父坐标的计算左侧位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetParent.html"></A></TD>
+<TD><A HREF="../properties/offsetParent.html">offsetParent</A></TD>
+<TD>获取定义对象 <B>offsetTop</B> 和 <B>offsetLeft</B> 属性的容器对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetTop.html"></A></TD>
+<TD><A HREF="../properties/offsetTop.html">offsetTop</A></TD>
+<TD>获取<span replace="1">对象</span>相对于版面或由 <B>offsetTop</B> 属性指定的父坐标的计算顶端位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetWidth.html"></A></TD>
+<TD><A HREF="../properties/offsetWidth.html">offsetWidth</A></TD>
+<TD>获取<span replace="1">对象</span>相对于版面或由父坐标 <B>offsetParent</B> 属性指定的父坐标的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time/properties/onOffBehavior.html"></A></TD>
+<TD><A HREF="../time/properties/onOffBehavior.html">onOffBehavior</A></TD>
+<TD>获取表明指定的 Microsoft<SUP>&reg;</SUP> DirectAnimation<SUP>&reg;</SUP> 行为是否正在运行的对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/outerHTML.html"></A></TD>
+<TD><A HREF="../properties/outerHTML.html">outerHTML</A></TD>
+<TD>设置或获取<span replace="1">对象</span>及其内容的 HTML 形式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/ownerDocument.html"></A></TD>
+<TD><A HREF="../properties/ownerDocument.html">ownerDocument</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置或获取<span replace="1">结点</span>关联的 <A href="obj_document.html">document</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentElement.html"></A></TD>
+<TD><A HREF="../properties/parentElement.html">parentElement</A></TD>
+<TD>获取对象层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentNode.html"></A></TD>
+<TD><A HREF="../properties/parentNode.html">parentNode</A></TD>
+<TD>获取文档层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentTextEdit.html"></A></TD>
+<TD><A HREF="../properties/parentTextEdit.html">parentTextEdit</A></TD>
+<TD>获取文档层次中可用于创建包含原始<span replace="1">对象</span>的 <B>TextRange</B> 的容器对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/previousSibling.html"></A></TD>
+<TD><A HREF="../properties/previousSibling.html">previousSibling</A></TD>
+<TD>获取对此对象的上一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/readystate.html"></A></TD>
+<TD><A HREF="../properties/readystate.html">readyState</A></TD>
+<TD>获取<span replace="1">对象</span>的当前状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scopeName.html"></A></TD>
+<TD><A HREF="../properties/scopeName.html">scopeName</A></TD>
+<TD>获取为该元素定义的<A HREF="/library/en-us/xmlsdk30/htm/xmtuttut5usingnamespaces.html">命名空间</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollHeight.html"></A></TD>
+<TD><A HREF="../properties/scrollHeight.html">scrollHeight</A></TD>
+<TD>获取<span replace="1">对象</span>的滚动高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollLeft.html"></A></TD>
+<TD><A HREF="../properties/scrollLeft.html">scrollLeft</A></TD>
+<TD>设置或获取位于<span replace="1">对象</span>左边界和窗口中目前可见内容的最左端之间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollTop.html"></A></TD>
+<TD><A HREF="../properties/scrollTop.html">scrollTop</A></TD>
+<TD>设置或获取位于<span replace="1">对象</span>最顶端和窗口中可见内容的最顶端之间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollWidth.html"></A></TD>
+<TD><A HREF="../properties/scrollWidth.html">scrollWidth</A></TD>
+<TD>获取<span replace="1">对象</span>的滚动宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/sourceIndex.html"></A></TD>
+<TD><A HREF="../properties/sourceIndex.html">sourceIndex</A></TD>
+<TD>获取<span replace="1">对象</span>在源序中的依次位置，即<span replace="1">对象</span>出现在 document 的 <A HREF="../collections/all.html">all</A> 集合中的顺序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/span.html">SPAN</A></TD>
+<TD><A HREF="../properties/span.html">span</A></TD>
+<TD>设置或获取组中的列数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/style.html">STYLE</A></TD>
+<TD><A HREF="../properties/style.html"></A></TD>
+<TD>为该设置<span replace="1">元素</span>设置内嵌样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tagName.html"></A></TD>
+<TD><A HREF="../properties/tagName.html">tagName</A></TD>
+<TD>获取<span replace="1">对象</span>的标签名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tagUrn.html"></A></TD>
+<TD><A HREF="../properties/tagUrn.html">tagUrn</A></TD>
+<TD>设置或获取在命名空间声明中指定的统一资源名称(URN)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/uniqueID.html"></A></TD>
+<TD><A HREF="../properties/uniqueID.html">uniqueID</A></TD>
+<TD>获取为<span replace="1">对象</span>自动生成的唯一标识符。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/vAlign_1.html">VALIGN</A></TD>
+<TD><A HREF="../properties/vAlign_1.html">vAlign</A></TD>
+<TD>设置或获取文本和其它内容在<span replace="1">对象</span>内的垂直方向上如何排列。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/width_3.html">WIDTH</A></TD>
+<TD><A HREF="../properties/width_3.html">width</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的宽度。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">行为</P>
+<DIV tabName="行为" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>行为</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../behaviors/clientcaps.html">clientCaps</A></TD>
+<TD>提供关于 Internet Explorer 支持的特性的信息，以及提供即用即装的方法。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/download.html">download</A></TD>
+<TD>下载文件并在下载完成后通知一个指定的回调函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/homepage.html">homePage</A></TD>
+<TD>包含关于用户主页的信息。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/all.html">all</A></TD>
+<TD>返回<span replace="1">对象</span>所包含的元素集合的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/attributes.html">attributes</A></TD>
+<TD>获取对象标签属性的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/behaviorUrns.html">behaviorUrns</A></TD>
+<TD>返回标识附加到该<span replace="1">元素</span>行为的统一资源名称(URN)字符串的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/childNodes.html">childNodes</A></TD>
+<TD>获取作为指定对象直接后代的 <A HREF="../elements.html">HTML 元素</A>和 <A HREF="TextNode.html">TextNode</A> 对象的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/children.html">children</A></TD>
+<TD>获取作为<span replace="1">对象</span>直接后代的 <A HREF="../objects.html">DHTML 对象</A>的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">事件</P>
+<DIV tabName="事件" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>事件</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../events/onreadystatechange.html">onreadystatechange</A></TD>
+<TD>当<span replace="1">对象</span>状态变更时触发。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/addBehavior.html">addBehavior</A></TD>
+<TD>给<span replace="1">元素</span>附加一个<A HREF="../../../behaviors/overview.html">行为</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/appendChild.html">appendChild</A></TD>
+<TD>给<span replace="1">对象</span>追加一个子元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/applyElement.html">applyElement</A></TD>
+<TD>使得<span replace="1">元素</span>成为其它元素的子元素或父元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/attachEvent.html">attachEvent</A></TD>
+<TD>将指定函数绑定到事件，以便每当该事件在对象上触发时都调用该函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/clearAttributes.html">clearAttributes</A></TD>
+<TD>从<span replace="1">对象</span>中删除全部标签属性和值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/cloneNode.html">cloneNode</A></TD>
+<TD>从文档层次中复制对<span replace="1">对象</span>的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/componentFromPoint.html">componentFromPoint</A></TD>
+<TD>通过特定事件返回对象在指定坐标下的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/contains.html">contains</A></TD>
+<TD>检查<span replace="1">对象</span>中是否包含给定元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/detachEvent.html">detachEvent</A></TD>
+<TD>从事件中取消指定函数的绑定，这样当事件触发时函数就不会收到通知了。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/fireEvent.html">fireEvent</A></TD>
+<TD>触发<span replace="1">对象</span>的指定事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAdjacentText.html">getAdjacentText</A></TD>
+<TD>返回邻接文本字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttribute.html">getAttribute</A></TD>
+<TD>获取指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttributeNode.html">getAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取由 <B>attribute</B>.<A HREF="../properties/name_2.html">name</A> 属性引用的 <A HREF="attribute.html">attribute</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getBoundingClientRect.html">getBoundingClientRect</A></TD>
+<TD>获取指定 <A HREF="TextRectangle.html">TextRectangle</A> 对象集合绑定的对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getClientRects.html">getClientRects</A></TD>
+<TD>获取描述对象内容或客户区内布局的矩形集合。每个矩形都描述了一条直线。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getElementsByTagName.html">getElementsByTagName</A></TD>
+<TD>获取基于指定元素名称的对象集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getExpression.html">getExpression</A></TD>
+<TD>获取给定属性的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/hasChildNodes.html">hasChildNodes</A></TD>
+<TD>返回表明<span replace="1">对象</span>是否有子对象的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertAdjacentElement.html">insertAdjacentElement</A></TD>
+<TD>在指定位置插入元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertBefore.html">insertBefore</A></TD>
+<TD>在文档层次中插入元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/mergeAttributes.html">mergeAttributes</A></TD>
+<TD>复制所有读/写标签属性到指定元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/normalize.html">normalize</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>合并邻接 <B>TextNode</B> 对象以便生成一个常规的文档对象模型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeAttribute.html">removeAttribute</A></TD>
+<TD>删除<span replace="1">对象</span>的给定标签属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeAttributeNode.html">removeAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从对象中删除删除 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeBehavior.html">removeBehavior</A></TD>
+<TD>分离<span replace="1">元素</span>的<B>行为</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeChild.html">removeChild</A></TD>
+<TD>从元素上删除子结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeExpression.html">removeExpression</A></TD>
+<TD>从指定属性中删除表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeNode.html">removeNode</A></TD>
+<TD>从文档层次中删除<span replace="1">对象</span>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceAdjacentText.html">replaceAdjacentText</A></TD>
+<TD>替换元素的邻接文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceChild.html">replaceChild</A></TD>
+<TD>用新的子元素替换已有的子元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceNode.html">replaceNode</A></TD>
+<TD>用其它元素替换<span replace="1">对象</span>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/scrollIntoView.html">scrollIntoView</A></TD>
+<TD>将<span replace="1">对象</span>滚动到可见范围内，将其排列到窗口顶部或底部。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttribute.html">setAttribute</A></TD>
+<TD>设置指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttributeNode.html">setAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置 <B>attribute</B> 对象为对象的一部分。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setExpression.html">setExpression</A></TD>
+<TD>设置指定对象的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/swapNode.html">swapNode</A></TD>
+<TD>交换文档层次中两个对象的位置。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">对象</P>
+<DIV tabName="对象" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>对象</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="currentStyle.html">currentStyle</A></TD>
+<TD>代表了在全局样式表、内嵌样式和 HTML 标签属性中指定的<span replace="1">对象</span>格式和样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="runtimeStyle.html">runtimeStyle</A></TD>
+<TD>代表了居于全局样式表、内嵌样式和 HTML 标签属性指定的格式和样式之上的<span replace="1">对象</span>的格式和样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_style.html">style</A></TD>
+<TD>代表了给定元素所有可能的内嵌样式的当前设置。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">样式</P>
+<DIV tabName="样式" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>样式标签属性</TH><TH>样式属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/background_0.html">background</A></TD>
+<TD><A HREF="../properties/background_0.html">background</A></TD>
+<TD>设置或获取<span replace="1">对象</span>最多五个独立的背景属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundAttachment.html">background-attachment</A></TD>
+<TD><A HREF="../properties/backgroundAttachment.html">backgroundAttachment</A></TD>
+<TD>设置或获取背景图像如何附加到文档内的<span replace="1">对象</span>中。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundColor.html">background-color</A></TD>
+<TD><A HREF="../properties/backgroundColor.html">backgroundColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容后的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundImage.html">background-image</A></TD>
+<TD><A HREF="../properties/backgroundImage.html">backgroundImage</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的背景图像。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundposition.html">background-position</A></TD>
+<TD><A HREF="../properties/backgroundposition.html">backgroundPosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>背景的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundPositionX.html">background-position-x</A></TD>
+<TD><A HREF="../properties/backgroundPositionX.html">backgroundPositionX</A></TD>
+<TD>设置或获取 <A HREF="../properties/backgroundposition.html">backgroundPosition</A> 属性的 x 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundPositionY.html">background-position-y</A></TD>
+<TD><A HREF="../properties/backgroundPositionY.html">backgroundPositionY</A></TD>
+<TD>设置或获取 <B>backgroundPosition</B> 属性的 y 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundRepeat.html">background-repeat</A></TD>
+<TD><A HREF="../properties/backgroundRepeat.html">backgroundRepeat</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/backgroundImage.html">backgroundImage</A> 属性如何平铺。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD>设置或获取 <B>DHTML 行为</B>的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clear_0.html">clear</A></TD>
+<TD><A HREF="../properties/clear_0.html">clear</A></TD>
+<TD>设置或获取<span replace="1">对象</span>是否允许在其左侧、右侧或两边放置浮动对象，以防下段文本显示在浮动对象上。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/color_1.html">color</A></TD>
+<TD><A HREF="../properties/color_1.html">color</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/cursor.html">cursor</A></TD>
+<TD><A HREF="../properties/cursor.html">cursor</A></TD>
+<TD>设置或获取当鼠标指针指向<span replace="1">对象</span>时所使用的鼠标指针。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/direction_1.html">direction</A></TD>
+<TD><A HREF="../properties/direction_1.html">direction</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的阅读顺序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/display.html">display</A></TD>
+<TD><A HREF="../properties/display.html">display</A></TD>
+<TD>设置或获取<span replace="1">对象</span>是否要渲染。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/font.html">font</A></TD>
+<TD><A HREF="../properties/font.html">font</A></TD>
+<TD>设置或获取<span replace="1">对象</span>最多六个独立的<A HREF="../properties/font.html">字体</A>属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontFamily.html">font-family</A></TD>
+<TD><A HREF="../properties/fontFamily.html">fontFamily</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本所使用的字体名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontSize.html">font-size</A></TD>
+<TD><A HREF="../properties/fontSize.html">fontSize</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本使用的字体大小。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontStyle.html">font-style</A></TD>
+<TD><A HREF="../properties/fontStyle.html">fontStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的字体样式，如<SPAN CLASS="clsLiteral">斜体</SPAN>、<SPAN CLASS="clsLiteral">常规</SPAN>或<SPAN CLASS="clsLiteral">倾斜</SPAN>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontVariant.html">font-variant</A></TD>
+<TD><A HREF="../properties/fontVariant.html">fontVariant</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本是否以小型大写字母显示。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontWeight.html">font-weight</A></TD>
+<TD><A HREF="../properties/fontWeight.html">fontWeight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的字体宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutgrid.html">layout-grid</A></TD>
+<TD><A HREF="../properties/layoutgrid.html">layoutGrid</A></TD>
+<TD>设置或获取指定文本字符版面的组合文档格线属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutGridMode.html">layout-grid-mode</A></TD>
+<TD><A HREF="../properties/layoutGridMode.html">layoutGridMode</A></TD>
+<TD>设置或获取文本布局网格是否使用二维。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/letterSpacing.html">letter-spacing</A></TD>
+<TD><A HREF="../properties/letterSpacing.html">letterSpacing</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的字符间附加空间的总和。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lineHeight.html">line-height</A></TD>
+<TD><A HREF="../properties/lineHeight.html">lineHeight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>两行间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/overflow.html">overflow</A></TD>
+<TD><A HREF="../properties/overflow.html">overflow</A></TD>
+<TD>设置或获取表明当内容超出<span replace="1">对象</span>高度或宽度时如何管理<span replace="1">对象</span>内容的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/padding.html">padding</A></TD>
+<TD><A HREF="../properties/padding.html">padding</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>和其边距或若存在的边框的话就是<span replace="1">对象</span>和其边框之间要插入的全部空间。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingBottom.html">padding-bottom</A></TD>
+<TD><A HREF="../properties/paddingBottom.html">paddingBottom</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>下边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingLeft.html">padding-left</A></TD>
+<TD><A HREF="../properties/paddingLeft.html">paddingLeft</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>左边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingRight.html">padding-right</A></TD>
+<TD><A HREF="../properties/paddingRight.html">paddingRight</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>右边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingTop.html">padding-top</A></TD>
+<TD><A HREF="../properties/paddingTop.html">paddingTop</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pixelBottom.html"></A></TD>
+<TD><A HREF="../properties/pixelBottom.html">pixelBottom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的下方位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pixelHeight.html"></A></TD>
+<TD><A HREF="../properties/pixelHeight.html">pixelHeight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pixelLeft.html"></A></TD>
+<TD><A HREF="../properties/pixelLeft.html">pixelLeft</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的左侧位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pixelRight.html"></A></TD>
+<TD><A HREF="../properties/pixelRight.html">pixelRight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的右侧位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pixelTop.html"></A></TD>
+<TD><A HREF="../properties/pixelTop.html">pixelTop</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的上方位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pixelWidth.html"></A></TD>
+<TD><A HREF="../properties/pixelWidth.html">pixelWidth</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/posBottom.html"></A></TD>
+<TD><A HREF="../properties/posBottom.html">posBottom</A></TD>
+<TD>设置或获取以 <A HREF="../properties/bottom_1.html">bottom</A> 标签属性指定的单位的<span replace="1">对象</span>下方位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/posHeight.html"></A></TD>
+<TD><A HREF="../properties/posHeight.html">posHeight</A></TD>
+<TD>设置或获取以 <A HREF="../properties/height_1.html">height</A> 标签属性指定的单位的<span replace="1">对象</span>高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/posLeft.html"></A></TD>
+<TD><A HREF="../properties/posLeft.html">posLeft</A></TD>
+<TD>设置或获取以 <A HREF="../properties/left.html">left</A> 标签属性指定的单位的<span replace="1">对象</span>左侧位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/posRight.html"></A></TD>
+<TD><A HREF="../properties/posRight.html">posRight</A></TD>
+<TD>设置或获取以 <A HREF="../properties/right_1.html">right</A> 标签属性指定的单位的<span replace="1">对象</span>右侧位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/posTop.html"></A></TD>
+<TD><A HREF="../properties/posTop.html">posTop</A></TD>
+<TD>设置或获取以 <A HREF="../properties/top_0.html">top</A> 标签属性指定的单位的<span replace="1">对象</span>上方位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/posWidth.html"></A></TD>
+<TD><A HREF="../properties/posWidth.html">posWidth</A></TD>
+<TD>设置或获取以 <A HREF="../properties/width_2.html">width</A> 标签属性指定的单位的<span replace="1">对象</span>宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAutospace.html">text-autospace</A></TD>
+<TD><A HREF="../properties/textAutospace.html">textAutospace</A></TD>
+<TD>设置或获取自动留空和文本的窄空间宽度调整。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecoration.html">text-decoration</A></TD>
+<TD><A HREF="../properties/textDecoration.html">textDecoration</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中的文本是否有闪烁、删除线、上划线或下划线的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecorationBlink.html"></A></TD>
+<TD><A HREF="../properties/textDecorationBlink.html">textDecorationBlink</A></TD>
+<TD>设置或获取表明对象的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性是否含有有“blink”的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecorationLineThrough.html"></A></TD>
+<TD><A HREF="../properties/textDecorationLineThrough.html">textDecorationLineThrough</A></TD>
+<TD>设置或获取表明<span replace="1">对象</span>内的文本是否有删除线的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecorationNone.html"></A></TD>
+<TD><A HREF="../properties/textDecorationNone.html">textDecorationNone</A></TD>
+<TD>设置或获取表明<span replace="1">对象</span>的 <B>textDecoration</B> 属性是否设置为 <SPAN CLASS="clsLiteral">none</SPAN> 的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecorationOverline.html"></A></TD>
+<TD><A HREF="../properties/textDecorationOverline.html">textDecorationOverline</A></TD>
+<TD>设置或获取表明<span replace="1">对象</span>中的文本是否有上划线的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecorationUnderline.html"></A></TD>
+<TD><A HREF="../properties/textDecorationUnderline.html">textDecorationUnderline</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中的文本是否有下划线的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textTransform.html">text-transform</A></TD>
+<TD><A HREF="../properties/textTransform.html">textTransform</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中文本的渲染方式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textUnderlinePosition.html">text-underline-position</A></TD>
+<TD><A HREF="../properties/textUnderlinePosition.html">textUnderlinePosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性中设置的下划线的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/unicodeBidi.html">unicode-bidi</A></TD>
+<TD><A HREF="../properties/unicodeBidi.html">unicodeBidi</A></TD>
+<TD>设置或获取关于双向法则的嵌入级别。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/visibility.html">visibility</A></TD>
+<TD><A HREF="../properties/visibility.html">visibility</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的内容是否显示。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wordspacing.html">word-spacing</A></TD>
+<TD><A HREF="../properties/wordspacing.html">wordSpacing</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中单词间的附加空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zIndex.html">z-index</A></TD>
+<TD><A HREF="../properties/zIndex.html">zIndex</A></TD>
+<TD>设置或获取定位<span replace="1">对象</span>的堆叠次序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的放大比例。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>嵌套的 <B>COL</B> 属性将覆盖 <B>COLGROUP</B> 属性。</P>
+<P>使用 <A HREF="../properties/span.html">span</A> 属性可以指定 <B>COLGROUP</B> 定义的表格列数。该属性的默认值为 1。</P>
+<P><B>COL</B> 元素可以出现在 <B>COLGROUP</B> 元素之外，这两个元素可用于类似的目的。但是，你必须使用 <B>COLGROUP</B> 元素来决定表格内部分隔线(<A HREF="../properties/rules_0.html">规则</A>)应该处于的位置。本页的第一个例子演示了此技术。</P>
+<P>若在 <B>COLGROUP</B> 中嵌套了 <B>COL</B> 元素则应该避免在 <B>COLGROUP</B> 中使用 <B>span</B> 标签属性。这是因为属于嵌套的 <B>COL</B> 元素的 <B>span</B> 标签属性将覆盖 <B>COLGROUP</B> 元素中的标签属性。这可能引起代码的混乱及可能并非所愿的结果。在下面的第二个例子中演示了这一特性。</P>
+<P><A href="TABLE.html">TABLE</A> 对象及其关联元素有一个独立的表格对象模型，该模式给出了不同于常规对象模型的实用方法。要获得关于表格对象模型更多的信息，请参看<A HREF="../../../tables/BuildTables.html">如何动态生成表格</A>。</P>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的 HTML 中可用，在 Internet Explorer 4.0 的脚本中可用。</P>
+<P>此元素是块元素。</P>
+<P>此元素需要关闭标签。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子使用了 <B>COLGROUP</B> 元素指定表格中两组列的特征。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;BODY&gt;
+&lt;TABLE BORDER="2" RULES="groups"&gt;
+&lt;!-- 规则设定为“groups”，这将在由 COLGROUP 定义的
+表格列周围放置内部分隔线。 --&gt;
+&lt;COLGROUP SPAN="2" STYLE="color:red"&gt;
+&lt;/COLGROUP&gt;
+&lt;COLGROUP STYLE="color:blue"&gt;
+&lt;/COLGROUP&gt;
+&lt;TR&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第二组。&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第二组。&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../samples/colgroup/colgroupex1.html" FEATURES="top=50,left=50,height=250,width=850,status=0,resizable=1"></IMG></A>
+</DIV>
+<P>若在 <B>COLGROUP</B> 中嵌套了 <B>COL</B> 元素，<B>COL</B> 元素的标签属性将覆盖 <B>COLGROUP</B> 元素的标签属性。下面的例子演示了这一点。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;BODY&gt;
+&lt;TABLE BORDER="2"&gt;
+&lt;COLGROUP SPAN="3" STYLE="color:gren;background:black"&gt;
+&lt;!-- 样式仅应用于前两列，而不是所有的三列，而且字
+体是红色而不是绿色。这是 COL 元素的标签属性导致的。 --&gt;
+&lt;COL STYLE="color:red"&gt;
+&lt;/COLGROUP&gt;
+&lt;TR&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第二组。&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第一组。&lt;/TD&gt;
+&lt;TD&gt;此列位于第二组。&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.5 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../samples/colgroup/colgroupex2.html" FEATURES="top=50,left=50,height=450,width=750,status=0,resizable=1"></IMG></A>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/html4/" TARGET="_top">HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="COL.html">col</A></BLOCKQUOTE>
+</BODY>
+</HTML>

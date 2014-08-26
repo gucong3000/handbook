@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Light'
+);
+
+collFriendMethods=new Array(
+'addCone','addPoint','addAmbient','changeColor','changeStrength','clear'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'Light'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.Light();}\n';
+
+sScript=
+'<script>\n'+
+'var oDiv;\n'+
+'function window.onload(){\n'+
+'oDiv=document.all("idDiv");\n'+
+'with (oDiv.filters[0]) {addPoint(20,60,60,240,180,220,90);}\n'+
+'}\n'+
+'function rdl_change(){\n'+
+'with (oDiv.filters[0]) {moveLight(0,180,60,20,false);}\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_body0.jpg" style="float:left;border:1px solid #000000;">请点击下面的按钮。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<input type=button value="移动点光" onclick="rdl_change()">\n';
+
+iWinWidth=450;
+
+iWinHeight=320;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>moveLight</span>版本：DHTML Object Model　返回值：无</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/light.html">Light</a>').moveLight ( </b><i>iLightNumber</i><b> , </b><i>iX</i><b> , </b><i>iY</i><b> , </b><i>iZ</i><b> , </b><i>fAbsolute</i><b> )</b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> iLightNumber </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。指定光的标识符。此数值依据光被添加的顺序编号。如第一个被添加的光的标识符就等于<b> 0 </b>。</td></tr>
+<tr><td nowrap><i> iX </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。指定光源的左坐标值。</td></tr>
+<tr><td nowrap><i> iY </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。指定光源的上坐标值。</td></tr>
+<tr><td nowrap><i> iZ </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。指定光源的Z坐标值。</td></tr>
+<tr><td nowrap><i> fAbsolute </i></td><td nowrap><b>: </b></td><td>必选项。布尔值(Boolean)。指定改变是替换当前设置的绝对值，还是加到当前设置的相对值。此参数不等于<b> 0 </b>表示采用绝对值。否则表示采用相对值。
+<table>
+<tr><td nowrap><b> false </b></td><td nowrap><b>: </b></td><td>指定改变是增加到当前设置的相对值。</td></tr>
+<tr><td nowrap><b> true </b></td><td nowrap><b>: </b></td><td>指定改变是替换当前设置的绝对值。</td></tr>
+</table>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<div>
+无
+</div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+移动锥形光(Cone Light)的焦点或点光(Point Light)的原点。对于锥形光来说，此方法改变<b> x,y </b>目标坐标值；对于点光来说，此方法改变<b> x,y,z </b>源坐标值。 此方法不作用于环境光。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

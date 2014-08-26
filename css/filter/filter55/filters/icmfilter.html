@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_object.css">
+<script src="rdl_object.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collElements=new Array();
+//collProperties=new Array();
+//collMethods=new Array();
+//collEvents=new Array();
+//collCollections=new Array();
+
+collProperties=new Array(
+new Array('colorSpace','ColorSpace','设置或检索颜色配置文件(.icm)的路径和名称。'),
+new Array('intent','Intent','设置或检索对象的色彩内容的预定效果。')
+);
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'A','ACRONYM','ADDRESS','B','BDO','BIG','BLOCKQUOTE','BODY','BUTTON','CAPTION','CENTER','CITE','CODE','CUSTOM','DD','DEL','DFN','DIR','DIV','DL','DT','EM','FIELDSET','FONT','FORM','FRAME','Hn','IFRAME','FRAMESET','I','INS','IMG','INPUT type=button','INPUT type=checkbox','INPUT type=file','INPUT type=image','INPUT type=password','INPUT type=radio','INPUT type=reset','INPUT type=submit','INPUT type=text','KBD','LABEL','LEGEND','LI','MARQUEE','MENU','NOBR','OBJECT','OL','P','PLAINTEXT','PRE','Q','RT','RUBY','S','SAMP','SMALL','SPAN','STRIKE','STRONG','SUB','SUP','TABLE','TEXTAREA','TH','TD','TT','U','UL','VAR','XMP'
+);
+
+sStyle='';
+
+sScript='';
+
+sCode='';
+
+iWinWidth=360;
+
+iWinHeight=350;
+
+bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>ICMFilter</span>兼容性：IE5.5+</div>
+
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td><td>
+<b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.ICMFilter ( colorSpace=</b><i>sPathFilename</i><b> , </b><b>intent =</b><i>sIntent</i><b> ) </b> 
+</td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>object</i><b>.style.<a href="../properties/filter.html">filter</a> = "progid:DXImageTransform.Microsoft.ICMFilter ( </b><i>sProperties</i><b> ) "</b>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle id="idShit"></div>
+<div id=idSubContent></div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+根据颜色配置文件(.icm)转换对象的色彩内容。这样能激活对某些细节内容的显示改良，或对硬件设备输出的模拟显示。像打印机或显示器。<br>
+通过根据要显示内容的类型匹配恰当的<a href="../properties/intent.html"> Intent </a>特性值可以改善内容显示或打印的质量。例如，当你打印时，可以设置<a href="../properties/intent.html"> Intent </a>特性值为<b> Graphic </b>从而确保颜色对比度的恰当。较高的对比度能够使打印出的内容清晰易读。<br>
+要模拟硬件设备的色彩输出，你必须定位硬件设备的颜色配置文件(.icm)，假如制造商提供了这个文件。将这个颜色配置文件(.icm)的路径和名称指给<a href="../properties/colorspace.html"> ColorSpace </a>特性，并且对硬件装置要使用的内容应用此滤镜。颜色配置文件(.icm)为你的显示器定义了内容的颜色与显示器标准颜色的偏差。这样滤镜显示就可以模拟
+其他硬件设备的输出。
+
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+#idDiv{ filter:progid:DXImageTransform.Microsoft.ICMFilter(colorSpace=sRGB, intent=Picture);}<br>
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

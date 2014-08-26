@@ -1,0 +1,288 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>clientCaps</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>clientCaps Behavior
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Provides information about features supported by Microsoft&#174; Internet Explorer, as well as a way for installing browser components on demand.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>XML</TH><TD>
+&lt;<SPAN CLASS="clsRange">Prefix</SPAN>:<SPAN CLASS="clsRange">
+CustomTag</SPAN><SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN><SPAN class="clsLiteral"> STYLE="<A HREF="../properties/behavior_1.html">behavior</A>:url('#default#clientCaps')"</SPAN> /&gt;
+</TD></TR><TR><TH>HTML</TH><TD>
+&lt;<SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN></SPAN><SPAN class="clsLiteral"> STYLE="behavior:url('#default#clientCaps')"</SPAN><SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN>&gt;</TD></TR><TR><TH ROWSPAN="2">Scripting</TH><TD><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN class="clsLiteral">.<A HREF="../objects/obj_style.html">style</A>.behavior = "url('#default#clientCaps')"</SPAN></TD></TR><TR><TD><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN class="clsLiteral">.<A HREF="../methods/addbehavior.html">addBehavior</A> ("#default#clientCaps")</SPAN></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">Prefix</SPAN></TD><TD>Prefix that associates the <SPAN CLASS="clsRange">CustomTag</SPAN> with an XML namespace. This prefix is
+set using the <A HREF="../properties/xmlns.html">XMLNS</A> attribute of the <A HREF="../objects/html.html">HTML</A>
+tag.
+</TD></TR><TR><TD><SPAN CLASS="clsRange">CustomTag</SPAN></TD><TD>User-defined tag.</TD></TR><TR><TD><SPAN CLASS="clsRange">sID</SPAN></TD><TD>String that specifies a unique identifier for the object.</TD></TR><TR></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>clientCaps</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/availheight.html">availHeight</A></NOBR></TD><TD>
+Retrieves the height of the working area of the system's screen, excluding the Microsoft Windows&#174; taskbar.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/availwidth.html">availWidth</A></NOBR></TD><TD>
+Retrieves the width of the working area of the system's screen, excluding the Windows taskbar.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/bufferdepth.html">bufferDepth</A></NOBR></TD><TD>
+Retrieves the number of bits per pixel used for colors on the off-screen bitmap buffer.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/colordepth.html">colorDepth</A></NOBR></TD><TD>
+Retrieves the number of bits per pixel used for colors on the destination device or buffer.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/connectiontype.html">connectionType</A></NOBR></TD><TD>
+Retrieves the type of connection in use.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/cookieenabled.html">cookieEnabled</A></NOBR></TD><TD>
+Retrieves whether client-side cookies are enabled in the browser.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/cpuclass.html">cpuClass</A></NOBR></TD><TD>
+Retrieves a string representing the CPU class.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/height.html">height</A></NOBR></TD><TD>
+Retrieves the vertical resolution of the screen.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/javaenabled.html">javaEnabled</A></NOBR></TD><TD>
+Retrieves whether the Microsoft virtual machine (Microsoft VM) is enabled.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/platform.html">platform</A></NOBR></TD><TD>
+Retrieves the platform on which the browser is running.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/systemlanguage.html">systemLanguage</A></NOBR></TD><TD>
+Retrieves the default language that the system is running.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/userlanguage.html">userLanguage</A></NOBR></TD><TD>
+Retrieves the current user language.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/width.html">width</A></NOBR></TD><TD>
+Retrieves the horizontal resolution of the screen.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Methods</P><DIV tabName="Methods"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Method</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/addcomponentrequest.html">addComponentRequest</A></NOBR></TD><TD>
+Adds the specified component to the queue of components to be installed.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/clearcomponentrequest.html">clearComponentRequest</A></NOBR></TD><TD>
+Clears the queue of all component download requests.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/compareversions.html">compareVersions</A></NOBR></TD><TD>
+Compares two version numbers. </TD></TR><TR><TD><NOBR><A HREF="../behaviors/docomponentrequest.html">doComponentRequest</A></NOBR></TD><TD>
+Downloads all the components that have been queued using <A HREF="../behaviors/addcomponentrequest.html">addComponentRequest</A>.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/getcomponentversion.html">getComponentVersion</A></NOBR></TD><TD>
+Retrieves the version of the specified component.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/iscomponentinstalled.html">isComponentInstalled</A></NOBR></TD><TD>
+Retrieves whether the specified component is available.</TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The members listed in the preceding table might not be accessible through scripting until the <A HREF="../objects/obj_window.html">window</A>.<A HREF="../behaviors/onload.html">onload</A> event fires. Waiting for this event to fire ensures that the page is completely loaded, that all behaviors have been applied to corresponding elements on the page, and that all the behavior's properties, methods, and events are available for scripting. To prevent a scripting error&#151;which would indicate that the object does not support a particular member&#151;do not use any of the behavior-defined members before the <B>window</B>.<B>onload</B> event fires. </P><P>The <B>clientCaps</B> behavior is available as of Internet Explorer 5, in the Microsoft Win32&#174; and Unix platforms. </P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example retrieves all the properties exposed by the <B>clientCaps</B> behavior.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:IE&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+@media all {
+IE\:clientCaps {behavior:url(#default#clientCaps)}
+}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;IE:clientCaps ID="oClientCaps" /&gt;
+&lt;PRE id=oPre&gt;&lt;/PRE&gt;
+&lt;SCRIPT&gt;
+&lt;!--
+function window.onload()
+{
+sTempStr = "availHeight    = " + oClientCaps.availHeight    + "\n" +
+"availWidth     = " + oClientCaps.availWidth     + "\n" +
+"bufferDepth    = " + oClientCaps.bufferDepth    + "\n" +
+"colorDepth     = " + oClientCaps.colorDepth     + "\n" +
+"connectionType = " + oClientCaps.connectionType + "\n" +
+"cookieEnabled  = " + oClientCaps.cookieEnabled  + "\n" +
+"cpuClass       = " + oClientCaps.cpuClass       + "\n" +
+"height         = " + oClientCaps.height         + "\n" +
+"javaEnabled    = " + oClientCaps.javaEnabled    + "\n" +
+"platform       = " + oClientCaps.platform       + "\n" +
+"systemLanguage = " + oClientCaps.systemLanguage + "\n" +
+"userLanguage   = " + oClientCaps.userLanguage   + "\n" +
+"width          = " + oClientCaps.width          + "\n" ;
+oPre.innerText = sTempStr;
+}
+--&gt;
+&lt;/SCRIPT&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=500,width=400,status=1,resizable=1"></IMG></A></DIV><P>
+This example uses the <A HREF="../behaviors/getcomponentversion.html">getComponentVersion</A> method of the <B>clientCaps</B> behavior to determine the browser version.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function window.onload()
+{
+var sVersion = oClientCaps.getComponentVersion ("{89820200-ECBD-11CF-8B85-00AA005B4383}","componentid");
+myText.innerHTML = "&lt;FONT SIZE=4&gt;You are running Internet Explorer " + sVersion + ".&lt;/FONT&gt;";
+}
+&lt;/SCRIPT&gt;
+&lt;BODY BGCOLOR="#FFFFFF" STYLE="behavior:url(#default#clientCaps)" ID="oClientCaps"&gt;
+:
+&lt;DIV ID="myText"&gt;&lt;/DIV&gt;   </PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=300,width=700,statusbar=yes,resizable=1"></IMG></A></DIV><P>
+This example shows how to install the Internet Explorer Data Binding component, if the component does not already exist in the user's system.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function window.onload()
+{
+// dynamically set the behavior through script
+oClientCaps.style.behavior = "url(#default#clientCaps)";
+var bDBAvailable  = false;
+var sDBVersion = '';
+var sDBID = "{9381D8F2-0288-11D0-9501-00AA00B911A5}";
+bDBAvailable = oClientCaps.isComponentInstalled(sDBID,"componentid");
+// if data binding is unavailable, install it
+if (!bDBAvailable)
+{
+oClientCaps.addComponentRequest (sDBID, "componentid");
+bDBAvailable = oClientCaps.doComponentRequest();
+}
+:
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY BGCOLOR="#FFFFFF" ID="oClientCaps"&gt;
+:
+&lt;PRE ID="preText"&gt;&lt;/PRE&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=400,width=550,status=1,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/area.html">
+AREA</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/base.html">
+BASE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/basefont.html">
+BASEFONT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/bgsound.html">
+BGSOUND</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/br.html">
+BR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/col.html">
+COL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/colgroup.html">
+COLGROUP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/comment.html">
+COMMENT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/embed.html">
+EMBED</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/head.html">
+HEAD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/html.html">
+HTML</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_hidden.html">
+INPUT type=hidden</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/link.html">
+LINK</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/map.html">
+MAP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/nextid.html">
+nextID</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/noframes.html">
+NOFRAMES</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/noscript.html">
+NOSCRIPT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/option.html">
+OPTION</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/script.html">
+SCRIPT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/title.html">
+TITLE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/wbr.html">
+WBR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/xml.html">
+XML</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/clientcaps/overview.html">About Client Capabilities</A>, <A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="/workshop/author/behaviors/howto/using.html">Using DHTML Behaviors</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

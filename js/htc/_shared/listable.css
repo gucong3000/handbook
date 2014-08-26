@@ -1,0 +1,126 @@
+@charset "GB2312";
+@media screen, print
+{
+	BODY
+	{
+		margin: 1px;
+		overflow: hidden;
+		background-color: #FFFFFA;
+	}
+	H6
+	{
+		width: 100%;
+		height: 100%;
+		color: #FF0000;
+		font-size: 20pt;
+	}
+	TABLE
+	{
+		font-size: 10pt;
+		font-family: "simsun";
+		line-height: 1;
+		color: #333333;
+	}
+	A
+	{
+		color: #336600;
+		margin: 0 1px;
+		font-size: 9pt;
+		text-decoration: underline;
+		behavior: url("../_shared/enhhover.htc");
+	}
+	A IMG
+	{
+		border: 0;
+	}
+	A SPAN
+	{
+		font-size: 8pt;
+	}
+	#main
+	{
+		width: 100%;
+		height: 100%;
+		background-color: #006699;
+	}
+	#main THEAD TD
+	{
+		color: #FFFFFA;
+		padding: 4px;
+		font-weight: bold;
+		line-height: 1.6;
+		height: 1px;
+		letter-spacing: 3px;
+		text-indent: 4px;
+	}
+	#main TBODY TD
+	{
+		background-color: #F6F6F2;
+		padding: 4px;
+	}
+	#main TBODY TD#selector
+	{
+		padding: 5px;
+		width: 18%;
+	}
+	#main TBODY TD#separator
+	{
+		background-color: #006699;
+		width: 2px;
+		padding: 0;
+	}
+	#main TBODY TD#screen
+	{
+		background-color: #FFFFFA;
+		padding: 0;
+	}
+	#list
+	{
+		width: 100%;
+	}
+	#list TH
+	{
+		text-align: left;
+		padding: 10px;
+		letter-spacing: 2px;
+	}
+	#list TD
+	{
+		border-top: 1px solid #006699;
+		padding: 6px !important;
+		text-indent: 8px;
+		letter-spacing: 1px;
+		cursor: pointer;
+	}
+	DIV
+	{
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		display: none;
+	}
+	DIV TABLE
+	{
+		width: 100%;
+	}
+	DIV TABLE TH
+	{
+		text-align: left;
+		background-color: #EEEEE9;
+		padding: 5px;
+		white-space: nowrap;
+	}
+	DIV TABLE TD
+	{
+		font-size: 9pt;
+	}
+	DIV TABLE SPAN
+	{
+		font-family: "Verdana";
+		margin: 0 3px;
+		font-size: 7pt;
+		border-bottom: 1px dashed #999999;
+	}
+}

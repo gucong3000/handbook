@@ -1,0 +1,97 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Introduction to HTML</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Introduction to HTML Applications (HTAs)
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>The power to build HTML Applications (HTAs) brings Microsoft&#174; Internet Explorer 5 to the fore as a viable Microsoft Windows&#174; development platform. HTAs are full-fledged applications. These applications are trusted and display only the menus, icons, toolbars, and title information that the Web developer creates. In short, HTAs pack all the power of Internet Explorer&#151;its object model, performance, rendering power, protocol support, and channel-download technology&#151;without enforcing the strict security model and user interface of the browser.</p><UL><LI><A TARGET="_self" HREF="#Why">Why Use HTAs</A></LI><LI><A TARGET="_self" HREF="#Creating">Creating an HTA</A></LI><LI><A TARGET="_self" HREF="#Security">The Power of Trust: HTAs and Security</A></LI><LI><A TARGET="_self" HREF="#Compatibility">Compatibility</A></LI><LI><A TARGET="_self" HREF="#Deployment">HTA Deployment</A></LI><LI><A TARGET="_self" HREF="#Conclusion">Conclusion</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="Why"></A>Why Use HTAs</H2><p>Historically, programming languages like C++ and Microsoft Visual Basic&#174; have provided the object models and access to system resources that developers demand. With  HTA  it is now time to add Dynamic HTML (DHTML) with script to that list. HTAs not only support everything a Web page does&#151;namely HTML, Cascading Style Sheets (CSS), scripting languages, and behaviors&#151;but also  HTA-specific functionality. This added functionality provides control over user interface design and access to the client system. Moreover, run as trusted applications, HTAs are not subject to the same security constraints as Web pages. As with any executable file, the user is asked once, before the HTA is downloaded, whether to save or run the application; if saved to the client machine, it simply runs on demand thereafter. The end result is that HTAs runs like any executable (.exe) written in C++ or Visual Basic.</p><p>HTAs are suited to many uses, whether you are prototyping, making wizards, or building full-scale applications. Whatever DHTML and script deliver now&#151;forms, multimedia, Web applications, HTML editors, and browsers&#151;so can HTAs...and then some. Best of all, HTAs make some tasks easier. The simplicity of generating prototypes using HTAs makes it possible for program managers and designers to script dialog boxes and alerts while the C++ or Visual Basic developers program the underlying functionality.</p><H2><A NAME="Creating"></A>Creating an HTA</H2><p>Create an HTA by writing an HTML page and saving it with the .hta extension. It is that simple!</p><p>This sample demonstrates the simplest possible  HTA. It consists of the string, "Hello, World", and is saved with the .hta extension. Internet Explorer is so forgiving that even the missing <A HREF="../objects/html.html">html</A> and <A HREF="../objects/body.html">body</A> tags do not cause an error. The program can be closed by pressing alt+f4.</p><PRE CLASS="clsCode" AUTOHILITE="1">  Hello, World</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV><p>To launch an  HTA , double-click its program icon, run it from the Start menu, open it through a URL, or start it from the command line. Once running, the  HTA  renders everything within the paired <B>body</B> tag and displays the value set in the <A HREF="../objects/title.html">title</A> tag as the window title.</p><H3><A NAME="Specific"></A>HTA-Specific Functionality</H3><p>Where the .hta extension tells the system how to handle the application, the new <A HREF="../objects/hta.html">HTA:APPLICATION</A> tag and attributes tell the window how to behave as an application. This tag exposes a limited set of attributes&#151;attributes that control everything from border style to the program icon and its menu. The majority are read-only and have default values optimized for the average application. To comprise a valid HTA, this tag must appear within the paired <A HREF="../objects/head.html">head</A> tags.</p><p>The <B>HTA:APPLICATION</B> tag in this example specifies application features not available in DHTML. As prescribed by the attributes, this application has neither border (<A HREF="../hta/border.html">border</A>), nor title bar (<A HREF="../hta/caption.html">caption</A>), nor standard program icon (<A HREF="../hta/sysmenu.html">sysMenu</A>). The application title appears in the Windows task list but not in the taskbar (<A HREF="../hta/showintaskbar.html">showInTaskBar</A>), and only one instance of the application is permitted to run at a time (<A HREF="../hta/singleinstance.html">singleInstance</A>). When launched, the HTA is known to the system as "monster" (<A HREF="../hta/applicationname.html">applicationName</A>) and initially is sized to fill the screen (<A HREF="../hta/windowstate.html">windowState</A>). For a full list of attributes and properties, and links to more information about each, see <A HREF="/workshop/author/hta/reference/hta_ref_entry.html">HTML Applications Reference</A>. The program can be closed by pressing alt+f4.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HEAD&gt;
+&lt;TITLE&gt;My Monster Application&lt;/TITLE&gt;
+&lt;HTA:APPLICATION ID="oMyApp"
+APPLICATIONNAME="monster"
+BORDER="none"
+CAPTION="no"
+ICON="/graphics/creature.ico"
+SHOWINTASKBAR="no"
+SINGLEINSTANCE="yes"
+SYSMENU="no"
+WINDOWSTATE="maximize"&gt;
+&lt;/HEAD&gt;</PRE><p>Many of the HTA-specific properties that affect the user interface of the window are interdependent. When <B>sysMenu</B> is set to <SPAN CLASS="clsLiteral">no</SPAN>, not only the program icon, but also the Minimize and Maximize buttons are disabled. When <B>border</B> is set to <SPAN CLASS="clsLiteral">none</SPAN>, neither the window border, program icon, title bar, nor Minimize and Maximize buttons display. Finally, when <B>caption</B> is set to <SPAN CLASS="clsLiteral">no</SPAN>, the Minimize and Maximize buttons, the program icon, and the window <B>border</B> are disabled. These contingencies all make sense in the light of standard Windows graphical user interface design.</p><H2><A NAME="Security"></A>The Power of Trust: HTAs and Security</H2><p>As fully trusted applications, HTAs carry out actions that Internet Explorer would never permit in a Web page. The result is an application that runs seamlessly, without interruption.</p><p>In HTAs, the restrictions against allowing script to manipulate the client machine are lifted. For example, all command codes are supported without scripting limitations (see <A HREF="../commandids.html">command id</A>). And HTAs have read/write access to the files and system registry on the client machine.</p><p>The trusted status of HTAs also extends to all operations subject to security zone options. In short, zone security is off. Consequently, HTAs run embedded Microsoft ActiveX&#174; controls and Java applets irrespective of the zone security setting on the client machine. No warning displays before such objects are downloaded and run within an HTA.</p><p>HTA windows can extend the trust relationship to content in other domains. HTAs allow cross-domain script access between window objects and cookies. To address the security risks inherent in cross-domain scripting, HTA enables the <A HREF="../hta/application.html">APPLICATION</A> attribute for <A HREF="../objects/frame.html">frame</A>s and <A HREF="../objects/iframe.html">iframe</A>s. This HTA-only attribute is not the sole security precaution available. HTAs are designed such that <B>frame</B>s and <B>iframe</B>s, where the <B>APPLICATION</B> attribute is set to <SPAN CLASS="clsLiteral">no</SPAN> /&gt;, have no script access to the HTA containing them. In this way, no unsecure content is allowed into an HTA through an untrusted window.</p><p>HTAs are designed such that untrusted HTML?B>frame</B>s and <B>iframe</B>s have no script access to the HTA containing them. In the case of <B>frame</B>s that are not HTA-enabled, the highest level frame comprises the top window for all <B>frame</B>s it contains. For that <B>frame</B>, <A HREF="../objects/obj_window.html">window</A>.<A HREF="../properties/top_1.html">top</A> and <B>window</B>.<A HREF="../properties/self.html">self</A> are one and the same. In addition, unsafe <B>frame</B>s and <B>iframe</B>s receive neither a <A HREF="../properties/referrer.html">referrer</A> nor an <A HREF="../properties/opener.html">opener</A> URL from the parent HTA. The end result is that they are unaware of the containing HTA as the parent window.</p><p>In applications where all content is safe, <B>frame</B>s and <B>iframe</B>s can safely be marked as trusted. Wizards and control panels are examples of safe content. The  HTA-enabled status of the <B>iframe</B> in the example below permits it to pass information back to its parent window.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;IFRAME SRC="filename.htm" APPLICATION="yes"&gt;</PRE><p>By contrast, an <B>iframe</B> that allows browsing to unsecured content must be implemented as regular HTML. Content in the <B>iframe</B> example below is subject to the security setting for its zone. The following <B>iframe</B> can be used when embedding HTML.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;IFRAME SRC="filename.htm" APPLICATION="no"&gt;</PRE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp; The <B>APPLICATION</B> attribute is ignored if used in HTML rather than HTA.</DIV><p>When running HTAs, users should take the same precautions as with any executable: Only install HTAs produced by reliable sources. HTAs cannot be code-signed. However, they can be installed from signed cabinet (.cab) files or other signed installation formats. Either way, the most accountable sources will be corporate intranets and established software vendors. </p><H2><A NAME="Compatibility"></A>Compatibility</H2><p>The Microsoft implementation of HTA is limited to Windows 32-bit systems running Internet Explorer 5. HTAs do not support the <A HREF="/workshop/author/forms/autocomplete_ovr.html">HTML AutoComplete in  forms</A> feature, or the <A HREF="../objects/external.html">external</A> object.</p><H2><A NAME="Deployment"></A>HTA Deployment</H2><p>The HTA implementation supports multiple deployment methods: the Web model, the package model, and a hybrid of the two. Application developers should decide how best to meet their distribution needs.</p><H3>The Web Model</H3><p>The Web deployment model consists of an application that can be run and administered just like a Web page. In this scenario, the HTA is launched simply by browsing to its URL or by accessing it from the Internet Explorer Favorites list. Before launch, an Internet Explorer dialog box presents the user with the choice to open or save the application. After launch, ancillary application components are downloaded from the server as needed and then cached. Servers must have the MIME type "application:hta" registered for delivery through the <A HREF="/workshop/networking/predefined/http.html">http:</A> protocol to work. </p><p>This model boasts some important strengths. It facilitates seamless updates: The intranet administrator need only post the new code or content for the client to receive the latest version. It provides ease of use: The user need never install or uninstall the application. Unused applications are automatically flushed from the cache. One important consideration when evaluating this deployment model is that server-based applications cannot be run offline or when the server goes down. One option is to anticipate this eventuality by implementing the advanced channel (CDF) features in
+Internet Explorer 4.0 and later. For more information, see the <A HREF="/workshop/delivery/channel/overview/overview.html">Introduction to Active Channel Technology</A>.</p><H3>The Package Model</H3><p>In the package deployment model, the installation process for the HTA is the same as for traditional applications. Files are copied from disk or over a network, using any installer or self-extracting executable. The installer places the application in the Program Files directory or in the directory selected by the user. A link to the HTA is included in the Start menu. And the application's dependency on Internet Explorer 5 or greater is registered. This way the user is warned that uninstalling Internet Explorer will disable that application. Look to tools vendors for vehicles for packaging and delivering HTAs to your specifications.</p><p>Like the Web model, the package model has points in its favor. The user is prompted only during the initial installation about trusting the application; thereafter, the application runs as trusted code just as an .exe does. Also, the installed HTA is always available to users, whether they are connected to the server or not.</p><H3>Hybrid Deployment Models</H3><p>Any combination of Web and package deployment models is feasible. The method of delivery is transparent to the HTA. HTA components are always referenced as URLs, absolute or relative, so the applications simply work.</p><H3>Examine Your Priorities</H3><p>What are your distribution needs? The following list presents just a few scenarios.</p><ul><li>If keeping the initial download time brief is paramount, then hybridize by installing the top window of the HTA onto the client machine, leaving the HTA to access the server for images and support files. </li><li>If your users run the application both at work and remotely, consider deploying HTAs over the local network using the Web model while also distributing it for remote use using the package model. </li><li>Perhaps your business requires a tool where the content is maintained by separate groups and is distributed across servers. The application will look and function like a unified whole if you create a single user interface and use Web deployment automatically to deliver the latest information. </li></ul><H2><A NAME="Conclusion"></A>Conclusion</H2><p>No matter what the delivery model, using Internet Explorer as your development platform is a compelling way to build applications large and small.</p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="/workshop/author/hta/reference/hta_ref_entry.html">HTML Applications Reference</A></LI><LI><A HREF="/library/en-us/dndude/html/dude070599.html" TARGET="_top">DHTML Dude: HTML Applications</A></LI></UL><info><product rid="prod_IE" minver="4.0"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

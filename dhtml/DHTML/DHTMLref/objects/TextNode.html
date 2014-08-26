@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>TextNode</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</STYLE>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="TEXTAREA.html" title="TEXTAREA 元素 | textArea 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>TEXTAREA 元素 | textArea 对象</A> <A HREF="obj_TextRange.html" title="TextRange 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>TextRange 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>TextNode 对象</H1>
+<HR SIZE="1"><P>将文本字符串代表为文档层次中的结点。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>TextNode</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P>
+</DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/data_1.html">data</A></TD>
+<TD>设置或获取 <B>TextNode</B> 对象的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/length_1.html">length</A></TD>
+<TD>获取 <B>TextNode</B> 对象中的字符数目。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nextSibling.html">nextSibling</A></TD>
+<TD>获取对此对象的下一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeName.html">nodeName</A></TD>
+<TD>获取特定结点类型的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeType.html">nodeType</A></TD>
+<TD>获取所需结点的类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeValue.html">nodeValue</A></TD>
+<TD>设置或获取结点的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentNode.html">parentNode</A></TD>
+<TD>获取文档层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/previousSibling.html">previousSibling</A></TD>
+<TD>获取对此对象的上一个兄弟对象的引用。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/appendData.html">appendData</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>向<span replace="1">对象</span>末尾添加新的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/deleteData.html">deleteData</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从<span replace="1">对象</span>中删除指定范围的字符。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertData.html">insertData</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>在<span replace="1">对象</span>的指定偏移量处插入新字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceData.html">replaceData</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>将<span replace="1">对象</span>中指定范围的字符替换为新字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/splitText.html">splitText</A></TD>
+<TD>在指定索引处分割文本结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/substringData.html">substringData</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从<span replace="1">对象</span>中析取一定范围的字符。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>Use the <A HREF="../methods/createTextNode.html">createTextNode</A> method to create a <B>TextNode</B> object. Once you create the <B>TextNode</B>, you can add to it using the <A HREF="../methods/appendChild.html">appendChild</A>, <A HREF="../methods/replaceNode.html">replaceNode</A>, or <A HREF="../methods/insertBefore.html">insertBefore</A> methods.</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子使用 <B>TextNode</B> 对象更改 <A HREF="../objects/LI.html">li</A> 对象的文本。</P>
+<PRE id="abc" CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+function fnChangeText(){
+var oTextNode = document.createTextNode("新建的列表项目 1");
+var oReplaceNode = oItem1.firstChild.replaceNode(oTextNode);
+}
+&lt;/SCRIPT&gt;
+&lt;UL onclick = "fnChangeText()"&gt;
+&lt;LI ID = oItem1&gt;列表项目 1
+&lt;/UL&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

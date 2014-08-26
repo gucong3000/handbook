@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'status','Percent ','duration'
+);
+
+collFriendMethods=new Array(
+'apply','play','stop'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'Alpha','MotionBlur','BlendTrans','Chroma','DropShadow','FlipH','FlipV','Glow','Gray','Invert','Light','MaskFilter','Redirect','RevealTrans','Shadow','Wave','Xray'
+);
+
+collIE55=new Array(
+'AlphaImageLoader','Barn','BasicImage','Blinds','Blur','Emboss','Engrave','Fade','Gradient','GradientWipe','Inset','Iris','Matrix','Pixelate','RadialWipe','RandomBars','RandomDissolve','Slide','Spiral','Stretch','Strips','Wheel','Zigzag'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:4px;filter:Gray();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n'+
+'input{padding:1px 4px 0px 4px;letter-spacing:1px;}\n';
+
+sScript='';
+
+sCode=
+'<div id=idDiv onmouseover="this.filters[0].Enabled=false;" onmouseout="this.filters[0].Enabled=true;"><img src="../images/rdl_body2.jpg" style="float:left;">请将鼠标在我的上面移动。<\/div>\n';
+
+iWinWidth=400;
+
+iWinHeight=280;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>enabled | Enabled&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b> ( enabled</b> = <i>bEnabled</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b>').Enabled = </b><i>bEnabled</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> bEnabled </i></td><td nowrap><b>: </b></td><td>
+布尔值(Boolean)。<span class=cssDefault><b>true</b></span> | <b>false</b>
+<table>
+<tr><td nowrap><b> true </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。滤镜激活。</td></tr>
+<tr><td nowrap><b> false </b></td><td nowrap><b>: </b></td><td>滤镜被禁止。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滤镜是否激活。改变此属性值会激发<a href="../events/onfilterchange.html"> onfilterchange </a>事件。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

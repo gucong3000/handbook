@@ -1,0 +1,126 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>getData</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>getData Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves the data in the specified format from the clipboard through the <A HREF="../objects/obj_datatransfer.html">dataTransfer</A> or <A HREF="../objects/clipboarddata.html">clipboardData</A> objects.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>sRetrieveData</I> = <I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I><B>.getData(</B><I>sDataFormat</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sDataFormat</I></TD><TD>
+Required.
+<b>String</b> that specifies one of the following data format values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">Text</SPAN></TD><TD>Retrieves data formatted as text.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">URL</SPAN></TD><TD>Retrieves data formatted as a URL.</TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P><b>String</b>. Returns the data in the format retrieved from clipboard through the <B>dataTransfer</B> or <B>clipboardData</B> object. Depending on the information contained in <A HREF="../methods/setdata.html">setData</A>, this variable can retrieve a path to an image, text, or an anchor URL.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>getData</B> method enforces cross-frame security and allows data transfers within the same domain only. To the user this means that dragging a selection between different security protocols, such as HTTP and HTTPS, will fail. In addition, dragging a selection between two instances of the browser with different security levels, where the first instance is set to medium and the second is set to high, will fail. Finally, dragging a selection into the browser from another drag-enabled application, such as Microsoft&#174; Word, also will fail. </P><P>To use the <B>getData</B> method to retrieve data from the clipboard within the <A HREF="../events/oncopy.html">oncopy</A> or <A HREF="../events/oncut.html">oncut</A> event, specify <B>window.event.returnValue=false</B> within the event handler script.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE>
+The following examples use the <B>setData</B> and <B>getData</B> methods of the <B>dataTransfer</B> object to drop text in a new location and create a desktop shortcut.<P>
+This example uses the <B>getData</B> method to drag text and drop it in a new location.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function InitiateDrag(){
+event.dataTransfer.setData(oSource.innerText);
+}
+function FinishDrag(){
+window.event.returnValue=false;
+oTarget.innerText = event.dataTransfer.getData("Text");
+}
+function OverDrag(){
+window.event.returnValue=false;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;B ID="oSource"
+ondragstart="InitiateDrag()"&gt;
+drag this text&lt;/B&gt;
+&lt;SPAN ID="oTarget"
+ondragover="OverDrag()"
+ondragenter="FinishDrag()""&gt;
+drop text here&lt;/SPAN&gt;
+&lt;/BODY&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+This example uses the <B>getData</B> method to create a desktop shortcut using a drag-and-drop operation.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function InitiateDrag(){
+event.dataTransfer.setData("URL", oSource.href);
+}
+function FinishDrag(){
+oTarget.innerText = event.dataTransfer.getData("URL");
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;A ID=oSource HREF="about:Example_Complete"
+onclick="return(false)" ondragstart="InitiateDrag()"&gt;Test Anchor&lt;/A&gt;
+&lt;SPAN ID=oTarget ondrop="FinishDrag()"&gt;Drop Here&lt;/SPAN&gt;
+&lt;/BODY&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/clipboarddata.html">
+clipboardData</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/obj_datatransfer.html">
+dataTransfer</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/datatransfer/overview.html">About DHTML Data Transfer</A>, <A HREF="../methods/cleardata.html">clearData</A>, <A HREF="../methods/setdata.html">setData</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

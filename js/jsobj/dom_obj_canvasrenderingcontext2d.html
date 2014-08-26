@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>HTML DOM CanvasRenderingContext2D 对象</title>
+
+</head>
+
+<body class="browserscripting" id="jsref">
+
+<div id="wrapper">
+
+<div id="navsecond">
+
+<div id="course"><h2>JS & DOM 参考手册</h2>
+<ul>
+<li><a href="index.html" title="JavaScript 和 HTML DOM 参考手册">参考手册目录</a></li>
+</ul>
+<h2>JavaScript 对象</h2>
+<ul>
+<li><a href="jsref_obj_array.html" title="JavaScript Array 对象参考手册">JS Array</a></li>
+<li><a href="jsref_obj_boolean.html" title="JavaScript Boolean 对象参考手册">JS Boolean</a></li>
+<li><a href="jsref_obj_date.html" title="JavaScript Date 对象参考手册">JS Date</a></li>
+<li><a href="jsref_obj_math.html" title="JavaScript Math 对象的参考手册">JS Math</a></li>
+<li><a href="jsref_obj_number.html" title="JavaScript Number 对象参考手册">JS Number</a></li>
+<li><a href="jsref_obj_string.html" title="JavaScript String 对象参考手册">JS String</a></li>
+<li><a href="jsref_obj_regexp.html" title="JavaScript RegExp 对象参考手册">JS RegExp</a></li>
+<li><a href="jsref_obj_global.html" title="JavaScript 全局对象参考手册">JS Functions</a></li>
+<li><a href="jsref_events.html" title="JavaScript 事件参考手册">JS Events</a></li>
+</ul>
+<h2>Browser 对象</h2>
+<ul>
+<li><a href="dom_obj_window.html" title="HTML DOM Window 对象">Window</a></li>
+<li><a href="dom_obj_navigator.html" title="HTML DOM Navigator 对象">Navigator</a></li>
+<li><a href="dom_obj_screen.html" title="HTML DOM Screen 对象">Screen</a></li>
+<li><a href="dom_obj_history.html" title="HTML DOM History 对象">History</a></li>
+<li><a href="dom_obj_location.html" title="HTML DOM Location 对象">Location</a></li>
+</ul>
+<h2>HTML DOM 对象</h2>
+<ul>
+<li><a href="dom_obj_document.html" title="HTML DOM Document 对象">DOM Document</a></li>
+<li><a href="dom_obj_all.html" title="HTML DOM Element 对象">DOM Element</a></li>
+<li><a href="dom_obj_attributes.html" title="HTML DOM Attribute 对象">DOM Attribute</a></li>
+<li><a href="dom_obj_event.html" title="HTML DOM Event 对象">DOM Event</a></li>
+</ul>
+<h2>HTML 对象</h2>
+<ul>
+<li><a href="dom_obj_anchor.html" title="HTML DOM Anchor 对象">&lt;a&gt;</a></li>
+<li><a href="dom_obj_area.html" title="HTML DOM Area 对象">&lt;area&gt;</a></li>
+<li><a href="dom_obj_audio.html" title="HTML DOM Audio 对象">&lt;audio&gt;</a></li>
+<li><a href="dom_obj_base.html" title="HTML DOM Base 对象">&lt;base&gt;</a></li>
+<li><a href="dom_obj_body.html" title="HTML DOM Body 对象">&lt;body&gt;</a></li>
+<li><a href="dom_obj_blockquote.html" title="HTML DOM Blockquote 对象">&lt;blockquote&gt;</a></li>
+<li><a href="dom_obj_pushbutton.html" title="HTML DOM Button 对象">&lt;button&gt;</a></li>
+<li><a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">&lt;canvas&gt;</a></li>
+<li><a href="dom_obj_col.html" title="HTML DOM Column 对象">&lt;col&gt;</a></li>
+<li><a href="dom_obj_colgroup.html" title="HTML DOM ColumnGroup 对象">&lt;colgroup&gt;</a></li>
+<li><a href="dom_obj_datalist.html" title="HTML DOM Datalist 对象">&lt;datalist&gt;</a></li>
+<li><a href="dom_obj_del.html" title="HTML DOM Del 对象">&lt;del&gt;</a></li>
+<li><a href="dom_obj_details.html" title="HTML DOM Details 对象">&lt;details&gt;</a></li>
+<li><a href="dom_obj_dialog.html" title="HTML DOM Dialog 对象">&lt;dialog&gt;</a></li>
+<li><a href="dom_obj_embed.html" title="HTML DOM Embed 对象">&lt;embed&gt;</a></li>
+<li><a href="dom_obj_fieldset.html" title="HTML DOM Fieldset 对象">&lt;fieldset&gt;</a></li>
+<li><a href="dom_obj_form.html" title="HTML DOM Form 对象">&lt;form&gt;</a></li>
+<li><a href="dom_obj_frame.html" title="HTML DOM Frame 对象">&lt;frame&gt;</a></li>
+<li><a href="dom_obj_frameset.html" title="HTML DOM Frameset 对象">&lt;frameset&gt;</a></li>
+<li><a href="dom_obj_iframe.html" title="HTML DOM IFrame 对象">&lt;iframe&gt;</a></li>
+<li><a href="dom_obj_image.html" title="HTML DOM Image 对象">&lt;img&gt;</a></li>
+<li><a href="dom_obj_ins.html" title="HTML DOM Ins 对象">&lt;ins&gt;</a></li>
+<li><a href="dom_obj_button.html" title="HTML DOM Button 对象">&lt;input&gt; button</a></li>
+<li><a href="dom_obj_checkbox.html" title="HTML DOM Checkbox 对象">&lt;input&gt; checkbox</a></li>
+<li><a href="dom_obj_color.html" title="HTML DOM Color 对象">&lt;input&gt; color</a></li>
+<li><a href="dom_obj_date.html" title="HTML DOM Input Date 对象">&lt;input&gt; date</a></li>
+<li><a href="dom_obj_datetime.html" title="HTML DOM Datetime 对象">&lt;input&gt; datetime</a></li>
+<li><a href="dom_obj_datetime-local.html" title="HTML DOM Datetime Local 对象">&lt;input&gt; datetime-local</a></li>
+<li><a href="dom_obj_email.html" title="HTML DOM Email 对象">&lt;input&gt; email</a></li>
+<li><a href="dom_obj_fileupload.html" title="HTML DOM FileUpload 对象">&lt;input&gt; file</a></li>
+<li><a href="dom_obj_hidden.html" title="HTML DOM Hidden 对象">&lt;input&gt; hidden</a></li>
+<li><a href="dom_obj_input_image.html" title="HTML DOM Input Image 对象">&lt;input&gt; image</a></li>
+<li><a href="dom_obj_month.html" title="HTML DOM Month 对象">&lt;input&gt; month</a></li>
+<li><a href="dom_obj_number.html" title="HTML DOM Number 对象">&lt;input&gt; number</a></li>
+<li><a href="dom_obj_password.html" title="HTML DOM Password 对象">&lt;input&gt; password</a></li>
+<li><a href="dom_obj_range.html" title="HTML DOM Input Range 对象">&lt;input&gt; range</a></li>
+<li><a href="dom_obj_radio.html" title="HTML DOM Radio 对象">&lt;input&gt; radio</a></li>
+<li><a href="dom_obj_reset.html" title="HTML DOM Reset 对象">&lt;input&gt; reset</a></li>
+<li><a href="dom_obj_search.html" title="HTML DOM Input Search 对象">&lt;input&gt; search</a></li>
+<li><a href="dom_obj_submit.html" title="HTML DOM Submit 对象">&lt;input&gt; submit</a></li>
+<li><a href="dom_obj_text.html" title="HTML DOM Text 对象">&lt;input&gt; text</a></li>
+<li><a href="dom_obj_input_time.html" title="HTML DOM Input Time 对象">&lt;input&gt; time</a></li>
+<li><a href="dom_obj_url.html" title="HTML DOM Input URL 对象">&lt;input&gt; url</a></li>
+<li><a href="dom_obj_week.html" title="HTML DOM Week 对象">&lt;input&gt; week</a></li>
+<li><a href="dom_obj_keygen.html" title="HTML DOM Keygen 对象">&lt;keygen&gt;</a></li>
+<li><a href="dom_obj_label.html" title="HTML DOM Label 对象">&lt;label&gt;</a></li>
+<li><a href="dom_obj_legend.html" title="HTML DOM Legend 对象">&lt;legend&gt;</a></li>
+<li><a href="dom_obj_li.html" title="HTML DOM Li 对象">&lt;li&gt;</a></li>
+<li><a href="dom_obj_link.html" title="HTML DOM Link 对象">&lt;link&gt;</a></li>
+<li><a href="dom_obj_map.html" title="HTML DOM Map 对象">&lt;map&gt;</a></li>
+<li><a href="dom_obj_menu.html" title="HTML DOM Menu 对象">&lt;menu&gt;</a></li>
+<li><a href="dom_obj_menuitem.html" title="HTML DOM MenuItem 对象">&lt;menuitem&gt;</a></li>
+<li><a href="dom_obj_meta.html" title="HTML DOM Meta 对象">&lt;meta&gt;</a></li>
+<li><a href="dom_obj_meter.html" title="HTML DOM Meter 对象">&lt;meter&gt;</a></li>
+<li><a href="dom_obj_object.html" title="HTML DOM Object 对象">&lt;object&gt;</a></li>
+<li><a href="dom_obj_ol.html" title="HTML DOM Ol 对象">&lt;ol&gt;</a></li>
+<li><a href="dom_obj_optgroup.html" title="HTML DOM OptionGroup 对象">&lt;optgroup&gt;</a></li>
+<li><a href="dom_obj_option.html" title="HTML DOM Option 对象">&lt;option&gt;</a></li>
+<li><a href="dom_obj_param.html" title="HTML DOM Parameter 对象">&lt;param&gt;</a></li>
+<li><a href="dom_obj_progress.html" title="HTML DOM Progress 对象">&lt;progress&gt;</a></li>
+<li><a href="dom_obj_quote.html" title="HTML DOM Quote 对象">&lt;q&gt;</a></li>
+<li><a href="dom_obj_script.html" title="HTML DOM Script 对象">&lt;script&gt;</a></li>
+<li><a href="dom_obj_select.html" title="HTML DOM Select 对象">&lt;select&gt;</a></li>
+<li><a href="dom_obj_source.html" title="HTML DOM Source 对象">&lt;source&gt;</a></li>
+<li><a href="dom_obj_style.html" title="HTML DOM Style 对象">&lt;style&gt;</a></li>
+<li><a href="dom_obj_table.html" title="HTML DOM Table 对象">&lt;table&gt;</a></li>
+<li><a href="dom_obj_tabledata.html" title="HTML DOM TableCell 对象">&lt;td&gt;</a></li>
+<li><a href="dom_obj_tablehead.html" title="HTML DOM TableHeader 对象">&lt;th&gt;</a></li>
+<li><a href="dom_obj_tablerow.html" title="HTML DOM TableRow 对象">&lt;tr&gt;</a></li>
+<li><a href="dom_obj_textarea.html" title="HTML DOM Textarea 对象">&lt;textarea&gt;</a></li>
+<li><a href="dom_obj_time.html" title="HTML DOM Time 对象">&lt;time&gt;</a></li>
+<li><a href="dom_obj_title.html" title="HTML DOM Title 对象">&lt;title&gt;</a></li>
+<li><a href="dom_obj_track.html" title="HTML DOM Track 对象">&lt;track&gt;</a></li>
+<li><a href="dom_obj_video.html" title="HTML DOM Video 对象">&lt;video&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTML DOM CanvasRenderingContext2D 对象</h1>
+
+
+<div>
+<h2>CanvasRenderingContext2D 对象</h2>
+
+<p>CanvasRenderingContext2D 对象提供了一组用来在画布上绘制的图形函数。可用的函数非常丰富，它们可以分为以下几类：</p>
+
+
+<h3>绘制矩形</h3>
+
+<p>可以使用 <a href="met_canvasrenderingcontext2d_strokerect.html" title="HTML DOM strokeRect() 方法">strokeRect()</a> 和 <a href="met_canvasrenderingcontext2d_fillrect.html" title="HTML DOM fillRect() 方法">fillRect()</a> 来绘制矩形的边框和填充矩形。此外，可以使用 <a href="met_canvasrenderingcontext2d_clearrect.html" title="HTML DOM clearRect() 方法">clearRect()</a> 来清除矩形所定义的区域。</p>
+
+
+<h3>绘制图像</h3>
+
+<p>在 Canvas API 中，图像通过表示 <a href="http://www.w3school.com.cn/tags/tag_img.html" title="HTML &lt;img&gt; 标签">HTML &lt;img&gt; 元素</a>的 <a href="dom_obj_image.html" title="HTML DOM Image 对象">Image 对象</a>来指定，或者通过使用 Image() 构造函数所创建的屏幕外图像来指定。一个 <a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">Canvas 对象</a>也可以用作图像来源。</p>
+
+<p>可以使用 <a href="met_canvasrenderingcontext2d_drawimage.html" title="HTML DOM drawImage() 方法">drawImage() 方法</a>在一个画布上绘制图像；而更为常见的形式是，允许源图像的任意矩形区域缩放或绘制到画布上。</p>
+
+
+<h3>创建和渲染路径</h3>
+
+<p>画布的一项强大功能是，它能够从基本的绘图操作来构建图形，然后，绘制这些图形的框架（勾勒它们）或者给这些图形的内容涂色（填充它们）。累计起来的操作统一叫做<em>当前路径</em>。一个画布只保持一条当前路径。</p>
+
+<p>为了构建一个多条线段所构成的一个连续的封闭形状，绘制操作之间需要一个连接点。为此，画布保存了一个<em>当前位置</em>。画布绘制操作显式地使用这个位置作为它们的起始点，并且更新它直到到达终点。可以把这看做是使用钢笔或纸来绘画：当您完成了一条具体的线段或曲线，当前位置就是完成这一操作之后钢笔所停留的点。</p>
+
+<p>可以在当前路径中创建一系列互相不连续的形状，它们都使用同样的绘制参数一起渲染。要分隔开这些形状，请使用 <a href="met_canvasrenderingcontext2d_moveto.html" title="HTML DOM moveTo() 方法">moveTo()</a> 方法，这个方法把当前的位置移动到一个新的位置而不添加一条连接线段。当您这么做的时候，就创建了一条新的路径，这是用来表示一组连接起来的操作的画布术语。</p>
+
+<p>一旦您所想要的路径形成了，可以使用 <a href="met_canvasrenderingcontext2d_stroke.html" title="HTML DOM stroke() 方法">stroke()</a> 绘制其边框，使用 <a href="met_canvasrenderingcontext2d_fill.html" title="HTML DOM fill() 方法">fill()</a> 来绘制其内容；或者两件事都做。</p>
+
+<p>可用的图形操作有：用来绘制直线的 <a href="met_canvasrenderingcontext2d_lineto.html" title="HTML DOM lineTo() 方法">lineTo()</a>，用于绘制矩形的 <a href="met_canvasrenderingcontext2d_rect.html" title="HTML DOM rect() 方法">rect()</a>，用于绘制部分圆形的 <a href="met_canvasrenderingcontext2d_arc.html" title="HTML DOM arc() 方法">arc()</a> 或 <a href="met_canvasrenderingcontext2d_arcto.html" title="HTML DOM arcTo() 方法">arcTo()</a>，以及用于绘制曲线的 <a href="met_canvasrenderingcontext2d_beziercurveto.html" title="HTML DOM bezierCurveTo() 方法">bezierCurveTo()</a> 或 <a href="met_canvasrenderingcontext2d_quadraticcurveto.html" title="HTML DOM quadraticCurveTo() 方法">quadraticCurveTo()</a>。</p>
+
+<p>除了勾勒和填充，还可以使用当前路径来指定绘制时画布所使用的剪切区域。这个区域中的像素是显示的，区域之外的像素是不显示的。剪切区域是累加性的；调用 <a href="met_canvasrenderingcontext2d_clip.html" title="HTML DOM clip() 方法">clip()</a> 可以将当前路径和当前绘制区域取交集，产生一个新的区域。不幸的是，没有直接的方法把当前的剪切区域设置为画布的范围；要做到这一点，必须保存和恢复画布的整个图形状态。</p>
+
+<p>如果任何子路径中的线段没有形成一个闭合的图形，<a href="met_canvasrenderingcontext2d_fill.html" title="HTML DOM fill() 方法">fill()</a> 和 <a href="met_canvasrenderingcontext2d_clip.html" title="HTML DOM clip() 方法">clip()</a> 操作通过添加一条从子路径的起点到终点的、虚拟（勾勒的时候看不到）线段来闭合它。可选的是，也可以调用 <a href="met_canvasrenderingcontext2d_closepath.html" title="HTML DOM closePath() 方法">closePath()</a> 来显示地添加这条线段。</p>
+
+
+<h3>颜色、渐变和模式</h3>
+
+<p>在填充和勾勒路径时，可用 fillStyle 和 strokeStyle 属性来指定线段或者绘制区域如何绘制。CSS 样式颜色字符串，以及描述渐变和模式的 <a href="dom_obj_canvasgradient.html" title="HTML DOM CanvasGradient 对象">CanvasGradient</a> 或 <a href="dom_obj_createpattern.html" title="HTML DOM CanvasPattern 对象">CanvasPattern</a> 都是可以接受的。要创建一个渐变，请使用 <a href="met_canvasrenderingcontext2d_createlineargradient.html" title="HTML DOM createLinearGradient() 方法">createLinearGradient()</a> 或 <a href="met_canvasrenderingcontext2d_createradialgradient.html" title="HTML DOM createRadialGradient() 方法">createRadialGradient()</a>。要创建一个模式，请使用 <a href="met_canvasrenderingcontext2d_createpattern.html" title="HTML DOM createPattern() 方法">createPattern()</a>。</p>
+
+<p>要用 CSS 表示法来指定不透明的颜色，就采用 &quot;#RRGGBB&quot; 形式的字符串，其中 RR、GG 和 BB 分别是指定颜色的红色、绿色和蓝色成分的十六进制，其值都在 00 和 FF 之间。例如，完全红色的值是 &quot;#FF0000&quot;。要指定部分透明的颜色，请使用一个 &quot;rgba(R,G,B,A)&quot; 形式的字符串。在这种形式中，R、G 和 B 将颜色的红色、绿色和蓝色成分指定为 0 到 255 之间的十进制整数，并且 A 把 alpha（不透明）成分指定为 0.0 （完全透明）和 1.0 （完全不透明）之间的一个浮点数值。例如，半透明的完全红色为 &quot;rgba(255,0,0,0.5)&quot;。</p>
+
+
+<h3>线条宽度、线帽和线条连接</h3>
+
+<p>画布为调整各种线条显示提供了几个选项。可以使用 lineWidth 属性来指定线条的宽度，用 <a href="prop_canvasrenderingcontext2d_linecap.html" title="HTML DOM lineCap 属性">lineCap 属性</a>来指定的端点如何绘制，并且用 <a href="prop_canvasrenderingcontext2d_linejoin.html" title="HTML DOM lineJoin 属性">lineJoin 属性</a>来指定线条如何连接。</p>
+
+
+<h3>坐标空间和转换</h3>
+
+<p>默认情况下，一个画布的坐标空间使用画布的左上角 (0,0) 作为原点，x 值向右增加，y 值向下增加。这个坐标空间中的一个单位通常转换为像素。</p>
+
+<p>然后，可以转换坐标空间，产生你在绘图操作中所指定的用来移动、缩放或旋转的任何坐标或范围。这通过 <a href="met_canvasrenderingcontext2d_translate.html" title="HTML DOM translate() 方法">translate()</a>、<a href="met_canvasrenderingcontext2d_scale.html" title="HTML DOM scale() 方法">scale()</a> 和 <a href="met_canvasrenderingcontext2d_rotate.html" title="HTML DOM rotate() 方法">rotate() 方法</a>来实现，它们会对画布的变换矩阵产生影响。由于坐标空间可以像这样转换，您传递给 <a href="met_canvasrenderingcontext2d_lineto.html" title="HTML DOM lineTo() 方法">lineTo()</a> 这样方法的坐标可能无法用像素来度量。因此，Canvas API 使用浮点数而不是整数。</p>
+
+<p>变换按照它们被指定的顺序相反的顺序来处理。例如，调用 scale() 之后，紧接着调用 translate()，这会首先变换坐标系统，然后再缩放。</p>
+
+
+<h3>组合</h3>
+
+<p>通常，图形是一个绘制于另一个的上面，新的图形使得在它之前绘制在其下方的图形变得模糊。这是一个画布中的默认行为。然而，您可以通过为 <a href="prop_canvasrenderingcontext2d_globalcompositeoperation.html" title="HTML DOM globalCompositeOperation 属性">globalCompositeOperation 属性</a>指定不同的值来执行很多有趣的操作，范围包括从 XOR 操作到增量或减暗图形区域。</p>
+
+
+<h3>阴影</h3>
+
+<p>Canvas API 包含了可以自动为您所绘制的任何图形添加下拉阴影的属性。然而，在编写本参考页时，Safari 是唯一实现了这一 API 的浏览器。阴影的颜色可用 shadowColor 属性来指定，并且可以通过 shadowOffsetX 和 shadowOffsetY 属性来改变。另外，应用到阴影边缘的羽化量也可以使用 shadowBlur 属性来设置。</p>
+
+
+<h3>保存图形状态</h3>
+
+<p><a href="met_canvasrenderingcontext2d_save.html" title="HTML DOM save() 方法">save()</a> 和 <a href="met_canvasrenderingcontext2d_restore.html" title="HTML DOM restore() 方法">restore()</a> 方法允许你保存和恢复一个 CanvasRenderingContext2D 对象的状态。save() 把当前状态推入到栈中，而 restore() 从栈的顶端弹出最近保存的状态，并且根据这些存储的值来设置当前绘图状态。</p>
+
+<p>CanvasRenderingContext2D 对象的所有属性（除了画布的属性是一个常量）都是保存的状态的一部分。变换矩阵和剪切区域也是这个状态的一部分，但是当前路径和当前点并不是。</p>
+
+</div>
+
+<div>
+<h2>CanvasRenderingContext2D 对象的属性</h2>
+
+
+<h3>canvas 属性</h3>
+
+<p>这个环境可以绘制于其上的 Canvas 元素。</p>
+
+
+<h3>fillStyle 属性</h3>
+
+<p>用来填充路径的当前的颜色、模式或渐变。这个属性可以设置为一个字符串或者一个 <a href="dom_obj_canvasgradient.html" title="HTML DOM CanvasGradient 对象">CanvasGradient 对象</a> 或 <a href="dom_obj_createpattern.html" title="HTML DOM CanvasPattern 对象">CanvasPattern 对象</a>。当设置为一个字符串时，它被解析为一个 CSS 颜色值并且用来进行实心填充。当设置为一个 CanvasGradient 或 CanvasPattern 对象，通过使用指定的渐变或模式来完成填充。</p>
+
+<h3>globalAlpha 属性</h3>
+
+<p>指定在画布上绘制的内容的不透明度。这个值的范围在 0.0（完全透明）和 1.0（完全不透明）之间。默认值为 1.0。</p>
+
+<h3>globalCompositeOperation 属性</h3>
+
+<p>指定颜色如何与画布上已有的颜色组合（合成）。如需更多细节，请参阅 <a href="prop_canvasrenderingcontext2d_globalcompositeoperation.html" title="HTML DOM globalCompositeOperation 属性">globalCompositeOperation 属性参考页</a>。</p>
+
+<h3>lineCap 属性</h3>
+
+<p>指定线条的末端如何绘制。合法的值是 &quot;butt&quot;、&quot;round&quot; 和 &quot;square&quot;。默认值是 &quot;butt&quot;。如需更多细节，请参阅 <a href="prop_canvasrenderingcontext2d_linecap.html" title="HTML DOM lineCap 属性">lineCap 属性参考页</a>。</p>
+
+<h3>lineJoin 属性</h3>
+
+<p>指定两条线条如何连接。合法的值是 &quot;round&quot;、&quot;bevel&quot; 和 &quot;miter&quot;。默认值是 &quot;miter&quot;。如需更多细节，请参阅 <a href="prop_canvasrenderingcontext2d_linejoin.html" title="HTML DOM lineJoin 属性">lineJoin 属性参考页</a>。</p>
+
+<h3>lineWidth 属性</h3>
+
+<p>指定了画笔（绘制线条）操作的线条宽度。默认值是 1.0，并且这个属性必须大于 0.0。较宽的线条在路径上居中，每边有线条宽的一半。</p>
+
+<h3>miterLimit 属性</h3>
+
+<p>当 lineJoin 属性为 &quot;miter&quot; 的时候，这个属性指定了斜连接长度和线条宽度的最大比率。如需更多细节，请参阅 <a href="prop_canvasrenderingcontext2d_miterlimit.html" title="HTML DOM miterLimit 属性">miterLimit 属性参考页</a>。</p>
+
+<h3>shadowBlur 属性</h3>
+
+<p>指定羽化阴影的程度。默认值是 0。阴影效果得到 safari 的支持，但是并没有得到 FireFox 1.5 或 Opera 9 的支持。</p>
+
+<h3>shadowColor 属性</h3>
+
+<p>把阴影的颜色指定为一个 CSS 字符串或 Web 样式字符串，并且可以包含一个 alpha 部分来表示透明度。默认值是 black。阴影效果得到 Safari 的支持，但是并没有得到 FireFox 1.5 或 Opera 9 的支持。</p>
+
+<h3>shadowOffsetX, shadowOffsetY 属性</h3>
+
+<p>指定阴影的水平偏移和垂直偏移。较大的值使得阴影化的对象似乎漂浮在背景的较高位置上。默认值是 0。阴影效果得到 Safari 的支持，但是并没有得到 FireFox 1.5 或 Opera 9 的支持。</p>
+
+<h3>strokeStyle 属性</h3>
+
+<p>指定了用于画笔（绘制）路径的颜色、模式和渐变。这个属性可能是一个字符串，或者一个 <a href="dom_obj_canvasgradient.html" title="HTML DOM CanvasGradient 对象">CanvasGradient 对象</a> 或 <a href="dom_obj_createpattern.html" title="HTML DOM CanvasPattern 对象">CanvasPattern 对象</a>。如果是一个字符串，它被解析为一个 CSS 颜色值，并且画笔用所得的实色来绘制。如果这个属性的值是一个 CanvasGradient 对象或 CanvasPattern 对象，画笔使用这个渐变或模式来实现。</p>
+</div>
+
+
+<div>
+<h2>CanvasRenderingContext2D 对象的方法</h2>
+
+<table class="dataintable">
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_arc.html" title="HTML DOM arc() 方法">arc()</a></td>
+<td>用一个中心点和半径，为一个画布的当前子路径添加一条弧线。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_arcto.html" title="HTML DOM arcTo() 方法">arcTo()</a></td>
+<td>使用目标点和一个半径，为当前的子路径添加一条弧线。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_beginpath.html" title="HTML DOM beginPath() 方法">beginPath()</a></td>
+<td>开始一个画布中的一条新路径（或者子路径的一个集合）。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_beziercurveto.html" title="HTML DOM bezierCurveTo() 方法">bezierCurveTo()</a></td>
+<td>为当前的子路径添加一个三次贝塞尔曲线。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_clearrect.html" title="HTML DOM clearRect() 方法">clearRect()</a></td>
+<td>在一个画布的一个矩形区域中清除掉像素。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_clip.html" title="HTML DOM clip() 方法">clip()</a></td>
+<td>使用当前路径作为连续绘制操作的剪切区域。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_closepath.html" title="HTML DOM closePath() 方法">closePath()</a></td>
+<td>如果当前子路径是打开的，就关闭它。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_createlineargradient.html" title="HTML DOM createLinearGradient() 方法">createLinearGradient()</a></td>
+<td>返回代表线性颜色渐变的一个 CanvasGradient 对象。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_createpattern.html" title="HTML DOM createPattern() 方法">createPattern()</a></td>
+<td>返回代表贴图图像的一个 CanvasPattern 对象。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_createradialgradient.html" title="HTML DOM createRadialGradient() 方法">createRadialGradient()</a></td>
+<td>返回代表放射颜色渐变的一个 CanvasGradient 对象。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_drawimage.html" title="HTML DOM drawImage() 方法">drawImage()</a></td>
+<td>绘制一幅图像。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_fill.html" title="HTML DOM fill() 方法">fill()</a></td>
+<td>使用指定颜色、渐变或模式来绘制或填充当前路径的内部。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_fillrect.html" title="HTML DOM fillRect() 方法">fillRect()</a></td>
+<td>绘制或填充一个矩形。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_lineto.html" title="HTML DOM lineTo() 方法">lineTo()</a></td>
+<td>为当前的子路径添加一条直线线段。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_moveto.html" title="HTML DOM moveTo() 方法">moveTo()</a></td>
+<td>设置当前位置并开始一条新的子路径。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_quadraticcurveto.html" title="HTML DOM quadraticCurveTo() 方法">quadraticCurveTo()</a></td>
+<td>为当前路径添加一条贝塞尔曲线。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_rect.html" title="HTML DOM rect() 方法">rect()</a></td>
+<td>为当前路径添加一条矩形子路径。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_restore.html" title="HTML DOM restore() 方法">restore()</a></td>
+<td>为画布重置为最近保存的图像状态。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_rotate.html" title="HTML DOM rotate() 方法">rotate()</a></td>
+<td>旋转画布。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_save.html" title="HTML DOM save() 方法">save()</a></td>
+<td>保存 CanvasRenderingContext2D 对象的属性、剪切区域和变换矩阵。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_scale.html" title="HTML DOM scale() 方法">scale()</a></td>
+<td>标注画布的用户坐标系统。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_stroke.html" title="HTML DOM stroke() 方法">stroke()</a></td>
+<td>沿着当前路径绘制或画一条直线。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_strokerect.html" title="HTML DOM strokeRect() 方法">strokeRect()</a></td>
+<td>绘制（但不填充）一个矩形。</td>
+</tr>
+
+<tr>
+<td><a href="met_canvasrenderingcontext2d_translate.html" title="HTML DOM translate() 方法">translate()</a></td>
+<td>转换画布的用户坐标系统。</td>
+</tr>
+</table>
+</div>
+
+
+<div>
+<h2>参阅</h2>
+
+<p><a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">HTML DOM Canvas 对象</a></p>
+
+<p><a href="http://www.w3school.com.cn/tags/tag_canvas.html" title="HTML &lt;canvas&gt; 标签">HTML5 &lt;canvas&gt; 标签</a></p>
+
+<p><a href="http://www.w3school.com.cn/html5/html_5_canvas.html" title="HTML5 Canvas">HTML5 Canvas 教程</a></p>
+
+<p><a href="http://www.w3school.com.cn/tags/html_ref_canvas.html" title="HTML5 Canvas 参考手册">HTML5 Canvas 参考手册</a></p>
+</div>
+
+
+
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

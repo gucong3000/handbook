@@ -1,0 +1,198 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Using HTML+TIME with DirectMusic (Internet Explorer)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Using HTML+TIME with DirectMusic
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Microsoft?DirectMusic?is a component of Microsoft DirectX?that provides a medium over which music and sound effects can be played back. Music or sound effects composed for DirectMusic can be very flexible and can change dynamically over time or in response to a user event. This sound playback can be stored in relatively small files, which makes it very well suited for Web applications. DirectMusic's software synthesizer assures that MIDI files and DirectMusic segments  sound identical on all hardware configurations rather than playing differently on different computers with different sound cards. HTML+TIME (Timed Interactive Multimedia Extensions) has many unique properties, methods, and events that allow you to control playback of DirectMusic in Web pages. This article briefly discusses some of the ways you can use HTML+TIME to add flexibility and control to DirectMusic content on the Web.</p><P>The following topics are discussed in this document.</P><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#what_is_directmusic">What Is DirectMusic?</A></LI><LI><A TARGET="_self" HREF="#html_time_and_directmusic">How HTML+TIME Works With DirectMusic</A></LI><LI><A TARGET="_self" HREF="#directmusic_segments">DirectMusic Segments Types</A></LI><LI><A TARGET="_self" HREF="#styles">Styles</A></LI><LI><A TARGET="_self" HREF="#segment_transitions">Segment Transitions</A></LI><LI><A TARGET="_self" HREF="#motif_segments">Motif Segments</A></LI><LI><A TARGET="_self" HREF="#other_properties_of_directmusic">Other Properties of DirectMusic</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2><p>The typical way to create content for DirectMusic is to use the Microsoft?DirectMusic?Producer program. The way HTML+TIME affects DirectMusic material depends in large part on how this material is created. Because of this, at a minimum, you should be familiar with composing sound playback using the DirecMusic Producer. Although a comprehensive discussion of DirectMusic Producer is beyond the scope of this article, you can find more information about this program by using the Help documentation of DirectMusic Producer, which can be downloaded from <A HREF="http://msdn.microsoft.com/library/default.html?url=/library/en-us/dmusprod/htm/directmusicproducer.html" TARGET="_top">DirectMusic Producer</A>.</p><p>It is assumed you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into detail on how to add a behavior to your page, nor does it cover how to declare a namespace and use custom tags, as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>. You should have a basic working knowledge of Dynamic HTML (DHTML).</p><H2><A NAME="what_is_directmusic"></A>What Is DirectMusic?</H2><p>DirectMusic is included with Microsoft Windows?98 Second Edition, Windows Millennium Edition (Windows Me), and Windows 2000 components. In combination, the DirectMusic components provide a computer running Windows with the enhanced potential for playing music accompaniment and sound effects with a variety of applications including computer games and Web pages. Because this article deals with HTML+TIME, the discussion of DirectMusic is limited to its use in Web pages. Some key benefits of using DirectMusic content in Web pages are the following:
+<ul><li>DirectMusic content (music or sound effects) can be created such that it dynamically changes each time it is played.</li><li>DirectMusic content sounds the same on all computers regardless of the hardware used by the computer.</li><li>DirectMusic content can be contained in individual components called <I>segments</I>. These segments can be layered on top of one another, providing a flexible and powerful model for content composition. For more information, see <A TARGET="_self" HREF="#directmusic_segments">DirectMusic Segments Types</A>.</li></ul></p><p>You can play MIDI and wave files using DirectMusic. Alternatively, you can use DirectMusic Producer to create sound files that take advantage of DirectMusic's interactive features. Rather than a static playback, this sound content can provide, if the music author chooses, a flexible and variable playback. For example, you could have a music segment that plays in a loop over and over. Each time it loops, the music would change such that a listener would never hear the music the same way twice. In addition, HTML+TIME DirectMusic player allows the music composer to choose from one to 80 pchannels (channels) rather than the one through 16 channels offered by the MIDI format. Some of the main run-time files created by DirectMusic Producer are the .sgt, .sty, or .dls extensions. These files correspond to certain components that can be created in DirectMusic Producer.</p><ul><li>The .sgt files correspond to <I>segments</I>; for information about them, see <A TARGET="_self" HREF="#directmusic_segments">DirectMusic Segments Types</A>. Segments are the controlling components of the music, coordinating the way the music is played.</li><li>The .sty files correspond to <I>styles</I>; for information about them, see <A TARGET="_self" HREF="#styles">Styles</A>. Styles can be used by segments to introduce content and variability to playback. </li><li>A downloadable sound (DLS) is a self-contained, synthesized instrument sound that you design using the Microsoft DLS Designer in DirectMusic Producer. DLS files are not discussed in this article. For more information about DLS files, see <B>DirectMusic Producer</B>?B>Help</B>.</li></ul><p>The .sty (styles) and dls files are essentially support files for .sgt (segment) files that are used to enhance DirectMusic content. When working with content created by DirectMusic Producer, HTML+TIME elements only directly access .sgt (segment) files as source files for DirectMusic playback. Because of this, much of the discussion and samples of this article revolves around segments. However, the components of the supporting .sty files determine what transitions and motifs are available to HTML+TIME. <A TARGET="_self" HREF="#segment_transitions">Transitions</A> and <A TARGET="_self" HREF="#motif_segments">motifs</A> are discussed later in this article.</p><H2><A NAME="html_time_and_directmusic"></A>How HTML+TIME Works With DirectMusic</H2><p>Composing music using DirectMusic Producer enables a great deal of flexibility when creating the audio material and HTML+TIME can be used to control various aspects of playback directly from the Web page. Here is a list of examples of things that HTML+TIME can control when playing DirectMusic content.</p><ul><li>Control the timing, duration, and activation/ending of DirectMusic segments.</li><li>Create transitions between the playback of segments.</li><li>Control the volume, speed, and mute during playback.</li></ul><p>In Web pages, control like this can be accomplished by playing the DirectMusic content inside of a <A HREF="../time2/elements/audio.html">t:AUDIO</A> element and applying various HTML+TIME methods, properties, and events to the <B>t:AUDIO</B> element. Some of these HTML+TIME components are available to all types of media that use HTML+TIME. Examples include the following:</p><ul><li>Attributes/Properties like <A HREF="../time2/time/properties/dur.html">t:DUR</A>, <A HREF="../time2/properties/begin.html">BEGIN</A>, and <A HREF="../time2/properties/end.html">END</A>.</li><li>Methods like <A HREF="../time2/methods/beginelement.html">beginElement</A> and <A HREF="../time2/methods/endelement.html">endElement</A></li><li>Events like <A HREF="../time2/events/onbegin.html">onbegin</A>, <A HREF="../time2/events/onend.html">onend</A>, and <A HREF="../time2/events/onmediacomplete.html">onmediacomplete</A>.</li></ul><p>The following sample shows how to play a DirectMusic segment, use some HTML+TIME components to control playback, and determine whether the user has DirectMusic installed.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- This SPAN displays if the user has DirectMusic installed. --&gt;
+Is DirectMusic Installed? &lt;SPAN STYLE="color:red" id="oDisplay" &gt;&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;!-- The BEGIN attribute specifies that the content will be played when
+the button is clicked. However, the button is disabled until the content
+is completely downloaded (the onmediacomplete event is fired). --&gt;
+&lt;t:AUDIO ID="oSegment1" SRC="basicBeat.sgt" PLAYER="dmusic" BEGIN="oButton.click"
+onmediacomplete="oButton.innerText = 'Start Music';oButton.disabled = false;
+oDisplay.innerText = oSegment1.playerObject.isDirectMusicInstalled;"/&gt;
+&lt;BUTTON DISABLED ID="oButton"&gt;Loading Music&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/basicSegment1.htm" FEATURES="top=50,left=50,height=500,width=700,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;If there is no .sgt file at the specified path, the <A HREF="../time2/events/onmediaerror.html">onmediaerror</A> event fires. However, if there are any other run-time files such as .sty or .dls files that the .sgt (segment) file is dependent on that are not in the same directory as the .sgt file, the content does not play and the <B>onmediaerror</B> event does not fire.</DIV><p>There are a few things to note about the preceeding example.
+First, it is always required to include the <A HREF="../time2/properties/player.html">PLAYER</A> attribute and set it to a value of <SPAN CLASS="clsLiteral">dmusic</SPAN> in order for DirectMusic to play. Second, in this example, the <B>BEGIN</B> attribute is used to specify that the content is played when the button is clicked. Notice that the <A HREF="../time2/properties/isdirectmusicinstalled.html">isDirectMusicInstalled</A> property is used to display in the <A HREF="../properties/span.html">SPAN</A> element whether the user looking at the Web page has DirectMusic installed. The <B>isDirectMusicInstalled</B> property is an example of a property that is only available when working with DirectMusic content. While common HTML+TIME components are useful for basic control of timing and playback of DirectMusic content, other unique HTML+TIME attributes that are only applicable to DirectMusic content are useful for more control over the specific components of content created in DirectMusic Producer. The following table lists some of these attributes.</p><table class="clsStd"><tr><th>Component Name</th><th>Description</th></tr><tr><td><A HREF="../time2/properties/isdirectmusicinstalled.html">isDirectMusicInstalled</A></td><td>Property that retrieves a Boolean value that indicates whether DirectMusic is installed on the machine.</td></tr><tr><td><A HREF="../time2/properties/segmenttype.html">segmentType</A></td><td>Attribute that sets a value that indicates whether to play a DirectMusic segment as a controlling or secondary segment.</td></tr><tr><td><A HREF="../time2/properties/boundary.html">boundary</A></td><td>Attribute that sets a value that determines when one segment should begin to play in relation to another segment.</td></tr><tr><td><A HREF="../time2/properties/transitiontype.html">TRANSITIONTYPE</A></td><td>Attribute that sets or retrieves the type of DirectMusic transition to use between segments.</td></tr><tr><td><A HREF="../time2/properties/modulate.html">modulate</A></td><td>Attribute that sets a value that indicates whether to attempt to modulate between keys when playing transitions with DirectMusic. </td></tr><tr><td><A HREF="../time2/properties/motifname.html">motifName</A></td><td>Attribute that sets the name of the DirectMusic motif to play.</td></tr></table><p>The effect of some of these attributes on DirectMusic content depends on what components make up the content and how those components were created in DirectMusic Producer. The following sections explore in more detail the structural components of DirectMusic such as segments and styles and how these components can be manipulated using many of the attributes in the preceding table.</p><H2><A NAME="directmusic_segments"></A>DirectMusic Segments Types</H2><p>The segment is the fundamental building block of DirectMusic content. A segment functions as a holder for multiple musical elements. These elements provide the notes, rests, rhythms, chords, and instrument choices for a performance. As you create a segment in DirectMusic Producer, you can specify the tempo, length, number of repeats, and other parameters for how the segment plays.</p><p>Segments can be played by themselves, one after the other, or simultaneously with other segments. The way the segments play together can be specified using HTML+TIME code. Beyond basic timing and duration control of the segments, you can specify what the segment type is. This is done using the <A HREF="../time2/properties/segmenttype.html">segmentType</A> attribute. This attribute can have the value of <SPAN CLASS="clsLiteral">primary</SPAN>, <SPAN CLASS="clsLiteral">secondary</SPAN>, or <SPAN CLASS="clsLiteral">control</SPAN>, which correspond to specifying that the segment is a primary, secondary, or control segment, respectively. How a segment behaves when played with other segments (its relationship with other segments) depends on what type of segment it is. The following three sections discuss the different segment types and their behavior.</p><H3><A NAME="primary_segments"></A>Primary Segments</H3><p>The primary segment can be considered the base segment of the musical composition. Other segments can play over a primary segment to enhance it; for further information about these other segments, see <A TARGET="_self" HREF="#secondary_segments">Secondary Segments</A> segments. No more than one primary segment can play at a time. Therefore, if you are playing a primary segment and then start up another one, the first segment stops and the new one begins playing from its beginning.</p><p>The following example shows what happens when a new primary sample begins one second after the first one begins. The first primary segment is the same as the segment used in the preceding examples. Here is what the second primary segment looks like in the segment editor of DirectMusic Producer. </p><p><img src="../common/basicSequence2.gif" alt="Sequence Editor in DirectMusic Producer"></img></p><p>The musical note content is defined in a sequence track. It consists of musical notes going up and down in scale and lasts two measures.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;<B>segmentType</B> has a default value of <SPAN CLASS="clsLiteral">primary</SPAN>, and if the attribute is omitted, the segment will be a primary segment. (In this article, the attribute is included in primary segments for clarity.)</DIV><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="BOUNDARY=&quot;immediate&quot;;SEGMENTTYPE=&quot;primary&quot;">
+...
+&lt;t:AUDIO ID="oSegment1" SEGMENTTYPE="primary" SRC="basicBeat.sgt"
+PLAYER="dmusic" BEGIN="oButton.click"/&gt;
+&lt;t:AUDIO ID="oSegment2" SEGMENTTYPE="primary" SRC="scale.sgt"
+PLAYER="dmusic" BOUNDARY="immediate" BEGIN="oSegment1.begin+1"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/basicSegment2.htm" FEATURES="top=50,left=50,height=480,width=650,status=0"></IMG></A></DIV><p>In the previous example, notice that the second primary segment begins playing immediately when it starts on the time line. This is because the <B>boundary</B> attribute was set to <SPAN CLASS="clsLiteral">immediate</SPAN>. The <B>boundary</B> attribute determines when one segment begins relative to another. Here is the same example again, except this time the <B>boundary</B> attribute is set to <SPAN CLASS="clsLiteral">measure</SPAN>.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="BOUNDARY=&quot;measure&quot;">
+...
+&lt;t:AUDIO ID="oSegment1" SEGMENTTYPE="primary" SRC="basicBeat.sgt"
+PLAYER="dmusic" BEGIN="oButton.click"/&gt;
+&lt;t:AUDIO ID="oSegment2" SEGMENTTYPE="primary" SRC="scale.sgt"
+PLAYER="dmusic" BOUNDARY="measure" BEGIN="oSegment1.begin+1"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/basicSegment2Contrast.htm" FEATURES="top=50,left=50,height=500,width=700,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;If the <B>boundary</B> attribute is omitted, the behavior depends on the default boundary specified when the segment was created in DirectMusic Producer.
+</DIV><H3><A NAME="secondary_segments"></A>Secondary Segments</H3><p>The DirectMusic is capable of playing any number of segment files simultaneously. In this way, a developer of an application or Web page can combine multiple events and music elements with as much layering as desired. As an example, these segments could correspond to different musical parts such as percussion or melody. These segments can be played at any time, for any period, and in any order. </p><p>As already mentioned, there can only be one primary segment; therefore, all other segments that are to play at the same time must be secondary. You specify that a segment is secondary by setting the <B>segmentType</B> attribute to a value of <SPAN CLASS="clsLiteral">secondary</SPAN>. The following example is identical to the preceding one with one difference: the <B>segmentType</B> attribute is set to <SPAN CLASS="clsLiteral">secondary</SPAN> on the segment that begins while the primary one is playing. Rather than stop the primary segment, the secondary segment plays on top of it. </p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="SEGMENTTYPE=&quot;secondary&quot;">
+...
+&lt;t:AUDIO ID="oSegment1"  SRC="basicBeat.sgt" PLAYER="dmusic"
+BEGIN="oButton.click"/&gt;
+&lt;t:AUDIO ID="oSegment2" SEGMENTTYPE="secondary" SRC="scale.sgt" PLAYER="dmusic"
+BEGIN="oSegment1.begin+1"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/basicSegment3.htm" FEATURES="top=50,left=50,height=510,width=700,status=0"></IMG></A></DIV><p>In the preceding example, the secondary segment begins immediately after the segment begins on the time line. Just like primary segments, you can use the <B>boundary</B> attribute to control when the secondary segment begins playing. </p><H3><A NAME="controling_secondary_segments"></A>Controlling Secondary Segments</H3><p>You can designate a secondary segment as a controlling secondary segment so that elements of the secondary segment change the behavior of the primary segment. When you play a primary segment and a controlling secondary segment simultaneously, some tracks in the controlling segment affect and essentially replace the corresponding tracks of the primary segment. When playback of the secondary segment stops, playback of the primary segment reverts to its original state.</p><p>For example, a controlling secondary segment might contain a chord track and a groove track. If you play a primary segment and then start playback of the controlling segment while the primary segment is playing, the secondary segment's chord and groove tracks temporarily replace the chords and the grooves of the primary segment. When playback of the secondary segment stops, playback of the primary segment reverts to using information in its own chord and groove tracks.</p><p>A controlling segment can affect the playback behavior of all other segments that are playing simultaneously, including the primary segment and all other secondary segments. The following tracks in a controlling secondary segment, called controlling tracks, override the contents of tracks in other segments. </p><ul><li>Chord track</li><li>Groove track</li><li>Mute track</li><li>Tempo track</li></ul><p>The following sample shows how to have a secondary segment change the tempo of the primary segment when it plays. The control segment is a segment with no musical note content. It only has a tempo track. Here is what the segment looks like in the DirectMusic Producer segment editor.</p><p><img src="../common/tempoSequence.gif" alt="Sequence Editor in DirectMusic Producer"></img></p><p>Notice that the tempo track is set for <SPAN CLASS="clsLiteral">300</SPAN>. This is much higher than the tempo track in the primary sequence of <SPAN CLASS="clsLiteral">70</SPAN>. </p><p><img src="../common/basicSequence.gif" alt="Sequence Editor in DirectMusic Producer"></img></p><p>After the controlling secondary segment ends (after one measure), the primary segment's tempo resumes control.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="SEGMENTTYPE=&quot;control&quot;">
+...
+&lt;t:AUDIO ID="oSegment1" SEGMENTTYPE="primary" SRC="basicBeat.sgt" PLAYER="dmusic"
+BEGIN="oButton.click"/&gt;
+&lt;t:AUDIO ID="oSegment2" SEGMENTTYPE="control" SRC="tempoSegment.sgt"
+PLAYER="dmusic" BEGIN="oSegment1.begin+1"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/basicSegment5.htm" FEATURES="top=50,left=50,height=480,width=700,status=0"></IMG></A></DIV><H2><A NAME="styles"></A>Styles</H2><p>So far, the samples shown have only used sequence tracks to provide musical notes. Sequence tracks are satisfactory when you do not want the sound content to vary much each time it is played. For greater variability, it is better to get the musical content from styles. Styles are created in DirectMusic Producer. The musical notes of styles are specified in components called <I>patterns</I> and <I>motifs</I>. The following two sections illustrate how HTML+TIME can be used with patterns and motifs.</p><H2><A NAME="segment_transitions"></A>Segment Transitions</H2><p>The phrases of a style are usually divided into separate patterns. How patterns are played in a segment is specified when the segment is created. Although you cannot access the patterns directly from HTML+TIME during the active period of the segment, you can have a specific pattern play as a beginning transition and ending transition. You do this by creating patterns with embellishments in DirectMusic Producer. Embellishments correspond to different parts of a musical performance. Examples of embellishments are intro, fill, end, or break. For information on creating embellishments, see the Help documentation of DirectMusic Producer. Once a pattern has an embellishment, you can specify that pattern as the pattern to play on a single segment or to play as one primary segment transitions to another primary segment. For example, the segment <I>heartland.sgt</I> plays a style in its style track called <I>heartland</I>.</p><p><img src="../common/heartlandSegment.gif" alt="Sequence Editor in DirectMusic Producer"></img></p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;The heartland segment can be found in the tutorial project that comes with DirectMusic Producer.</DIV><p>
+The style called <I>heartland</I> has patterns called <I>intro</I> and <I>end</I>. These patterns are shown here.</p><p><img src="../common/heartlandStyle.gif" alt="Sequence Editor in DirectMusic Producer"></img></p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;As seen in the preceding screen shot, DirectMusic Producer uses .sgp files to edit segments and .stp files to edit styles. When these files are converted to run-time files, (files that can be used by DirectMusic), they become .sgt and .sty files respectively.</DIV><p>The pattern called <I>intro</I> has the intro embellishment associated with it, and the pattern called <I>end</I> has the end embellishment associated with it.
+When the heartland segment is played in HTML+TIME, the default behavior is to play the intro pattern first and the end pattern last. The following example shows this default behavior.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+...
+&lt;t:AUDIO ID="oSegment1" DUR="8" SEGMENTTYPE="primary" SRC="heartland.sgt"
+PLAYER="dmusic" BEGIN="oButton.click"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/transition1.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;If you pause DirectMusic content while it is playing a transition, the transition is skipped when playback resumes.</DIV><p>You can alter the transitions played by an individual segment or the transitions between primary segments by using the <A HREF="../time2/properties/transitiontype.html">TRANSITIONTYPE</A> attribute. There are a number of possible values for this attribute that allow this control. The following sample shows how you can specify that no transition is played on a segment by setting the <A HREF="../time2/properties/transitiontype.html">TRANSITIONTYPE</A> attribute to a value of <SPAN CLASS="clsLiteral">none</SPAN>.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="TRANSITIONTYPE=&quot;none&quot;">
+&lt;t:AUDIO ID="oSegment1" DUR="8" TRANSITIONTYPE="none"  SEGMENTTYPE="primary"
+SRC="heartland.sgt" PLAYER="dmusic" BEGIN="oButton.click"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/transition2.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><H2><A NAME="motif_segments"></A>Motif Segments</H2><p>A motif is a melodic or rhythmic figure, usually brief, or a sound you design to layer over other music. A motif can be played at any time during a performance and can be thought of as an explicitly defined sound or set of sounds/music that plays without interrupting the content playing by the various segments involved in a composition. A motif is created inside of a style. However, a motif cannot be played by segments like style patterns can, rather, they must be played explicitly from code. HTML+TIME uses the <A HREF="../time2/properties/motifname.html">motifName</A> attribute to specify what motif to play. In order to use the <B>motifName</B>, the <B>t:AUDIO</B> element must be playing a segment that includes the style containing the motif. For example, using the same segment as the previous sample, the style called <I>heartland</I>, which is played by the heartland segment, has a motif called <I>fiddle</I>.</p><p><img src="../common/motif.gif" alt="Sequence Editor in DirectMusic Producer"></img></p><p>To play the "fiddle" motif using HTML+TIME, you could use the following code.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="MOTIFNAME=&quot;fiddle&quot;">
+...
+&lt;t:AUDIO ID="oSegment1" DUR="8" SEGMENTTYPE="primary" SRC="basicBeat.sgt"
+PLAYER="dmusic" BEGIN="oButton.click"/&gt;
+&lt;t:AUDIO ID="oSegment2" DUR="8" MOTIFNAME="fiddle" SRC="heartland.sgt"
+PLAYER="dmusic" BEGIN="oSegment1.begin+1"/&gt;
+&lt;BUTTON ID="oButton"&gt;Start Music&lt;/BUTTON&gt;
+...
+</PRE><p>Notice that the rest of the music of hearland does not play—only the motif.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/motifName.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><p></p><H2><A NAME="other_properties_of_directmusic"></A>Other Properties of DirectMusic</H2><p>As already mentioned, it is important to remember that DirectMusic content is treated like other types of media that is played by HTML+TIME, and these media types all share many properties, methods, and so forth. The following example shows how to control various properties of DirectMusic playback.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+...
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+@media all
+{
+control\:slider {behavior:url(slider.htc);}
+}
+&lt;/STYLE&gt;
+...
+&lt;t:AUDIO ID="oSegment1" TRANSITIONTYPE="NONE" BOUNDARY="IMMEDIATE" DUR="8"
+BEGIN="indefinite" SEGMENTTYPE="primary" SRC="heartland.sgt" PLAYER="dmusic"
+/&gt;
+&lt;!-- HTML+TIME methods are used to enable begin, stop, pause, and resume
+functionality. --&gt;
+&lt;BUTTON ID="oStart" onclick="oSegment1.beginElement();"&gt;Start&lt;/BUTTON&gt;
+&lt;BUTTON DISABLED ID="oStop" onclick="oSegment1.endElement();"&gt;Stop&lt;/BUTTON&gt;
+&lt;BUTTON DISABLED ID="oPause" onclick="oSegment1.pauseElement();"&gt;Pause&lt;/BUTTON&gt;
+&lt;BUTTON DISABLED ID="oResume" onclick="oSegment1.resumeElement();"&gt;Resume&lt;/BUTTON&gt;
+Volume:
+&lt;!-- Volume controler. This uses the slider control behavior. --&gt;
+&lt;control:slider style="sl--tick-style : none; " VALUE = "100" ID="oSliderVolume"
+MIN="0" MAX="100" TICKINTERVAL="1" TICKNUMBER="100"
+onchange="oSegment1.volume = oSliderVolume.value;"&gt;
+&lt;/control:slider&gt;
+Speed:
+&lt;!-- Speed controller. This uses the slider control behavior. --&gt;
+&lt;control:slider style="sl--tick-style : none; " VALUE = "1" ID="oSliderSpeed"
+MIN=".5" MAX="2" TICKINTERVAL=".1" TICKNUMBER="15"
+onchange="oSegment1.speed = oSliderSpeed.value;"&gt;
+&lt;/control:slider&gt;
+Mute:
+&lt;input id="oMuteControl" type="Checkbox"
+onclick="if(oMuteControl.checked){oSegment1.mute = true;}else{oSegment1.mute = false;}"&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DMusic/dMusicPlayer.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="time2_entry.html">HTML+TIME 2.0 Reference</A></LI></UL><info><product rid="prod_IE" minver="5.0"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="5.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

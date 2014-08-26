@@ -1,0 +1,210 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-95-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-109-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-101-fm2xml"></A><A NAME="IXT-23-55043"></A><A NAME="IXT-23-55044"></A><A NAME="IXT-23-55045"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Array.splice(  )</i></b></td>
+
+<td align="right"><i> 插入、删除或替换数组的元素</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.2; JScript 5.5; ECMAScript v3 </P><A NAME="ch23-102-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+ 
+
+<PRE>
+
+<TT><I>array</I></TT>.splice(<TT><I>start</I></TT>, <TT><I>deleteCount</I></TT>, <TT><I>value</I></TT>, ...)
+
+</PRE>
+
+
+
+
+
+<A NAME="IXT-23-55043"></A>
+
+<A NAME="IXT-23-55044"></A>
+
+<A NAME="IXT-23-55045"></A>
+
+
+
+<A NAME="ch23-103-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>start</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">开始插入和(或)删除的数组元素的下标。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>deleteCount</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">从start开始，包括start所指的元素在内要删除的元素个数。这个参数是可选的，如果没有指定它，splice()将删除从start开始到原数组结尾的所有元素。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>value, ...</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要插人数组的零个或多个值，从start所指的下标处开始插入。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-104-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">如果从array中删除了元素，返回的是含有被删除的元素的数组。但是要注意，由于存在—个bug，因此在JavaScriptl.2的Netscape实现中，返回的并不总是数组。</P>
+
+
+
+
+
+<A NAME="ch23-105-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法splice()将删除从start开始(包括start所指的元素在内)的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。位于插入或删除的元素之后的数组元素都会被移动，以保持它们与数组其他元素的连续性。注意，
+虽然spllce()方法与slice()方法名字相似，但作用不同，方法splice()直接修改数组。</P>
+
+
+
+<A NAME="ch23-106-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">读了下面的例子，就很容易理解splice()的操作了：</P>
+
+
+
+<PRE>var a = [1,2,3,4,5,6,7,8]
+
+a.splice(4);        // 返回 [5,6,7,8]; a is [1,2,3,4]
+
+a.splice(1,2);      // 返回 [2,3]; a is [1,4]
+
+a.splice(1,1);      // Netscape/JavaScript 1.2 返回 4 ，应该返回 [4]
+
+a.splice(1,0,2,3);  // Netscape/JavaScript 1.2 返回 undefined ，应该返回 []</PRE>
+
+
+
+<A NAME="ch23-107-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">
+方法splice()假定在各种情况下均返回一个包含已删除元素的数组。但是，在
+Netscape的JavaScript 1.2解释器中，如果删除的是单个元素，那么该方法返回的是
+元素，而不是包含那个元素的数组。如果没有删除任何元素，它不是返回一个空数组，
+而是什么都不返回。只要把语言版本明确地设置为1.2，JavaScript的Netscape实现
+都有这种bug行为。
+</P>
+
+
+
+<A NAME="ch23-108-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-87-fm2xml.html#ch23-87-fm2xml">Array.slice(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-95-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-109-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

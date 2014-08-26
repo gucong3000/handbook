@@ -1,0 +1,85 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>SUBTYPE Attribute | subtype Property (t:TRANSITIONFILTER) (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>SUBTYPE Attribute | subtype Property
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the name of the subtype that will be applied to the transition.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;t:TRANSITIONFILTER&nbsp;<B>SUBTYPE</B>
+= <SPAN CLASS="clsRange">sSubType</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>t:TRANSITIONFILTER</I>.<B>subtype</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sSubType</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sSubType</SPAN></TD><TD><b>String</b> that
+specifies or receives the name of the subtype that will be applied to the transition.</TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This parameter is optional and, if specified, must be one of the transition <B>subtype</B> values appropriate for the specified <A HREF="../../time2/properties/type_1.html">type</A> value, as shown in the table below. If this parameter is not specified, then the transition reverts to the default <B>subtype</B> value for the specified <B>type</B> value with the following exception: When the <B>type</B> property is set to <SPAN CLASS="clsLiteral">starWipe</SPAN>, it is required to explicitly set the <B>subtype</B> property to <SPAN CLASS="clsLiteral">fivePoint</SPAN> for the transition to work.</P><P>You cannot return the default value of the <B>subtype</B> property through script unless the default value has been set by the attribute or through script. </P><P><table class="clsStd"><tr><th>Type</th><th>Associated Subtype(s)</th></tr><tr><td>starWipe</td><td>fivePoint (this must be specified)</td></tr><tr><td>barWipe</td><td>leftToRight, topToBottom</td></tr><tr><td>barnDoorWipe</td><td>vertical, horizontal</td></tr><tr><td>irisWipe</td><td>rectangle, diamond</td></tr><tr><td>ellipseWipe</td><td>circle</td></tr><tr><td>clockWipe</td><td>clockwiseTwelve</td></tr><tr><td>fanWipe</td><td>centerTop</td></tr><tr><td>snakeWipe</td><td>topLeftHorizontal</td></tr><tr><td>spiralWipe</td><td>topLeftClockwise</td></tr><tr><td>pushWipe</td><td>fromLeft</td></tr><tr><td>slideWipe</td><td>fromLeft</td></tr><tr><td>fade</td><td>crossfade</td></tr></table></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates the different transition <B>type</B> values and the possible  <B>subtype</B> values that can be used with those <B>type</B> values. In addition, the effects of changing various other attributes of the <A HREF="../../time2/elements/transitionfilter.html">transitionFilter</A> is also demonstrated.</P><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/mastersample/master_sample.htm" FEATURES="top=50,left=50,height=550,width=850,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../common/author/behaviors/overview/transition_ovw.html#types">Using HTML+TIME Transitions</A>, <A HREF="../../time2/properties/end.html">end</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

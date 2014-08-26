@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>例子</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<STYLE TYPE="text/css">
+BODY{
+background:#FFFFFF;
+color:black;
+font-size:9pt;
+font-family:verdana;
+}
+H1	{
+color:#3366CC;
+font-size:1.5em;
+}
+IMG {
+border:2px solid #000000;
+margin:10px;
+}
+A 	{
+color:#3366CC;
+text-decoration:none;
+}
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="BODY">
+<H1>使用 COL</H1>
+TABLE 元素的 RULES 属性设置为“group”，这在本例中没有效果。如果 RULES 起作用的话，应该在红色的两列和蓝色的一列之间出现表格内部分隔线。要使此属性起作用，你必须使用 COLSPAN 定义列组。
+<BR>
+<TABLE BORDER="2" RULES="groups">
+<COL SPAN="2" STYLE="color:red">
+<COL STYLE="color:blue">
+<TR>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第二组。</TD>
+</TR>
+<TR>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第二组。</TD>
+</TR>
+</TABLE>
+<BR><BR><BR>
+&copy; 2001 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'AlphaImageLoader'
+);
+
+collFriendProperties=new Array(
+'SizingMethod'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'AlphaImageLoader'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:4px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="..\/images\/rdl_nice.gif", sizingMethod="scale");}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\\"sURL\\",sizingMethod=\\"scale\\")";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel")){\n'+
+' var sValue=options[selectedIndex].value;\n'+
+'}\n'+
+'oDiv.filters[0].src=sValue;\n'+
+'oCodeDiv.innerHTML=sFilter.replace(/sURL/g,sValue);\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv>请从下方选择<b> src </b>参数的值。<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="..\/images\/rdl_nice.gif">---请选择---\n'+
+'<option value="..\/images\/zl_03.jpg">..\/images\/zl_03.jpg\n'+
+'<option value="..\/images\/zl_02.jpg">..\/images\/zl_02.jpg\n'+
+'<option value="..\/images\/rdl_ice.gif">..\/images\/rdl_ice.gif\n'+
+'<\/select>\n'+
+'<div id=idCodeDiv>filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="..\/images\/rdl_nice.gif",sizingMethod="scale");<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>src | src&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:FilterTypeImageTransform.Microsoft.<a href="../filters/alphaimageloader.html">AlphaImageLoader</a> ( src</b> = <i>sURL</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('FilterTypeImageTransform.Microsoft.<a href="../filters/alphaimageloader.html">AlphaImageLoader</a>').src = </b><i>sURL</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sURL </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。绝对或相对<i> url </i>地址。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+使用绝对或相对<i> url </i>地址指定背景图像。假如忽略此参数，滤镜将不会作用。<br>
+载入的图片会成为对象的显示区域。你可以通过设置<a href="../filters/alphaimageloader.html"> AlphaImageLoader </a>滤镜的<a href="../properties/sizingmethod.html"> sizingMethod </a>属性值缩放或剪切图片。
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

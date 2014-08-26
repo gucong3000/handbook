@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>dataTransfer</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="custom.html" title="CUSTOM 元素 | curstom 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>CUSTOM 元素 | curstom 对象</A> <A HREF="DD.html" title="DD 元素 | dd 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>DD 元素 | dd 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>dataTransfer 对象</H1>
+<HR SIZE="1"><P>提供了对于预定义的剪贴板格式的访问，以便在拖曳操作中使用。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>dataTransfer</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/dropEffect.html">dropEffect</A></TD>
+<TD>设置或获取拖曳操作的类型和要显示的光标类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/effectAllowed.html">effectAllowed</A></TD>
+<TD>设置或获取数据传送操作可应用于该<span replace="1">对象</span>的源元素。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/clearData.html">clearData</A></TD>
+<TD>通过 <B>dataTransfer</B> 或 <A href="clipboardData.html">clipboardData</A> 对象从剪贴板删除一种或多种数据格式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getData.html">getData</A></TD>
+<TD>通过 <B>dataTransfer</B> 或 <B>clipboardData</B> 对象从剪贴板获取指定格式的数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setData.html">setData</A></TD>
+<TD>以指定格式给 <B>dataTransfer</B> 或 <B>clipboardData</B> 对象赋予数据。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>dataTransfer</B> 对象使得自定义处理拖曳操作成为可能。你可通过 <A HREF="obj_event.html">event</A> 对象完成这种功能。</P>
+<P><B>dataTransfer</B> 对象可于源对象和目标对象中使用。典型用法是，<A HREF="../methods/setData.html">setData</A> 方法用于源事件，以便提供关于将要进行传送的数据的数据。相应的，<A HREF="../methods/getData.html">getData</A> 方法用于目标事件以便确保获取的数据和数据格式。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子使用了 <B>dataTransfer</B> 对象的 <A HREF="../methods/setData.html">setData</A> 和 <A HREF="../methods/getData.html">getData</A> 方法通过快捷菜单执行拖曳操作。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+var sAnchorURL;
+function InitiateDrag()
+/*  setData 参数告诉源对象将数据传送为 URL 并提供
+路径。*/
+{
+event.dataTransfer.setData("URL", oSource.href);
+}
+function FinishDrag()
+/*  传递给 getData 的参数告诉目标对象所期望的数据
+格式。*/
+{
+sAnchorURL = event.dataTransfer.getData("URL");
+oTarget.innerText = sAnchorURL;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;A ID=oSource HREF="about:Example_Complete" onclick="return(false)"
+ondragstart="InitiateDrag()"&gt;测试锚&lt;/A&gt;
+&lt;SPAN ID=oTarget ondragenter="FinishDrag()"&gt;将链接拖曳到这里&lt;/SPAN&gt;
+&lt;/BODY&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.0" SAMPLEPATH="../samples/dataTransfer/dataTransferex.html" FEATURES="top=50,left=50,height=450,width=650,status=0,resizable=1"></IMG></A>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="obj_event.html">event</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

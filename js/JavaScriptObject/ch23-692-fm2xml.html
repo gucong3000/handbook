@@ -1,0 +1,168 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-687-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-697-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-692-fm2xml"></A><A NAME="IXT-23-55353"></A><A NAME="IXT-23-55354"></A><A NAME="IXTR3-9"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object.valueOf(  )</i></b></td>
+
+<td align="right"><i>指定对象的原始值</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2.0; ECMAScript v1 </P><A NAME="ch23-693-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>object</I></TT>.valueOf( )</PRE>
+
+<A NAME="IXT-23-55353"></A>
+
+<A NAME="IXT-23-55354"></A>
+
+
+
+
+
+<A NAME="ch23-694-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">与对象object相关的原始值(如果存在)。如果没有值与object相关，则返回对象自身。</P>
+
+
+
+
+
+<A NAME="ch23-695-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">对象的valueOf()方法返回的是与那个对象相关的原始值(如果这样的值存在)。对于类型为Object的对象来说，由于它们没有原始值，因此该方法返回的是这些对象自身。</P>
+
+
+
+<P class="docText">对于类型为Number的对象，valueOf()返回该对象表示的原始数值。同样，对于Boolean对象来说，该方法返回与对象相关的布尔值。对于String对象来说，返回与
+  对象相关的字符串。</P>
+
+
+
+<P class="docText">其实，几乎没有必要自己调用valueOf()方法。在期望使用原始值的地方，JavaScript会自动地执行转换。事实上，由于方法valueOf()是被自动调用的，因此要分辨究
+    竟是原始值还是与之相应的对象非常困难。虽然使用typeof运算符可以显示字符串和String对象之间的区别，但在实际应用中，它们在JavaScript代码中的作用是一样的。
+
+</P>
+
+
+
+<P class="docText">  Number对象、Boolean对象和String对象的valueOf()方法可以将这些包装对象转
+    换成它们表示的原始值。在调用构造函数Obioct()时，如果把数字、布尔值或字符
+    串作为参数传递给它，它将执行相反的操作，即将原始值打包成相应的对象。几乎在所有的环境中，JavaScript都可以自动地实现原始值和对象之间的转换，所以一般说
+    来没有必要用这种方法调用构造函数Object()。</P>
+
+
+
+<P class="docText">在某些环境中，你可以为自己的对象定制一个valueOf()方法。例如，你可以定义
+    一个JavaScript对象来表示复数(即一个实数加一个虚数)。作为这个对象的一部分，
+    要给它定义执行复数的加法、乘法等其他运算的方法。不过，还有一种功能是你想要的，即像处理常规实数一样处理复数，舍弃它的虚数部分。可以使用下面的代码实现
+    这一点：</P>
+
+
+
+<PRE>Complex.prototype.valueOf = new Function("return this.real"); </PRE>
+
+
+
+<P class="docText">有了这个为Complex对象定义的valueOf()方法，就可以把复数对象传递给方法
+    Math.sqrt()，它将计算复数的实数部分的平方根。</P>
+
+
+
+<A NAME="ch23-696-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-687-fm2xml.html#ch23-687-fm2xml">Object.toString(  )</A><A NAME="IXTR3-9"></A> 
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-687-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-697-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

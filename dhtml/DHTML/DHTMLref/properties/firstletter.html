@@ -1,0 +1,154 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>:first-letter</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>:first-letter Pseudo-element
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Applies one or more styles to the first letter of the <span replace="1">object</span>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD><B>:first-letter</B>&nbsp;{&nbsp;<SPAN CLASS="clsRange">sRules</SPAN>&nbsp;}</TD></TR><TR><TH><B>Scripting</B></TH><TD>N/A</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sRules</SPAN></TD><TD>Value that specifies one or more Cascading Style Sheets (CSS)  attribute/value pairs.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <A HREF="../properties/background_0.html">background</A>, <A HREF="../properties/border_0.html">border</A>,
+<A HREF="../properties/borderbottom.html">borderBottom</A>, <A HREF="../properties/borderbottomcolor.html">borderBottomColor</A>, <A HREF="../properties/borderbottomstyle.html">borderBottomStyle</A>, <A HREF="../properties/borderbottomwidth.html">borderBottomWidth</A>, <A HREF="../properties/bordercollapse.html">borderCollapse</A>, <A HREF="../properties/bordercolor_0.html">borderColor</A>, <A HREF="../properties/borderleft.html">borderLeft</A>, <A HREF="../properties/borderleftcolor.html">borderLeftColor</A>, <A HREF="../properties/borderleftstyle.html">borderLeftStyle</A>, <A HREF="../properties/borderleftwidth.html">borderLeftWidth</A>, <A HREF="../properties/borderright.html">borderRight</A>, <A HREF="../properties/borderrightcolor.html">borderRightColor</A>, <A HREF="../properties/borderrightstyle.html">borderRightStyle</A>, <A HREF="../properties/borderrightwidth.html">borderRightWidth</A>, <A HREF="../properties/borderstyle.html">borderStyle</A>, <A HREF="../properties/bordertop.html">borderTop</A>, <A HREF="../properties/bordertopcolor.html">borderTopColor</A>, <A HREF="../properties/bordertopstyle.html">borderTopStyle</A>, <A HREF="../properties/bordertopwidth.html">borderTopWidth</A>, <A HREF="../properties/borderwidth.html">borderWidth</A>,
+<A HREF="../properties/clear_0.html">clear</A>, <A HREF="../properties/color_1.html">color</A>,
+<A HREF="../properties/float.html">styleFloat</A>, <A HREF="../properties/font.html">font</A>,
+<A HREF="../properties/fontfamily.html">fontFamily</A>, <A HREF="../properties/fontsize.html">fontSize</A>, <A HREF="../properties/fontstyle.html">fontStyle</A>, <A HREF="../properties/fontvariant.html">fontVariant</A>, <A HREF="../properties/fontweight.html">fontWeight</A>,
+<A HREF="../properties/lineheight.html">lineHeight</A>, <A HREF="../properties/margin.html">margin</A>, <A HREF="../properties/padding.html">padding</A>, <A HREF="../properties/textdecoration.html">textDecoration</A>,
+<A HREF="../properties/texttransform.html">textTransform</A>, and <A HREF="../properties/verticalalign.html">verticalAlign</A> properties apply to the <B>:first-letter</B> pseudo-element.
+</P><P>The <B>:first-letter</B> pseudo-element can be used to create common typographical effects, such as drop caps.  Drop caps is the effect obtained when the first character of a paragraph is rendered in a font larger than the rest, and its baseline is lowered by at least one full line, which results in the second line of the text also being indented.</P><P>The <B>:first-letter</B> pseudo-element can be attached to block-level elements.  It can be attached to inline elements if you set the corresponding <A HREF="../properties/display.html">display</A> property to <I>block</I>.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE>
+The following examples show how to use the <B>:first-letter</B> pseudo-element.<P>
+The following rule causes the first letter in the paragraph to be a drop cap that is twice the size of the other letters in the paragraph.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;STYLE&gt;
+P.BigFirst:first-letter { font-size: 200%; float: left }
+&lt;/STYLE&gt;
+&lt;P CLASS="BigFirst"&gt;The first letter in this paragraph will be
+twice the size of the other letters in this paragraph.  The first
+letter in this paragraph will be twice the size of the other
+letters in this paragraph.&lt;/P&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+The following rules illustrate the cumulative effect of attaching <A HREF="../properties/firstline.html">:first-line</A> and <B>:first-letter</B> pseudo-elements to an element.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;STYLE&gt;
+.LetterAndLine:first-line   { text-transform: uppercase }
+.LetterAndLine:first-letter { font-size: 200%; float: left }
+&lt;/STYLE&gt;
+&lt;P CLASS="LetterAndLine"&gt;The first letter in this paragraph will
+be twice the size of the other letters in the paragraph.  The
+first line in this paragraph will have uppercase letters.
+Subsequent lines will render normally.  The first letter in this
+paragraph will be twice the size of the other letters in the
+paragraph.  The first line in this paragraph will have uppercase
+letters.  Subsequent lines will render normally.&lt;/P&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+The following example uses the <B>:first-letter</B> pseudo-element to create a typographical effect that looks like a column in a newspaper.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;STYLE&gt;
+.col1 { border-right: black 1px solid;
+padding-right: 10px;
+padding-left: 5px;
+width: 140px;
+text-justify: newspaper
+}
+.newsbite:first-letter { padding-right: 5px;
+padding-left: 5px;
+font-size: 24pt;
+left: 0px;
+float: left;
+padding-bottom: 5px;
+padding-top: 5px;
+position: absolute;
+top: 100px
+}
+&lt;/STYLE&gt;
+&lt;DIV class="col1"&gt;
+&lt;DIV class="newsbite"&gt;Initial caps are a great a way to dress up
+your text. You can use them to draw attention to the beginning of
+an article. The initial caps used here are commonly called drop
+caps.&lt;/DIV&gt;
+&lt;/DIV&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This pseudo-element is defined in <A HREF="http://www.w3.org/TR/REC-CSS1.html" TARGET="_top">
+CSS, Level 1 (CSS1)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../properties/firstline.html">:first-line</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

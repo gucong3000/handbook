@@ -1,0 +1,90 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>CoordSize Attribute Example</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+<script language=javascript>
+var doImage = doImage;
+var TType = TType;
+function mhHover(tbl, idx, cls)
+{
+var t, d;
+if (document.getElementById)
+t = document.getElementById(tbl);
+else
+t = document.all(tbl);
+if (t == null) return;
+if (t.getElementsByTagName)
+d = t.getElementsByTagName("TD");
+else
+d = t.all.tags("TD");
+if (d == null) return;
+if (d.length <= idx) return;
+d[idx].className = cls;
+}
+function setMSResearch() {
+var time = new Date();
+if( document.cookie.indexOf( 'msresearch=1 ') == -1 ) {
+document.cookie = 'msresearch=' + time.getTime() + ':' + escape( document.location) + ':' + escape( document.referrer) + '; path=/; domain=.microsoft.com; ';
+}
+}
+function footerjs(doc)
+{
+if (doImage == null)
+{
+var tt = TType == null ? "PV" : TType;
+doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.html?source=msdn&TYPE=' + tt + '&p=workshop_author_VML_Shape_examples_x&r=http%3a%2f%2fmsdn.microsoft.com%2fworkshop%2fauthor%2fVML%2fShape%2fa_corsiz.html" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>'
+);
+}
+if( ( document.cookie.indexOf( 'msresearch=1 ') == -1 )
+&& ( document.cookie.indexOf( 'msresearch=')   != -1 ) ) {
+setInterval( "setMSResearch()", 1000 );
+}
+}
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>CoordSize Example</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<v:shape id="rect01"
+style="HEIGHT:
+50px; LEFT: 20px;
+POSITION: relative; TOP: 20px; WIDTH: 50px" coordsize = "200,200" fillcolor = "red" strokecolor = "red" path = "m1,1l1,200,200,200,200,1xe"></v:shape>
+<br><br><br>
+<P>Click the first button to change the <B>CoordSize</B> from "200 200" to "100 100". When the path is
+dynamically redrawn, each unit is twice as large as before. Click the second
+button to display the <EM>x </EM>                              unit value.</P>
+<br><br><br><br><br><br>
+<INPUT TYPE=button VALUE="Change Coordinates" NAME="Button1">
+<INPUT TYPE=button VALUE="Display X Unit Value" NAME="Button2">
+<br><br><br>
+<P><A href="../a_corsiz.html">Return to <STRONG>CoordSize
+</STRONG>   attribute.</A></P>
+<SCRIPT LANGUAGE="VBScript">
+</SCRIPT>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

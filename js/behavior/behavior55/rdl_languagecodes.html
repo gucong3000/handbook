@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_appendix.css">
+<script src="rdl_appendix.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+collFriendLists = new Array(
+'Units','Properties','Declarations','At-Rules','Pseudo-Elements','Pseudo-Classes','Selectors'
+);
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>Language Codes </span>　语言代码</div>
+
+<br><br>
+
+<table id=idListTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssListHead>代码(Code)</td><td nowrap class=cssListHead>语言(Language)</td><td nowrap class=cssListHead>代码(Code)</td><td nowrap class=cssListHead>语言(Language)</td><td nowrap class=cssListHead>代码(Code)</td><td nowrap class=cssListHead>语言(Language)</td></tr>
+<tr><td>af</td><td>Afrikaans</td><td>sq</td><td>Albanian</td><td>zu</td><td>Zulu</td></tr>
+<tr><td>ar-sa</td><td>Arabic (Saudi Arabia)</td><td>ar-iq</td><td>Arabic (Iraq)</td><td>xh</td><td>Xhosa</td></tr>
+<tr><td>ar-eg</td><td>Arabic (Egypt)</td><td>ar-ly</td><td>Arabic (Libya)</td><td>ji</td><td>Yiddish</td></tr>
+<tr><td>ar-dz</td><td>Arabic (Algeria)</td><td>ar-ma</td><td>Arabic (Morocco)</td><td>ve</td><td>Venda</td></tr>
+<tr><td>ar-tn</td><td>Arabic (Tunisia)</td><td>ar-om</td><td>Arabic (Oman)</td><td>vi</td><td>Vietnamese</td></tr>
+<tr><td>ar-ye</td><td>Arabic (Yemen)</td><td>ar-sy</td><td>Arabic (Syria)</td><td>uk</td><td>Ukrainian</td></tr>
+<tr><td>ar-jo</td><td>Arabic (Jordan)</td><td>ar-lb</td><td>Arabic (Lebanon)</td><td>ur</td><td>Urdu</td></tr>
+<tr><td>ar-kw</td><td>Arabic (Kuwait)</td><td>ar-ae</td><td>Arabic (U.A.E.)</td><td>tn</td><td>Tswana</td></tr>
+<tr><td>ar-bh</td><td>Arabic (Bahrain)</td><td>ar-qa</td><td>Arabic (Qatar)</td><td>tr</td><td>Turkish</td></tr>
+<tr><td>eu</td><td>Basque</td><td>bg</td><td>Bulgarian</td><td>th</td><td>Thai</td></tr>
+<tr><td>be</td><td>Belarusian</td><td>ca</td><td>Catalan</td><td>ts</td><td>Tsonga</td></tr>
+<tr><td>zh-tw</td><td>Chinese (Taiwan)</td><td>zh-cn</td><td>Chinese (PRC)</td><td>sv</td><td>Swedish</td></tr>
+<tr><td>zh-hk</td><td>Chinese (Hong Kong, S.A.R. China)</td><td>zh-sg</td><td>Chinese (Singapore)</td><td>sv-fi</td><td>Swedish (Finland)</td></tr>
+<tr><td>hr</td><td>Croatian</td><td>cs</td><td>Czech</td><td>es-pr</td><td>Spanish (Puerto Rico)</td></tr>
+<tr><td>da</td><td>Danish</td><td>nl</td><td>Dutch (Standard)</td><td>sx</td><td>Sutu</td></tr>
+<tr><td>nl-be</td><td>Dutch (Belgium)</td><td>en</td><td>English</td><td>es-hn</td><td>Spanish (Honduras)</td></tr>
+<tr><td>en-us</td><td>English (United States)</td><td>en-gb</td><td>English (Great Britain)</td><td>es-ni</td><td>Spanish (Nicaragua)</td></tr>
+<tr><td>en-au</td><td>English (Australia)</td><td>en-ca</td><td>English (Canada)</td><td>es-bo</td><td>Spanish (Bolivia)</td></tr>
+<tr><td>en-nz</td><td>English (New Zealand)</td><td>en-ie</td><td>English (Ireland)</td><td>es-sv</td><td>Spanish (El Salvador)</td></tr>
+<tr><td>en</td><td>English (Caribbean)</td><td>en-bz</td><td>English (Belize)</td><td>en-za</td><td>English (South Africa)</td></tr>
+<tr><td>en-tt</td><td>English (Trinidad)</td><td>et</td><td>Estonian</td><td>en-jm</td><td>English (Jamaica)</td></tr>
+<tr><td>fi</td><td>Finnish</td><td>fr</td><td>French (Standard)</td><td>fo</td><td>Faeroese</td></tr>
+<tr><td>fr-be</td><td>French (Belgium)</td><td>fr-ca</td><td>French (Canada)</td><td>fa</td><td>Farsi</td></tr>
+<tr><td>gd</td><td>Gaelic (Scotland)</td><td>gd-ie</td><td>Gaelic (Ireland)</td><td>fr-ch</td><td>French (Switzerland)</td></tr>
+<tr><td>de</td><td>German (Standard)</td><td>de-ch</td><td>German (Switzerland)</td><td>fr-lu</td><td>French (Luxembourg)</td></tr>
+<tr><td>de-li</td><td>German (Liechtenstein)</td><td>el</td><td>Greek</td><td>de-at</td><td>German (Austria)</td></tr>
+<tr><td>he</td><td>Hebrew</td><td>hi</td><td>Hindi</td><td>de-lu</td><td>German (Luxembourg)</td></tr>
+<tr><td>in</td><td>Indonesian</td><td>it</td><td>Italian (Standard)</td><td>hu</td><td>Hungarian</td></tr>
+<tr><td>it-ch</td><td>Italian (Switzerland)</td><td>ja</td><td>Japanese</td><td>is</td><td>Icelandic</td></tr>
+<tr><td>lv</td><td>Latvian</td><td>lt</td><td>Lithuanian</td><td>ko</td><td>Korean</td></tr>
+<tr><td>mk</td><td>FYRO Macedonian</td><td>ms</td><td>Malaysian</td><td>ko</td><td>Korean (Johab)</td></tr>
+<tr><td>no</td><td>Norwegian (Nynorsk)</td><td>pl</td><td>Polish</td><td>mt</td><td>Maltese</td></tr>
+<tr><td>pt-br</td><td>Portuguese (Brazil)</td><td>pt</td><td>Portuguese (Standard)</td><td>no</td><td>Norwegian (Bokmal)</td></tr>
+<tr><td>ro-mo</td><td>Romanian (Moldavia)</td><td>ru</td><td>Russian</td><td>rm</td><td>Rhaeto-Romanic</td></tr>
+<tr><td>ru-mo</td><td>Russian (Moldavia)</td><td>sz</td><td>Sami (Lappish)</td><td>ro</td><td>Romanian</td></tr>
+<tr><td>sk</td><td>Slovak</td><td>sl</td><td>Slovenian</td><td>sr</td><td>Serbian (Cyrillic)</td></tr>
+<tr><td>sb</td><td>Sorbian</td><td>es</td><td>Spanish (Spain &ndash; Traditional)</td><td>sr</td><td>Serbian (Latin)</td></tr>
+<tr><td>es-gt</td><td>Spanish (Guatemala)</td><td>es-cr</td><td>Spanish (Costa Rica)</td><td>es-mx</td><td>Spanish (Mexico)</td></tr>
+<tr><td>es-pa</td><td>Spanish (Panama)</td><td>es-do</td><td>Spanish (Dominican Republic)</td><td>es</td><td>Spanish (Spain &ndash; Modern)</td></tr>
+<tr><td>es-pe</td><td>Spanish (Peru)</td><td>es-ar</td><td>Spanish (Argentina)</td><td>es-ve</td><td>Spanish (Venezuela)</td></tr>
+<tr><td>es-ec</td><td>Spanish (Ecuador)</td><td>es-cl</td><td>Spanish (Chile)</td><td>es-co</td><td>Spanish (Colombia)</td></tr>
+<tr><td>es-uy</td><td>Spanish (Uruguay)</td><td>es-py</td><td>Spanish (Paraguay)</td><td></td><td></td></tr>
+</table>
+
+<br><br>
+
+<div>请参阅属性: <a href="properties/userlanguage.html"> userLanguage </a>、<a href="properties/systemlanguage.html"> systemLanguage </a></div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

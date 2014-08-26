@@ -1,0 +1,171 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-837-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-852-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-845-fm2xml"></A><A NAME="IXT-23-55406"></A><A NAME="IXT-23-55407"></A><A NAME="IXT-23-55408"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.search(  )</i></b></td>
+
+<td align="right"><i>检索与正则表达式相匹配的子串</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 </P><A NAME="ch23-846-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.search(<TT><I>regexp</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-847-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>regexp</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要在字符串string中检索的RegExp对象，该对象具有指定的模式。如果该参数不是RegExp对象，则首先将它传递给RegExp()构造函数，把它转换成
+    RegExp对象。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-848-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">string中第一个与regexp相匹配的子串的起始位置。如果没有找到任何匹配的子
+    串，则返回-1。</P>
+
+
+
+
+
+<A NAME="ch23-849-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法search()将在字符串string中检索与regexp相匹配的子串，并且返回第一个匹配子串的第一个字符的位置。如果没有找到任何匹配的子串，则返回-1。</P>
+
+
+
+<P class="docText">search()并不执行全局匹配，它将忽略标志g。它也忽略regexp的lastIndex属性，并且总是从字符串的开始进行检索，这意味着它总是返回string的第一个匹配的位置。</P>
+
+
+
+<A NAME="ch23-850-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var s = "JavaScript is fun";
+
+s.search(/script/i)  // 返回 4
+
+s.search(/a(.)a/)    // 返回 1</PRE>
+
+
+
+<A NAME="ch23-851-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-726-fm2xml.html#ch23-726-fm2xml">RegExp</A>, <A class="docLink" HREF="ch23-736-fm2xml.html#ch23-736-fm2xml">RegExp.exec(  )</A>, <A class="docLink" HREF="ch23-758-fm2xml.html#ch23-758-fm2xml">RegExp.test(  )</A>, <A class="docLink" HREF="ch23-830-fm2xml.html#ch23-830-fm2xml">String.match(  )</A>,
+
+<A class="docLink" HREF="ch23-837-fm2xml.html#ch23-837-fm2xml">String.replace(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-837-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-852-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>clipboardData</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="obj_clientInformation.html" title="clientInformation 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>clientInformation 对象</A> <A HREF="CODE.html" title="CODE 元素 | code 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>CODE 元素 | code 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>clipboardData 对象</H1>
+<HR SIZE="1"><P>提供了对于预定义的剪贴板格式的访问，以便在编辑操作中使用。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>clipboardData</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/clearData.html">clearData</A></TD>
+<TD>通过 <A HREF="obj_dataTransfer.html">dataTransfer</A> 或 <B>clipboardData</B> 对象从剪贴板删除一种或多种数据格式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getData.html">getData</A></TD>
+<TD>通过 <B>dataTransfer</B> 或 <B>clipboardData</B> 对象从剪贴板获取指定格式的数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setData.html">setData</A></TD>
+<TD>以指定格式给 <B>dataTransfer</B> 或 <B>clipboardData</B> 对象赋予数据。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>clipboardData</B> 对象是为通过编辑菜单、快捷菜单和快捷键执行的编辑操作所保留的。该对象使用系统剪贴板传送信息并保留至下一个编辑操作冲掉它。数据传送的格式特别适合于多次粘贴相同的数据。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子使用了 <B>clipboardData</B> 对象的 <A HREF="../methods/setData.html">setData</A> 和 <A HREF="../methods/getData.html">getData</A> 方法通过快捷菜单执行剪切粘贴操作。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+var bResult;
+// 选中要剪切的文本。在剪切事件中文本选中区的尾随空格导致剪
+// 切选快捷菜单项目保持无效。
+function fnLoad() {
+var r = document.body.createTextRange();
+r.findText(oSource.innerText);
+r.select();
+}
+// 启用剪切快捷菜单项目，该项目在 DIV 上时默认为无效
+function fnBeforeCut() {
+event.returnValue = false;
+}
+// 以文本格式给 window.clipboardData 对象赋予数据。
+// 将 setData 方法的结果 (Boolean) 显示在下面的输入框内。
+function fnCut(){
+event.returnValue = false;
+bResult = window.clipboardData.setData("Text",oSource.innerText);
+oSource.innerText = "";
+tText.innerText += bResult;
+}
+// 启用粘贴快捷菜单项目，该项目在 DIV 上时默认也为无效
+function fnBeforePaste() {
+event.returnValue = false;
+}
+// 在 onpaste 中取消 returnValue 以便输入文本，该操作有默认
+// 的行为。
+function fnPaste() {
+event.returnValue = false;
+oTarget.innerText = window.clipboardData.getData("Text");
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="fnLoad()" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="fixed" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;DIV CLASS="clsSource" ID="oSource" onbeforecut="fnBeforeCut()" oncut="fnCut()"&gt;选中并剪切此文本&lt;/DIV&gt;
+&lt;DIV CLASS="clsTarget" ID="oTarget" onbeforepaste="fnBeforePaste()" onpaste="fnPaste()"&gt;将文本粘贴在这里&lt;/DIV&gt;&lt;BR&gt;
+&lt;SPAN CLASS="clsData"&gt;setData 结果:&lt;/SPAN&gt;
+&lt;INPUT CLASS="clsText" ID="tText" TYPE="text" READONLY VALUE="" SIZE="6" TABINDEX="-1"&gt;
+&lt;/BODY&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.0" SAMPLEPATH="../samples/clipboarddata/clipboarddata.html" FEATURES="top=50,left=50,height=450,width=650,status=0,resizable=1"></IMG></A>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="obj_window.html">window</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

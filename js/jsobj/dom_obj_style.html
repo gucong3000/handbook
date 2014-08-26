@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>HTML DOM Style 对象</title>
+
+</head>
+
+<body class="browserscripting" id="jsref">
+
+<div id="wrapper">
+
+<div id="navsecond">
+
+<div id="course"><h2>JS & DOM 参考手册</h2>
+<ul>
+<li><a href="index.html" title="JavaScript 和 HTML DOM 参考手册">参考手册目录</a></li>
+</ul>
+<h2>JavaScript 对象</h2>
+<ul>
+<li><a href="jsref_obj_array.html" title="JavaScript Array 对象参考手册">JS Array</a></li>
+<li><a href="jsref_obj_boolean.html" title="JavaScript Boolean 对象参考手册">JS Boolean</a></li>
+<li><a href="jsref_obj_date.html" title="JavaScript Date 对象参考手册">JS Date</a></li>
+<li><a href="jsref_obj_math.html" title="JavaScript Math 对象的参考手册">JS Math</a></li>
+<li><a href="jsref_obj_number.html" title="JavaScript Number 对象参考手册">JS Number</a></li>
+<li><a href="jsref_obj_string.html" title="JavaScript String 对象参考手册">JS String</a></li>
+<li><a href="jsref_obj_regexp.html" title="JavaScript RegExp 对象参考手册">JS RegExp</a></li>
+<li><a href="jsref_obj_global.html" title="JavaScript 全局对象参考手册">JS Functions</a></li>
+<li><a href="jsref_events.html" title="JavaScript 事件参考手册">JS Events</a></li>
+</ul>
+<h2>Browser 对象</h2>
+<ul>
+<li><a href="dom_obj_window.html" title="HTML DOM Window 对象">Window</a></li>
+<li><a href="dom_obj_navigator.html" title="HTML DOM Navigator 对象">Navigator</a></li>
+<li><a href="dom_obj_screen.html" title="HTML DOM Screen 对象">Screen</a></li>
+<li><a href="dom_obj_history.html" title="HTML DOM History 对象">History</a></li>
+<li><a href="dom_obj_location.html" title="HTML DOM Location 对象">Location</a></li>
+</ul>
+<h2>HTML DOM 对象</h2>
+<ul>
+<li><a href="dom_obj_document.html" title="HTML DOM Document 对象">DOM Document</a></li>
+<li><a href="dom_obj_all.html" title="HTML DOM Element 对象">DOM Element</a></li>
+<li><a href="dom_obj_attributes.html" title="HTML DOM Attribute 对象">DOM Attribute</a></li>
+<li><a href="dom_obj_event.html" title="HTML DOM Event 对象">DOM Event</a></li>
+</ul>
+<h2>HTML 对象</h2>
+<ul>
+<li><a href="dom_obj_anchor.html" title="HTML DOM Anchor 对象">&lt;a&gt;</a></li>
+<li><a href="dom_obj_area.html" title="HTML DOM Area 对象">&lt;area&gt;</a></li>
+<li><a href="dom_obj_audio.html" title="HTML DOM Audio 对象">&lt;audio&gt;</a></li>
+<li><a href="dom_obj_base.html" title="HTML DOM Base 对象">&lt;base&gt;</a></li>
+<li><a href="dom_obj_body.html" title="HTML DOM Body 对象">&lt;body&gt;</a></li>
+<li><a href="dom_obj_blockquote.html" title="HTML DOM Blockquote 对象">&lt;blockquote&gt;</a></li>
+<li><a href="dom_obj_pushbutton.html" title="HTML DOM Button 对象">&lt;button&gt;</a></li>
+<li><a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">&lt;canvas&gt;</a></li>
+<li><a href="dom_obj_col.html" title="HTML DOM Column 对象">&lt;col&gt;</a></li>
+<li><a href="dom_obj_colgroup.html" title="HTML DOM ColumnGroup 对象">&lt;colgroup&gt;</a></li>
+<li><a href="dom_obj_datalist.html" title="HTML DOM Datalist 对象">&lt;datalist&gt;</a></li>
+<li><a href="dom_obj_del.html" title="HTML DOM Del 对象">&lt;del&gt;</a></li>
+<li><a href="dom_obj_details.html" title="HTML DOM Details 对象">&lt;details&gt;</a></li>
+<li><a href="dom_obj_dialog.html" title="HTML DOM Dialog 对象">&lt;dialog&gt;</a></li>
+<li><a href="dom_obj_embed.html" title="HTML DOM Embed 对象">&lt;embed&gt;</a></li>
+<li><a href="dom_obj_fieldset.html" title="HTML DOM Fieldset 对象">&lt;fieldset&gt;</a></li>
+<li><a href="dom_obj_form.html" title="HTML DOM Form 对象">&lt;form&gt;</a></li>
+<li><a href="dom_obj_frame.html" title="HTML DOM Frame 对象">&lt;frame&gt;</a></li>
+<li><a href="dom_obj_frameset.html" title="HTML DOM Frameset 对象">&lt;frameset&gt;</a></li>
+<li><a href="dom_obj_iframe.html" title="HTML DOM IFrame 对象">&lt;iframe&gt;</a></li>
+<li><a href="dom_obj_image.html" title="HTML DOM Image 对象">&lt;img&gt;</a></li>
+<li><a href="dom_obj_ins.html" title="HTML DOM Ins 对象">&lt;ins&gt;</a></li>
+<li><a href="dom_obj_button.html" title="HTML DOM Button 对象">&lt;input&gt; button</a></li>
+<li><a href="dom_obj_checkbox.html" title="HTML DOM Checkbox 对象">&lt;input&gt; checkbox</a></li>
+<li><a href="dom_obj_color.html" title="HTML DOM Color 对象">&lt;input&gt; color</a></li>
+<li><a href="dom_obj_date.html" title="HTML DOM Input Date 对象">&lt;input&gt; date</a></li>
+<li><a href="dom_obj_datetime.html" title="HTML DOM Datetime 对象">&lt;input&gt; datetime</a></li>
+<li><a href="dom_obj_datetime-local.html" title="HTML DOM Datetime Local 对象">&lt;input&gt; datetime-local</a></li>
+<li><a href="dom_obj_email.html" title="HTML DOM Email 对象">&lt;input&gt; email</a></li>
+<li><a href="dom_obj_fileupload.html" title="HTML DOM FileUpload 对象">&lt;input&gt; file</a></li>
+<li><a href="dom_obj_hidden.html" title="HTML DOM Hidden 对象">&lt;input&gt; hidden</a></li>
+<li><a href="dom_obj_input_image.html" title="HTML DOM Input Image 对象">&lt;input&gt; image</a></li>
+<li><a href="dom_obj_month.html" title="HTML DOM Month 对象">&lt;input&gt; month</a></li>
+<li><a href="dom_obj_number.html" title="HTML DOM Number 对象">&lt;input&gt; number</a></li>
+<li><a href="dom_obj_password.html" title="HTML DOM Password 对象">&lt;input&gt; password</a></li>
+<li><a href="dom_obj_range.html" title="HTML DOM Input Range 对象">&lt;input&gt; range</a></li>
+<li><a href="dom_obj_radio.html" title="HTML DOM Radio 对象">&lt;input&gt; radio</a></li>
+<li><a href="dom_obj_reset.html" title="HTML DOM Reset 对象">&lt;input&gt; reset</a></li>
+<li><a href="dom_obj_search.html" title="HTML DOM Input Search 对象">&lt;input&gt; search</a></li>
+<li><a href="dom_obj_submit.html" title="HTML DOM Submit 对象">&lt;input&gt; submit</a></li>
+<li><a href="dom_obj_text.html" title="HTML DOM Text 对象">&lt;input&gt; text</a></li>
+<li><a href="dom_obj_input_time.html" title="HTML DOM Input Time 对象">&lt;input&gt; time</a></li>
+<li><a href="dom_obj_url.html" title="HTML DOM Input URL 对象">&lt;input&gt; url</a></li>
+<li><a href="dom_obj_week.html" title="HTML DOM Week 对象">&lt;input&gt; week</a></li>
+<li><a href="dom_obj_keygen.html" title="HTML DOM Keygen 对象">&lt;keygen&gt;</a></li>
+<li><a href="dom_obj_label.html" title="HTML DOM Label 对象">&lt;label&gt;</a></li>
+<li><a href="dom_obj_legend.html" title="HTML DOM Legend 对象">&lt;legend&gt;</a></li>
+<li><a href="dom_obj_li.html" title="HTML DOM Li 对象">&lt;li&gt;</a></li>
+<li><a href="dom_obj_link.html" title="HTML DOM Link 对象">&lt;link&gt;</a></li>
+<li><a href="dom_obj_map.html" title="HTML DOM Map 对象">&lt;map&gt;</a></li>
+<li><a href="dom_obj_menu.html" title="HTML DOM Menu 对象">&lt;menu&gt;</a></li>
+<li><a href="dom_obj_menuitem.html" title="HTML DOM MenuItem 对象">&lt;menuitem&gt;</a></li>
+<li><a href="dom_obj_meta.html" title="HTML DOM Meta 对象">&lt;meta&gt;</a></li>
+<li><a href="dom_obj_meter.html" title="HTML DOM Meter 对象">&lt;meter&gt;</a></li>
+<li><a href="dom_obj_object.html" title="HTML DOM Object 对象">&lt;object&gt;</a></li>
+<li><a href="dom_obj_ol.html" title="HTML DOM Ol 对象">&lt;ol&gt;</a></li>
+<li><a href="dom_obj_optgroup.html" title="HTML DOM OptionGroup 对象">&lt;optgroup&gt;</a></li>
+<li><a href="dom_obj_option.html" title="HTML DOM Option 对象">&lt;option&gt;</a></li>
+<li><a href="dom_obj_param.html" title="HTML DOM Parameter 对象">&lt;param&gt;</a></li>
+<li><a href="dom_obj_progress.html" title="HTML DOM Progress 对象">&lt;progress&gt;</a></li>
+<li><a href="dom_obj_quote.html" title="HTML DOM Quote 对象">&lt;q&gt;</a></li>
+<li><a href="dom_obj_script.html" title="HTML DOM Script 对象">&lt;script&gt;</a></li>
+<li><a href="dom_obj_select.html" title="HTML DOM Select 对象">&lt;select&gt;</a></li>
+<li><a href="dom_obj_source.html" title="HTML DOM Source 对象">&lt;source&gt;</a></li>
+<li class="currentLink"><a href="dom_obj_style.html" title="HTML DOM Style 对象">&lt;style&gt;</a></li>
+<li><a href="dom_obj_table.html" title="HTML DOM Table 对象">&lt;table&gt;</a></li>
+<li><a href="dom_obj_tabledata.html" title="HTML DOM TableCell 对象">&lt;td&gt;</a></li>
+<li><a href="dom_obj_tablehead.html" title="HTML DOM TableHeader 对象">&lt;th&gt;</a></li>
+<li><a href="dom_obj_tablerow.html" title="HTML DOM TableRow 对象">&lt;tr&gt;</a></li>
+<li><a href="dom_obj_textarea.html" title="HTML DOM Textarea 对象">&lt;textarea&gt;</a></li>
+<li><a href="dom_obj_time.html" title="HTML DOM Time 对象">&lt;time&gt;</a></li>
+<li><a href="dom_obj_title.html" title="HTML DOM Title 对象">&lt;title&gt;</a></li>
+<li><a href="dom_obj_track.html" title="HTML DOM Track 对象">&lt;track&gt;</a></li>
+<li><a href="dom_obj_video.html" title="HTML DOM Video 对象">&lt;video&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTML DOM Style 对象</h1>
+
+
+<div>
+<h2>Style 对象</h2>
+
+<p>Style 对象代表一个单独的样式声明。可从应用样式的文档或元素访问 Style 对象。</p>
+
+<h3>使用 Style 对象属性的语法：</h3>
+
+<pre>document.getElementById(&quot;id&quot;).style.property=&quot;值&quot;</pre>
+</div>
+
+
+<div>
+<h2>Style 对象的属性：</h2>
+
+<ul>
+  <li><a href="dom_obj_style.html#background">背景</a></li>
+  <li><a href="dom_obj_style.html#border">边框和边距</a></li>
+  <li><a href="dom_obj_style.html#layout">布局</a></li>
+  <li><a href="dom_obj_style.html#list">列表</a></li>
+  <li><a href="dom_obj_style.html#misc">杂项</a></li>
+  <li><a href="dom_obj_style.html#positioning">定位</a></li>
+  <li><a href="dom_obj_style.html#printing">打印</a></li>
+  <li><a href="dom_obj_style.html#scrollbar">滚动条</a></li>
+  <li><a href="dom_obj_style.html#table">表格</a></li>
+  <li><a href="dom_obj_style.html#text">文本</a></li>
+  <li><a href="dom_obj_style.html#std">规范</a></li>
+</ul>
+
+<h3><a name="background">Background 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_background.html">background</a></td>
+    <td>在一行中设置所有的背景属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundattachment.html">backgroundAttachment</a></td>
+    <td>设置背景图像是否固定或随页面滚动</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundcolor.html">backgroundColor</a></td>
+    <td>设置元素的背景颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundimage.html">backgroundImage</a></td>
+    <td>设置元素的背景图像</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundposition.html">backgroundPosition</a></td>
+    <td>设置背景图像的起始位置</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundpositionx.html">backgroundPositionX</a></td>
+    <td>设置backgroundPosition属性的X坐标</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundpositiony.html">backgroundPositionY</a></td>
+    <td>设置backgroundPosition属性的Y坐标</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_backgroundrepeat.html">backgroundRepeat</a></td>
+    <td>设置是否及如何重复背景图像</td>
+  </tr>
+</table>
+
+
+
+<h3><a name="border">Border 和 Margin 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_border.html">border</a></td>
+    <td>在一行设置四个边框的所有属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderbottom.html">borderBottom</a></td>
+    <td>在一行设置底边框的所有属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderbottomcolor.html">borderBottomColor</a></td>
+    <td>设置底边框的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderbottomstyle.html">borderBottomStyle</a></td>
+    <td>设置底边框的样式</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderbottomwidth.html">borderBottomWidth</a></td>
+    <td>设置底边框的宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordercolor.html">borderColor</a></td>
+    <td>设置所有四个边框的颜色 (可设置四种颜色)</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderleft.html">borderLeft</a></td>
+    <td>在一行设置左边框的所有属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderleftcolor.html">borderLeftColor</a></td>
+    <td>设置左边框的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderleftstyle.html">borderLeftStyle</a></td>
+    <td>设置左边框的样式</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderleftwidth.html">borderLeftWidth</a></td>
+    <td>设置左边框的宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderright.html">borderRight</a></td>
+    <td>在一行设置右边框的所有属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderrightcolor.html">borderRightColor</a></td>
+    <td>设置右边框的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderrightstyle.html">borderRightStyle</a></td>
+    <td>设置右边框的样式</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderrightwidth.html">borderRightWidth</a></td>
+    <td>设置右边框的宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderstyle.html">borderStyle</a></td>
+    <td>设置所有四个边框的样式 (可设置四种样式)</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertop.html">borderTop</a></td>
+    <td>在一行设置顶边框的所有属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertopcolor.html">borderTopColor</a></td>
+    <td>设置顶边框的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertopstyle.html">borderTopStyle</a></td>
+    <td>设置顶边框的样式</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordertopwidth.html">borderTopWidth</a></td>
+    <td>设置顶边框的宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderwidth.html">borderWidth</a></td>
+    <td>设置所有四条边框的宽度 (可设置四种宽度)</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_margin.html">margin</a></td>
+    <td>设置元素的边距 (可设置四个值)</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_marginbottom.html">marginBottom</a></td>
+    <td>设置元素的底边距</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_marginleft.html">marginLeft</a></td>
+    <td>设置元素的左边距</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_marginright.html">marginRight</a></td>
+    <td>设置元素的右边据</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_margintop.html">marginTop</a></td>
+    <td>设置元素的顶边距</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outline.html">outline</a></td>
+    <td>在一行设置所有的outline属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outlinecolor.html">outlineColor</a></td>
+    <td>设置围绕元素的轮廓颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outlinestyle.html">outlineStyle</a></td>
+    <td>设置围绕元素的轮廓样式</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_outlinewidth.html">outlineWidth</a></td>
+    <td>设置围绕元素的轮廓宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_padding.html">padding</a></td>
+    <td>设置元素的填充 (可设置四个值)</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingbottom.html">paddingBottom</a></td>
+    <td>设置元素的下填充</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingleft.html">paddingLeft</a></td>
+    <td>设置元素的左填充</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingright.html">paddingRight</a></td>
+    <td>设置元素的右填充</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_paddingtop.html">paddingTop</a></td>
+    <td>设置元素的顶填充</td>
+  </tr>
+</table>
+
+
+
+<h3><a name="layout">Layout 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_clear.html">clear</a></td>
+    <td>设置在元素的哪边不允许其他的浮动元素</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_clip.html">clip</a></td>
+    <td>设置元素的形状</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_content.html">content</a></td>
+    <td>设置元信息</td>
+  </tr>
+  <tr>
+    <td>counterIncrement</td>
+    <td>设置其后是正数的计数器名称的列表。其中整数指示每当元素出现时计数器的增量。默认是1。</td>
+  </tr>
+  <tr>
+    <td>counterReset</td>
+    <td>设置其后是正数的计数器名称的列表。其中整数指示每当元素出现时计数器被设置的值。默认是0。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_cssfloat.html">cssFloat</a></td>
+    <td>设置图像或文本将出现（浮动）在另一元素中的何处。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_cursor.html">cursor</a></td>
+    <td>设置显示的指针类型</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_direction.html">direction</a></td>
+    <td>设置元素的文本方向</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_display.html">display</a></td>
+    <td>设置元素如何被显示</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_height.html">height</a></td>
+    <td>设置元素的高度</td>
+  </tr>
+  <tr>
+    <td>markerOffset</td>
+    <td>设置marker box的principal box距离其最近的边框边缘的距离</td>
+  </tr>
+  <tr>
+    <td>marks</td>
+    <td>设置是否cross marks或crop marks应仅仅被呈现于page box边缘之外</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_maxheight.html">maxHeight</a></td>
+    <td>设置元素的最大高度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_maxwidth.html">maxWidth</a></td>
+    <td>设置元素的最大宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_minheight.html">minHeight</a></td>
+    <td>设置元素的最小高度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_minwidth.html">minWidth</a></td>
+    <td>设置元素的最小宽度</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_overflow.html">overflow</a></td>
+    <td>规定如何处理不适合元素盒的内容</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_verticalalign.html">verticalAlign</a></td>
+    <td>设置对元素中的内容进行垂直排列</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_visibility.html">visibility</a></td>
+    <td>设置元素是否可见</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_width.html">width</a></td>
+    <td>设置元素的宽度</td>
+  </tr>
+</table>
+
+
+
+<h3><a name="list">List 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyle.html">listStyle</a></td>
+    <td>在一行设置列表的所有属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyleimage.html">listStyleImage</a></td>
+    <td>把图像设置为列表项标记</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyleposition.html">listStylePosition</a></td>
+    <td>改变列表项标记的位置</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_liststyletype.html">listStyleType</a></td>
+    <td>设置列表项标记的类型</td>
+  </tr>
+  </table>
+
+
+
+<h3><a name="positioning">Positioning 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bottom.html">bottom</a></td>
+    <td>设置元素的底边缘距离父元素底边缘的之上或之下的距离</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_left.html">left</a></td>
+    <td>置元素的左边缘距离父元素左边缘的左边或右边的距离</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_position.html">position</a></td>
+    <td>把元素放置在static, relative, absolute 或 fixed 的位置</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_right.html">right</a></td>
+    <td>置元素的右边缘距离父元素右边缘的左边或右边的距离</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_top.html">top</a></td>
+    <td>设置元素的顶边缘距离父元素顶边缘的之上或之下的距离</td>
+
+  </tr>
+  <tr>
+    <td><a href="prop_style_zindex.html">zIndex</a></td>
+    <td>设置元素的堆叠次序</td>
+  </tr>
+</table>
+
+
+
+<h3><a name="printing">Printing 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>orphans</td>
+    <td>设置段落留到页面底部的最小行数</td>
+  </tr>
+  <tr>
+    <td>page</td>
+    <td>设置显示某元素时使用的页面类型</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_pagebreakafter.html">pageBreakAfter</a></td>
+    <td>设置某元素之后的分页行为</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_pagebreakbefore.html">pageBreakBefore</a></td>
+    <td>设置某元素之前的分页行为</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_pagebreakinside.html">pageBreakInside</a></td>
+    <td>设置某元素内部的分页行为</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>设置页面的方向和尺寸</td>
+  </tr>
+  <tr>
+    <td>widows</td>
+    <td>设置段落必须留到页面顶部的最小行数</td>
+  </tr>
+  </table>
+
+
+
+<h3><a name="scrollbar">Scrollbar 属性</a> (IE-only)</h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbar3dlightcolor.html">scrollbar3dLightColor</a></td>
+    <td>设置箭头和滚动条左侧和顶边的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbararrowcolor.html">scrollbarArrowColor</a></td>
+    <td>设置滚动条上的箭头颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbarbasecolor.html">scrollbarBaseColor</a></td>
+    <td>设置滚动条的底色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbardarkshadowcolor.html">scrollbarDarkShadowColor</a></td>
+    <td>设置箭头和滚动条右侧和底边的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbarfacecolor.html">scrollbarFaceColor</a></td>
+    <td>设置滚动条的表色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbarhighlightcolor.html">scrollbarHighlightColor</a></td>
+    <td>设置箭头和滚动条左侧和顶边的颜色，以及滚动条的背景</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbarshadowcolor.html">scrollbarShadowColor</a></td>
+    <td>设置箭头和滚动条右侧和底边的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_scrollbartrackcolor.html">scrollbarTrackColor</a></td>
+    <td>设置滚动条的背景色</td>
+  </tr>
+  </table>
+
+
+
+<h3><a name="table">Table 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_bordercollapse.html">borderCollapse</a></td>
+    <td>设置表格边框是否合并为单边框，或者像在标准的HTML中那样分离。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_borderspacing.html">borderSpacing</a></td>
+    <td>设置分隔单元格边框的距离</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_captionside.html">captionSide</a></td>
+    <td>设置表格标题的位置</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_emptycells.html">emptyCells</a></td>
+    <td>设置是否显示表格中的空单元格</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_tablelayout.html">tableLayout</a></td>
+    <td>设置用来显示表格单元格、行以及列的算法</td>
+  </tr>
+</table>
+
+
+
+<h3><a name="text">Text 属性</a></h3>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_style_color.html">color</a></td>
+    <td>设置文本的颜色</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_font.html">font</a></td>
+    <td>在一行设置所有的字体属性</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontfamily.html">fontFamily</a></td>
+    <td>设置元素的字体系列。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontsize.html">fontSize</a></td>
+    <td>设置元素的字体大小。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontsizeadjust.html">fontSizeAdjust</a></td>
+    <td>设置/调整文本的尺寸</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontstretch.html">fontStretch</a></td>
+    <td>设置如何紧缩或伸展字体</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontstyle.html">fontStyle</a></td>
+    <td>设置元素的字体样式</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontvariant.html">fontVariant</a></td>
+    <td>用小型大写字母字体来显示文本</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_fontweight.html">fontWeight</a></td>
+    <td>设置字体的粗细</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_letterspacing.html">letterSpacing</a></td>
+    <td>设置字符间距</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_lineheight.html">lineHeight</a></td>
+    <td>设置行间距</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_quotes.html">quotes</a></td>
+    <td>设置在文本中使用哪种引号</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_textalign.html">textAlign</a></td>
+    <td>排列文本</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_textdecoration.html">textDecoration</a></td>
+    <td>设置文本的修饰</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_textindent.html">textIndent</a></td>
+    <td>缩紧首行的文本</td>
+  </tr>
+  <tr>
+    <td>textShadow</td>
+    <td>设置文本的阴影效果</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_texttransform.html">textTransform</a></td>
+    <td>对文本设置大写效果</td>
+  </tr>
+  <tr>
+    <td>unicodeBidi</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_whitespace.html">whiteSpace</a></td>
+    <td>设置如何设置文本中的折行和空白符</td>
+  </tr>
+  <tr>
+    <td><a href="prop_style_wordspacing.html">wordSpacing</a></td>
+    <td>设置文本中的词间距</td>
+  </tr>
+  </table>
+
+
+
+<h3><a name="std">标准属性</a></h3>
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="prop_dir.html">dir</a></td>
+    <td>设置或返回文本的方向</td>
+  </tr>
+  <tr>
+    <td><a href="prop_lang.html">lang</a></td>
+    <td>设置或返回元素的语言代码</td>
+  </tr>
+  <tr>
+    <td><a href="prop_title.html">title</a></td>
+    <td>设置或返回元素的咨询性的标题</td>
+  </tr>
+</table>
+
+
+<h3>cssText 属性</h3>
+
+<p>它是一组样式属性及其值的文本表示。这个文本格式化为一个 CSS 样式表，去掉了包围属性和值的元素选择器的花括号。</p>
+
+<p>将这一属性设置为非法的值将会抛出一个代码为 SYNTAX_ERR 的 <a href="http://www.w3school.com.cn/xmldom/dom_domexception.html" title="XML DOM - DOMException 对象">DOMException 异常</a>。当 CSS2Properties 对象是只读的时候，试图设置这一属性将会抛出一个代码为 NO_MODIFICATION_ALLOWED_ERR 的 <a href="http://www.w3school.com.cn/xmldom/dom_domexception.html" title="XML DOM - DOMException 对象">DOMException 异常</a>。</p>
+</div>
+
+
+<div>
+<h2>关于 CSS2Properties 对象</h2>
+
+<p>CSS2Properties 对象表示一组 CSS 样式属性及其值。它为 CSS 规范定义的每一个 CSS 属性都定义一个 JavaScript 属性。</p>
+
+<p>一个 HTMLElement 的 style 属性是一个可读可写的 CSS2Properties 对象，就好像 CSSRule 对象的 style 属性一样。不过，Window.getComputedStyle() 的返回值是一个 CSS2Properties 对象，其属性是只读的。</p>
+</div>
+
+
+<div>
+<h2>相关页面</h2>
+
+<p>XML DOM 参考手册：<a href="http://www.w3school.com.cn/xmldom/dom_css2properties.html" title="XML DOM CSS2Properties 对象">CSS2Properties 对象</a></p>
+
+<p>参考手册：<a href="http://www.w3school.com.cn/cssref/index.html">CSS 参考手册</a></p>
+</div>
+
+
+
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

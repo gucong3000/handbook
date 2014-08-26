@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>PUBLIC:METHOD</span>元素</h1>
+		<hr>
+		<p>定义一个该<span>HTC</span>的专有方法，并将其暴露给包含此<span>HTC</span>的文档。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;PUBLIC:METHOD<br>&nbsp;&nbsp;id&nbsp;=&nbsp;&quot;<I>sID</I>&quot;<br>&nbsp;&nbsp;internalname&nbsp;=&nbsp;&quot;<I>sInternalName</I>&quot;<br>&nbsp;&nbsp;name&nbsp;=&nbsp;&quot;<I>sName</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>ID</B></dt>
+				<dd>
+					<p>可选。字符串值；在组件内用于识别该<B><span>PUBLIC:METHOD</span></B>元素的唯一值。这个属性类似于<span>DHTML</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性。</p>
+				</dd>
+				<dt><B>INTERNALNAME</B></dt>
+				<dd>
+					<p>可选。字符串值；指定该方法在组件内访问的名称。如果没有指定值，默认使用<B><span>NAME</span></B>属性。</p>
+				</dd>
+				<dt><B>NAME</B></dt>
+				<dd>
+					<p>必需。字符串值；指定该方法在包含文档中访问的名称。默认的，该<B><span>NAME</span></B>属性同样用于在组件内访问，除非指定了<B><span>INTERNALNAME</span></B>属性。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Element Information</LABEL>元素信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th>父元素</th>
+					<td><a href="component.html"><span>PUBLIC:COMPONENT</span></a></td>
+				</tr>
+				<tr>
+					<th>子元素</th>
+					<td>无</td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>通过指定与该元素已定义的标准方法同名的<B><span>NAME</span></B>属性，该行为可以重载该元素的默认行为。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>此例使用该<B><span>PUBLIC:METHOD</span></B>标签将<I><span>startFlying</span></I>方法从<span>HTC</span>暴露给其包含文档。</p>
+			<code>&lt;PUBLIC:COMPONENT&nbsp;name=&quot;toFly&quot;&gt;<br>&nbsp;&nbsp;&lt;PUBLIC:METHOD&nbsp;name=&quot;startFlying&quot;&nbsp;/&gt;<br><br>&nbsp;&nbsp;&lt;SCRIPT&nbsp;LANGUAGE=&quot;JScript&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;startFlying()<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<U>//&nbsp;Insert&nbsp;flying&nbsp;code&nbsp;here</U><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&lt;/SCRIPT&gt;<br>&lt;/PUBLIC:COMPONENT&gt;</code>
+			<p>此包含文档的范例示范了调用该方法的一种途径。</p>
+			<div class="example">
+				<code>&lt;HTML&gt;<br>&nbsp;&nbsp;&lt;HEAD&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;STYLE&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.FLY&nbsp;{behavior:url(fly.htc)}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/STYLE&gt;<br>&nbsp;&nbsp;&lt;/HEAD&gt;<br><br>&nbsp;&nbsp;&lt;BODY&nbsp;id=&quot;flyingHigh&quot;&nbsp;class=&quot;FLY&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;DIV&nbsp;onclick=&quot;flyingHigh.startFlying()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<U>&lt;!--&nbsp;Insert&nbsp;stuff&nbsp;to&nbsp;fly&nbsp;--&gt;</U><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/DIV&gt;<br>&nbsp;&nbsp;&lt;/BODY&gt;<br>&lt;/HTML&gt;</code>
+			</div>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+				<li><a href="event.html"><span>PUBLIC:EVENT</span></a></li>
+				<li><a href="property.html"><span>PUBLIC:PROPERTY</span></a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

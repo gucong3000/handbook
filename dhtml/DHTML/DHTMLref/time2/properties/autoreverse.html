@@ -1,0 +1,132 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>AUTOREVERSE Attribute | autoReverse Property (t:TRANSITIONFILTER, t:ANIMATE, t:ANIMATECOLOR, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>AUTOREVERSE Attribute | autoReverse Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves whether the timeline on an element begins playing in reverse immediately after completing in the forward direction.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>AUTOREVERSE</B>
+= <SPAN CLASS="clsRange">bReverse</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>autoReverse</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">bReverse</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">bReverse</SPAN></TD><TD>
+Boolean that specifies or receives one of the following values: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD>Timeline plays in the forward direction until it completes, and then immediately plays in the reverse direction.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">false</SPAN></TD><TD>Default. Timeline does not play in the reverse direction after it finishes playing in the forward direction.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+false</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>On some systems, this attribute is referred to as "Play forward, then backward." The property cannot be modified in script after the onload event fires on the document body.</P><P>Setting <B>autoReverse</B> to <SPAN CLASS="clsLiteral">true</SPAN> on a video file results in the file being frozen at the frame on which the reverse occurred—that is, on the last frame played.</P><P>Audio files do not play in reverse if <B>autoReverse</B> is set; they simply end.</P><P>If the element has a <A HREF="../../time2/properties/repeatcount.html">repeatCount</A> greater than one and <B>autoReverse</B> is set to <SPAN CLASS="clsLiteral">true</SPAN>, the element is considered to have completed one loop through the timeline when it has played once forward and once backward.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows the current loop iteration of an <A HREF="../../time2/elements/animatemotion.html">animateMotion</A> element with the <B>autoReverse</B> attribute set to <SPAN CLASS="clsLiteral">true</SPAN>.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="repeatCount">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;autoReverse Property&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time   {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function fnRepeat()
+{
+oCount.innerText = "Current iteration: " +
+(oAnim.currTimeState.repeatCount + 1);
+// Add one because repeatCount is zero-based.
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;DIV ID="oCount"&gt;Current iteration: 1&lt;/DIV&gt;
+&lt;DIV ID="oDiv" CLASS="time"
+STYLE="position:absolute;
+top:25px; left:50px;
+height:100px; width:100px;
+background-color:blue;"
+&lt;/DIV&gt;
+&lt;t:ANIMATEMOTION ID="oAnim" targetElement="oDIV"
+to="150,0" dur="1" autoReverse="true" repeatCount="5"
+onrepeat="fnRepeat()"/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/autoreverse.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizeable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animate.html">
+t:ANIMATE</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatecolor.html">
+t:ANIMATECOLOR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatemotion.html">
+t:ANIMATEMOTION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/excl.html">
+t:EXCL</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/set.html">
+t:SET</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/behaviors/time2.html">time2</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

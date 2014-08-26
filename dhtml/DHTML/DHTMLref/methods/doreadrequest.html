@@ -1,0 +1,97 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>doReadRequest</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>doReadRequest Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Performs all requests located in the read-requests queue.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>userProfile</I><B>.doReadRequest(</B><I>vUsageCode</I><B> [</B><B>, </B><I>vFriendlyName</I><B>]</B><B> [</B><B>, </B><I>vDomain</I><B>]</B><B> [</B><B>, </B><I>vPath</I><B>]</B><B> [</B><B>, </B><I>vExpiration</I><B>]</B><B> [</B><B>, </B><I>vReserved</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>vUsageCode</I></TD><TD>
+Required.
+<b>Integer</b> that specifies the code that notifies the user of the type of access requested. This usage code should be one of the following 13 codes defined by the Internet Privacy Working Group (IPWG). <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">0</SPAN></TD><TD>Used for system administration.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">1</SPAN></TD><TD>Used for research and product development.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">2</SPAN></TD><TD>Used for completion and support of the current transaction.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">3</SPAN></TD><TD>Used to customize the content and design of a site.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">4</SPAN></TD><TD>Used to improve the content of a site that includes advertisements.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">5</SPAN></TD><TD>Used for notifying visitors about updates to the site.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">6</SPAN></TD><TD>Used for contacting visitors for marketing of services or products.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">7</SPAN></TD><TD>Used for linking other collected information.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">8</SPAN></TD><TD>Used by a site for other purposes.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">9</SPAN></TD><TD>Disclosed to others for customization or improvement of the content and design of the site.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">10</SPAN></TD><TD>Disclosed to others, who may contact the user, for marketing of services or products.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">11</SPAN></TD><TD>Disclosed to others, who may contact the user, for marketing of services or products. The user can ask a site not to do this.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">12</SPAN></TD><TD>Disclosed to others for any other purpose.</TD></TR></TABLE></TD></TR><TR><TD><I>vFriendlyName</I></TD><TD>
+Optional.
+<b>String</b> that specifies the display name of the party requesting access to private information. For security reasons, it is not sufficient for the user agent to show this display name to the user. In addition to display name, the user agent must display the URL that originates the script requesting profile access. If this script originates from a secure connection (for example, SSL), the Web author can use the SSL certificate to reliably identify the party requesting access.</TD></TR><TR><TD><I>vDomain</I></TD><TD>
+Optional.
+<b>String</b> that specifies the pages that the user's choice applies to in the future, in addition to the current page. The specification follows the cookie standard. See <A HREF="http://www.cis.ohio-state.edu/htbin/rfc/rfc2109.html" TARGET="_top">RFC-2109</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.</TD></TR><TR><TD><I>vPath</I></TD><TD>
+Optional.
+<b>String</b> that specifies the path to the domain server requesting access. When <I>vExpiration
+</I> is set, the path is saved with the requested attributes.</TD></TR><TR><TD><I>vExpiration</I></TD><TD>
+Optional.
+<b>Variant</b> that specifies the amount of time the site has requested access to these attributes. This is currently ignored by Microsoft&#174; Internet Explorer.</TD></TR><TR><TD><I>vReserved</I></TD><TD>
+Optional.
+This parameter is reserved.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>If the site does not have read access, the user is prompted with a list of requested attributes and can choose to allow or deny access.</P></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/userprofile.html">
+userProfile</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/addreadrequest.html">addReadRequest</A>, <A HREF="../methods/clearrequest.html">clearRequest</A>, <A HREF="../methods/getattribute_1.html">getAttribute</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

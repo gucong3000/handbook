@@ -1,0 +1,207 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-316-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-327-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-321-fm2xml"></A><A NAME="IXT-23-55176"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Date.UTC(  )</i></b></td>
+
+<td align="right"><i>将Date规范转换成毫秒数</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText"><A NAME="IXT-23-55176"></A>JavaScript 1.0; JScript 1.0; ECMAScript v1 </P><A NAME="ch23-322-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>Date.UTC(<TT><I>year</I></TT>, <TT><I>month</I></TT>, <TT><I>day</I></TT>, <TT><I>hours</I></TT>, <TT><I>minutes</I></TT>, <TT><I>seconds</I></TT>, <TT><I>ms</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-323-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>year</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">四位数表示的年份值。如果该参数在0～99之间(包括0和99)，它将加上1900，
+    作为1900～1999之间的年份处理。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>month</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">月份值，是0(一月)到11(十二月)之间的整数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>day</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">—个月中的某一天，是1～31之间的整数。注意，该参数的最小值是1，而其他
+    参数的最小值则是0。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>hours</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">小时值，是0(午夜)到23(晚上11点)之间的整数。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>minutes</I></TT></span></DT>
+
+<DD>
+
+<P class="docList"> 分钟值，是0～59之间的整数。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>seconds</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">是0～59之间的整数。该参数是可选的。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>ms</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">毫秒数。该参数是可选的。在ECMAScript标准化前，忽略该参数。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-324-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">指定的世界时的毫秒表示。简而言之，该方法返回指定的时间距GMT时间1970年1
+月1日午夜的毫秒数。</P>
+
+
+
+
+
+<A NAME="ch23-325-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">Date.UTC()是一种静态方法，它通过构造函数Date()调用，而不是通过某个Date
+对象调用</P>
+
+
+
+<P class="docText">Date.UTC()方法的参数指定日期和时间，它们都是UTC时间，处于GMT时区。指
+定的UTC时间将转换成毫秒的形式，这样构造函数Date()和方法Date.setTime()
+就可以使用它了。</P>
+
+
+
+<P class="docText">Date.UTC()能接受的日期和时间格式，构造函数Date()也可以接受。区别在于构
+造函数Date()假定这些参数是本地时间，而Date.UTC()却假定它们是世界时(GMT
+时间)。要创建使用UTC时间规约的Date对象，可以使用如下的代码：</P>
+
+
+
+<PRE>d = new Date(Date.UTC(1996, 4, 8, 16, 30));</PRE>
+
+
+
+<A NAME="ch23-326-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-144-fm2xml.html#ch23-144-fm2xml">Date</A>, <A class="docLink" HREF="ch23-214-fm2xml.html#ch23-214-fm2xml">Date.parse(  )</A>, <A class="docLink" HREF="ch23-248-fm2xml.html#ch23-248-fm2xml">Date.setTime(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-316-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-327-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

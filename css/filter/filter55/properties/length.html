@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'all','anchors','applets','areas','bookmarks','cells','children','elements','embeds','filters','forms','frames','images','imports','links','options','plugins','rows','rules','scripts','SELECT','styleSheets','tBodies','window','FORM'
+);
+
+collIE50=new Array(
+'TextRectangle','controlRange','childNodes','boundElements','attributes','behaviorUrns'
+);
+
+collIE55=new Array(
+'TextRange','pages','namespaces'
+);
+
+collIE60=new Array(
+'COMMENT'
+);
+
+sStyle=
+'#idParentDIV{width:100%;height:80px;padding:6px;background-color:buttonshadow;}\n'+
+'#idDIV{width:80%;height:40px;background-color:#FF6633;color:#FFFFFF;padding:6px;filter:invert() flipH() flipV();}\n'+
+'#idCodeDiv{width:80%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'function window.onload(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'oCodeDiv.innerHTML="滤镜数目: "+oDiv.filters.length;\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDIV><div id=idDIV><img src="..\/images\/rdl_clock.jpg" width=78 height=60 style="float:left;" hspace=4>下面显示的数字是作用于我的滤镜数目。<\/div><\/div>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : ;<\/div>\n';
+
+iWinWidth=360;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>length</span>版本：DOM1　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b> . length = </b><i>iLength</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iLength </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。无默认值。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+
+设置或检索集合内的对象数目。<br>
+此属性是可读写的。对于下列对象来说，是只读的：<br>
+<table cellpadding=1 cellspacing=1 class=cssCommonTable><tr><td>
+<a class=cssIEA href="../filters/comment.html"> COMMENT </a><a class=cssIEA href="../filters/pages.html"> pages </a>
+</td></tr></table><br>
+<b> window.length </b>将返回<b> window </b>内包含的所有框架(frame)数目。<br>
+<b> comment.length </b>将返回对象内的字符数目。<br>
+<b> form.length </b>返回的计数不包括<b> input type=image </b>元素的数目。要访问<b> form </b>内的所有对象，使用<b> children </b>集合。<br>
+虽然此属性值对于大多数对象而言是只读的，但是对于下述对象是可读写的：<br>
+<table cellpadding=1 cellspacing=1 class=cssCommonTable><tr><td>
+<a class=cssIEA href="../filters/areas.html"> areas </a><a class=cssIEA href="../filters/options.html"> options </a><a class=cssIEA href="../filters/select.html"> select </a>
+</td></tr></table>
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<title>XMLHTTPRequest参考手册 | Xmlhttp.CN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel='shortcut icon' href='xmlhttp.ico' />
+<link rel='bookmark icon' href='xmlhttp.ico' />
+<link href="../images/manual.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../images/manual.js"></script>
+</head>
+<body onload="setManualIndexState()">
+<div id="top">
+  <div id="div_logo"><a href="/" title="index"><img src="../images/logo_xmlhttp.gif" alt="XmlHttp.CN" id="img_logo"/></a></div>
+</div>
+<div id="main">
+<div id="sidebar">
+  <div id="context_btn"><img src="../images/context_open.gif" alt="" onmouseover="btn_handle('onmouseover')" onmouseout="btn_handle('onmouseout')" onclick="btn_handle('onclick')" id="btn"/></div>
+  <div id="title">XMLHTTP对象参考</div>
+  <div id="index">
+  <a href="xmlhttprequest.html" title="">XMLHTTPRequest 对象</a>
+  <a href="xmlhttprequest.members.html" title="">XMLHTTPRequest 成员</a>
+  <a href="onreadystatechange.html" title="">onreadystatechange</a>
+  <a href="readystate.html" title="">readyState</a>
+  <a href="responsebody.html" title="">responseBody</a>
+  <a href="responsestream.html" title="">responseStream</a>
+  <a href="responseText.html" title="">responseText</a>
+  <a href="responsexml.html" title="">responseXML</a>
+  <a href="status.html" title="">status</a>
+  <a href="statustext.html" title="">statusText</a>
+  <a href="abort.html" title="">abort</a>
+  <a href="getallresponseheaders.html" title="">getAllResponseHeaders</a>
+  <a href="getresponseheader.html" title="">getResponseHeader</a>
+  <a href="open.html" title="">open</a>
+  <a href="send.html" title="">send</a>
+  <a href="setrequestheader.html" title="">setRequestHeader</a>
+  </div>
+</div>
+<h1>send</h1>
+<p>发送请求到http服务器并接收回应</p>
+<h2>语法</h2>
+<pre>
+oXMLHttpRequest.send(varBody);
+</pre>
+<h2>参数</h2>
+<p>
+<em>varBody </em><br />
+欲通过此请求发送的数据。
+</p>
+<h2>Example</h2>
+<pre>
+xmlhttp = new ActiveXObject("Msxml2.XMLHTTP.3.0");
+xmlhttp.open("GET", "http://localhost/sample.xml", false);
+xmlhttp.send();
+alert(xmlhttp.responseXML.xml);
+</pre>
+<h2>备注</h2>
+<p>此方法的同步或异步方式取决于open方法中的bAsync参数，如果bAsync == False，此方法将会等待请求完成或者超时时才会返回，如果bAsync == True，此方法将立即返回。
+</p>
+<p>
+This method takes one optional parameter, which is the requestBody to use. The acceptable VARIANT input types are BSTR, SAFEARRAY of UI1 (unsigned bytes), IDispatch to an XML Document Object Model (DOM) object, and IStream *. You can use only chunked encoding (for sending) when sending IStream * input types. The component automatically sets the Content-Length header for all but IStream * input types.
+</p>
+<p>
+如果发送的数据为BSTR，则回应被编码为utf-8, 必须在适当位置设置一个包含charset的文档类型头。
+</p>
+<p>If the input type is a SAFEARRAY of UI1, the response is sent as is without additional encoding. The caller must set a Content-Type header with the appropriate content type.
+</p>
+<p>
+如果发送的数据为XML DOM object，则回应将被编码为在xml文档中声明的编码，如果在xml文档中没有声明编码，则使用默认的UTF-8。
+</p>
+<p>
+If the input type is an IStream *, the response is sent as is without additional encoding. The caller must set a Content-Type header with the appropriate content type.
+</p>
+<h2>参考</h2>
+<p>
+<a href="open.html">open 方法</a><br />
+<a href="xmlhttprequest.html" title="">XMLHTTPRequest 对象</a>
+</p>
+</div>
+
+</body>
+</html>

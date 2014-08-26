@@ -1,0 +1,422 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1>关于<span>Viewlink</span>事件的起泡行程</h1>
+		<hr>
+		<p>本文将使用<span>viewlink</span>的<span>HTML</span>组件<span>(HTC)</span>文件中的事件按照它们各自不同的处理机制进行分类。发生在<span>viewlink</span>文档中的事件起泡到文档片段的树中，然后通过<span>viewlink</span>继续从主元素起泡到主文档树种。一旦事件起泡到主文档树种，相应的主元素就成为事件的源对象。</p>
+		<p>在每张表中，起泡列指明了相应的事件是否可以起泡到主文档树中，而取消列则指明该事件是否可以取消起泡。事件可以通过设置<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/cancelbubble.asp"><span>cancelBubble</span></a>属性来取消起泡。需要注意的是该属性必须在每个对象的实例中进行设置。</p>
+		<p>下面各表主要展示了以下事件分类：</p>
+		<ul>
+			<li><a href="#Events_fired_from_HTC">发生在<span>HTC</span>中并起泡到主文档的事件</a></li>
+			<li><a href="#Special_Case_Events">特殊场合的事件</a></li>
+			<li><a href="#Events_not_automatically_fired">不会自动发生在<span>viewlink</span>上的事件</a></li>
+			<li><a href="#related_topics">相关主题</a></li>
+		</ul>
+		<h2><LABEL>Events fired from the HTC to the Primary Document</LABEL>发生在<span>HTC</span>中并起泡到主文档的事件<a name="Events_fired_from_HTC"></a></h2>
+		<p>下面是发生在<span>HTC</span>中并起泡到主文档的事件的完全列表。</p>
+		<table>
+			<tr>
+				<th>事件名称</th>
+				<th>起泡</th>
+				<th>取消</th>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforecopy.asp"><span>onbeforecopy</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforecut.asp"><span>onbeforecut</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforeeditfocus.asp"><span>onbeforeeditfocus</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforepaste.asp"><span>onbeforepaste</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onclick.asp"><span>onclick</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondblclick.asp"><span>ondblclick</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/oncontextmenu.asp"><span>oncontextmenu</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/oncopy.asp"><span>oncopy</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onpaste.asp"><span>onpaste</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondrag.asp"><span>ondrag</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondragenter.asp"><span>ondragenter</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondragleave.asp"><span>ondragleave</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondragover.asp"><span>ondragover</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondragstart.asp"><span>ondragstart</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondrop.asp"><span>ondrop</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onhelp.asp"><span>onhelp</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onkeydown.asp"><span>onkeydown</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onkeypress.asp"><span>onkeypress</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onkeyup.asp"><span>onkeyup</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmousedown.asp"><span>onmousedown</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmousemove.asp"><span>onmousemove</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseup.asp"><span>onmouseup</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onselectstart.asp"><span>onselectstart</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/oncontrolselect.asp"><span>oncontrolselect</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+		</table>
+		<h2><LABEL>Special Case Events</LABEL>特殊场合的事件<a name="Special_Case_Events"></a></h2>
+		<p>下面的表格介绍了特殊场合的事件。</p>
+		<table>
+			<tr>
+				<th>事件名称</th>
+				<th>起泡</th>
+				<th>取消</th>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseenter.asp"><span>onmouseenter</span></a><span>-&gt;</span><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseover.asp"><span>onmouseover</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseleave.asp"><span>onmouseleave</span></a><span>-&gt;</span><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onmouseout.asp"><span>onmouseout</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><span>onfocusenter</span><span>-&gt;</span><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onfocus.asp"><span>onfocus</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><span>onfocusleave</span><span>-&gt;</span><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onblur.asp"><span>onblur</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><span>onbeforefocusenter</span></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><span>onbeforefocusleave</span></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+		</table>
+		<h2><LABEL>Events not automatically fired over a viewlink</LABEL>不会自动发生在<span>viewlink</span>上的事件<a name="Events_not_automatically_fired"></a></h2>
+		<table>
+			<tr>
+				<th>事件名称</th>
+				<th>起泡</th>
+				<th>取消</th>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onabort.asp"><span>onabort</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onafterprint.asp"><span>onafterprint</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onafterupdate.asp"><span>onafterupdate</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforeprint.asp"><span>onbeforeprint</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforeupload.asp"><span>onbeforeupload</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbeforeupdate.asp"><span>onbeforeupdate</span></a></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onbounce.asp"><span>onbounce</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/oncellchange.asp"><span>oncellchange</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onchange.asp"><span>onchange</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondataavailable.asp"><span>ondataavailable</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondatasetchanged.asp"><span>ondatasetchanged</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/ondatasetcomplete.asp"><span>ondatasetcomplete</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onerror.asp"><span>onerror</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onerrorupdate.asp"><span>onerrorupdate</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onfilterchange.asp"><span>onfilterchange</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onfinish.asp"><span>onfinish</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onload.asp"><span>onload</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onlosecapture.asp"><span>onlosecapture</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onreset.asp"><span>onreset</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onresize.asp"><span>onresize</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onrowenter.asp"><span>onrowenter</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onrowexit.asp"><span>onrowexit</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onrowdelete.asp"><span>onrowdelete</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onrowinserted.asp"><span>onrowinserted</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onscroll.asp"><span>onscroll</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onselect.asp"><span>onselect</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onstart.asp"><span>onstart</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onstop.asp"><span>onstop</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onsubmit.asp"><span>onsubmit</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onunload.asp"><span>onunload</span></a></td>
+				<td>否</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><B><span>onblur</span></B></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><B><span>onfocus</span></B></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><B><span>onmouseout</span></B></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><B><span>onmouseover</span></B></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onpropertychange.asp"><span>onpropertychange</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onreadystatechange.asp"><span>onreadystatechange</span></a></td>
+				<td>否</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onlayoutcomplete.asp"><span>onlayoutcomplete</span></a></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><span>onmove</span></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><span>onmovestart</span></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><span>onmoveend</span></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+			<tr>
+				<td><span>onresizestart</span></td>
+				<td>是</td>
+				<td>是</td>
+			</tr>
+			<tr>
+				<td><span>onresizeend</span></td>
+				<td>是</td>
+				<td>否</td>
+			</tr>
+		</table>
+		<h2><LABEL>Related Topics</LABEL>相关主题<a name="related_topics"></a></h2>
+		<ul>
+			<li><a href="usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/howto/using.asp">《使用<span>DHTML</span>行为》</a></li>
+			<li><a href="htcref.html">《<span>HTC</span>参考》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+			<li><a href="abelebeh.html">《关于元素行为》</a></li>
+			<li><a href="intrviwlnk.html">《<span>ViewLink</span>简介》</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

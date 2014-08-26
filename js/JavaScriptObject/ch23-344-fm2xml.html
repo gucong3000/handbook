@@ -1,0 +1,220 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-337-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-352-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-344-fm2xml"></A><A NAME="IXT-23-55183"></A><A NAME="IXT-23-55184"></A><A NAME="IXT-23-55185"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>encodeURI(  )</i></b></td>
+
+<td align="right"><i>URI中的转义字符</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText"><A NAME="IXT-23-55183"></A>
+
+<A NAME="IXT-23-55184"></A>
+
+<A NAME="IXT-23-55185"></A>JavaScript 1.5; JScript 5.5; ECMAScript v3
+
+</P><A NAME="ch23-345-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>encodeURI(<TT><I>uri</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-346-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>uri</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个字符串，含有URl或其他要编码的文本。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-347-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">uri的副本，其中某些字符被十六进制的转义序列替换了。</P>
+
+
+
+
+
+<A NAME="ch23-348-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">URIError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">说明uri中含有格式化错误的Unicode替代对，不能被编码。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-349-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"> encodeURI()是全局函数，返回参数uri的编码副本。ASCII的字母和数字不编码，
+  此外下面的ASCII标点符号也不编码：</P>
+
+
+
+<PRE>- _ . ! ~ * ' ( ) </PRE>
+
+
+
+<P class="docText">因为encodeURI()的目的是给URl进行完整的编码，所以以下在URl中具有特殊含
+  义的ASCII标点符号也不转义：</P>
+
+
+
+<PRE>; / ? : @ &amp; = + $ , # </PRE>
+
+
+
+<P class="docText">uri中的其他字符都将转换成它的UTF—8编码字符，然后用十六进制的转义序列(形式为%xx)对生成的一个、两个或三个字节的字符编码，用它们替换uri中原有的字
+  符。在这种编码模式中，ASCII字符由一个%xx转义字符替换，在\u0080到\u07ff
+  之间编码的字符由两个转义序列替换，其他的16位Unicode字符由三个转义序列替
+  换。</P>
+
+
+
+<P class="docText">如果使用该方法编码URl，应该确保URI组件(如查询字符串)中不含有URl分隔符，如?和#。如果组件中含有这些符号，应该用encodeURIComponent()方法分别
+  对各个组件编码。</P>
+
+
+
+<P class="docText">用方法decodeURI()可以对该方法进行解码操作。在ECMAScriptv3之前，可以用
+  escape()和unescape()方法(反对使用)执行相似的编码解码操作。</P>
+
+
+
+<A NAME="ch23-350-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>// 返回 http://www.isp.com/app.cgi?arg1=1&amp;arg2=hello%20world
+
+encodeURI("http://www.isp.com/app.cgi?arg1=1&amp;arg2=hello world");
+
+encodeURI("\u00a9");  // 版权字符编码为 %C2%A9</PRE>
+
+
+
+<A NAME="ch23-351-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-330-fm2xml.html#ch23-330-fm2xml">decodeURI(  )</A>, <A class="docLink" HREF="ch23-337-fm2xml.html#ch23-337-fm2xml">decodeURIComponent(  )</A>, <A class="docLink" HREF="ch23-352-fm2xml.html#ch23-352-fm2xml">encodeURIComponent(  )</A>,
+
+<A class="docLink" HREF="ch23-378-fm2xml.html#ch23-378-fm2xml">escape(  )</A>, <A class="docLink" HREF="ch23-924-fm2xml.html#ch23-924-fm2xml">unescape(  )</A>
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-337-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-352-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

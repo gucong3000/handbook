@@ -1,0 +1,110 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>About Conditional</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>About Conditional Comments
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>One of the most common operations performed in a Web page is to detect the browser type and version. Browser detection is performed to ensure that the content presented to the browser is compatible and renders correctly. The browser type can be detected using many different techniques. Most methods of browser detection make use of either server- or client-side script, and each have advantages and disadvantages. This article focuses on conditional comments, which offer an alternative to scripted browser detection. Conditional comments offer certain advantages over scripted browser detection techniques and are also easier to use.</p><p>Conditional comments have been available since Microsoft&#174; Internet Explorer 5, but their use is not restricted to Internet Explorer. Examples are given that show how conditional comments can be used to customize the content delivered to both uplevel and downlevel browsers. Conditional comments make it easy for developers to write pages that downgrade gracefully in less capable browsers, while making it easy to take advantage of the enhanced features and performance offered by Internet Explorer 5 and later versions.</p><P>The following topics are discussed in this document.</P><UL><LI><A TARGET="_self" HREF="#Conditional_Comments_Terminology">Terminology</A></LI><LI><A TARGET="_self" HREF="#Conditional_Comment_Benefits">Benefits of Using Conditional Comments</A></LI><LI><A TARGET="_self" HREF="#Conditional_Statements">Syntax of Conditional Comments</A></LI><LI><A TARGET="_self" HREF="#Downlevel_hidden_Conditional_Comments">Downlevel-hidden Conditional Comments</A></LI><LI><A TARGET="_self" HREF="#Downlevel_revealed_Conditional_Comments">Downlevel-revealed Conditional Comments</A></LI><LI><A TARGET="_self" HREF="#Version_Vectors">Version Vectors</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="Conditional_Comments_Terminology"></A>Terminology</H2><p>The following terms are used frequently in this article.</p><table class="clsStd"><tr><th>Term        </th><th>Description</th></tr><tr><td>uplevel browser</td><td>Internet Explorer 5 and later versions.</td></tr><tr><td>downlevel browser</td><td>Any browser except for Internet Explorer 5 and later versions.</td></tr><tr><td>downlevel-hidden conditional comment</td><td>A comment that can contain inner HTML, which is ignored in downlevel browsers. Internet Explorer 5 and later download and render the HTML content if the expression is evaluated as true.</td></tr><tr><td>downlevel-revealed conditional comment</td><td>A comment conditional comment block that can contain inner HTML, which is parsed and rendered in downlevel browsers. Internet Explorer 5 and later download and render the HTML content if the expression is evaluated as true.</td></tr></table><H2><A NAME="Conditional_Comment_Benefits"></A>Benefits of Using Conditional Comments</H2><p>Conditional comments have certain advantages over scripting methods of browser detection. When a downlevel browser encounters a downlevel-hidden conditional comment, the browser does not see the inner HTML inside the comment, and the content elements are not downloaded and rendered. This saves both bandwidth and machine resources. </p><p>When using script to detect the browser type and version, a separate block of code is often written to implement each level of functionality and rendering being supported by the page. This is done because there are many differences in the scripting language and object models supported by different browsers. Using conditional comments, script logic can be separated into smaller and simpler segments of code, which are easier to maintain and understand.</p><p>It is not always necessary to use scripting and DHTML when working with conditional comments, and when no scripting is used in a Web page, no scripting engine needs to be loaded. Conditional comments are processed during the downloading and parsing phase, so only the content that is targeted for the browser loading the Web page is actually downloaded. Conditional comments can be combined freely with other browser detection techniques.</p><H2><A NAME="Conditional_Statements"></A>Syntax of Conditional Comments</H2><p>The basic syntax of each type of comment is shown in the following table. The first comment shown is the basic <A HREF="../objects/htmlcomment.html">HTML Comment</A>, which is included for the purpose of comparison and to illustrate the different syntax used by each type of conditional comment.</p><table class="clsStd"><tr><th>Comment Type</th><th>Syntax or Possible Value</th></tr><tr><td>standard HTML comment</td><td>&lt;!--燙omment content ?-&gt;
+</td></tr><tr><td>downlevel-hidden</td><td>&lt;!--[if <SPAN CLASS="clsRange">expression</SPAN>]&gt;
+HTML
+&lt;![endif]--&gt;
+</td></tr><tr><td>downlevel-revealed</td><td>&lt;![if <SPAN CLASS="clsRange">expression</SPAN>]&gt;
+HTML
+&lt;![endif]&gt;
+</td></tr></table><p></p><p>The <B>HTML Comment</B> is recognized by practically every browser. With this type of comment, all the content inside the tag is completely ignored by the browser. The <SPAN CLASS="clsRange">HTML</SPAN> shown inside the syntax block in each of the conditional comments denotes any block of HTML content, including script. Both types of conditional comment use a conditional expression, which is recognized in Internet Explorer 5 and later versions. If the expression is true, the content inside the comment block is parsed and rendered.</p><p>A combination of operators, values, and features can be used to form a conditional expression, as shown in the following table.</p><table class="clsStd"><tr><th>Item</th><th>Syntax</th><th>Comment</th></tr><tr><td>feature</td><td>IE
+</td><td>String. The only currently supported feature is the string "IE", corresponding to Internet Explorer.</td></tr><tr><td>version</td><td>number
+</td><td>An integer or floating point numeral, corresponding to the version of the browser. For more information, see <A TARGET="_self" HREF="#Version_Vectors">Version Vectors</A>. </td></tr><tr><td>operator</td><td>!</td><td>The NOT operator. This is placed immediately in front of an <SPAN CLASS="clsRange">value</SPAN> or <SPAN CLASS="clsRange">expression</SPAN> or <SPAN CLASS="clsRange">feature</SPAN> and reverses the Boolean value of the operand.</td></tr><tr><td>comparison</td><td>feature</td><td>Returns a Boolean value of <SPAN CLASS="clsLiteral">true</SPAN> if the feature matches the browser type.</td></tr><tr><td>comparison</td><td>feature version</td><td>Returns a Boolean value of <SPAN CLASS="clsLiteral">true</SPAN> if the feature matches the browser type and the version number matches the browser version.</td></tr><tr><td>comparison</td><td>lt</td><td>The less-than operator. Compares values or expresssions. Returns a Boolean value of <SPAN CLASS="clsLiteral">true</SPAN> if the first argument is less than the second argument.</td></tr><tr><td>comparison</td><td>lte</td><td>The less-than or equal operator. Compares values or expresssions. Returns a Boolean value of <SPAN CLASS="clsLiteral">true</SPAN> if the first argument is less than or equal to the second argument.</td></tr><tr><td>comparison</td><td>gt</td><td>The greater-than operator. Compares values or expresssions. Returns a Boolean value of <SPAN CLASS="clsLiteral">true</SPAN> if the first argument is greater than the second argument.</td></tr><tr><td>comparison</td><td>gte</td><td>The greater-than or equal operator. Compares values or expresssions. Returns a Boolean value of <SPAN CLASS="clsLiteral">true</SPAN> if the first argument is greater than or equal to the second argument.</td></tr></table><H2><A NAME="Downlevel_hidden_Conditional_Comments"></A>Downlevel-hidden Conditional Comments</H2><p>The following sample shows a downlevel-hidden conditional comment, which contains a short paragraph of text.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!--[if IE 5]&gt;
+&lt;p&gt;Welcome to Internet Explorer 5.&lt;/p&gt;
+&lt;![endif]--&gt;</PRE><p>At first glance the comment appears to be quite similar to a basic <B>HTML Comment</B>, but upon further examination there are some significant differences. The downlevel-hidden conditional comment has an opening and closing block in the tag, allowing for the insertion of HTML markup inside the comment. A conditional block is shown in the opening portion of the tag, and an [endif] block is placed in the closing portion of the tag. The HTML content is placed inside the comment.</p><p>Because the first four characters and the last three characters of the comment are identical to a basic <B>HTML Comment</B>, all downlevel browsers fail to recognize the conditional comment block, including all its HTML content. Downlevel browsers treat this as a regular <B>HTML Comment</B>. Therefore, any content inside the comment block is effectively hidden from the downlevel browser, hence the term downlevel-hidden conditional comment.</p><p>In Internet Explorer 5 and later versions, the conditional expression is recognized and evaluated. If the result of the Boolean expression is true, then the content inside the comment block is parsed and rendered by the browser. This behavior makes the downlevel-hidden conditional comment particularly useful for including content that has been specifically designed for Internet Explorer 5 and later versions.</p><p>The following sample illustrates how a client-side script block can be placed inside a conditional comment; in this case, a message is displayed in Internet Explorer 5 and later.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!--[if IE 5]&gt;
+&lt;SCRIPT LANGUAGE="Javascript"&gt;
+alert("Congratulations. You are running IE5 or later!");
+&lt;/SCRIPT&gt;
+&lt;P&gt;Thank you for closing the message box.&lt;/P&gt;
+&lt;![endif]--&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="/workshop/samples/author/misc/ccdh01.htm" FEATURES="top=25,left=25,height=300,width=400,statusbar=yes,resizable=1"></IMG></A></DIV><p></p><p>For the attentive reader, something might seem to be inconsistent with this example. On the first line there's a conditional statement, [if IE 5], and yet the message box states "IE5 or later". In fact, the sample behaves identically for all versions of Internet Explorer 5. This is because only the major digit of the browser version is being compared in the conditional expression; none of the minor browser version indices (5.xxxx) have been specified and, therefore, the expression does not distinguish between minor browser versions. However, minor version indices can be used in a conditional comment expressions, enabling a more precise evaluation of the browser version. For further explanation and examples on specifying the browser's version number, see <A TARGET="_self" HREF="#Version_Vectors">Version Vectors</A>. Clearly, Internet Explorer 6 will not display the message box or the text content because the major version number is different.</p><p>When the sample is opened in some version of Internet Explorer 5, the script block is downloaded, parsed, and the dialog message is displayed. When running the sample, the parsing and rendering of the page is halted until the message box is closed, after which the rest of the page is loaded. All downlevel browsers ignore the entire script block and treat the entire comment, including any HTML content, as a single <B>HTML Comment</B>.</p><p>From this section, it can be seen that the downlevel-hidden conditional comment is useful for hiding content from downlevel browsers and that it can also be used to deliver content in Internet Explorer 5 and later versions.</p><H2><A NAME="Downlevel_revealed_Conditional_Comments"></A>Downlevel-revealed Conditional Comments</H2><p>The downlevel-revealed conditional comment enables you to include content in downlevel browsers. The conditional expression controls whether Internet Explorer 5 and later download and render the content. The downlevel-revealed conditional comment is the complement of the downlevel-hidden conditional comment.</p><p>The following snippet shows a typical downlevel-revealed conditional comment.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;![if !IE 5]&gt;
+&lt;p&gt;Please upgrade to Internet Explorer version 5.&lt;/p&gt;
+&lt;![endif]&gt;</PRE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;When comparing this type of comment to the basic <B>HTML Comment</B>, notice that there are no "--" characters immediately after the opening "&lt;!". Also, there aren't any "--" characters immediately before the closing bracket of the comment block either. Therefore, both &lt;![if !IE 5]&gt; and &lt;![endif]&gt; are unrecognized in downlevel browsers.</DIV><p>A downlevel browser does not recognize the downlevel-revealed conditional comment. Therefore, when it downloads this type of comment, it does nothing with it and then continues downloading and parsing the document. Downlevel browsers ignore this type of conditional comment, but they do not ignore the HTML content inside it, if any is present. In the preceding sample, the <A HREF="../objects/p.html">p</A> tag is parsed and rendered by downlevel browsers.</p><p>In Internet Explorer 5 or later, the conditional comment is recognized and the expression is evaluated. If the conditional statement is evaluated as true then the content inside the conditional comment is parsed and rendered in Internet Explorer 5 and later. If the expression evaluates as false, the content inside of the comment is ignored.</p><H2><A NAME="Version_Vectors"></A>Version Vectors</H2><p>Conditional comment expressions are used to determine the type and version of the browser. Forming the right expression requires some care when using conditional comments, since the format of the version vector must be defined correctly in order to obtain the desired result.</p><p>The version vector syntax can be specified as an integer, in which case only the major browser version number is tested. In situations where an expression needs to check for a minor browser version, the version vector can be specified as an integer, followed by a decimal point, and then up to four more sequential digits. Therefore, a full length version vector appears to be identical to a floating point number with four decimal places, but it is not evaluated as a decimal. Clearly, this is important to keep in mind when forming expressions in conditional comments.</p><p>With decimal numbers the number 5.5 is equivalent to 5.5000. However, with a version vector each individual digit is compared separately. The version vector format supported in a conditional comments does not support the following format: 5.0.4.5.3. However, a version vector equal to 5.0453 would correspond to the preceding format, where each digit is compared separately.</p><p>When an expression is evaluated, a check is made against each numeral specified in the version vector. Therefore, the following sample evaluates as true for any version of Internet Explorer 5.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!--[if IE 5]&gt;
+&lt;p&gt;Welcome to any incremental version of Internet Explorer 5!&lt;/p&gt;
+&lt;![endif]--&gt;</PRE><p>The reason for this evaluation is that only one digit, in this case the number 5, is specified. Since the major version number in both browsers is 5, the expression returns true. Applying the same logic, the following test returns the value <SPAN CLASS="clsLiteral">false</SPAN> for Internet Explorer 5.5.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!--[if IE 5.0]&gt;
+&lt;p&gt;Welcome to Internet Explorer 5.0!&lt;/p&gt;
+&lt;![endif]--&gt;</PRE><p>In conclusion, to check for a specific incremental version of a browser or if testing for a particular build of the browser, it can be necessary to define the full vector.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Internet Explorer 5, which shipped with Microsoft Windows&#174; 2000, has a version vector equal to 5.0002. Therefore, the conditional expression [if IE lte 5.0000] returns false when evaluated in the release build of Internet Explorer 5. For the release build of Internet Explorer 5.5, the version vector is 5.5000.</DIV><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="../objects/htmlcomment.html">HTML Comment</A></LI><LI><A HREF="../objects/comment.html">comment</A></LI></UL><info><product rid="prod:IE" minver="5.0"></product><platform rid="plat:win" minver="95"></platform><platform rid="plat:nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,100 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Web Workshop - Specs &amp; Standards -- VML Overview</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/default.css" />
+
+<script language=javascript>
+var doImage = doImage;
+var TType = TType;
+function mhHover(tbl, idx, cls)
+{
+var t, d;
+if (document.getElementById)
+t = document.getElementById(tbl);
+else
+t = document.all(tbl);
+if (t == null) return;
+if (t.getElementsByTagName)
+d = t.getElementsByTagName("TD");
+else
+d = t.all.tags("TD");
+if (d == null) return;
+if (d.length <= idx) return;
+d[idx].className = cls;
+}
+function setMSResearch() {
+var time = new Date();
+if( document.cookie.indexOf( 'msresearch=1 ') == -1 ) {
+document.cookie = 'msresearch=' + time.getTime() + ':' + escape( document.location) + ':' + escape( document.referrer) + '; path=/; domain=.microsoft.com; ';
+}
+}
+function footerjs(doc)
+{
+if (doImage == null)
+{
+var tt = TType == null ? "PV" : TType;
+doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.html?source=msdn&TYPE=' + tt + '&p=workshop_author_vml&r=http%3a%2f%2fsearch.microsoft.com%2fsearch%2fresults.htmlx%3fView%3dmsdn%26st%3da%26qu%3dvml%26c%3d0%26s%3d1" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>'
+);
+}
+if( ( document.cookie.indexOf( 'msresearch=1 ') == -1 )
+&& ( document.cookie.indexOf( 'msresearch=')   != -1 ) ) {
+setInterval( "setMSResearch()", 1000 );
+}
+}
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1><A NAME="top" IDX_TYPE="sbngen" IDX_CONCEPT="stopindex;VML, overview of; Vector Markup Language, overview of; vector graphics">Introduction to Vector Markup Language (VML)</A></H1></TD><TD ALIGN="right"><A HREF="default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1">
+<P>Updated: November 16, 1998
+<P>Vector Markup Language (VML) is an XML-based exchange, editing, and delivery format for high-quality vector graphics on the Web that meets the needs of both productivity users and graphic design professionals. XML is an emerging simple, flexible, and open text-based language that complements HTML. (See the <A HREF="/nhp/Default.html?contentid=28000438" TARGET="_top">XML section</A> of the MSDN Library for detailed information on XML.)</P>
+<P>VML is currently supported by Microsoft Internet Explorer 5 or greater for Windows&reg; 95, Windows 98, and Window NT&reg; 4.0 or greater.  VML code is ignored by other browsers.</P>
+<P>VML has been proposed to the W3C as a standard for vector graphics on the Web (see <A HREF="http://www.w3.org/TR/NOTE-VML" TARGET="_top">http://www.w3.org/TR/NOTE-VML</A><IMG SRC="common/leave-ms.gif" WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-MS link">). Microsoft is continuing to lead the charge in the development and implementation of XML-based technologies, working with leading industry partners (AutoDesk, Hewlett-Packard, Macromedia, Visio) and the W3C to advance Web-based standards. We expect to work with the W3C to ultimately drive to one standard format for vector graphics on the Web.</P>
+<P>VML is also supported by Microsoft Office 2000 Beta 2 or greater.  Microsoft Word, Microsoft Excel, and Microsoft PowerPoint can be used to create VML graphics.</P>
+<P>For example, the following code defines an oval filled with red:</P>
+<PRE CLASS="clsCode">&lt;v:oval style=&quot;width:100pt;height:50pt&quot; fillcolor=&quot;red&quot;&gt;
+&lt;/v:oval&gt;</PRE>
+<P>If you're running <A HREF="/isapi/gomscom.html?TARGET=/windows/ie/download/" TARGET="_top">Internet Explorer 5 or greater</A><IMG SRC="common/leave-site.gif" WIDTH="17" HEIGHT="11" BORDER="0" ALT="Non-MSDN Online link">, you'll see the oval below:</P>
+<P>
+<V:OVAL STYLE="width:100pt;height:50pt" FILLCOLOR="red"></V:OVAL></P><H3>Benefits of VML</H3>
+<UL>
+<LI>VML makes authoring easier for productivity users and authors. It facilitates the exchange (via cut and paste) and subsequent editing of vector graphics between a wide variety of productivity and design applications.</LI>
+<LI>VML provides faster graphic downloads and a better user experience. It allows the delivery of high-quality, fully integrated, scalable vector graphics to the Web, in an open text-based format. Rather than referencing graphics as external files, VML graphics are delivered inline with the HTML page, allowing them to interact and scale with user interaction.</LI>
+<LI>VML is open and standards-based. It is an XML-based format. XML 1.0 is an open, simple, text-based language for describing structured data on the Web, and complements HTML for display. VML also supports other W3C standards, such as Cascading Style Sheets 2.0 (CSS), which specifies style information and 2-D positioning, as well as the Document Object Model (DOM), which allows developers to interact consistently with page elements as objects.</LI>
+</UL><H3>For additional information</H3>
+<P>See the links below:</P>
+<P><IMG SRC="common/bullet-1.gif" WIDTH="14" HEIGHT="7" ALT="*">For answers to frequently asked questions about VML, see the <A HREF="common/author/VML/vmlfaq.html">VML FAQ</A>.</P>
+<P><IMG SRC="common/bullet-1.gif" WIDTH="14" HEIGHT="7" ALT="*">For a tutorial on using VML on Web pages, see <A HREF="common/author/VML/ref/default.html">How to Use VML on Web Pages</A>,
+which complements the
+<A HREF="http://www.w3.org/TR/NOTE-VML" TARGET="_top">VML specification</A><IMG SRC="common/leave-ms.gif" WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-MS link">submitted to the W3C.</P>
+<P><IMG SRC="common/bullet-1.gif" WIDTH="14" HEIGHT="7" ALT="*">For information on VML data types, see the <A HREF="common/author/VML/types.html">Basic VML Types</A> document.</P>
+<P><IMG SRC="common/bullet-1.gif" WIDTH="14" HEIGHT="7" ALT="*">For the complete reference on VML, including information on how to use VML with tags as well as scripting, see the <A HREF="vml/introduction.html">VML Reference</A>.</P>
+<SCRIPT language="javascript">
+function openWindow(url) {
+sFeatures = "width=550,height=400,left=10,top=10,toolbar=0,statusbar=0,scrollbars=1,resizable=1"
+window.open (url,"_blank", sFeatures)
+}
+</SCRIPT><A NAME="demos"></
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

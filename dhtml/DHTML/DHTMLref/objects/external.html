@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>external</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="obj_event.html" title="event 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>event 对象</A> <A HREF="FIELDSET.html" title="FIELDSET 元素 | fieldSet 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>FIELDSET 元素 | fieldSet 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>external 对象</H1>
+<HR SIZE="1"><P>允许访问由 Microsoft<SUP>&reg;</SUP> Internet Explorer 浏览器组件宿主应用程序提供的附加对象模型。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>external</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/menuArguments.html">menuArguments</A></TD>
+<TD>返回快捷菜单执行所在的窗口对象。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/AddChannel.html">AddChannel</A></TD>
+<TD>显示一个对话框，允许用户输入指定的频道，或当已安装时更改频道的 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/AddDesktopComponent.html">AddDesktopComponent</A></TD>
+<TD>向 Microsoft<SUP>&reg;</SUP> 活动桌面<SUP>&reg;</SUP> 中添加 Web 站点或图像。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/AddFavorite.html">AddFavorite</A></TD>
+<TD>出现一个对话框提示用户将指定的 URL 添加到<B>收藏夹</B>内。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/AutoCompleteSaveForm.html">AutoCompleteSaveForm</A></TD>
+<TD>将指定表单保存到自动完成数据存储中。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/AutoScan.html">AutoScan</A></TD>
+<TD>通过完成模板传递指定查询试图连接到 Web 服务器。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/ImportExportFavorites.html">ImportExportFavorites</A></TD>
+<TD>处理导入和导出 Microsoft<SUP>&reg;</SUP> Internet Explorer<SUP>&reg;</SUP> 收藏夹。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/IsSubscribed.html">IsSubscribed</A></TD>
+<TD>获取表明客户是否订阅了给定频道的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/NavigateAndFind.html">NavigateAndFind</A></TD>
+<TD>前往指定的 URL 并选中指定文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/ShowBrowserUI.html">ShowBrowserUI</A></TD>
+<TD>打开指定的浏览器对话框。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>在宿主程序的情况下，对象模式是由包含 Internet Explorer 组件的应用程序(参看宿主应用程序的文档)定义的。要获得更多关于如何实现对动态 HTML(DHTML)对象模式的扩展的信息，请参看<A HREF="/workshop/browser/overview/Overview.html">浏览器</A>。</P>
+<P>此对象在 <A HREF="/workshop/author/hta/overview/htaoverview.html">HTML 应用程序</A>中不支持。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0" HREF="obj_window.html">window</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

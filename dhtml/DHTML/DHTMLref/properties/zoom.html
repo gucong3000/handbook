@@ -1,0 +1,300 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>zoom Attribute | zoom</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>zoom Attribute | zoom Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves  the magnification scale of the <span replace="1">object</span>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ zoom : <SPAN CLASS="clsRange">vMagnification</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.zoom</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">vMagnification</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">vMagnification</SPAN></TD><TD><b>Variant</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">normal</SPAN></TD><TD>Default. Magnification scale is normal.  The object renders normal size.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">number</SPAN></TD><TD>Floating-point number that specifies the magnification scale, where 1.0 is normal.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">percentage</SPAN></TD><TD>Integer, followed by a %. The value is a percentage of the magnification scale, where 100% is normal.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/currentstyle.html">currentStyle</A>.
+The property has a default value of <SPAN CLASS="clsDefValue">
+normal</SPAN>. The Microsoft Cascading Style Sheets (CSS) extension is
+not  inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Setting the value of the <B>zoom</B> property on a rendered object causes the content that surrounds the object to reflow.</P><P>Even though the <B>zoom</B> property is not inherited, it affects its children.  This effect is similar to the transformation caused by the <A HREF="../properties/background_1.html">background</A> and <A HREF="../properties/filter.html">filter</A> properties.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE>
+The following examples use the <B>zoom</B> attribute and the <B>zoom</B> property to change the magnification scale of a <A HREF="../objects/p.html">p</A> element.<P>
+This example uses a style rule in an embedded style sheet to set the <B>zoom</B> attribute to one-tenth of normal.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;STYLE&gt;
+.clsTeenyWeeny  { zoom: 0.10 }
+&lt;/STYLE&gt;</PRE><P>
+This example uses inline scripting to set the <B>zoom</B> property to 200% when an <A HREF="../events/onmouseover.html">onmouseover</A> event occurs.  The magnification scale returns to normal when the <A HREF="../events/onmouseout.html">onmouseout</A> event occurs.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;P onmouseover="this.style.zoom='200%'"
+onmouseout="this.style.zoom='normal'"&gt;</PRE><P>
+This example provides controls that let the user adjust the <B>zoom</B> property.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:CONTROL&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Zoom Demo&lt;/TITLE&gt;
+&lt;SCRIPT&gt;
+function zoomIn() {
+newZoom= parseInt(oZoom.style.zoom)+10+'%'
+oZoom.style.zoom =newZoom;
+oCode.innerText='zoom: '+newZoom+'';
+}
+function zoomOut() {
+newZoom= parseInt(oZoom.style.zoom)-10+'%'
+oZoom.style.zoom =newZoom;
+oCode.innerText='zoom: '+newZoom+'';
+}
+function changeZoom() {
+newZoom= parseInt(oSlider.value)
+oZoom.style.zoom=newZoom+'%';
+oCode.innerText='zoom: '+newZoom+'%';
+}
+function changeZoom2(oSel) {
+newZoom= oSel.options[oSel.selectedIndex].innerText
+oZoom.style.zoom=newZoom;
+oCode.innerText='zoom: '+newZoom+'';
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="oZoom.style.zoom='100%';
+oCode.innerText='zoom: 100%'; " &gt;
+&lt;!-- Slider and + and - controls;;;;  --&gt;
+&lt;DIV STYLE="position:absolute; top:15; left:20;"&gt;
+&lt;FORM&gt;
+&lt;CONTROL:SLIDER ID="oSlider" STYLE="sl--orientation:vertical;
+height:204px; width:28px; background-color:#336699;
+padding-left:5px; border-left:1px solid #6699CC" TICKINTERVAL="10"
+MAX="200" MIN="0" onchange="changeZoom()"&gt; &lt;/CONTROL:SLIDER&gt;
+&lt;/FORM&gt;
+&lt;/DIV&gt;
+&lt;DIV STYLE="position:absolute; top:15; left:48; width:28px; height:200px;
+background-color:#336699;" ALIGN="center"&gt;
+&lt;IMG  SRC="../common/zoomscale.gif" BORDER="0" USEMAP="#scaler"&gt;
+&lt;/DIV&gt;
+&lt;!-- The zoomable area container --&gt;
+&lt;DIV STYLE="position:absolute; top:15; left:76; width:550px;
+height:204px; background-color:black; vertical-align: middle;
+padding:25px; font-family:arial; font-weight:bold; color:white;
+z-index:3"  ALIGN="center"&gt;
+&lt;!-- The zoomable area --&gt;
+&lt;DIV ID="oZoom" STYLE="zoom:100%" ALIGN="center"&gt;
+&lt;H1&gt;Welcome to Seattle!&lt;/H1&gt;
+&lt;IMG SRC="../common/seattlesmall.jpg" ALIGN="left"&gt;
+&lt;P ALIGN="center"&gt;A great city in the beautiful state of Washington.&lt;/P&gt;
+&lt;/DIV&gt;&lt;/DIV&gt;
+&lt;!-- Displayed code --&gt;
+&lt;DIV STYLE="overflow:hidden; border:1px solid black; position:absolute;
+top:219; left:20; width:606px; height:90px; padding:1px;
+padding-left:25px; background-color:white; z-index:3;"&gt;
+&lt;SPAN&gt;&amp;lt;DIV style="&lt;/SPAN&gt;
+&lt;SPAN STYLE="font-weight:bold; font-family:verdana; color:red;
+font-size:9pt" CLASS="coder" ID="oCode"&gt;&lt;/SPAN&gt;
+&lt;SPAN&gt;"&amp;gt;&lt;/SPAN&gt;
+&lt;DIV&gt;&amp;lt;H1&amp;gt; Welcome to seattle!&amp;lt;/H1&amp;gt;&lt;/DIV&gt;
+&lt;DIV&gt;&amp;lt;IMG SRC="seattlesmall.jpg"&amp;gt;&lt;/DIV&gt;
+&lt;DIV&gt;&amp;lt;P&amp;gt;A great city in the beautiful state
+of Washington.&amp;lt;/P&amp;gt;&lt;/DIV&gt;&lt;DIV CLASS="coder"&gt;&amp;lt;/DIV&amp;gt;&lt;/DIV&gt;
+&lt;/DIV&gt;&lt;/DIV&gt;
+&lt;DIV ID="oControls" STYLE="position:absolute; top:308; left:20;
+width:606px; height:100px; background-color:gray; color:white;
+font-family:verdana; font-size:11; font-weight:normal;
+padding:10px; z-index:3; text-align:center; border:1px solid black;
+text-align:left;"&gt;
+&lt;DIV STYLE="padding-left:65px"&gt;
+The code used to generate the image is shown in the area above.
+&lt;BR&gt;&lt;BR&gt;
+Modify the image using the selections below or the &lt;BR&gt;
+slider control above and to the left of this window.
+&lt;/DIV&gt;&lt;HR&gt;
+&lt;DIV ALIGN=CENTER&gt;
+&lt;SELECT ID="percent" onchange="changeZoom2(percent); "&gt;
+&lt;OPTION SELECTED&gt;Use Percentage Value&lt;/OPTION&gt;
+&lt;OPTION&gt;10%&lt;/OPTION&gt;
+&lt;OPTION&gt;25%&lt;/OPTION&gt;
+&lt;OPTION&gt;50%&lt;/OPTION&gt;
+&lt;OPTION&gt;75%&lt;/OPTION&gt;
+&lt;OPTION&gt;100%&lt;/OPTION&gt;
+&lt;OPTION&gt;150%&lt;/OPTION&gt;
+&lt;OPTION&gt;200%&lt;/OPTION&gt;
+&lt;/SELECT&gt;
+&lt;SELECT ID="normal" onchange="changeZoom2(normal); "&gt;
+&lt;OPTION SELECTED&gt;Use Number Value&lt;/OPTION&gt;
+&lt;OPTION&gt;.1&lt;/OPTION&gt;
+&lt;OPTION&gt;0.25&lt;/OPTION&gt;
+&lt;OPTION&gt;0.5&lt;/OPTION&gt;
+&lt;OPTION&gt;0.75&lt;/OPTION&gt;
+&lt;OPTION&gt;1.0&lt;/OPTION&gt;
+&lt;OPTION&gt;1.5&lt;/OPTION&gt;
+&lt;OPTION&gt;2.0&lt;/OPTION&gt;
+&lt;/SELECT&gt;&lt;HR&gt;
+&lt;/DIV&gt;&lt;/DIV&gt;
+&lt;MAP NAME="scaler"&gt;
+&lt;AREA SHAPE="rect" COORDS="0,182,19,199" ALT="plus" HREF="#"
+onclick="zoomIn()" STYLE="cursor:hand"&gt;
+&lt;AREA SHAPE="rect" COORDS="1,1,18,15" ALT="minus" HREF="#"
+onclick="zoomOut()"&gt;
+&lt;/MAP&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is a Microsoft extension to <A HREF="http://www.w3.org/style/css/" TARGET="_top">
+Cascading Style Sheets (CSS)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/col.html">
+COL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/colgroup.html">
+COLGROUP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/currentstyle.html">
+currentStyle</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/embed.html">
+EMBED</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/head.html">
+HEAD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input.html">
+INPUT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_hidden.html">
+INPUT type=hidden</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="/workshop/browser/hosting/printpreview/reference/behaviors/layoutrect.html">
+LAYOUTRECT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/noframes.html">
+NOFRAMES</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/noscript.html">
+NOSCRIPT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/option.html">
+OPTION</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/runtimestyle.html">
+runtimeStyle</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,182 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-660-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-674-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-667-fm2xml"></A><A NAME="IXT-23-55341"></A><A NAME="IXT-23-55342"></A><A NAME="IXT-23-55343"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Object.isPrototypeOf(  )</i></b></td>
+
+<td align="right"><i>一个对象是否是另一个对象的原型</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.5; JScript 5.5; ECMAScript v3 </P><A NAME="ch23-668-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>object</I></TT>.isPrototypeOf(<TT><I>o</I></TT>)</PRE>
+
+<A NAME="IXT-23-55341"></A> <A NAME="IXT-23-55342"></A>
+
+<A NAME="IXT-23-55343"></A>
+
+
+
+
+
+<A NAME="ch23-669-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>o</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">任意对象。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-670-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">如果object是O的原型，则返回true。如果o不是对象，或者object不是o的原
+    型，则返回false。</P>
+
+
+
+
+
+<A NAME="ch23-671-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">JavaScript对象继承了原型对象的属性。一个对象的原型是通过用于创建并初始化该对象的构造函数的prototype属性引用的。isPrototypeOf()方法提供了判断一个对象是否是另一个对象原型的方法。该方法可以用于确定对象的
+    类。</P>
+
+
+
+<A NAME="ch23-672-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var o = new Object(  );                          // 创建一个对象
+
+Object.prototype.isPrototypeOf(o)                // true: o 是一个对象
+
+Function.prototype.isPrototypeOf(o.toString);    // true: toString 是一个函数
+
+Array.prototype.isPrototypeOf([1,2,3]);          // true: [1,2,3] 是一个数组
+
+
+//下面是执行同样测试的另一种方法
+
+(o.constructor == Object);  // true: o was created with Object(  ) constructor
+
+(o.toString.constructor == Function);  // true: o.toString is a function
+
+
+
+/原型则对象本身于原型对象。下面的调用返回true
+
+//说明函数继 Function.prototype和Object.prototyp属性.
+
+Object.prototype.isPrototypeOf(Function.prototype);</PRE>
+
+
+
+<A NAME="ch23-673-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-436-fm2xml.html#ch23-436-fm2xml">Function.prototype</A>, <A class="docLink" HREF="ch23-656-fm2xml.html#ch23-656-fm2xml">Object.constructor</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-660-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-674-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

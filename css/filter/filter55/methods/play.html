@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendMethods=new Array(
+'apply','stop'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Barn','Blinds','Fade','GradientWipe','Inset','Iris','Pixelate','RadialWipe','RandomBars','RandomDissolve','Slide','Spiral','Stretch','Strips','Wheel','Zigzag'
+);
+
+collIE40=new Array(
+'BlendTrans','RevealTrans'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;filter:progid:DXImageTransform.Microsoft.RandomBars();}\n'+
+'#idDiv1{width:200px;height:100px;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:3;visibility:hidden;}\n'+
+'#idDiv2{width:200px;height:100px;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:4;visibility:visible;}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sBaseStr="filter : progid:DXImageTransform.Microsoft.RandomBars ( ";\n'+
+'var oParentDiv,oCodeDiv;\n'+
+'function rdl_doInit(e){\n'+
+'oParentDiv=document.all("idParentDiv");\n'+
+'oCodeDiv=document.all("idCodeDiv");\n'+
+'rdl_play();\n'+
+'}\n'+
+'function rdl_change(e){\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel4")) var sValue4=options[selectedIndex].value;\n'+
+'oCodeDiv.innerHTML=sBaseStr+"duration="+sValue1+",orientation="+sValue4+" ) ;";\n'+
+'with (oParentDiv.filters[0]) {\n'+
+'Duration=sValue1;Orientation=sValue4;\n'+
+'}\n'+
+'}\n'+
+'\n'+
+'function rdl_play(){\n'+
+'with (oParentDiv) {\n'+
+'if (children[0].style.visibility=="hidden") children[1].style.visibility="visible";\n'+
+'else children[1].style.visibility="hidden";\n'+
+'filters[0].Apply();\n'+
+'if (children[0].style.visibility=="hidden") children[0].style.visibility="visible";else children[0].style.visibility="hidden";\n'+
+'if (children[1].style.visibility=="hidden") children[1].style.visibility="visible";else children[1].style.visibility="hidden";\n'+
+'filters[0].play();\n'+
+'}\n'+
+'}\n'+
+'window.onload=rdl_doInit;\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv1><img src="..\/images\/rdl_body1.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> A </b>。<\/div>\n'+
+'<div id=idDiv2><img src="..\/images\/rdl_body2.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> B </b>。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id=idSel1 onchange="rdl_change();">\n'+
+'<option value="0.5" style="font-weight:bold;">---Duration---\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="4">4\n'+
+'<option value="5">5\n'+
+'<option value="6">6\n'+
+'<option value="12">12\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id=idSel4 onchange="rdl_change();">\n'+
+'<option value="horizontal" style="font-weight:bold;">---Orientation---\n'+
+'<option value="horizontal">horizontal\n'+
+'<option value="vertical">vertical\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<input type=button value=" Play " onclick="if (oParentDiv!=null) rdl_play();">\n'+ 
+'<\/td><td>\n'+
+'<input type=button value=" Stop " onclick="if (oParentDiv!=null) oParentDiv.filters[0].stop();">\n'+ 
+'<\/td><\/tr><\/table>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.RandomBars ()<\/div>\n';
+
+iWinWidth=380;
+
+iWinHeight=360;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>play</span>版本：DHTML Object Model　返回值：无</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b>').play( </b><i>iDuration</i><b> )</b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> iDuration </i></td><td nowrap><b>: </b></td><td>可选项。浮点数(Real)。 指定滤镜作用持续的时间。默认单位为秒(s)。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<div>
+无
+</div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+开始转换。<br>
+使用<b> play </b>方法的<i> iDuration </i>参数设置转换回放的持续时间，其值在转换的当前一个周期内会替换<a href="../properties/duration.html"> Duration </a>属性的设置。但是下一次转换会恢复使用<a href="../properties/duration.html"> Duration </a>属性设置的值。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

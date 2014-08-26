@@ -1,0 +1,91 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>@import</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>@import Rule
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Imports an external style sheet.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD><B>@import</B>&nbsp;[url] (&nbsp;<SPAN CLASS="clsRange">sUrl</SPAN>&nbsp;) ;</TD></TR><TR><TH><B>Scripting</B></TH><TD>N/A</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sUrl</SPAN></TD><TD>String that specifies the URL that references a cascading style sheet.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The rule has no default value.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P><P>The semicolon in the syntax is required; if omitted, the style sheet is not imported properly and an error message is generated.  "url()" is optional because there is always a URL following "@import."</P><P>The <B>@import</B> rule, like the <A HREF="../objects/link.html">link</A> element, links an external style sheet to a document. This helps the Web author establish a consistent "look" across
+multiple HTML pages. Whereas the <B>link</B> element specifies the name of the style sheet to import using its <A HREF="../properties/href_1.html">href</A>
+attribute, the <B>@import</B> rule specifies the style sheet definition inside a <B>link</B> element or a <A HREF="../objects/style.html">style</A> element. In the scripting model, this means the <A HREF="../properties/owningelement.html">owningElement</A> property of the style sheet defined through the <B>@import</B> rule is either a <B>style</B> or a <B>link</B> object. </P><P>The <B>@import</B> rule should occur at the start of a style sheet, before any declarations.  Although Internet Explorer 4.0 and later allows <B>@import</B> rule statements to appear anywhere within the style sheet definition, the rules contained within the <B>@import</B> rule style sheet are applied to the document before any other rules defined for the containing style sheet. This rule order affects expected rendering.</P><P>Rules in the style sheet override rules in the imported style sheet.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example uses the <B>@import</B> rule to import a style sheet. For the example to work, you must replace <SPAN CLASS="clsLiteral">URL</SPAN> in the example code with the address of a style sheet.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;STYLE TYPE="text/css"&gt;
+@import url("URL");
+P {color:blue}
+&lt;/STYLE&gt;</PRE><P>
+The following example, without <SPAN CLASS="clsLiteral">url()</SPAN>, has the same effect as the previous example.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;STYLE type="text/css"&gt;
+@import "URL";
+P {color:blue}
+&lt;/STYLE&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This rule is defined in <A HREF="http://www.w3.org/TR/REC-CSS1.html" TARGET="_top">
+Cascading Style Sheets (CSS), Level 1 (CSS1)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../collections/imports.html">imports</A>, <A HREF="../properties/link.html">:link</A>, <A HREF="../objects/obj_style.html">style</A>, <A HREF="../objects/obj_stylesheet.html">styleSheet</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

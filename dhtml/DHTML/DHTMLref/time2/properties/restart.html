@@ -1,0 +1,136 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>RESTART Attribute | restart Property (t:TRANSITIONFILTER, t:ANIMATE, t:ANIMATECOLOR, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>RESTART Attribute | restart Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the conditions under which an element can be restarted on a timeline.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>RESTART</B>
+= <SPAN CLASS="clsRange">sAction</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>restart</B>(<I>action</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sAction</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sAction</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">always</SPAN></TD><TD>Default. Element can be restarted at any time.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">never</SPAN></TD><TD>Element cannot be restarted for the remaining duration of the parent time container.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">whenNotActive</SPAN></TD><TD>Element can be restarted only when it is not active on the timeline.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+always</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This property supersedes the <A HREF="../../common/author/behaviors/reference/time/properties/eventrestart.html">eventRestart</A> property.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates each of the three values (<SPAN CLASS="clsLiteral">always, never, whenNotActive</SPAN>) for the <B>restart</B> property. These values specify the conditions in which an element can be restarted on a timeline.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:par id="tp1" begin="indefinite" dur="20"&gt;
+&lt;DIV id="div1" class="time"
+style="position:absolute;top:255px;left:35px;width:100px;height:100px;
+background-color:yellow; font-size:large; text-align:center;"
+end="6" restart="never"&gt;DIV1&lt;BR&gt;'never'
+&lt;/DIV&gt;
+&lt;DIV id="div2" class="time"
+style="position:absolute;top:255px;left:145px;width:100px;height:100px;
+background-color:blue; font-size:large; text-align:center;"
+begin="2" end="8" restart="always"&gt;DIV2&lt;BR&gt;'always'
+&lt;/DIV&gt;
+&lt;DIV id="div3" class="time"
+style="position:absolute;top:255px;left:255px;width:100px;height:100px;
+background-color:green; font-size:large; text-align:center;"
+begin="4" end="10" restart="whenNotActive"&gt;DIV3&lt;BR&gt;'whenNotActive'
+&lt;/DIV&gt;
+&lt;/t:par&gt;
+&lt;P style="position:absolute; top:370px; left:45px;"&gt;
+&lt;BUTTON id="b0" onclick="tp1.beginElement();"
+style="font-weight:bold;"&gt;Start&lt;/BUTTON&gt;
+&lt;BUTTON id="b1" onclick="tp1.endElement();"&gt;Stop&lt;/BUTTON&gt;&amp;nbsp;&amp;nbsp;
+&lt;BUTTON id="b2" onclick="div1.beginElement();alert('DIV1 cannot be restarted for the remaining duration of the parent time container (20 seconds).');"&gt;Restart DIV1&lt;/BUTTON&gt;
+&lt;BUTTON id="b3" onclick="div2.beginElement();"&gt;Restart DIV2&lt;/BUTTON&gt;
+&lt;BUTTON id="b4" onclick="div3.beginElement();"&gt;Restart DIV3&lt;/BUTTON&gt;
+&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/restart.htm" FEATURES="top=50,left=50,height=550,width=530,status=0,resizeable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animate.html">
+t:ANIMATE</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatecolor.html">
+t:ANIMATECOLOR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatemotion.html">
+t:ANIMATEMOTION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/set.html">
+t:SET</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

@@ -1,0 +1,187 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>white-space Attribute | whiteSpace</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>white-space Attribute | whiteSpace Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a value that indicates whether lines are automatically broken inside the <span replace="1">object</span>.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+This property now applies to the
+<apply-templates></apply-templates><A HREF="../objects/currentstyle.html">currentStyle</A> element. The
+<apply-templates></apply-templates><SPAN CLASS="clsLiteral">pre</SPAN> value of this property is now supported.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ white-space : <SPAN CLASS="clsRange">sWrap</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.whiteSpace</B>(<I>v</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sWrap</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sWrap</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">normal</SPAN></TD><TD>Default. Lines of text break automatically. Content wraps to the next line if it exceeds the width of the object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">nowrap</SPAN></TD><TD>Line breaks are suppressed. Content does not wrap to the next line.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">pre</SPAN>&nbsp;<IMG SRC="../common/new.gif" TITLE="New for Internet Explorer 6"></IMG>&nbsp;</TD><TD>Line breaks and other whitespace are preserved. This possible value is supported in Internet Explorer 6 and later when the <A HREF="../objects/doctype.html">!DOCTYPE</A> declaration specifies standards-compliant mode. When the <B>!DOCTYPE</B> declaration does not specify standards-compliant mode, you can retrieve this value, but it does not affect rendering&#151;it functions like the <SPAN CLASS="clsLiteral">normal</SPAN> value.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/currentstyle.html">currentStyle</A>.
+The property has a default value of <SPAN CLASS="clsDefValue">
+normal</SPAN>. The Cascading Style Sheets (CSS) attribute is
+inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Whitespace, such as line breaks, spaces, and tabs, is collapsed by default in HTML documents. You can use the nonbreaking space <A HREF="../charsets/charset3.html">entity</A>?SPAN CLASS="clsLiteral">(&amp;nbsp;)</SPAN> to add extra spaces to an object when the <B>whiteSpace</B> property is set to <SPAN CLASS="clsLiteral">normal</SPAN> or <SPAN CLASS="clsLiteral">nowrap</SPAN>.  You can add extra line breaks using the <A HREF="../objects/br.html">br</A> element.</P><P>This property affects content you access through the Document Object Model (DOM) the same way it affects the way Internet Explorer displays the content.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example shows how automatic line breaks are suppressed when the user places the mouse pointer over the paragraph. This is caused by toggling the value of the <B>white-space</B> attribute in the <A HREF="../events/onmouseover.html">onmouseover</A> and <A HREF="../events/onmouseout.html">onmouseout</A> events of the <A HREF="../objects/p.html">p</A> element. When the <B>white-space</B> attribute is set to <SPAN CLASS="clsLiteral">nowrap</SPAN> in the <B>onmouseover</B> event, line breaks are suppressed, and horizontal scrolling is required to view content wider than the element.  When the attribute is set to <SPAN CLASS="clsLiteral">normal</SPAN> in the <B>onmouseout</B> event, lines break automatically, depending on the width of the element.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.clsOneLiner  {white-space: nowrap}
+.clsAutoBreak {white-space: normal}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P ONMOUSEOVER="this.className='clsOneLiner';"
+ONMOUSEOUT="this.className='clsAutoBreak';"&gt;
+Long lines of text remain unbroken when the value of the whitespace
+attribute is set to nowrap. Place your mouse over the text to
+suppress automatic line breaks.&lt;/P&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+The following example shows how to set and retrieve the value of the <B>whiteSpace</B> property. When the user sets the value of the <B>whiteSpace</B> property of a <A HREF="../objects/div.html">div</A> element, the value of the property is retrieved in a <A HREF="../objects/span.html">span</A> element.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 //EN"
+"http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function fnSwitch(){
+oDiv.style.whiteSpace = event.srcElement.innerText;
+document.all.oSpan.innerText = oDiv.currentStyle.whiteSpace;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;BODY&gt;
+&lt;H1&gt;direction Property Sample&lt;/H1&gt;
+&lt;H2&gt;direction:
+&lt;SPAN id="oSpan" style="color:red"&gt;&lt;/SPAN&gt;&lt;/H2&gt;
+&lt;P&gt;[ &lt;A href="#" onclick=fnSwitch()&gt;normal&lt;/A&gt; | &lt;A href="#"
+onclick=fnSwitch()&gt;nowrap&lt;/A&gt; | &lt;A href="#" onclick=fnSwitch()&gt;pre&lt;/A&gt; ]&lt;/P&gt;
+&lt;DIV id="oDiv" style="background:#e4e4e4; padding:10px;"&gt;
+In   the   source,   this   sentence   has   three   spaces   between   each   word.
+This sentence
+takes up three
+lines in the source.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/TR/REC-CSS1.html" TARGET="_top">
+Cascading Style Sheets (CSS), Level 1 (CSS1)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/basefont.html">
+BASEFONT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=6" HREF="../objects/currentstyle.html">
+currentStyle</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/library/en-us/dnie60/html/cssenhancements.html" TARGET="_top">CSS Enhancements in Internet Explorer 6</A>, <A HREF="../objects/pre.html">pre</A>, <A HREF="../properties/wordwrap.html">wordWrap</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

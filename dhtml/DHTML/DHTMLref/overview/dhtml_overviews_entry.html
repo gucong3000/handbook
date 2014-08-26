@@ -1,0 +1,155 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>HTML and DHTML Overviews and</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>HTML and DHTML Overviews and Tutorials
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>
+This section contains overviews and tutorials for Dynamic HTML (DHTML).
+</p><p><P></P><H2>Overviews/Tutorials</H2><BLOCKQUOTE><B><A HREF="/workshop/author/clientcaps/overview.html">About Client Capabilities</A></B><P>
+Web developers are constantly searching for ways to design and implement sites that deliver the best user experience possible. One way to enhance user experience is to customize content based on capabilities that the client browser supports.</P><B><A HREF="/workshop/author/dhtml/overview/ccomment_ovw.html">About Conditional Comments</A></B><P>
+One of the most common operations performed in a Web page is to detect the browser type and version. Browser detection is performed to ensure that the content presented to the browser is compatible and renders correctly. The browser type can be detected using many different techniques. Most methods of browser detection make use of either server- or client-side script, and each have advantages and disadvantages. This article focuses on conditional comments, which offer an alternative to scripted browser detection. Conditional comments offer certain advantages over scripted browser detection techniques and are also easier to use.</P><B><A HREF="/workshop/author/om/xframe_scripting_security.html">About Cross-Frame Scripting and Security</A></B><P>
+With DHTML, content in different windows and frames can interact in powerful ways by scripting with the object model. However, since a browser can simultaneously display unrelated documents in its various windows and frames, certain rules must be enforced to protect data integrity and privacy of information.</P><B><A HREF="/workshop/author/datatransfer/overview.html">About DHTML Data Transfer</A></B><P>
+As of Microsoft&#174; Internet Explorer 5, you have access to an extensive data transfer implementation. For Internet Explorer, data transfer involves writing information to and reading it from the clipboard through a data transfer object. The information transferred includes both the data format and the data itself.</P><B><A HREF="/workshop/author/dyncontent/content.html">About Dynamic Content</A></B><P>
+Internet Explorer 4.0 gives you a rich set of properties and methods to dynamically construct and alter Web pages on the fly. For example, a script can insert a list of section titles at the beginning of the document, or replace that list with a list of links to the actual sections in the document.</P><B><A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A></B><P>
+Internet Explorer 5 offers an easy-to-use new feature that enables Web authors and developers to vastly improve the appearance and rendering of their Web pages. Using the power of dynamic properties, it is now possible to declare property values not only as constants, but also as formulas. The formulas used in a dynamic property can reference property values from other elements, thereby allowing authors unique flexibility when designing their Web pages.</P><B><A HREF="/workshop/author/position/positioning.html">About Element Positioning</A></B><P>
+Internet Explorer 4.0 supports the ability to position  HTML  elements in x- and y-coordinates, as well as overlap elements in planes along the z-axis, which extends toward and away from the viewer in a Web document. This capability allows authors to place elements&#151;images, controls, or text&#151;exactly where they want on the page. By using scripts to manipulate the position coordinates and other dynamic styles, authors can move elements around a page, creating animated effects. The combination of dynamic styles, positioning, transparent Microsoft ActiveX&#174; Controls, and transparent images presents authors with a rich set of animation options.</P><B><A HREF="/workshop/author/fontembed/font_embed.html">About Font Embedding</A></B><P>
+Font embedding has been a feature of Microsoft applications, such as Microsoft Word and Microsoft PowerPoint&#174; for several years. It enables fonts used in the creation of a document to travel with that document, ensuring that a user sees the pages exactly as the author intended. Now, Internet Explorer 4.0 brings embedded font support to the Web. This technology gives site designers the confidence that Internet Explorer 4.0 users see their pages exactly as intended.</P><B><A HREF="/workshop/author/dhtml/overview/mousecapture.html">About Mouse Capture</A></B><P>
+Internet Explorer 5 enables Web authors to design pages that handle mouse events in the same way desktop applications do.</P><B><A HREF="/workshop/author/om/doc_object.html">About the DHTML Object Model</A></B><P>
+The DHTML燚ocument Object Model (DOM) allows authors direct, programmable access to the individual components of their Web documents, from individual elements to containers. This access, combined with the event model, allows the browser to react to user input, execute scripts on the fly, and display the new content without downloading additional documents from a server. The DHTML燚OM puts sophisticated interactivity within easy reach of the average HTML author.</P><B><A HREF="/workshop/author/dom/domoverview.html">About the W3C Document Object Model</A></B><P>
+This document discusses the implementation of the World Wide Web Consortium (W3C) Document Object Model (DOM) interface available in Internet Explorer 5 and later.</P><B><A HREF="../charsets/charset2.html">Additional Named Entities for HTML</A></B><P>
+The following table contains additional named entities, their numeric character references, and a description of each. With the exception of the left and right-pointing brackets (&amp;#9001; and &amp;#9002;), the entities on this page are rendered using <SPAN CLASS="clsLiteral">Lucida sans Unicode</SPAN>.</P><B><A HREF="/workshop/author/perf/perftips.html">Building High Performance HTML Pages</A></B><P>
+The features delivered with Internet Explorer 4.0 and later have helped make the Web a compelling space in which to work and to play. The quantity and complexity of pages as well as the number of consumers of those pages has significantly increased the traffic on the Web. For all the merit that the Web brings to application developers, it introduces a host of problems. </P><B><A HREF="/workshop/author/dynstyle/changing.html">Changing Element Styles</A></B><P>
+This document shows you how to change the <A HREF="../properties/src_0.html">SRC</A> attribute on an <A HREF="../objects/iframe.html">iframe</A> element so that the contents of <B>iframe</B> change on the fly. The same example also shows you how to change the background color of the body for the <SPAN CLASS="clsLiteral">SRC=</SPAN> document of the <B>iframe</B>. The next set of examples shows how to change the class name of the element so that it is associated with a different style sheet. </P><B><A HREF="../charsets/charset3.html">Character Entities for Special Symbols and BIDI Text</A></B><P>
+This table lists the entities for special symbols and bidirectional (BIDI)
+text.</P><B><A HREF="../charsets/charset4.html">Character Set Recognition</A></B><P>
+Internet Explorer uses the character set specified for a document to determine how to translate the bytes in the document into characters on the screen or on paper. By default, Internet Explorer uses the character set specified in the HTTP content type returned by the server to determine this translation. </P><B><A HREF="../colors/colors.html">Color Table</A></B><P>
+Colors can be specified in HTML pages in two ways&#151;by using a color name, or by using numbers to denote an RGB color value. An RGB color value consists of three two-digit hexadecimal numbers specifying the intensity of the corresponding color. </P><B><A HREF="/workshop/author/dhtml/overview/compat.html">Compatibility in Internet Explorer 5.5</A></B><P>
+This document describes the features in Internet Explorer 5.5 that may not be compatible with applications you developed for earlier versions of Internet Explorer.</P><B><A HREF="/workshop/author/css/overview/measurementandlocation.html">Controlling Presentation with Measurement and Location Properties</A></B><P>
+DHTML exposes measurement and location properties that you can use to change the size and position of HTML elements on your Web pages. When you understand what these properties are and how they affect elements on a Web page, you can achieve greater control over the appearance of your Web pages. For example, you can use these properties to design Web pages that are similar to documents in other applications, such as PowerPoint or Word.</P><B><A HREF="/workshop/author/access/accessibility.html">Creating Accessible Web Pages With DHTML</A></B><P>
+This article explains how to create accessible Web pages using DHTML with Internet Explorer 4.0 and later. </P><B><A HREF="/workshop/essentials/versions/xplatform.html">Cross-Platform Functionality</A></B><P>
+With Internet Explorer 4.0, content authors can easily create pages that run on all platforms&#151;the 32-bit Windows&#174; platforms, Windows 3.1, Macintosh, and Unix. In particular, core DHTML and Active Channel functionality are cross-platform.</P><B><A HREF="/workshop/author/css/reference/lengthunits.html">CSS Length Units Reference</A></B><P>
+This section defines the supported length units for <A HREF="/workshop/author/css/reference/attributes.html">CSS attributes</A>. </P><B><A HREF="../constants/dlgsafehelper_charset.html">Dialog Helper Character Sets</A></B><P>
+Return value from <A HREF="../methods/getcharset.html">getCharset</A> method.</P><B><A HREF="/workshop/author/tables/tables_overview.html">Enhancing Table Presentation</A></B><P>
+Internet Explorer 5 gives the author more control over table presentation. Significantly faster rendering is now possible. Using this layout, authors can increase table rendering speeds by several orders of magnitude, particularly for longer, more complex tables.</P><B><A HREF="/workshop/author/dyncontent/finding_text.html">Finding Text in the Document</A></B><P>
+You can search for a given string of text in a document by using the <A HREF="../methods/findtext.html">findText</A> method on a <A HREF="../objects/obj_textrange.html">TextRange</A> object. This method starts the search at the beginning of the range and, if it finds the string, positions the range so that it entirely encloses the string.</P><B><A HREF="/workshop/author/dhtml/howto/shortcuticon.html">How to Add a Shortcut Icon to a Web Page</A></B><P>
+Shortcut icons in Internet Explorer 5 are a new feature that you can use to display your logo or some other small graphic on the Favorites menu and Address bar. They have no special Web server requirements and are a great way to add brand recognition without requiring the user to download a custom version of Internet Explorer 5. </P><B><A HREF="/workshop/author/dhtml/howto/animatingsequence.html">How to Animate a Sequence of Elements</A></B><P>
+Dynamic positioning, Cascading Style Sheets (CSS), and the DHTML燚OM, put together, bring animation to the Internet with very minimal code. The manner in which each element in the series appears on the page can vary, from being flown into the page to being gradually faded in using any one of the transition patterns exposed by the <A HREF="../properties/filter.html">filter</A> attribute, or simply made visible through the <A HREF="../properties/visibility.html">visibility</A> property of the element. </P><B><A HREF="/workshop/author/dhtml/howto/applyingtransition.html">How to Apply a Transition on an Image</A></B><P>
+This article demonstrates how to implement a simple transition on an image.</P><B><A HREF="/workshop/author/tables/buildtables.html">How to Build Tables Dynamically</A></B><P>
+This article discusses the structure of HTML tables and explains how to use the Table Object Model to create them. It also compares how the Table Object Model and the <A HREF="/workshop/author/dom/domoverview.html">Document Object Model</A> (DOM) are used to create tables.</P><B><A HREF="/workshop/author/dhtml/howto/cyclingtextcolor.html">How to Change Text Color Character by Character</A></B><P>
+This tutorial uses the <A HREF="../objects/table.html">table</A> container to demonstrate color cycling effects for text.</P><B><A HREF="/workshop/author/dhtml/howto/creatingtoc.html">How to Create a Dynamic Table of Contents</A></B><P>
+The example provided in this article demonstrates how to create an expandable table of contents, using code that you can reuse without modification.</P><B><A HREF="/workshop/author/dhtml/howto/mousecapturecm.html">How To Create a Mouse Capture Context Menu</A></B><P>
+In this sample, a context menu is created that opens when the user right-clicks a specific object on the Web page.</P><B><A HREF="/workshop/author/dhtml/howto/mousecaptureddm.html">How To Create a Mouse Capture Drop-down Menu</A></B><P>
+DHTML menus can be tuned to better respond to mouse activity by coordinating the use of the mouse capture methods and events in Internet Explorer 5 and later. The mouse capture methods <A HREF="../methods/setcapture.html">setCapture</A> and <A HREF="../methods/releasecapture.html">releaseCapture</A> and the <A HREF="../events/onlosecapture.html">onlosecapture</A> event allow Web authors to create dynamic features that do not interfere with other content on the page. </P><B><A HREF="/workshop/author/editing/tutorials/html_editor.html">How to Create an HTML Editor Application</A></B><P>
+This tutorial describes how to use features found in Internet Explorer 5.5 or later to create an HTML Editor Application. The application you create in this tutorial contains an editable region where users can type and format text using all of the standard formatting commands. </P><B><A HREF="/workshop/author/dhtml/howto/flyingtext.html">How to Fly Text in DHTML</A></B><P>
+This article demonstrates both ways to implement flying text through the <A HREF="../objects/marquee.html">marquee</A> element and through CSS positioning.</P><B><A HREF="/workshop/author/dhtml/howto/movingobjectsbyslope.html">How to Fly Text in Geometric Patterns</A></B><P>
+This article outlines the basics of how to animate text to move in geometric patterns. Achieving results might take more time at the onset, yet once you have a few routines for calculating different slopes, you can adapt them quickly to generate unique effects. </P><B><A HREF="/workshop/author/dhtml/howto/activatingtext.html">How to Manipulate Text Effects in Response to Mouse Events</A></B><P>
+Some DHTML effects require minimal scripting to attain. One such effect, activating text in response to mouse events, is achieved largely through the use of CSS rules and the <A HREF="../properties/classname.html">className</A> property. Creating text effects in this manner yields ease of maintenance and succinct code.</P><B><A HREF="../charsets/charsets.html">HTML Character Sets</A></B><P>
+Character sets determine how the bytes that represent the text of your HTML document are translated to readable characters. Internet Explorer interprets the bytes in your document according to the applied character set translations. </P><B><A HREF="/workshop/networking/clipboard/htmlclipboard.html">HTML Clipboard Format</A></B><P>
+This article discusses cutting and pasting fragments of an HTML document. The CF_HTML clipboard format allows a fragment of raw HTML text and its context to be stored on the clipboard as ASCII. This allows the context of the HTML fragment, which consists of all preceding and surrounding tags, to be examined by an application so that the surrounding tags can be noted with their attributes. </P><B><A HREF="/workshop/author/dhtml/dhtml.html">Introduction to Dynamic HTML</A></B><P>
+DHTML is a set of innovative features in Internet Explorer 4.0. By enabling authors to dynamically change the rendering and content of a document, DHTML gives authors the ability to create visually outstanding HTML documents that interact with the user, without the burden of relying on server-side programs or complicated sets of HTML pages to achieve special effects.</P><B><A HREF="/workshop/author/dynstyle/styles.html">Introduction to Dynamic Styles</A></B><P>
+You can dynamically change the style of any HTML element in a document. You can change colors, fonts, spacing, indentation, position, and even the visibility of text. Because the DHTML燚OM makes every HTML element and attribute accessible, it is easy to use scripts to dynamically read and change styles.</P><B><A HREF="/workshop/author/filter/filters.html">Introduction to Filters and Transitions</A></B><P>
+With Internet Explorer 4.0 and above, you can apply various multimedia-style visual effects to your Web page. You can implement these effects in Web pages using CSS properties. By combining filters and transitions with basic scripting, you have a powerful tool for creating visually engaging and interactive documents. Internet Explorer 5.5 and above supports the richest variety of optimized filters. Most examples in this article require that you have Internet Explorer 5.5 installed. </P><B><A HREF="/workshop/author/forms/formsoverview.html">Introduction to Forms</A></B><P>
+Forms provide an interface for collecting, displaying, and delivering information, and are a key component of HTML. By providing different controls such as <A HREF="../objects/input_text.html">text fields</A>, <A HREF="../objects/input_button.html">buttons</A>, and <A HREF="../objects/input_checkbox.html">checkboxes</A>, forms can enhance Web pages with a means to exchange information between a client and a server. </P><B><A HREF="/workshop/languages/scriptie/sdebug.html">Introduction to Microsoft Script Debugger for Internet Explorer</A></B><P>
+Microsoft Script Debugger is a debugging environment that extends the functionality of Internet Explorer 4.0 and later and Microsoft Internet Information Server (IIS). You can use the Script Debugger to browse, edit, and debug .htm and .html files that contain Microsoft Visual Basic&#174; Scripting Edition (VBScript) or Microsoft JScript&#174;. You can also use it to combine HTML and script development and to test programs written in other languages. You can then use the Microsoft virtual machine (Microsoft VM) to run the programs and to debug scripts for any scripting language engine that supports ActiveX debugging interfaces.</P><B><A HREF="/workshop/author/persistence/overview.html">Introduction to Persistence</A></B><P>
+Persistence enables authors to specify an object to persist on the client during the current and future sessions using <A HREF="/workshop/author/behaviors/overview.html">DHTML behaviors</A>. Persistence allows Internet Explorer 5 and later to retain Web page information, styles, variables, and state. </P><B><A HREF="../charsets/charset1.html">ISO Latin-1 Character Set</A></B><P>
+The following table contains the complete ISO Latin-1 character set, corresponding to the first 256 entries of the Unicode character repertoire in Internet Explorer 4.0 and later. </P><B><A HREF="../language_codes.html">Language Codes</A></B><P>
+The following table lists all the possible language codes used to specify various system settings.</P><B><A HREF="/workshop/author/dynstyle/style_sheets.html">Managing Style Sheets</A></B><P>
+Dynamically changing CSS styles that are applied to documents is not limited to the inline styles (styles defined with the <A HREF="../properties/style.html">STYLE=</A> attribute). Global style sheets defined with a <A HREF="../objects/link.html">link</A> or <A HREF="../objects/style.html">style</A> tag in the <A HREF="../objects/head.html">head</A> section of the document can be manipulated through script. Manipulating the global style sheet is a powerful way to dynamically change the styles that apply to Web pages.</P><B><A HREF="/workshop/author/om/measuring.html">Measuring Element Dimension and Location</A></B><P>
+The following section is designed to help Web authors understand how to access the dimension and location of elements on the page through the DHTML Object Model.</P><B><A HREF="/workshop/iecompat.html">Migrating from Internet Explorer 3.0 to Internet Explorer 4.0 and Later</A></B><P>
+Compatibility is a key priority for Internet Explorer 4.0 and later. As much as possible, we want to ensure that users who upgrade from Internet Explorer 3.0 will not be affected adversely. </P><B><A HREF="/workshop/author/dhtml/httponly_cookies.html">Mitigating Cross-site Scripting With HTTP-only Cookies</A></B><P></P><B><A HREF="/workshop/author/persistence/howto/tocstate.html">Persisting Collapsible Table of Contents State</A></B><P>
+Web pages that employ a collapsible table of contents tend to share a single problem: when a user leaves the page, the table of contents reverts to its original state. For anyone trying to navigate through these nested references, it is frustrating to leave the page and return, only to have to wade through the table of contents again. Persistence <A HREF="../properties/behavior_1.html">behavior</A> provides a solution to this problem.</P><B><A HREF="/workshop/author/persistence/howto/persiststyles.html">Persisting Custom and Dynamic Styles</A></B><P>
+Dynamic and custom styles selected at run time by the user can be persisted when the page is saved as a favorite using the <A HREF="../behaviors/savefavorite.html">saveFavorite</A> behavior. </P><B><A HREF="/workshop/author/persistence/howto/formdata.html">Persisting Form Data</A></B><P>
+Using HTML to design forms comes with some drawbacks, namely the need for a server or client-side script to process the form data. The <A HREF="../behaviors/savesnapshot.html">saveSnapshot</A> behavior can be used to save a Web page and persist the form data directly within the page itself. This allows a larger audience to use Web forms for day-to-day activities without needing a special script to process and deliver the information.</P><B><A HREF="/workshop/author/persistence/howto/sessiondata.html">Persisting Session Information</A></B><P>
+Session information is usually recorded for sites that use multiple pages to accomplish a task, such as virtual shopping carts and advanced search engines. Pages that employ these variables and files can easily swell to a very large size while they juggle delivering a Web page and processing the surrounding scripts. Persistence allows most of this information to be stored on the client, thus decreasing download time and the performance hit to the server's processor(s). </P><B><A HREF="/workshop/author/dynstyle/printing.html">Printing and Style Sheets</A></B><P>
+The <B>style</B> and <B>link</B> elements support the <A HREF="../properties/media.html">MEDIA</A> attribute, which defines the output device for the style sheet.</P><B><A HREF="/workshop/author/om/scripting_elements_collections.html">Scripting with Elements and Collections</A></B><P>
+Every  HTML document consists of a combination of HTML tags and their attributes. These elements define the structure of the document and determine how the content is presented. Using the  DHTML Object Model, you can examine and modify these elements and their modifying attributes. </P><B><A HREF="../tips/tips.html">Tips and Tricks</A></B><P>
+As with any type of programming, writing bug-free, efficient scripts that meet your expectations takes a bit of work. The following sections provide some tips and hints to make that work take less time and go more smoothly.</P><B><A HREF="/workshop/author/om/event_model.html">Understanding the Event Model</A></B><P>
+An event is a notification that occurs in response to an action, such as a change in state, or as a result of the user clicking the mouse or pressing a key while viewing the document. An event handler is code, typically a function or routine written in a scripting language, that receives control when the corresponding event occurs. </P><B><A HREF="/workshop/author/forms/autocomplete_ovr.html">Using AutoComplete in HTML Forms</A></B><P>
+Internet Explorer 5 and later includes an integrated feature called AutoComplete, which helps users quickly enter information into form fields. The AutoComplete innovation in HTML forms safely stores information entered into <B>INPUT_text</B> and <A HREF="../objects/input_password.html">INPUT_password</A> fields. </P><B><A HREF="/workshop/author/dhtml/overview/inlinefloatingframes.html">Using IFRAME Elements</A></B><P>
+With Internet Explorer 5.5, frames are now windowless, resulting in greatly improved performance. In addition, Internet Explorer 5.5 can now overlap <A HREF="../objects/iframe.html">IFRAME</A> elements, also known as
+inline floating frames, and can make the content inside inline floating frames transparent.</P><B><A HREF="/workshop/author/om/popup_overview.html">Using the Popup Object</A></B><P>
+The <A HREF="../objects/popup.html">popup</A> object enables you to create window objects that take full advantage of DHTML.</P><B><A HREF="/workshop/author/dyncontent/textrange.html">Using the TextRange Object</A></B><P>
+Most users will only want to use the <A HREF="../properties/innertext.html">innerText</A>/<A HREF="../properties/innerhtml.html">innerHTML</A> and <A HREF="../properties/outertext.html">outerText</A>/<A HREF="../properties/outerhtml.html">outerHTML</A> properties and methods <A HREF="/workshop/author/dyncontent/content.html">discussed previously</A>. However, there is some more advanced text manipulation that can be done using a "text range" object. </P><B><A HREF="/workshop/author/om/windows_frames_dialogs.html">Working with Windows, Frames, and Dialog Boxes</A></B><P>
+Internet Explorer creates a <A HREF="../objects/obj_window.html">window</A> object whenever it opens an HTML document. Because this object is the highest-level object in the object model, you use it to gain access to properties and subobjects in the object model that you need to dynamically access the document content. This article explains how to use the window object, create new window objects, and create special types of window objects.</P></BLOCKQUOTE><P></P></p></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

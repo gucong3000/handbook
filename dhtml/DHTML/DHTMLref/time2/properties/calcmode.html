@@ -1,0 +1,159 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>CALCMODE Attribute | calcMode Property (t:ANIMATE, t:ANIMATECOLOR) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>CALCMODE Attribute | calcMode Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the interpolation mode for the animation.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>CALCMODE</B>
+= <SPAN CLASS="clsRange">sMode</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>calcMode</B>(<I>calcmode</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sMode</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sMode</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values:<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">discrete</SPAN></TD><TD>The animation jumps from one value to the next, without any interpolation.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">linear</SPAN></TD><TD>Default. The animation uses simple linear interpolation between values to calculate the animation function.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">paced</SPAN></TD><TD>The animation defines an even pace of change across the animation. This is only supported for attribute values that define a linear numeric range, and for which a notion of distance between points can be calculated, such as width or height.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">spline</SPAN></TD><TD>The animation interpolates from one value to the next according to a time function defined by a cubic Bezier spline. The points of the spline are defined in the <A HREF="../../time2/properties/keytimes.html">keyTimes</A> property and the control points for each interval are defined in the <A HREF="../../time2/properties/keysplines.html">keySplines</A> property.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+linear</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The default value for the <A HREF="../../time2/elements/animatemotion.html">t:ANIMATEMOTION</A> element is <SPAN CLASS="clsLiteral">paced</SPAN>.</P><P>If the attribute does not support linear interpolation, as with a string value, <SPAN CLASS="clsLiteral">discrete</SPAN> interpolation is used instead.</P><P>When this property is set to a value of <SPAN CLASS="clsLiteral">discrete</SPAN>, the duration of the animation is divided into equal time periods that depend on the values assigned to one or more of the following attributes: <A HREF="../../time2/properties/to.html">TO</A>, <A HREF="../../time2/properties/from.html">FROM</A>, <A HREF="../../time2/properties/by.html">BY</A>, <A HREF="../../time2/properties/values.html">VALUES</A>, or <A HREF="../../time2/properties/path.html">PATH</A>. As one time period moves to the next, the animation jumps to the next value with no interpolation. Here is a list of examples.
+<ul><li><B>VALUES = "0.3;0.6;0.8"</B><p>The animation spends 1/3 of its duration at each value (0.3, 0.6, and 0.8).</p></li><li><B>VALUES = "0.3;0.6"</B><p>The animation spends 1/2 of its duration at each value (0.3 and 0.6).</p></li><li><B>FROM = "0" TO = "0.8"</B><p>When the <B>FROM</B> and <B>TO</B> or <B>BY</B> attributes are used together, 1/2 of its duration is spent at the value of the <B>FROM</B> attribute and 1/2 of its duration is spent at the value of the <B>TO</B> or <B>BY</B> attribute (0 and 0.8).</p></li><li><B>TO = "0.8"</B><p>When the <B>FROM</B> attribute is omitted, the animation spends 100% of its duration at the value of the <B>TO</B> or <B>BY</B> attribute (0.8).</p></li></ul></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>calcMode</B> property to demonstrate how to set the interpolation mode for an animation.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;calcmode Property&lt;/TITLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;SCRIPT&gt;
+function btnEnable(){
+//After element's timeline has ended, enable buttons.
+b1.disabled=false;
+b2.disabled=false;
+b3.disabled=false;
+b4.disabled=false;
+}
+function btnDisable(){
+//Element's timeline begins; disable buttons.
+b1.disabled=true;
+b2.disabled=true;
+b3.disabled=true;
+b4.disabled=true;
+}
+&lt;/SCRIPT&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;H2 style="position:absolute;top:35px;"&gt;Click one of the buttons below.&lt;/H2&gt;
+&lt;P style="position:absolute;top:65px;"&gt;This example demonstrates each of the
+possible values for the calcMode property.&lt;/P&gt;
+&lt;DIV id="t1" style="position:absolute;top:75px;left:50px;height:100px;
+width:100px;background-color:yellow;text-align:center;font-size:large;
+visibility:hidden"&gt;
+&lt;/DIV&gt;
+&lt;t:animate id="tt1" begin="b1.click + 1;" dur="4s" from="50" to="410"
+targetElement="t1" attributeName="left" fill="remove"
+onbegin="btnDisable();" onend="t1.style.visibility='hidden';btnEnable();"/&gt;
+&lt;DIV id="t2" style="position:absolute;top:75px;left:50px;height:100px;
+width:100px;background-color:yellow;text-align:center;font-size:large;
+visibility:hidden"&gt;
+&lt;/DIV&gt;
+&lt;t:animate id="tt2" begin="b2.click + 1;" calcmode="discrete" dur="4s"
+from="50" to="410" targetElement="t2" attributeName="left" fill="remove"
+onbegin="btnDisable();" onend="t2.style.visibility='hidden';btnEnable();"/&gt;
+&lt;DIV id="t3" style="position:absolute;top:75px;left:50px;height:100px;
+width:100px;background-color:yellow;text-align:center;font-size:large;
+visibility:hidden"&gt;
+&lt;/DIV&gt;
+&lt;t:animate id="tt3" begin="b3.click + 1" dur="4s" calcMode="paced" from="50"
+by="335" targetElement="t3" attributeName="left" fill="remove"
+onbegin="btnDisable();" onend="t3.style.visibility='hidden';btnEnable();"/&gt;
+&lt;DIV id="t4" style="position:absolute;z-index=1;top:75px;left:50px;
+height:100px;width:100px;background-color:yellow;text-align:center;
+font-size:large;visibility:hidden"&gt;
+&lt;/DIV&gt;
+&lt;t:animate id="tt4" begin="b4.click + 1" dur="4s" calcMode="spline"
+keySplines="0 0 1 1" keyTimes="0; 1" values="200;410" targetElement="t4"
+attributeName="left" fill="freeze" onbegin="btnDisable();"
+onend="t4.style.visibility='hidden';btnEnable();"/&gt;
+&lt;P style="position:relative;top:175px;"&gt;
+&lt;BUTTON id="b1" onclick="t1.style.visibility='visible';tt1.calcmode='linear';
+t1.innerText='Linear Example';" style="font-weight:bold;"&gt;Default Linear&lt;/BUTTON&gt;
+&lt;BUTTON id="b2" onclick="t2.style.visibility='visible';
+t2.innerText='Discrete Example';"&gt;Show Discrete&lt;/BUTTON&gt;
+&lt;BUTTON id="b3" onclick="t3.style.visibility='visible';
+t3.innerText='Paced Example';"&gt;Show Paced&lt;/BUTTON&gt;
+&lt;BUTTON id="b4" onclick="t4.style.visibility='visible';
+t4.innerText='Spline Example';"&gt;Show Spline&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/calcmode.htm" FEATURES="top=50,left=50,height=450,width=610,status=0,resizeable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL) 2.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/elements/animate.html">
+t:ANIMATE</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatecolor.html">
+t:ANIMATECOLOR</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

@@ -1,0 +1,246 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-852-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-868-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-860-fm2xml"></A><A NAME="IXT-23-55410"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.split(  )</i></b></td>
+
+<td align="right"><i>将字符串分割成字符串数组</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.1; JScript 3.0; ECMAScript v1; 在ECMAScript v3中得到增强</P>
+<A NAME="ch23-861-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.split(<TT><I>delimiter</I></TT>, <TT><I>limit</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-862-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>delimiter</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">字符串或正则表达式，从该参数指定的地方分割string。ECMAScript V3标准化了正则表达式作为定界符使用时的用法，JavaScript 1.2和JScript 3.0实现了它。JavaScriptl.1没有实现它。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>limit</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">这个可选的整数指定了返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数字。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。ECMAScriptv3标准化了该参数，JavaScript 1.2和JScript 3.0实现了它。JavaScript 1.1没有实现它。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-863-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText"> 一个字符串数组，是通过在delimiter指定的边界处将字符串string分割成子串创建的。返回的数组中的子串不包括delimiter自身，但下面列出的情况除外。</P>
+
+
+
+
+
+<A NAME="ch23-864-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"> 方法split()将创建并返回一个字符串数组，该数组中的元素是指定的字符串string
+  的子串，最多具有limit个。这些子串是通过从头到尾检索字符串中与delimiter
+  匹配的文本，在匹配文本之前和之后分割string得到的。返回的子串中不包括定界符
+  文本(下面提到的情况除外)。如果定界符从字符串开头开始匹配，返回的数组的第一个元素是空串，即出现在定界符之前的文本。同样，如果定界符与字符串的结尾匹
+  配，返回的数组的最后一个元素也是空串(假定与limit没有冲突)。</P>
+
+
+
+<P class="docText"> 如果没有指定delimiter，那么它根本就不对string执行分割，返回的数组中只有一个元素，而不分割字符串元素。如果delimiter是一个空串或与空串匹配的正则表
+  达式，那么string中的每个字符之间都会被分割，返回的数组的长度与字符串长度相
+  等(假定王imic不小于该长度)。(注意，这是一种特殊情况，因为没有匹配第一个字符之前和最后一个字符之后的空串。)</P>
+
+
+
+<P class="docText">前面说过，该方法返回的数组中的子串不包括用于分割字符串的定界符文本。但如果delimiter是包括子表达式的正则表达式，那么返回的数组中包括与这些子表达式匹
+  配的子串(但不包括与整个正则表达式匹配的文本)。</P>
+
+
+
+<P class="docText">注意，String.split()执行的操作与Array.join()执行的操作相反。</P>
+
+
+
+<A NAME="ch23-865-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">在使用结构复杂的字符串时，方法split()最有用。例如：
+</P>
+
+
+
+<PRE>"1:2:3:4:5".split(":");  // 返回 ["1","2","3","4","5"]
+
+"|a|b|c|".split("|");    // 返回 ["", "a", "b", "c", ""] </PRE>
+
+
+
+<P class="docText">split()方法的另—个常见用法是解析命令和与之相似的字符串，用空格将它们分割
+    成单词：
+
+</P>
+
+
+
+<PRE>var words = sentence.split(' '); </PRE>
+
+
+
+<P class="docText">关于delimiter是一个空格的情况，详见“Bug'’小节。用正则表达式作为定界符，
+    很容易把字符串分割成单词：</P>
+
+
+
+<PRE>var words = sentence.split(/\s+/); </PRE>
+
+
+
+<P class="docText">要把字符串分割成字符数组，可以用空串作为定界符。如果只想把字符串的前一部分
+    分割成字符数组，需要使用limit参数：</P>
+
+
+
+<PRE>"hello".split("");     // 返回 ["h","e","l","l","o"]
+
+"hello".split("", 3);  // 返回 ["h","e","l"] </PRE>
+
+
+
+<P class="docText">如果想使返回的数组包括定界符或定界符的一个或多个部分，可以使用带子表达式的正则表达式。例如，下面的代码将在HTML标记处分割字符串，返回的数组中包括这些标记：</P>
+
+
+
+<PRE>var text = "hello &lt;b&gt;world&lt;/b&gt;";
+
+text.split(/(&lt;[^&gt;]*&gt;)/);  // 返回 ["hello ","&lt;b&gt;","world","&lt;/b&gt;",""] </PRE>
+
+
+
+<A NAME="ch23-866-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">在JavaScript的Netscape实现中，如果明确地把语言版本设置为1.2，split()方法具有特殊的行为，即如果delimiter
+    是一个空格，该方法将在空格处分割字符串，忽略字符串开头和结尾处的空白。</P>
+
+
+
+<A NAME="ch23-867-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-54-fm2xml.html#ch23-54-fm2xml">Array.join(  )</A>, <A class="docLink" HREF="ch23-726-fm2xml.html#ch23-726-fm2xml">RegExp</A>; <A class="docLink" HREF="jscript4-CHP-10.html#jscript4-CHP-10">Chapter 10</A> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-852-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-868-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

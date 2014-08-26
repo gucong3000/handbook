@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Alpha'
+);
+
+collFriendProperties=new Array(
+'Opacity','startX','startY','finishX','finishY','style'  
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Alpha'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:6px;filter : progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=0,finishOpacity=100);}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.Alpha(";\n'+
+'var sCodeEnd="startX=0, startY=0, finishX=100, finishY=100,";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel1")) var sValue1=parseInt(options[selectedIndex].value);\n'+
+'with (document.all("idSel2")) var sValue2=parseInt(options[selectedIndex].value);\n'+
+'with (document.all("idSel3")) var sValue3=parseInt(options[selectedIndex].value);\n'+
+'oDiv.filters[0].Style=sValue1;\n'+
+'oDiv.filters[0].Opacity=sValue2;\n'+
+'oDiv.filters[0].FinishOpacity=parseInt(sValue3);\n'+
+'if (sValue1!=1) oCodeDiv.innerHTML=sFilter+"style="+sValue1+",opacity="+sValue2+",finishOpacity="+sValue3+");";\n'+
+'else oCodeDiv.innerHTML=sFilter+sCodeEnd+"style="+sValue1+",opacity="+sValue2+",finishOpacity="+sValue3+");";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_sex.gif" style="float:left;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="0">---渐变样式---\n'+
+'<option value="0">0\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="3" selected>3\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="0">---开始透明度---\n'+
+'<option value="0" selected>0\n'+
+'<option value="25">25\n'+
+'<option value="50">50\n'+
+'<option value="75">75\n'+
+'<option value="100">100\n'+
+'<\/select>\n'+
+'<select id="idSel3" onchange="rdl_change();">\n'+
+'<option value="0">---结束透明度---\n'+
+'<option value="0">0\n'+
+'<option value="25">25\n'+
+'<option value="50">50\n'+
+'<option value="75">75\n'+
+'<option value="100" selected>100\n'+
+'<\/select>\n'+
+'<\/td><\/tr><\/table>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=0,finishOpacity=100);<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>finishOpacity | FinishOpacity&nbsp;</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/alpha.html">Alpha</a> ( finishOpacity</b> = <i>iOpacity</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/alpha.html">Alpha</a>').FinishOpacity = </b><i>iOpacity</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iOpacity </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。取值范围为<b> 0 - 100 </b>。默认值为<span class=cssDefault><b> 0 </b></span>，即完全透明。<b> 100 </b>为完全不透明。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索透明渐变的结束透明度。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>location</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</STYLE>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="LISTING.html" title="LISTING 元素 | listing 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>LISTING 元素 | listing 对象</A> <A HREF="MAP.html" title="MAP 元素 | map 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>MAP 元素 | map 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>location 对象</H1>
+<HR SIZE="1"><P>包含关于当前 URL 的信息。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>location</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P>
+</DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/hash.html">hash</A></TD>
+<TD>设置或获取 <A HREF="../properties/href_1.html">href</A> 属性中在井号“#”后面的分段。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/host.html">host</A></TD>
+<TD>设置或获取 location 或 URL 的 <A HREF="../properties/hostname.html">hostname</A> 和 <A HREF="../properties/port.html">port</A> 号码。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/hostname.html">hostname</A></TD>
+<TD>设置或获取 location 或 URL 的主机名称部分。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/href_3.html">href</A></TD>
+<TD>设置或获取整个 URL 为字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pathname.html">pathname</A></TD>
+<TD>设置或获取<span replace="1">对象</span>指定的文件名或路径。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/port.html">port</A></TD>
+<TD>设置或获取与 URL 关联的端口号码。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/protocol.html">protocol</A></TD>
+<TD>设置或获取 URL 的协议部分。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/search.html">search</A></TD>
+<TD>设置或获取 <A HREF="../properties/href_3.html">href</A> 属性中跟在问号后面的部分。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/assign.html">assign</A></TD>
+<TD>装入新的 HTML 文档。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/reload.html">reload</A></TD>
+<TD>重新装入当前页面。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replace.html">replace</A></TD>
+<TD>装入指定 URL 的另外文档来替换当前文档。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>href</B> 属性包含了整个 URL，而其它属性包含了 URL 的各个部分。<B>location</B> 对象的默认属性就是 location.href。例如，设置 location='http://microsoft.com' 的结果就等于设置 location.href='http://microsoft.com'。</P>
+<P>当设置此列出的任何属性后，浏览器都将立即前往指定 URL。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="obj_document.html">document</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="obj_window.html">window</A></TD>
+</TR>
+<TR>
+<TD COLSPAN="2" CLASS="controls"></TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

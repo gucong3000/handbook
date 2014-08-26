@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<title>XMLHTTPRequest参考手册 | Xmlhttp.CN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel='shortcut icon' href='xmlhttp.ico' />
+<link rel='bookmark icon' href='xmlhttp.ico' />
+<link href="../images/manual.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../images/manual.js"></script>
+</head>
+<body onload="setManualIndexState()">
+<div id="top">
+  <div id="div_logo"><a href="/" title="index"><img src="../images/logo_xmlhttp.gif" alt="XmlHttp.CN" id="img_logo"/></a></div>
+</div>
+<div id="main">
+<div id="sidebar">
+  <div id="context_btn"><img src="../images/context_open.gif" alt="" onmouseover="btn_handle('onmouseover')" onmouseout="btn_handle('onmouseout')" onclick="btn_handle('onclick')" id="btn"/></div>
+  <div id="title">XMLHTTP对象参考</div>
+  <div id="index">
+  <a href="xmlhttprequest.html" title="">XMLHTTPRequest 对象</a>
+  <a href="xmlhttprequest.members.html" title="">XMLHTTPRequest 成员</a>
+  <a href="onreadystatechange.html" title="">onreadystatechange</a>
+  <a href="readystate.html" title="">readyState</a>
+  <a href="responsebody.html" title="">responseBody</a>
+  <a href="responsestream.html" title="">responseStream</a>
+  <a href="responseText.html" title="">responseText</a>
+  <a href="responsexml.html" title="">responseXML</a>
+  <a href="status.html" title="">status</a>
+  <a href="statustext.html" title="">statusText</a>
+  <a href="abort.html" title="">abort</a>
+  <a href="getallresponseheaders.html" title="">getAllResponseHeaders</a>
+  <a href="getresponseheader.html" title="">getResponseHeader</a>
+  <a href="open.html" title="">open</a>
+  <a href="send.html" title="">send</a>
+  <a href="setrequestheader.html" title="">setRequestHeader</a>
+  </div>
+</div>
+<h1>responseXML</h1>
+<p>将响应信息格式化为Xml Document对象并返回</p>
+<h2>语法</h2>
+<pre>
+var objDispatch = oXMLHttpRequest.responseXML;
+</pre>
+<h2>Example</h2>
+<pre>
+var xmlhttp = new ActiveXObject("Msxml2.XMLHTTP.3.0");
+xmlhttp.open("GET", "http://localhost/books.xml", false);
+xmlhttp.send();
+alert(xmlhttp.responseXML.xml);
+</pre>
+<h2>备注</h2>
+<p>变量，此属性只读，将响应信息格式化为Xml Document对象并返回。如果响应数据不是有效的XML文档，此属性本身不返回XMLDOMParseError，可以通过处理过的DOMDocument对象获取错误信息。
+</p>
+<h2>参考</h2>
+<p>
+<a href="responsebody.html" title="">responseBody 属性</a><br />
+<a href="responsestream.html" title="">responseStream 属性</a><br />
+<a href="responsetext.html" title="">responseText 属性</a>
+</p>
+</div>
+
+</body>
+</html>

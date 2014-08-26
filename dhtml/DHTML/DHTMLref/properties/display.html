@@ -1,0 +1,220 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>display Attribute | display</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>display Attribute | display Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves  whether the <span replace="1">object</span> is rendered.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+This property supports the
+<apply-templates></apply-templates><SPAN CLASS="clsLiteral">list-item</SPAN> value.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ display : <SPAN CLASS="clsRange">sDisplay</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.display</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sDisplay</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sDisplay</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">block</SPAN></TD><TD>Object is rendered as a block element.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">none</SPAN></TD><TD>Object is not rendered.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">inline</SPAN></TD><TD>Default. Object is rendered as an inline element sized by the dimensions of the content.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">inline-block</SPAN></TD><TD>Object is rendered inline, but the contents of the object are rendered as a block element.  Adjacent inline elements are rendered on the same line, space permitting.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">list-item</SPAN>&nbsp;<IMG SRC="../common/new.gif" TITLE="New for Internet Explorer 6"></IMG>&nbsp;</TD><TD>Internet Explorer 6 and later.  Object is rendered as a block element, and a list-item marker is added.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">table-header-group</SPAN></TD><TD>Table header is always displayed before all other rows and row groups, and after any top captions. The header is displayed on each page spanned by a table. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">table-footer-group</SPAN></TD><TD>Table footer is always displayed after all other rows and row groups, and before any bottom captions. The footer is displayed on each page spanned by a table. </TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/currentstyle.html">currentStyle</A>.
+The property has a default value of <SPAN CLASS="clsDefValue">
+inline</SPAN>
+for all objects with the
+following exceptions:
+<TABLE STYLE="margin-left:20px" CLASS="clsStd"><TR><TD><A HREF="../objects/address.html">ADDRESS</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/blockquote.html">BLOCKQUOTE</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/body.html">BODY</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/center.html">CENTER</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/col.html">COL</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/colgroup.html">COLGROUP</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/dd.html">DD</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/dir.html">DIR</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/div.html">DIV</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/dl.html">DL</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/dt.html">DT</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/fieldset.html">FIELDSET</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/form.html">FORM</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/frame.html">FRAME</A></TD><TD>none</TD></TR><TR><TD><A HREF="../objects/hn.html">hn</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/hr.html">HR</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/iframe.html">IFRAME</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/legend.html">LEGEND</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/li.html">LI</A></TD><TD>list-item</TD></TR><TR><TD><A HREF="../objects/listing.html">LISTING</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/marquee.html">MARQUEE</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/menu.html">MENU</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/ol.html">OL</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/p.html">P</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/plaintext.html">PLAINTEXT</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/pre.html">PRE</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/table.html">TABLE</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/tbody.html">TBODY</A></TD><TD>none</TD></TR><TR><TD><A HREF="../objects/td.html">TD</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/tfoot.html">TFOOT</A></TD><TD>none</TD></TR><TR><TD><A HREF="../objects/th.html">TH</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/thead.html">THEAD</A></TD><TD>none</TD></TR><TR><TD><A HREF="../objects/tr.html">TR</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/ul.html">UL</A></TD><TD>block</TD></TR><TR><TD><A HREF="../objects/xmp.html">XMP</A></TD><TD>block</TD></TR></TABLE>
+The Cascading Style Sheets (CSS) attribute is
+not  inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>In Internet Explorer 4.0, the <SPAN CLASS="clsLiteral">block</SPAN>, <SPAN CLASS="clsLiteral">inline</SPAN>, and <SPAN CLASS="clsLiteral">list-item</SPAN> values are not supported explicitly, but do render the element. </P><P>The <SPAN CLASS="clsLiteral">block</SPAN> and <SPAN CLASS="clsLiteral">inline</SPAN> values are supported explicitly as of Internet Explorer 5.</P><P>In Internet Explorer 5.5 and earlier, the default value of this property for <A HREF="../objects/li.html">li</A> elements is <SPAN CLASS="clsLiteral">block</SPAN>.</P><P>The <SPAN CLASS="clsLiteral">inline-block</SPAN> value is supported  as of Internet Explorer 5.5.    You can use this value to give an object a layout without specifying the object's height or width.</P><P>All visible HTML?A HREF="../objects.html">objects</A> are block or inline. For example, a <A HREF="../objects/div.html">div</A> object is a block element, and a <A HREF="../objects/span.html">span</A> object is an inline element. Block elements typically start a new line and can contain other block elements and inline elements. Inline elements do not typically start a new line and can contain other inline elements or data. Changing the values for the <B>display</B> property affects the layout of the surrounding content by:
+<ul><li>Adding a new line after the element with the value <SPAN CLASS="clsLiteral">block</SPAN>. </li><li>Removing a line from the element with the value <SPAN CLASS="clsLiteral">inline</SPAN>. </li><li>Hiding the data for the element with the value <SPAN CLASS="clsLiteral">none</SPAN>. </li></ul></P><P>In contrast to the <A HREF="../properties/visibility.html">visibility</A> property, <B>display</B>??SPAN CLASS="clsLiteral">none</SPAN> reserves no space for the object on the screen.</P><P>The <SPAN CLASS="clsLiteral">table-header-group</SPAN> and <SPAN CLASS="clsLiteral">table-footer-group</SPAN> values can be used to specify that the contents of the <A HREF="../objects/thead.html">tHead</A> and <A HREF="../objects/tfoot.html">tFoot</A> objects are displayed on every page for a table that spans multiple pages.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example shows the effect of changing the values for the <B>display</B> property between <SPAN CLASS="clsLiteral">inline</SPAN>, <SPAN CLASS="clsLiteral">block</SPAN>, and <SPAN CLASS="clsLiteral">none</SPAN>.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SPAN ID=oSpan&gt;
+This is a SPAN
+&lt;/SPAN&gt;
+in a sentence.
+&lt;P&gt;
+&lt;INPUT TYPE=button VALUE="Block"
+onclick="oSpan.style.display='block'"&gt;
+:</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+This example uses function calls to hide and show table rows and cells.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function getPets()
+{
+oRow1Cell2.style.display="none";
+oRow2Cell2.style.display="block";
+oRow3Cell2.style.display="none";
+}
+&lt;/SCRIPT&gt;
+:
+&lt;TABLE&gt;
+&lt;TR ID="oRow1"&gt;&lt;TD&gt;Horses&lt;/TD&gt;
+&lt;TD ID="oRow1Cell2"&gt;Thoroughbreds&lt;/TD&gt;
+&lt;TD&gt;Fast&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR ID="oRow2"&gt;&lt;TD&gt;Dogs&lt;/TD&gt;
+&lt;TD ID="oRow2Cell2"&gt;Greyhounds&lt;/TD&gt;
+&lt;TD&gt;Fast&lt;/TD&gt;&lt;/TR&gt;
+&lt;TR ID="oRow3"&gt;&lt;TD&gt;Marsupials&lt;/TD&gt;
+&lt;TD ID="oRow3Cell2"&gt;Opossums&lt;/TD&gt;
+&lt;TD&gt;Slow&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+:
+&lt;INPUT TYPE=button onclick="getPets()"
+VALUE="Show household pets"&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/TR/REC-CSS1.html" TARGET="_top">
+Cascading Style Sheets (CSS), Level 1 (CSS1)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/br.html">
+BR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/col.html">
+COL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/colgroup.html">
+COLGROUP</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/currentstyle.html">
+currentStyle</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5" HREF="../objects/defaults.html">
+defaults</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/embed.html">
+EMBED</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/html.html">
+HTML</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/library/en-us/dnie60/html/cssenhancements.html" TARGET="_top">CSS Enhancements in Internet Explorer 6</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

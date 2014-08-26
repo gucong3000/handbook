@@ -1,0 +1,138 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>PUBLIC:EVENT</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>PUBLIC:EVENT Element
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Defines an event of the HTML Component (HTC) to be exposed to the containing document. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE xml:space="preserve" CLASS="clsSyntax">&lt;PUBLIC:EVENT
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;=&nbsp;"<I>sEventID</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;NAME&nbsp;=&nbsp;"<I>sName</I>"
+/&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Attributes</P><BLOCKQUOTE><DL><DT><B>ID</B></DT><DD>Optional. String that uniquely identifies the <B>PUBLIC:EVENT</B> element within the component. This attribute is analogous to the <A HREF="../properties/id.html">ID</A> attribute in Dynamic HTML (DHTML). </DD><DT><B>NAME</B></DT><DD>Required. String that specifies the name of the event exposed to the containing document. </DD></DL></BLOCKQUOTE><P CLASS="clsRef">Methods</P><BLOCKQUOTE><DL><DT><I>eventID</I><B>.fire(</B><B> [</B><I>oEvent</I><B>]</B>&nbsp;<B>)</B></DT><DD>
+Fires the event to the containing document.<P></P>This method has the following parameter:
+<TABLE CLASS="clsStd"><TR><TD>oEvent</TD><TD>Object that specifies the <A HREF="../objects/obj_event.html">event</A> object containing context information.<TABLE></TABLE></TD></TR></TABLE></DD></DL></BLOCKQUOTE><P CLASS="clsRef">Element Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH NOWRAP="1" TITLE="Elements that can contain this element">Parent elements</TH><TD><A HREF="../htc/component.html">PUBLIC:COMPONENT</A></TD></TR><TR><TH NOWRAP="1" TITLE="Elements that can appear within this element">Child elements</TH><TD>
+None</TD></TR><TR><TH>Minimum availability</TH><TD>Internet Explorer
+5</TD></TR><TR><TH>Minimum operating systems</TH><TD>
+Windows&nbsp;95, Windows NT&nbsp;4.0</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>By specifying a <B>NAME</B> attribute similar to a standard event already defined for the element, a behavior can override the element's default behavior.</P><P>Events defined for a behavior do not bubble; they only fire on the element to which the behavior is attached.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example is derived from a calculator behavior sample. Whenever the result changes, the HTC fires a custom onResultChange event back to the page, passing the result as a custom property of the <B>event</B> object.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;PUBLIC:EVENT NAME="onResultChange" ID="rcID" /&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function doCalc()
+{
+:
+oEvent = createEventObject();
+oEvent.result = sResult;
+rcID.fire (oEvent);
+}
+&lt;SCRIPT&gt;</PRE><P>
+This example shows what the containing page looks like. </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:InetSDK&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+@media all {
+InetSDK\:CALC    {behavior:url(engine.htc)}
+}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;InetSDK:CALC id="myCalc" onResultChange="resultWindow.innerText=
+window.event.result"&gt;
+&lt;TABLE&gt;
+&lt;TR&gt;&lt;DIV ID="resultWindow" STYLE="border: '.025cm solid gray'"
+ALIGN=RIGHT&gt;0.&lt;/DIV&gt;&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 7 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 8 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 9 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" / "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" C "&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 4 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 5 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 6 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" * "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" % " DISABLED&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 1 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 2 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 3 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" - "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE="1/x" DISABLED&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" 0 "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE="+/-"&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" . "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" + "&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE=BUTTON VALUE=" = "&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/InetSDK:CALC&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="/workshop/author/behaviors/howto/creating.html">Using HTML Components to Implement DHTML Behaviors in Script</A>, <A HREF="../htc/method.html">PUBLIC:METHOD</A>, <A HREF="../htc/property.html">PUBLIC:PROPERTY</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

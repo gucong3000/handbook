@@ -1,0 +1,163 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>open</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>open Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>This method works in two ways.  It opens a document to collect the output of the <A HREF="../methods/write.html">write</A> and <A HREF="../methods/writeln.html">writeln</A> methods.  In this case, only the first two parameters, <I>sUrl
+</I> and <I>sName
+</I> are used.  When values for the additional parameters are specified, this method opens a window in the same way as the <A HREF="../objects/obj_window.html">window</A>.<A HREF="../methods/open_0.html">open</A> method for the <B>window</B> object.
+</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+As of
+<apply-templates></apply-templates>
+Internet Explorer 6, the
+<apply-templates></apply-templates><SPAN CLASS="clsLiteral">_media</SPAN> value of the
+<apply-templates></apply-templates><I>sName
+</I> parameter specifies that this method loads a
+<apply-templates></apply-templates>
+URL in the
+<apply-templates></apply-templates>
+Media Bar.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>oNewDoc</I> = <I>document</I><B>.open(</B><I>sUrl</I><B> [</B><B>, </B><I>sName</I><B>]</B><B> [</B><B>, </B><I>sFeatures</I><B>]</B><B> [</B><B>, </B><I>bReplace</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sUrl</I></TD><TD>
+Required.
+When opening a new document, <I>sUrl
+</I> is a <b>String</b> that specifies a Multipurpose Internet Mail Extensions (MIME) type for the document. When opening a new window, <I>sUrl
+</I> is a <b>String</b> that specifies the URL to render in the new window. If a <I>sUrl
+</I> is not specified, a new window with <B>about:blank</B> is displayed.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">text/html</SPAN></TD><TD>Default. Currently the only MIME type supported for this method.</TD></TR></TABLE></TD></TR><TR><TD><I>sName</I></TD><TD>
+Optional.
+When opening up a new document, specifying the <b>String</b>?SPAN CLASS="clsLiteral">replace</SPAN> for <I>sName
+</I> designates that the new document is to replace the current document in the history list.  If the value <SPAN CLASS="clsLiteral">replace</SPAN> is not specified when opening up a document, a new entry will simply be added to the history list.  When opening a window, this is a <b>String</b> that specifies the name of the window. The value of this parameter may be specified as the value of the <A HREF="../properties/target.html">TARGET</A> attribute for a <A HREF="../objects/form.html">form</A> or <A HREF="../objects/a.html">a</A> element.  This value will then will define this new window as the place to load a document. <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">replace</SPAN></TD><TD> This value is only used for opening up a new document and specifies that the new document is to replace the current entry in the history list.
+</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">_blank</SPAN></TD><TD>When opening a window, the <I>sUrl
+</I> is loaded into a new, unnamed window.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">_parent</SPAN></TD><TD>When opening a new window, the <I>sUrl
+</I> is loaded into the current frame's parent. If the frame has no parent, this value acts as the value <SPAN CLASS="clsLiteral">_self</SPAN>.
+</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">_search</SPAN></TD><TD>Available in Internet Explorer 5 and later. When opening a window, the <I>sUrl
+</I> is opened in the browser's search pane.
+</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">_self</SPAN></TD><TD>When opening a window, the current document is replaced with the specified <I>sUrl
+</I>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">_top</SPAN></TD><TD><I>sUrl
+</I> replaces any framesets that may be loaded. If there are no framesets defined, this value acts as the value <SPAN CLASS="clsLiteral">_self</SPAN>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">_media</SPAN>&nbsp;<IMG SRC="../common/new.gif" TITLE="New for Internet Explorer 6"></IMG>&nbsp;</TD><TD>Available in Internet Explorer 6 and later. The <I>sUrl
+</I> is loaded in the Media Bar.
+</TD></TR></TABLE></TD></TR><TR><TD><I>sFeatures</I></TD><TD>
+Optional.
+This <b>String</b> is only used when opening a new window and specifies the settings of the window's display features. This parameter is a list of items separated by commas. Each item consists of an option and a value, separated by an equals sign (for example, "fullscreen=yes, toolbar=yes"). The following features are supported.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">channelmode = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display the window in theater mode and show the channel band. The default is <B>no</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">directories = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to add directory buttons. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">fullscreen = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display the browser in full-screen mode. The default is <B>no</B>. Use full-screen mode carefully. Because this mode hides the browser's title bar and menus, you should always provide a button or other visual clue to help the user close the window. ALT+F4 closes the new window. A window in full-screen mode must also be in theater mode (channelmode). </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">height = number</SPAN></TD><TD>Specifies the height of the window, in pixels. The minimum value is <SPAN CLASS="clsLiteral">100</SPAN>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">left = number</SPAN></TD><TD>Specifies the left position, in pixels. This value is relative to the upper-left corner of the screen. The value must be greater than or equal to 0. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">location = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display the input field for entering URLs directly into the browser. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">menubar = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display the menu bar. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">resizable = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display resize handles at the corners of the window. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">scrollbars = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display horizontal and vertical scroll bars. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">status = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to add a status bar at the bottom of the window. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">titlebar = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display a title bar for the window. This parameter is ignored unless the calling application is an <A HREF="/workshop/author/hta/overview/htaoverview.html">HTML Application</A> or a trusted dialog box. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">toolbar = { yes | no | 1 | 0 }</SPAN></TD><TD>Specifies whether to display the browser toolbar, making buttons such as Back, Forward, and Stop available. The default is <B>yes</B>.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">top = number</SPAN></TD><TD>Specifies the top position, in pixels. This value is relative to the upper-left corner of the screen. The value must be greater than or equal to 0. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">width = number</SPAN></TD><TD>Sets the width of the window, in pixels. The minimum value is <SPAN CLASS="clsLiteral">100</SPAN>.</TD></TR></TABLE></TD></TR><TR><TD><I>bReplace</I></TD><TD>
+Optional.
+When the <I>sUrl
+</I> is loaded into the same window, this <b>Boolean</b> parameter specifies whether the <I>sUrl
+</I> creates a new entry or replaces the current entry in the window's history list. <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD><I>sUrl
+</I> replaces the current document in the history list</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">false</SPAN></TD><TD><I>sUrl
+</I> creates a new entry in the history list. </TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>Returns a reference
+to the new
+<A HREF="../objects/obj_document.html">document</A> or <B>window</B> object.
+Use this
+reference
+to access properties and methods of the new document or window.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>When a function fired by an <A HREF="../events.html">event</A> on any object calls the
+<B>open</B> method, the window.<B>open</B> method is implied.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT LANGUAGE="JScript"&gt;
+function foo() {
+open('about:blank');}
+&lt;/SCRIPT&gt;
+&lt;BODY onclick="foo();"&gt;
+Click this page and window.open() is called.
+&lt;/BODY&gt;</PRE></P><P>When an event on any
+object calls the <B>open</B> method, the
+document.<B>open</B> method is implied.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;BUTTON onclick="open('Sample.htm');"&gt;
+Click this button and document.open() is called.
+&lt;/BUTTON&gt;</PRE></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows how to use the <B>open</B> method to replace the current document with a new document and display the HTML markup contained in the variable <I>sMarkup</I>. </P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;First Document&lt;/TITLE&gt;
+&lt;script&gt;
+function replace(){
+var oNewDoc = document.open("text/html", "replace");
+var sMarkup = "&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;New Document&lt;/TITLE&gt;&lt;BODY&gt;Hello, world&lt;/BODY&gt;&lt;/HTML&gt;";
+oNewDoc.write(sMarkup);
+oNewDoc.close();
+}
+&lt;/script&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;h1&gt;I just want to say&lt;/h1&gt;&lt;br&gt;
+&lt;!--Button will call the replace function and replace the current page with a new one--&gt;
+&lt;Input type ="button" value = "Finish Sentence" onclick="replace();"&gt;
+&lt;/BODY&gt;
+&lt;/html&gt;
+</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This method is defined in <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">
+World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;unix=4.0;mac=3.02;ce=5.5" HREF="../objects/obj_document.html">
+document</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/close_1.html">close</A>, <A HREF="../events/onbeforeunload.html">onbeforeunload</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

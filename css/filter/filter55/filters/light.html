@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_object.css">
+<script src="rdl_object.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collElements=new Array();
+//collProperties=new Array();
+//collMethods=new Array();
+//collEvents=new Array();
+//collCollections=new Array();
+
+collProperties=new Array(
+new Array('enabled','Enabled','设置或检索滤镜是否激活。')
+);
+
+collMethods=new Array(
+new Array('addAmbient','为滤镜添加环境光。'),
+new Array('addCone','为滤镜添加锥形光以向对象的表面投射有方向的光束。'),
+new Array('addPoint','为滤镜添加点光。'),
+new Array('changeColor','改变光的颜色。'),
+new Array('changeStrength','改变光的强度。'),
+new Array('clear','清除所有与当前滤镜关联的光。'),
+new Array('moveLight','移动锥形光的焦点或点光的原点。')
+);
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'A','ACRONYM','ADDRESS','B','BDO','BIG','BLOCKQUOTE','CAPTION','CENTER','CITE','CODE','CUSTOM','DD','DEL','DFN','DIR','DL','DT','EM','FIELDSET','FONT','FORM','FRAME','Hn','I','IFRAME','INS','KBD','LABEL','LEGEND','LI','MENU','NOBR','OBJECT','OL','P','PLAINTEXT','PRE','Q','RT','RUBY','S','SAMP','SMALL','STRIKE','STRONG','SUB','SUP','TT','U','UL','VAR','XMP'
+);
+
+collIE40=new Array(
+'TABLE','TD','TEXTAREA','TH','SPAN','style','IMG','INPUT type=button','INPUT type=checkbox','INPUT type=file','INPUT type=image','INPUT type=password','INPUT type=radio','INPUT type=reset','INPUT type=submit','INPUT type=text','MARQUEE','DIV','BUTTON'
+);
+
+collIE50=new Array(
+'runtimeStyle'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.Light();}\n';
+
+sScript=
+'<script>\n'+
+'function rdl_change(m){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (oDiv.filters[0]) switch(m) {\n'+
+'case 1 : addCone(0,0,1,80,80,255,0,0,20,180);break;\n'+
+'case 0 : addAmbient(90,140,210,60);break;\n'+
+'case 2 : addPoint (200,60,20,240,80,0,40);break;\n'+
+'case 3 : clear();break;\n'+
+'default: break;\n'+
+'}\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_body0.jpg" style="float:left;border:1px solid #000000;">请点击下面的按钮。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<input type=button value="增加环境光" onclick="rdl_change(0)"><input type=button value="添加锥形光" onclick="rdl_change(1)"><input type=button value="添加点光" onclick="rdl_change(2)"><input type=button value="全部清除" onclick="rdl_change(3)">\n';
+
+
+iWinWidth=450;
+
+iWinHeight=320;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>Light</span>兼容性：IE4.0+</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td><td>
+<b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.Light ( enabled=</b><i>bEnabled</i><b> ) </b> 
+</td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>object</i><b>.style.<a href="../properties/filter.html">filter</a> = "progid:DXImageTransform.Microsoft.Light ( </b><i>sProperties</i><b> ) "</b>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle id="idShit"></div>
+<div id=idSubContent></div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+为对象的内容建立光照效果。<br>
+你可以控制光源的虚拟位置，还可以控制光焦点的横纵坐标值。以及光的类型和强度。每个滤镜最多可以添加<b> 10 </b>束光。要想在页面上添加更多的光，你必须使用多个滤镜。<br>
+当每束光被建立后，都有默认的环境光与之关联。你添加到对象的第一束光会替换掉它的默认的环境光。
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+.aFilter { background-color: #FFFFFF; filter:light();color: cyan;width: 150;}
+<br>
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

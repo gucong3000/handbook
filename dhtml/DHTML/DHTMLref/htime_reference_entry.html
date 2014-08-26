@@ -1,0 +1,165 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>HTML+TIME Reference (Internet Explorer - HTML+Time)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "common/";
+var gsGraphicsPath = "common/";
+var gsCodePath = "common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript"><!--
+function BrowserData()
+{
+this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; DigExt)";
+this.bot = false;
+this.browser = "MSIE";
+this.majorVer = 6;
+this.minorVer = "0";
+this.betaVer = "0";
+this.platform = "NT";
+this.platVer = "5.0; DigExt";
+this.getsNavBar = true;
+this.doesActiveX = true;
+this.doesPersistence = true;
+this.fullVer = 6;
+}
+var oBD = new BrowserData();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript"><!--
+function BrowserData()
+{
+this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; DigExt)";
+this.bot = false;
+this.browser = "MSIE";
+this.majorVer = 6;
+this.minorVer = "0";
+this.betaVer = "0";
+this.platform = "NT";
+this.platVer = "5.0; DigExt";
+this.getsNavBar = true;
+this.doesActiveX = true;
+this.doesPersistence = true;
+this.fullVer = 6;
+}
+var oBD = new BrowserData();
+//--></SCRIPT>
+<script>
+</script>
+<script language=javascript>
+var doImage = doImage;
+var TType = TType;
+function mhHover(tbl, idx, cls)
+{
+var t, d;
+if (document.getElementById)
+t = document.getElementById(tbl);
+else
+t = document.all(tbl);
+if (t == null) return;
+if (t.getElementsByTagName)
+d = t.getElementsByTagName("TD");
+else
+d = t.all.tags("TD");
+if (d == null) return;
+if (d.length <= idx) return;
+d[idx].className = cls;
+}
+function setMSResearch() {
+var time = new Date();
+if( document.cookie.indexOf( 'msresearch=1 ') == -1 ) {
+document.cookie = 'msresearch=' + time.getTime() + ':' + escape( document.location) + ':' + escape( document.referrer) + '; path=/; domain=.microsoft.com; ';
+}
+}
+function footerjs(doc)
+{
+if (doImage == null)
+{
+var tt = TType == null ? "PV" : TType;
+doc.write('<layer visibility="hide"><div style="display:none"><img src="http://c.microsoft.com/trans_pixel.html?source=msdn&TYPE=' + tt + '&p=workshop_author_behaviors_reference_time2_htime_reference&r=http%3a%2f%2fmsdn.microsoft.com%2flibrary%2fshared%2fdeeptree%2fasp%2frightframe.html%3fdtcfg%3d%2flibrary%2fdeeptreeconfig.xml%26url%3d%2fworkshop%2fauthor%2fbehaviors%2freference%2ftime2%2fhtime_reference_entry.html%3fframe%3dtrue%26hidetoc%3dfalse" width=0 height=0 hspace=0 vspace=0 border=0 /></div></layer>'
+);
+}
+if( ( document.cookie.indexOf( 'msresearch=1 ') == -1 )
+&& ( document.cookie.indexOf( 'msresearch=')   != -1 ) ) {
+setInterval( "setMSResearch()", 1000 );
+}
+}
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>HTML+TIME Reference
+</H1></TD><TD ALIGN="right"><A HREF="common/index/default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>
+This section contains reference information for the HTML+TIME (Timed Interactive Multimedia Extensions) application programming interface (API).
+</p><p><P></P><H2>HTML+TIME Reference</H2><BLOCKQUOTE><B><A HREF="time/time_entry.html">HTML+TIME 1.0 Reference</A></B><P>
+This section contains reference information for the object model exposed by the <A HREF="../time/time.html">time</A> behavior.</P><B><A HREF="time2/time2_entry.html">HTML+TIME 2.0 Reference</A></B><P>
+HTML+TIME, first released in Microsoft?Internet Explorer 5, adds timing and media synchronization support to HTML pages. Using a few Extensible Markup Language (XML)-based elements and attributes, you can add images, video, and sounds to an HTML page, then synchronize them with HTML text elements over a specified amount of time.</P></BLOCKQUOTE><P></P></p></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

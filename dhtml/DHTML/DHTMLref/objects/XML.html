@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>XML 元素 | xml</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="obj_window.html" title="window 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>window 对象</A> <A HREF="XMP.html" title="XMP 元素 | xmp 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>XMP 元素 | xmp 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>XML 元素 | xml 对象</H1>
+<HR SIZE="1"><P>在 HTML 页面上定义一个 <A HREF="/xml/xmlguide/dataIslandHowTo.html">XML 数据岛</A>。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>xml</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH width=52>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/canHaveHTML.html"></A></TD>
+<TD><A HREF="../properties/canHaveHTML.html">canHaveHTML</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否可以包含丰富的 HTML 标签的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/id.html">ID</A></TD>
+<TD><A HREF="../properties/id.html">id</A></TD>
+<TD>获取标识<span replace="1">对象</span>的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isContentEditable.html"></A></TD>
+<TD><A HREF="../properties/isContentEditable.html">isContentEditable</A></TD>
+<TD>获取表明用户是否可编辑<span replace="1">对象</span>内容的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isDisabled.html"></A></TD>
+<TD><A HREF="../properties/isDisabled.html">isDisabled</A></TD>
+<TD>获取表明用户是否可与该<span replace="1">对象</span>交互的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/ismultiline.html"></A></TD>
+<TD><A href="../properties/ismultiline.html">isMultiLine</A></TD>
+<TD>获取表明<span replace="1">对象</span>的内容是包含一行还是多行的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentElement.html"></A></TD>
+<TD><A HREF="../properties/parentElement.html">parentElement</A></TD>
+<TD>获取对象层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/readystate.html"></A></TD>
+<TD><A HREF="../properties/readystate.html">readyState</A></TD>
+<TD>获取<span replace="1">对象</span>的当前状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/recordset.html"></A></TD>
+<TD><A HREF="../properties/recordset.html">recordset</A></TD>
+<TD>从数据源对象设置或获取对默认数据集的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scopeName.html"></A></TD>
+<TD><A HREF="../properties/scopeName.html">scopeName</A></TD>
+<TD>获取为该元素定义的<A HREF="/library/en-us/xmlsdk30/htm/xmtuttut5usingnamespaces.html">命名空间</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/src_2.html">SRC</A></TD>
+<TD><A HREF="../properties/src_2.html">src</A></TD>
+<TD>设置或获取要由<span replace="1">对象</span>装入的 URL。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tagUrn.html"></A></TD>
+<TD><A HREF="../properties/tagUrn.html">tagUrn</A></TD>
+<TD>设置或获取在命名空间声明中指定的统一资源名称(URN)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/XMLDocument.html"></A></TD>
+<TD><A HREF="../properties/XMLDocument.html">XMLDocument</A></TD>
+<TD>获取对由对象引出的的 XML 文档对象模型(DOM)的引用。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">行为</P>
+<DIV tabName="行为" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>行为</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../behaviors/clientcaps.html">clientCaps</A></TD>
+<TD>提供关于 Internet Explorer 支持的特性的信息，以及提供即用即装的方法。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/download.html">download</A></TD>
+<TD>下载文件并在下载完成后通知一个指定的回调函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/homepage.html">homePage</A></TD>
+<TD>包含关于用户主页的信息。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/behaviorUrns.html">behaviorUrns</A></TD>
+<TD>返回标识附加到该<span replace="1">元素</span>行为的统一资源名称(URN)字符串的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">事件</P>
+<DIV tabName="事件" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>事件</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../events/ondataavailable.html">ondataavailable</A></TD>
+<TD>每当异步传输数据的数据源对象的数据到达时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/ondatasetchanged.html">ondatasetchanged</A></TD>
+<TD>当数据源对象对应的数据集发生变更时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/ondatasetcomplete.html">ondatasetcomplete</A></TD>
+<TD>触发就表明数据源对象所有数据都可用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onreadystatechange.html">onreadystatechange</A></TD>
+<TD>当<span replace="1">对象</span>状态变更时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onrowenter.html">onrowenter</A></TD>
+<TD>触发就表明当前行已经在数据源中更改，对象上有可用的新数据值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onrowexit.html">onrowexit</A></TD>
+<TD>当数据源控件更改<span replace="1">对象</span>当前行前触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onrowsdelete.html">onrowsdelete</A></TD>
+<TD>当行将要从记录集中被删除时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onrowsinserted.html">onrowsinserted</A></TD>
+<TD>当在当前记录集中插入新行后触发。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/addBehavior.html">addBehavior</A></TD>
+<TD>给<span replace="1">元素</span>附加一个<A HREF="../../../behaviors/overview.html">行为</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/componentFromPoint.html">componentFromPoint</A></TD>
+<TD>通过特定事件返回对象在指定坐标下的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/fireEvent.html">fireEvent</A></TD>
+<TD>触发<span replace="1">对象</span>的指定事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttributeNode.html">getAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取由 <B>attribute</B>.<A HREF="../properties/name_2.html">name</A> 属性引用的 <A HREF="attribute.html">attribute</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/namedRecordset.html">namedRecordset</A></TD>
+<TD>根据来自于数据源对象(DSO)命名数据成员获取记录集。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/normalize.html">normalize</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>合并邻接 <A HREF="TextNode.html">TextNode</A> 对象以便生成一个常规的文档对象模型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeAttributeNode.html">removeAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从对象中删除删除 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeBehavior.html">removeBehavior</A></TD>
+<TD>分离<span replace="1">元素</span>的<B>行为</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttributeNode.html">setAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置 <B>attribute</B> 对象为对象的一部分。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">样式</P>
+<DIV tabName="样式" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>样式标签属性</TH><TH>样式属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD>设置或获取 <B>DHTML 行为</B>的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAutospace.html">text-autospace</A></TD>
+<TD><A HREF="../properties/textAutospace.html">textAutospace</A></TD>
+<TD>设置或获取自动留空和文本的窄空间宽度调整。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textUnderlinePosition.html">text-underline-position</A></TD>
+<TD><A HREF="../properties/textUnderlinePosition.html">textUnderlinePosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性中设置的下划线的位置。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>XML</B> 元素的 <A HREF="../properties/readyState_1.html">readyState</A> 属性是一个字符串值，这与 <A HREF="/xml/reference/scriptref/XMLDOMDocument_object.html" TARGET="_top">XMLDOMDocument</A> 对象的 <A HREF="/xml/reference/scriptref/XMLDOMDocument_readyState.html" TARGET="_top">readyState</A> 属性不同，后者是长整型值。字符串值与 XML 文档对象的长整型的对比在示例区中做了演示。</P>
+<P><A HREF="../properties/XMLDocument.html">XMLDocument</A> 属性是默认属性。</P>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5 的 HTML 和脚本中可用。</P>
+<P>此元素不会被渲染。</P>
+<P>此元素需要关闭标签。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子使用了 <B>XML</B> 元素定义了可直接嵌入 HTML 页的简单 <B>XML 数据岛</B>。</P>
+<PRE id="abc" CLASS="clsCode" AUTOHILITE="1">
+&lt;XML ID="oMetaData"&gt;
+&lt;METADATA&gt;
+&lt;AUTHOR&gt;John Smith&lt;/AUTHOR&gt;
+&lt;GENERATOR&gt;Visual Notepad&lt;/GENERATOR&gt;
+&lt;PAGETYPE&gt;Reference&lt;/PAGETYPE&gt;
+&lt;ABSTRACT&gt;Specifies a data island&lt;/ABSTRACT&gt;
+&lt;/METADATA&gt;
+&lt;/XML&gt;
+</PRE>
+<P>下面的例子使用了 <B>xml</B> 对象的 <B>readyState</B> 属性决定 <B>XML 数据岛</B> 是否已经完全下载了。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+if (oMetaData.readyState == "complete")
+window.alert ("XML 文档已就绪。");
+</PRE>
+<P>下面的例子使用了 <B>XMLDOMDocument</B> 对象的 <B>readyState</B> 属性决定 <B>XML 数据岛</B> 是否已经完全下载了。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+if (oMetaData.XMLDocument.readyState == 4)
+window.alert ("XML 文档已就绪。");
+</PRE>
+<P>下面的脚本示例获取数据岛的 <A HREF="/workshop/delivery/cdf/reference/ABSTRACT.html">ABSTRACT</A> 域所包含的文本。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+var oNode = oMetaData.XMLDocument.selectSingleNode("METADATA/ABSTRACT");
+alert(oNode.text);
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象是微软对 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 的扩展。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

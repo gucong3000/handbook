@@ -1,0 +1,414 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-441-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-454-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-446-fm2xml"></A><A NAME="IXT-23-55217"></A><A NAME="IXT-23-55218"></A><A NAME="IXT-23-55219"></A><A NAME="IXT-23-55220"></A><A NAME="IXT-23-55221"></A><A NAME="IXT-23-55222"></A><A NAME="IXT-23-55223"></A><A NAME="IXT-23-55224"></A><A NAME="IXT-23-55225"></A><A NAME="IXT-23-55226"></A><A NAME="IXT-23-55227"></A><A NAME="IXT-23-55228"></A><A NAME="IXT-23-55229"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Global</i></b></td>
+
+<td align="right"><i>全局对象</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText"><A NAME="IXT-23-55217"></A> JavaScript 1.0; JScript 1.0; ECMAScript
+
+v1 </P><A NAME="ch23-447-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>this </PRE>
+
+
+
+<A NAME="ch23-448-fm2xml"></A>
+
+<h4 class="docRefsectTitle">全局属性</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55218"></A>全局对象不是一个类，所以下面的全局属性在自己名称下有单独的参考条目。也就是说，在“undefined”名下可以找到undefined属性的详细信息，而不是在“Global.undefined”下寻找。注意，所有顶层变量也都是全局对象的属性。</P>
+
+
+
+<A NAME="IXT-23-55219"></A><A NAME="IXT-23-55220"></A><A NAME="IXT-23-55221"></A><DL class="docList"><A NAME="IXT-23-55219"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Infinity</span></span></span></DT>
+
+<DD>
+
+<P class="docList">表示正无穷大的数值。</P>
+</DD>
+
+<A NAME="IXT-23-55220"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">NaN</span></span></span></DT>
+
+<DD>
+
+<P class="docList">非数字值。</P>
+</DD>
+
+<A NAME="IXT-23-55221"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">undefined</span></span></span></DT>
+
+<DD>
+
+<P class="docList">未定义的值。</P>
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-449-fm2xml"></A>
+
+<h4 class="docRefsectTitle">全局函数</h4>
+
+
+
+<P class="docText">全局对象是一个对象，而不是类。下面列出的全局函数不是任何对象的方法，它们的参考条目出现在函数名下。例如，在“parseInt()”下可以找到parseInt()函数的详细信息，在“Global.parseInt()”下就无法找到该函数的详细信息。</P>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">decodeURI(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">对encodeURI()转义的字符串解码。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">decodeURIComponent(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">对encodeURIComponent()转义的字符串解码。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">encodeURI</span></span></span></DT>
+
+<DD>
+
+<P class="docList">通过转义某些字符对URl编码。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">encodeURIComponent</span></span></span></DT>
+
+<DD>
+
+<P class="docList">通过转义某些字符对URI的组件编码。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">escape(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">用转义序列替换某些字符来对字符串编码。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">eval(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">计算JavaScript代码串，返回结果。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">isFinite(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">检测一个值是否是无穷大的数字。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">isNaN</span></span></span></DT>
+
+<DD>
+
+<P class="docList">检测一个值是否是非数字的值。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">parseFloat(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">从字符串解析一个数字。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">parseInt(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">字符串解析一个整数。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">unescape(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">对用escape()编码的字符串解码。</P>
+</DD>
+</DL>
+
+
+
+<A NAME="ch23-450-fm2xml"></A>
+
+<h4 class="docRefsectTitle">全局对象</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55223"></A>
+
+<A NAME="IXT-23-55224"></A>
+
+<A NAME="IXT-23-55225"></A>
+
+<A NAME="IXT-23-55226"></A> 除了上面列出的全局属性和全局函数以外，全局对象还定义了引用JavaScript所有预
+  定义对象的属性。除了Math外，这些属性都是定义类的构造函数，Math引用的对象不是构造函数。
+
+</P>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Array</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Array()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Boolean</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Boolean()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Date</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Date()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Error</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Error()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">EvalError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数EvalError()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Function</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Function()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Math</span></span></span></DT>
+
+<DD>
+
+<P class="docList">对定义算术函数的对象的引用。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Number</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Number()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">Object</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数Object()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">RangeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数RangeError()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">ReferenceError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数RefereneeError()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">RegExp</span></span></span></DT>
+
+<DD>
+
+<P class="docList"> 构造函数RegExp{)。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">String</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数String()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">SyntaxError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数SyntaxError()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">TypeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数TypeError()。</P>
+</DD>
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">URIError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">构造函数URIError()。</P>
+</DD>
+</DL>
+
+
+
+<A NAME="ch23-451-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"> 全局对象是预定义的对象，作为JavaScript的全局属性和全局函数的占位符。通过使用全局对象，可以访问其他所有预定义的对象、函数和属性。全局对象不是任何对象
+    的属性，所以它没有名字(之所以选择Global作为这个参考页的标题，只是为了方便
+    组织，并不是说全局对象名为“Global”)。在顶层lavaScript代码中，可以用关键字
+    this引用全局对象。但通常不必用这种方式引用全局对象，因为全局对象是作用域
+    链的头，这意味着所有非限定性的变量和函数名都会作为该对象的属性来查询。例如，当JavaScript代码引用parseInt()函数时，它引用的是全局对象的parstInt
+    属性。全局对象是作用域链的头，还意味着在顶层JavaScript代码中声明的所有变量
+    都将成为全局对象的属性。</P>
+
+
+
+<P class="docText">全局对象只是—个对象，而不是类。既没有Global()构造函数，也无法实例化一个
+ 新的全局对象。</P>
+
+
+
+<P class="docText">当JavaScript代码嵌入一个特殊环境中时，全局对象通常具有环境特定的属性。实际上，ECMAScript标准没有规定全局对象的类型，JavaScript的实现或嵌入的
+    JavaScript都可以把任意类型的对象作为全局对象，只要该对象定义了这里列出的基
+    本属性和函数。例如，在客户端lavagcript中，全局对象是Window对象，表示运行
+    JavaScript代码的Web浏览器窗口。
+
+</P>
+
+
+
+<A NAME="ch23-452-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">在JavaScript核心语言中，全局对象的预定义属性都是不可枚举的，所以可以用for/in循环列出所有隐式或显式声明的全局变量，如下所示：</P>
+
+
+
+<PRE>var variables = ""
+
+for(var name in this)
+
+    variables += name + "\n";</PRE>
+
+
+
+<A NAME="ch23-453-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText">&nbsp;</P>
+
+
+
+
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-441-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-454-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

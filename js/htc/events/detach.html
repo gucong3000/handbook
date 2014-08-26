@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>ondetach</span>事件</h1>
+		<hr>
+		<p>在一个元素解除某行为的附加关系之前，该事件发生。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;<a href="../elements/attach.html">PUBLIC:ATTACH</a><br>&nbsp;&nbsp;event&nbsp;=&nbsp;&quot;<B>ondetach</B>&quot;<br>&nbsp;&nbsp;for&nbsp;=&nbsp;&quot;<I>sObject</I>&quot;<br>&nbsp;&nbsp;id&nbsp;=&nbsp;&quot;<I>sID</I>&quot;<br>&nbsp;&nbsp;onevent&nbsp;=&nbsp;&quot;<I>sEventHandler</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>EVENT</B></dt>
+				<dd>
+					<p>必需。字符串值；指定<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events.asp">动态<span>HTML</span><span>(DHTML)</span>事件</a>名称，或任何在<a href="../articles/htcref.html"><span>HTC</span>参考</a>中列举出来的适用于<span>HTML</span>组件<span>(HTC)</span>的事件的名称。</p>
+				</dd>
+				<dt><B>FOR</B></dt>
+				<dd>
+					<p>可选。字符串值；用于指定事件源的下列值中的一个。</p>
+					<table>
+						<tr>
+							<td class="value">document</td>
+							<td><a href="../objects/document.html"><span>document</span></a>对象的引用。</td>
+						</tr>
+						<tr>
+							<th class="value">element</th>
+							<td>默认值。附加有该行为的元素的引用。</td>
+						</tr>
+						<tr>
+							<td class="value">window</td>
+							<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_window.asp"><span>window</span></a>对象的引用。</td>
+						</tr>
+					</table>
+				</dd>
+				<dt><B>ID</B></dt>
+				<dd>
+					<p>可选。字符串值；在组件内用于识别该<a href="../elements/attach.html"><span>PUBLIC:ATTACH</span></a>元素的唯一值。这个属性类似于<span>DHTML</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性。</p>
+				</dd>
+				<dt><B>ONEVENT</B></dt>
+				<dd>
+					<p>必需。字符串值；指定一段行内脚本或事件直接调用的处理函数。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p><B><span>ondetach</span></B>事件让行为可以在从元素完全解除附加关系前执行某些清除工作。</p>
+			<p>在某些情况下，当一个行为使用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/attachevent.asp"><span>attachEvent</span></a>方法在其包含页面附加事件时，此事件让该行为有机会通过调用<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/detachevent.asp"><span>detachEvent</span></a>方法来停止继续从该页面接收通告。但如果一个行为使用<B><span>PUBLIC:ATTACH</span></B>元素在该页面上附加事件，那么当行为从该页面元素上解除附加关系时，会自动停止接收通过，而无需在<B><span>ondetach</span></B>事件发生时调用<B><span>detachEvent</span></B>方法。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>此例在初始化时对列表项附加了一个高亮的行为，然后使用<B><span>ondetach</span></B>事件来关闭该高亮效果。</p>
+			<div class="example">
+				<code>&lt;PUBLIC:ATTACH&nbsp;event=&quot;ondetach&quot;&nbsp;onevent=&quot;cleanup()&quot;&nbsp;/&gt;<br><br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>attachEvent&nbsp;('onmouseover',&nbsp;Hilite);<br>attachEvent&nbsp;('onmouseout',&nbsp;Restore);<br><br>function&nbsp;cleanup()<br>{<br>&nbsp;&nbsp;detachEvent&nbsp;('onmouseover',&nbsp;Hilite);<br>&nbsp;&nbsp;detachEvent&nbsp;('onmouseout',&nbsp;Restore);<br>}<br><br>function&nbsp;Hilite()<br>{<br>&nbsp;&nbsp;if&nbsp;(event.srcElement&nbsp;==&nbsp;element)<br>&nbsp;&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;normalColor&nbsp;=&nbsp;style.color;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.color&nbsp;&nbsp;=&nbsp;&quot;red&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.cursor&nbsp;=&nbsp;&quot;hand&quot;;<br>&nbsp;&nbsp;}<br>}<br><br>function&nbsp;Restore()<br>{<br>&nbsp;&nbsp;if&nbsp;(event.srcElement&nbsp;==&nbsp;element)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.color&nbsp;&nbsp;=&nbsp;normalColor;<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.cursor&nbsp;=&nbsp;&quot;&quot;;<br>&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;</code>
+			</div>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/detachevent.asp"><span>detachEvent</span></a></li>
+				<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/attachevent.asp"><span>attachEvent</span></a></li>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/abelebeh.html">《关于元素行为》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

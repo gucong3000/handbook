@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>DHTML 参考手册 -</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+</HEAD>
+<BODY>
+<H1><A NAME="om40_ElementObjs">颜色表</A></H1>
+<HR SIZE="1">
+<p>在 HTML 页面中可以两种方式指定颜色──以颜色名称或者表示 RGB 颜色值的数字。一个 RGB 颜色值由三个两位十六进制数字组成，分别代表各自的颜色强度。</p>
+<p>例如，颜色值 #FF0000 之所以被渲染为红色，是因为红色的值达到了最高值 FF (等于十进制的 255)。</p>
+<p>当你使用 <A HREF="../objects/DOCTYPE.html">!DOCTYPE</A> 声明指定为标准兼容模式时，Microsoft<SUP>&reg;</SUP> Internet Explorer 6 和以后版本将忽略不遵从样式表(CSS)级别 1 的样式表声明。根据 CSS 1，以十六进制 RGB 值指定的颜色必须带有前导“#”字符。像“FFFFFF”这样的值将被忽略，而不会被理解为“#FFFFFF”(即白色)，但 Internet Explorer 的先前版本是这么理解的。这影响所有接受颜色值的属性。</p>
+<DIV CLASS="clsNote"><B>注意</B> 尽管这些颜色名称可能不被其它浏览器使用，但 RGB 颜色值应该可以在不同浏览器间正确显示。如果想要为跨越不同浏览器工作的 Web 页指定颜色值，那么应该使用 RGB 颜色值。</DIV>
+<p>下表列出了 Internet Explorer 4.0 支持的颜色。</p>
+<table bgColor="GRAY" border="5" cellPadding="0" cellSpacing="5" class="clsStd">
+<tr>
+<td align="center" style="BACKGROUND: aliceblue">aliceblue<br>(#F0F8FF)</td>
+<td align="center" style="BACKGROUND: antiquewhite">antiquewhite<br>(#FAEBD7)</td>
+<td align="center" style="BACKGROUND: aqua">aqua<br>(#00FFFF)</td>
+<td align="center" style="BACKGROUND: aquamarine">aquamarine<br>(#7FFFD4)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: azure">azure<br>(#F0FFFF)</td>
+<td align="center" style="BACKGROUND: beige">beige<br>(#F5F5DC)</td>
+<td align="center" style="BACKGROUND: bisque">bisque<br>(#FFE4C4)</td>
+<td align="center" style="BACKGROUND: black;COLOR:white">black<br>(#000000)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: blanchedalmond">blanchedalmond<br>(#FFEBCD)</td>
+<td align="center" style="BACKGROUND: #0000ff">blue<br>(#0000FF)</td>
+<td align="center" style="BACKGROUND: #8a2be2">blueviolet<br>(#8A2BE2)</td>
+<td align="center" style="BACKGROUND: brown">brown<br>(#A52A2A)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: burlywood">burlywood<br>(#DEB887)</td>
+<td align="center" style="BACKGROUND: cadetblue">cadetblue<br>(#5F9EA0)</td>
+<td align="center" style="BACKGROUND: chartreuse">chartreuse<br>(#7FFF00)</td>
+<td align="center" style="BACKGROUND: chocolate">chocolate<br>(#D2691E)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: coral">coral<br>(#FF7F50)</td>
+<td align="center" style="BACKGROUND: #6495ed">cornflowerblue<br>(#6495ED)</td>
+<td align="center" style="BACKGROUND: cornsilk">cornsilk<br>(#FFF8DC)</td>
+<td align="center" style="BACKGROUND: crimson">crimson<br>(#DC143C)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: cyan">cyan<br>(#00FFFF)</td>
+<td align="center" style="BACKGROUND: darkblue;COLOR:white">darkblue<br>(#00008B)</td>
+<td align="center" style="BACKGROUND: darkcyan">darkcyan<br>(#008B8B)</td>
+<td align="center" style="BACKGROUND: darkgoldenrod">darkgoldenrod<br>(#B8860B)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: darkgray">darkgray<br>(#A9A9A9)</td>
+<td align="center" style="BACKGROUND: darkgreen">darkgreen<br>(#006400)</td>
+<td align="center" style="BACKGROUND: darkkhaki">darkkhaki<br>(#BDB76B)</td>
+<td align="center" style="BACKGROUND: darkmagenta">darkmagenta<br>(#8B008B)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: darkolivegreen">darkolivegreen<br>(#556B2F)</td>
+<td align="center" style="BACKGROUND: darkorange">darkorange<br>(#FF8C00)</td>
+<td align="center" style="BACKGROUND: darkorchid">darkorchid<br>(#9932CC)</td>
+<td align="center" style="BACKGROUND: darkred">darkred<br>(#8B0000)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: darksalmon">darksalmon<br>(#E9967A)</td>
+<td align="center" style="BACKGROUND: darkseagreen">darkseagreen<br>(#8FBC8B)</td>
+<td align="center" style="BACKGROUND: darkslateblue">darkslateblue<br>(#483D8B)</td>
+<td align="center" style="BACKGROUND: darkslategray">darkslategray<br>(#2F4F4F)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: darkturquoise">darkturquoise<br>(#00CED1)</td>
+<td align="center" style="BACKGROUND: darkviolet">darkviolet<br>(#9400D3)</td>
+<td align="center" style="BACKGROUND: deeppink">deeppink<br>(#FF1493)</td>
+<td align="center" style="BACKGROUND: deepskyblue">deepskyblue<br>(#00BFFF)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: dimgray">dimgray<br>(#696969)</td>
+<td align="center" style="BACKGROUND: dodgerblue">dodgerblue<br>(#1E90FF)</td>
+<td align="center" style="BACKGROUND: firebrick">firebrick<br>(#B22222)</td>
+<td align="center" style="BACKGROUND: floralwhite">floralwhite<br>(#FFFAF0)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: forestgreen">forestgreen<br>(#228B22)</td>
+<td align="center" style="BACKGROUND: #ff00ff">fuchsia<br>(#FF00FF)</td>
+<td align="center" style="BACKGROUND: gainsboro">gainsboro<br>(#DCDCDC)</td>
+<td align="center" style="BACKGROUND: ghostwhite">ghostwhite<br>(#F8F8FF)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: gold">gold<br>(#FFD700)</td>
+<td align="center" style="BACKGROUND: goldenrod">goldenrod<br>(#DAA520)</td>
+<td align="center" style="BACKGROUND: gray">gray<br>(#808080)</td>
+<td align="center" style="BACKGROUND: green">green<br>(#008000)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: greenyellow">greenyellow<br>(#ADFF2F)</td>
+<td align="center" style="BACKGROUND: honeydew">honeydew<br>(#F0FFF0)</td>
+<td align="center" style="BACKGROUND: hotpink">hotpink<br>(#FF69B4)</td>
+<td align="center" style="BACKGROUND: indianred">indianred<br>(#CD5C5C)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: indigo;COLOR:white">indigo<br>(#4B0082)</td>
+<td align="center" style="BACKGROUND: ivory">ivory<br>(#FFFFF0)</td>
+<td align="center" style="BACKGROUND: khaki">khaki<br>(#F0E68C)</td>
+<td align="center" style="BACKGROUND: lavender">lavender<br>(#E6E6FA)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: lavenderblush">lavenderblush<br>(#FFF0F5)</td>
+<td align="center" style="BACKGROUND: lawngreen">lawngreen<br>(#7CFC00)</td>
+<td align="center" style="BACKGROUND: lemonchiffon">lemonchiffon<br>(#FFFACD)</td>
+<td align="center" style="BACKGROUND: lightblue">lightblue<br>(#ADD8E6)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: lightcoral">lightcoral<br>(#F08080)</td>
+<td align="center" style="BACKGROUND: lightcyan">lightcyan<br>(#E0FFFF)</td>
+<td align="center" style="BACKGROUND: lightgoldenrodyellow">lightgoldenrodyellow<br>(#FAFAD2)</td>
+<td align="center" style="BACKGROUND: lightgreen">lightgreen<br>(#90EE90)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: lightgrey">lightgrey<br>(#D3D3D3)</td>
+<td align="center" style="BACKGROUND: lightpink">lightpink<br>(#FFB6C1)</td>
+<td align="center" style="BACKGROUND: lightsalmon">lightsalmon<br>(#FFA07A)</td>
+<td align="center" style="BACKGROUND: lightseagreen">lightseagreen<br>(#20B2AA)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: lightskyblue">lightskyblue<br>(#87CEFA)</td>
+<td align="center" style="BACKGROUND: lightslategray">lightslategray<br>(#778899)</td>
+<td align="center" style="BACKGROUND: lightsteelblue">lightsteelblue<br>(#B0C4DE)</td>
+<td align="center" style="BACKGROUND: lightyellow">lightyellow<br>(#FFFFE0)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: lime">lime<br>(#00FF00)</td>
+<td align="center" style="BACKGROUND: limegreen">limegreen<br>(#32CD32)</td>
+<td align="center" style="BACKGROUND: linen">linen<br>(#FAF0E6)</td>
+<td align="center" style="BACKGROUND: magenta">magenta<br>(#FF00FF)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: maroon">maroon<br>(#800000)</td>
+<td align="center" style="BACKGROUND: mediumaquamarine">mediumaquamarine<br>(#66CDAA)</td>
+<td align="center" style="BACKGROUND: mediumblue;COLOR:white">mediumblue<br>(#0000CD)</td>
+<td align="center" style="BACKGROUND: mediumorchid">mediumorchid<br>(#BA55D3)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: mediumpurple">mediumpurple<br>(#9370DB)</td>
+<td align="center" style="BACKGROUND: mediumseagreen">mediumseagreen<br>(#3CB371)</td>
+<td align="center" style="BACKGROUND: mediumslateblue">mediumslateblue<br>(#7B68EE)</td>
+<td align="center" style="BACKGROUND: mediumspringgreen">mediumspringgreen<br>(#00FA9A)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: mediumturquoise">mediumturquoise<br>(#48D1CC)</td>
+<td align="center" style="BACKGROUND: mediumvioletred">mediumvioletred<br>(#C71585)</td>
+<td align="center" style="BACKGROUND: midnightblue;COLOR:white">midnightblue<br>(#191970)</td>
+<td align="center" style="BACKGROUND: mintcream">mintcream<br>(#F5FFFA)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: mistyrose">mistyrose<br>(#FFE4E1)</td>
+<td align="center" style="BACKGROUND: moccasin">moccasin<br>(#FFE4B5)</td>
+<td align="center" style="BACKGROUND: navajowhite">navajowhite<br>(#FFDEAD)</td>
+<td align="center" style="BACKGROUND: navy;COLOR:white">navy<br>(#000080)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: oldlace">oldlace<br>(#FDF5E6)</td>
+<td align="center" style="BACKGROUND: olive">olive<br>(#808000)</td>
+<td align="center" style="BACKGROUND: olivedrab">olivedrab<br>(#6B8E23)</td>
+<td align="center" style="BACKGROUND: orange">orange<br>(#FFA500)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: orangered">orangered<br>(#FF4500)</td>
+<td align="center" style="BACKGROUND: orchid">orchid<br>(#DA70D6)</td>
+<td align="center" style="BACKGROUND: palegoldenrod">palegoldenrod<br>(#EEE8AA)</td>
+<td align="center" style="BACKGROUND: palegreen">palegreen<br>(#98FB98)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: paleturquoise">paleturquoise<br>(#AFEEEE)</td>
+<td align="center" style="BACKGROUND: palevioletred">palevioletred<br>(#DB7093)</td>
+<td align="center" style="BACKGROUND: papayawhip">papayawhip<br>(#FFEFD5)</td>
+<td align="center" style="BACKGROUND: peachpuff">peachpuff<br>(#FFDAB9)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: peru">peru<br>(#CD853F)</td>
+<td align="center" style="BACKGROUND: pink">pink<br>(#FFC0CB)</td>
+<td align="center" style="BACKGROUND: plum">plum<br>(#DDA0DD)</td>
+<td align="center" style="BACKGROUND: powderblue">powderblue<br>(#B0E0E6)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: purple">purple<br>(#800080)</td>
+<td align="center" style="BACKGROUND: red">red<br>(#FF0000)</td>
+<td align="center" style="BACKGROUND: rosybrown">rosybrown<br>(#BC8F8F)</td>
+<td align="center" style="BACKGROUND: royalblue">royalblue<br>(#4169E1)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: saddlebrown">saddlebrown<br>(#8B4513)</td>
+<td align="center" style="BACKGROUND: salmon">salmon<br>(#FA8072)</td>
+<td align="center" style="BACKGROUND: sandybrown">sandybrown<br>(#F4A460)</td>
+<td align="center" style="BACKGROUND: seagreen">seagreen<br>(#2E8B57)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: seashell">seashell<br>(#FFF5EE)</td>
+<td align="center" style="BACKGROUND: sienna">sienna<br>(#A0522D)</td>
+<td align="center" style="BACKGROUND: silver">silver<br>(#C0C0C0)</td>
+<td align="center" style="BACKGROUND: skyblue">skyblue<br>(#87CEEB)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: slateblue">slateblue<br>(#6A5ACD)</td>
+<td align="center" style="BACKGROUND: slategray">slategray<br>(#708090)</td>
+<td align="center" style="BACKGROUND: snow">snow<br>(#FFFAFA)</td>
+<td align="center" style="BACKGROUND: springgreen">springgreen<br>(#00FF7F)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: steelblue">steelblue<br>(#4682B4)</td>
+<td align="center" style="BACKGROUND: tan">tan<br>(#D2B48C)</td>
+<td align="center" style="BACKGROUND: teal">teal<br>(#008080)</td>
+<td align="center" style="BACKGROUND: thistle">thistle<br>(#D8BFD8)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: tomato">tomato<br>(#FF6347)</td>
+<td align="center" style="BACKGROUND: turquoise">turquoise<br>(#40E0D0)</td>
+<td align="center" style="BACKGROUND: violet">violet<br>(#EE82EE)</td>
+<td align="center" style="BACKGROUND: wheat">wheat<br>(#F5DEB3)</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: white">white<br>(#FFFFFF)</td>
+<td align="center" style="BACKGROUND: whitesmoke">whitesmoke<br>(#F5F5F5)</td>
+<td align="center" style="BACKGROUND: yellow">yellow<br>(#FFFF00)</td>
+<td align="center" style="BACKGROUND: yellowgreen">yellowgreen<br>(#9ACD32)</td>
+</tr>
+</table>
+<H2><A NAME="unknown_478"></A>用户定义的系统颜色</H2>
+<p>Microsoft<SUP>&reg;</SUP> Windows<SUP>&reg;</SUP> 维护着一组用于绘制用户界面不同部分的系统颜色。除了定义在颜色表中的颜色，在 Internet Explorer 4.0 中也可正常显示以下系统颜色指定为颜色值的 Web 页。</p>
+<p>用户可以使用 Windows 控制面板设置用于将来 Windows 会话的系统颜色。下表演示了定义在控制面板中的颜色名称的对应情况。</p>
+<DIV CLASS="clsNote"><B>注意</B> 不对应任何控制面板的颜色只可使用 Windows API 编程设置，用户无法定义。</DIV>
+<table bgColor="gray" border="5" cellPadding="5" cellSpacing="5" class="clsStd">
+<tr>
+<td align="center" style="BACKGROUND: activeborder">activeborder</td>
+<td align="center" style="BACKGROUND: activecaption;color:captiontext">activecaption</td>
+<td align="center" style="BACKGROUND: appworkspace">appworkspace</td>
+<td align="center" style="BACKGROUND: background">background</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: buttonface">buttonface</td>
+<td align="center" style="BACKGROUND: buttonhighlight">buttonhighlight</td>
+<td align="center" style="BACKGROUND: buttonshadow">buttonshadow</td>
+<td align="center" style="BACKGROUND: buttontext;color:buttonface">buttontext</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: captiontext">captiontext</td>
+<td align="center" style="BACKGROUND: graytext">graytext</td>
+<td align="center" style="BACKGROUND: highlight;color:highlighttext">highlight</td>
+<td align="center" style="BACKGROUND: highlighttext">highlighttext</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: inactiveborder">inactiveborder</td>
+<td align="center" style="BACKGROUND: inactivecaption;color:captiontext">inactivecaption</td>
+<td align="center" style="BACKGROUND: inactivecaptiontext">inactivecaptiontext</td>
+<td align="center" style="BACKGROUND: infobackground">infobackground</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: infotext;color:infobackground">infotext</td>
+<td align="center" style="BACKGROUND: menu">menu</td>
+<td align="center" style="BACKGROUND: menutext;color:menu">menutext</td>
+<td align="center" style="BACKGROUND: scrollbar">scrollbar</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: threeddarkshadow;color:buttonface">threeddarkshadow</td>
+<td align="center" style="BACKGROUND: buttonface">threedface</td>
+<td align="center" style="BACKGROUND: buttonhighlight">threedhighlight</td>
+<td align="center" style="BACKGROUND: threedlightshadow">threedlightshadow</td>
+</tr>
+<tr>
+<td align="center" style="BACKGROUND: buttonshadow">threedshadow</td>
+<td align="center" style="BACKGROUND: window">window</td>
+<td align="center" style="BACKGROUND: windowframe;color:window">windowframe</td>
+<td align="center" style="BACKGROUND: windowtext;color:window">windowtext</td>
+</tr>
+</table>
+</BODY>
+</HTML>

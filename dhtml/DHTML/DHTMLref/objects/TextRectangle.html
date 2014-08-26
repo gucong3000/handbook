@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>TextRectangle</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</STYLE>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="obj_TextRange.html" title="TextRange 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>TextRange 对象</A> <A HREF="TFOOT.html" title="TFOOT 元素 | tFoot 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>TFOOT 元素 | tFoot 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>TextRectangle 对象</H1>
+<HR SIZE="1"><P>指定包含元素或 <A HREF="obj_TextRange.html">TextRange</A> 对象中一行文本的矩形。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>TextRectangle</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P>
+</DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/bottom.html">bottom</A></TD>
+<TD>设置或获取围绕<span replace="1">对象</span>内容的矩形上边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/left_1.html">left</A></TD>
+<TD>设置或获取围绕<span replace="1">对象</span>内容的矩形左边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/right.html">right</A></TD>
+<TD>设置或获取围绕<span replace="1">对象</span>内容的矩形右边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/top_2.html">top</A></TD>
+<TD>设置或获取围绕<span replace="1">对象</span>内容的矩形下边坐标。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>对一个元素或文本范围对象应用 <A HREF="../methods/getClientRects.html">getClientRects</A> 方法可以获得一个 <A HREF="../collections/text_rectangle.html">TextRectangle</A> 对象的集合。<B>getClientRects</B> 方法返回一个矩形的集合，其中包括每个矩形相对于客户区的上、下、左、右的坐标。</P>
+<P>在下面取自徐志摩《再别康桥》的诗句中，<A HREF="B.html">b</A> 元素(粗体文本)中共包含四个 <B>TextRectangle</B> 对象。</P>
+<P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;P&gt;悄悄的&lt;B&gt;我走了，&lt;BR&gt;
+正如我悄悄的来；&lt;BR&gt;
+我挥一挥衣袖，&lt;BR&gt;
+不带走&lt;/B&gt;一片云彩。
+&lt;/P&gt;
+</PRE></P>
+<P>这四个 <B>TextRectangle</B> 对象是:
+<ol>
+<li>“我走了，”</li>
+<li>“正如我悄悄的来；”</li>
+<li>“我挥一挥衣袖，”</li>
+<li>“不带走”</li>
+</ol></P>
+<P>如果你更改包含此文本的窗口的大小，<B>TextRectangle</B> 对象不会更新。由于对象是布局的快照，应该在 <A HREF="../events/onresize.html">onresize</A> 事件触发后随之更新对象。</P>
+<P><B>TextRectangle</B> 的宽度可能与其包含的 <B>TextRange</B> 的宽度并不相等。因为 <B>TextRange</B> 与文本的宽度相等，而 <B>TextRectangle</B> 却与包含文本的元素宽度相等。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子演示了如何使用 <B>getClientRects</B> 和 <A HREF="../methods/getBoundingClientRect.html">getBoundingClientRect</A> 方法突出显示对象中的文本行。</P>
+<PRE id="abc" CLASS="clsCode" AUTOHILITE="1">
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+var rcts;
+var keyCount=0;
+function Highlight(obj) {
+rcts = obj.getClientRects();
+rctLength= rcts.length;
+if (keyCount &gt; rctLength-1) {
+idBeige.style.display="none";
+keyCount = 0
+}
+// 设置黄色 DIV 的渲染属性
+cdRight = rcts[keyCount].right + idBody.scrollLeft;
+cdLeft = rcts[keyCount].left + idBody.scrollLeft;
+cdTop = rcts[keyCount].top + idBody.scrollTop;
+cdBottom = rcts[keyCount].bottom + idBody.scrollTop;
+idYellow.style.top = cdTop;
+idYellow.style.width = (cdRight-cdLeft) - 5;
+idYellow.style.display = 'inline';
+// 设置土色 DIV 的渲染属性
+bndRight = obj.getBoundingClientRect().right +
+idBody.scrollLeft;
+bndLeft = obj.getBoundingClientRect().left +
+idBody.scrollLeft;
+bndTop = obj.getBoundingClientRect().top +
+idBody.scrollTop;
+idBeige.style.top = bndTop;
+idBeige.style.width = (bndRight-bndLeft) - 5;
+idBeige.style.height = cdTop - bndTop;
+if (keyCount&gt;0){
+idBeige.style.display = 'inline';
+}
+keyCount++;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY ID="idBody"&gt;
+&lt;DIV ID="oID_1" onclick="Highlight(this)"
+onkeydown="Highlight(this)"&gt;
+在此会有大量的文本。如果多次单击此处的文本，
+将会看到每单击一次鼠标，就会有一行被突出显示。
+如果每行都被突出显示了，这个过程就会从第一行
+重新开始。
+&lt;/DIV&gt;
+&lt;DIV STYLE="position:absolute; left:5; top:400;
+z-index:-1; background-color:yellow; display:none"
+ID="idYellow"&gt;&lt;/DIV&gt;
+&lt;DIV STYLE="position:absolute; left:5; top:400;
+z-index:-1; background-color:beige; display:none"
+ID="idBeige"&gt;&lt;/DIV&gt;
+&lt;/BODY&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../samples/textRect/rectselection.html"></IMG></A>
+</DIV>
+<P>
+下面的例子是用了 <B>TextRectangle</B> 集合和 <B>getClientRects</B> 及 <B>getBoundingClientRect</B> 方法决定元素中文本矩形的位置。在行中左对齐的文本并不扩展到包含文本的外框的右边。使用此集合，你可以确定仅仅围绕在每行内容外侧的矩形的坐标。示例代码将读取这些矩形的坐标并演示一个小球只在文本处划过，而不是行尾。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+var timid = -1;
+var timoID_2 = -1;
+var nLine;
+var nPosInLine;
+var oRcts;
+var nDivLen;
+var nEraser;
+function LoadDone() {
+oTextRange = document.body.createTextRange();
+// 获得范围的绑定矩形
+oRcts = oTextRange.getClientRects();
+nLine = 0;
+oBndRct = obj.getBoundingClientRect();
+nDivLen = oBndRct.right - oBndRct.left + 1;
+MoveTo();
+}
+function MoveTo() {
+if (nLine &gt;= oRcts.length) {
+nLine = 0;
+}
+obj.style.top = oRcts[nLine].top;
+nPosInLine = oRcts[nLine].left;
+nEraser = 0;
+timoID_2 = setInterval("MoveToInLine()",60);
+}
+function MoveToInLine() {
+if (nPosInLine &gt;= oRcts[nLine].right - nDivLen) {
+clearInterval(timoID_2);
+timoID_2 = -1;
+obj.style.left = oRcts[nLine].right - nDivLen;
+nLine++;
+timid = setTimeout("MoveTo()", 100);
+return;
+}
+if (nEraser == 0) {
+nEraser = 1;
+}
+else {
+nEraser = 0;
+}
+im.src = "/workshop/graphics/dot.gif";
+obj.style.left = nPosInLine;
+nPosInLine += 3;
+}
+function End() {
+if(timid != -1) {
+clearInterval(timid);
+timid = -1;
+}
+if(timoID_2 != -1) {
+clearInterval(timoID_2);
+timoID_2 = -1;
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY ID="bodyid" onload="LoadDone()"
+onresize="End();LoadDone();" onunload="End()"&gt;
+&lt;P STYLE="text-align:center"&gt;
+&lt;B&gt;The quick brown fox jumps over the lazy dog.&lt;/B&gt;
+&lt;/P&gt;
+&lt;DIV ID="obj" STYLE="position:absolute"&gt;
+&lt;IMG ID="im" SRC="/workshop/graphics/dot.gif"
+BORDER=0 HEIGHT=16 WIDTH=16&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../samples/textRect/rectdemo.html"></IMG></A>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

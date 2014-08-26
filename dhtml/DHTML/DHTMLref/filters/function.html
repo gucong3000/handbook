@@ -1,0 +1,86 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>function Attribute | Function</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>function Attribute | Function Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the compositing operation to perform. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD><DIV CLASS="clsHi">{ <A HREF="../properties/filter.html">filter</A>:progid:DXImageTransform.Microsoft.<A HREF="../filters/composite.html">Compositor</A>(<BR>&nbsp;&nbsp;&nbsp;&nbsp;<B>function</B> = <SPAN CLASS="clsRange">sFunction</SPAN> ... ) ... }</DIV></TD></TR><TR><TH><B>Scripting</B></TH><TD><DIV CLASS="clsHi"><SPAN CLASS="clsRange">object</SPAN>.<A HREF="../collections/filters.html">filters</A>.<A HREF="../methods/item.html">item</A>(<BR>&nbsp;&nbsp;&nbsp;&nbsp;"DXImageTransform.Microsoft.<A HREF="../filters/composite.html">Compositor</A>").<B>Function</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sFunction</SPAN> ]</DIV></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sFunction</SPAN></TD><TD><b>Integer</b> that
+specifies or receives one of the following possible values:<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">0</SPAN></TD><TD>Default. CLEAR. Perform no operation.
+</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">1</SPAN></TD><TD>MIN. Compare the brightness of each pixel in both images, and show the less bright of the two pixels.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">2</SPAN></TD><TD>MAX. Compare the brightness of each pixel in both images, and show the brighter of the two pixels.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">3</SPAN></TD><TD>A. Display only Input A.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">4</SPAN></TD><TD>A OVER B. Display Input A over Input B. All of Input A is visible, and Input B shows through translucent regions of Input A.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">5</SPAN></TD><TD>A IN B. Display all parts of Input A that are contained in Input B. Only regions with nonzero alpha values for both images are visible, and no part of Input B shows through.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">6</SPAN></TD><TD>A OUT B. Display all parts of Input A that are not contained in Input B. No part of Input B is displayed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">7</SPAN></TD><TD>A ATOP B. Display Input A covering Input B, with each sample scaled by the alpha channel of Input B.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">8</SPAN></TD><TD>A SUBTRACT B. Display Input A with the sample color values of Input B subtracted from the corresponding sample color values of Input A. The resulting color is scaled by the alpha values of Input A.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">9</SPAN></TD><TD>A ADD B. Display Input A with the sample color values of Input B added to the corresponding sample color values of Input A. The resulting color value is scaled by the alpha value of Input A.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">10</SPAN></TD><TD>A XOR B. Display pixels of each set of input where the two images do not overlap. Pixels that overlap are scaled by their inverse alpha value.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">19</SPAN></TD><TD>B. Display only Input B.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">20</SPAN></TD><TD>B OVER A. Display Input B over Input A. All of Input B is visible, and Input A shows through translucent regions of Input B.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">21</SPAN></TD><TD>B IN A. Display all parts of Input B that are contained in Input A. Only regions with nonzero alpha values for both images are visible, and no part of Input A shows through.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">22</SPAN></TD><TD>B OUT A. Display all parts of Input B that are not contained in Input A. No part of Input A is displayed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">23</SPAN></TD><TD>B ATOP A. Display Input B over Input A, with each sample scaled by the alpha channel of Input A.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">24</SPAN></TD><TD>B SUBTRACT A. Display Input B with the sample color values of Input A subtracted from the corresponding sample color values of Input B. The resulting color is scaled by the alpha values of Input B.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">25</SPAN></TD><TD>B ADD A. Display Input B with the sample color values of Input A added to the corresponding sample color values of Input B. The resulting color value is scaled by the alpha value of Input B.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+0</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../filters/composite.html">
+Compositor</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

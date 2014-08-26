@@ -1,0 +1,196 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-344-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-360-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-352-fm2xml"></A><A NAME="IXT-23-55186"></A><A NAME="IXT-23-55187"></A><A NAME="IXT-23-55188"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>encodeURIComponent(  )</i></b></td>
+
+<td align="right"><i>转义URI组件中的字符</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55186"></A>
+
+<A NAME="IXT-23-55187"></A>
+
+<A NAME="IXT-23-55188"></A>JavaScript 1.5; JScript 5.5;
+
+ECMAScript v3 </P><A NAME="ch23-353-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>encodeURIComponent(<TT><I>s</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-354-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>s</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个字符串，含有URI的一部分或其他要编码的文本。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-355-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">s的副本，其中某些字符被十六进制的转义序列替换了。</P>
+
+
+
+
+
+<A NAME="ch23-356-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">URIError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">说明s中含有格式化错误的Unicode替代对，不能被编码。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-357-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">encodeURIComponent()是全局函数，返回参数s的编码副本。ASCII的字母和数字不编码，此外下面的ASCII标点符号也不编码：</P>
+
+
+
+<PRE>- _ . ! ~ * ' ( ) </PRE>
+
+
+
+<P class="docText">其他字符(如“／”、“：”、“#”这样用于分隔URI各种组件的标点符号)，都由一个或多个十六进制的转义序列替换。关于使用的编码模式，请参阅“encodeURI()”的
+  描述。</P>
+
+
+
+<P class="docText">注意encodeURIComponent()和encodeURI()之间的差别，前者假定它的参数是URl的一部分(如协议、主机名、路径或查询字符串)。因此，它将转义用于分隔URl各个部分的标点符号。</P>
+
+
+
+<A NAME="ch23-358-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>encodeURIComponent("hello world?");  // 返回 hello%20world%3F</PRE>
+
+
+
+<A NAME="ch23-359-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-330-fm2xml.html#ch23-330-fm2xml">decodeURI(  )</A>, <A class="docLink" HREF="ch23-337-fm2xml.html#ch23-337-fm2xml">decodeURIComponent(  )</A>, <A class="docLink" HREF="ch23-344-fm2xml.html#ch23-344-fm2xml">encodeURI(  )</A>, <A class="docLink" HREF="ch23-378-fm2xml.html#ch23-378-fm2xml">escape(  )</A>,
+
+<A class="docLink" HREF="ch23-924-fm2xml.html#ch23-924-fm2xml">unescape(  )</A>
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-344-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-360-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

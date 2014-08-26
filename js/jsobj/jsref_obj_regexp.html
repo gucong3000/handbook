@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>JavaScript RegExp 对象</title>
+
+</head>
+
+<body class="browserscripting" id="jsref">
+
+<div id="wrapper">
+
+<div id="navsecond">
+
+<div id="course"><h2>JS & DOM 参考手册</h2>
+<ul>
+<li><a href="index.html" title="JavaScript 和 HTML DOM 参考手册">参考手册目录</a></li>
+</ul>
+<h2>JavaScript 对象</h2>
+<ul>
+<li><a href="jsref_obj_array.html" title="JavaScript Array 对象参考手册">JS Array</a></li>
+<li><a href="jsref_obj_boolean.html" title="JavaScript Boolean 对象参考手册">JS Boolean</a></li>
+<li><a href="jsref_obj_date.html" title="JavaScript Date 对象参考手册">JS Date</a></li>
+<li><a href="jsref_obj_math.html" title="JavaScript Math 对象的参考手册">JS Math</a></li>
+<li><a href="jsref_obj_number.html" title="JavaScript Number 对象参考手册">JS Number</a></li>
+<li><a href="jsref_obj_string.html" title="JavaScript String 对象参考手册">JS String</a></li>
+<li class="currentLink"><a href="jsref_obj_regexp.html" title="JavaScript RegExp 对象参考手册">JS RegExp</a></li>
+<li><a href="jsref_obj_global.html" title="JavaScript 全局对象参考手册">JS Functions</a></li>
+<li><a href="jsref_events.html" title="JavaScript 事件参考手册">JS Events</a></li>
+</ul>
+<h2>Browser 对象</h2>
+<ul>
+<li><a href="dom_obj_window.html" title="HTML DOM Window 对象">Window</a></li>
+<li><a href="dom_obj_navigator.html" title="HTML DOM Navigator 对象">Navigator</a></li>
+<li><a href="dom_obj_screen.html" title="HTML DOM Screen 对象">Screen</a></li>
+<li><a href="dom_obj_history.html" title="HTML DOM History 对象">History</a></li>
+<li><a href="dom_obj_location.html" title="HTML DOM Location 对象">Location</a></li>
+</ul>
+<h2>HTML DOM 对象</h2>
+<ul>
+<li><a href="dom_obj_document.html" title="HTML DOM Document 对象">DOM Document</a></li>
+<li><a href="dom_obj_all.html" title="HTML DOM Element 对象">DOM Element</a></li>
+<li><a href="dom_obj_attributes.html" title="HTML DOM Attribute 对象">DOM Attribute</a></li>
+<li><a href="dom_obj_event.html" title="HTML DOM Event 对象">DOM Event</a></li>
+</ul>
+<h2>HTML 对象</h2>
+<ul>
+<li><a href="dom_obj_anchor.html" title="HTML DOM Anchor 对象">&lt;a&gt;</a></li>
+<li><a href="dom_obj_area.html" title="HTML DOM Area 对象">&lt;area&gt;</a></li>
+<li><a href="dom_obj_audio.html" title="HTML DOM Audio 对象">&lt;audio&gt;</a></li>
+<li><a href="dom_obj_base.html" title="HTML DOM Base 对象">&lt;base&gt;</a></li>
+<li><a href="dom_obj_body.html" title="HTML DOM Body 对象">&lt;body&gt;</a></li>
+<li><a href="dom_obj_blockquote.html" title="HTML DOM Blockquote 对象">&lt;blockquote&gt;</a></li>
+<li><a href="dom_obj_pushbutton.html" title="HTML DOM Button 对象">&lt;button&gt;</a></li>
+<li><a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">&lt;canvas&gt;</a></li>
+<li><a href="dom_obj_col.html" title="HTML DOM Column 对象">&lt;col&gt;</a></li>
+<li><a href="dom_obj_colgroup.html" title="HTML DOM ColumnGroup 对象">&lt;colgroup&gt;</a></li>
+<li><a href="dom_obj_datalist.html" title="HTML DOM Datalist 对象">&lt;datalist&gt;</a></li>
+<li><a href="dom_obj_del.html" title="HTML DOM Del 对象">&lt;del&gt;</a></li>
+<li><a href="dom_obj_details.html" title="HTML DOM Details 对象">&lt;details&gt;</a></li>
+<li><a href="dom_obj_dialog.html" title="HTML DOM Dialog 对象">&lt;dialog&gt;</a></li>
+<li><a href="dom_obj_embed.html" title="HTML DOM Embed 对象">&lt;embed&gt;</a></li>
+<li><a href="dom_obj_fieldset.html" title="HTML DOM Fieldset 对象">&lt;fieldset&gt;</a></li>
+<li><a href="dom_obj_form.html" title="HTML DOM Form 对象">&lt;form&gt;</a></li>
+<li><a href="dom_obj_frame.html" title="HTML DOM Frame 对象">&lt;frame&gt;</a></li>
+<li><a href="dom_obj_frameset.html" title="HTML DOM Frameset 对象">&lt;frameset&gt;</a></li>
+<li><a href="dom_obj_iframe.html" title="HTML DOM IFrame 对象">&lt;iframe&gt;</a></li>
+<li><a href="dom_obj_image.html" title="HTML DOM Image 对象">&lt;img&gt;</a></li>
+<li><a href="dom_obj_ins.html" title="HTML DOM Ins 对象">&lt;ins&gt;</a></li>
+<li><a href="dom_obj_button.html" title="HTML DOM Button 对象">&lt;input&gt; button</a></li>
+<li><a href="dom_obj_checkbox.html" title="HTML DOM Checkbox 对象">&lt;input&gt; checkbox</a></li>
+<li><a href="dom_obj_color.html" title="HTML DOM Color 对象">&lt;input&gt; color</a></li>
+<li><a href="dom_obj_date.html" title="HTML DOM Input Date 对象">&lt;input&gt; date</a></li>
+<li><a href="dom_obj_datetime.html" title="HTML DOM Datetime 对象">&lt;input&gt; datetime</a></li>
+<li><a href="dom_obj_datetime-local.html" title="HTML DOM Datetime Local 对象">&lt;input&gt; datetime-local</a></li>
+<li><a href="dom_obj_email.html" title="HTML DOM Email 对象">&lt;input&gt; email</a></li>
+<li><a href="dom_obj_fileupload.html" title="HTML DOM FileUpload 对象">&lt;input&gt; file</a></li>
+<li><a href="dom_obj_hidden.html" title="HTML DOM Hidden 对象">&lt;input&gt; hidden</a></li>
+<li><a href="dom_obj_input_image.html" title="HTML DOM Input Image 对象">&lt;input&gt; image</a></li>
+<li><a href="dom_obj_month.html" title="HTML DOM Month 对象">&lt;input&gt; month</a></li>
+<li><a href="dom_obj_number.html" title="HTML DOM Number 对象">&lt;input&gt; number</a></li>
+<li><a href="dom_obj_password.html" title="HTML DOM Password 对象">&lt;input&gt; password</a></li>
+<li><a href="dom_obj_range.html" title="HTML DOM Input Range 对象">&lt;input&gt; range</a></li>
+<li><a href="dom_obj_radio.html" title="HTML DOM Radio 对象">&lt;input&gt; radio</a></li>
+<li><a href="dom_obj_reset.html" title="HTML DOM Reset 对象">&lt;input&gt; reset</a></li>
+<li><a href="dom_obj_search.html" title="HTML DOM Input Search 对象">&lt;input&gt; search</a></li>
+<li><a href="dom_obj_submit.html" title="HTML DOM Submit 对象">&lt;input&gt; submit</a></li>
+<li><a href="dom_obj_text.html" title="HTML DOM Text 对象">&lt;input&gt; text</a></li>
+<li><a href="dom_obj_input_time.html" title="HTML DOM Input Time 对象">&lt;input&gt; time</a></li>
+<li><a href="dom_obj_url.html" title="HTML DOM Input URL 对象">&lt;input&gt; url</a></li>
+<li><a href="dom_obj_week.html" title="HTML DOM Week 对象">&lt;input&gt; week</a></li>
+<li><a href="dom_obj_keygen.html" title="HTML DOM Keygen 对象">&lt;keygen&gt;</a></li>
+<li><a href="dom_obj_label.html" title="HTML DOM Label 对象">&lt;label&gt;</a></li>
+<li><a href="dom_obj_legend.html" title="HTML DOM Legend 对象">&lt;legend&gt;</a></li>
+<li><a href="dom_obj_li.html" title="HTML DOM Li 对象">&lt;li&gt;</a></li>
+<li><a href="dom_obj_link.html" title="HTML DOM Link 对象">&lt;link&gt;</a></li>
+<li><a href="dom_obj_map.html" title="HTML DOM Map 对象">&lt;map&gt;</a></li>
+<li><a href="dom_obj_menu.html" title="HTML DOM Menu 对象">&lt;menu&gt;</a></li>
+<li><a href="dom_obj_menuitem.html" title="HTML DOM MenuItem 对象">&lt;menuitem&gt;</a></li>
+<li><a href="dom_obj_meta.html" title="HTML DOM Meta 对象">&lt;meta&gt;</a></li>
+<li><a href="dom_obj_meter.html" title="HTML DOM Meter 对象">&lt;meter&gt;</a></li>
+<li><a href="dom_obj_object.html" title="HTML DOM Object 对象">&lt;object&gt;</a></li>
+<li><a href="dom_obj_ol.html" title="HTML DOM Ol 对象">&lt;ol&gt;</a></li>
+<li><a href="dom_obj_optgroup.html" title="HTML DOM OptionGroup 对象">&lt;optgroup&gt;</a></li>
+<li><a href="dom_obj_option.html" title="HTML DOM Option 对象">&lt;option&gt;</a></li>
+<li><a href="dom_obj_param.html" title="HTML DOM Parameter 对象">&lt;param&gt;</a></li>
+<li><a href="dom_obj_progress.html" title="HTML DOM Progress 对象">&lt;progress&gt;</a></li>
+<li><a href="dom_obj_quote.html" title="HTML DOM Quote 对象">&lt;q&gt;</a></li>
+<li><a href="dom_obj_script.html" title="HTML DOM Script 对象">&lt;script&gt;</a></li>
+<li><a href="dom_obj_select.html" title="HTML DOM Select 对象">&lt;select&gt;</a></li>
+<li><a href="dom_obj_source.html" title="HTML DOM Source 对象">&lt;source&gt;</a></li>
+<li><a href="dom_obj_style.html" title="HTML DOM Style 对象">&lt;style&gt;</a></li>
+<li><a href="dom_obj_table.html" title="HTML DOM Table 对象">&lt;table&gt;</a></li>
+<li><a href="dom_obj_tabledata.html" title="HTML DOM TableCell 对象">&lt;td&gt;</a></li>
+<li><a href="dom_obj_tablehead.html" title="HTML DOM TableHeader 对象">&lt;th&gt;</a></li>
+<li><a href="dom_obj_tablerow.html" title="HTML DOM TableRow 对象">&lt;tr&gt;</a></li>
+<li><a href="dom_obj_textarea.html" title="HTML DOM Textarea 对象">&lt;textarea&gt;</a></li>
+<li><a href="dom_obj_time.html" title="HTML DOM Time 对象">&lt;time&gt;</a></li>
+<li><a href="dom_obj_title.html" title="HTML DOM Title 对象">&lt;title&gt;</a></li>
+<li><a href="dom_obj_track.html" title="HTML DOM Track 对象">&lt;track&gt;</a></li>
+<li><a href="dom_obj_video.html" title="HTML DOM Video 对象">&lt;video&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>JavaScript RegExp 对象</h1>
+
+
+<div>
+<h2>RegExp 对象</h2>
+
+<p>RegExp 对象表示正则表达式，它是对字符串执行模式匹配的强大工具。</p>
+
+<h3>直接量语法</h3>
+
+<pre>/pattern/attributes</pre>
+
+<h3>创建 RegExp 对象的语法：</h3>
+
+<pre>new RegExp(<i>pattern</i>, <i>attributes</i>);</pre>
+
+<h3>参数</h3>
+
+<p>参数 <i>pattern</i> 是一个字符串，指定了正则表达式的模式或其他正则表达式。</p>
+
+<p>参数 <i>attributes</i> 是一个可选的字符串，包含属性 &quot;g&quot;、&quot;i&quot; 和 &quot;m&quot;，分别用于指定全局匹配、区分大小写的匹配和多行匹配。ECMAScript 标准化之前，不支持 m 属性。如果 <i>pattern</i> 是正则表达式，而不是字符串，则必须省略该参数。</p>
+
+<h3>返回值</h3>
+
+<p>一个新的 RegExp 对象，具有指定的模式和标志。如果参数 <i>pattern</i> 是正则表达式而不是字符串，那么 RegExp() 构造函数将用与指定的 RegExp 相同的模式和标志创建一个新的 RegExp 对象。</p>
+
+<p>如果不用 new 运算符，而将 RegExp() 作为函数调用，那么它的行为与用 new 运算符调用时一样，只是当 <i>pattern</i> 是正则表达式时，它只返回 <i>pattern</i>，而不再创建一个新的 RegExp 对象。</p>
+
+<h3>抛出</h3>
+
+<p>SyntaxError - 如果 <i>pattern</i> 不是合法的正则表达式，或 <i>attributes</i> 含有 &quot;g&quot;、&quot;i&quot; 和 &quot;m&quot; 之外的字符，抛出该异常。</p>
+
+<p>TypeError - 如果 <i>pattern</i> 是 RegExp 对象，但没有省略 <i>attributes</i> 参数，抛出该异常。</p>
+</div>
+
+
+<div>
+<h2>修饰符</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">修饰符</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_i.html">i</a></td>
+    <td>执行对大小写不敏感的匹配。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_g.html">g</a></td>
+    <td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。</td>
+  </tr>
+  <tr>
+    <td>m</td>
+    <td>执行多行匹配。</td>
+  </tr>
+</table>
+</div>
+
+
+<div>
+<h2>方括号</h2>
+
+<p>方括号用于查找某个范围内的字符：</p>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">表达式</th>
+    <th>描述</th>
+  </tr>
+
+  <tr>
+    <td><a href="jsref_regexp_charset.html">[abc]</a></td>
+    <td>查找方括号之间的任何字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_charset_not.html">[^abc]</a></td>
+    <td>查找任何不在方括号之间的字符。</td>
+  </tr>
+  <tr>
+    <td>[0-9]</td>
+    <td>查找任何从 0 至 9 的数字。</td>
+  </tr>
+  <tr>
+    <td>[a-z]</td>
+    <td>查找任何从小写 a 到小写 z 的字符。</td>
+  </tr>
+  <tr>
+    <td>[A-Z]</td>
+    <td>查找任何从大写 A 到大写 Z 的字符。</td>
+  </tr>
+  <tr>
+    <td>[A-z]</td>
+    <td>查找任何从大写 A 到小写 z 的字符。</td>
+  </tr>
+	<tr>
+    <td>[adgk]</td>
+    <td>查找给定集合内的任何字符。</td>
+  </tr>
+  <tr>
+    <td>[^adgk]</td>
+    <td>查找给定集合外的任何字符。</td>
+  </tr>
+	<tr>
+    <td>(red|blue|green)</td>
+    <td>查找任何指定的选项。</td>
+  </tr>
+</table>
+</div>
+
+
+<div>
+<h2>元字符</h2>
+
+<p>元字符（Metacharacter）是拥有特殊含义的字符：</p>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">元字符</th>
+    <th>描述</th>
+  </tr>
+
+  <tr>
+    <td><a href="jsref_regexp_dot.html">.</a></td>
+    <td>查找单个字符，除了换行和行结束符。</td>
+  </tr>
+
+  <tr>
+    <td><a href="jsref_regexp_wordchar.html">\w</a></td>
+    <td>查找单词字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_wordchar_non.html">\W</a></td>
+    <td>查找非单词字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_digit.html">\d</a></td>
+    <td>查找数字。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_digit_non.html">\D</a></td>
+    <td>查找非数字字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_whitespace.html">\s</a></td>
+    <td>查找空白字符。</td>
+  </tr>
+	<tr>
+    <td><a href="jsref_regexp_whitespace_non.html">\S</a></td>
+    <td>查找非空白字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_begin.html">\b</a></td>
+    <td>匹配单词边界。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_begin_not.html">\B</a></td>
+    <td>匹配非单词边界。</td>
+  </tr>
+  <tr>
+    <td>\0</td>
+    <td>查找 NUL 字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_newline.html">\n</a></td>
+    <td>查找换行符。</td>
+  </tr>
+  <tr>
+    <td>\f</td>
+    <td>查找换页符。</td>
+  </tr>
+  <tr>
+    <td>\r</td>
+    <td>查找回车符。</td>
+  </tr>
+	<tr>
+    <td>\t</td>
+    <td>查找制表符。</td>
+  </tr>
+  <tr>
+    <td>\v</td>
+    <td>查找垂直制表符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_octal.html">\xxx</a></td>
+    <td>查找以八进制数 xxx 规定的字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_hex.html">\xdd</a></td>
+    <td>查找以十六进制数 dd 规定的字符。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_unicode_hex.html">\uxxxx</a></td>
+    <td>查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+  </tr>
+</table>
+</div>
+
+
+<div>
+<h2>量词</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">量词</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_onemore.html">n+</a></td>
+    <td>匹配任何包含至少一个 n 的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_zeromore.html">n*</a></td>
+    <td>匹配任何包含零个或多个 n 的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_zeroone.html">n?</a></td>
+    <td>匹配任何包含零个或一个 n 的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_nx.html">n{X}</a></td>
+    <td>匹配包含 X 个 n 的序列的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_nxy.html">n{X,Y}</a></td>
+    <td>匹配包含 X 或 Y 个 n 的序列的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_nxcomma.html">n{X,}</a></td>
+    <td>匹配包含至少 X 个 n 的序列的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_ndollar.html">n$</a></td>
+    <td>匹配任何结尾为 n 的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_ncaret.html">^n</a></td>
+    <td>匹配任何开头为 n 的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_nfollow.html">?=n</a></td>
+    <td>匹配任何其后紧接指定字符串 n 的字符串。</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_nfollow_not.html">?!n</a></td>
+    <td>匹配任何其后没有紧接指定字符串 n 的字符串。</td>
+  </tr>
+</table>
+</div>
+
+
+<div>
+<h2>RegExp 对象属性</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">属性</th>
+    <th style="width:66%">描述</th>
+    <th style="width:7%">FF</th>
+    <th style="width:7%">IE</th>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_global.html">global</a></td>
+    <td>RegExp 对象是否具有标志 g。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_ignorecase.html">ignoreCase</a></td>
+    <td>RegExp 对象是否具有标志 i。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_lastindex_regexp.html">lastIndex</a></td>
+    <td>一个整数，标示开始下一次匹配的字符位置。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_multiline_regexp.html">multiline</a></td>
+    <td>RegExp 对象是否具有标志 m。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_source_regexp.html">source</a></td>
+    <td>正则表达式的源文本。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+</table>
+</div>
+
+
+<div>
+<h2>RegExp 对象方法</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">方法</th>
+    <th style="width:66%">描述</th>
+    <th style="width:7%">FF</th>
+    <th style="width:7%">IE</th>
+  </tr>
+  <tr>
+    <td><a href="jsref_regexp_compile.html">compile</a></td>
+    <td>编译正则表达式。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_exec_regexp.html">exec</a></td>
+    <td>检索字符串中指定的值。返回找到的值，并确定其位置。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_test_regexp.html">test</a></td>
+    <td>检索字符串中指定的值。返回 true 或 false。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+</table>
+</div>
+
+
+
+<div>
+<h2>支持正则表达式的 String 对象的方法</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:20%">方法</th>
+    <th style="width:66%">描述</th>
+    <th style="width:7%">FF</th>
+    <th style="width:7%">IE</th>
+  </tr>
+  <tr>
+    <td><a href="jsref_search.html">search</a></td>
+    <td>检索与正则表达式相匹配的值。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_match.html">match</a></td>
+    <td>找到一个或多个正则表达式的匹配。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_replace.html">replace</a></td>
+    <td>替换与正则表达式匹配的子串。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><a href="jsref_split.html">split</a></td>
+    <td>把字符串分割为字符串数组。</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+</table>
+</div>
+
+
+
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-697-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-712-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-704-fm2xml"></A><A NAME="IXT-23-55356"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>parseInt(  )</i></b></td>
+
+<td align="right"><i>把字符串转换成整数</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.0; JScript 1.1; ECMAScript v1 </P><A NAME="ch23-705-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>parseInt(<TT><I>s</I></TT>)
+
+parseInt(<TT><I>s</I></TT>, <TT><I>radix</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-706-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<A NAME="IXT-23-55356"></A><DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>s</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">被解析的字符串。</P>
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>radix</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">可选的整数参数，表示要解析的数字的基数。如果省略了该参数或者它的值为0，数字将以10为基数来解析。如果它以“Ox”或“OX'’开头，则以16为基数。
+    如果该参数小于2或大于36，则parseInt()返回NaN。</P>
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-707-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">解析后的数字，如果字符串s不是以一个有效的整数开头，则返回NaN。在JavaScript
+  1.0中，当parseInt()不能解析s时，它返回的是0而不是NaN。</P>
+
+
+
+
+
+<A NAME="ch23-708-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法parseInt()将对字符串s进行解析，并且返回出现在s中的第一个数字(可以具有减号)。当parseInt()在s中遇到的字符不是指定的基数radix可以使用的有
+    效数字时，解析过程就停止，解析的结果也将在此时返回。如果s的开头是parseInt()不能解析的数字，该函数将返回NaN。可以用函数isNaN()来检测这个
+    值。</P>
+
+
+
+<P class="docText">参数radix指定的是要解析成的数字的基数。如果将它设置为10，parseInt()就会
+    将字符串解析成十进制的数。将它设置为8，那么解析的结果就是八进制(使用0～
+    7八个数字)的数。将它设置为16，解析的结果就是十六进制(使用数字0—9和字
+母A—F表示)的值。radix的值可以是2～36之间的任意一个整数。</P>
+
+
+
+<P class="docText">如果radix的值为0，或者没有设置radix的值，那么parseInt()将根据字符串s
+    来判断数字的基数。如果s(在可选的减号后)以0x开头，那么parseInt()将把s
+    的其余部分解析成十六进制的整数。如果s以0开头，那么ECMAScriptv3标准允许
+    parseInt()的一个实现把其后的字符解析成八进制的数字或十进制的数字。如果s
+    以1—9之间的数字开头，parseInt()将把它解析成十进制的整数。</P>
+
+
+
+<A NAME="ch23-709-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>parseInt("19", 10);  // 返回 19  (10 + 9)
+
+parseInt("11", 2);   // 返回 3   (2 + 1)
+
+parseInt("17", 8);   // 返回 15  (8 + 7)
+
+parseInt("1f", 16);  // 返回 31  (16 + 15)
+
+parseInt("10");      // 返回 10
+
+parseInt("0x10");    // 返回 16
+
+parseInt("010");     //不明确：返回10或8</PRE>
+
+
+
+<A NAME="ch23-710-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">在没有指定radix时，ECMAScriptV3允许实现将以“0”(但不是“OX”或“OX”)
+    开头的字符串解析为八进制或十进制的数。要避免这种二义性，应该明确指定基数，或只有确定所有要解析的数字都是以“OX”或“OX”开头的十进制数或十六进制数
+    时，才可以不指定基数。</P>
+
+
+
+<P class="docText">JavaScript 1.0不支持NaN，所以在这个版本中，当parseInt()不能解析s时，返回0而不是NaN。在JavaScript 1.0中，parseInt()不能区分错误的输入与合法的输入“0”。</P>
+
+
+
+<A NAME="ch23-711-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-463-fm2xml.html#ch23-463-fm2xml">isNaN(  )</A>, <A class="docLink" HREF="ch23-697-fm2xml.html#ch23-697-fm2xml">parseFloat(  )</A> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-697-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-712-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

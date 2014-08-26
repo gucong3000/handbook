@@ -1,0 +1,180 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>innerHTML</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>innerHTML Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the HTML between the start and end tags of the <span replace="1">object</span>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>N/A</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>innerHTML</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sHTML</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sHTML</SPAN></TD><TD><b>String</b> that
+specifies or receives the content between the start and end tags.</TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/col.html">COL</A>, <A HREF="../objects/colgroup.html">COLGROUP</A>, <A HREF="../objects/frameset.html">FRAMESET</A>, <A HREF="../objects/html.html">HTML</A>, <A HREF="../objects/style.html">STYLE</A>, <A HREF="../objects/table.html">TABLE</A>, <A HREF="../objects/tbody.html">TBODY</A>, <A HREF="../objects/tfoot.html">TFOOT</A>, <A HREF="../objects/thead.html">THEAD</A>, <A HREF="../objects/title.html">TITLE</A>, <A HREF="../objects/tr.html">TR</A>.
+The property has no default value.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>innerHTML</B> property is valid for both block and inline elements. By definition, elements that do not have both an opening and closing tag cannot have an <B>innerHTML</B> property.</P><P>The <B>innerHTML</B> property takes a string that specifies a valid combination of text and elements.</P><P>When the <B>innerHTML</B> property is set, the given string completely replaces the existing content of the object. If the string contains HTML tags, the string is parsed and formatted as it is placed into the document.</P><P>This property is accessible at run time, as of Microsoft&#174; Internet Explorer 5. Removing elements at run time, before the closing tag is parsed, could prevent other areas of the document from rendering.</P><P>When using <B>innerHTML</B> to insert script, you must include the <A HREF="../properties/defer.html">DEFER</A> attribute in the <A HREF="../objects/script.html">script</A> element.</P><P>You can change the value of the <A HREF="../objects/title.html">title</A> element using the <A HREF="../objects/obj_document.html">document</A>.title property.</P><P>To change the contents of the <A HREF="../objects/table.html">table</A>, <A HREF="../objects/tfoot.html">tFoot</A>, <A HREF="../objects/thead.html">tHead</A>, and <A HREF="../objects/tr.html">tr</A> elements, use the table object model described in <A HREF="/workshop/author/tables/buildtables.html">How to Build Tables Dynamically</A>. For example, use the <A HREF="../properties/rowindex.html">rowIndex</A> property or the <A HREF="../collections/rows.html">rows</A> collection to retrieve a reference to a specific table row. You can add or delete rows using the <A HREF="../methods/insertrow.html">insertRow</A> and <A HREF="../methods/deleterow.html">deleteRow</A> methods. To retrieve a reference to a specific cell, use the <A HREF="../properties/cellindex.html">cellIndex</A> property or the <A HREF="../collections/cells.html">cells</A> collection. You can add or delete rows using the <A HREF="../methods/insertcell.html">insertCell</A> and <A HREF="../methods/deletecell.html">deleteCell</A> methods. To change the content of a particular cell, use the <B>innerHTML</B> property.</P><P>To maintain compatibility with earlier versions of Internet Explorer, this property applies to the <A HREF="../objects/textarea.html">textArea</A> object.  However, the property works only with strings that do not contain tags. With a string that contains a tag, this property returns an error. It is better to use the <A HREF="../properties/innertext.html">innerText</A> property with this object.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example uses the <B>innerHTML</B> property to change the text of a paragraph when an <A HREF="../events/onmouseover.html">onmouseover</A> event occurs. The affected text and any tags within it are changed by the <B>onmouseover</B> and <A HREF="../events/onmouseout.html">onmouseout</A> events.</P><PRE CLASS="clsCode" AUTOHILITE="1">...
+&lt;P onmouseover="this.innerHTML='&lt;B&gt;Mouse out to change back.&lt;/B&gt;'"
+onmouseout="this.innerHTML='&lt;I&gt;Mouse over again to change.&lt;/I&gt;'"&gt;
+&lt;I&gt;Mouse over this text to change it.&lt;/I&gt;
+&lt;/P&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=25px,left=25px,height=325px,width=600px,statusbar=yes,resizable=1"></IMG></A></DIV><P>
+This example uses the <B>innerHTML</B> property to insert script into the page.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;SCRIPT&gt;
+function insertScript(){
+var sHTML="&lt;input type=button onclick=" + "go2()" + " value='Click Me'&gt;&lt;BR&gt;";
+var sScript="&lt;SCRIPT DEFER&gt;";
+sScript = sScript + "function go2(){ alert('Hello from inserted script.') }";
+sScript = sScript + "&lt;/SCRIPT" + "&gt;";
+ScriptDiv.innerHTML = sHTML + sScript;
+}
+&lt;/SCRIPT&gt;
+&lt;BODY onload="insertScript();"&gt;
+&lt;DIV ID="ScriptDiv"&gt;&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=25px,left=25px,height=250px,width=550px,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/col.html">
+COL</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/colgroup.html">
+COLGROUP</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/htmlcomment.html">
+HTML Comment</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/html.html">
+HTML</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/map.html">
+MAP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/nextid.html">
+nextID</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/option.html">
+OPTION</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/script.html">
+SCRIPT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/style.html">
+STYLE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/title.html">
+TITLE</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/var.html">
+VAR</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/insertadjacenthtml.html">insertAdjacentHTML</A>, <A HREF="/workshop/author/tables/buildtables.html">How to Build Tables Dynamically</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

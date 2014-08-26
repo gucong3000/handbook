@@ -1,0 +1,323 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-830-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-845-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-837-fm2xml"></A><A NAME="IXT-23-55401"></A><A NAME="IXT-23-55402"></A><A NAME="IXT-23-55403"></A><A NAME="IXT-23-55404"></A><A NAME="IXT-23-55405"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.replace(  )</i></b></td>
+
+<td align="right"><i>替换一个与正则表达式匹配的子串</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 </P><A NAME="ch23-838-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.replace(<TT><I>regexp</I></TT>, <TT><I>replacement</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-839-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>regexp</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">声明了要替换的模式的RegExp对象。如果该参数是一个字符串，则将它作为要检索的直接量文本模式，而不是首先被转换成RegExp对象。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>replacement</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">一个字符串，声明的是替换文本或生成替换文本的函数。详见描述部分。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-840-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">一个新字符串，是用replacemenc替换了与regexp的第一次匹配或所有匹配之后得到的。</P>
+
+
+
+
+
+<A NAME="ch23-841-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">字符串string的方法replace()执行的是查找并替换的操作。它将在string中查找与regexp相匹配的子串，然后用replacement替换这些子串。如果regexp具有全局性质g，那么replace()将替换所有的匹配子串。否则，它只替换第一个匹配子串。</P>
+
+
+
+<P class="docText">replacement可能是字符串或函数。如果它是一个字符串，那么每个匹配都将由字符
+    串替换。但replacement中的$字符具有特殊的含义。如下表所示，它说明从模式匹配得到的字符串将用于替换。</P>
+
+
+
+<A NAME="ch23-842-fm2xml"></A><P><TABLE BORDER="1" CELLSPACING="0" CELLPADDING="1" WIDTH="100%">
+
+<COLGROUP span="2">
+
+<TR>
+
+<TH class="docTableHeader">
+
+<P class="docText">Characters</P>
+
+</TH>
+
+<TH class="docTableHeader">
+
+<P class="docText">Replacement</P>
+
+</TH>
+
+</TR>
+
+<TR>
+
+<TD class="docTableCell">
+
+<P class="docText"><TT>$1</TT>, <TT>$2</TT>, ...
+
+<TT>$99</TT>
+
+</P>
+
+</TD>
+
+<TD class="docTableCell">
+
+<P class="docText">与regexp中的第1到第99个子表达式相匹配的文本</P>
+
+</TD>
+
+</TR>
+
+<TR>
+
+<TD class="docTableCell">
+
+<P class="docText"><TT>$&amp;</TT></P>
+
+</TD>
+
+<TD class="docTableCell">
+
+<P class="docText">与regexp相匹配的子串<TT><I></I></TT></P>
+
+</TD>
+
+</TR>
+
+<TR>
+
+<TD class="docTableCell">
+
+<P class="docText"><TT>$`</TT></P>
+
+</TD>
+
+<TD class="docTableCell">
+
+<P class="docText">位于匹配子串左侧的文本</P>
+
+</TD>
+
+</TR>
+
+<TR>
+
+<TD class="docTableCell">
+
+<P class="docText"><TT>$'</TT></P>
+
+</TD>
+
+<TD class="docTableCell">
+
+<P class="docText">位于匹配子串右侧的文本</P>
+
+</TD>
+
+</TR>
+
+<TR>
+
+<TD class="docTableCell">
+
+<P class="docText"><TT>$$</TT></P>
+
+</TD>
+
+<TD class="docTableCell">
+
+<P class="docText">直接量$符号</P>
+
+</TD>
+
+</TR>
+
+</COLGROUP>
+
+</TABLE></P>
+
+
+
+<P class="docText">ECMAScript v3规定，replace()方法的参数replacement可以是函数而不是字符串，JavaScipt 1.2和JScript 5.5实现了这一特性。在这种情况下，每个匹配都调用该函数，它返回的字符串将作为替换文本使用。该函数的第一个参数是匹配模式的字
+  符串。接下来的参数是与模式中的子表达式匹配的字符串，可以有0个或多个这样的参数。接下来参数是一个整数，声明了匹配在string中出现的位置。最后一个参数是string自身。</P>
+
+
+
+<A NAME="ch23-843-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">要确保单词“JavaScript'’中的大写字符是正确的，可用下列代码：</P>
+
+
+
+<PRE>text.replace(/javascript/i, "JavaScript"); </PRE>
+
+
+
+<P class="docText">要将名字“Doe，John”转换成“JohnDoe”的形式，可用下列代码：</P>
+
+
+
+<PRE>name.replace(/(\w+)\s*,\s*(\w+)/, "$2 $1"); </PRE>
+
+
+
+<P class="docText">用花引号替换直引号，可用下列代码：</P>
+
+
+
+<PRE>text.replace(/"([^"]*)"/g, "``$1''"); </PRE>
+
+
+
+<P class="docText">使字符串中所有单词的第一个字母都是大写的，可用下列代码：</P>
+
+
+
+<PRE>text.replace(/\b\w+\b/g, function(word) {
+
+                           return word.substring(0,1).toUpperCase(  ) +
+
+                                  word.substring(1);
+
+                         }); </PRE>
+
+
+
+<A NAME="ch23-844-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-726-fm2xml.html#ch23-726-fm2xml">RegExp</A>, <A class="docLink" HREF="ch23-736-fm2xml.html#ch23-736-fm2xml">RegExp.exec(  )</A>, <A class="docLink" HREF="ch23-758-fm2xml.html#ch23-758-fm2xml">RegExp.test(  )</A>, <A class="docLink" HREF="ch23-830-fm2xml.html#ch23-830-fm2xml">String.match(  )</A>,
+
+<A class="docLink" HREF="ch23-845-fm2xml.html#ch23-845-fm2xml">String.search(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-830-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-845-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

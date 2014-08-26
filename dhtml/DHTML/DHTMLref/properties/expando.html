@@ -1,0 +1,119 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>expando</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>expando Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a value indicating whether arbitrary variables can be created within the <span replace="1">object</span>.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+This property now applies to the
+<apply-templates></apply-templates><A HREF="../objects/attribute.html">attribute</A> object.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>expando</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">bExpand</SPAN> ]</PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">bExpand</SPAN></TD><TD><b>Boolean</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">true</SPAN></TD><TD>Default. Creation of arbitrary variables is allowed.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">false</SPAN></TD><TD>Creation of arbitrary variables is not allowed.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+true</SPAN>.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>You can extend the properties on an object by creating arbitrary properties with values. You should be careful, however, because you can unintentionally set a property value when scripting in a case-sensitive language such as Microsoft JScript&#174;. For example, if the property value is <SPAN CLASS="clsLiteral">borderColor</SPAN> and you type the value <SPAN CLASS="clsLiteral">"bordercolor = 'blue'"</SPAN>, you have, in fact, created another property on the style object called bordercolor with the value 'blue'. If you query the value of the property, the value "blue" is returned. However, the borders for the element do not turn blue.</P><P>Microsoft Visual Basic&#174; Scripting Edition (VBScript) does not support <B>expando</B> properties on its native language objects, nor does it cause Internet Explorer to create <B>expando</B> properties on its objects. Internet Explorer supports creation of <B>expando</B> properties on its objects, in any language, through <A HREF="../methods/setattribute.html">setAttribute</A>. </P><P>Setting the <B>expando</B> property of the <A HREF="../objects/obj_document.html">document</A> object to <SPAN CLASS="clsLiteral">false</SPAN> precludes the functionality of all expandos within the document.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example demonstrates that, by setting the <B>expando</B> property of the document object to <SPAN CLASS="clsLiteral">false</SPAN>, the document ignores the <A HREF="../properties/unselectable.html">UNSELECTABLE</A> expando on the <A HREF="../objects/span.html">span</A> and allows you to select the text.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="expando">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+//Set the expando property to false.
+document.expando = false;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV&gt;
+&lt;SPAN id="oSpan" unselectable="on"&gt;
+This text should be selectable.&lt;/SPAN&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=125px,left=50px,height=275px,width=600px,statusbar=yes,resizable=1"></IMG></A></DIV><P>
+Using the previous example and setting the <B>expando</B> property of the document object to <SPAN CLASS="clsLiteral">true</SPAN>, the <B>span</B> will not allow you to select the text.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="expando">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+//Set the expando property to true.
+document.expando = true;
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV&gt;
+&lt;SPAN id="oSpan" unselectable="on"&gt;
+This text should not be selectable.&lt;/SPAN&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=125px,left=50px,height=275px,width=600px,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../objects/attribute.html">
+attribute</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_document.html">
+document</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

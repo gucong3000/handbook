@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<title>XMLHTTPRequest参考手册 | Xmlhttp.CN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel='shortcut icon' href='xmlhttp.ico' />
+<link rel='bookmark icon' href='xmlhttp.ico' />
+<link href="../images/manual.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../images/manual.js"></script>
+</head>
+<body onload="setManualIndexState()">
+<div id="top">
+  <div id="div_logo"><a href="/" title="index"><img src="../images/logo_xmlhttp.gif" alt="XmlHttp.CN" id="img_logo"/></a></div>
+</div>
+<div id="main">
+<div id="sidebar">
+  <div id="context_btn"><img src="../images/context_open.gif" alt="" onmouseover="btn_handle('onmouseover')" onmouseout="btn_handle('onmouseout')" onclick="btn_handle('onclick')" id="btn"/></div>
+  <div id="title">XMLHTTP对象参考</div>
+  <div id="index">
+  <a href="xmlhttprequest.html" title="">XMLHTTPRequest 对象</a>
+  <a href="xmlhttprequest.members.html" title="">XMLHTTPRequest 成员</a>
+  <a href="onreadystatechange.html" title="">onreadystatechange</a>
+  <a href="readystate.html" title="">readyState</a>
+  <a href="responsebody.html" title="">responseBody</a>
+  <a href="responsestream.html" title="">responseStream</a>
+  <a href="responseText.html" title="">responseText</a>
+  <a href="responsexml.html" title="">responseXML</a>
+  <a href="status.html" title="">status</a>
+  <a href="statustext.html" title="">statusText</a>
+  <a href="abort.html" title="">abort</a>
+  <a href="getallresponseheaders.html" title="">getAllResponseHeaders</a>
+  <a href="getresponseheader.html" title="">getResponseHeader</a>
+  <a href="open.html" title="">open</a>
+  <a href="send.html" title="">send</a>
+  <a href="setrequestheader.html" title="">setRequestHeader</a>
+  </div>
+</div>
+<h1>readyState</h1>
+<p>返回XMLHTTP请求的当前状态</p>
+<h2>语法</h2>
+<pre>
+lValue = oXMLHttpRequest.readyState;
+</pre>
+<h2>Example</h2>
+<pre>
+var XmlHttp;
+XmlHttp = new ActiveXObject("Msxml2.XMLHTTP.3.0");
+
+function send() {
+   XmlHttp.onreadystatechange = doHttpReadyStateChange;
+   XmlHttp.open("GET", "http://localhost/sample.xml", true);
+   XmlHttp.send();
+}
+
+function doHttpReadyStateChange() {
+   if (XmlHttp.readyState == 4) {
+      alert("Done");
+   }
+}
+</pre>
+<h2>备注</h2>
+<p>变量，此属性只读，状态用长度为4的整型表示.定义如下：</p>
+<table class="t1" border="1" cellpadding="3">
+  <tr>
+    <td>0 (未初始化)</td><td>对象已建立，但是尚未初始化（尚未调用open方法）</td>
+  </tr>
+  <tr>
+    <td>1 (初始化)</td><td>对象已建立，尚未调用send方法</td>
+  </tr>
+  <tr>
+    <td>2 (发送数据)</td><td>send方法已调用，但是当前的状态及http头未知</td>
+  </tr>
+  <tr>
+    <td>3 (数据传送中)</td><td>已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误，</td>
+  </tr>
+  <tr>
+    <td>4 (完成)</td><td>数据接收完毕,此时可以通过通过responseBody和responseText获取完整的回应数据</td>
+  </tr>
+</table>
+<h2>参考</h2>
+<p>
+<a href="open.html" title="">open 方法</a><br />
+<a href="responsebody.html" title="">responseBody 属性</a><br />
+<a href="responsetext.html" title="">responseText 属性</a><br />
+<a href="send.html" title="">send 方法</a><br />
+<a href="status.html" title="">status 属性</a><br />
+<a href="statustext.html" title="">statusText 属性</a>
+</p>
+</div>
+
+</body>
+</html>

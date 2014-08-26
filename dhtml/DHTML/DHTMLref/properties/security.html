@@ -1,0 +1,138 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>SECURITY</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>SECURITY Attribute
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets the value indicating whether the source file of a <A HREF="../objects/frame.html">frame</A> or <A HREF="../objects/iframe.html">iframe</A> has specific security restrictions applied.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+&lt;<SPAN CLASS="clsRange">ELEMENT </SPAN>SECURITY=sSecure ... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD>N/A</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sSecure</SPAN></TD><TD>String that specifies one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">restricted</SPAN></TD><TD>Applies security settings to <B>frame</B> or <B>iframe</B> source files.  </TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;<I>sSecure</I> must specify the value <SPAN CLASS="clsLiteral">restricted</SPAN>.</DIV></P><P>The <B>SECURITY</B> attribute applies the user's security settings of <I>Restricted Sites</I> to the source file of a <B>frame</B> or <B>iframe</B>. These security setting are found on the <B>Security</B> tab of the <B>Internet Options</B> dialog box found on the <B>Tools</B> menu. Changing these setting could have various results including scripting to be allowed.</P><P>Independent of user security settings, the <B>SECURITY</B> attribute effects hyperlink behaviors inside a restricted <B>frame</B> or <B>iframe</B> in the following two ways.
+<ul><li>Hyperlinks render in a new browser window. This happens even when the <A HREF="../properties/target.html">TARGET</A> attribute specifies hyperlinks to render within a restricted frame or a frame nested within the restricted frame. For example, clicking on a hyperlink within the <B>iframe</B> below causes a new browser window to open with the requested document.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;IFRAME SECURITY="restricted" src="http://www.microsoft.com"&gt;&lt;/IFRAME&gt;</PRE></li><li>The <B>SECURITY</B> attribute restricts use of the <A HREF="/workshop/networking/predefined/javascript.html">javascript</A>, <B>vbscript</B>, and <B>about</B> protocols in URLs. For example, in a restricted <B>frame</B> or <B>iframe</B>, the source file would not be able to execute the following code.
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;A HREF="javascript:alert('Will not work in restricted FRAME or IFRAME!');"&gt;
+JavaScript Link&lt;/A&gt;
+</PRE></li></ul></P><P>As usual, you can access the properties and contents of a restricted <B>frame</B> or <B>iframe</B> through the Document Object Model (DOM) of the container document.</P><P>If a frame is restricted by the <B>SECURITY</B> attribute, all nested frames share the same restrictions.</P><P>Because <B>SECURITY</B> is an attribute only, it must be defined in the frame element declaration.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows how to give the user the choice of loading a document into a restricted or unrestricted <B>iframe</B>. Note that the <A HREF="../methods/createelement.html">createElement</A> method is used to create the two IFRAMES. The <B>createElement</B> method must use an HTML string for the parameter to specify the <B>SECURITY</B> attribute dynamically. This is because once the <B>iframe</B> is parsed into the document, it cannot be altered.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+var bRestShown = false;
+var bUnRestShown = false;
+function createIframe(){
+var sContents;
+if (event.srcElement.id=="restricted" &amp;&amp; bRestShown!=true){
+sContents = "&lt;IFRAME SECURITY='restricted' SRC='frameSource.htm'&gt;"
+var newIframe = document.createElement(sContents);
+restIframe.appendChild(newIframe);}
+else if (event.srcElement.id=="unrestricted" &amp;&amp; bUnRestShown!=true){
+sContents = "&lt;IFRAME SRC='frameSource.htm'&gt;"
+var newIframe = document.createElement(sContents);
+unRestIframe.appendChild(newIframe);}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;table&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;INPUT ID="restricted" TYPE="BUTTON" ONCLICK="createIframe();bRestShown=true;"
+VALUE="Create Restricted IFRAME"&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT ID="unrestricted" TYPE="BUTTON" ONCLICK="createIframe();bUnRestShown=true;" VALUE="Create Unrestricted IFRAME"&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;b&gt;IFRAME with SECURITY="restricted"&lt;/b&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;b&gt;IFRAME without SECURITY attribute&lt;/b&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;TR&gt;
+&lt;td&gt;
+&lt;SPAN id="restIframe"&gt;&lt;/SPAN&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;SPAN id="unRestIframe"&gt;&lt;/SPAN&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win32=6" HREF="../objects/iframe.html">
+IFRAME</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

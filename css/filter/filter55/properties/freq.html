@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'lightStrength','phase'
+);
+
+collFriendFilters=new Array(
+'Wave'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'Wave'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.Wave();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Wave(";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'var oSpan=document.all("idSpan");\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=options[selectedIndex].value;\n'+
+'with (document.all("idSel3")) var sValue3=options[selectedIndex].value;\n'+
+'with (document.all("idSel4")) var sValue4=options[selectedIndex].value;\n'+
+'with (document.all("idSel5")) var sValue5=options[selectedIndex].value;\n'+
+'with (oDiv.filters[0]) {\n'+
+'Add=sValue1;Freq=sValue2;Strength=sValue3;LightStrength=sValue4;Phase=sValue5;\n'+
+'}\n'+
+'oCodeDiv.innerHTML=sFilter+"add="+sValue1+",freq="+sValue2+",strength="+sValue3+",lightStrength="+sValue4+",phase="+sValue5+");";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_body0.jpg" style="float:left;border:1px solid #000000;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="false">---Add---\n'+
+'<option value="true">true\n'+
+'<option value="false">false\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="3">---Freq---\n'+
+'<option value="0">0\n'+
+'<option value="3">3\n'+
+'<option value="6">6\n'+
+'<option value="9">9\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel3" onchange="rdl_change();">\n'+
+'<option value="1">---Strength---\n'+
+'<option value="5">5\n'+
+'<option value="8">8\n'+
+'<option value="0">0\n'+
+'<option value="3">3\n'+
+'<option value="12">12\n'+
+'<option value="24">24\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel4" onchange="rdl_change();">\n'+
+'<option value="100">---LightStrength---\n'+
+'<option value="0">0\n'+
+'<option value="8">8\n'+
+'<option value="50">50\n'+
+'<option value="30">30\n'+
+'<option value="12">12\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel5" onchange="rdl_change();">\n'+
+'<option value="0">---Phase---\n'+
+'<option value="100">0\n'+
+'<option value="8">8\n'+
+'<option value="50">50\n'+
+'<option value="30">30\n'+
+'<option value="12">12\n'+
+'<\/select>\n'+
+'<\/td><\/tr><\/table>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Wave() ; <\/div>\n';
+
+iWinWidth=540;
+
+iWinHeight=340;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>freq | Freq</span> 版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/wave.html">Wave</a> ( freq</b> = <i>iWaveCount</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/wave.html">Wave</a>').Freq = </b><i>iWaveCount</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iWaveCount </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。默认值为<span class=cssDefault><b> 3 </b></span>。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滤镜建立的波浪数目。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

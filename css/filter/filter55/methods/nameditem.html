@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendObjects=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'length'
+);
+
+collFriendMethods=new Array(
+'item'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE60=new Array(
+'all','anchors','applets','areas','boundElements','cells','elements','embeds','forms','images','links','mimeTypes','options','plugins','rows','scripts','tBodies','FORM','filters','frames','imports','styleSheets','TextRange','TextRectangle'
+);
+
+//sStyle='';
+
+sScript=
+'<script>\n'+
+'function rdl_doClick(e){\n'+
+'var oRDLs=document.all.namedItem("RDL");\n'+
+'for (n=oRDLs.length-1;n>-1;n--) oRDLs[n].removeNode(true);\n'+
+'window.resizeTo(436,320);\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<input name=RDL type=text value="tagName=INPUT type=TEXT name=RDL" style="width:360px;margin:2px;"><br>\n'+
+'<textarea id=RDL style="width:360px;margin:2px;">tagName=TEXTAREA id=RDL<\/textarea><br>\n'+
+'<input id=RDL type=button value="tagName=INPUT type=BUTTON id=RDL" style="width:360px;margin:2px;"><br>\n'+
+'<span id=RDL style="width:360px;margin:2px;">tagName=SPAN id=RDL<\/span><br>\n'+
+'<span name=RDL style="width:360px;margin:2px;">tagName=SPAN name=RDL<\/span><br>\n'+
+'<a name=RDL href="#" onclick="return false;" style="width:360px;margin:2px;">tagName=A  name=RDL<\/a><br>\n'+
+'<br>\n'+
+'<input type=button value=" 删除 " onclick="rdl_doClick();" style="margin:4px;"><br>\n'+
+'点击上方按钮将删除所有由<font color="#FF3300">document.all.namedItem("RDL")<\/font>获取到的对象。<br>\n';
+
+iWinWidth=436;
+
+iWinHeight=380;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>namedItem</span>版本：DOM1　返回值：有</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>oItem</i><b> = </b><i>object</i><b> . namedItem ( </b><i>sName</i><b> ) </b></td></tr>
+</table>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> sName </i></td><td nowrap><b>: </b></td>
+<td><b>必选项</b>。字符串(String)。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap><i> oItem </i></td><td nowrap><b>: </b></td>
+<td>对象(Object)或数组(Array)。如果不成功返回<b> null </b>。</td></tr>
+</table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+返回集合中<b> name </b>属性值或<b> id </b>属性值等于<i> sName </i>的对象或一组对象的集合。
+<br>此方法先在集合中搜寻<b> id </b>属性值等于<i> sName </i>的对象，如果没有找到，再搜寻<b> name </b>属性值等于<i> sName </i>的对象。但只获取本身拥有<b> name </b>属性和<b> id </b>属性的对象。使用自定义(<b> expando </b>)的 name 属性的对象不会被获取。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

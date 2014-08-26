@@ -1,0 +1,223 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-726-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-745-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-736-fm2xml"></A><A NAME="IXT-23-55372"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>RegExp.exec(  )</i></b></td>
+
+<td align="right"><i> 通用的匹配模式</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 <A NAME="IXT-23-55372"></A></P><A NAME="ch23-737-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>regexp</I></TT>.exec(<TT><I>string</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-738-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>string</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要检索的字符串。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-739-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText"> —个数组，存放的是匹配的结果。如果没有找到匹配，值为null。返回的数组的格式在下面介绍。</P>
+
+
+
+
+
+<A NAME="ch23-740-fm2xml"></A>
+
+<h4 class="docRefsectTitle">抛出</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">TypeError</span></span></span></DT>
+
+<DD>
+
+<P class="docList">调用该方法的对象不是RegExp时，抛出该异常。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-741-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">在所有的RegExp模式匹配方法和String模式匹配方法中，exec()的功能最强大。它是一个通用的方法，使用起来比RegExp.test()、String.search()、String.replace()和String.match()都复杂。</P>
+
+
+
+<P class="docText">
+exec()将检索字符串string，从中得到与正则表达式regexp相匹配的文本。如果exec()找到了匹配的文本，它就会返回一个结果数组。否则，返回null。这个返回数组的第0个元素就是与表达式相匹配的文本。第1个元素是与regexp的第一个子表达式相匹配的文本(如果存在)。第2个元素是与regexp的第二个子表达式相匹配的文本，以此类推。通常，数组的length属性声明的是数组中的元素个数。除了数组元素和length属性之外，exec()还返回两个属性。index属性声明的是匹配文本的第一个字符的位置。input属性指的就是string。在调用非全局RegExp对象的exec()方法时，返回的数组与调用方法String.match()返回的方法相同。
+</P>
+
+
+
+<P class="docText">在调用非全局模式的exec()方法时，它将进行检索，并返回上述结果。不过，当regexp是一个全局正则表达式时，exec()的行为就稍微复杂一些。它在regexp的属性lastlndex指定的字符处开始检索字符串string。当它找到了与表达式相匹配的文本时，在匹配之后，它将把regexp的lastlndex属性设置为匹配文本的第一个字符的位置。这就是说，可以通过反复地调用exec()方法来遍历字符串中的所有匹配文本。当exec()再也找不到匹配的文本时，它将返回null，并且把属性lastlndex重置为0。如果在另一个字符串中完成了一次模式匹配之后要开始检索新的字符串，就必须手动地把lastlndex属性重置为0。</P>
+
+
+
+<P class="docText">注意，无论regexp是否是全局模式，exec()都会将完整的细节添加到它返回的数组中。这就是exec()和String.match()的不同之处，后者在全局模式下返回的信息要少得多。事实上，在循环中反复地调用exec()方法是惟一种获得全局模式的完整模式匹配信息的方法。</P>
+
+
+
+<A NAME="ch23-742-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">可以在循环中使用exec()来检索—个字符串中的所有匹配文本。例如：</P>
+
+
+
+<PRE>var pattern = /\bJava\w*\b/g;
+
+var text = "JavaScript is more fun than Java or JavaBeans!";
+
+var result;
+
+while((result = pattern.exec(text)) != null) {
+
+    alert("Matched `" + result[0] +
+
+          "' at position " + result.index +
+
+          " next search begins at position " + pattern.lastIndex);
+
+}</PRE>
+
+
+
+<A NAME="ch23-743-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">在JScript 3.0中，exec()不能正确地使用和设置属性lastIndex，因此这时不能将全局模式的exec()用于循环中，就像上面那个例子所示的一样。</P>
+
+
+
+<A NAME="ch23-744-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-751-fm2xml.html#ch23-751-fm2xml">RegExp.lastIndex</A>, <A class="docLink" HREF="ch23-758-fm2xml.html#ch23-758-fm2xml">RegExp.test(  )</A>, <A class="docLink" HREF="ch23-830-fm2xml.html#ch23-830-fm2xml">String.match(  )</A>, <A class="docLink" HREF="ch23-837-fm2xml.html#ch23-837-fm2xml">String.replace(  )</A>,
+
+<A class="docLink" HREF="ch23-845-fm2xml.html#ch23-845-fm2xml">String.search(  )</A>; <A class="docLink" HREF="jscript4-CHP-10.html#jscript4-CHP-10">Chapter 10</A>
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-726-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-745-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

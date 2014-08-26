@@ -1,0 +1,109 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>MODE Attribute | mode Property (t:TRANSITIONFILTER) (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>MODE Attribute | mode Property
+<IMG SRC="../../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a variable that indicates whether an element transitions in or out.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;t:TRANSITIONFILTER&nbsp;<B>MODE</B>
+= <SPAN CLASS="clsRange">sMode</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I>t:TRANSITIONFILTER</I>.<B>mode</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sMode</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sMode</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">in</SPAN></TD><TD>Default. Determines that the element transitions in.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">out</SPAN></TD><TD>Determines that the element transitions out.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+in</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P> The legal value of <SPAN CLASS="clsLiteral">in</SPAN> indicates that the transition content becomes more visible as the transition progress increases, and <SPAN CLASS="clsLiteral">out</SPAN> indicates that the transition content becomes less visible as the transition progress increases. The <B>mode</B> attribute does not automatically tie the <A HREF="../../time2/elements/transitionfilter.html">transitionFilter</A> to the beginning or end of the media. Authors can use the <A HREF="../../time2/properties/begin.html">begin</A> attribute on the <B>transitionFilter</B> to indicate the begin time for the <B>transitionFilter</B>. </P><P>You can apply a transition to a media element at any time during its active period. If <B>MODE</B> is set to <SPAN CLASS="clsLiteral">in</SPAN> and the <A HREF="../../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> is applied to the media element in the middle of its active period, then the media element will disappear for a moment and transition in. If <B>MODE</B> is set to <SPAN CLASS="clsLiteral">out</SPAN>, then the media element will transition out and then immediately reappear.</P><P>You cannot return the default value of the <B>mode</B> property through script unless the default value has been set by the attribute or through script. </P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The example below demonstrates the use of the <B>mode</B> attribute to transition renderable content in and out of visibility.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time{behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:TRANSITIONFILTER TYPE="barWipe" DUR="3" TARGETELEMENT="oDiv1" MODE="in"
+ID="transitionPlay1"/&gt;
+&lt;t:TRANSITIONFILTER TYPE="barWipe" DUR="3" TARGETELEMENT="oDiv2" MODE="out"
+ID="transitionPlay2"/&gt;
+&lt;DIV CLASS="time"  BEGIN="0" ID="oDiv1" DUR="indefinite"
+STYLE="position:relative; left:20px; width:420px; height:100px;
+background-image:url(ART_time_progress.gif); background-repeat: no-repeat;"&gt;
+&lt;/DIV&gt;
+&lt;DIV CLASS="time"  BEGIN="0" ID="oDiv2" DUR="indefinite"
+STYLE="position:relative; left:20px; width:420px; height:100px;
+background-image:url(ART_time_progress.gif); background-repeat: no-repeat;"&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../../common/samples/author/behaviors/htmltime/transitions/modeEX1.html" FEATURES="top=50,left=50,height=590,width=700,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../common/author/behaviors/overview/transition_ovw.html#mode">Using HTML+TIME Transitions</A>, <A HREF="../../time2/properties/end.html">end</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

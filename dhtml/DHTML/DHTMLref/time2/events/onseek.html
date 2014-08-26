@@ -1,0 +1,197 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onseek Event (t:TRANSITIONFILTER, t:ANIMATION, t:AUDIO, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onseek Event
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires whenever a seek operation is performed on the element.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT </SPAN><B>onseek</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onseek</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onseek</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onseek</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>No</TD></TR><TR><TH>To invoke</TH><TD>
+Open a page in the browser that contains a media file affected by <A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>. Call one of the seek methods, such as <A HREF="../../time2/methods/seekto.html">seekTo</A>, <A HREF="../../time2/methods/seektoframe.html">seekToFrame</A> or <A HREF="../../time2/methods/seekactivetime.html">seekActiveTime</A>.</TD></TR><TR><TH>Default action</TH><TD>
+Calls the associated event handler.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Available Properties</P><BLOCKQUOTE><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../../properties/srcelement.html">srcElement</A></TH></TR><TR><TH><A HREF="../../properties/type_4.html">type</A></TH></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates how to use the <B>onseek</B> event. The <B>onseek</B> event fires when either the <A HREF="../../time2/methods/seekto.html">seekTo</A>, <A HREF="../../time2/methods/seektoframe.html">seekToFrame</A> or <A HREF="../../time2/methods/seekactivetime.html">seekActiveTime</A> method is called upon a media object. Before validating and implementing the value to seek, make sure the object is active to avoid receiving an error message. In this example, if the object is not active the <A HREF="../../common/author/behaviors/reference/time/methods/beginelement.html">beginElement</A> method is called to restart the object, followed by the request to seek. Choose a method to use from the drop-down menu and enter a value in the input box. Click the button labelled 'Click to seek'. The media object seeks to the value entered and pauses. Click the 'Resume' button to resume the video from that point.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="onseek">&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function doSeek(){
+var maxlength;
+//What is the maximum value that the user can input.
+//There are a total of 597 frames in the video with duration of 20.06205
+//seconds.
+switch(oMethod.options.selectedIndex){
+case 0: maxlength = oMedia.mediaDur;
+break;
+case 1: maxlength = oMedia.mediaDur;
+break;
+case 2: maxlength = 598;
+break;
+}
+//Is media object active?
+//Yes, continue and do seek.
+//No, restart element using the beginElement method.
+if(!oMedia.currTimeState.isActive){
+oMedia.beginElement();
+}
+//Is user input valid and within the media's duration boundaries?
+if(isFinite(seekInput.value) &amp;&amp; seekInput.value &gt; 0 &amp;&amp; seekInput.value &lt; maxlength){
+switch(oMethod.options.selectedIndex){
+case 0: oMedia.seekTo(1, seekInput.value);
+break;
+case 1: oMedia.seekActiveTime(seekInput.value);
+break;
+case 2: oMedia.seekToFrame(seekInput.value);
+break;
+}
+oMedia.pauseElement();
+}else{
+//Input is not valid, alert user to re-enter choice.
+switch(oMethod.options.selectedIndex){
+case 0:
+alert("Please enter a valid integer. Value must be greater" +
+" than 0 and less than " + oMedia.mediaDur + ".");
+break;
+case 1:
+alert("Please enter a valid integer. Value must be greater" +
+" than 0 and less than " + oMedia.mediaDur + ".");
+break;
+case 2:
+alert("Please enter a valid integer. Value must be greater" +
+" than 0 and less than 597.");
+break;
+}
+seekInput.focus();
+}
+}
+function fn_doseek(flag){
+//Is the function being called from the onseek event?
+if(flag){
+resumeBtn.style.visibility = "visible";
+seekBtn.style.visibility = "hidden";
+restartBtn.style.visibility = "hidden";
+//Function is being called from the resumeBtn.
+}else{
+resumeBtn.style.visibility = "hidden";
+seekBtn.style.visibility = "visible";
+restartBtn.style.visibility = "visible";
+oMedia.resumeElement();
+seekInput.value="";
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;CENTER&gt;
+&lt;B&gt;Media timer:&lt;/B&gt;
+&lt;SPAN id="Timer2" class="time" dur=".01" repeatCount="indefinite" fill="hold"
+onrepeat="innerText=parseInt(oMedia.currTimeState.activeTime);"&gt;0&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;t:video onseek="fn_doseek(true);" style="width:175px; height:150px;"
+id="oMedia" src="../../common/samples/author/behaviors/media/movie.avi"/&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;B&gt;Choose method:&lt;/B&gt;&amp;nbsp;&lt;SELECT name="oMethod"&gt;
+&lt;OPTION value="seekTo" selected&gt;seekTo&lt;/OPTION&gt;
+&lt;OPTION value="seekActiveTime"&gt;seekActiveTime&lt;/OPTION&gt;
+&lt;/SELECT&gt;
+&lt;BR&gt;
+&lt;B&gt;Time value to seek in object's timeline&lt;/B&gt;:
+&lt;INPUT type="text" value="" name="seekInput" size="3"/&gt;&amp;nbsp;seconds
+&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON id="seekBtn" onclick="doSeek();"&gt;Click to seek&lt;/BUTTON&gt;
+&lt;BUTTON id="resumeBtn" onclick="fn_doseek(false);"
+style="visibility:hidden;"&gt;Resume&lt;/BUTTON&gt;
+&lt;BUTTON id="restartBtn" onclick="oMedia.beginElement()"&gt;Restart&lt;/BUTTON&gt;
+&lt;/CENTER&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/onseek.htm" FEATURES="top=10px,left=10px,height=620px,width=725px,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This event is a Microsoft extension to <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/excl.html">
+t:EXCL</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

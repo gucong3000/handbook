@@ -1,0 +1,108 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onplaystatechange</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onplaystatechange Event
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires when the Media Bar player changes its play state.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white">mediaBar.<B>onplaystatechange</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">mediaBar.<B>onplaystatechange</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+mediaBar<SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onplaystatechange</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>No</TD></TR><TR><TH>To invoke</TH><TD><UL STYLE="margin-top:5px"><LI>Attempt to play media content in the media player.</LI><LI>Scan forward or backward in the currently playing media content.</LI><LI>Pause or stop the currently playing media content.</LI></UL></TD></TR><TR><TH>Default action</TH><TD>
+Initiates any action associated with this script.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Available Properties</P><BLOCKQUOTE><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/srcelement.html">srcElement</A></TH></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The Media Bar player's play state changes as it begins, pauses, or stops media playback, scans a stream forward or backward, and buffers or waits for streaming data. To handle events related to locating and opening media items, use <A HREF="../behaviors/onopenstatechange.html">onopenstatechange</A>.</P><P>If multiple instances of the <A HREF="../behaviors/mediabar.html">mediaBar</A> behavior run concurrently, only one of them receives event notification, even though all instances have access to media item attributes and information about the open and play states. Developers are encouraged to avoid designs that employ multiple instances of the behavior.</P><P>Although the event object is theoretically available in event notifications from <B>onopenstatechange</B> and <B>onplaystatechange</B>, it does not contain or provide useful information if queried. Instead, event handlers should query the <A HREF="../behaviors/openstate.html">openState</A> and <A HREF="../behaviors/playstate.html">playState</A> properties to return player state information.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+In the following example, HTML in the Media Bar content area is updated with the media's play state information when the <B>onplaystatechange</B> event fires. Because the <B>openState</B> and <B>playState</B> properties return an integer, the function in this example accesses an array in order to return a text description.  The array is not shown on this page, but you can see it by clicking the <B>Show Me</B> sample and viewing the source code.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+.
+.
+.
+function play_state_handle() {
+// Return the play state as integer and access the array to return the text associated
+// with that integer
+div_Playstate.innerText += divMedia.playState + '  ' + play_array[divMedia.playState]
++ '&lt;BR&gt;'
+}
+.
+.
+.
+&lt;/SCRIPT&gt;
+&lt;BODY&gt;
+&lt;!-- In the Media Bar content area, the play state description text appears in divMedia. --&gt;
+&lt;DIV style="behavior:url(#default#mediaBar)" OnPlayStateChange="play_state_handle()"
+id="divMedia"&gt;&lt;/DIV&gt;
+&lt;/BODY&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="about:blank" FEATURES="top=10,left=50,height=600,width=800,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../behaviors/mediabar.html">
+mediaBar</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../behaviors/playstate.html">playState</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

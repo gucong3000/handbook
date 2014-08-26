@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>navigator</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="namespace.html" title="namespace 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>namespace 对象</A> <A HREF="NEXTID.html" title="NEXTID 元素 | nextID 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>NEXTID 元素 | nextID 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>navigator 对象</H1>
+<HR SIZE="1"><P>包含关于 Web 浏览器的信息。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>navigator</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P>
+</DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/appCodeName.html">appCodeName</A></TD>
+<TD>获取浏览器的代码名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/appMinorVersion.html">appMinorVersion</A></TD>
+<TD>获取应用程序的次版本值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/appName.html">appName</A></TD>
+<TD>获取浏览器的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/appVersion.html">appVersion</A></TD>
+<TD>获取浏览器运行的平台和版本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/browserLanguage.html">browserLanguage</A></TD>
+<TD>获取浏览器的当前语言。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/cookieEnabled.html">cookieEnabled</A></TD>
+<TD>获取客户端的永久 cookie 是否在浏览器中启用。永久 cookies 是储存在客户端计算机上的。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/cpuClass.html">cpuClass</A></TD>
+<TD>获取指示 CPU 等级的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/onLine.html">onLine</A></TD>
+<TD>获取表明系统是否处于<A HREF="../../../../components/offline/offline.html">全局脱机模式</A>的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/platform.html">platform</A></TD>
+<TD>获取用户的操作系统名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/systemLanguage.html">systemLanguage</A></TD>
+<TD>获取操作系统适用的默认语言。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/userAgent.html">userAgent</A></TD>
+<TD>获取等同于 HTTP 用户代理请求头的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/userLanguage.html">userLanguage</A></TD>
+<TD>获取操作系统的自然语言设置。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/plugins_0.html">plugins</A></TD>
+<TD>获取文档中所有 <A HREF="EMBED.html">EMBED</A> 对象的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/javaEnabled.html">javaEnabled</A></TD>
+<TD>返回 Java 是否已启用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/taintEnabled.html">taintEnabled</A></TD>
+<TD>返回是否允许数据污点。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">对象</P>
+<DIV tabName="对象" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>对象</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="userProfile.html">userProfile</A></TD>
+<TD>提供了允许脚本对用户配置信息请求读取访问并执行读取操作的方法。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="obj_window.html">window</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

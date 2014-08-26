@@ -1,0 +1,91 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>oncontentready</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>oncontentready Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires when the content of the element, to which the behavior is attached, has been completely parsed.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE>
+&lt;<A HREF="../htc/attach.html">PUBLIC:ATTACH</A>
+EVENT&nbsp;=&nbsp;<B>oncontentready</B>
+ONEVENT&nbsp;=&nbsp;sEventHandler
+FOR&nbsp;=&nbsp;element
+ID&nbsp;=&nbsp;sID
+/&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Attributes</P><BLOCKQUOTE><DL><DT><B>EVENT</B></DT><DD>Required. String that specifies the name of a <A HREF="../events.html">Dynamic HTML (DHTML) event</A>, or any of the events specific to the HTML Component (HTC) that are listed in the <A HREF="../htcref.html">HTC Reference</A>.</DD><DT><B>FOR</B></DT><DD>Optional. String that specifies one of the following values to identify the source of the event.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">document</SPAN></TD><TD>Refers to the <A HREF="../objects/obj_document.html">document</A> object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">element</SPAN></TD><TD>Default. Refers to the element to which the behavior is attached.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">window</SPAN></TD><TD>Refers to the <A HREF="../objects/obj_window.html">window</A> object.</TD></TR></TABLE></DD><DT><B>ID</B></DT><DD>Optional. String that uniquely identifies the <A HREF="../htc/attach.html">PUBLIC:ATTACH</A> element within the component. This attribute is analogous to the <A HREF="../properties/id.html">ID</A> attribute in Dynamic HTML (DHTML).</DD><DT><B>ONEVENT</B></DT><DD>Required. String that specifies an inline script or a direct invocation of the event handler function.</DD></DL></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <A HREF="../properties/innerhtml.html">innerHTML</A> property of the element might not return the correct value until this event fires.</P><P>When this event is fired and the <B>literalContent</B> attribute of the <A HREF="../htc/component.html">PUBLIC:COMPONENT</A> element is true, the literal content of the Element Behavior has been stored in the <B>innerHTML</B> property. This event indicates to the element behavior that it can then access the <B>innerHTML</B> property. </P><P>Because this event is specific to <B>HTC components</B>, the only way to bind to the <B>oncontentready</B> event is by using the <B>PUBLIC:ATTACH</B> element. The <A HREF="../methods/attachevent.html">attachEvent</A> method does not bind to this event because it works with standard <B>DHTML Events</B> only. When an HTC file is implemented as a <A HREF="/workshop/author/behaviors/overview/viewlink_ovw.html">Viewlink</A>, the <B>oncontentready</B> event, or any other event that is HTC-specific, cannot be attached to an element in the document fragment.</P><P>See <A HREF="/workshop/author/behaviors/overview/elementb_ovw.html#Component_Initialization">Component Initialization</A> for an overview of events fired during the initialization of an HTC file and its primary document. </P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>oncontentready</B> event on a page to display the value of the element's <B>innerHTML</B> property.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;PUBLIC:ATTACH EVENT="oncontentready" ONEVENT="show_innerHTML()" /&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function show_innerHTML()
+{
+window.alert ('innerHTML = ' + element.innerHTML);
+}
+&lt;/SCRIPT&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="/workshop/author/behaviors/overview/elementb_ovw.html">About Element Behaviors</A>, <A HREF="/workshop/author/behaviors/howto/creating.html">Using HTML Components to Implement DHTML Behaviors in Script</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

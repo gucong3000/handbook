@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>TextRange</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</STYLE>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="TextNode.html" title="TextNode 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>TextNode 对象</A> <A HREF="TextRectangle.html" title="TextRectangle 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>TextRectangle 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>TextRange 对象</H1>
+<HR SIZE="1"><P>代表 HTML 元素中的文本。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>TextRange</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P>
+</DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/boundingHeight.html">boundingHeight</A></TD>
+<TD>获取绑定 <B>TextRange</B> 对象的矩形的高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/boundingLeft.html">boundingLeft</A></TD>
+<TD>获取绑定 <B>TextRange</B> 对象的矩形左边缘和包含 <B>TextRange</B> 对象的左侧之间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/boundingTop.html">boundingTop</A></TD>
+<TD>获取绑定 <B>TextRange</B> 对象的上边缘和包含 <B>TextRange</B> 对象的顶边之间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/boundingWidth.html">boundingWidth</A></TD>
+<TD>Retrieves the width of the rectangle that bounds the <B>TextRange</B> object. </TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/htmlText.html">htmlText</A></TD>
+<TD>获取绑定 <B>TextRange</B> 对象的矩形的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetLeft.html">offsetLeft</A></TD>
+<TD>获取<span replace="1">对象</span>相对于版面或由  <A HREF="../properties/offsetParent.html">offsetParent</A> 属性指定的父坐标的计算左侧位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetTop.html">offsetTop</A></TD>
+<TD>获取<span replace="1">对象</span>相对于版面或由 <B>offsetTop</B> 属性指定的父坐标的计算顶端位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/text_0.html">text</A></TD>
+<TD>设置或获取范围内包含的文本。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR><TD><A HREF="../methods/collapse.html">collapse</A></TD>
+<TD>将插入点移动到当前范围的开始或结尾。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/compareEndPoints.html">compareEndPoints</A></TD>
+<TD>比较 <B>TextRange</B> 对象的结束点和其它范围的结束点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/duplicate.html">duplicate</A></TD>
+<TD>返回 <B>TextRange</B> 的副本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/execCommand.html">execCommand</A></TD>
+<TD>在当前文档、当前选中区或给定范围上执行命令。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/expand.html">expand</A></TD>
+<TD>扩展范围以便完全包含指定单位的范围。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/findText.html">findText</A></TD>
+<TD>在文本中搜索文本并将范围的开始和结束点设置为包围搜索字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getBookmark.html">getBookmark</A></TD>
+<TD>获取可用于使 <A HREF="../methods/moveToBookmark.html">moveToBookmark</A> 返回相同范围的书签(白底字符串)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getBoundingClientRect.html">getBoundingClientRect</A></TD>
+<TD>获取指定 <A HREF="TextRectangle.html">TextRectangle</A> 对象集合绑定的对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getClientRects.html">getClientRects</A></TD>
+<TD>获取描述对象内容或客户区内布局的矩形集合。每个矩形都描述了一条直线。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/inRange.html">inRange</A></TD>
+<TD>返回一个范围是否被另一个范围包含。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/isEqual.html">isEqual</A></TD>
+<TD>返回指定范围是否与当前范围相等。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/move.html">move</A></TD>
+<TD>折叠给定文本范围并将空范围移动给定单位数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveEnd.html">moveEnd</A></TD>
+<TD>更改范围的结束位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveStart.html">moveStart</A></TD>
+<TD>更改范围的开始位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveToBookmark.html">moveToBookmark</A></TD>
+<TD>移动到书签。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveToElementText.html">moveToElementText</A></TD>
+<TD>移动文本范围以便范围的开始和结束位置能够完全包含给定元素的文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/moveToPoint.html">moveToPoint</A></TD>
+<TD>将文本范围的开始和结束位置移动到给定点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/parentElement_1.html">parentElement</A></TD>
+<TD>获取给定文本范围的父元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/pasteHTML.html">pasteHTML</A></TD>
+<TD>将 HTML 文本粘贴入给定文本范围，替换范围内任何先前的文本和 HTML 元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/queryCommandEnabled.html">queryCommandEnabled</A></TD>
+<TD>返回表明指定命令是否可于给定文档当前状态下使用 <A HREF="../methods/execCommand.html">execCommand</A> 命令成功执行的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/queryCommandIndeterm.html">queryCommandIndeterm</A></TD>
+<TD>返回表明指定命令是否处于模糊状态的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/queryCommandState.html">queryCommandState</A></TD>
+<TD>返回表明命令当前状态的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/queryCommandSupported.html">queryCommandSupported</A></TD>
+<TD>返回表明当前命令是否在当前区域上支持的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/queryCommandValue.html">queryCommandValue</A></TD>
+<TD>返回文档、范围或当前选中区对于给定命令的当前值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/scrollIntoView.html">scrollIntoView</A></TD>
+<TD>将<span replace="1">对象</span>滚动到可见范围内，将其排列到窗口顶部或底部。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/select_1.html">select</A></TD>
+<TD>将当前选中区置为当前对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setEndPoint.html">setEndPoint</A></TD>
+<TD>根据其它范围的结束点设置某范围的结束点。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>使用此对象可以获取并修改元素中的文本，定位文本中的指定字符串，以及执行影响文本外观的命令。</P>
+<P>要获取一个文本范围对象，请对 <A HREF="BODY.html">body</A>, <A HREF="BUTTON.html">button</A> 或 <A HREF="TEXTAREA.html">textArea</A> 元素或带有 <A HREF="../properties/type_7.html">TYPE</A> 文本的 <A HREF="INPUT.html">input</A> 元素应用 <A HREF="../methods/createTextRange.html">createTextRange</A> 方法。</P>
+<P>如果想要修改文本范围的延展范围，可以使用 <A HREF="../methods/move.html">move</A>, <A HREF="../methods/moveToElementText.html">moveToElementText</A> 和 <A HREF="../methods/findText.html">findText</A> 移动其起始和终止位置。在文本范围内，你可以获取并修改纯文本或 HTML 文本。这些格式的文本完全相同，只是 HTML 文本包含 HTML 标签，而春文本不包含。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子通过 <B>TextRange</B> 对象将 <B>button</B> 元素的文本更改为“已单击”。</P>
+<PRE id="abc" CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+var b = document.all.tags("BUTTON");
+if (b!=null) {
+var r = b[0].createTextRange();
+if (r != null) {
+r.text = "已单击";
+}
+}
+&lt;/SCRIPT&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="../methods/createTextRange.html">createTextRange</A></BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

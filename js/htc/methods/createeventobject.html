@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>createEventObject</span>方法</h1>
+		<hr>
+		<p>创建一个<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"><span>event</span></a>对象，其作用在于将事件的相关信息传递给<a href="../elements/event.html"><span>PUBLIC:EVENT</span></a>元素的<span><B>fire</B></span>方法。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code><I>oEvent</I>&nbsp;=&nbsp;<I>element</I>.createEventObject()</code>
+		</blockquote>
+		<h2><LABEL>Return Value</LABEL>返回值</h2>
+		<blockquote>
+			<p>返回一个<B><span>event</span></B>对象。</p>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>同一<B><span>event</span></B>对象无法多次调用其<B><span>fire</span></B>方法。</p>
+			<p>使用<B><span>createEventObject</span></B>创建的<B><span>event</span></B>对象的所有属性都是可读写的，包括那些在动态<span>HTML</span><span>(DHTML)</span>中只读的属性。这让你可以在事件发生前设置来自该<span>HTML</span>组件<span>(HTC)</span>文件的<B><span>event</span></B>对象的属性。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>此例源自于一个计算器行为样例。只要结果改变，该<span>HTC</span>发生一个自定义的<span>onResultChange</span>事件返回到页面，同时将结果作为<B><span>event</span></B>对象的一个自定义属性进行传递。</p>
+			<div class="example">
+				<code>&lt;PUBLIC:EVENT&nbsp;name=&quot;onResultChange&quot;&nbsp;id=&quot;rcID&quot;&nbsp;/&gt;<br><br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>function&nbsp;doCalc()<br>{<br>&nbsp;&nbsp;<U>:</U><br>&nbsp;&nbsp;oEvent&nbsp;=&nbsp;createEventObject();<br>&nbsp;&nbsp;oEvent.result&nbsp;=&nbsp;sResult;<br>&nbsp;&nbsp;rcID.fire&nbsp;(oEvent);<br>}<br>&lt;SCRIPT&gt;</code>
+			</div>
+			<p>此例展示了该包含页如何。</p>
+			<div class="example">
+				<code>&lt;HTML&nbsp;XMLNS:InetSDK&gt;<br>&lt;HEAD&gt;<br>&lt;STYLE&gt;<br>@media&nbsp;all&nbsp;{<br>&nbsp;&nbsp;InetSDK\:CALC&nbsp;{behavior:url(engine.htc)}&nbsp;<br>}<br>&lt;/STYLE&gt;<br>&lt;/HEAD&gt;<br><br>&lt;InetSDK:CALC&nbsp;id=&quot;myCalc&quot;<br>&nbsp;onResultChange=&quot;resultWindow.innerText=window.event.result&quot;&gt;<br>&lt;TABLE&gt;<br>&lt;TR&gt;&lt;DIV&nbsp;id=&quot;resultWindow&quot;<br>&nbsp;style=&quot;BORDER:.025cm&nbsp;solid&nbsp;gray&quot;<br>&nbsp;align=&quot;right&quot;&gt;0.&lt;/DIV&gt;&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;7&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;8&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;9&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;/&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;C&nbsp;&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;4&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;5&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;6&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;*&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;%&nbsp;&quot;&nbsp;disabled=&quot;true&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;1&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;2&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;3&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;-&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;1/x&quot;&nbsp;disabled=&quot;true&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;0&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;+/-&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;.&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;+&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;=&nbsp;&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;/TABLE&gt;<br>&lt;/InetSDK:CALC&gt;<br>&lt;/HTML&gt;</code>
+				<button href="../examples/"></button>
+			</div>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/browser/mshtml/reference/ifaces/namespace/detachevent.asp"><span>detachEvent</span></a></li>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/intrviwlnk.html">《<span>Viewlink</span>简介》</a></li>
+				<li><a href="../articles/abelebeh.html">《关于元素行为》</a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

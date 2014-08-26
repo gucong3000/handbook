@@ -1,0 +1,115 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>urns</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>urns Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Retrieves a collection of all objects to which a specified <A HREF="/workshop/author/behaviors/overview.html">behavior</A> is attached.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>collObjects</I> = <I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I><B>.urns(</B><I>sUrn</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sUrn</I></TD><TD>
+Required.
+<b>String</b> that specifies the behavior's Uniform Resource Name (URN).</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>Returns a collection of objects if successful, or <SPAN CLASS="clsLiteral">null</SPAN> otherwise.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This method returns an empty collection if no element has the specified behavior attached to it. </P><P>Use the <A HREF="../properties/length.html">length</A> property on the collection to determine the number of elements it contains, and the <A HREF="../methods/item.html">item</A> method to obtain a particular item in the collection. </P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows how to use the <B>urns</B> method to retrieve a collection of all elements currently attached to the specified behavior and then display a comma-delimited list of these element IDs in a message box.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT LANGUAGE="JScript"&gt;
+var coll  = document.all.urns("URN1");
+var sText = '';
+if (coll != null)
+{
+for (i=0; i&lt;coll.length; i++)
+sText += coll.item(i).id + ', ';
+window.alert (sText);
+}
+&lt;/SCRIPT&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/all.html">
+all</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/anchors.html">
+anchors</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/applets.html">
+applets</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/areas.html">
+areas</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/boundelements.html">
+boundElements</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/cells.html">
+cells</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/childnodes.html">
+childNodes</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/children.html">
+children</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/elements.html">
+elements</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/embeds.html">
+embeds</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/forms.html">
+forms</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/images.html">
+images</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/links.html">
+links</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/options.html">
+options</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/rows.html">
+rows</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/scripts.html">
+scripts</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/stylesheets.html">
+styleSheets</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../collections/tbodies.html">
+tBodies</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../collections/behaviorurns.html">behaviorUrns</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

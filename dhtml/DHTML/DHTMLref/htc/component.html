@@ -1,0 +1,106 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>PUBLIC:COMPONENT</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>PUBLIC:COMPONENT Element
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Identifies the content of the file as HTML Component (HTC).</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+The
+<apply-templates></apply-templates><B>literalContent</B> attribute supports
+<apply-templates></apply-templates><SPAN CLASS="clsLiteral">nested</SPAN> as a new possible value, which creates a nested literal content
+<apply-templates></apply-templates>
+element behaviors.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE xml:space="preserve" CLASS="clsSyntax">&lt;PUBLIC:COMPONENT
+&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;=&nbsp;"<I>sID</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;lightWeight&nbsp;=&nbsp;"<I>bLight</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;literalContent&nbsp;=&nbsp;"<I>sLiteral</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;NAME&nbsp;=&nbsp;"<I>sName</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;supportsEditMode&nbsp;=&nbsp;"<I>bEditable</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;tagName&nbsp;=&nbsp;"<I>sTagName</I>"
+&nbsp;&nbsp;&nbsp;&nbsp;URN&nbsp;=&nbsp;"<I>sURN</I>"
+&gt;
+&lt;!-- child elements --&gt;
+&lt;/PUBLIC:COMPONENT&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Attributes</P><BLOCKQUOTE><DL><DT><B>ID</B></DT><DD>Optional. String that uniquely identifies the <B>PUBLIC:COMPONENT</B> element within the component. This attribute is analogous to the <A HREF="../properties/id.html">ID</A> attribute in Dynamic HTML (DHTML). </DD><DT><B>lightWeight</B></DT><DD>Optional. String that specifies whether the HTC file contains markup. If the HTC file contains no markup, this attribute should be set to <SPAN CLASS="clsLiteral">true</SPAN> to improve rendering performance. This attribute is valid for any HTC file.<TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsLiteral">
+true</SPAN></TD><TD>The HTC file does not contain markup, so it does not need to be parsed and rendered each time the custom tag, which is defined by the HTC file, is used in the primary document.</TD></TR><TR><TD><SPAN CLASS="clsDefValue">
+false</SPAN></TD><TD>Default. HTC contains markup that must be parsed and rendered each time the custom tag, which is defined by the HTC file, is used in the primary document.</TD></TR></TABLE></DD><DT><B>literalContent</B></DT><DD>Optional. String that specifies whether the content contained within the custom tag is parsed and rendered, or if it is to be treated as a data island. This attribute is only valid when the HTC file defines an element behavior, which requires the use of the <B>tagName</B> attribute. See the remarks for more information.<TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsDefValue">
+false</SPAN></TD><TD>Default. Text and markup within the tag defined by the <B>tagName</B> attribute is not treated as a data island and is parsed and rendered.</TD></TR><TR><TD><SPAN CLASS="clsLiteral">
+nested</SPAN>&nbsp;<IMG SRC="../common/new.gif" TITLE="New for Internet Explorer 6"></IMG>&nbsp;</TD><TD>Internet Explorer 6 and later versions. Content within the <B>first</B> opening and <B>last</B> closing of the tag defined by the <B>tagName</B> attribute is treated as a data island and is not parsed or rendered. See <A HREF="/workshop/author/behaviors/overview/literalcontent_ovw.html">Using the literalContent Attribute</A> for more information.</TD></TR><TR><TD><SPAN CLASS="clsLiteral">
+true</SPAN></TD><TD>Content within the <B>first</B> opening and <B>first</B> closing of the tag defined by the <B>tagName</B> attribute is treated as a data island and is not parsed or rendered.</TD></TR></TABLE></DD><DT><B>NAME</B></DT><DD>Optional. String that specifies the name by which the behavior is referred to in the containing document.</DD><DT><B>supportsEditMode</B></DT><DD>Optional. String that specifies whether the content within the HTC file is editable. This attribute is valid only when the HTC file defines an element behavior. <TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsLiteral">
+true</SPAN></TD><TD>Markup contained within the HTC file is editable.</TD></TR><TR><TD><SPAN CLASS="clsDefValue">
+false</SPAN></TD><TD>Default. Markup contained within the HTC file is not editable. You can override this value by setting the <A HREF="../properties/iscontenteditable.html">isContentEditable</A> property to <SPAN CLASS="clsLiteral">VARIANT_TRUE</SPAN> on each element within the HTC file.</TD></TR></TABLE></DD><DT><B>tagName</B></DT><DD>Optional. String that specifies the name of the custom tag, which is defined in the HTC file and imported into the primary document. This attribute is only valid for an HTC file that defines an element behaviors; see the remarks for more information.</DD><DT><B>URN</B></DT><DD>Optional. String, in Uniform Resource Name (URN) format, that uniquely identifies the component. This allows events to be uniquely identified when multiple behaviors may be firing events of the same name. When the event is fired, the <A HREF="../objects/obj_event.html">event</A> object's <A HREF="../properties/srcurn.html">srcUrn</A> property is set to the URN of the behavior that fired the event. </DD></DL></BLOCKQUOTE><P CLASS="clsRef">Element Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH NOWRAP="1" TITLE="Elements that can appear within this element">Child elements</TH><TD><TABLE CLASS="clsMarkupOccurs" CELLSPACING="1"><TR><TH VALIGN="top" NOWRAP="1" CLASS="controls">May occur at most once</TH><TD STYLE="padding-bottom: 2; background-color: #EFEFEF;"><A HREF="../htc/defaults.html">PUBLIC:DEFAULTS</A></TD></TR><TR><TH VALIGN="top" NOWRAP="1" CLASS="controls">May occur one or more times</TH><TD STYLE="padding-bottom: 2; background-color: #EFEFEF;"><A HREF="../htc/attach.html">PUBLIC:ATTACH</A>, <A HREF="../htc/event.html">PUBLIC:EVENT</A>, <A HREF="../htc/method.html">PUBLIC:METHOD</A>, <A HREF="../htc/property.html">PUBLIC:PROPERTY</A></TD></TR></TABLE></TD></TR><TR><TH>Minimum availability</TH><TD>Internet Explorer
+5</TD></TR><TR><TH>Minimum operating systems</TH><TD>
+Windows&nbsp;95, Windows NT&nbsp;4.0</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>PUBLIC:COMPONENT</B> element is used to define two distinct types of behavior. The first is an attached behavior, which modifies the behavior of an existing element using the behavior Cascading Style Sheets (CSS) attribute. The second type, which was introduced in Internet Explorer 5.5, is called an element behavior. An element behavior is used to define a custom tag, which can be used in a Web page like a standard HTML tag.</P><P>An element behavior implies the creation and use of a custom tag in a Web page. Therefore, it is necessary to define the <B>tagName</B> attribute of the <B>PUBLIC:COMPONENT</B> element when the HTC file defines an element behavior. As noted previously, several of the attributes for this element are specifically designed for use with element behaviors. For more information, see <A HREF="/workshop/author/behaviors/overview/elementb_ovw.html">Element Behaviors</A>.</P><P>The <B>NAME</B> attribute is especially useful when multiple behaviors are attached to an element, as it allows you to invoke the properties or methods of the desired behavior from the containing document. If multiple behaviors are attached to a &lt;SPAN ID="mySpan"&gt; element in a document, you can use the following syntax to set the delay property of the behavior named behaviorABC.
+<PRE CLASS="clsCode" AUTOHILITE="1">mySpan.behaviorABC.delay = 1000;</PRE></P></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="/workshop/author/behaviors/howto/creating.html">Using HTML Components to Implement DHTML Behaviors in Script</A>, <A HREF="/workshop/author/behaviors/overview/elementb_ovw.html">About Element Behaviors</A>, <A HREF="/workshop/author/behaviors/overview/literalcontent_ovw.html">Using the literalContent Attribute</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

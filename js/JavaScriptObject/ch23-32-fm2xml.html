@@ -1,0 +1,155 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-28-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-37-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-32-fm2xml"></A><A NAME="IXT-23-55020"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Arguments.length</i></b></td>
+
+<td align="right"><i>传递给函数的参数的个数</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2; ECMAScript v1 </P>
+
+
+
+<A NAME="ch23-33-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>arguments.length</PRE>
+
+
+
+<A NAME="ch23-34-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55020"></A>Arguments对象的属性length声明了传递给当前函数的参数的个数。该属性只在函数体内被定义。</P>
+
+
+
+<P class="docText">注意：这个属性声明的是实际传递给函数的参数个数，而不是期望传递的参数个数。还要注意该属性不具备Array.length属性的专有行为。</P>
+
+
+
+<A NAME="ch23-35-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>// 使用Arguments对象来检查是否正确传递了#参数
+
+function check(args) {
+
+    var actual = args.length;           //参数的实际个数
+
+    var expected = args.callee.length;  //期望的参数个数
+
+    if (actual != expected) {           //如果他们不匹配，则抛出异常
+
+        throw new Error("Wrong number of arguments: expected: " +
+
+                         expected + "; actually passed " + actual);
+
+    }
+
+}
+
+//一个演示如何使用以上函数的函数
+
+function f(x, y, z) {
+
+    check(arguments);  // 检查参数个数是否正确
+
+    return x + y + z;  // 继续使用函数
+
+}</PRE>
+
+
+
+<A NAME="ch23-36-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-61-fm2xml.html#ch23-61-fm2xml">Array.length</A>, <A class="docLink" HREF="ch23-432-fm2xml.html#ch23-432-fm2xml">Function.length</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-28-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-37-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

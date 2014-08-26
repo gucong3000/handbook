@@ -1,0 +1,118 @@
+<HTML xmlns:move>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>行为库:</TITLE>
+<STYLE>
+BODY{
+margin:0;
+background:#336699;
+font-family:宋体;
+font-size:9pt;
+}
+.bar{
+background:#336699;
+width:100%;
+height:25px;
+border-top:1px solid #99CCFF;
+border-bottom:1px solid #000000;
+}
+.desbar{
+background:#FFFFFF;
+width:100%;
+padding: 10px;
+border-top:1px solid #CCCCCC;
+border-bottom:1px solid #000000;
+color:black;
+font-size:9pt;
+}
+.title{
+font-size:13pt;
+color:white;
+padding-left:10px;
+}
+@media all
+{
+move\:iframez {
+position:absolute;
+behavior: url(winlessmovable.htc);
+}
+.iframez{
+background:#99CCFF; border:1px solid black; position:absolute; width:323; height:20; cursor:hand; padding:5px; padding-left:10px; color:black
+}
+.copyright
+{
+position:relative; height:25px; width:100%; background-color:#336699;  border-bottom:1px solid #000000; border-top:1px solid #6699CC; left:0; top:00; font-family:verdana; font-weight:normal; font-size:8pt; color:white; padding:4px; padding-left:10px; z-index:2
+}
+a:link
+{
+text-decoration:none;
+color:white
+}
+a:visited
+{
+text-decoration:none;
+color:white
+}
+a:active
+{
+text-decoration:none;
+color:white
+}
+a:hover
+{
+text-decoration:none;
+color:yellow
+}
+</style>
+<script>
+function mover(oID,startPos){
+if (oID.style.left >= '300'){
+}
+else{
+oID.style.left = startPos+1 ;
+}
+}
+</script>
+<SCRIPT>
+var beginposition=-200;
+var shouldmove=true;
+function mover()
+{
+if ( shouldmove==true )
+{
+beginposition++;
+if (beginposition>=38)
+{
+shouldmove=false;
+}
+}
+square.style.top=beginposition+'px';
+window.setTimeout("mover();", 0);
+}
+</script>
+</head>
+<body>
+<div class="bar">
+<div class="title">使用 Z-Index 的无窗口框架</div>
+</div>
+<div class="desbar" ><div style="width:500px">
+在 Internet Explorer 5 或更早版本中，iframes could not play in the world of z-index-positioned elements. While you could position an IFRAME on a page, you could not lay content from the host document over the iframe using a greater z-index value. In Internet Explorer 5.5, this feature is now supported. Internet Explorer version 5.5 also supports transparent frames. By declaring the background of the frame's document to be transparent and having the container declare that it allows transparency, you can enable the background of the containing document to show through.<br>
+By specifying the z-order of floating frames, you can stack one frame on top of another.Test<br>
+</div>
+</div>
+<div class="bar" style="height:280px; overflow:hidden; padding:10px; color:white">
+Drag these iframes around to
+<move:iframez id="square1" class="iframez" style="top:30; left:10; z-index:1;"><b>Z-Index 1:</b> 单击并拖曳此处。
+<iframe id="oIframe" src="winless_intropage.html" style="position:absolute; top:24; left:0; width:320; height:150; z-index:1 "></iframe>
+</move:iframez>
+<move:iframez id="square1" class="iframez" style="top:60; left:50; z-index:2;"><b>Z-Index 2:</b> 单击并拖曳此处。
+<iframe id="oIframe" src="winless_transparent.html" allowTransparency="true" style="position:absolute; top:24; left:00; width:320; height:150; z-index:1 "></iframe>
+</move:iframez>
+<move:iframez id="square1" class="iframez" style="top:90; left:90; z-index:3;"><b>Z-Index 3:</b> 单击并拖曳此处。
+<iframe id="oIframe" src="winless_intropage.html" style="position:absolute; top:24; left:0; width:320; height:150; z-index:1 "></iframe>
+</move:iframez>
+</div></div>
+<div class="copyright">&#169; 2002 Microsoft Corporation. 版权所有。</A></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>HTML DOM createCaption() 方法</title>
+</head>
+
+<body class="browserscripting">
+<div id="wrapper">
+
+<div id="navsecond">
+
+<div id="course"><h2>HTML DOM</h2>
+<ul>
+<li><a href="http://www.w3school.com.cn/htmldom/index.html" title="HTML DOM 教程">DOM 教程</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_intro.html" title="HTML DOM 简介">DOM 简介</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_nodes.html" title="HTML DOM 节点">DOM 节点</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_methods.html" title="HTML DOM 方法">DOM 方法</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_properties.html" title="HTML DOM 属性">DOM 属性</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_using.html" title="HTML DOM 访问">DOM 访问</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_modify.html" title="HTML DOM 修改">DOM 修改</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_content.html" title="HTML DOM 内容">DOM 内容</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_elements.html" title="HTML DOM 元素">DOM 元素</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_events.html" title="HTML DOM 事件">DOM 事件</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_navigation.html" title="HTML DOM 导航">DOM 导航</a></li>
+<li><a href="http://www.w3school.com.cn/htmldom/dom_summary.html" title="您已经学习了 HTML DOM，接下来的学习内容是什么呢？">DOM 总结</a></li>
+</ul>
+<h2>DOM 实例</h2>
+<ul>
+<li><a href="http://www.w3school.com.cn/example/hdom_examples.html" title="HTML DOM 实例">DOM 实例</a></li>
+</ul>
+<h2>DOM 参考手册</h2>
+<ul>
+<li><a href="index.html" title="JavaScript 和 HTML DOM 参考手册">DOM 参考</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTML DOM createCaption() 方法</h1>
+
+<div class="backtoreference">
+<p><a href="dom_obj_table.html">HTML DOM Table 对象</a></p>
+</div>
+
+<div>
+<h2>定义和用法</h2>
+<p>createCaption() 方法用于在表格中获取或创建 &lt;caption&gt; 元素。</p>
+
+<h3>语法</h3>
+<pre>tableObject.createCaption()</pre>
+
+<h3>返回值</h3>
+<p>返回一个 HTMLElement 对象，表示该表的 &lt;caption&gt; 元素。如果该表格已经有了标题，则返回它。如果该表没有 &lt;caption&gt; 元素，则创建一个新的空 &lt;caption&gt; 元素，把它插入表格，并返回它。</p>
+</div>
+
+<div>
+<h2>实例</h2>
+<p>下面的例子为表格创建了一个标题：</p>
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function createCaption()
+{
+var x=<code>document.getElementById('myTable').createCaption()</code>
+x.innerHTML=&quot;My table caption&quot;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table id=&quot;myTable&quot; border=&quot;1&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;Row1 cell1&lt;/td&gt;
+&lt;td&gt;Row1 cell2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Row2 cell1&lt;/td&gt;
+&lt;td&gt;Row2 cell2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;createCaption()&quot;
+value=&quot;Create caption&quot;&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+
+<div class="example">
+<h2>TIY</h2>
+<dl>
+<dt><a target="_blank" href="http://www.w3school.com.cn/tiy/t.html?f=hdom_table_createcaption">为表格创建了一个标题</a></dt>
+</dl>
+</div>
+
+<div class="backtoreference">
+<p><a href="dom_obj_table.html">HTML DOM Table 对象</a></p>
+</div>
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

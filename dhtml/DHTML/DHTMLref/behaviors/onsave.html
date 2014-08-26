@@ -1,0 +1,112 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onsave</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onsave Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires from a persisted element when the Web page is saved or bookmarked, or when the user navigates away from the page.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onsave</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onsave</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onsave</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>Yes</TD></TR><TR><TH>To invoke</TH><TD><UL STYLE="margin-top:5px"><LI>Save the Web page. </LI><LI>Bookmark the Web page. </LI><LI>Navigate to another page. </LI></UL></TD></TR><TR><TH>Default action</TH><TD>
+Initiates any action associated with this script.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Available Properties</P><BLOCKQUOTE><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/srcelement.html">srcElement</A></TH></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example shows how to use the <B>onsave</B> event for a persistence behavior.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;META NAME="save" CONTENT="favorite"&gt;
+&lt;STYLE&gt;
+.saveFavorite {behavior:url(#default#savefavorite);}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function fnSaveInput(){
+alert("The onsave event fired.");
+oPersistInput.setAttribute("sPersistValue",oPersistInput.value);
+}
+function fnLoadInput(){
+oPersistInput.value=oPersistInput.getAttribute("sPersistValue");
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;INPUT class=saveFavorite onsave="fnSaveInput()" onload="fnLoadInput()"
+type=text id=oPersistInput&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this event.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;unix=5" HREF="../behaviors/savefavorite.html">
+saveFavorite</A>, <A PLATINFO="win32=5;unix=5" HREF="../behaviors/savehistory.html">
+saveHistory</A>, <A PLATINFO="win32=5;unix=5" HREF="../behaviors/savesnapshot.html">
+saveSnapshot</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

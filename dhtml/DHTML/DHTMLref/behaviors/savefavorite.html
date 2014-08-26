@@ -1,0 +1,192 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>saveFavorite</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>saveFavorite Behavior
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Enables the <span replace="1">object</span> to persist data in a favorite Web site. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>XML</TH><TD>
+&lt;<SPAN CLASS="clsRange">Prefix</SPAN>:<SPAN CLASS="clsRange">
+CustomTag</SPAN><SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN><SPAN class="clsLiteral"> STYLE="<A HREF="../properties/behavior_1.html">behavior</A>:url('#default#saveFavorite')"</SPAN> /&gt;
+</TD></TR><TR><TH>HTML</TH><TD>
+&lt;<SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN></SPAN><SPAN class="clsLiteral"> STYLE="behavior:url('#default#saveFavorite')"</SPAN><SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN>&gt;</TD></TR><TR><TH ROWSPAN="2">Scripting</TH><TD><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN class="clsLiteral">.<A HREF="../objects/obj_style.html">style</A>.behavior = "url('#default#saveFavorite')"</SPAN></TD></TR><TR><TD><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN class="clsLiteral">.<A HREF="../methods/addbehavior.html">addBehavior</A> ("#default#saveFavorite")</SPAN></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">Prefix</SPAN></TD><TD>Prefix that associates the <SPAN CLASS="clsRange">CustomTag</SPAN> with an XML namespace. This prefix is
+set using the <A HREF="../properties/xmlns.html">XMLNS</A> attribute of the <A HREF="../objects/html.html">HTML</A>
+tag.
+</TD></TR><TR><TD><SPAN CLASS="clsRange">CustomTag</SPAN></TD><TD>User-defined tag.</TD></TR><TR><TD><SPAN CLASS="clsRange">sID</SPAN></TD><TD>String that specifies a unique identifier for the object.</TD></TR><TR></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>saveFavorite</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/xmldocument.html">XMLDocument</A></NOBR></TD><TD>
+Retrieves a reference to the XML Document Object Model (DOM) exposed by the object.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Events</P><DIV tabName="Events"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Event</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/onload_1.html">onload</A></NOBR></TD><TD>
+Fires from a persistent element when the page reloads.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/onsave.html">onsave</A></NOBR></TD><TD>
+Fires from a persisted element when the Web page is saved or bookmarked, or when the user navigates away from the page.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Methods</P><DIV tabName="Methods"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Method</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/getattribute_2.html">getAttribute</A></NOBR></TD><TD>
+Retrieves the value of the specified attribute.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/removeattribute_1.html">removeAttribute</A></NOBR></TD><TD>
+Removes the specified attribute from the object. </TD></TR><TR><TD><NOBR><A HREF="../behaviors/setattribute_1.html">setAttribute</A></NOBR></TD><TD>
+Sets the value of the specified attribute. </TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>saveFavorite</B> behavior allows the current state of a page to be saved when the user adds the page to the Favorites menu. When the user returns to the page through a shortcut or the Favorites menu, the state of the page is restored. </P><P>The <B>saveFavorite</B> behavior persists data across sessions, using one <A HREF="../behaviors/userdata.html">userData</A> store for each object. If two objects try to use the same attribute, both are persisted in the <B>userData</B> store for each element. The <B>saveFavorite</B><B>userData</B> store is persisted in the Favorites .ini file, which includes the URL of the page as well as the <B>userData</B> store. When the page is loaded through a shortcut or the Favorites menu, the data from the <B>userData</B> store is loaded from the .ini file, even if the user closes and reopens Microsoft&#174; Internet Explorer. </P><P>For example, a page with several dynamically updated styles can save these updates using the <A HREF="../behaviors/onload_1.html">onload</A> and <A HREF="../behaviors/onsave.html">onsave</A> events. The style values can be saved as attributes when <B>onsave</B> fires, and restored when <B>onload</B> fires.</P><DIV CLASS="clsNote"><B><IMG alt="security note" src="../common/UI_security_bang_16.gif"></IMG> Security Alert</B>&nbsp;&nbsp;Using this behavior incorrectly can compromise the security of your application. This behavior uses a <B>userData</B> store, which is not encrypted and therefore not secure. Any application that has access to the drive where <B>userData</B> is saved has access to the data.
+Therefore, it is recommended that you not persist sensitive data like credit card numbers. For more information, see <A HREF="/workshop/author/behaviors/sec_behaviors.html">Security Considerations: DHTML and Default Behaviors</A>. </DIV><P>To persist the state of a page by adding it to the browser Favorites menu, first define a Cascading Style Sheets (CSS) style that applies the <B>saveFavorite</B> behavior. Then use this style in the tags containing content that needs to be persisted. The required <A HREF="../objects/style.html">style</A> can be set inline or in the document header, as follows:
+<PRE CLASS="clsCode" AUTOHILITE="1">   &lt;STYLE&gt;
+.sFavorite {behavior:url(#default#savefavorite);}
+&lt;/STYLE&gt;</PRE></P><P>An <A HREF="../properties/id.html">ID</A> is optional for <B>saveFavorite</B>, but including one improves performance.</P><P>The <B>saveFavorite</B> behavior is available as of Internet Explorer 5, in the Microsoft Win32&#174; and Unix platforms. </P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>saveFavorite</B> behavior to persist information after the user saves the page as a favorite.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.sFavorite {behavior:url(#default#savefavorite);}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function fnSaveInput(){
+oPersistInput.setAttribute("sPersistValue",oPersistInput.value);
+}
+function fnLoadInput(){
+oPersistInput.value=oPersistInput.getAttribute("sPersistValue");
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;INPUT class=sFavorite onsave="fnSaveInput()" onload="fnLoadInput()" type=text id=oPersistInput&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;unix=5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/area.html">
+AREA</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_hidden.html">
+INPUT type=hidden</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/map.html">
+MAP</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/option.html">
+OPTION</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="/workshop/author/persistence/overview.html">Introduction to Persistence</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

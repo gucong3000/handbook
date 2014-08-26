@@ -1,0 +1,169 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onfilterchange</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onfilterchange Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires when a visual filter changes state or completes a transition. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT </SPAN><B>onfilterchange</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onfilterchange</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onfilterchange</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onfilterchange</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>No</TD></TR><TR><TH>To invoke</TH><TD>
+Change the filter state. </TD></TR><TR><TH>Default action</TH><TD>
+Signals that the filter on an object has changed state. </TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Event Object Properties</P><BLOCKQUOTE><P>Although event handlers in the DHTML Object Model do not receive parameters directly, a handler can query an <A HREF="../objects/obj_event.html">event</A> object for data.</P><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/altkey.html">altKey</A></TH><TD>
+Sets or retrieves a value that indicates the state of the ALT key. </TD></TR><TR><TH><A HREF="../properties/altleft.html">altLeft</A></TH><TD>
+Sets or retrieves a value that indicates the state of the left ALT key.</TD></TR><TR><TH><A HREF="../properties/cancelbubble.html">cancelBubble</A></TH><TD>
+Sets or retrieves whether the current event should bubble up the hierarchy of event handlers. </TD></TR><TR><TH><A HREF="../properties/ctrlleft.html">ctrlLeft</A></TH><TD>
+Sets or retrieves the state of the left CTRL key.
+</TD></TR><TR><TH><A HREF="../properties/shiftleft.html">shiftLeft</A></TH><TD>
+Retrieves the state of the left SHIFT key.
+</TD></TR><TR><TH><A HREF="../properties/srcelement.html">srcElement</A></TH><TD>
+Sets or retrieves the object that fired the event. </TD></TR><TR><TH><A HREF="../properties/srcfilter.html">srcFilter</A></TH><TD>
+Sets or retrieves the filter object that caused the <B>onfilterchange</B> event to fire. </TD></TR><TR><TH><A HREF="../properties/type_4.html">type</A></TH><TD>
+Sets or retrieves the event name from the event object. </TD></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>onfilterchange</B> event to trigger a filter effect. When the page loads, the block of text is erased using a checkerboard-down <A HREF="../filters/transition.html">Transition</A>. Once the checkerboard <B>Transition</B> is complete, the image is made visible using a box-in <B>Transition</B>. </P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Microsoft Cascading Style Sheet Controls Samples&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;body&gt;
+&lt;h2&gt;Some text filters out (checkerboard), and at its completion
+an image filters in (box-in).  Refresh repeats.&lt;/h2&gt;
+&lt;Div ID="TextRegion" STYLE="Position: absolute; border: solid red;
+background-color: lightblue; LEFT: 0; TOP: 100; WIDTH: 100%;
+VISIBILITY: visible; FILTER: revealTrans(Transition = 11,
+Duration = 1.25)"&gt;
+Text that will filter upon pageload.&lt;br&gt;
+Text that will filter upon pageload.&lt;br&gt;
+Text that will filter upon pageload.&lt;br&gt;
+Text that will filter upon pageload.&lt;br&gt;
+Text that will filter upon pageload.&lt;br&gt;
+Text that will filter upon pageload.&lt;br&gt;
+Text that will filter upon pageload.
+&lt;/DIV&gt;
+&lt;DIV ID="ImageRegion" STYLE="Position: absolute; border: solid red;
+LEFT: 0; TOP: 100; WIDTH: 30%; VISIBILITY: hidden;
+FILTER: revealTrans(Transition = 0, Duration = 1.25)"&gt;
+&lt;IMAGE id=image1 SRC="/workshop/samples/author/graphics/dhtml/blupan.gif"&gt;
+&lt;/DIV&gt;
+&lt;SCRIPT LANGUAGE=VBScript&gt;
+Sub Window_onload
+Call TextRegion.filters.revealTrans.Apply ()
+Call ImageRegion.filters.revealTrans.Apply()
+Call Start
+End Sub
+Sub Start
+TextRegion.style.visibility = "hidden"
+ImageRegion.style.visibility = "visible"
+Call TextRegion.filters.revealTrans.Play()
+End Sub
+Sub TextRegion_onfilterchange
+if TextRegion.filters.revealTrans.Status = 0 then
+Call ImageRegion.filters.revealTrans.Play(1.5)
+End If
+End Sub
+&lt;/SCRIPT&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this event.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/nextid.html">
+nextID</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0;ce=5.5" HREF="../objects/tr.html">
+TR</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

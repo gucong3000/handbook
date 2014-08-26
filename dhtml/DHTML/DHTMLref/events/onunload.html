@@ -1,0 +1,117 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onunload</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onunload Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires immediately before the <span replace="1">object</span> is unloaded. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT </SPAN><B>onunload</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onunload</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onunload</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onunload</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>No</TD></TR><TR><TH>To invoke</TH><TD><UL STYLE="margin-top:5px"><LI>Close the current browser window. </LI><LI>Navigate to another location by entering a new address or selecting a Favorite. </LI><LI>Click the Back, Forward, Refresh, or Home button. </LI><LI>Click on an <A HREF="../objects/a.html">anchor</A> that refers the browser to another Web page. </LI><LI>Invoke the <B>anchor</B>?A HREF="../methods/click.html">click</A> method. </LI><LI>Invoke the <A HREF="../objects/obj_document.html">document</A>?A HREF="../methods/write.html">write</A> method. </LI><LI>Invoke the <B>document</B>?A HREF="../methods/open_1.html">open</A> method. </LI><LI>Invoke the <B>document</B>?A HREF="../methods/close_1.html">close</A> method. </LI><LI>Invoke the <A HREF="../objects/obj_window.html">window</A>?A HREF="../methods/close_0.html">close</A> method. </LI><LI>Invoke the <B>window</B>?A HREF="../methods/open_0.html">open</A> method, providing the possible value <SPAN CLASS="clsLiteral">_self</SPAN> for the window name. </LI><LI>Invoke the <B>window</B>?A HREF="../methods/navigate.html">navigate</A> or <A HREF="../methods/navigateandfind.html">NavigateAndFind</A> method. </LI><LI>Invoke the <A HREF="../objects/obj_location.html">location</A>?A HREF="../methods/replace.html">replace</A> method. </LI><LI>Invoke the <B>location</B>?A HREF="../methods/reload.html">reload</A> method. </LI><LI>Specify a new value for the <B>location</B>?A HREF="../properties/href_3.html">href</A> property. </LI><LI>Submit a <A HREF="../objects/form.html">form</A> to the address specified in the <A HREF="../properties/action.html">ACTION</A> attribute via the <A HREF="../objects/input_submit.html">INPUT type=submit</A> control,
+or invoke the
+<A HREF="../methods/submit.html">submit</A> method. </LI></UL></TD></TR><TR><TH>Default action</TH><TD>
+Removes the object or document from the browser window. </TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Event Object Properties</P><BLOCKQUOTE><P>Although event handlers in the DHTML Object Model do not receive parameters directly, a handler can query an <A HREF="../objects/obj_event.html">event</A> object for data.</P><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/altkey.html">altKey</A></TH><TD>
+Sets or retrieves a value that indicates the state of the ALT key. </TD></TR><TR><TH><A HREF="../properties/altleft.html">altLeft</A></TH><TD>
+Sets or retrieves a value that indicates the state of the left ALT key.</TD></TR><TR><TH><A HREF="../properties/ctrlleft.html">ctrlLeft</A></TH><TD>
+Sets or retrieves the state of the left CTRL key.
+</TD></TR><TR><TH><A HREF="../properties/shiftleft.html">shiftLeft</A></TH><TD>
+Retrieves the state of the left SHIFT key.
+</TD></TR><TR><TH><A HREF="../properties/type_4.html">type</A></TH><TD>
+Sets or retrieves the event name from the event object. </TD></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example shows how to use the <B>onunload</B> event to run script when the window object has been unloaded.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HEAD&gt;
+&lt;SCRIPT FOR=window EVENT=onunload&gt;
+alert("The onunload event fired for the window object.");
+&lt;/SCRIPT&gt;
+&lt;SCRIPT&gt;
+function fnRelocate()
+{
+location.href="/workshop/samples/author/dhtml/refs/onunloadEX_target.htm";
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;INPUT TYPE=button VALUE="Go To Page 2" onclick="fnRelocate()"&gt;
+&lt;IMG ID=imgTest SRC="../common/prop_rw.gif"&gt;
+&lt;/BODY&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This event is defined in <A HREF="http://www.w3.org/tr/rec-html40/" TARGET="_top">
+HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;unix=4.0;mac=4.0" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/obj_window.html">
+window</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../events/onload.html">onload</A>, <A HREF="../events/onbeforeunload.html">onbeforeunload</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

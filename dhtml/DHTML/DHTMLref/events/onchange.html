@@ -1,0 +1,123 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onchange</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onchange Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires when the contents of the object or selection have changed. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT </SPAN><B>onchange</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onchange</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1"><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN>.<B>onchange</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+<I><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></I><SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onchange</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>Yes</TD></TR><TR><TH>To invoke</TH><TD><UL STYLE="margin-top:5px"><LI>Choose a different <A HREF="../objects/option.html">option</A> in a <A HREF="../objects/select.html">select</A> object using mouse or keyboard navigation. </LI><LI>Alter text in the text area and then navigate out of the object. </LI></UL></TD></TR><TR><TH>Default action</TH><TD>
+Changed text selection is committed.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Event Object Properties</P><BLOCKQUOTE><P>Although event handlers in the DHTML Object Model do not receive parameters directly, a handler can query an <A HREF="../objects/obj_event.html">event</A> object for data.</P><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/altkey.html">altKey</A></TH><TD>
+Sets or retrieves a value that indicates the state of the ALT key. </TD></TR><TR><TH><A HREF="../properties/altleft.html">altLeft</A></TH><TD>
+Sets or retrieves a value that indicates the state of the left ALT key.</TD></TR><TR><TH><A HREF="../properties/clientx.html">clientX</A></TH><TD>
+Sets or retrieves the x-coordinate of the mouse pointer's position relative to the client area of the window, excluding window decorations and scroll bars.</TD></TR><TR><TH><A HREF="../properties/clienty.html">clientY</A></TH><TD>
+Sets or retrieves the y-coordinate of the mouse pointer's position relative to the client area of the window, excluding window decorations and scroll bars.</TD></TR><TR><TH><A HREF="../properties/ctrlleft.html">ctrlLeft</A></TH><TD>
+Sets or retrieves the state of the left CTRL key.
+</TD></TR><TR><TH><A HREF="../properties/offsetx.html">offsetX</A></TH><TD>
+Sets or retrieves the x-coordinate of the mouse pointer's position relative to the object firing the event. </TD></TR><TR><TH><A HREF="../properties/offsety.html">offsetY</A></TH><TD>
+Sets or retrieves the y-coordinate of the mouse pointer's position relative to the object firing the event. </TD></TR><TR><TH><A HREF="../properties/returnvalue_1.html">returnValue</A></TH><TD>
+Sets or retrieves the return value from the event. </TD></TR><TR><TH><A HREF="../properties/screenx.html">screenX</A></TH><TD>
+Retrieves the x-coordinate of the mouse pointer's position relative to the user's screen. </TD></TR><TR><TH><A HREF="../properties/screeny.html">screenY</A></TH><TD>
+Sets or retrieves the y-coordinate of the mouse pointer's position relative to the user's screen. </TD></TR><TR><TH><A HREF="../properties/shiftleft.html">shiftLeft</A></TH><TD>
+Retrieves the state of the left SHIFT key.
+</TD></TR><TR><TH><A HREF="../properties/srcelement.html">srcElement</A></TH><TD>
+Sets or retrieves the object that fired the event. </TD></TR><TR><TH><A HREF="../properties/type_4.html">type</A></TH><TD>
+Sets or retrieves the event name from the event object. </TD></TR><TR><TH><A HREF="../properties/x.html">x</A></TH><TD>
+Sets or retrieves the x-coordinate, in pixels, of the mouse pointer's position relative to a relatively positioned  parent element.</TD></TR><TR><TH><A HREF="../properties/y.html">y</A></TH><TD>
+Sets or retrieves the y-coordinate, in pixels, of the mouse pointer's position relative to a relatively positioned  parent element.</TD></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>This event is fired when the contents are committed and not while the value is changing. For example, on a text box, this event is not fired while the user is typing, but rather when the user commits the change by leaving the text box that has focus. In addition, this event is executed before the code specified by <A HREF="../events/onblur.html">onblur</A> when the control is also losing the focus. </P><P>The <B>onchange</B> event does not fire when the selected option of the <B>select</B> object is changed programatically.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>onchange</B> event to retrieve the selected option of a <B>select</B> object.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;BODY&gt;
+&lt;FORM&gt;
+&lt;P&gt;Select a different option in the
+drop-down list box to trigger the onchange event.
+&lt;SELECT NAME=selTest
+onchange="alert('Index: ' + this.selectedIndex
++ '\nValue: ' + this.options[this.selectedIndex].value)"&gt;
+&lt;OPTION VALUE="Books"&gt;Books
+&lt;OPTION VALUE="Clothing"&gt;Clothing
+&lt;OPTION VALUE="Housewares"&gt;Housewares
+&lt;/SELECT&gt;
+&lt;/FORM&gt;
+&lt;/BODY&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This event is defined in <A HREF="http://www.w3.org/tr/rec-html40/" TARGET="_top">
+HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/textarea.html">
+TEXTAREA</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../events/onkeypress.html">onkeypress</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Light'
+);
+
+collFriendMethods=new Array(
+'addPoint','changeColor','addCone','changeStrength','moveLight','clear'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'Light'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.Light();}\n';
+
+sScript=
+'<script>\n'+
+'var oDiv;\n'+
+'function window.onload(){\n'+
+'oDiv=document.all("idDiv");\n'+
+'}\n'+
+'function rdl_change(){\n'+
+'with (oDiv.filters[0]) {addAmbient(90,140,210,60);}\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_body2.jpg" style="float:left;border:1px solid #000000;">请点击下面的按钮。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<input type=button value="添加环境光" onclick="rdl_change()">\n';
+
+iWinWidth=450;
+
+iWinHeight=320;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>addAmbient</span>版本：DHTML Object Model　返回值：无</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/light.html">Light</a>').addAmbient ( </b><i>iRed</i><b> , </b><i>iGreen</i><b> , </b><i>iBlue</i><b> , </b><i>iStrength</i><b> )</b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> iRed </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。 指定红色值。取值范围为<b> 0 - 255 </b>。</td></tr>
+<tr><td nowrap><i> iGreen </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。 指定绿色值。取值范围为<b> 0 - 255 </b>。</td></tr>
+<tr><td nowrap><i> iBlue </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。 指定蓝色值。取值范围为<b> 0 - 255 </b>。</td></tr>
+<tr><td nowrap><i> iStrength </i></td><td nowrap><b>: </b></td><td>必选项。整数值(Integer)。 指定光强度。取值范围为<b> 0 - 100 </b>。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<div>
+无
+</div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+为<a href="../filters/light.html"> Light </a>滤镜添加环境光(Ambient Light )。环境光是无方向的，并且均匀的洒在页面的表面。环境光有颜色和强度值，可以为对象田家更多的颜色。它通常和其他光一起使用。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

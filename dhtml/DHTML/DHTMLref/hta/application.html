@@ -1,0 +1,87 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>APPLICATION</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>APPLICATION Attribute
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Indicates whether the content of the <span replace="1">object</span> is an HTML Application (HTA) and, therefore, exempt from the browser security model.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+&lt;<SPAN CLASS="clsRange">ELEMENT </SPAN>APPLICATION=bApplication ... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD>N/A</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">bApplication</SPAN></TD><TD>Boolean that specifies whether the content is trusted or untrusted based on the browser security model.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">no</SPAN></TD><TD>Default. Browser security rules for unsafe content are applied; thus, all content of the <A HREF="../objects/frame.html">frame</A> or <A HREF="../objects/iframe.html">iframe</A> is untrusted.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">yes</SPAN></TD><TD>All content of the <B>frame</B> or <B>iframe</B> is trusted.</TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <B>APPLICATION</B> attribute can be used only in HTAs.  </P><P>You can use the <B>APPLICATION</B> attribute to control the content of your Web pages. For example, you can use the attribute to create an HTA that has one <B>frame</B> that accesses unsafe content, such as Internet URLs, and another <B>frame</B> that accesses safe content. You can also use the attribute for cross-domain scripting between HTA-enabled frames.</P><P>A nested <B>frame</B> or <B>iframe</B> requires each container <B>frame</B> to be HTA-enabled (for example, <span class="clsLiteral">APPLICATION="yes"</span>) for the innermost <B>frame</B> or <B>iframe</B> to accept the value of <span class="clsLiteral">APPLICATION="yes"</span>. Take, for instance, an <B>iframe</B> that contains a <A HREF="../objects/frameset.html">frameset</A>. Each <B>frame</B> within the <B>frameset</B> qualifies as being nested. For the innermost <B>frame</B> to be considered safe, it and each parent <B>frame</B> must be declared as <span class="clsLiteral">APPLICATION="yes"</span>.</P><P>HTAs are designed to prevent each untrusted HTML <B>frame</B> and <B>iframe</B> from having script access to the HTA that contains them. In the case of a non-HTA-enabled <B>frame</B>, the highest-level frame comprises the top window for each <B>frame</B> that it contains. The <A HREF="../objects/obj_window.html">window</A>.<A HREF="../properties/top_1.html">top</A> and <B>window</B>.<A HREF="../properties/self.html">self</A> are the same for that <B>frame</B>. In addition, an unsafe <B>frame</B> or <B>iframe</B> receives neither a <A HREF="../properties/referrer.html">referrer</A> nor an <A HREF="../properties/opener.html">opener</A> URL from the parent HTA. This means <B>frame</B> or <B>iframe</B> is not affected by the parent window of the containing HTA.</P></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this attribute.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/iframe.html">
+IFRAME</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../hta/htaoverview.html">Introduction to HTML Applications (HTAs)</A>, <A HREF="../htaref.html">HTML Applications Reference</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

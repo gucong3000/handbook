@@ -1,0 +1,157 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>activeTrack Property (playList) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>activeTrack Property
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the track, or <A HREF="../../time2/objects/playitem.html">playItem</A> object, that is currently active in the <A HREF="../../time2/collections/playlist.html">playList</A> collection.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>playList</I>.<B>activeTrack</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">oPlayItem</SPAN> ]</PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">oPlayItem</SPAN></TD><TD>
+Object that
+specifies or receives  the name of the track, or <B>playItem</B> object, that is currently active in the <B>playList</B> collection.</TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Using this property to set the active track in the <B>playList</B> causes that track to begin playing immediately.</P><P>If a script accesses this property on a <B>playList</B> that is not currently active, an error is returned. To prevent this error, the script should check the element's <A HREF="../../time2/properties/isactive.html">isActive</A> property before attempting to read the <B>activeTrack</B>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates how to retrieve a property of the currently active track using the <B>activeTrack</B> property.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="activeTrack">
+&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;TITLE&gt;HTML+TIME playList Example&lt;/TITLE&gt;
+&lt;LINK REL="stylesheet" HREF="../../common/samples/samples.css" TYPE="text/css"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function updateBtns()
+{
+if (oMedia.currTimeState.isActive) {
+btnStart.disabled=true;
+btnNext.disabled=false;
+btnPrev.disabled=false;
+btnStop.disabled=false;
+}
+else {
+btnStart.disabled=false;
+btnNext.disabled=true;
+btnPrev.disabled=true;
+btnStop.disabled=true;
+}
+}
+function updateFields()
+{
+oTitle.innerText = "Title: " + oMedia.playList.activeTrack.title;
+oAuthor.innerText = "Author: " + oMedia.playList.activeTrack.author;
+oAbstract.innerText = "Abstract: " + oMedia.playList.activeTrack.abstract;
+oCopyright.innerText = "Copyright: " + oMedia.playList.activeTrack.copyright;
+oFilename.innerText = "Filename: " + oMedia.playList.activeTrack.src;
+}
+function clearFields()
+{
+oTitle.innerText = "Title: ";
+oAuthor.innerText = "Author: ";
+oAbstract.innerText = "Abstract: ";
+oCopyright.innerText = "Copyright: ";
+oFilename.innerText = "Filename: ";
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="updateBtns()"&gt;
+&lt;t:MEDIA id="oMedia" src="short_3tracks.asx" begin="indefinite" timeAction="visibility"
+onend="updateBtns();" ontrackchange="updateFields();"/&gt;
+&lt;P&gt;
+&lt;SPAN id="oTitle"&gt;Title:&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN id="oAuthor"&gt;Author:&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN id="oAbstract"&gt;Abstract:&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN id="oCopyright"&gt;Copyright:&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN id="oFilename"&gt;Filename:&lt;/SPAN&gt;&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON id="btnStart"
+onclick="oMedia.beginElement(); updateBtns();"&gt;
+Start
+&lt;/BUTTON&gt;
+&lt;BUTTON id="btnPrev"
+onclick="oMedia.playList.prevTrack();"&gt;
+Previous Track
+&lt;/BUTTON&gt;
+&lt;BUTTON id="btnNext"
+onclick="oMedia.playList.nextTrack();"&gt;
+Next Track
+&lt;/BUTTON&gt;
+&lt;BUTTON id="btnStop"
+onclick="oMedia.endElement(); clearFields();"&gt;
+Stop
+&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/asxProperties.htm" FEATURES="top=25,left=25,height=530,width=600,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is a Microsoft extension to <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5" HREF="../../time2/collections/playlist.html">
+playList</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/methods/nexttrack.html">nextTrack</A>, <A HREF="../../time2/methods/prevtrack.html">prevTrack</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

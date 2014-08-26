@@ -1,0 +1,196 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-87-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-101-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-95-fm2xml"></A><A NAME="IXT-23-55041"></A><A NAME="IXT-23-55042"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Array.sort(  )</i></b></td>
+
+<td align="right"><i>对数组元素进行排序</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.1; JScript 2.0; ECMAScript v1</P><A NAME="ch23-96-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>array</I></TT>.sort( ) <TT><I>array</I></TT>.sort(<TT><I>orderfunc</I></TT>)</PRE>
+
+<A NAME="IXT-23-55041"></A>
+
+<A NAME="IXT-23-55042"></A>
+
+
+
+<A NAME="ch23-97-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>orderfunc</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">用来指定按什么顺序进行排序的函数，可选。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-98-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">对数组的引用。注意，数组在原数组上进行排序，不制作副本。</P>
+
+
+
+
+
+<A NAME="ch23-99-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">
+方法sort()将在原数组上对数组元素进行排序，即排序时不创建新的数组副本。如
+果调用方法sort()时没有使用参数，将按字母顺序(更为精确地说，是按照字符编
+码的顺序)对数组中的元素进行排序。要实现这一点，首先应把数组的元素都转换成
+字符串(如果有必要的话)，以便进行比较。</P>
+
+
+
+<P class="docText">
+如果想按照别的顺序进行排序，就必须提供比较函数，该函数要比较两个值，然后返
+回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数a和b，其返回值如下：
+</P>
+
+
+
+<UL>
+
+<LI><P class="docList">如果根据你的评判标准，a小于b，在排序后的数组中a应该出现在b之前，就返回一个小于0的值。
+
+</P></LI>
+
+<LI><P class="docList">如果a等于b，就返回0。
+</P></LI>
+
+<LI><P class="docList">如果a大于b，就返回一个大于0的值。
+
+</P></LI>
+
+</UL>
+
+<P class="docText">注意，数组中undefined的元素都排列在数组末尾。即使你提供了自定义的排序函数
+也是这样，因为undefined值不会被传递给你提供的orderfunc。</P>
+
+
+
+<A NAME="ch23-100-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">下面的代码展示了如何编写按数字顺序，而不是按字母顺序对数组进行排序的比较函数：</P>
+
+
+
+<PRE>// 按照数字顺序排序的排序函数
+
+function numberorder(a, b) { return a - b; }
+
+
+
+a = new Array(33, 4, 1111, 222);
+
+a.sort(  );             // 按照字母顺序的排序结果为: 1111, 222, 33, 4
+
+a.sort(numberorder);    // 按照数字顺序的排序结果为: 4, 33, 222, 1111</PRE>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-87-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-101-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

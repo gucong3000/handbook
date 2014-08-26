@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>event</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="EMBED.html" title="EMBED 元素 | embed 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>EMBED 元素 | embed 对象</A> <A HREF="external.html" title="external 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>external 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>event 对象</H1>
+<HR SIZE="1"><P>代表事件状态，如事件发生的元素，键盘状态，鼠标位置和鼠标按钮状态。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>event</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="/workshop/author/behaviors/reference/time2/properties/abstract_1.html">Abstract</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>使用 <B>event</B> 对象获取高级流重定向器(ASX)文件中项目横幅的 <A HREF="/workshop/author/behaviors/reference/time2/properties/abstract_1.html">Abstract</A> 内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/altKey.html">altKey</A></TD>
+<TD>设置或获取 Alt 键的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/altLeft.html">altLeft</A></TD>
+<TD>设置或获取左 Alt 键的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="/workshop/author/behaviors/reference/time2/properties/banner.html">Banner</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>使用 <B>event</B> 对象获取高级流重定向器(ASX)文件中项目的 <A HREF="/workshop/author/behaviors/reference/time2/properties/banner.html">Banner</A> 内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/button.html">button</A></TD>
+<TD>设置或获取用户所按的鼠标按钮。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/cancelBubble.html">cancelBubble</A></TD>
+<TD>设置或获取当前事件是否要在事件句柄中向上冒泡。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clientX.html">clientX</A></TD>
+<TD>设置或获取鼠标指针位置相对于窗口客户区域的 x 坐标，其中客户区域不包括窗口自身的控件和滚动条。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clientY.html">clientY</A></TD>
+<TD>设置或获取鼠标指针位置相对于窗口客户区域的 y 坐标，其中客户区域不包括窗口自身的控件和滚动条。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/contentOverflow.html">contentOverflow</A></TD>
+<TD>获取表明文档处理当前 <A HREF="/workshop/browser/hosting/printpreview/reference/behaviors/LayoutRect.html">LayoutRect</A> 对象后是否包含附加的内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/ctrlKey.html">ctrlKey</A></TD>
+<TD>设置或获取 Ctrl 键的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/ctrlLeft.html">ctrlLeft</A></TD>
+<TD>设置或获取左 Ctrl 键的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dataFld_1.html">dataFld</A></TD>
+<TD>设置或获取 <A HREF="../events/oncellchange.html">oncellchange</A> 事件影响的数据列。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fromElement.html">fromElement</A></TD>
+<TD>设置或获取事件发生时激活或鼠标将要离开的对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/keyCode.html">keyCode</A></TD>
+<TD>设置或获取与导致事件的按键关联的 Unicode 按键代码。</TD>
+</TR>
+<TR>
+<TD><A HREF="/workshop/author/behaviors/reference/time2/properties/moreinfo.html">MoreInfo</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>通过 <B>event</B> 对象获取高级流重定向器(ASX)文件中项目横幅的 <A HREF="/workshop/author/behaviors/reference/time2/properties/moreinfo.html">MoreInfo</A> 内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nextPage.html">nextPage</A></TD>
+<TD>获取打印模板中下页的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetX.html">offsetX</A></TD>
+<TD>设置或获取鼠标指针位置相对于触发事件的对象的 x 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetY.html">offsetY</A></TD>
+<TD>设置或获取鼠标指针位置相对于触发事件的对象的 y 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/propertyName.html">propertyName</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上发生更改的属性名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/qualifier.html">qualifier</A></TD>
+<TD>设置或获取由数据源对象提供的数据成员的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/reason.html">reason</A></TD>
+<TD>设置或获取数据源对象的数据传输结果。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/recordset.html">recordset</A></TD>
+<TD>从数据源对象设置或获取对默认数据集的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/repeat.html">repeat</A></TD>
+<TD>获取 <A HREF="../events/onkeydown.html">onkeydown</A> 事件是否正在重复。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/returnValue_1.html">returnValue</A></TD>
+<TD>设置或获取事件的返回值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/SaveType.html">saveType</A></TD>
+<TD>当 <A HREF="/workshop/components/htc/reference/events/oncontentsave.html">oncontentsave</A> 触发时获取剪贴板类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/screenX.html">screenX</A></TD>
+<TD>设置或获取获取鼠标指针位置相对于用户屏幕的 x 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/screenY.html">screenY</A></TD>
+<TD>设置或获取鼠标指针位置相对于用户屏幕的 y 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/shiftKey.html">shiftKey</A></TD>
+<TD>设置或获取 Shift 键的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/shiftLeft.html">shiftLeft</A></TD>
+<TD>设置或获取左 Shift 键的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/srcElement.html">srcElement</A></TD>
+<TD>设置或获取触发事件的对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/srcFilter.html">srcFilter</A></TD>
+<TD>设置或获取触发 <A HREF="../events/onfilterchange.html">onfilterchange</A> 事件的滤镜对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/srcUrn.html">srcUrn</A></TD>
+<TD>获取触发事件的<A HREF="/workshop/author/behaviors/overview.html">行为</A>的统一资源名称(URN)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/toElement.html">toElement</A></TD>
+<TD>设置或获取用户要将鼠标指针移动指向的对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/type_4.html">type</A></TD>
+<TD>从 event 对象中获取事件名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wheelDelta.html">wheelDelta</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置或获取滚轮按钮滚动的距离和方向。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/x.html">x</A></TD>
+<TD>设置或获取鼠标指针位置相对于父文档的 x 像素坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/y.html">y</A></TD>
+<TD>设置或获取鼠标指针位置相对于父文档的 y 像素坐标。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/bookmarks.html">bookmarks</A></TD>
+<TD>返回捆绑到当前事件所影响的行上的 ActiveX<SUP>&reg;</SUP> 数据对象(ADO)书签的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/boundElements.html">boundElements</A></TD>
+<TD>返回页面上所有绑定到给定数据集的所有元素的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">对象</P>
+<DIV tabName="对象" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>对象</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="obj_dataTransfer.html">dataTransfer</A></TD>
+<TD>提供了对于预定义的剪贴板格式的访问，以便在拖曳操作中使用。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>event</B> 对象仅在事件中可用──这意味着，你可以在事件句柄中使用该对象，但不能在其它代码中使用。</P>
+<P>尽管所有事件属性都可通过所有的 <B>event</B> 对象访问，但是在某些事件中某些属性可能无意义。例如，<A HREF="../properties/fromElement.html">fromElement</A> 和 <A HREF="../properties/toElement.html">toElement</A> 属性仅当处理 <A HREF="../events/onmouseover.html">onmouseover</A> 和 <A HREF="../events/onmouseout.html">onmouseout</A> 事件时有意义。</P>
+<P>在 Microsoft Visual Basic<SUP>&reg;</SUP> 脚本版本(VBScript)中，你必须通过 <A HREF="obj_window.html">window</A> 对象访问 <B>event</B> 对象。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<P>下面的例子使用了 <B>event</B> 对象来决定用户单击的位置是否在链接上，并且避免在 SHIFT 键按下时导航到链接。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;取消链接&lt;/TITLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function cancelLink() {
+if (window.event.srcElement.tagName == "A" &amp;&amp; window.event.shiftKey)
+window.event.returnValue = false;
+}
+&lt;/SCRIPT&gt;
+&lt;BODY onclick="cancelLink()"&gt;
+</PRE>
+<P>下面的例子将在浏览器的状态窗口上显示当前鼠标位置。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;BODY onmousemove="window.status = 'X=' +  window.event.x + ' Y='
++ window.event.y"&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在<A HREF="http://www.w3.org/TR/DOM-Level-2/" TARGET="_top">万维网协会(W3C)文档对象模型(DOM) 级别 2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="obj_window.html">window</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

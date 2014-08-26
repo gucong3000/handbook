@@ -1,0 +1,180 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>DashStyle Attribute</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>DashStyle Attribute</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Specifies the dot and dash pattern for a stroke. Read/write <B>VgLineDashStyle</B>.</P>
+<P><B>Applies To</B></P>
+<P><A href="stroke.html"><B>Stroke</B></A> </P>
+<P><STRONG>Tag Syntax</STRONG> </P>
+<P><P><B>&lt;v:</B><I>element</I><B>
+dashstyle="</B><I>expression</I><B>"&gt;</B></P>
+<P><STRONG>Script Syntax</STRONG> </P>
+<P><I>element</I><B>.dashstyle</B>=<B>"</B><I>expression</I><B>"</B></P>
+<P><I>expression</I>=<I>element</I><B>.dashstyle</B></P>
+<P><B>Remarks</B></P>
+<P>Values include:</P>
+<UL>
+<LI><STRONG>Solid </STRONG>(default)
+<LI><STRONG>ShortDash </STRONG>
+<LI><STRONG>ShortDot </STRONG>
+<LI><STRONG>ShortDashDot </STRONG>
+<LI><STRONG>ShortDashDotDot </STRONG>
+<LI><STRONG>Dot </STRONG>
+<LI><STRONG>Dash </STRONG>
+<LI><STRONG>LongDash </STRONG>
+<LI><STRONG>DashDot </STRONG>
+<LI><STRONG>LongDashDot </STRONG>
+<LI><STRONG>LongDashDotDot</STRONG></LI></UL>
+<P>The <STRONG>DashStyle</STRONG> attribute allows the user to specify a custom-defined dash pattern. This is done using
+a series of numbers. Dash styles are defined in terms of the length of the dash
+(the drawn part of the stroke) and the length of the space between the dashes.
+The lengths are relative to the line width: a length of "1" is equal to the
+line width. The <STRONG>EndCap</STRONG> style is applied to each dash, the arrow style is not.
+The string first defines the length of the dash then the length of the
+space. This may be repeated to form complex dash styles. The string should always
+contain a pair of numbers; if it contains an odd number
+of numbers the last may be disregarded.</P>
+<P>The following table lists some typical values and a description of the
+intended effect. "0" implies a dot that should be fourfold symmetrical (with
+round end caps it should be a circle). If the line end cap is "flat," a viewer
+should choose a built-in operating system dash where possible (in other words. something
+that is fast to draw.). The following table shows some examples.</P>
+<TABLE class=ClsRef cellpadding=4 cellspacing=4 cols=2>
+<TR VALIGN="top">
+<TD bgcolor=#A6CAF0 width="33%"><B>DashStyle</B></TD>
+<TD bgcolor=#A6CAF0 width="66%"><B>Description</B></TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"2 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Short-dashes. Each dash and the space between is
+twice the width of the line.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"0 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Dots. Space between is twice the width of the line.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"2 2 0 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Short dash dot.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"2 2 0 2 0 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Short dash dot dot.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"1 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Dot. Each dash is the width of the line, while each space is twice the width of the line.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"4 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Dash. Each dash is four times the width of the line while each space is twice the width of the line.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"8 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Long dash.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"4 2 1 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Dash dot.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"8 2 1 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Long dash dot.</TD>
+</TR>
+<TR VALIGN="top">
+<TD bgcolor=#EEEEEE width="33%">"8 2 1 2 1 2"</TD>
+<TD bgcolor=#EEEEEE width="66%">Long dash dot dot.</TD>
+</TR>
+</TABLE>
+<BR>
+<P><I>VML Standard Attribute</I></P>
+<P><B>Example</B></P>
+<P>The shape has a dash style of alternating dashes and dots.</P>
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:shape id="rect01"
+&nbsp;&nbsp;&nbsp;strokecolor="red" fillcolor="red"
+&nbsp;&nbsp;&nbsp;style="top:20;left:20;width:30;height:30"
+&nbsp;&nbsp;&nbsp;path="m 1,1 l 1,200,200,200, 200,1 x e"&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:stroke dashstyle="dashdot"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:shape&gt;
+</PRE>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

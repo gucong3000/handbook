@@ -1,0 +1,165 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-821-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-830-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-824-fm2xml"></A><A NAME="IXT-23-55397"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.localeCompare(  )</i></b></td>
+
+<td align="right"><i>用本地特定的顺序来比较两个字符串</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+
+
+<P class="docText">JavaScript 1.5; JScript 5.5; ECMAScript v3 </P><A NAME="ch23-825-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.localeCompare(<TT><I>target</I></TT>)</PRE> <A NAME="IXT-23-55397"></A>
+
+
+
+
+
+<A NAME="ch23-826-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>target</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要以本地特定的顺序与string进行比较的字符串。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-827-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">说明比较结果的数字。如果string小于target，则localeCompare()返回小于0的数。如果string大干target，该方法返回大于0的数。如果两个字符串相等，或根据本地排序规约没有区别，该方法返回0。
+</P>
+
+
+
+
+
+<A NAME="ch23-828-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">把<TT>&lt;</TT>和<TT>&gt;</TT>运算符应用到字符串时，它们只用字符的Unicode编码比较字符串，而不考虑当地的排序规约。以这种方法生成的顺序不一定是正确的。例如，西班牙语中，其中字母“ch”通常作为出现在字母“c”和“d”之间的字符来排序。
+
+</P>
+
+
+
+<P class="docText">localeCompare()方法提供的比较字符串的方法，考虑了默认的本地排序规约。
+    ECMAScript标准没有规定如何进行本地特定的比较操作，它只规定该函数采用底层
+    操作系统提供的排序规约。
+</P>
+
+
+
+<A NAME="ch23-829-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">可以用下列代6马，按照地方特定的排序规约对一个字符串数组排序。</P>
+
+
+
+<PRE>var strings;  // 要排序的字符串数组，可以在任何地方初始化
+
+strings.sort(function(a,b) { return a.localeCompare(b) });</PRE>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-821-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-830-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

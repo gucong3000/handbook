@@ -1,0 +1,49 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="highSecuirty"
+ urn="ERiW.Snakevil.Product:HTC.attHighSecuirty"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontentready"
+	 onevent="hContentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontextmenu"
+	 onevent="hVoid()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onselectstart"
+	 onevent="hVoid()"
+	/>
+	<PUBLIC:ATTACH
+	 event="ondragstart"
+	 onevent="hVoid()"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+/**
+ * oncontentready 事件处理函数。
+ */
+function hContentReady() {
+	element.runtimeStyle.cursor = "default";
+}
+
+/**
+ * 禁止事件处理的默认行为发生。
+ */
+function hVoid() {
+	with (event) {
+		returnValue = false;
+		cancelBubble = true;
+		keyCode = 0;
+	}
+	return false;
+}
+-->
+</SCRIPT>

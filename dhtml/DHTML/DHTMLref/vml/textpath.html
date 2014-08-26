@@ -1,0 +1,130 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>TextPath Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>TextPath Element</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Defines a text path for a shape.</P>
+<P>The following attributes modify a text path.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Attribute</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_fitpath.html"><B>FitPath</B></A></TD><TD bgcolor=#EEEEEE>Defines whether the text fits the path of a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_fitshape.html"><B>FitShape</B></A></TD><TD bgcolor=#EEEEEE>Defines whether the text fits the shape boundaries.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_font-family.html"><B>Font-Family</B></A></TD><TD bgcolor=#EEEEEE>Specifies the font-family of text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_font-size.html"><B>Font-Size</B></A></TD><TD bgcolor=#EEEEEE>Specifies the font-size of text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_font-style.html"><B>Font-Style</B></A></TD><TD bgcolor=#EEEEEE>Specifies the font-style of text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_font-variant.html"><B>Font-Variant</B></A></TD><TD bgcolor=#EEEEEE>Specifies the font-variant of text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_font-weight.html"><B>Font-Weight</B></A></TD><TD bgcolor=#EEEEEE>Specifies the font-weight of text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_font.html"><B>Font</B></A></TD><TD bgcolor=#EEEEEE>Specifies the compound font value of text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_mso-text-shadow.html"><B>MSO-Text-Shadow</B></A></TD><TD bgcolor=#EEEEEE>Defines whether a shadow is applied to the text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_on.html"><B>On</B></A></TD><TD bgcolor=#EEEEEE>Defines whether the text is displayed.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_string.html"><B>String</B></A></TD><TD bgcolor=#EEEEEE>Defines the text string.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_text-decoration.html"><B>Text-Decoration</B></A></TD><TD bgcolor=#EEEEEE>Defines the text-decoration of the text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_trim.html"><B>Trim</B></A></TD><TD bgcolor=#EEEEEE>Defines whether extra space is removed above and below the text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-rotate-letters.html"><B>V-Rotate-Letters</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the letters of the text are rotated.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-same-letter-heights.html"><B>V-Same-Letter-Heights</B></A></TD><TD bgcolor=#EEEEEE>Determines whether all letters will have the same height.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-text-align.html"><B>V-Text-Align</B></A></TD><TD bgcolor=#EEEEEE>Defines the alignment of the text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-text-kern.html"><B>V-Text-Kern</B></A></TD><TD bgcolor=#EEEEEE>Determines whether kerning is turned on.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-text-reverse.html"><B>V-Text-Reverse</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the layout order of rows is reversed.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-text-spacing-mode.html"><B>V-Text-Spacing-Mode</B></A></TD><TD bgcolor=#EEEEEE>Defines the mode for letterspacing.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_v-text-spacing.html"><B>V-Text-Spacing</B></A></TD><TD bgcolor=#EEEEEE>Defines the amount of spacing for text.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="text_xscale.html"><B>XScale</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a straight textpath will be used instead of the shape path.</TD></TR>
+</TABLE>
+<BR>
+<P class=RL><B>Remarks</B></P>
+<P>This element must be defined within a <A href="e_shape.html"><B>Shape</B></A> element.</P>
+<P>In addition to the normal fill, string, and style attributes, the <A href="..\path_textpathok.html"><B>TextPathOK</B></A>
+attribute of <A href="..\path.html"><B>Path</B></A> must be set to <B>True</B> and
+the <B><A href="text_on.html">On</A></B> attribute of <B>TextPath</B> must be
+set to <B>True</B> to display text on a text path.</P>
+<P>The following is the minimum code needed to display text on a path.</P>
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:line from="50 200" to="400 100"&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:fill on="True" color="red"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:path textpathok="True"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:textpath on="True" string="VML Text"
+&nbsp;&nbsp;&nbsp;style="font:normal normal normal 36pt Arial"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:line&gt;
+</PRE>
+<P class=RL><B>Examples</B></P>
+<P>Click <A href="t_textpath.html">here</A> to view text drawn along a straight line.</P>
+<P>Click <A href="x_textpath.html">here</A> to view text drawn along a dynamic curved line.</P>
+<P>Click <A href="y_textpath.html">here</A> to view different styles of text along a text path.</P>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

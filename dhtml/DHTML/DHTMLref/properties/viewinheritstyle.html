@@ -1,0 +1,131 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>viewInheritStyle</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>viewInheritStyle Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves a value that indicates whether the document fragment inherits the Cascading Style Sheets (CSS) styles set in the primary document.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>defaults</I>.<B>viewInheritStyle</B>(<I>v</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">bInherit</SPAN> ]</PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">bInherit</SPAN></TD><TD><b>Boolean</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">true</SPAN></TD><TD>Default. Document fragment inherits CSS styles.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">false</SPAN></TD><TD>Document fragment does not inherit CSS styles.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+true</SPAN>.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>
+For more information on the CSS styles that can be inherited when <B>viewInheritStyle</B> is set to true, see <A HREF="/workshop/author/behaviors/overview/viewlink_ovw_css.html">About Viewlink CSS Inheritance</A>. Inheritable CSS styles are only applied to elements in the document fragment that do not already have the corresponding CSS styles defined.
+</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P><p>In the following sample a <A HREF="../objects/div.html">div</A> tag contains a custom element that has an element behavior attached to it. The <B>div</B> tag that is located in the primary document sets a number of CSS attributes, specifically the following:</p><ul><li><A HREF="../properties/color_0.html">color</A> is set to red.</li><li><A HREF="../properties/fontsize.html">fontSize</A> is set to 12 pt.</li><li><A HREF="../properties/fontstyle.html">fontStyle</A> is set to italic. </li><li><A HREF="../properties/border_0.html">border</A> is set to 2px solid blue. </li></ul><p>The content of the primary document is shown in the code snippet below.</p></P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:myns&gt;
+&lt;HEAD&gt;
+&lt;?import namespace="myns" implementation="viewInheritStyle.htc"&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV style= "color:red;font-size:12pt;font-Style:italic;border:2px solid blue"&gt;
+This text is inside a DIV element in the primary document.
+&lt;BR&gt;
+&lt;!-- this is a custom element --&gt;
+&lt;myns:abc&gt;&lt;/myns:abc&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><P><p>The next code snippet shows the content of the HTML Component (HTC) file,  <SPAN CLASS="clsLiteral">viewInheritStyle.htc</SPAN>.</p><p>The HTC file contains a simple document fragment, which also includes a <B>div</B> tag that uses the following CSS styles.</p><ul><li><B>fontSize</B> is set to 20 pt.</li><li><B>border</B> is set to 2px solid green.</li></ul><p>Because the content in the primary document has CSS styles set on a <B>div</B> tag that contains the custom element, the <B>div</B> tag in the document fragment  inherits the <A HREF="/workshop/author/behaviors/overview/viewlink_ovw_css.html">inheritable CSS Styles</A> when the <B>viewInheritStyle</B> property is true.</p></P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;public:component tagName="abc"&gt;
+&lt;attach event="oncontentready" onevent=init() /&gt;
+&lt;/public:component&gt;
+&lt;script&gt;
+function init(){
+defaults.viewLink=document;
+defaults.viewInheritStyle = false;
+docFragCaption.innerText = "viewInheritStyle is now set to false";
+}
+function btnChangeInheritance_onClick(){
+boolInherit = defaults.viewInheritStyle;
+if (boolInherit == true) {
+defaults.viewInheritStyle = false;
+docFragCaption.innerText = "viewInheritStyle is now set to false";
+}
+else
+{
+defaults.viewInheritStyle = true;
+docFragCaption.innerText = "viewInheritStyle is now set to true";
+}
+}
+&lt;/script&gt;
+&lt;BODY&gt;
+&lt;DIV id="docFragCaption" style= "font-size:20pt;border:2px solid green"&gt;&lt;/DIV&gt;
+&lt;BR&gt;
+&lt;INPUT id=btnChangeInheritance type=button value="Toggle viewInheritStyle property" onclick="btnChangeInheritance_onClick()"&gt;
+&lt;/BODY&gt;
+</PRE><P><p>Run the sample to verify that the inheritable CSS styles from the primary document are applied to the document fragment. In this example, the inherited CSS styles are the <B>fontStyle</B> and <B>color</B> properties.</p><p>In this example, the <B>border</B> property is not inherited for two reasons. First, the <B>border</B> property not an inheritable property, and second, the property is set explicitly on the <B>div</B> tag in the document fragment.</p></P><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=25,left=25,height=400,width=500,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/defaults.html">
+defaults</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/behaviors/overview/viewlink_ovw.html">Introduction to Viewlink</A>, <A HREF="/workshop/author/behaviors/overview/viewlink_ovw_css.html">About Viewlink CSS Inheritance</A>, <A HREF="/workshop/author/behaviors/overview/elementb_ovw.html">About Element Behaviors</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

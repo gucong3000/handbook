@@ -1,0 +1,116 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>qualifier</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>qualifier Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the name of the data member provided by a data source object. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>event</I>.<B>qualifier</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sQualifier</SPAN> ]</PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sQualifier</SPAN></TD><TD><b>String</b> that
+specifies or receives the default data member either by the name of the data member or an empty string.</TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The property is read-only in Microsoft&#174; Internet Explorer 4.0, and read/write in Internet Explorer 5 and later.</P><P>Check the <B>qualifier</B> property in the event handlers of a data source object (DSO) if:
+<ol><li>The DSO supports multiple, named data members. </li><li>You have specified a qualifier in association with the <A HREF="../properties/datasrc.html">DATASRC</A> attribute of an element bound to that DSO. </li></ol></P><P>Valid qualifiers are specific to the DSO implementation. Check the documentation of the DSO to determine if it supports named data members and to determine the valid names for those data members. </P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>qualifier</B> property to show how to handle an <A HREF="../events/ondatasetcomplete.html">ondatasetcomplete</A> event when it is fired by a DSO that supports named data members. The hypothetical spreadsheet control defines the name of its data members to match the ranges that can be specified within a typical spreadsheet environment such as Microsoft Excel. In the example, the named data member is restricted to the first seven cells of the first column.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+// Fired when all the data is available
+function handle_dscomplete()
+{
+var oEvent = window.event;
+// ignore the notification for the default data member
+if (oEvent.qualifier != "")
+{
+// get a recordset corresponding to the named data member
+// as indicated by the qualifier property
+var oNamedRS = oEvent.srcElement.namedRecordset(oEvent.qualifier);
+// now walk the recordset
+oNamedRS.MoveFirst();
+for (int i = 0; i &lt; oNamedRS.RecordCount; i++)
+{
+var vValue = oNamedRS.Fields(0).value;
+oNamedRS.MoveNext();
+}
+}
+}
+&lt;/SCRIPT&gt;
+&lt;!-- The CLASSID below does not correspond to a valid object --&gt;
+&lt;OBJECT CLASSID="clsid:00000000-0000-0000-0000-000000000000" ID="dsoSpreadSheet"
+ondatasetcomplete="handle_dscomplete()"&gt;
+&lt;!-- Bind the TABLE to the named recordset "A1:A7" provided by
+the spreadsheet control --&gt;
+&lt;TABLE DATASRC="#dsoSpreadsheet.A1:A7"&gt;
+&lt;TR&gt;&lt;TD&gt;&lt;SPAN DATAFLD="A"&gt;&lt;/SPAN&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5;ce=5.5" HREF="../objects/obj_event.html">
+event</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/namedrecordset.html">namedRecordset</A>, <A HREF="/workshop/author/databind/multids.html">Using a Data Source Object that Exposes Multiple Data Members</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

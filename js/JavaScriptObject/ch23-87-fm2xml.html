@@ -1,0 +1,198 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-81-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-95-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-87-fm2xml"></A><A NAME="IXT-23-55039"></A><A NAME="IXT-23-55040"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Array.slice(  )</i></b></td>
+
+<td align="right"><i>返回数组的一部分</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 </P><A NAME="ch23-88-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>array</I></TT>.slice(<TT><I>start</I></TT>, <TT><I>end</I></TT>)</PRE>
+
+<A NAME="IXT-23-55039"></A>
+
+<A NAME="IXT-23-55040"></A>
+
+
+
+
+
+<A NAME="ch23-89-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>start</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">数组片段开始处的数组下标。如果是负数，它声明从数组尾部开始算起的位置。
+    也就是说，-1指最后一个元素，-2指倒数第二个元素，以此类推。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>end</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">数组片段结束处的后一个元素的数组下标。如果没有指定这个参数
+    包含从start开始到数组结束的所有元素。如果这个参数是负数，
+    从数组尾部开始算起的元素。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-90-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">一个新数组，包含从start到end(不包括该元素)指定的array元素。</P>
+
+
+
+
+
+<A NAME="ch23-91-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法slice()将返回数组的一部分，或者说是一个子数组。返回的数组包含从start
+开始到end之间的所有元素，但是不包括end所指的元素。如果没有指定end，返回
+的数组包含从start开始到原数组结尾的所有元素。</P>
+
+
+
+<P class="docText">注意：该方法并不修改数组。如果想删除数组中的一段元素，应该使用方法Array.splice。</P>
+
+
+
+<A NAME="ch23-92-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var a = [1,2,3,4,5];
+
+a.slice(0,3);    // 返回 [1,2,3]
+
+a.slice(3);      // 返回 [4,5]
+
+a.slice(1,-1);   // 返回 [2,3,4]
+
+a.slice(-3,-2);  // 返回 [3]; IE 4存在的Bug: 返回[1,2,3]</PRE>
+
+
+
+<A NAME="ch23-93-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">在Internet Explorer 4中，参数start不能为负数。
+
+</P>
+
+
+
+<A NAME="ch23-94-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-101-fm2xml.html#ch23-101-fm2xml">Array.splice(  )</A></P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-81-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-95-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>How to Make An Animated Menu Using HTML+TIME Transitions (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>How to Make An Animated Menu Using HTML+TIME Transitions
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>This tutorial shows you how to transition a menu in and out of view using a randomly selected type of HTML+TIME (Timed Interactive Multimedia Extensions) transition. Some scripting is used to enable the user to activate the transition by opening and closing the menu and dynamically changing the type of transition applied to the menu. This is an example of integrating scripting with HTML+TIME transitions to make applications that utilize more dynamic transitions. Click the following <B>Show Me</B> button to see the application that is created in this tutorial.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/menu_example_tut.htm" FEATURES="top=50,left=50,height=400,width=550,status=0,resizable=1"></IMG></A></DIV><P>The following topics are discussed in this document.</P><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#firstLook">A Quick Look at the Code and Tutorial Outline</A></LI><LI><A TARGET="_self" HREF="#shell">Setting the Stage</A></LI><LI><A TARGET="_self" HREF="#menu">Setting Up the Menu</A></LI><LI><A TARGET="_self" HREF="#Button">Setting Up the BODY tag</A></LI><LI><A TARGET="_self" HREF="#opening">Opening the Menu</A></LI><LI><A TARGET="_self" HREF="#closing">Closing the Menu</A></LI><LI><A TARGET="_self" HREF="#summary">Summary</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2>
+This article assumes you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into great detail on how to add a behavior to your page nor does it cover how to declare a namespace and use custom tags, as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>. For some understanding of HTML+TIME transitions, see <A HREF="../common/author/behaviors/overview/transition_ovw.html">Using HTML+TIME Transitions</A>. In addition, you are expected to be familiar with Dynamic HTML (DHTML).
+<H2><A NAME="firstLook"></A>A Quick Look at the Code and Tutorial Outline</H2><p>To start, have a quick look at the code of the entire sample. Later on, this code is explained in greater detail, but for now, it might be useful to have a preview of what is needed to make the tutorial sample.  </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+.menu {height:45;font-size:14pt;}
+.inner {padding:10;padding-left:30;}
+#oContainer
+{
+background:threedface;
+cursor:hand;
+border-style:outset;
+width:200;
+height:180;
+position:absolute;
+}
+#oButton
+{
+position:absolute;
+top:40;
+left:40;
+width:200;
+height:30;
+text-align:center;
+}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// Function applies transition types to menu as well as begin the menu
+// and transitionFilters associated with it on the time line.
+function fnShowMenu()
+{
+// Set x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+// The code inside this if block is used to display the menu.
+if (oContainer.currTimeState.isActive == false)
+{
+// The oTransitionInfo object is created, which has random values
+// for properties created by the fnSetType function.
+var oTransitionInfo = fnSetType();
+// Assign values to TYPE and SUBTYPE properties of "in" TRANSITIONFILTER.
+oTran.type = oTransitionInfo.type;
+oTran.subType = oTransitionInfo.SubType
+// Begins Menu container DIV on the time line.
+oContainer.beginElement();
+}
+return false;
+}
+// The purpose of this function is to apply a new TYPE and SUBTYPE to the
+// TRANSITIONFILTER element that transitions the menu out of view.
+function fnHideMenu()
+{
+if (oContainer.currTimeState.isActive == true)
+{
+var oTransitionInfo = fnSetType();
+oTranOut.type = oTransitionInfo.type;
+oTranOut.subType = oTransitionInfo.subType;
+}
+}
+// This function returns random values to assign to the TYPE and SUBTYPE
+// properties.
+function fnSetType()
+{
+// Create a random value between 1 and 10
+var randomNumber = (Math.random() * 10);
+randomNumber = Math.ceil(randomNumber);
+var sType, sSubType;
+switch(randomNumber)
+{
+case 1:
+sType = "barWipe";
+sSubType = "topToBottom";
+break;
+case 2:
+sType = "barnDoorWipe";
+sSubType = "horizontal";
+break;
+case 3:
+sType = "barnDoorWipe";
+break;
+case 4:
+sType = "snakeWipe";
+break;
+case 5:
+sType = "irisWipe";
+break;
+case 6:
+sType = "pushWipe";
+break;
+case 7:
+sType = "ellipseWipe";
+break;
+case 8:
+sType = "fanWipe";
+break;
+case 9:
+sType = "fade";
+break;
+case 10:
+sType = "clockWipe";
+break;
+}
+// Create the object that will store the values that will be returned.
+var oTransitionInfo = new Object();
+oTransitionInfo.type = sType;
+oTransitionInfo.subType = sSubType;
+return oTransitionInfo;
+}
+// Hilite function is only used to hilite menu selections on mousover.
+function Hilite(obj)
+{
+obj.style.color = "highlighttext";
+obj.style.background = 'highlight';
+obj.style.border = '1px solid threedhighlight';
+obj.style.borderTop = '1px solid threedshadow';
+obj.style.borderLeft = '1px solid threedshadow';
+}
+// Restore function is only used to undo the effects of the Hilite function
+// on mouseleave.
+function Restore(obj)
+{
+obj.style.color  = '';
+obj.style.background  = 'threedface';
+obj.style.border = '1px solid threedface';
+}
+&lt;/SCRIPT&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY onclick="fnHideMenu();" oncontextmenu="return fnShowMenu()" style="background-color:slategray" ID="oBody"&gt;
+&lt;!-- This DIV (the menu) ends .3 seconds after the document body is clicked.
+as specified by the END attribute.  --&gt;
+&lt;DIV ID="oContainer" CLASS="time" BEGIN="indefinite" END="oBody.click+.3""&gt;
+&lt;t:TRANSITIONFILTER ID="oTran" BEGIN="oContainer.begin" DUR=".3"/&gt;
+&lt;t:TRANSITIONFILTER ID="oTranOut" MODE="out"  BEGIN="oContainer.end - .3" DUR=".3"/&gt;
+&lt;DIV onmouseover="Hilite(this);" onmouseout="Restore(this);" CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 1&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV onmouseover="Hilite(this);" onmouseout="Restore(this);"  CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 2&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;div onmouseover="Hilite(this);" onmouseout="Restore(this);" CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 3&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;div onmouseover="Hilite(this);" onmouseout="Restore(this);" CLASS="menu" &gt;
+&lt;DIV class="inner"&gt;Selection 4&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p>Much of the preceding code is inside of the <A HREF="../objects/style.html">STYLE</A> block. This formatting code is important for this sample to render correctly but is separated from the functional elements for clarity. The rest of the code consists of the elements that make up the menu and the script that provides the menu functionality. This tutorial walks through each of the following steps to create the sample.
+<ol><li>Write the miscellaneous code needed for the sample to work properly.
+<ul><li>Write the code that is needed to instantiate the HTML+TIME behavior.</li><li>Write the formatting code that will be needed by the menu in a <B>STYLE</B> tag.</li><li>Create a function that facilitates the menu mouseover effects.</li><li>Create a function that returns randomly chosen values for a transition type. This function is used by other functions of the sample to apply random transitions to the menu as it transitions in and out of view.</li></ul></li><li>Create the menu.</li><li>Create the function to facilitate the opening of the menu with a transition.</li><li>Create the function to facilitate the closing of the menu with a transition.</li></ol></p><H2><A NAME="shell"></A>Setting the Stage</H2><p>There is a substantial amount of miscellaneous code needed to support the functional elements and script of the sample. The code presented in this section allows the code in subsequent sections to work correctly and for element formatting. </p><ol><li><B>Allow HTML+TIME behavior.</B><p>To use HTML+TIME elements and the <B>time2</B> behavior, the following code is needed. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+.
+.
+.
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><p>For more information about creating an Extensible Markup Language (XML) namespace and referencing the <B>time2</B> behavior, see <A HREF="../common/author/behaviors/time.html#Authoring">Authoring HTML+TIME</A>.</p></li><li><B>Format the elements.</B><p>Next, we add the formatting code inside of the <B>STYLE</B> tags. All of the elements in this sample derive their formatting from here. By separating formatting code from rendered elements, the functional code is simplified.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+.menu {height:45;font-size:14pt;}
+.inner {padding:10;padding-left:30;}
+#oContainer
+{
+background:threedface;
+cursor:hand;
+border-style:outset;
+width:200;
+height:180;
+position:absolute;
+}
+#oButton
+{
+position:absolute;
+top:40;
+left:40;
+width:200;
+height:30;
+text-align:center;
+}
+&lt;/STYLE&gt;
+</PRE></li><li><B>Highlight the menu selection buttons.</B><p>A few functions are used to handle the <A HREF="../events/onmouseover.html">onmouseover</A> and <A HREF="../events/onmouseout.html">onmouseout</A> events bound to the selection <A HREF="../objects/div.html">DIV</A>s of the menu that is shown later. This makes the selection buttons highlight and return to normal as the cursor moves over them.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+// fnHilite function is only used to hilite menu selections on mousover.
+function fnHilite(obj)
+{
+obj.style.color = "highlighttext";
+obj.style.background = 'highlight';
+obj.style.border = '1px solid threedhighlight';
+obj.style.borderTop = '1px solid threedshadow';
+obj.style.borderLeft = '1px solid threedshadow';
+}
+// Restore function is only used to undo the effects of the fnHilite function
+// on mouseleave.
+function fnRestore(obj)
+{
+obj.style.color  = '';
+obj.style.background  = 'threedface';
+obj.style.border = '1px solid threedface';
+}
+&lt;/SCRIPT&gt;
+</PRE></li><li><B>Generate random values.</B><p>One function is used to generate random values that are returned for assignment to the <A HREF="../time2/properties/type_1.html">type</A> and <A HREF="../time2/properties/subtype.html">subtype</A> properties of the <A HREF="../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> elements. This function is called by the <SPAN CLASS="clsLiteral">fnShowMenu()</SPAN> and <SPAN CLASS="clsLiteral">fnHideMenu()</SPAN> functions, created later in this tutorial.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+// This function returns random values to assign to the TYPE and SUBTYPE
+// properties.
+function fnSetType()
+{
+// Create a random value between 1 and 10
+var randomNumber = (Math.random() * 10);
+randomNumber = Math.ceil(randomNumber);
+var sType, sSubType;
+switch(randomNumber)
+{
+case 1:
+sType = "barWipe";
+sSubType = "topToBottom";
+break;
+case 2:
+sType = "barnDoorWipe";
+sSubType = "horizontal";
+break;
+case 3:
+sType = "barnDoorWipe";
+break;
+case 4:
+sType = "snakeWipe";
+break;
+case 5:
+sType = "irisWipe";
+break;
+case 6:
+sType = "pushWipe";
+break;
+case 7:
+sType = "ellipseWipe";
+break;
+case 8:
+sType = "fanWipe";
+break;
+case 9:
+sType = "fade";
+break;
+case 10:
+sType = "clockWipe";
+break;
+}
+// Create the object that stores the values that are returned.
+var oTransitionInfo = new Object();
+oTransitionInfo.type = sType;
+oTransitionInfo.subType = sSubType;
+return oTransitionInfo;
+}
+</PRE></li></ol><H2><A NAME="menu"></A>Setting Up the Menu</H2><p>The menu consists of a container <B>DIV</B> with several inner <B>DIV</B>s. The inner <B>DIV</B>s are the selection buttons of the menu. The container <B>DIV</B> has the <B>t:TRANSITIONFILTER</B> elements applied to it. The inner <B>DIV</B>s transition in and out of view with the container <B>DIV</B>.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV ID="oContainer" CLASS="time" BEGIN="indefinite" END="oBody.click+1""&gt;
+&lt;t:TRANSITIONFILTER ID="oTran" BEGIN="oContainer.begin" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER ID="oTranOut" MODE="out"  BEGIN="oContainer.end - 1" DUR="1"/&gt;
+&lt;DIV onmouseover="fnHilite(this);" onmouseout="fnRestore(this);" CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 1&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV onmouseover="fnHilite(this);" onmouseout="fnRestore(this);"  CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 2&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;div onmouseover="fnHilite(this);" onmouseout="fnRestore(this);" CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 3&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV onmouseover="fnHilite(this);" onmouseout="fnRestore(this);" CLASS="menu" &gt;
+&lt;DIV class="inner"&gt;Selection 4&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+</PRE><p>The container <B>DIV</B> makes up the body of the menu. It is the element that has the <B>t:TRANSITIONFILTER</B> elements applied to it and transitions in and out of view.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV ID="oContainer" CLASS="time" BEGIN="indefinite" END="oBody.click + .3"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran" BEGIN="oContainer.begin" DUR=".3"/&gt;
+&lt;t:TRANSITIONFILTER ID="oTranOut" MODE="out"  BEGIN="oContainer.end - .3" DUR=".3"/&gt;
+&lt;/DIV&gt;
+</PRE><p>The <A HREF="../time2/properties/begin.html">BEGIN</A> attribute is set to <SPAN CLASS="clsLiteral">indefinite</SPAN> value for the container <B>DIV</B>. This is because the container <B>DIV</B> is started on the time line through script, see the <A TARGET="_self" HREF="#opening">Opening the Menu</A> section found later in this tutorial. The <B>t:TRANSITIONFILTER</B> with an <A HREF="../properties/id.html">ID</A> attribute value <SPAN CLASS="clsLiteral">oTran</SPAN> transitions the menu into view. It has a <B>BEGIN</B> attribute value of <SPAN CLASS="clsLiteral">oContainer.begin</SPAN>, which ties the beginning of this <B>t:TRANSITIONFILTER</B> to the beginning time of the container <B>DIV</B>. The <A HREF="../time2/properties/end.html">END</A> attribute of the container <B>DIV</B> is set to <SPAN CLASS="clsLiteral">oBody.click + .3</SPAN>. This is the mechanism by which the menu closes. This means that the menu container <B>DIV</B> ends on the time line .3 seconds after the body of the document is clicked on. The .3 second delay is important to allows the  <B>t:TRANSITIONFILTER</B> element with a <A HREF="../time2/properties/mode.html">MODE</A> attribute value of <SPAN CLASS="clsLiteral">out</SPAN> time to transition the menu out. Notice that the <B>t:TRANSITIONFILTER</B> has a <A HREF="../time2/properties/dur_1.html">DUR</A> value of .3 seconds.</p><p>The inner <B>DIV</B>s make up the selection buttons of the menu. The <B>DIV</B>s change style properties as the mouse pointer moves over and off of them using the <SPAN CLASS="clsLiteral">fnHilite()</SPAN> and <SPAN CLASS="clsLiteral">fnRestore()</SPAN> functions that were shown earlier. These <B>DIV</B>s transition in and out of view with the container <B>DIV</B>. Here are the inner <B>DIV</B>s inside of the container <B>DIV</B>.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV ID="oContainer" CLASS="time" BEGIN="indefinite" END="oBody.click+1""&gt;
+&lt;t:TRANSITIONFILTER ID="oTran" BEGIN="oContainer.begin" DUR="1"/&gt;
+&lt;t:TRANSITIONFILTER ID="oTranOut" MODE="out" BEGIN="oContainer.end - 1" DUR="1"/&gt;
+&lt;DIV onmouseover="fnHilite(this);" onmouseout="fnRestore(this);" CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 1&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV onmouseover="fnHilite(this);" onmouseout="fnRestore(this);"  CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 2&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;div onmouseover="fnHilite(this);" onmouseout="fnRestore(this);" CLASS="menu" &gt;
+&lt;DIV CLASS="inner"&gt;Selection 3&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV onmouseover="fnHilite(this);" onmouseout="fnRestore(this);" CLASS="menu" &gt;
+&lt;DIV class="inner"&gt;Selection 4&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+</PRE><H2><A NAME="Button"></A>Setting Up the BODY tag</H2><p>The user opens the menu when the user right-clicks the <A HREF="../objects/body.html">BODY</A> of the document and closes the menu when the user left-clicks  the document <B>BODY</B>. Events bound to the <B>BODY</B> tag accomplish this.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;BODY ID="oBody" oncontextmenu="return fnShowMenu()" onclick="fnHideMenu();"
+STYLE="background-color:slategray"&gt;
+</PRE><p>As you can see, two different functions are called, depending on whether the user left-clicks or right-clicks the <B>BODY</B>. These functions control the way the menu transitions in and out of view. Next, we see how these functions work.</p><H2><A NAME="opening"></A>Opening the Menu</H2><p>The <SPAN CLASS="clsLiteral">fnShowMenu()</SPAN> function starts the container <B>DIV</B> (the menu) on the time line. In addition, randomly determined transition <B>type</B> and <B>subtype</B> property values are assigned to the <SPAN CLASS="clsLiteral">oTran</SPAN>?B>t:TRANSITIONFILTER</B> element, which is responsible for transitioning the container <B>DIV</B> into view. This function is called when the user right-clicks the <B>BODY</B> of the document.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+// Function applies transition types to menu as well as begin the menu
+// and "in" TRANSITIONFILTER associated with it on the time line.
+function fnShowMenu()
+{
+// Updates the x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+// Check to see if the menu is not active on the time line.
+if (oContainer.currTimeState.isActive == false)
+{
+// The oTransitionInfo object is created, which has random values
+// for properties created by the fnSetType function.
+var oTransitionInfo = fnSetType();
+// Assign values to TYPE and SUBTYPE properties of "in" TRANSITIONFILTER.
+oTran.type = oTransitionInfo.type;
+oTran.subType = oTransitionInfo.SubType
+// Begins Menu container DIV on the time line.
+oContainer.beginElement();
+}
+return false;
+}
+</PRE><ol><li><p>First, the x and y coordinates where the menu will be displayed is set to the location of the mouse pointer, relative to the document when the user right-clicks.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="oContainer.style.left = event.x;;oContainer.style.top = event.y;">
+function fnShowMenu()
+{
+// Updates the x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+}
+</PRE></li><li><p>Next, a check is made to make sure that the menu is not currently active on the time line. This, in effect, checks to see if the menu is currently visible. If it is not visible, then the code that opens the menu is executed.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="if (oContainer.currTimeState.isActive == false)">
+function fnShowMenu()
+{
+// Updates the x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+// Check to see if the menu is not active on the time line.
+if (oContainer.currTimeState.isActive == false)
+{
+// Code that will open the menu
+}
+}
+</PRE></li><li><p>The <SPAN CLASS="clsLiteral">oTransitionInfo</SPAN> object is assigned random values from the fnSetType() function, shown earlier.  </p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="var oTransitionInfo = fnSetType">
+function fnShowMenu()
+{
+// Updates the x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+// Check to see if the menu is not active on the time line.
+if (oContainer.currTimeState.isActive == false)
+{
+// The oTransitionInfo object is created, which has random values
+// for properties created by the fnSetType function.
+var oTransitionInfo = fnSetType();
+.
+.
+}
+}
+</PRE></li><li><p>Random values are assigned to the "in" <B>t:TRANSITIONFILTER</B> (<SPAN CLASS="clsLiteral">oTran</SPAN>) <B>type</B> and <B>subtype</B> properties.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="oTran.type = oTransitionInfo.type;;oTran.subType = oTransitionInfo.SubType;;oContainer.beginElement();">
+function fnShowMenu()
+{
+// Updates the x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+// Check to see if the menu is not active on the time line.
+if (oContainer.currTimeState.isActive == false)
+{
+// The oTransitionInfo object is created, which has random values
+// for properties created by the fnSetType function.
+var oTransitionInfo = fnSetType();
+// Assign values to TYPE and SUBTYPE properties of "in" TRANSITIONFILTER.
+oTran.type = oTransitionInfo.type;
+oTran.subType = oTransitionInfo.SubType;
+.
+.
+}
+}
+</PRE></li><li><p>The container <B>DIV</B> is started on the time line using the <A HREF="../time2/methods/beginelement.html">beginElement</A> method. Recall that the "in" <B>t:TRANSITIONFILTER</B> begins when the container <B>DIV</B> begins on the time line; for more about this, see the <A TARGET="_self" HREF="#menu">Setting Up the Menu</A> section. In addition, this <B>t:TRANSITIONFILTER</B> has new, randomly generated values for its <B>type</B> and <B>subtype</B> properties. This makes the menu transition into view in a random way each time it is opened.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="oContainer.beginElement;return false;">
+function fnShowMenu()
+{
+// Updates the x and y coordinates of the absolutely positioned menu DIV.
+oContainer.style.left = event.x;
+oContainer.style.top = event.y;
+// Check to see if the menu is not active on the time line.
+if (oContainer.currTimeState.isActive == false)
+{
+// The oTransitionInfo object is created, which has random values
+// for properties created by the fnSetType function.
+var oTransitionInfo = fnSetType();
+// Assign values to TYPE and SUBTYPE properties of "in" TRANSITIONFILTER.
+oTran.type = oTransitionInfo.type;
+oTran.subType = oTransitionInfo.SubType
+// Begins Menu container DIV on the time line.
+oContainer.beginElement();
+}
+return false;
+}
+</PRE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;The function refurns <SPAN CLASS="clsLiteral">false</SPAN> so that the default context menu for Internet Explorer is not shown.</DIV></li></ol><H2><A NAME="closing"></A>Closing the Menu</H2><p>Closing the menu is accomplished by clicking anywhere on the body of the document including on the menu itself. As you remember, the container <B>DIV</B> ends <SPAN CLASS="clsLiteral">.3</SPAN> seconds after the body is clicked.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV ID="oContainer" END="oBody.click + .3" . . .&gt;
+</PRE><p>In addition, the <B>t:TRANSITIONFILTER</B> associated with the container <B>DIV</B> with a <B>MODE</B> value of <SPAN CLASS="clsLiteral">out</SPAN>, begins <SPAN CLASS="clsLiteral">.3</SPAN> seconds before the <B>DIV</B> ends. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;t:TRANSITIONFILTER ID="oTranOut" MODE="out"  BEGIN="oContainer.end - .3" DUR=".3"/&gt;</PRE><p>This would be enough to close the menu with a transition. However, this sample has the menu transition out with a random transition. For this, it is necessary to have one more function. This function is called when the body of the document is clicked on.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="onclick=&quot;fnHideMenu();&quot;">
+&lt;BODY ID="oBody" oncontextmenu="return fnShowMenu()" onclick="fnHideMenu();"
+STYLE="background-color:slategray"&gt;
+</PRE><p>The <SPAN CLASS="clsLiteral">fnHideMenu()</SPAN> function is very similar to the <SPAN CLASS="clsLiteral">fnShowMenu()</SPAN> function, except that it is the <B>t:TRANSITIONFILTER</B> with <B>MODE</B> set to <SPAN CLASS="clsLiteral">out</SPAN> that is having its <B>type</B> and <B>subtype</B> properties changed.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+// The purpose of this function is to apply a new TYPE and SUBTYPE to the
+// TRANSITIONFILTER element that transitions the menu out of view.
+function fnHideMenu()
+{
+if (oContainer.currTimeState.isActive == true)
+{
+var oTransitionInfo = fnSetType();
+oTranOut.type = oTransitionInfo.type;
+oTranOut.subType = oTransitionInfo.subType;
+}
+}
+</PRE><H2><A NAME="summary"></A>Summary</H2>
+You should now have created something similar to the application shown in the introduction of this tutorial. As you have seen, control of the HTML+TIME transitions was specified in both the attributes of the <B>t:TRANSITIONFILTER</B> elements themselves and through scripting. This is only one example of how integrating scripting with HTML+TIME can extend the ability of your Web pages.
+<H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="transition_ovw.html">Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_basic_tut.html">How to Create a Basic HTML+TIME Transition</A></LI><LI><A HREF="transition_intro_tut.html">How to Create An Animated Presentation Using HTML+TIME Transitions</A></LI><LI><A HREF="../common/author/behaviors/howto/transition_slide_show_tut.html">How to Make a Slide Show Using HTML+TIME Transitions</A></LI></UL><info><product rid="prod_IE" minver="6"></product><platform rid="plat_win" minver="98"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

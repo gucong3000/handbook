@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>PUBLIC:PROPERTY</span>元素</h1>
+		<hr>
+		<p>定义一个该<span>HTC</span>的专有属性，并将其暴露给包含此<span>HTC</span>的文档。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;PUBLIC:PROPERTY<br>&nbsp;&nbsp;get&nbsp;=&nbsp;&quot;<I>sGetFunction</I>&quot;<br>&nbsp;&nbsp;id&nbsp;=&nbsp;&quot;<I>sPropertyID</I>&quot;<br>&nbsp;&nbsp;internalname&nbsp;=&nbsp;&quot;<I>sInternalName</I>&quot;<br>&nbsp;&nbsp;name&nbsp;=&nbsp;&quot;<I>sName</I>&quot;<br>&nbsp;&nbsp;persist&nbsp;=&nbsp;&quot;<I>bPersist</I>&quot;<br>&nbsp;&nbsp;put&nbsp;=&nbsp;&quot;<I>sPutFunction</I>&quot;<br>&nbsp;&nbsp;value&nbsp;=&nbsp;&quot;<I>vValue</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>GET</B></dt>
+				<dd>
+					<p>可选。字符串值；指定一旦属性值被获取时调用的函数。一个指定了<B><span>GET</span></B>属性但未指定<B><span>PUT</span></B>属性的<B><span>PUBLIC:PROPERTY</span></B>元素是只读属性。</p>
+				</dd>
+				<dt><B>ID</B></dt>
+				<dd>
+					<p>可选。字符串值；在组件内用于识别该<B><span>PUBLIC:PROPERTY</span></B>元素的唯一值。这个属性类似于<span>DHTML</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性。</p>
+				</dd>
+				<dt><B>INTERNALNAME</B></dt>
+				<dd>
+					<p>可选。字符串值；指定在组件内部访问该属性的名称。此内部名称必须在该组件内可以引用该属性的任何地方之前进行声明；否则会发生一个脚本错误以指明该名称尚未被定义。如果没有指定内部名称，则默认使用<B><span>NAME</span></B>属性。</p>
+				</dd>
+				<dt><B>NAME</B></dt>
+				<dd>
+					<p>必需。字符串值；指定暴露给该包含文档的属性名称。默认的，该<B><span>NAME</span></B>属性的指定同样用于在组件内部访问该属性，除非指定了<B><span>INTERNALNAME</span></B>属性。</p>
+				</dd>
+				<dt><B>PERSIST</B></dt>
+				<dd>
+					<p>可选。布尔值；指定是否将该属性作为页面的一部分进行保持。即类似于复杂语言中函数内的静态变量。</p>
+				</dd>
+				<dt><B>PUT</B></dt>
+				<dd>
+					<p>可选。字符串值；指定一旦属性值被设置时调用的函数。一个同时定义了<B><span>GET</span></B>和<B><span>PUT</span></B>属性的<B><span>PUBLIC:PROPERTY</span></B>元素是读写属性。当指定了一个<B><span>PUT</span></B>函数，但没能成功指定<B><span>GET</span></B>函数的属性是只写的，而这样的属性一般来说都不是预期想要的。</p>
+				</dd>
+				<dt><B>VALUE</B></dt>
+				<dd>
+					<p>可选。不定类型值；指定该属性的默认值。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Methods</LABEL>方法</h2>
+		<blockquote>
+			<dl>
+				<dt><I>propertyID</I><B>.fireChange()</B></dt>
+				<dd>
+					<p>通报该包含文档在该元素上发生<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onpropertychange.asp"><span>onpropertychange</span></a>事件时该属性的值发生了改变。如果该属性设定没有<B><span>PUT</span></B>属性，则在该包含文档中该属性被设置时<B><span>onpropertychange</span></B>事件会自动发生。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Element Information</LABEL>元素信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th>父元素</th>
+					<td><a href="component.html"><span>PUBLIC:COMPONENT</span></a></td>
+				</tr>
+				<tr>
+					<th>子元素</th>
+					<td>无</td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>通过指定与该元素已定义的标准属性同名的<B><span>NAME</span></B>属性，该行为可以重载该元素的默认行为。</p>
+			<p>如果<B><span>PUT</span></B>和<B><span>GET</span></B>属性中至少有一个被设定，那么<B><span>INTERNALNAME</span></B>属性会被忽略。通过<B><span>PUT</span></B>和<B><span>GET</span></B>属性中设定的函数来设置或获取属性的值，其优先级高于通过<B><span>INTERNALNAME</span></B>来达到同样的结果。</p>
+			<p>在调用该<B><span>PUBLIC:PROPERTY</span></B>元素的<span>fireChange</span>方法来改变属性值时，<B><span>PUT</span></B>属性中指定的函数必须通报在其包含文档中的该元素。调用此方法导致<B><span>onpropertychange</span></B>事件发生在其包含页面的该元素上，同时<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"><span>event</span></a>对象的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/propertyname.asp"><span>propertyName</span></a>属性被设置为该属性的名称。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>此例使用一份<span>HTC</span>来创建一张数据表，使用户点击会产生展开和缩合的效果。该<span>HTC</span>暴露了一个子属性给其包含文档，以此来指明哪个元素需要切换它的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/display.asp"><span>display</span></a>属性，从而达到预期的效果。</p>
+			<div class="example">
+				<code><br><br>&lt;PUBLIC:PROPERTY name=&quot;child&quot; /&gt;<br>&lt;PUBLIC:ATTACH event=&quot;onclick&quot; onevent=&quot;ExpandCollapse()&quot; /&gt;&lt;SCRIPT language=&quot;JScript&quot;&gt;<br>function&nbsp;ExpandCollapse()<br>{<br>&nbsp;&nbsp;var&nbsp;i;<br>&nbsp;&nbsp;var&nbsp;sDisplay;<br><br>&nbsp;&nbsp;<U>//&nbsp;Determine&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;list&nbsp;(expanded&nbsp;or&nbsp;collapsed)</U><br>&nbsp;&nbsp;<U>//&nbsp;based&nbsp;on&nbsp;the&nbsp;current&nbsp;display&nbsp;property&nbsp;of&nbsp;the&nbsp;child.</U><br>&nbsp;&nbsp;bCollapsed&nbsp;=&nbsp;(element.document.all(child).runtimeStyle.display&nbsp;==&nbsp;&quot;none&quot;);<br><br>&nbsp;&nbsp;if&nbsp;(bCollapsed)<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.listStyleImage&nbsp;=&nbsp;&quot;url('/workshop/graphics/blueminus.gif')&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;element.document.all(child).runtimeStyle.display&nbsp;=&nbsp;&quot;&quot;;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;else<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;runtimeStyle.listStyleImage&nbsp;=&nbsp;&quot;url('/workshop/graphics/blueplus.gif')&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;element.document.all(child).runtimeStyle.display&nbsp;=&nbsp;&quot;none&quot;;<br>&nbsp;&nbsp;}<br>}<br>&lt;/SCRIPT&gt;</code>
+				<button href="../examples/"></button>
+			</div>
+			<p>此例使用<B><span>PUT</span></B>和<B><span>GET</span></B>属性来指定当属性被设置或获取时哪个函数会被调用。</p>
+			<div class="example">
+				<code>&lt;PUBLIC:PROPERTY id=&quot;propID&quot;name=&quot;child&quot; put=&quot;savechild&quot; get=&quot;returnChild&quot; /&gt;<br><U>:</U><br>&lt;SCRIPT language=&quot;JScript&quot;&gt;<br>var&nbsp;myChild=null;<br><br>function&nbsp;saveChild&nbsp;(vValue)<br>{<br>&nbsp;&nbsp;myChild&nbsp;=&nbsp;vValue;<br>&nbsp;&nbsp;propID.fireChange();<br>}<br><br>function&nbsp;returnChild()<br>{<br>&nbsp;&nbsp;return&nbsp;myChild;<br>}<br>&lt;/SCRIPT&gt;</code>
+			</div>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+				<li><a href="event.html"><span>PUBLIC:EVENT</span></a></li>
+				<li><a href="method.html"><span>PUBLIC:METHOD</span></a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

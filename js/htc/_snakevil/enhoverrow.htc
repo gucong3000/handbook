@@ -1,0 +1,46 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="enhancedOverRow"
+ urn="ERiW.Snakevil.Product:HTC.attEnhancedOverRow"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="onmouseover"
+	 onevent="hMouseOver()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onmouseout"
+	 onevent="hMouseOut()"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+/**
+ * onmouseover 事件处理函数。
+ */
+function hMouseOver() {
+	for (var ii = 0; ii < element.childNodes.length; ii++) {
+		with (element.childNodes[ii].runtimeStyle) {
+			backgroundColor = "#003300";
+			color = "#FFF0FF";
+		}
+	}
+}
+
+/**
+ * onmouseout 事件处理函数。
+ */
+function hMouseOut() {
+	for (var ii = 0; ii < element.childNodes.length; ii++) {
+		with (element.childNodes[ii].runtimeStyle) {
+			backgroundColor = "";
+			color = "";
+		}
+	}
+}
+-->
+</SCRIPT>

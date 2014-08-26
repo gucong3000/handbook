@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>例子</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<STYLE TYPE="text/css">
+BODY{
+background:#FFFFFF;
+color:black;
+font-size:9pt;
+font-family:verdana;
+}
+H1	{
+color:#3366CC;
+font-size:1.5em;
+}
+IMG {
+border:2px solid #000000;
+margin:10px;
+}
+A 	{
+color:#3366CC;
+text-decoration:none;
+}
+</STYLE>
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<H1>使用 COLGROUP</H1>
+如果在 COLGROUP 元素内嵌套使用 COL 元素，COL 元素的属性将覆盖 COLGROUP 元素的属性。
+<P>COLGROUP 元素指定了黑色背景。由于嵌套的 COL 元素没有指定背景，所以表格的背景仍然是黑色。但是，COLGROUP 元素指定的绿色字体颜色已经被由 COL 元素指定的红色所代替。请注意，最后一列没有任何格式，尽管 COLGROUP 跨越了所有的三列。这是因为嵌套的 COL 元素的 SPAN 属性只应用于前两列，这就取代了 COLGROUP SPAN 属性。</P>
+<TABLE BORDER="2">
+<COLGROUP SPAN="3" STYLE="color:green;background:black">
+<COL SPAN="2" STYLE="color:red">
+</COLGROUP>
+<TR>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第二组。</TD>
+</TR>
+<TR>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第一组。</TD>
+<TD>此列位于第二组。</TD>
+</TR>
+</TABLE>
+<BR><BR><BR>
+&copy; 2001 Microsoft Corporation. 版权所有。
+</BLOCKQUOTE>
+</BODY>
+</HTML>

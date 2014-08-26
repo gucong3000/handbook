@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>HTML &lt;form&gt; 标签的 name 属性</title>
+
+</head>
+
+<body class="html" id="tags">
+
+<div id="wrapper">
+<div id="navsecond">
+
+<div id="course"><h2>参考手册</h2>
+<ul>
+<li><a href="index.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（字母排序）</a></li>
+<li><a href="html_ref_byfunc.html" title="HTML 4.01 / XHTML 1.0 参考手册">标签列表（功能排序）</a></li>
+<li><a href="html_ref_standardattributes.html" title="HTML 标准属性">HTML 属性</a></li>
+<li><a href="html_ref_eventattributes.html" title="HTML 事件属性">HTML 事件</a></li>
+<li><a href="html_ref_audio_video_dom.html" title="HTML Audio/Video DOM 属性">HTML 视频/音频</a></li>
+<li><a href="html_ref_canvas.html" title="HTML Canvas 参考手册">HTML 画布</a></li>
+<li><a href="html_ref_dtd.html" title="HTML 元素和有效的 DTD">HTML 文档类型</a></li>
+<li><a href="html_ref_colornames.html" title="HTML 颜色名">HTML 颜色名</a></li>
+<li><a href="html_ref_charactersets.html" title="HTML 字符集">HTML 字符集</a></li>
+<li><a href="html_ref_ascii.html" title="HTML 7 比特 ASCII 代码 参考手册">HTML ASCII</a></li>
+<li><a href="html_ref_entities.html" title="HTML ISO-8859-1 参考手册">HTML ISO-8859-1</a></li>
+<li><a href="html_ref_symbols.html" title="HTML 符号实体">HTML 符号</a></li>
+<li><a href="html_ref_urlencode.html" title="HTML URL 编码">HTML URL 编码</a></li>
+<li><a href="html_ref_language_codes.html" title="HTML 语言代码参考手册">HTML 语言代码</a></li>
+<li><a href="html_ref_httpmessages.html" title="HTTP 状态消息">HTTP 消息</a></li>
+<li><a href="html_ref_httpmethods.html" title="HTTP 方法：GET 对比 POST">HTTP 方法</a></li>
+</ul>
+<h2>HTML 标签</h2>
+<ul>
+<li><a href="tag_comment.html" title="HTML &lt;!--&gt; 标签">&lt;!--&gt;</a></li>
+<li><a href="tag_doctype.html" title="HTML &lt;!DOCTYPE&gt; 标签">&lt;!DOCTYPE&gt;</a></li>
+<li><a href="tag_a.html" title="HTML &lt;a&gt; 标签">&lt;a&gt;</a></li>
+<li><a href="tag_abbr.html" title="HTML &lt;abbr&gt; 标签">&lt;abbr&gt;</a></li>
+<li><a href="tag_acronym.html" title="HTML &lt;acronym&gt; 标签">&lt;acronym&gt;</a></li>
+<li><a href="tag_address.html" title="HTML &lt;address&gt; 标签">&lt;address&gt;</a></li>
+<li><a href="tag_applet.html" title="HTML &lt;applet&gt; 标签">&lt;applet&gt;</a></li>
+<li><a href="tag_area.html" title="HTML &lt;area&gt; 标签">&lt;area&gt;</a></li>
+<li><a href="tag_article.html" title="HTML &lt;article&gt; 标签">&lt;article&gt;</a></li>
+<li><a href="tag_aside.html" title="HTML &lt;aside&gt; 标签">&lt;aside&gt;</a></li>
+<li><a href="tag_audio.html" title="HTML &lt;audio&gt; 标签">&lt;audio&gt;</a></li>
+<li><a href="tag_b.html" title="HTML &lt;b&gt; 标签">&lt;b&gt;</a></li>
+<li><a href="tag_base.html" title="HTML &lt;base&gt; 标签">&lt;base&gt;</a></li>
+<li><a href="tag_basefont.html" title="HTML &lt;basefont&gt; 标签">&lt;basefont&gt;</a></li>
+<li><a href="tag_bdi.html" title="HTML &lt;bdi&gt; 标签">&lt;bdi&gt;</a></li>
+<li><a href="tag_bdo.html" title="HTML &lt;bdo&gt; 标签">&lt;bdo&gt;</a></li>
+<li><a href="tag_big.html" title="HTML &lt;big&gt; 标签">&lt;big&gt;</a></li>
+<li><a href="tag_blockquote.html" title="HTML &lt;blockquote&gt; 标签">&lt;blockquote&gt;</a></li>
+<li><a href="tag_body.html" title="HTML &lt;body&gt; 标签">&lt;body&gt;</a></li>
+<li><a href="tag_br.html" title="HTML &lt;br&gt; 标签">&lt;br&gt;</a></li>
+<li><a href="tag_button.html" title="HTML &lt;button&gt; 标签">&lt;button&gt;</a></li>
+<li><a href="tag_canvas.html" title="HTML &lt;canvas&gt; 标签">&lt;canvas&gt;</a></li>
+<li><a href="tag_caption.html" title="HTML &lt;caption&gt; 标签">&lt;caption&gt;</a></li>
+<li><a href="tag_center.html" title="HTML &lt;center&gt; 标签">&lt;center&gt;</a></li>
+<li><a href="tag_cite.html" title="HTML &lt;cite&gt; 标签">&lt;cite&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;code&gt; 标签">&lt;code&gt;</a></li>
+<li><a href="tag_col.html" title="HTML &lt;col&gt; 标签">&lt;col&gt;</a></li>
+<li><a href="tag_colgroup.html" title="HTML &lt;colgroup&gt; 标签">&lt;colgroup&gt;</a></li>
+<li><a href="tag_command.html" title="HTML &lt;command&gt; 标签">&lt;command&gt;</a></li>
+<li><a href="tag_datalist.html" title="HTML &lt;datalist&gt; 标签">&lt;datalist&gt;</a></li>
+<li><a href="tag_dd.html" title="HTML &lt;dd&gt; 标签">&lt;dd&gt;</a></li>
+<li><a href="tag_del.html" title="HTML &lt;del&gt; 标签">&lt;del&gt;</a></li>
+<li><a href="tag_details.html" title="HTML &lt;details&gt; 标签">&lt;details&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;dfn&gt; 标签">&lt;dfn&gt;</a></li>
+<li><a href="tag_dialog.html" title="HTML &lt;dialog&gt; 标签">&lt;dialog&gt;</a></li>
+<li><a href="tag_dir.html" title="HTML &lt;dir&gt; 标签">&lt;dir&gt;</a></li>
+<li><a href="tag_div.html" title="HTML &lt;div&gt; 标签">&lt;div&gt;</a></li>
+<li><a href="tag_dl.html" title="HTML &lt;dl&gt; 标签">&lt;dl&gt;</a></li>
+<li><a href="tag_dt.html" title="HTML &lt;dt&gt; 标签">&lt;dt&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;em&gt; 标签">&lt;em&gt;</a></li>
+<li><a href="tag_embed.html" title="HTML &lt;embed&gt; 标签">&lt;embed&gt;</a></li>
+<li><a href="tag_fieldset.html" title="HTML &lt;fieldset&gt; 标签">&lt;fieldset&gt;</a></li>
+<li><a href="tag_figcaption.html" title="HTML &lt;figcaption&gt; 标签">&lt;figcaption&gt;</a></li>
+<li><a href="tag_figure.html" title="HTML &lt;figure&gt; 标签">&lt;figure&gt;</a></li>
+<li><a href="tag_font.html" title="HTML &lt;font&gt; 标签">&lt;font&gt;</a></li>
+<li><a href="tag_footer.html" title="HTML &lt;footer&gt; 标签">&lt;footer&gt;</a></li>
+<li><a href="tag_form.html" title="HTML &lt;form&gt; 标签">&lt;form&gt;</a></li>
+<li><a href="tag_frame.html" title="HTML &lt;frame&gt; 标签">&lt;frame&gt;</a></li>
+<li><a href="tag_frameset.html" title="HTML &lt;frameset&gt; 标签">&lt;frameset&gt;</a></li>
+<li><a href="tag_hn.html" title="HTML &lt;h1&gt; - &lt;h6&gt; 标签">&lt;h1&gt; - &lt;h6&gt;</a></li>
+<li><a href="tag_head.html" title="HTML &lt;head&gt; 标签">&lt;head&gt;</a></li>
+<li><a href="tag_header.html" title="HTML &lt;header&gt; 标签">&lt;header&gt;</a></li>
+<li><a href="tag_hr.html" title="HTML &lt;hr&gt; 标签">&lt;hr&gt;</a></li>
+<li><a href="tag_html.html" title="HTML &lt;html&gt; 标签">&lt;html&gt;</a></li>
+<li><a href="tag_i.html" title="HTML &lt;i&gt; 标签">&lt;i&gt;</a></li>
+<li><a href="tag_iframe.html" title="HTML &lt;iframe&gt; 标签">&lt;iframe&gt;</a></li>
+<li><a href="tag_img.html" title="HTML &lt;img&gt; 标签">&lt;img&gt;</a></li>
+<li><a href="tag_input.html" title="HTML &lt;input&gt; 标签">&lt;input&gt;</a></li>
+<li><a href="tag_ins.html" title="HTML &lt;ins&gt; 标签">&lt;ins&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;kbd&gt; 标签">&lt;kbd&gt;</a></li>
+<li><a href="tag_keygen.html" title="HTML &lt;keygen&gt; 标签">&lt;keygen&gt;</a></li>
+<li><a href="tag_label.html" title="HTML &lt;label&gt; 标签">&lt;label&gt;</a></li>
+<li><a href="tag_legend.html" title="HTML &lt;legend&gt; 标签">&lt;legend&gt;</a></li>
+<li><a href="tag_li.html" title="HTML &lt;li&gt; 标签">&lt;li&gt;</a></li>
+<li><a href="tag_link.html" title="HTML &lt;link&gt; 标签">&lt;link&gt;</a></li>
+<li><a href="tag_main.html" title="HTML &lt;main&gt; 标签">&lt;main&gt;</a></li>
+<li><a href="tag_map.html" title="HTML &lt;map&gt; 标签">&lt;map&gt;</a></li>
+<li><a href="tag_mark.html" title="HTML &lt;mark&gt; 标签">&lt;mark&gt;</a></li>
+<li><a href="tag_menu.html" title="HTML &lt;menu&gt; 标签">&lt;menu&gt;</a></li>
+<li><a href="tag_menuitem.html" title="HTML &lt;menuitem&gt; 标签">&lt;menuitem&gt;</a></li>
+<li><a href="tag_meta.html" title="HTML &lt;meta&gt; 标签">&lt;meta&gt;</a></li>
+<li><a href="tag_meter.html" title="HTML &lt;meter&gt; 标签">&lt;meter&gt;</a></li>
+<li><a href="tag_nav.html" title="HTML &lt;nav&gt; 标签">&lt;nav&gt;</a></li>
+<li><a href="tag_noframes.html" title="HTML &lt;noframes&gt; 标签">&lt;noframes&gt;</a></li>
+<li><a href="tag_noscript.html" title="HTML &lt;noscript&gt; 标签">&lt;noscript&gt;</a></li>
+<li><a href="tag_object.html" title="HTML &lt;object&gt; 标签">&lt;object&gt;</a></li>
+<li><a href="tag_ol.html" title="HTML &lt;ol&gt; 标签">&lt;ol&gt;</a></li>
+<li><a href="tag_optgroup.html" title="HTML &lt;optgroup&gt; 标签">&lt;optgroup&gt;</a></li>
+<li><a href="tag_option.html" title="HTML &lt;option&gt; 标签">&lt;option&gt;</a></li>
+<li><a href="tag_output.html" title="HTML &lt;output&gt; 标签">&lt;output&gt;</a></li>
+<li><a href="tag_p.html" title="HTML &lt;p&gt; 标签">&lt;p&gt;</a></li>
+<li><a href="tag_param.html" title="HTML &lt;param&gt; 标签">&lt;param&gt;</a></li>
+<li><a href="tag_pre.html" title="HTML &lt;pre&gt; 标签">&lt;pre&gt;</a></li>
+<li><a href="tag_progress.html" title="HTML &lt;progress&gt; 标签">&lt;progress&gt;</a></li>
+<li><a href="tag_q.html" title="HTML &lt;q&gt; 标签">&lt;q&gt;</a></li>
+<li><a href="tag_rp.html" title="HTML &lt;rp&gt; 标签">&lt;rp&gt;</a></li>
+<li><a href="tag_rt.html" title="HTML &lt;rt&gt; 标签">&lt;rt&gt;</a></li>
+<li><a href="tag_ruby.html" title="HTML &lt;ruby&gt; 标签">&lt;ruby&gt;</a></li>
+<li><a href="tag_s.html" title="HTML &lt;s&gt; 标签">&lt;s&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;samp&gt; 标签">&lt;samp&gt;</a></li>
+<li><a href="tag_script.html" title="HTML &lt;script&gt; 标签">&lt;script&gt;</a></li>
+<li><a href="tag_section.html" title="HTML &lt;section&gt; 标签">&lt;section&gt;</a></li>
+<li><a href="tag_select.html" title="HTML &lt;select&gt; 标签">&lt;select&gt;</a></li>
+<li><a href="tag_small.html" title="HTML &lt;small&gt; 标签">&lt;small&gt;</a></li>
+<li><a href="tag_source.html" title="HTML &lt;source&gt; 标签">&lt;source&gt;</a></li>
+<li><a href="tag_span.html" title="HTML &lt;span&gt; 标签">&lt;span&gt;</a></li>
+<li><a href="tag_strike.html" title="HTML &lt;strike&gt; 标签">&lt;strike&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;strong&gt; 标签">&lt;strong&gt;</a></li>
+<li><a href="tag_style.html" title="HTML &lt;style&gt; 标签">&lt;style&gt;</a></li>
+<li><a href="tag_sub.html" title="HTML &lt;sub&gt; 标签">&lt;sub&gt;</a></li>
+<li><a href="tag_summary.html" title="HTML &lt;summary&gt; 标签">&lt;summary&gt;</a></li>
+<li><a href="tag_sup.html" title="HTML &lt;sup&gt; 标签">&lt;sup&gt;</a></li>
+<li><a href="tag_table.html" title="HTML &lt;table&gt; 标签">&lt;table&gt;</a></li>
+<li><a href="tag_tbody.html" title="HTML &lt;tbody&gt; 标签">&lt;tbody&gt;</a></li>
+<li><a href="tag_td.html" title="HTML &lt;td&gt; 标签">&lt;td&gt;</a></li>
+<li><a href="tag_textarea.html" title="HTML &lt;textarea&gt; 标签">&lt;textarea&gt;</a></li>
+<li><a href="tag_tfoot.html" title="HTML &lt;tfoot&gt; 标签">&lt;tfoot&gt;</a></li>
+<li><a href="tag_th.html" title="HTML &lt;th&gt; 标签">&lt;th&gt;</a></li>
+<li><a href="tag_thead.html" title="HTML &lt;thead&gt; 标签">&lt;thead&gt;</a></li>
+<li><a href="tag_time.html" title="HTML &lt;time&gt; 标签">&lt;time&gt;</a></li>
+<li><a href="tag_title.html" title="HTML &lt;title&gt; 标签">&lt;title&gt;</a></li>
+<li><a href="tag_tr.html" title="HTML &lt;tr&gt; 标签">&lt;tr&gt;</a></li>
+<li><a href="tag_track.html" title="HTML &lt;track&gt; 标签">&lt;track&gt;</a></li>
+<li><a href="tag_tt.html" title="HTML &lt;tt&gt; 标签">&lt;tt&gt;</a></li>
+<li><a href="tag_u.html" title="HTML &lt;u&gt; 标签">&lt;u&gt;</a></li>
+<li><a href="tag_ul.html" title="HTML &lt;ul&gt; 标签">&lt;ul&gt;</a></li>
+<li><a href="tag_phrase_elements.html" title="HTML &lt;var&gt; 标签">&lt;var&gt;</a></li>
+<li><a href="tag_video.html" title="HTML &lt;video&gt; 标签">&lt;video&gt;</a></li>
+<li><a href="tag_wbr.html" title="HTML &lt;wbr&gt; 标签">&lt;wbr&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTML &lt;form&gt; 标签的 name 属性</h1>
+
+
+<div class="backtoreference">
+<p><a href="tag_form.html">HTML &lt;form&gt; 标签</a></p>
+</div>
+
+
+<div>
+<h2>实例</h2>
+
+<p>带有 name 属性的 HTML 表单：</p>
+
+<pre>
+&lt;form action=&quot;form_action.html&quot; method=&quot;get&quot; <code>name=&quot;myForm&quot;</code>&gt;
+  &lt;p&gt;First name: &lt;input type=&quot;text&quot; name=&quot;fname&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;Last name: &lt;input type=&quot;text&quot; name=&quot;lname&quot; /&gt;&lt;/p&gt;
+  &lt;input type=&quot;button&quot; onclick=&quot;formSubmit()&quot; value=&quot;Send form data!&quot; /&gt;
+&lt;/form&gt;
+</pre>
+
+<p class="tiy"><a target="_blank" href="http://www.w3school.com.cn/tiy/t.html?f=html_form_name">亲自试一试</a></p>
+</div>
+
+
+<div>
+<h2>定义和用法</h2>
+
+<p>name 属性规定表单的名称。</p>
+
+<p>form 元素的 name 属性提供了一种在脚本中引用表单的方法。</p>
+</div>
+
+
+<div>
+<h2>语法</h2>
+
+<pre>&lt;form name=&quot;<i>value</i>&quot;&gt;</pre>
+
+<h3>属性值</h3>
+
+<table class="dataintable">
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><i>name</i></td>
+<td>表单的名称。</td>
+</tr>
+</table>
+</div>
+
+
+
+<div class="backtoreference">
+<p><a href="tag_form.html">HTML &lt;form&gt; 标签</a></p>
+</div>
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'offX','offY'
+);
+
+collFriendFilters=new Array(
+'DropShadow'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'DropShadow'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:100px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.DropShadow();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.DropShadow(";\n'+
+'var sCodeEnd="startX=0, startY=0, finishX=100, finishY=100,";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel2")) var sValue2=parseInt(options[selectedIndex].value);\n'+
+'with (document.all("idSel3")) var sValue3=parseInt(options[selectedIndex].value);\n'+
+'with (document.all("idCheckBox")) var sValue4=checked;\n'+
+'with (oDiv.filters[0]) {\n'+
+'Color=sValue1;OffX=sValue2;OffY=sValue3;Positives=sValue4;\n'+
+'}\n'+
+'oCodeDiv.innerHTML=sFilter+"color="+sValue1+",offX="+sValue2+",offY="+sValue3+",positives="+sValue4+");";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_body0.jpg" style="float:left;border:1px solid #000000;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id="idSel1" onchange="rdl_change();">\n'+
+'<option value="#FF404040">---Color---\n'+
+'<option value="#FF404040">#FF404040\n'+
+'<option value="#003399">#003399\n'+
+'<option value="#000000">#000000\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel2" onchange="rdl_change();">\n'+
+'<option value="5">---OffX---\n'+
+'<option value="5">5\n'+
+'<option value="3">3\n'+
+'<option value="0">0\n'+
+'<option value="-3">-3\n'+
+'<option value="-5">-5\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id="idSel3" onchange="rdl_change();">\n'+
+'<option value="5">---OffY---\n'+
+'<option value="5">5\n'+
+'<option value="3">3\n'+
+'<option value="0">0\n'+
+'<option value="-3">-3\n'+
+'<option value="-5">-5\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<input type=checkbox checked=false id=idCheckBox onchange="rdl_change();"><label for=idCheckBox><b>Positive<b\/><\/label>\n'+
+'<\/td><\/tr><\/table>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.DropShadow() ; <\/div>\n';
+
+
+iWinWidth=450;
+
+iWinHeight=320;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>positive | Positive</span> 版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/dropshadow.html">DropShadow</a> ( positive</b> = <i>bPositive</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/dropshadow.html">DropShadow</a>').Positive = </b><i>bPositive</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> bPositive </i></td><td nowrap><b>: </b></td><td>
+布尔值(Boolean)。<span class=cssDefault><b>true</b></span> | <b>false</b>
+<table>
+<tr><td nowrap><b> true </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。滤镜从对象的非透明像素建立阴影。</td></tr>
+<tr><td nowrap><b> false </b></td><td nowrap><b>: </b></td><td>滤镜从对象的透明像素建立阴影。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滤镜是否从对象的非透明像素建立阴影。假如你有一个透明的对象但想给它建立普通的阴影，设置此参数值为<span class=cssDefault><b>  true</b></span>。这会让透明对象的阴影在透明区域外，而非在透明区域内。
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

@@ -1,0 +1,211 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>CONTENTEDITABLE Attribute | contentEditable</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>CONTENTEDITABLE Attribute | contentEditable Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the string that indicates whether the user can edit the content of the <span replace="1">object</span>.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>CONTENTEDITABLE</B>
+= <SPAN CLASS="clsRange">sCanEdit</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>contentEditable</B>(<I>v</I>) [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sCanEdit</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sCanEdit</SPAN></TD><TD><b>String</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">inherit</SPAN></TD><TD>Default. Content's ability to be edited by user is inherited from object's parent.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">false</SPAN></TD><TD>Content cannot be edited by the user.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD>Content can be edited by the user.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has a default value of <SPAN CLASS="clsDefValue">
+inherit</SPAN>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Child elements do not inherit this attribute unless they have layout. Use the <A HREF="../properties/haslayout.html">hasLayout</A> property to determine if an object has layout.</P><P>If this attribute is applied to a <A HREF="../objects/body.html">BODY</A> element, it has the same effect as setting the <A HREF="../properties/designmode.html">designMode</A> property of the <A HREF="../objects/obj_document.html">document</A> object. </P><P>Elements with the <A HREF="../properties/disabled_2.html">disabled</A> attribute set to <SPAN CLASS="clsLiteral">false</SPAN> do not respond to the <B>contentEditable</B> attribute.</P><P>If this attribute is applied to the <A HREF="../objects/a.html">A</A> element, the default functionality of the <B>A</B> element will be lost while <I>sCanEdit
+</I> is set to the value of <SPAN CLASS="clsLiteral">true</SPAN>.</P><P>If this attribute is applied to the <A HREF="../objects/marquee.html">MARQUEE</A> element, the default functionality of the <B>MARQUEE</B> element will be lost while <I>sCanEdit
+</I> is set to the value of <SPAN CLASS="clsLiteral">true</SPAN>.</P><P>Though the <A HREF="../objects/table.html">TABLE</A>,
+<A HREF="../objects/col.html">COL</A>,
+<A HREF="../objects/colgroup.html">COLGROUP</A>,
+<A HREF="../objects/tbody.html">TBODY</A>, <A HREF="../objects/td.html">TD</A>,
+<A HREF="../objects/tfoot.html">TFOOT</A>, <A HREF="../objects/th.html">TH</A>,
+<A HREF="../objects/thead.html">THEAD</A>, and <A HREF="../objects/tr.html">TR</A>
+elements cannot be set as content editable directly, a content editable
+<A HREF="../objects/span.html">SPAN</A>, or  <A HREF="../objects/div.html">DIV</A>
+element can be placed inside the individual table cells
+(<B>TD</B> and <B>TH</B>
+elements).   See the example below.</P><DIV CLASS="clsNote"><B><IMG alt="security note" src="../common/UI_security_bang_16.gif"></IMG> Security Alert</B>&nbsp;&nbsp;Users can change the contents of a Web page when the <B>contentEditable</B> property is set to TRUE. Using this property incorrectly can compromise the security of your application. Incorrect use of the <B>contentEditable</B> property might include not validating user input. If you do not validate user input, a malicious user can inject control characters or script that can harm your data. You should take routine precautions against displaying unvalidated user input. For more information, see <A HREF="/workshop/author/dhtml/sec_dhtml.html">Security Considerations: Dynamic HTML</A>.</DIV></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+In the following example, setting the
+<B>DIV</B> elements to have
+<SPAN CLASS="clsLiteral">100%</SPAN>?A HREF="../properties/height_1.html">height</A>
+and <A HREF="../properties/width_2.html">width</A> makes all content within
+the borders of the cells editable.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;P&gt;Table 1 Editable&lt;/P&gt;&lt;BR/&gt;
+&lt;TABLE BORDER=1 WIDTH=80%&gt;
+&lt;THEAD&gt;
+&lt;TR&gt;
+&lt;TH&gt;&lt;DIV CONTENTEDITABLE STYLE="height: 100%; width: 100%;"&gt;Heading 1 &lt;DIV&gt;&lt;/TH&gt;
+&lt;TH&gt;&lt;DIV CONTENTEDITABLE STYLE="height: 100%; width: 100%;"&gt;Heading 2 &lt;DIV&gt;&lt;/TH&gt;
+&lt;/TR&gt;
+&lt;/THEAD&gt;
+&lt;TBODY&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;DIV CONTENTEDITABLE STYLE="height: 100%; width: 100%;"&gt;Row 1, Column 1 text.&lt;DIV&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;DIV CONTENTEDITABLE STYLE="height: 100%; width: 100%;"&gt;Row 1, Column 2 text.&lt;DIV&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;DIV CONTENTEDITABLE STYLE="height: 100%; width: 100%;"&gt;Row 2, Column 1 text.&lt;DIV&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;DIV CONTENTEDITABLE STYLE="height: 100%; width: 100%;"&gt;Row 2, Column 2 text.&lt;DIV&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TBODY&gt;
+&lt;/TABLE&gt;
+</PRE><P>
+The following example shows how to use the <B>contentEditable</B> property to control whether the user can edit the content of the <span replace="1">object</span>.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function chgSpan() {
+currentState = oSpan.isContentEditable;
+newState = !currentState;
+oSpan.contentEditable = newState;
+oCurrentValue.innerText = newState;
+newState==false ? oBtn.innerText="Enable Editing" :
+oBtn.innerText="Disable Editing"
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY onload="oCurrentValue.innerText = oSpan.isContentEditable;"&gt;
+&lt;P&gt;Click the button to enable or disable SPAN content editing.&lt;/P&gt;
+&lt;P&gt;
+&lt;BUTTON ID="oBtn" onclick="chgSpan()"&gt;Enable Editing&lt;/BUTTON&gt;
+&lt;/P&gt;
+&lt;P&gt;&lt;SPAN ID="oSpan"&gt;You can edit this text.&lt;/SPAN&gt;&lt;/P&gt;
+SPAN can be edited: &lt;SPAN ID="oCurrentValue"&gt;&lt;/SPAN&gt;
+&lt;/BODY&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV><P>
+This example demonstrates the features of Microsoft&#174; Internet Explorer that enable users to edit the content of an HTML element directly from the browser.
+</P><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this property.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/defaults.html">
+defaults</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/bdo.html">
+BDO</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/isindex.html">
+ISINDEX</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/rt.html">
+RT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ruby.html">
+RUBY</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

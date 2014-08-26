@@ -1,0 +1,234 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>attachEvent</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>attachEvent Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Binds the specified function to an event, so that the function gets called whenever the event fires on the object.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>bSuccess</I> = <I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I><B>.attachEvent(</B><I>sEvent</I><B>, </B><I>fpNotify</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sEvent</I></TD><TD>
+Required.
+<b>String</b> that specifies any of the standard <A HREF="../events.html">DHTML Events</A>.</TD></TR><TR><TD><I>fpNotify</I></TD><TD>
+Required.
+Pointer that specifies the function to call when <I>sEvent
+</I> fires.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P><b>Boolean</b>. Returns
+one of the following possible values:</P><TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD>The function was bound successfully to the event.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">false</SPAN></TD><TD>The function was not bound to the event.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>When <I>sEvent
+</I> fires on the object, the object's <I>sEvent
+</I> handler is called before <I>fpNotify
+</I>, the specified function. If you attach multiple functions to the same event on the same object, the functions are called in random order, immediately after the object's event handler is called.</P><P>The <B>attachEvent</B> method enables a behavior to handle events that occur on the containing page. This method is not limited, however, to behaviors. You can also define a function on a page that attaches to events fired on the same page.</P><P>Behaviors that attach to events using the <B>attachEvent</B> method must explicitly call the <A HREF="../methods/detachevent.html">detachEvent</A> method to stop receiving notifications from the page when the <A HREF="/workshop/components/htc/reference/events/ondetach.html">ondetach</A> event fires.</P><P> A behavior that attaches to events on the page using the HTML Component (HTC)?A HREF="/workshop/components/htc/reference/elements/attach.html">PUBLIC:ATTACH</A> element automatically stops receiving notifications when the behavior detaches from the element, and does not need to call the <B>detachEvent</B> method.</P><P><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;To use the <B>attachEvent</B> method with Microsoft&#174; Visual Basic&#174; Scripting Edition (VBScript), you need to use the <A HREF="/scripting/vbscript/doc/vsfctgetref.htm" TARGET="_top">GetRef</A> to obtain a function pointer. The function pointer can then be passed to <B>attachEvent</B>.
+</DIV></P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example shows how to implement a mouseover highlighting effect by calling the <B>attachEvent</B> method from an HTC.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;PUBLIC:ATTACH EVENT="ondetach" ONEVENT="cleanup()" /&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+attachEvent ('onmouseover', Hilite);
+attachEvent ('onmouseout', Restore);
+function cleanup()
+{
+detachEvent ('onmouseover', Hilite);
+detachEvent ('onmouseout', Restore);
+}
+function Hilite()
+{
+if (event.srcElement == element)
+{
+normalColor = style.color;
+runtimeStyle.color  = "red";
+runtimeStyle.cursor = "hand";
+}
+}
+function Restore()
+{
+if (event.srcElement == element)
+{
+runtimeStyle.color  = normalColor;
+runtimeStyle.cursor = "";
+}
+}
+&lt;/SCRIPT&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="about:blank" FEATURES="top=50,left=50,height=500,width=250,status=1,resizable=1"></IMG></A></DIV><P>
+The following example shows how to use the <B>attachEvent</B> method with VBScript. When you click on the span's text, the event handler changes the background color.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;BODY ONLOAD="setupEventHandler()" LANGUAGE="VBS"&gt;
+&lt;SCRIPT LANGUAGE="VBS"&gt;
+function setupEventHandler()
+set fpchgBackground = getRef("chgBackground")
+call mySpan.attachEvent("onclick", fpChgBackground)
+end function
+function chgBackground()
+document.bgColor = "lemonchiffon"
+end function
+&lt;/SCRIPT&gt;
+&lt;SPAN ID="mySpan"&gt;SPAN&lt;/SPAN&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/acronym.html">
+ACRONYM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/address.html">
+ADDRESS</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/applet.html">
+APPLET</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/area.html">
+AREA</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/b.html">
+B</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/base.html">
+BASE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/basefont.html">
+BASEFONT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/bgsound.html">
+BGSOUND</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/big.html">
+BIG</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/blockquote.html">
+BLOCKQUOTE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/body.html">
+BODY</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/br.html">
+BR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/button.html">
+BUTTON</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/caption.html">
+CAPTION</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/center.html">
+CENTER</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/cite.html">
+CITE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/code.html">
+CODE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/col.html">
+COL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/colgroup.html">
+COLGROUP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/comment.html">
+COMMENT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dd.html">
+DD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/del.html">
+DEL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dfn.html">
+DFN</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dir.html">
+DIR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/div.html">
+DIV</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dl.html">
+DL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/obj_document.html">
+document</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/dt.html">
+DT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/em.html">
+EM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/embed.html">
+EMBED</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/fieldset.html">
+FIELDSET</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/font.html">
+FONT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/form.html">
+FORM</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/frame.html">
+FRAME</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/frameset.html">
+FRAMESET</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/head.html">
+HEAD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/hn.html">
+hn</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/hr.html">
+HR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/html.html">
+HTML</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/i.html">
+I</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/iframe.html">
+IFRAME</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_button.html">
+INPUT type=button</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_checkbox.html">
+INPUT type=checkbox</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_file.html">
+INPUT type=file</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_hidden.html">
+INPUT type=hidden</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_image.html">
+INPUT type=image</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_password.html">
+INPUT type=password</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_radio.html">
+INPUT type=radio</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_reset.html">
+INPUT type=reset</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_submit.html">
+INPUT type=submit</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/input_text.html">
+INPUT type=text</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ins.html">
+INS</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/kbd.html">
+KBD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/label.html">
+LABEL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/legend.html">
+LEGEND</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/li.html">
+LI</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/link.html">
+LINK</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/listing.html">
+LISTING</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/map.html">
+MAP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/marquee.html">
+MARQUEE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/menu.html">
+MENU</A>, <A PLATINFO="win32=5.5;ce=5.5" HREF="../objects/namespace.html">
+namespace</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/nobr.html">
+NOBR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/object.html">
+OBJECT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ol.html">
+OL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/option.html">
+OPTION</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/p.html">
+P</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/plaintext.html">
+PLAINTEXT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/pre.html">
+PRE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/q.html">
+Q</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/s.html">
+S</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/samp.html">
+SAMP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/script.html">
+SCRIPT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/select.html">
+SELECT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/small.html">
+SMALL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/strike.html">
+STRIKE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/strong.html">
+STRONG</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/sub.html">
+SUB</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/sup.html">
+SUP</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/table.html">
+TABLE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/textarea.html">
+TEXTAREA</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/title.html">
+TITLE</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tr.html">
+TR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/tt.html">
+TT</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/u.html">
+U</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/ul.html">
+UL</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/var.html">
+VAR</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/obj_window.html">
+window</A>, <A PLATINFO="win32=5;unix=5;ce=5.5" HREF="../objects/xmp.html">
+XMP</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/detachevent.html">detachEvent</A>, <A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, <A HREF="/workshop/author/behaviors/howto/using.html">Using DHTML Behaviors</A>, <A HREF="/workshop/author/behaviors/howto/creating.html">Using HTML Components to Implement DHTML Behaviors in Script</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

@@ -1,0 +1,147 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>seekActiveTime Method (t:TRANSITIONFILTER, t:ANIMATE, t:ANIMATECOLOR, ...) </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>seekActiveTime Method
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Locates a specified point on the element's active timeline and begins playing from that point.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I><B>.seekActiveTime(</B><I>iSeconds</I><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>iSeconds</I></TD><TD>
+Required.
+Integer that specifies a point on the element's active timeline. The element's timeline immediately begins playing from the specified point. Legal values range from 0 to <A HREF="../../time2/properties/activedur.html">activeDur</A>.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>No return value.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>If you attempt to seek to a time on an object that is not currently active, an error is generated. To prevent this, check the object's status using the <A HREF="../../time2/properties/isactive.html">isActive</A> property.</P><P>Not all media types support seeking. In cases where seeking is not supported by the player, calls to seek methods are ignored.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example demonstrates how to use the <B>seekActiveTime</B> method. Before validating and implementing the <B>seekActiveTime</B> value, make sure the object is active or an error may be generated. In this example, if the object is not active the <A HREF="../../common/author/behaviors/reference/time/methods/beginelement.html">beginElement</A> method is called to restart the object, followed by the <B>seekActiveTime</B> method request.</P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="seekActiveTime">&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;seekActiveTime Method&lt;/TITLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function doSeekActiveTime(){
+//Is media object active?
+//Yes, continue and do seek.
+//No, restart element using the beginElement method.
+if(!oMedia.currTimeState.isActive){
+oMedia.beginElement();
+}
+//Is user input valid and within the media's duration boundaries?
+if(isFinite(seekActiveTimeInput.value) &amp;&amp; seekActiveTimeInput.value
+&lt;= oMedia.mediaDur &amp;&amp; seekActiveTimeInput.value &gt; 0){
+oMedia.seekActiveTime(seekActiveTimeInput.value);
+}else{
+//Input is not valid, alert user to re-enter choice.
+alert("Please enter a valid integer. Value must be greater than 0" +
+" seconds and less than the media's duration (" +
+oMedia.mediaDur + " seconds).");
+seekActiveTimeInput.focus();
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;CENTER&gt;
+&lt;B&gt;Media timer:&lt;/B&gt;
+&lt;SPAN id="Timer2" class="time" dur=".01" repeatCount="indefinite" fill="hold"
+onrepeat="innerText=parseInt(oMedia.currTimeState.activeTime);"&gt;0&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;t:video style="width:175px; height:150px;" id="oMedia"
+src="../../common/samples/author/behaviors/media/movie.avi"
+onmediacomplete="oMediaDur.innerText=oMedia.mediaDur;" /&gt;
+&lt;BR&gt;
+Media's duration: &lt;SPAN id="oMediaDur"&gt;&lt;/SPAN&gt;&amp;nbsp;seconds
+&lt;BR&gt;&lt;BR&gt;
+&lt;B&gt;Enter value for seekActiveTime&lt;/B&gt;:
+&lt;INPUT type="text" value="" name="seekActiveTimeInput" size="3"/&gt;&amp;nbsp;seconds
+&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON id="seekBtn" onClick="doSeekActiveTime();"&gt;Click to seek&lt;/BUTTON&gt;&amp;nbsp;
+&lt;BUTTON onClick="oMedia.beginElement()"&gt;Restart&lt;/BUTTON&gt;
+&lt;/CENTER&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../../common/samples/author/behaviors/seekactivetime.htm" FEATURES="top=25,left=25,height=550,width=600,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This method is a Microsoft extension to <A HREF="http://www.w3.org/tr/smil20/" TARGET="_top">
+Synchronized Multimedia Integration Language (SMIL)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../../time2/elements/transitionfilter.html">
+t:TRANSITIONFILTER</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animate.html">
+t:ANIMATE</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatecolor.html">
+t:ANIMATECOLOR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animatemotion.html">
+t:ANIMATEMOTION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/animation.html">
+t:ANIMATION</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/audio.html">
+t:AUDIO</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/img.html">
+t:IMG</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/media.html">
+t:MEDIA</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/par.html">
+t:PAR</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/ref.html">
+t:REF</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/seq.html">
+t:SEQ</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/set.html">
+t:SET</A>, <A PLATINFO="win32=5.5" HREF="../../time2/behaviors/time2.html">
+time2</A>, <A PLATINFO="win32=5.5" HREF="../../time2/elements/video.html">
+t:VIDEO</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A>, <A HREF="../../time2/methods/seeksegmenttime.html">seekSegmentTime</A>, <A HREF="../../time2/methods/seekto.html">seekTo</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

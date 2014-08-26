@@ -1,0 +1,200 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-824-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-837-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-830-fm2xml"></A><A NAME="IXT-23-55398"></A><A NAME="IXT-23-55399"></A><A NAME="IXT-23-55400"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.match(  )</i></b></td>
+
+<td align="right"><i>找到一个或多个正则表达式的匹配</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 </P><A NAME="ch23-831-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.match(<TT><I>regexp</I></TT>)</PRE><A NAME="IXT-23-55398"></A> <A NAME="IXT-23-55399"></A> <A NAME="IXT-23-55400"></A>
+
+
+
+
+
+<A NAME="ch23-832-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>regexp</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">声明了要匹配的模式的RegExp对象。如果该参数不是RegExp对象，则首先将把它传递给RegExp()构造函数，把它转换成RegExp对象。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-833-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">存放匹配结果的数组。该数组的内容依赖于regexp是否具有全局性质g。下面详细说明了这个返回值。</P>
+
+
+
+
+
+<A NAME="ch23-834-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法match()将检索字符串string，以找到一个或多个与regexp匹配的文本。这个方法的行为很大程度上依赖于regexp是否具有性质g。</P>
+
+
+
+<P class="docText">  如果regexp没有性质g，那么match()就只能在string中执行一次匹配，如果没有找到任何匹配的文本，match()将返回null。否则，它将返回一个数组，其中存放了与它找到的匹配文本有关的信息。该数组的第0个元素存放的是匹配文本，其余的元素存放的是与正则表达式的子表达式匹配的文本。除了这些常规的数组元素之外，返回的数组还含有两个对象属性。index属性声明的是匹配文本的起始字符在string中的位置，input属性声明的是对string的引用。
+
+</P>
+
+
+
+<P class="docText"> 如果regexp具有标志g，那么match()将执行全局检索，找到string中的所有匹配子串。如果没有找到任何匹配的子串。它将返回null。如果找到了一个或多个匹配子串，它将返回一个数组。不过，全局匹配返回的数组的内容与前者大不相同，它的数组元素存放的是string中的所有匹配子串，而且它也没有index属性和input属性。注意，在全局匹配的模式下，match()既不提供与子表达式匹配的文本的信息，也不声明每个匹配子串的位置。如果你需要这些全局检索的信息，可以使用RegExp.exec()。</P>
+
+
+
+<A NAME="ch23-835-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">下面的全局匹配可以找到字符串中的所有数字：</P>
+
+
+
+<PRE>"1 plus 2 equals 3".match(/\d+/g)  // 返回 ["1", "2", "3"] </PRE>
+
+
+
+<P class="docText">下面的非全局匹配使用了更加复杂的正则表达式，它具有几个用括号括起来的子表达式。与该表达式匹配的是一个URL，与它的子表达式匹配的是那个URL的协议部分、主机部分和路径部分：</P>
+
+
+
+<PRE>var url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+
+var text = "Visit my home page at http://www.isp.com/~david";
+
+var result = text.match(url);
+
+if (result != null) {
+
+    var fullurl = result[0];   // 包含"http://www.isp.com/~david"
+
+    var protocol = result[1];  // 包含"http"
+
+    var host = result[2];      // 包含"www.isp.com"
+
+    var path = result[3];      // 包含"~david"
+
+} </PRE>
+
+
+
+<A NAME="ch23-836-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-726-fm2xml.html#ch23-726-fm2xml">RegExp</A>, <A class="docLink" HREF="ch23-736-fm2xml.html#ch23-736-fm2xml">RegExp.exec(  )</A>, <A class="docLink" HREF="ch23-758-fm2xml.html#ch23-758-fm2xml">RegExp.test(  )</A>, <A class="docLink" HREF="ch23-837-fm2xml.html#ch23-837-fm2xml">String.replace(  )</A>,
+
+<A class="docLink" HREF="ch23-845-fm2xml.html#ch23-845-fm2xml">String.search(  )</A>
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-824-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-837-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

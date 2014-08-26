@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>动态属性</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV CLASS="clsDocBody">
+<H1>动态属性</H1>
+<HR SIZE="1">
+<p>Microsoft<SUP>&reg</SUP> Internet Explorer 5 提供了一种易于使用的新特性，该特性允许 Web 作者和开发者显著提高 Web 页的外观和渲染速度。使用动态属性所带来的无穷动力，现在不仅可以声明常量作为属性值，还可以使用公式。在动态属性中使用的公式可以引用其他元素的属性值，因此允许作者在设计他们的 Web 页时获得独一无二的灵活性。</p>
+<p>你可以使用动态属性完成以下功能：</p>
+<ul>
+<li>创建电子表格外观的<A HREF="../objects/TABLE.html">表格</A>，用户在单元格中输入值后可自动重新计算总和。</li>
+<li>将元素按照移动的鼠标指针重新定位。</li>
+<li>根据定时器移动元素。</li>
+</ul>
+<p>更具创新的 Web 作者当然可以很轻松的超越这里的几个简单的例子，使用动态属性的扩展性能创造出更具感染力和智能的 Web 页。</p>
+<p>这篇文章包含如下几个方面的主题。</p>
+<UL>
+<LI><A HREF="#Benefits">动态属性的好处</A></LI>
+<LI><A HREF="#Implement">实现动态属性</A></LI>
+<LI><A HREF="#notes">隐式依赖的说明</A></LI>
+</UL>
+<H2><A NAME="Benefits"></A>动态属性的好处</H2>
+<p>动态属性大大简化了文档中所需的代码，并使其维持在最小数量。使用动态属性，Web 作者可以用公式代替复杂的脚本来实现各种功能。这将把作者们从学习脚本语言的困扰中解脱出来，使他们专注于设计页面的高级特性。</p>
+<p>动态属性与电子表格中公式的实现有些类似。在电子表格中，一个单元格的值可以是常量或者公式。公式中可以引用电子表格中任意数量的其它单元格。同样，动态属性也可以引用同一文档中的其它属性。</p>
+<p>动态属性允许 Web 作者以函数的形式描述对象、属性和变量之间关系，而不是显式指定要执行的计算步骤。作者几乎只需要关心函数，而不需要监视文档的当前状态。</p>
+<p>就事件的处理而言，在页面重绘过程中牵涉越多效率也会越低。在文档中，如果要实现一个涉及时不可能完全知晓的事件处理句柄(例如，由数据库驱动的 Web 页和带有数据绑定的页面)，那么唯一的办法是使用<A HREF="/workshop/author/script/ie4event.html">事件冒泡</A>。造成的结果将是，作者经常不得不在事件链的顶端完成一个单独的全局处理程序来更新全部内容。相反，使用动态属性，作者可以自动决定属性重算的最小算法和优化算法，并且仅仅计算那些真的需要重算的表达式。</p>
+<H2><A NAME="Implement"></A>实现动态属性</H2>
+<p>动态属性的引入为 Internet Explorer 5 及更高版本带来了新的方法。本节中简要描述了这些方法。</p>
+<ul>
+<LI><A HREF="../methods/getExpression.html">getExpression</A> 方法返回用于动态属性的公式。</li>
+<LI><A HREF="../methods/recalc.html">recalc</A>方法允许作者显式更新动态属性的值。</li>
+<LI><A HREF="../methods/removeExpression.html">removeExpression</A> 方法清除由 <A HREF="../methods/setExpression.html">setExpression</A> 方法设置的公式。</li>
+<LI><B>setExpression</B> 方法为给定值指定公式。</li>
+</ul>
+<p>动态属性公式是用 <B>setExpression</B> 方法在脚本中指定的。当然，也可以内嵌指定，方法是在 <A HREF="../objects/STYLE.html">style</A> 块或 <A HREF="../properties/style.html">style</A> 属性中使用 <B>expression</B> 这个全局值。</p>
+<p>例如，动态 HTML (DHTML) 可用于根据其它对象的位置和尺寸定位对象。下列公式可分别用于水平和垂直居中对象。</p>
+<ul>
+<LI>水平居中对象：
+<PRE CLASS="clsCode" AUTOHILITE="1">object.style.left=(document.body.clientWidth/2) - (object.offsetWidth/2);</PRE>
+</li>
+<LI>垂直居中对象：
+<PRE CLASS="clsCode" AUTOHILITE="1">object.style.top=(document.body.clientHeight/2) - (object.offsetHeight/2);</PRE>
+</li>
+</ul>
+<p>在对象的位置被确定之后，如果客户区的内容或大小变更后，该对象在文档布局中的外观就会被迫更改。在上面的例子中，由于使用了动态属性，无论客户区被怎样重新缩放，作者都无需不停的更新对象位置。在 Internet Explorer 5 之前，Web 作者就不得不使用 <A HREF="../events/onresize.html">onresize</A> 事件的处理句柄来捕捉客户区的更改并手工重算位置。请注意，公式是相同的，但是它们是通过 <B>setExpression</B> 方法实现的。</p>
+<p>下面的例子演示了表达式的设置方法。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+window.onload=fnInit;
+function fnInit(){
+oDiv.style.setExpression("left",
+"document.body.clientWidth/2 - oDiv.offsetWidth/2"
+);
+oDiv.style.setExpression("top",
+"document.body.clientHeight/2 - oDiv.offsetHeight/2"
+);
+}
+&lt;/SCRIPT&gt;
+&lt;DIV ID="oDiv"
+STYLE="background-color: #CFCFCF; position: absolute; top: 0; left: 0;"
+&gt;
+示例 DIV
+&lt;/DIV&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../samples/overview/expression1.html"></IMG></A>
+</DIV>
+<p>在某些情况下，如果要将一个关键对象移动到新位置，则需要许多额外的脚本执行新的计算。如果该对象的位置与其它对象相关的话，则需要更多细心的考虑。</p>
+<p>例如，如果有四个 <A HREF="../objects/DIV.html">DIV</A> 元素定位于第五个 <B>DIV</B> 周围，而第五个位于屏幕中央并可由用户自动移动，那么更新环绕的四个 <B>DIV</B> 元素将是十分耗费时间的。此外，如果外围的 <B>DIV</B> 元素还包含可由用户更改的变量，那么 Web 就需要不停的监视变量的值然后更新相应的位置。这里的做法是，使用表达式可让所有这一切变得简单起来。</p>
+<p>下面的示例代码演示了如何使用脚本变量根据其它对象的位置和尺寸设置表达式。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;STYLE&gt;
+.block {position: absolute; top: 100; left: 100; height: 75; width: 75;}
+.block2 {position: absolute; top: 0; left: 0; height: 25; width: 25;}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+window.onload=fnInit;
+var iOffset=10;
+function fnInit(){
+oDiv.style.left=document.body.clientWidth/2 - oDiv.offsetWidth/2;
+oDiv.style.top=document.body.clientHeight/2 - oDiv.offsetHeight/2;
+oBlock1.style.setExpression("top","
+(oDiv.style.pixelTop - iOffset
+- oBlock1.style.pixelHeight)
+");
+oBlock1.style.setExpression("left","
+(oDiv.style.pixelLeft +
+(oDiv.style.pixelWidth/2 - oBlock1.style.pixelWidth/2))
+");
+}
+&lt;/SCRIPT&gt;
+&lt;DIV ID="oDiv" CLASS="block"&gt;&lt;/DIV&gt;
+&lt;DIV ID="oBlock1" CLASS="block2"&gt;&lt;/DIV&gt;</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../samples/overview/expression2.html"></IMG></A>
+</DIV>
+<p>至于脚本，动态属性可以是任何合法的 Microsoft<SUP>&reg</SUP> JScript<SUP>&reg</SUP> 或 Microsoft<SUP>&reg</SUP> Visual Basic<SUP>&reg</SUP> 脚本版本(VBScript)语句。<B>setExpression</B> 的第三个参数就是用于表明第二个参数中所使用的脚本语言；而 JScript 是默认语言。对于内嵌实现来说，表达式就必须用 JScript 编写。在表达式重算的时候，字符串中的标识符会被解析为当前页面上的实际属性。</p>
+<p>下面的示例代码演示了如何通过 <B>setExpression</B> 方法设置动态属性。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+/* 设置对象的宽度为客户区宽度的一半。*/
+// 用 setExpression 设置表达式：
+object.style.setExpression("width","document.body.clientWidth/2");
+</PRE>
+<p>动态属性可以使用 <B>getExpression</B> 和 <B>removeExpression</B> 方法获取或删除。<B>getExpression</B> 方法返回一个变体变量，其中包含用于计算动态属性的表达式。该表达式会在调用 <B>getExpression</B> 方法是重算。使用 <B>removeExpression</B> 方法可以清除表达式。如果想要清除用 <B>setExpression</B> 方法设置的动态属性值，<B>removeExpression</B> 是唯一的方法。如果清除了表达式，属性值会被设为表达式上次的计算结果，并且会返回一个 <b>Boolean</b> 值，表明表达式已经被删除了。</p>
+<p><B>recalc</B> 方法用于重算文档中的动态属性。此方法十分有用，因为动态属性只会更新在公式中声明的元素和属性。调用 <B>recalc</B> 方法并将参数设置为 false (默认值) 将重算当前文档中的所有表达式，只要该表达式所引用的属性自上次重算后发生了更改。调用 <B>recalc(true)</B> 将重算当前文档中的所有表达式，而不管所引用的属性是否发生了更改。在一个动态属性重算以后，所有对该属性的引用都会得到新计算的值。</p>
+<p>下面的示例演示了 <B>recalc</B> 方法的用途，即显式更新页面上太阳系对象的动态属性。</p>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 4.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="../samples/overview/orbits.html"></IMG></A>
+</DIV>
+<H2><A NAME="notes"></A>隐式依赖的说明</H2>
+<p>某些属性可能会因为其它属性的变更引起更改，对这些属性的引用就构成了隐式依赖。例如，元素的 <A HREF="../properties/offsetWidth.html">offsetWidth</A> 依赖于 <A HREF="../properties/width_2.html">width</A>，并且还可能依赖于样式表中的 <A HREF="../properties/height_1.html">height</A> 值。</p>
+<p>在大多数情况下，作者并不需要担心这些依赖；Internet Explorer 5 会自动处理绝大多数情况。处理的方法就是为了跟踪依赖性的目的，将特定属性映射到标准属性上。例如，所有 <B>width</B> 属性的标准属性就是 <B>offsetWidth</B>。例如 <A HREF="../objects/IMG.html">img</A> 元素，对其 <A HREF="../properties/clientWidth.html">clientWidth</A>, <B>width</B>, <A HREF="../properties/posWidth.html">posWidth</A>, <A HREF="../properties/pixelWidth.html">pixelWidth</A>, <A HREF="../objects/currentStyle.html">currentStyle</A>.<B>width</B> 或 <A HREF="../properties/width_1.html">width</A> 的依赖实际上都是对 <B>offsetWidth</B> 的依赖。</p>
+<p>尽管 Internet Explorer 能够自动处理大多数情况下的隐式依赖，还是有一些情况下依赖并不十分明显。因为实际属性仍然会触发属性变更通知，重算引擎通常会知道是否需要重算表达式。但是，涉及这些属性的循环表达式只能在运行时刻被检测出(在将表达式被设置到属性上时无法预知)。可能最复杂的依赖情况就是 <B>DIV</B> 的 <A HREF="../properties/clientHeight.html">clientHeight</A>。<B>DIV</B> 最终计算出的 <B>clientHeight</B> 依赖于 <A HREF="../properties/innerHTML.html">innerHTML</A>，<A HREF="../properties/margin.html">margin</A> 属性，<A HREF="../properties/padding.html">padding</A> 属性，当然还有 <B>width</B>。</p>
+</DIV>
+</BODY>
+</HTML>

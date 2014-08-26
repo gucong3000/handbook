@@ -1,0 +1,156 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>About Content Selection: System Test Attributes and t:SWITCH </TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../../common/";
+var gsGraphicsPath = "../../common/";
+var gsCodePath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>About Content Selection: System Test Attributes and t:SWITCH
+</H1></TD><TD ALIGN="right"><A HREF="../../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p><A HREF="../../common/author/behaviors/time.html">HTML+TIME</A> 2.0 provides authors with the option to display different elements based on system settings. The <A HREF="../../time2/elements/switch.html">t:SWITCH</A> element specifies a set of alternative elements from which only the first acceptable element is chosen. Although the <B>t:SWITCH</B> element is most useful for setting conditions that determine what content to display based on the value of various system test attributes, it can also allow you to handle circumstances in which those system attributes affect timing, animation, or media presentation on your Web page. </p><p>Suppose that your page displays a video presentation that you want to accompany with an English, Spanish, or Portuguese audio file, depending on the language settings of the user's system. The <B>t:SWITCH</B> element can enable your page to detect the system language setting in the <B>Regional Options</B> section of the user's <B>Control Panel</B> and to play the appropriate audio file. Alternatively, your page can play a default file if, in this case, the user's system language is Japanese (or any other language for which you don't have an audio file). In much the same way, you can use <B>t:SWITCH</B> to display different elements based on system bitrate or the user's captioning, overdub, or subtitle preferences. Supported system test attributes include <A HREF="../../time2/properties/systemcaptions.html">systemCaptions</A>, <A HREF="../../time2/properties/systembitrate.html">systemBitrate</A>, <A HREF="../../time2/properties/systemoverduborsubtitle.html">systemOverdubOrSubtitle</A>, and <A HREF="../../time2/properties/systemlanguage.html">systemLanguage</A>.</p><p>You can also use system test attributes inline with other elements, rather than with the <B>t:SWITCH</B> element. This overview provides some examples of both methods and their relative advantages. </p><UL><LI><A TARGET="_self" HREF="#behavior">Adding the Time2 Behavior</A></LI><LI><A TARGET="_self" HREF="#attributes">System Test Attributes</A></LI><LI><A TARGET="_self" HREF="#use_switch">Using System Test Attributes with the t:SWITCH Element</A></LI><LI><A TARGET="_self" HREF="#use_inline">Using Inline System Test Attributes</A></LI><LI><A TARGET="_self" HREF="#wrap_comments">Comments in the t:SWITCH Element</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="behavior"></A>Adding the Time2 Behavior</H2><p>Because Microsoft?Internet Explorer 5.5 provides support for HTML+TIME (Timed Interactive Multimedia Extensions) through the <A HREF="../../time2/behaviors/time2.html">time2</A> behavior, you must add a declaration for the behavior to your page. The <B>time2</B> behavior is available as of Internet Explorer 5.5 in the Microsoft Win32?platform. For more information about element behaviors, see the <A HREF="../../common/author/behaviors/overview/elementb_ovw.html">About Element Behaviors</A> overview.</p><p>The prefix <SPAN CLASS="clsLiteral">t:</SPAN> associates the <B>t:SWITCH</B> element with an Extensible Markup Language (XML) namespace. You must declare the XML namespace in the <A HREF="../../objects/html.html">html</A> tag of your document when using this element.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;</PRE><p>You must then import the tag definitions from the <B>time2</B> behavior by using the <A HREF="../../pi/import.html">IMPORT</A> processing instruction.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;</PRE><p>If you want to use system test attributes with the media elements introduced with HTML+TIME (<A HREF="../../time2/elements/animation.html">t:ANIMATION</A>, <A HREF="../../time2/elements/audio.html">t:AUDIO</A>, <A HREF="../../time2/elements/media.html">t:MEDIA</A>, <A HREF="../../time2/elements/img.html">t:IMG</A>, and <A HREF="../../time2/elements/video.html">t:VIDEO</A>), you don't need to associate the <B>time2</B> behavior with them because the media elements are defined by the behavior itself. However, if you want to use system test attributes and the <B>t:SWITCH</B> element with other content elements, you must associate the behavior with those elements. You can do this inline on a given element:</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV STYLE="behavior:url(#default#time2)";}... </PRE><p>If you plan to use HTML+TIME functionality on more than a couple of elements on the page, however, you might find it less cumbersome to associate elements with the <B>time2</B> behavior by creating a Cascading Style Sheets (CSS) class attribute.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time"...
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><p>For more information about referencing the <B>time2</B> behavior, see <A HREF="../../common/author/behaviors/time.html#Authoring">Authoring HTML+TIME</A>.</p><H2><A NAME="attributes"></A>System Test Attributes</H2><p>The <B>systemCaptions</B>, <B>systemBitrate</B>, <B>systemOverdubOrSubtitle</B>, and <B>systemLanguage</B> attributes provide a means of testing system settings. For example, users can set the system language in the <B>Regional Options</B> control panel, available from the <B>Start</B> menu by choosing <B>Control Panel</B> from the <B>Settings</B> menu. Your Web page can test for this setting with the <B>systemLanguage</B> attribute. Similarly, the <B>systemCaptions</B> attribute tests whether the user has set sound captioning in the <B>Accessibility Options</B> control panel. The <B>systemBitrate</B> attribute retrieves the bandwidth available to the system; it is sampled once when the page loads or is refreshed. Note that if the user changes the system settings during a browser session, the new attribute values will not be reflected on your page until the page is refreshed.</p><H2><A NAME="use_switch"></A>Using System Test Attributes with the t:SWITCH Element</H2><p>You can use the system test attributes provided in HTML+TIME 2.0 within a <B>t:SWITCH</B> element or inline with other elements.  You might use the <B>t:SWITCH</B> element to:
+<ul><li><p>Set an order of preference for your page markup to select among different elements or media. For example, if your page includes a media presentation, you might prefer that users with high-speed Internet connections see larger, higher-resolution video files. If users connect to the Internet with slower modems, however, you can ensure that they see smaller files and experience a faster, less frustrating download.</p></li><li><p>Set a "failsafe" element to appear when no other system attributes return <SPAN CLASS="clsLiteral">true</SPAN>. For instance, you might use this option to show a simple image if users' connections are too slow to accommodate any available video presentation, or to play a default music file when users' systems are set to languages you can't support with an audio presentation.</p></li></ul></p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Within a <B>t:SWITCH</B> element, any element without a valid test attribute resolves <SPAN CLASS="clsLiteral">true</SPAN>. It's important to remember this as you order elements within a <B>t:SWITCH</B> block.</DIV><p>The following example tests the <B>systemBitrate</B> attribute, within a <B>t:SWITCH</B> element, in order to select an appropriate audio object to accompany the video object. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:PAR&gt;
+&lt;t:VIDEO SRC="omelette.mpg"&gt;
+&lt;t:SWITCH&gt;
+&lt;t:AUDIO SRC="chef_fast.aiff" SYSTEMBITRATE="56000"/&gt;
+&lt;t:AUDIO SRC="chef_med.aiff" SYSTEMBITRATE="28800"/&gt;
+&lt;t:AUDIO SRC="chef_slow.aiff" SYSTEMBITRATE="14400"/&gt;
+&lt;t:AUDIO SRC="sizzle.aiff" /&gt;
+&lt;/t:SWITCH&gt;
+&lt;/t:PAR&gt;
+</PRE><p>Because the <B>t:AUDIO</B> elements are arranged in descending order in the <B>t:SWITCH</B> element, the most desirable (fastest) bitrate is selected first. In this case, <SPAN CLASS="clsLiteral">true</SPAN> means that the speed of the connection at page load was greater than or equal to one of the listed values for <B>systemBitrate</B>. If no element's <B>systemBitrate</B> returns a value of <SPAN CLASS="clsLiteral">true</SPAN>, Sizzle.aiff is selected because it has no test attribute and is therefore always acceptable. Using <B>t:SWITCH</B> in this situation allows you to set a "fallback" option that always returns <SPAN CLASS="clsLiteral">true</SPAN>, which might not be feasible using inline test attributes. Authors are encouraged to use a fallback option.</p><p>In the following example, a French-language video is accompanied by one or more media objects. The first <B>t:SWITCH</B> element provides an appropriate audio file for overdubbing if the system language has been set to English or Dutch; if neither, the default French audio object plays.
+The second <B>t:SWITCH</B> element selects a subtitle sequence in English or Dutch if <B>systemOverdubOrSubtitle</B> has been set to <SPAN CLASS="clsLiteral">subtitle</SPAN>. The last sequence provides captions in French if captioning is set on the user's system.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:PAR&gt;
+&lt;t:VIDEO src="rhinoceros.mpg"/&gt;
+&lt;t:SWITCH&gt;
+&lt;t:AUDIO SRC="rhino-english.aiff" SYSTEMLANGUAGE="en"
+SYSTEMOVERDUBORSUBTITLE="overdub"/&gt;
+&lt;t:AUDIO SRC="rhino-dutch.aiff" SYSTEMLANGUAGE="nl"
+SYSTEMOVERDUBORSUBTITLE="overdub"/&gt;
+&lt;t:AUDIO SRC="rhino-french-lecture.aiff" /&gt;
+&lt;/t:SWITCH&gt;
+&lt;t:SWITCH&gt;
+&lt;t:SEQ SYSTEMLANGUAGE="en" SYSTEMOVERDUBORSUBTITLE="subtitle" DUR="15"&gt;
+&lt;SPAN class="time" BEGIN="1" DUR="4" &gt;English subtitle 1&lt;/SPAN&gt;
+&lt;SPAN class="time" BEGIN="5" DUR="4" &gt;English subtitle 2&lt;/SPAN&gt;
+&lt;SPAN class="time" BEGIN="9" DUR="4" &gt;English subtitle 3&lt;/SPAN&gt;
+&lt;/t:SEQ&gt;
+&lt;t:SEQ SYSTEMLANGUAGE="nl" SYSTEMOVERDUBORSUBTITLE="subtitle" DUR="15"&gt;
+&lt;SPAN class="time" BEGIN="1" DUR="4" &gt;Dutch subtitle 1&lt;/SPAN&gt;
+&lt;SPAN class="time" BEGIN="5" DUR="4" &gt;Dutch subtitle 2&lt;/SPAN&gt;
+&lt;SPAN class="time" BEGIN="9" DUR="4" &gt;Dutch subtitle 3&lt;/SPAN&gt;
+&lt;/t:SEQ&gt;
+&lt;t:SEQ SYSTEMCAPTIONS="on" DUR="15"&gt;
+&lt;SPAN class="time" BEGIN="1" DUR="4" &gt;French subtitle 1&lt;/SPAN&gt;
+&lt;SPAN class="time" BEGIN="5" DUR="4" &gt;French subtitle 2&lt;/SPAN&gt;
+&lt;SPAN class="time" BEGIN="9" DUR="4" &gt;French subtitle 3&lt;/SPAN&gt;
+&lt;/t:SEQ&gt;
+&lt;/t:SWITCH&gt;
+&lt;/t:PAR&gt;
+</PRE><p>Notice that in this example, unlike the previous example, no fallback media file accompanies the video. For the <B>t:AUDIO</B> elements contained by the two <B>t:SWITCH</B> elements to return <SPAN CLASS="clsLiteral">true</SPAN>, the attribute values must match both the user overdub or subtitle preference and the system language setting. Also notice that if the user prefers captioning, the example provides French captions regardless of the user's system language setting. </p><H2><A NAME="use_inline"></A>Using Inline System Test Attributes</H2><p>In some circumstances—when you want to support multiple attribute criteria, for instance—using many nested <B>t:SWITCH</B> containers might become unwieldy.  Instead, you might choose to set inline system test attributes on the elements themselves. </p><p>In the following example, a video can play by itself or accompanied by one or more media objects with inline system test attributes. If the system language has been set to Dutch or English, the appropriate audio object plays.
+If the system language is Dutch or English and <B>systemCaptions</B> has been set to <SPAN CLASS="clsLiteral">on</SPAN>, appropriate text blocks are displayed as well. Notice that if the system language is neither Dutch nor English, only the video object is displayed. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:PAR&gt;
+&lt;t:VIDEO SRC="somemovie.mpg" /&gt;
+&lt;t:AUDIO SRC="dutch.aiff" SYSTEMLANGUAGE="nl" /&gt;
+&lt;t:AUDIO SRC="english.aiff" SYSTEMLANGUAGE="en" /&gt;
+&lt;DIV class="time" SYSTEMLANGUAGE="nl" SYSTEMCAPTION="on"&gt;
+Text block to accompany Dutch audio&lt;/DIV&gt;
+&lt;DIV class="time" SYSTEMLANGUAGE="en" SYSTEMCAPTION="on"&gt;
+Text block to accompany English audio&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+</PRE><H2><A NAME="wrap_comments"></A>Comments in the t:SWITCH Element</H2><p>When used inside a <B>t:SWITCH</B> element, any element without a valid test attribute returns <SPAN CLASS="clsLiteral">true</SPAN>. In Internet Explorer 6, <A HREF="../../objects/comment.html">comment</A> tags are an exception to this rule, so it's possible to add comments to your markup in a <B>t:SWITCH</B> element without causing errors.</p><p>However, in Internet Explorer 5.5 and earlier versions, <B>comment</B> elements in a <B>t:SWITCH</B> element always return <SPAN CLASS="clsLiteral">true</SPAN>, so they resolve the <B>t:SWITCH</B> element before any element that follows them. If you want to include comments within a <B>t:SWITCH</B> element, wrap the comments in another container, such as a <A HREF="../../objects/div.html">div</A> or <A HREF="../../time2/elements/par.html">t:PAR</A> element. Assign an invalid test attribute to the container, so that it can't return <SPAN CLASS="clsLiteral">true</SPAN>, as in the following example.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;t:PAR&gt;
+&lt;t:VIDEO SRC="omelette.mpg"&gt;
+&lt;t:SWITCH&gt;
+&lt;t:AUDIO SRC="chef_fast.aiff" SYSTEMBITRATE="56000"/&gt;
+&lt;t:AUDIO SRC="chef_med.aiff" SYSTEMBITRATE="28800"/&gt;
+&lt;t:AUDIO SRC="chef_slow.aiff" SYSTEMBITRATE="14400"/&gt;
+&lt;DIV SYSTEMBITRATE="99999999999"&gt; &lt;!-- The following audio object plays if none of
+the preceding bitrates are true. --&gt; &lt;/DIV&gt;
+&lt;t:AUDIO SRC="sizzle.aiff" /&gt;
+&lt;/t:SWITCH&gt;
+&lt;/t:PAR&gt;
+</PRE><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="../../common/author/behaviors/time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="/library/en-us/dntime/html/timeanimation.html" TARGET="_top">Basics of HTML+TIME Animation</A></LI></UL><info><product rid="prod_IE" minver="5.5"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

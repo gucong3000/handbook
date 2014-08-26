@@ -1,0 +1,273 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Seeking With HTML+TIME (Internet Explorer)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Seeking With HTML+TIME
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>In HTML+TIME (Timed Interactive Multimedia Extensions) various types of media, animation, and other time elements can be played over a period of time. It is often desirable to be able to jump to any point on this time line. This process of jumping to different points on a time element's time line is called <I>seeking</I>. Click the following button to see examples of seeking within a video clip and an animation.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/seeking/seeking_intro.htm" FEATURES="top=50,left=50,height=600,width=700,status=0,scrollbars=yes"></IMG></A></DIV><p>This article introduces what types of media can have seeking applied and different ways to apply seeking.</p><P>The following topics are discussed in this document.</P><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#seekable_media">Seekable Media</A></LI><LI><A TARGET="_self" HREF="#tools_for_seeking">Tools for Seeking</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2><p>It is assumed you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into detail on how to add a behavior to your page, nor does it cover how to declare a namespace and use custom tags as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>. You should have a basic working knowledge of Dynamic HTML (DHTML).</p><H2><A NAME="seekable_media"></A>Seekable Media</H2><p>Not all media types support seeking. In cases where seeking is not supported by the player, calls to seek methods are ignored. Seekable media can be broken up into two broad categories.</p><ul><li>Time elements that play audio or video files</li><li>All other time elements</li></ul><H3><A NAME="audio_and_video_time_elements"></A>Audio and Video Time Elements</H3><p>
+Time elements that play audio or video files are only seekable if the audio or video files they play are seekable. The following list shows the video and audio files that are NOT seekable.
+</p><ul><li>Advanced Streaming Format (ASF) files</li><li>.wm files</li><li>.wmv files</li><li>Microsoft?Windows Media?Author files</li><li>Microsoft DirectMusic?files</li><li>Any media referenced using an Advanced Stream Redirector (ASX) file</li></ul><p>You can use the <A HREF="../time2/properties/canseek.html">canSeek</A> property to determine if media is seekable. For example, a time element like the following one, should not have any seeking methods applied to it.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="wmv">
+Is the media seekable?
+&lt;!-- The inner text of this SPAN displays if the media is seekable or not.
+This is determined by the "canSeek" property that is retrieved when the
+media completes loading. In this case, "false" will be displayed. --&gt;
+&lt;SPAN ID="oIsSeekableDisplay"&gt;&lt;/SPAN&gt;
+&lt;!-- Because this t:MEDIA time element plays a wmv file, unpredictable
+behavior will result from seeking on it.  --&gt;
+&lt;t:MEDIA begin="indefinite" ID="oBeePlayer"
+SRC="../common/samples/author/behaviors/media/bee.wmv"
+onmediacomplete = "oIsSeekableDisplay.innerText = this.canSeek;"
+/&gt;
+</PRE><p>The best way to indicate whether the media file is capable of locating a specific time in the media's duration is to use the <B>canSeek</B> property.</p><H3><A NAME="other_time_elements"></A>Other Time Elements</H3><p>All time elements that do not play audio or video files are seekable. Such time elements could be used for a variety of purposes such as animation and slide show presentations. You can seek on individual time elements directly or on time elements that have child time elements such as time containers. The following example shows how to seek on the time line of a <A HREF="../time2/elements/animate.html">t:ANIMATE</A> element that animates the motion of a <A HREF="../objects/div.html">DIV</A> element. By doing this, you can seek to different points in the progress of the animation.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;This example uses the <A HREF="../common/author/behaviors/library/slider/slider.html">slider</A> behavior to provide the slide bar.</DIV><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="seekActiveTime">
+&lt;!-- The slider control namespace is declared here. --&gt;
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time" xmlns:control&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;!-- The slider htc is imported here. --&gt;
+@media all
+{
+control\:slider {behavior:url(slider.htc);}
+}
+&lt;/STYLE&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+// This function is fired whenever the seekActiveTime slide bar changes value.
+function fnChangeActiveBar()
+{
+// If the media is not active then make it active. This makes it
+// possible to start the media back up again by just dragging the
+// slide bar to some value.
+if(!oAnim.currTimeState.isActive)
+{
+oAnim.beginElement()
+}
+// The "seekActiveTime" method specifies the time in seconds to seek to
+// on the time line of the t:ANIMATE element.
+oAnim.seekActiveTime(oActiveTimeSlider.value);
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;IMG ID="oDiv" SRC="../common/ART_time_progress.gif"
+STYLE="position:absolute; left:50px; top:200px;z-index:0;"&gt;
+&lt;!-- This DIV is the red bar that moves across the table showing the progress
+of the animation. --&gt;
+&lt;DIV CLASS="time"
+STYLE="width:4px;height:55px;background-color:red;position:absolute;top:200px;left:50px;z-index:2;"&gt;
+&lt;t:ANIMATE ID="oAnim" BEGIN="indefinite" dur="8" FILL="hold" ATTRIBUTENAME="left"
+FROM="50px" TO="450px"/&gt;
+&lt;/DIV&gt;
+&lt;!-- This is the slider. --&gt;
+&lt;control:slider style="width:450px;sl--tick-style:none;" MIN="0" ID="oActiveTimeSlider"
+TICKINTERVAL=".1" TICKNUMBER="80" onchange="fnChangeActiveBar();"&gt;
+&lt;/control:slider&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/seeking/seekTimeElement.htm" FEATURES="top=50,left=50,height=400,width=600,status=0"></IMG></A></DIV><p>Time container elements such as <A HREF="../time2/elements/seq.html">t:SEQ</A>, <A HREF="../time2/elements/excl.html">t:EXCL</A>, and <A HREF="../time2/elements/par.html">t:PAR</A> define an encapsulated time line for any number of child time elements of the container. When you seek on a time container, you are jumping to any point on that time line. In the following example, a t:seq container element contains several time elements that act as an animated slide show. By seeking on the <B>t:SEQ</B> element, the user is able to jump to any point on the time line of this slide show.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time" xmlns:control&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+@media all
+{
+control\:slider {behavior:url(slider.htc);}
+}
+.time{behavior:url(#default#time2)}
+.label1{font-size:10pt;color:#99CCFF;position:absolute; top:110px;left:10px;}
+.label2{font-size:10pt;color:white;position:absolute; top:160px;left:10px;}
+.label3{font-size:16pt;width:20px;color:red;position:absolute;writing-mode:tb-rl;top:60px;left:10px;}
+.label4{font-size:24pt;color:black;position:absolute; top:90px;left:10px;}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// This function is fired whenever the slide bar changes value.
+function fnChangeBar()
+{
+// If the media is not active then make it active. This makes it
+// possible to start the media back up again by just dragging the
+// slide bar to some value.
+if(!oSeq.currTimeState.isActive)
+{
+oSeq.beginElement()
+}
+// If the slider value is being moved by the user, the media will seek
+// to the user specified value.
+if(Math.round(oSlider.value)!=Math.round(oSeq.currTimeState.segmentTime))
+{
+oSeq.seekSegmentTime(oSlider.value)
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;B&gt;Media timer:&lt;/B&gt;
+&lt;!-- The SPAN element below serves two purposes. First, it displays where on
+its time line the media is. Second, it changes the value of the slide bar every
+second to show the progression of the animation on the slide bar. --&gt;
+&lt;SPAN ID="Timer" CLASS="time" BEGIN="oSeq.begin" END="oSeq.end" DUR="1"
+REPEATCOUNT="indefinite" FILL="hold"
+onrepeat="this.innerText=oSeq.currTimeState.segmentTime;oSlider.value=oSeq.currTimeState.segmentTime;"&gt;0&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;DIV STYLE="height:300px;"&gt;
+&lt;t:SEQ ID="oSeq" REPEATCOUNT="indefinite" DUR="18" BEGIN="indefinite"&gt;
+&lt;t:PAR TIMEACTION="display" DUR="4"&gt;
+&lt;SPAN ID="oSpan" CLASS="time label1"&gt;
+...so I left my Home,
+&lt;t:ANIMATE DUR="3" ATTRIBUTENAME="fontSize" FROM="10px" FILL="hold" TO="20pt"/&gt;
+&lt;/SPAN&gt;
+&lt;t:IMG ID="one" SRC="../common/samples/author/behaviors/media/home.gif"/&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR TIMEACTION="display" DUR="4"&gt;
+&lt;SPAN ID="oSpan" CLASS="time label2"&gt;
+took the road less travelled,
+&lt;t:ANIMATE DUR="3" ATTRIBUTENAME="fontSize" FROM="10px" FILL="hold" TO="20pt"/&gt;
+&lt;/SPAN&gt;
+&lt;t:IMG ID="two" SRC="../common/samples/author/behaviors/media/country_road.gif"/&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR TIMEACTION="display" DUR="4"&gt;
+&lt;SPAN ID="oSpan" CLASS="time label3"&gt;
+to the end of the world,
+&lt;t:ANIMATE DUR="3" ATTRIBUTENAME="left" FROM="10px" FILL="hold" TO="380px"/&gt;
+&lt;/SPAN&gt;
+&lt;t:IMG ID="four" SRC="../common/samples/author/behaviors/media/shore.gif"/&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR TIMEACTION="display" DUR="6" &gt;
+&lt;SPAN ID="oSpan" CLASS="time label4"&gt;
+and past the edge of my memory.
+&lt;t:ANIMATECOLOR BEGIN="1" DUR="3" ATTRIBUTENAME="color" FROM="black" FILL="hold" TO="white"/&gt;
+&lt;/SPAN&gt;
+&lt;t:IMG ID="three" SRC="../common/samples/author/behaviors/media/greece.gif"/&gt;
+&lt;/t:PAR&gt;
+&lt;/t:SEQ&gt;
+&lt;/DIV&gt;
+&lt;control:slider style="width:200px" ID="oSlider" VALUE="0" MIN="0" TICKINTERVAL="1"
+TICKNUMBER="18" onchange="fnChangeBar();"&gt;
+&lt;/control:slider&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/seeking/seqSeek.htm" FEATURES="top=50,left=50,height=600,width=600,status=0"></IMG></A></DIV><H2><A NAME="tools_for_seeking"></A>Tools for Seeking</H2><p>There are a number of HTML+TIME components that can be used in markup or in script to facilitate seeking on time elements. The following table lists some of these components.</p><table class="clsStd"><tr><th>Component Name</th><th>Description</th></tr><tr><td><A HREF="../time2/methods/seeksegmenttime.html">seekSegmentTime</A></td><td>A method that locates the specified point on the element's segment time line and begins playing from that point. The segment consists of one repetition of the time line including reverse play using the <A HREF="../time2/properties/autoreverse.html">AUTOREVERSE</A> attribute.</td></tr><tr><td><A HREF="../time2/methods/seekto.html">seekTo</A></td><td>A method similar to the <B>seekSegmentTime</B> method except that if there are multiple repetitions of the active time, you can specify which repetition of the time line to use.</td></tr><tr><td><A HREF="../time2/methods/seekactivetime.html">seekActiveTime</A></td><td>A method that locates a specified point on the element's active time line and begins playing from that point. This active time line includes all segment repetitions.</td></tr><tr><td><A HREF="../time2/methods/seektoframe.html">seekToFrame</A></td><td>A method that locates a specified frame in the object. This only applies to media types that have frames such as video files.</td></tr><tr><td><A HREF="../time2/events/onseek.html">onseek</A></td><td>An event that fires whenever a seek operation is performed on the element.</td></tr><tr><td><A HREF="../time2/properties/canseek.html">canSeek</A></td><td>A property that retrieves a value that indicates whether the media file is capable of locating a specific time in the media's duration.</td></tr></table><p>The <B>seekSegmentTime</B>, <B>seekTo</B>, and <B>seekActiveTime</B> methods all use seconds as the parameter to determine when in a time element's time line to seek to.
+The differences among the methods lie in how they handle repetitions of the time line. The following example shows a simple animation that repeats five times with an  <B>AUTOREVERSE</B> attribute value of <SPAN CLASS="clsLiteral">true</SPAN>. Three slider bars are provided to allow you to use the <B>seekSegmentTime</B>, <B>seekTo</B>, or  <B>seekActiveTime</B> method to seek on the animation of a time element. </p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/seeking/seekMethods.htm" FEATURES="top=50,left=50,height=600,width=700,status=0,scrollbars=yes"></IMG></A></DIV><p>Rather than using time in seconds as the parameter to determine where in the time line to seek to, the  <B>seekToFrame</B> method uses the number of frames to determine where to jump to. While the first group of methods can be used on all seekable media, the <B>seekToFrame</B> method can only be used on media types that have frames such as video files. The following shows an example of using the <B>seekToFrame</B> method to seek within the time line of video playback.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function doSeekToFrame(){
+//If you attempt to seek to a time on an object that is not currently
+//active, an error is generated. To prevent this, check the object's
+//status using the isActive property.
+//Is media object active?
+//Yes, continue and do seek.
+//No, restart element using the beginElement method.
+if(!oMedia.currTimeState.isActive){
+oMedia.beginElement();
+}
+//Is user input valid and within the media's duration boundaries?
+//Video has a total of 597 frames.
+if(isFinite(seekFrame.value) &amp;&amp; seekFrame.value &gt;= 1 &amp;&amp; seekFrame.value &lt; 598){
+oMedia.seekToFrame(seekFrame.value);
+}
+else
+{
+//Input is not valid, alert user to re-enter choice.
+alert("Please enter a valid integer. Possible values are 1 to 597 inclusive.");
+seekFrame.value = "";
+seekFrame.focus();
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;B&gt;Media timer:&lt;/B&gt;
+&lt;SPAN id="Timer2" class="time" dur=".01" repeatCount="indefinite" fill="hold" onrepeat="innerText=parseInt(oMedia.currTimeState.activeTime);"&gt;0&lt;/SPAN&gt;
+&lt;t:video style="width:175px; height:150px;" id="oMedia" src="movie.avi"/&gt;
+Current frame:
+&lt;SPAN id="oCurrFrame" class="time" dur="0.01" repeatCount="indefinite"
+fill="hold" onrepeat="innerText=parseInt(oMedia.currentFrame);"&gt;&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;B&gt;Frame to seek to&lt;/B&gt;:
+&lt;INPUT type="text" value="" name="seekFrame" size="3"/&gt;&amp;nbsp;seconds
+&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON id="seekBtn" onClick="doSeekToFrame();"&gt;Click to seek&lt;/BUTTON&gt;&amp;nbsp;
+&lt;BUTTON onClick="oMedia.beginElement()"&gt;Restart&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/seekToFrame.htm" FEATURES="top=50,left=50,height=540,width=530,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;If you attempt to seek to a time on an object that is not currently active, an error is generated. To prevent this, check the object's status using the <A HREF="../time2/properties/isactive.html">isActive</A> property, which is demonstrated in the preceding example.</DIV><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="time2_entry.html">HTML+TIME 2.0 Reference</A></LI></UL><info><product rid="prod_IE" minver="5.5"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="5.5"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendBehaviors=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+collFriendMethods=new Array(
+'navigate'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'httpFolder'
+);
+
+sStyle=
+'#ohttpFolder {behavior:url(#default#httpFolder);}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'function rdl_Navigate(){\n'+
+'var sValue=oFolderName.value;\n'+
+'var sFolder=sValue.substring(0,sValue.lastIndexOf("/"));\n'+
+'idCodeDiv.innerHTML=oHttpFolder.navigateFrame(sFolder,"_top");\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<input id=oFolderName type=text size=40 value="http://www.dhtmlet.com/"><br><br>\n'+
+'<input type=button id=oHttpFolder class=httpFolder onclick = "rdl_Navigate()" value=" 查看目录视图 "><br><br>\n'+
+'<div id=idCodeDiv>请确认输入框内的url地址然后点击按钮。</div>\n';
+
+iWinWidth=380;
+
+iWinHeight=260;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>navigateFrame</span>版本：DHTML Object Model　返回值：有</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>sRetVal</i><b> ＝ </b><i> Object </i><b>.navigateFrame ( </b><i>sHTTP</i><b> , </b><i>sTarget</i><b> ) </b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> sHTTP </i></td><td nowrap><b>: </b></td><td>必选项。字符串(String)。任何正确的 HTTP 地址。 </td></tr>
+<tr><td nowrap><i> sTarget </i></td><td nowrap><b>: </b></td><td>必选项。字符串(String)。
+<table>
+<tr><td nowrap><b> sName </b></td><td nowrap><b>: </b></td>
+<td>指定目标窗口(框架)的名字。</td></tr>
+<tr><td nowrap><b> _self </b></td><td nowrap><b>: </b></td>
+<td>在当前窗口中打开。</td></tr>
+<tr><td nowrap><b> _top </b></td><td nowrap><b>: </b></td>
+<td>在所有框架之外的最顶层窗口中打开。假如当前窗口无框架结构，此参数值等同于<b> _self </b>。</td></tr>
+</table>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap><i> sRetVal </i></td><td nowrap><b>: </b></td><td>字符串(String)。如果成功返回<b> OK </b>。如果不成功返回错误信息。 </td></tr>
+</table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+导航窗口或框架到指定的地址并用文件夹视图方式显示目录内容。
+
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

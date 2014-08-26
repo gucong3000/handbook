@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Alpha'
+);
+
+collFriendProperties=new Array(
+'opacity','finishOpacity','startX','startY','finishX','finishY'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Alpha'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#000000;color:#FFFFFF;padding:4px;filter:progid:DXImageTransform.Microsoft.Alpha();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n'+
+'input{padding:1px 4px 0px 4px;letter-spacing:1px;}\n'
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.Alpha(style=bStyle);";\n'+
+'function rdl_change(e){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'with (document.all("idSel")) var sValue=options[selectedIndex].value;\n'+
+'oDiv.filters[0].Style=parseInt(sValue);\n'+
+'oCodeDiv.innerHTML=sFilter.replace(/bStyle/g,sValue);\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_fruit.gif" style="float:left;">请从下方选择滤镜效果。<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="0">---Style---\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="3">3\n'+
+'<option value="0">0\n'+
+'<\/select>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Alpha();<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>style | Style</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/alpha.html">Alpha</a> ( style</b> = <i>iStyle</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/alpha.html">Alpha</a>').Style = </b><i>iStyle</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> iStyle </i></td><td nowrap><b>: </b></td><td>
+整数值(Integer)。<span class=cssDefault><b>0</b></span> | <b>1</b> | <b>2</b> | <b>3</b>
+<table>
+<tr><td nowrap><b> 0 </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。整体透明度。将<a href="../properties/opacity.html"> Opacity </a>值均匀的作用于对象。</td></tr>
+<tr><td nowrap><b> 1 </b></td><td nowrap><b>: </b></td><td>线性渐变透明度。从由<a href="../properties/startx.html"> StartX </a>和<a href="../properties/starty.html"> StartY </a>决定的点，由<a href="../properties/opacity.html"> Opacity </a>决定的透明度开始，到由<a href="../properties/finishx.html"> FinishX </a>和<a href="../properties/finishy.html"> FinishY </a>决定的点，由<a href="../properties/finishopacity.html"> FinishOpacity</a>决定的透明度结束。
+</td></tr>
+<tr><td nowrap><b> 2 </b></td><td nowrap><b>: </b></td><td>圆形放射渐变透明度。圆形放射区域的圆心为对象的中心，圆周到与对象的边相切为止。透明渐变由圆心开始，到圆周结束。开始透明度由<a href="../properties/opacity.html"> Opacity </a>决定，结束透明度由<a href="../properties/finishopacity.html"> FinishOpacity </a>决定。</td></tr>
+<tr><td nowrap><b> 3 </b></td><td nowrap><b>: </b></td><td>矩形放射渐变透明度。由对象的边开始，到对象的中心结束。开始透明度由<a href="../properties/opacity.html"> Opacity </a>决定，结束透明度由<a href="../properties/finishopacity.html"> FinishOpacity </a>决定。
+</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索透明渐变的样式。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

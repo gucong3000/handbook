@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>INPUT type=hidden 元素 | input type=hidden</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="INPUT_checkbox.html" title="INPUT type=file 元素 | input type=file 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>INPUT type=file 元素 | input type=file 对象</A> <A HREF="INPUT_image.html" title="INPUT type=image 元素 | input type=image 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>INPUT type=image 元素 | input type=image 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>INPUT type=hidden 元素 | input type=hidden 对象</H1>
+<HR SIZE="1"><P>传输关于客户/服务器交互的状态信息。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>input type=hidden</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P>
+</DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">标签属性/属性</P>
+<DIV tabName="标签属性/属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH width=52>标签属性</TH><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/atomicSelection.html">ATOMICSELECTION</A></TD>
+<TD><A HREF="../properties/atomicSelection.html"></A></TD>
+<TD>指定<span replace="1">元素</span>及其内容是否可以一不可见单位统一选择。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/begin.html">BEGIN</A></TD>
+<TD><A HREF="../time2/properties/begin.html">begin</A></TD>
+<TD>设置或获取时间线在该元素上播放前的延迟时间。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/canHaveHTML.html"></A></TD>
+<TD><A HREF="../properties/canHaveHTML.html">canHaveHTML</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否可以包含丰富的 HTML 标签的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/className.html">CLASS</A></TD>
+<TD><A HREF="../properties/className.html">className</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的类。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dataFld.html">DATAFLD</A></TD>
+<TD><A HREF="../properties/dataFld.html">dataFld</A></TD>
+<TD>设置或获取由 <A HREF="../properties/dataSrc.html">dataSrc</A> 属性指定的绑定到指定对象的给定数据源的字段。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/dataSrc.html">DATASRC</A></TD>
+<TD><A HREF="../properties/dataSrc.html">dataSrc</A></TD>
+<TD>设置或获取用于数据绑定的数据源。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/defaultValue.html"></A></TD>
+<TD><A HREF="../properties/defaultValue.html">defaultValue</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的初始内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/end.html">END</A></TD>
+<TD><A HREF="../time2/properties/end.html">end</A></TD>
+<TD>设置或获取表明元素结束时间的值，或者元素设置为重复的简单持续终止时间。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/form.html"></A></TD>
+<TD><A HREF="../properties/form.html">form</A></TD>
+<TD>获取对象所在表单的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/hasMedia.html"></A></TD>
+<TD><A HREF="../time2/properties/hasMedia.html">hasMedia</A></TD>
+<TD>获取一个表明元素是否为 <A HREF="../../../behaviors/time.html">HTML+TIME</A> 媒体元素的 Boolean 值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/hideFocus.html">HIDEFOCUS</A></TD>
+<TD><A HREF="../properties/hideFocus.html">hideFocus</A></TD>
+<TD>设置或获取表明<span replace="1">对象</span>是否显式标明焦点的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/id.html">ID</A></TD>
+<TD><A HREF="../properties/id.html">id</A></TD>
+<TD>获取标识<span replace="1">对象</span>的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isContentEditable.html"></A></TD>
+<TD><A HREF="../properties/isContentEditable.html">isContentEditable</A></TD>
+<TD>获取表明用户是否可编辑<span replace="1">对象</span>内容的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isDisabled.html"></A></TD>
+<TD><A HREF="../properties/isDisabled.html">isDisabled</A></TD>
+<TD>获取表明用户是否可与该<span replace="1">对象</span>交互的值。</TD>
+</TR>
+<TR>
+<TD><A href="../properties/ismultiline.html"></A></TD>
+<TD><A href="../properties/ismultiline.html">isMultiLine</A></TD>
+<TD>获取表明<span replace="1">对象</span>的内容是包含一行还是多行的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/isTextEdit.html"></A></TD>
+<TD><A HREF="../properties/isTextEdit.html">isTextEdit</A></TD>
+<TD>获取是否可使用该对象创建一个 <A HREF="obj_TextRange.html">TextRange</A> <span replace="1">对象</span>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lang.html">LANG</A></TD>
+<TD><A HREF="../properties/lang.html">lang</A></TD>
+<TD>设置或获取要使用的语言。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/language.html">LANGUAGE</A></TD>
+<TD><A HREF="../properties/language.html">language</A></TD>
+<TD>设置或获取当前脚本编写用的语言。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/name_2.html">NAME</A></TD>
+<TD><A HREF="../properties/name_2.html">name</A></TD>
+<TD>设置或获取对象的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nextSibling.html"></A></TD>
+<TD><A HREF="../properties/nextSibling.html">nextSibling</A></TD>
+<TD>获取对此对象的下一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeName.html"></A></TD>
+<TD><A HREF="../properties/nodeName.html">nodeName</A></TD>
+<TD>获取特定结点类型的名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeType.html"></A></TD>
+<TD><A HREF="../properties/nodeType.html">nodeType</A></TD>
+<TD>获取所需结点的类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/nodeValue.html"></A></TD>
+<TD><A HREF="../properties/nodeValue.html">nodeValue</A></TD>
+<TD>设置或获取结点的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/offsetParent.html"></A></TD>
+<TD><A HREF="../properties/offsetParent.html">offsetParent</A></TD>
+<TD>获取定义对象 <A HREF="../properties/offsetTop.html">offsetTop</A> 和 <A HREF="../properties/offsetLeft.html">offsetLeft</A> 属性的容器对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/outerHTML.html"></A></TD>
+<TD><A HREF="../properties/outerHTML.html">outerHTML</A></TD>
+<TD>设置或获取<span replace="1">对象</span>及其内容的 HTML 形式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/outerText.html"></A></TD>
+<TD><A HREF="../properties/outerText.html">outerText</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentElement.html"></A></TD>
+<TD><A HREF="../properties/parentElement.html">parentElement</A></TD>
+<TD>获取对象层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentNode.html"></A></TD>
+<TD><A HREF="../properties/parentNode.html">parentNode</A></TD>
+<TD>获取文档层次中的父对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/parentTextEdit.html"></A></TD>
+<TD><A HREF="../properties/parentTextEdit.html">parentTextEdit</A></TD>
+<TD>获取文档层次中可用于创建包含原始<span replace="1">对象</span>的 <B>TextRange</B> 的容器对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/previousSibling.html"></A></TD>
+<TD><A HREF="../properties/previousSibling.html">previousSibling</A></TD>
+<TD>获取对此对象的上一个兄弟对象的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/readyState_1.html"></A></TD>
+<TD><A HREF="../properties/readyState_1.html">readyState</A></TD>
+<TD>获取表明<span replace="1">对象</span>当前状态的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/recordNumber.html"></A></TD>
+<TD><A HREF="../properties/recordNumber.html">recordNumber</A></TD>
+<TD>获取数据集中生成<span replace="1">对象</span>的原始记录。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scopeName.html"></A></TD>
+<TD><A HREF="../properties/scopeName.html">scopeName</A></TD>
+<TD>获取为该元素定义的<A HREF="/library/en-us/xmlsdk30/htm/xmtuttut5usingnamespaces.html">命名空间</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/sourceIndex.html"></A></TD>
+<TD><A HREF="../properties/sourceIndex.html">sourceIndex</A></TD>
+<TD>获取<span replace="1">对象</span>在源序中的依次位置，即<span replace="1">对象</span>出现在 document 的 <A HREF="../collections/all.html">all</A> 集合中的顺序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/style.html">STYLE</A></TD>
+<TD><A HREF="../properties/style.html"></A></TD>
+<TD>为该设置<span replace="1">元素</span>设置内嵌样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/syncMaster.html">SYNCMASTER</A></TD>
+<TD><A HREF="../time2/properties/syncMaster.html">syncMaster</A></TD>
+<TD>设置或获取时间容器是否必须在此元素上同步回放。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/systemBitrate.html">SYSTEMBITRATE</A></TD>
+<TD><A HREF="../time2/properties/systemBitrate.html"></A></TD>
+<TD>获取系统中大约可用带宽的 bps。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/systemCaptions.html">SYSTEMCAPTION</A></TD>
+<TD><A HREF="../time2/properties/systemCaptions.html"></A></TD>
+<TD>表明是否要显示文本来代替演示的的音频部分。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/systemLanguage.html">SYSTEMLANGUAGE</A></TD>
+<TD><A HREF="../time2/properties/systemLanguage.html"></A></TD>
+<TD>表明是否在用户计算机上的选项设置中选中了给定语言。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/systemOverdubOrSubtitle.html">SYSTEMOVERDUBORSUBTITLE</A></TD>
+<TD><A HREF="../time2/properties/systemOverdubOrSubtitle.html"></A></TD>
+<TD>指定针对那些正在观看演示但对被播放的音频所使用的语言并不熟悉的用户来说是否要渲染<B>配音</B>或<B>字幕</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tagName.html"></A></TD>
+<TD><A HREF="../properties/tagName.html">tagName</A></TD>
+<TD>获取<span replace="1">对象</span>的标签名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tagUrn.html"></A></TD>
+<TD><A HREF="../properties/tagUrn.html">tagUrn</A></TD>
+<TD>设置或获取在命名空间声明中指定的统一资源名称(URN)。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/properties/timeContainer.html">TIMECONTAINER</A></TD>
+<TD><A HREF="../time2/properties/timeContainer.html">timeContainer</A></TD>
+<TD>设置或获取与元素关联的时间线类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/type_7.html">TYPE</A></TD>
+<TD><A HREF="../properties/type_7.html">type</A></TD>
+<TD>获取或初始设置<span replace="1">对象</span>所代表的 <A HREF="INPUT.html">input</A> 控件类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/uniqueID.html"></A></TD>
+<TD><A HREF="../properties/uniqueID.html">uniqueID</A></TD>
+<TD>获取为<span replace="1">对象</span>自动生成的唯一标识符。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/unselectable.html">UNSELECTABLE</A></TD>
+<TD><A HREF="../properties/unselectable.html"></A></TD>
+<TD>指定该元素不可被选中。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/value_1.html">VALUE</A></TD>
+<TD><A HREF="../properties/value_1.html">value</A></TD>
+<TD>获取控件的默认或选中值。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">行为</P>
+<DIV tabName="行为" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>行为</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../behaviors/clientcaps.html">clientCaps</A></TD>
+<TD>提供关于 Internet Explorer 支持的特性的信息，以及提供即用即装的方法。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/download.html">download</A></TD>
+<TD>下载文件并在下载完成后通知一个指定的回调函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/homepage.html">homePage</A></TD>
+<TD>包含关于用户主页的信息。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/httpFolder.html">httpFolder</A></TD>
+<TD>包含了允许浏览导航的文件夹视图的脚本特性。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/saveFavorite.html">saveFavorite</A></TD>
+<TD>允许<span replace="1">对象</span>在收藏夹中留存数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/saveHistory.html">saveHistory</A></TD>
+<TD>允许<span replace="1">对象</span>在浏览器历史中留存数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/saveSnapshot.html">saveSnapshot</A></TD>
+<TD>允许<span replace="1">对象</span>在 Web 页保存时留存数据。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time/behaviors/time.html">time</A></TD>
+<TD>为 HTML 元素提供一个活动的时间线。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/behaviors/time2.html">time2</A></TD>
+<TD>为 HTML 元素或一组元素提供一个活动的时间线。</TD>
+</TR>
+<TR>
+<TD><A HREF="../behaviors/userData.html">userData</A></TD>
+<TD>允许<span replace="1">对象</span>在用户数据中留存数据。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">集合</P>
+<DIV tabName="集合" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>集合</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../collections/attributes.html">attributes</A></TD>
+<TD>获取对象标签属性的集合。</TD>
+</TR>
+<TR>
+<TD><A HREF="../collections/behaviorUrns.html">behaviorUrns</A></TD>
+<TD>返回标识附加到该<span replace="1">元素</span>行为的统一资源名称(URN)字符串的集合。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">事件</P>
+<DIV tabName="事件" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>事件</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../events/onactivate.html">onactivate</A></TD>
+<TD>当<span replace="1">对象</span>设置为<A HREF="../properties/activeElement.html">活动元素</A>时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onafterupdate.html">onafterupdate</A></TD>
+<TD>当成功更新数据源对象中的关联对象后在数据绑定对象上触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onbeforedeactivate.html">onbeforedeactivate</A></TD>
+<TD>在 <A HREF="../properties/activeElement.html">activeElement</A> 从当前<span replace="1">对象</span>变为父文档其它对象之前立即触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onbeforeeditfocus.html">onbeforeeditfocus</A></TD>
+<TD>在包含于可编辑元素内的对象进入<SPAN CLASS="clsGLossary" title="被用户或方法所选中的显示的内容，以便可输入文本。激活区域通常被虚线包围。当用户按 Enter 键、单击拥有焦点的对象或双击对象时可导致对象进入用户界面(UI)激活状态。要以用户界面激活状态放置对象，文档或包含该对象的元素必须处于编辑模式。用户界面激活的对象也是当前对象。">用户界面激活</SPAN>状态前或可编辑容器变成<SPAN CLASS="clsGlossary" title="显示用户选中的内容和缩放句柄。可使用对象的方法获取并修改选中区的 HTML 文本。元素的例子为选中包括图像、表格和任意绝对定位的元素中的控件。">控件选中区</SPAN>前触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onbeforeupdate.html">onbeforeupdate</A></TD>
+<TD>当成功更新数据源对象中的关联对象前在数据绑定对象上触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/oncontrolselect.html">oncontrolselect</A></TD>
+<TD>当用户将要对该<span replace="1">对象</span>制作一个<SPAN CLASS="clsGlossary" title="显示用户选中的内容和缩放句柄。可使用对象的方法获取并修改选中区的 HTML 文本。元素的例子为选中包括图像、表格和任意绝对定位的元素中的控件。">控件选中区</SPAN>时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/ondeactivate.html">ondeactivate</A></TD>
+<TD>当 <B>activeElement</B> 从当前<span replace="1">对象</span>变为父文档其它对象时触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onerrorupdate.html">onerrorupdate</A></TD>
+<TD>更新数据源对象中的关联数据出错时在数据绑定对象上触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onfocus.html">onfocus</A></TD>
+<TD>当<span replace="1">对象</span>获得焦点时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onlosecapture.html">onlosecapture</A></TD>
+<TD>当<span replace="1">对象</span>失去鼠标捕捉时触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onmove.html">onmove</A></TD>
+<TD>当<span replace="1">对象</span>移动时触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onmoveend.html">onmoveend</A></TD>
+<TD>当<span replace="1">对象</span>停止移动时触发。</TD>
+</TR>
+<TR>
+<TD><A href="../events/onmovestart.html">onmovestart</A></TD>
+<TD>当<span replace="1">对象</span>开始移动时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onpropertychange.html">onpropertychange</A></TD>
+<TD>当在对象上发生<span replace="1">对象</span>上发生属性更改时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onreadystatechange.html">onreadystatechange</A></TD>
+<TD>当<span replace="1">对象</span>状态变更时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onresizeend.html">onresizeend</A></TD>
+<TD>当用户更改完控件选中区中<span replace="1">对象</span>的尺寸时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../events/onresizestart.html">onresizestart</A></TD>
+<TD>当用户开始更改控件选中区中<span replace="1">对象</span>的尺寸时触发。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time2/events/ontimeerror.html">ontimeerror</A></TD>
+<TD>当特定时间错误发生时无条件触发，通常由将属性设置为无效值导致。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/addBehavior.html">addBehavior</A></TD>
+<TD>给<span replace="1">元素</span>附加一个<A HREF="../../../behaviors/overview.html">行为</A>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/applyElement.html">applyElement</A></TD>
+<TD>使得<span replace="1">元素</span>成为其它元素的子元素或父元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/attachEvent.html">attachEvent</A></TD>
+<TD>将指定函数绑定到事件，以便每当该事件在对象上触发时都调用该函数。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/clearAttributes.html">clearAttributes</A></TD>
+<TD>从<span replace="1">对象</span>中删除全部标签属性和值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/cloneNode.html">cloneNode</A></TD>
+<TD>从文档层次中复制对<span replace="1">对象</span>的引用。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/componentFromPoint.html">componentFromPoint</A></TD>
+<TD>通过特定事件返回对象在指定坐标下的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/createTextRange.html">createTextRange</A></TD>
+<TD>为<span replace="1">元素</span>创建一个 <B>TextRange</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/detachEvent.html">detachEvent</A></TD>
+<TD>从事件中取消指定函数的绑定，这样当事件触发时函数就不会收到通知了。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/fireEvent.html">fireEvent</A></TD>
+<TD>触发<span replace="1">对象</span>的指定事件。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAdjacentText.html">getAdjacentText</A></TD>
+<TD>返回邻接文本字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttribute.html">getAttribute</A></TD>
+<TD>获取指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getAttributeNode.html">getAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>获取由 <B>attribute</B>.<A HREF="../properties/name_2.html">name</A> 属性引用的 <A HREF="attribute.html">attribute</A> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getExpression.html">getExpression</A></TD>
+<TD>获取给定属性的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertAdjacentElement.html">insertAdjacentElement</A></TD>
+<TD>在指定位置插入元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertAdjacentHTML.html">insertAdjacentHTML</A></TD>
+<TD>在指定位置的元素中插入给定的 HTML 文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/insertAdjacentText.html">insertAdjacentText</A></TD>
+<TD>在指定位置插入给定的文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/mergeAttributes.html">mergeAttributes</A></TD>
+<TD>复制所有读/写标签属性到指定元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/normalize.html">normalize</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>合并邻接 <A HREF="TextNode.html">TextNode</A> 对象以便生成一个常规的文档对象模型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/releaseCapture.html">releaseCapture</A></TD>
+<TD>释放当前文档中<span replace="1">对象</span>的鼠标捕捉。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeAttribute.html">removeAttribute</A></TD>
+<TD>删除<span replace="1">对象</span>的给定标签属性。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeAttributeNode.html">removeAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>从对象中删除删除 <B>attribute</B> 对象。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeBehavior.html">removeBehavior</A></TD>
+<TD>分离<span replace="1">元素</span>的<B>行为</B>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeChild.html">removeChild</A></TD>
+<TD>从元素上删除子结点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/removeExpression.html">removeExpression</A></TD>
+<TD>从指定属性中删除表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceAdjacentText.html">replaceAdjacentText</A></TD>
+<TD>替换元素的邻接文本。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/replaceChild.html">replaceChild</A></TD>
+<TD>用新的子元素替换已有的子元素。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setActive.html">setActive</A></TD>
+<TD>设置<span replace="1">对象</span>为当前对象而不将对象置为焦点。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttribute.html">setAttribute</A></TD>
+<TD>设置指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttributeNode.html">setAttributeNode</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD>设置 <B>attribute</B> 对象为对象的一部分。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setCapture.html">setCapture</A></TD>
+<TD>设置属于当前文档的<span replace="1">对象</span>的鼠标捕捉。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setExpression.html">setExpression</A></TD>
+<TD>设置指定对象的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/swapNode.html">swapNode</A></TD>
+<TD>交换文档层次中两个对象的位置。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">对象</P>
+<DIV tabName="对象" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>对象</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="runtimeStyle.html">runtimeStyle</A></TD>
+<TD>代表了居于全局样式表、内嵌样式和 HTML 标签属性指定的格式和样式之上的<span replace="1">对象</span>的格式和样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="obj_style.html">style</A></TD>
+<TD>代表了给定元素所有可能的内嵌样式的当前设置。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">样式</P>
+<DIV tabName="样式" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>样式标签属性</TH><TH>样式属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD>设置或获取 <B>DHTML 行为</B>的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/hasLayout.html"></A></TD>
+<TD><A HREF="../properties/hasLayout.html">hasLayout</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否有布局的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutFlow.html">layout-flow</A></TD>
+<TD><A HREF="../properties/layoutFlow.html">layoutFlow</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容的方向和绕排方向。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAutospace.html">text-autospace</A></TD>
+<TD><A HREF="../properties/textAutospace.html">textAutospace</A></TD>
+<TD>设置或获取自动留空和文本的窄空间宽度调整。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textUnderlinePosition.html">text-underline-position</A></TD>
+<TD><A HREF="../properties/textUnderlinePosition.html">textUnderlinePosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性中设置的下划线的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wordWrap.html">word-wrap</A></TD>
+<TD><A HREF="../properties/wordWrap.html">wordWrap</A></TD>
+<TD>设置或获取当内容超过其容器边界时是否断词。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的放大比例。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>这种输入类型用户无法控制，但是却在提交表单时发送 <A HREF="../properties/value_3.html">value</A> 属性的值。</P>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的 HTML 和脚本中可用。</P>
+<P>此元素不会被渲染。</P>
+<P>此元素不需要关闭标签。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="INPUT.html">input</A>, <A HREF="INPUT_submit.html">input type=submit</A></BLOCKQUOTE>
+</BODY>
+</HTML>

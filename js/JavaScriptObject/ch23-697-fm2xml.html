@@ -1,0 +1,157 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-692-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-704-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-697-fm2xml"></A><A NAME="IXT-23-55355"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>parseFloat(  )</i></b></td>
+
+<td align="right"><i>把字符串转换成数字</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.0; JScript 1.0; ECMAScript v1 </P><A NAME="ch23-698-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>parseFloat(<TT><I>s</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-699-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<A NAME="IXT-23-55355"></A><DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>s</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要被解析并转换成数字的字符串。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-700-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">解析后的数字，如果字符串s没有以一个有效的数字开头，则返回NaN。在JavaScript
+    1.0中，当s不能被解析成数字时，parseFloat()返回的是0而不是NaN。</P>
+
+
+
+
+
+<A NAME="ch23-701-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法parseFloat()将对字符串s进行解析，返回出现在s中的第一个数字。当parseFloat()在s中遇到了一个不是有效数字的字符时，解析过程就停止了，解析的结果也将在此时返回。如果s的开头是一个parseFloat()不能解析的数字，该函数将返回NaN。可以用函数isNaN()来检测这个值。如果只想解析数字的整数部分，则使用parseInt()方法而不是parseFloat()方法。</P>
+
+
+
+<A NAME="ch23-702-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText">NaN不受JavaScript 1.0的支持，所以在该版本中，当它不能解析s时，parseFloat()返回零。这意味着在JavaScript 1.0中，如果parseFloat()的返回值为0，必须对s
+  执行额外的测试，以决定它表示为零还是根本不表示任何数。</P>
+
+
+
+<A NAME="ch23-703-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-463-fm2xml.html#ch23-463-fm2xml">isNaN(  )</A>, <A class="docLink" HREF="ch23-704-fm2xml.html#ch23-704-fm2xml">parseInt(  )</A> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-692-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-704-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

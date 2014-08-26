@@ -1,0 +1,124 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>onreset</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if(typeof(SetExpandableCaption) == 'function' && typeof(pEvents) != 'undefined') SetExpandableCaption(pEvents, 'Show Available Properties', true);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>onreset Event
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Fires when the user resets a form. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd" CELLSPACING="0"><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Inline HTML</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">&lt;FORM
+<B>onreset</B> = "<I>handler</I>" ... &gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">All platforms</TD></TR><TR><TH ROWSPAN="2" STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Event property</TH><TD NOWRAP="1" STYLE="border-right: 2px solid white">FORM.<B>onreset</B> = <I>handler</I></TD><TD>JScript only</TD></TR><TR><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">FORM.<B>onreset</B> = GetRef("<I>handler</I>")</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Visual Basic Scripting Edition (VBScript) 5.0 or later only</TD></TR><TR><TH STYLE="border-bottom: 2px solid white; border-right: 2px solid white">Named script</TH><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">
+&lt;<SPAN CLASS="clsLiteral">SCRIPT FOR</SPAN> =
+FORM<SPAN CLASS="clsLiteral"> EVENT</SPAN> = <B>onreset</B>&gt;
+</TD><TD STYLE="border-bottom: 2px solid white; border-right: 2px solid white" NOWRAP="1">Internet Explorer only</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Event Information</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>Bubbles</TH><TD>No</TD></TR><TR><TH>Cancels</TH><TD>Yes</TD></TR><TR><TH>To invoke</TH><TD><UL STYLE="margin-top:5px"><LI>Click a <A HREF="../objects/input_reset.html">input type=reset</A> button. </LI><LI>Invoke the <A HREF="../methods/reset.html">reset</A> method of the <A HREF="../objects/form.html">form</A> object. </LI></UL></TD></TR><TR><TH>Default action</TH><TD>
+Executes associated code. </TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">
+Event Object Properties</P><BLOCKQUOTE><P>Although event handlers in the DHTML Object Model do not receive parameters directly, a handler can query an <A HREF="../objects/obj_event.html">event</A> object for data.</P><P><A ID="pEvents" CHILD="divEvtProp" onselectstart="return true;" onclick="ShowHideSection(this, 'Available Properties')">Available Properties</A></P><DIV ID="divEvtProp" CLASS="clsCollapsed"><TABLE CLASS="clsStd"><TR><TH><A HREF="../properties/altkey.html">altKey</A></TH><TD>
+Sets or retrieves a value that indicates the state of the ALT key. </TD></TR><TR><TH><A HREF="../properties/altleft.html">altLeft</A></TH><TD>
+Sets or retrieves a value that indicates the state of the left ALT key.</TD></TR><TR><TH><A HREF="../properties/ctrlleft.html">ctrlLeft</A></TH><TD>
+Sets or retrieves the state of the left CTRL key.
+</TD></TR><TR><TH><A HREF="../properties/returnvalue_1.html">returnValue</A></TH><TD>
+Sets or retrieves the return value from the event. </TD></TR><TR><TH><A HREF="../properties/shiftleft.html">shiftLeft</A></TH><TD>
+Retrieves the state of the left SHIFT key.
+</TD></TR><TR><TH><A HREF="../properties/srcelement.html">srcElement</A></TH><TD>
+Sets or retrieves the object that fired the event. </TD></TR><TR><TH><A HREF="../properties/type_4.html">type</A></TH><TD>
+Sets or retrieves the event name from the event object. </TD></TR></TABLE></DIV></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates how to use the <B>onreset</B> event for a <B>form</B> object. Reset the form by clicking the first or second button.  The only difference between the two buttons is that the second button invokes the <B>reset</B> method of the <B>form</B> object and the first button is of <A HREF="../objects/input_reset.html">input type=reset</A>. When either button is pressed the <B>form</B> is reset, resulting in the <B>onreset</B> event call on the <B>form</B> object. The <B>onreset</B> event calls an event handler which in turn adds the text <SPAN CLASS="clsLiteral">Resetting form.</SPAN> to the text area below.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;SCRIPT&gt;
+function doReset(){
+oTextArea1.innerText += "Resetting form.  ";
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;FORM name="form1" onreset="doReset();"
+&lt;B&gt;Form&lt;/B&gt;&lt;BR&gt;
+style="border:2px solid #cccccc; background:#EEEEEE; padding:10px; "&gt;
+&lt;b&gt;Enter some text:&lt;/b&gt;
+&lt;INPUT type="text" name="oText1" value=""&gt;&lt;BR&gt;&lt;BR&gt;
+&lt;INPUT TYPE="reset" value="Input type=reset"/&gt;
+&lt;BUTTON onclick="form.reset();"&gt;form.reset()&lt;/BUTTON&gt;
+&lt;/FORM&gt;
+&lt;B&gt;Form status&lt;/B&gt;&lt;BR&gt;
+&lt;SPAN id="oTextArea1" &gt;&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON onclick="location.reload(true);"&gt;Refresh Page&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank" FEATURES="top=25px,left=25px,height=500px,width=740px,statusbar=yes,resizable=1,scrollbars=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This event is defined in <A HREF="http://www.w3.org/tr/rec-html40/" TARGET="_top">
+HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/form.html">
+FORM</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/reset.html">reset</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

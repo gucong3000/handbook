@@ -1,0 +1,348 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1>关于<span>Viewlink</span>样式的继承</h1>
+		<hr>
+		<p>本文根据层叠样式表<span>(CSS)</span>的属性在<span>Viewlink</span>组件的文档内容中是否可以继承的区别，对这些属性进行了组织和区分。在主文档中定义的<span>CSS</span>属性是否可以继承，取决于该设置是否可以应用到<span>Viewlink</span>文档片段的内容上。</p>
+		<p>在<span>HTML</span>组件文件中定义了<span>CSS</span>样式属性的元素并不从主文档中继承相关样式定义。同样的，主文档中定义的无法被继承的样式同样无法对文档片段中的<span>HTML</span>起作用。</p>
+		<p><span>CSS</span>样式可以应用到主文档的自定义元素上，同时它们也会继承到文档片段中的<span>HTML</span>上。</p>
+		<p><a href="intrviwlnk.html">《<span>ViewLink</span>简介》</a>一文提供了关于<span>CSS</span>在<span>Viewlink</span>组件中的应用方面更多的信息。</p>
+		<h2><LABEL>Inheritable CSS Styles</LABEL>可继承的<span>CSS</span>样式</h2>
+		<table>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/font.asp"><span>font</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/fontfamily.asp"><span>fontFamily</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/fontsize.asp"><span>fontSize</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/fontstyle.asp"><span>fontStyle</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/fontvariant.asp"><span>fontVariant</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/fontweight.asp"><span>fontWeight</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/linebreak.asp"><span>lineBreak</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/lineheight.asp"><span>lineHeight</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/letterspacing.asp"><span>letterSpacing</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/textalign.asp"><span>textAlign</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/textdecoration.asp"><span>textDecoration</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/textindent.asp"><span>textIndent</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/texttransform.asp"><span>textTransform</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/textautospace.asp"><span>textAutospace</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/textjustify.asp"><span>textJustify</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/unicodebidi.asp"><span>unicodeBidi</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/wordbreak.asp"><span>wordBreak</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/filter/reference/properties/color.asp"><span>Color</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/visibility.asp"><span>visibility</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/behaviors/library/movable/direction.asp"><span>direction</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/cursor.asp"><span>cursor</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/whitespace.asp"><span>whiteSpace</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/wordspacing.asp"><span>wordSpacing</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/writingmode.asp"><span>writingMode</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/wordwrap.asp"><span>wordWrap</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scrollbararrowcolor.asp"><span>scrollbarArrowColor</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scrollbarfacecolor.asp"><span>scrollbarFaceColor</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scrollbar3dlightcolor.asp"><span>scrollbar3dLightColor</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scrollbarshadowcolor.asp"><span>scrollbarShadowColor</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scrollbarhighlightcolor.asp"><span>scrollbarHighlightColor</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/scrollbardarkshadowcolor.asp"><span>scrollbarDarkShadowColor</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/liststyle.asp"><span>listStyle</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/liststyleimage.asp"><span>listStyleImage</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/liststyleposition.asp"><span>listStylePosition</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/liststyletype.asp"><span>listStyleType</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/imemode.asp"><span>imeMode</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/layoutgrid.asp"><span>layoutGrid</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/layoutgridchar.asp"><span>layoutGridChar</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/layoutgridline.asp"><span>layoutGridLine</span></a></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/layoutgridmode.asp"><span>layoutGridMode</span></a></td>
+			</tr>
+			<tr>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/layoutgridtype.asp"><span>layoutGridType</span></a></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<h2><LABEL>Noninheritable CSS Styles</LABEL>不可继承的<span>CSS</span>样式</h2>
+		<table>
+			<tr>
+				<td>行为属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/behavior_1.asp"><span>behavior</span></a></td>
+			</tr>
+			<tr>
+				<td>字体及文本属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/verticalalign.asp"><span>verticalAlign</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/rubyalign.asp"><span>rubyAlign</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/rubyoverhang.asp"><span>rubyOverhang</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/rubyposition.asp"><span>rubyPosition</span></a></td>
+			</tr>
+			<tr>
+				<td>颜色及背景色属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/background_0.asp"><span>background</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/backgroundattachment.asp"><span>backgroundAttachment</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/backgroundcolor.asp"><span>backgroundColor</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/backgroundimage.asp"><span>backgroundImage</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/backgroundposition.asp"><span>backgroundPosition</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/backgroundrepeat.asp"><span>backgroundRepeat</span></a></td>
+			</tr>
+			<tr>
+				<td>布局属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/border_0.asp"><span>border</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderbottom.asp"><span>borderBottom</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderbottomcolor.asp"><span>borderBottomColor</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderbottomstyle.asp"><span>borderBottomStyle</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderbottomwidth.asp"><span>borderBottomWidth</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bordercollapse.asp"><span>borderCollapse</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bordercolor_0.asp"><span>borderColor</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderleft.asp"><span>borderLeft</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderleftcolor.asp"><span>borderLeftColor</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderleftstyle.asp"><span>borderLeftStyle</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderleftwidth.asp"><span>borderLeftWidth</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderright.asp"><span>borderRight</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderrightcolor.asp"><span>borderRightColor</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderrightstyle.asp"><span>borderRightStyle</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderrightwidth.asp"><span>borderRightWidth</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderstyle.asp"><span>borderStyle</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bordertop.asp"><span>borderTop</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bordertopcolor.asp"><span>borderTopColor</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bordertopstyle.asp"><span>borderTopStyle</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bordertopwidth.asp"><span>borderTopWidth</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/borderwidth.asp"><span>borderWidth</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/clear_0.asp"><span>clear</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/float.asp"><span>styleFloat</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/margin.asp"><span>margin</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/marginbottom.asp"><span>marginBottom</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/marginleft.asp"><span>marginLeft</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/marginright.asp"><span>marginRight</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/margintop.asp"><span>marginTop</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/padding.asp"><span>padding</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/paddingbottom.asp"><span>paddingBottom</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/paddingleft.asp"><span>paddingLeft</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/paddingright.asp"><span>paddingRight</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/paddingtop.asp"><span>paddingTop</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/tablelayout.asp"><span>tableLayout</span></a></td>
+			</tr>
+			<tr>
+				<td>分级属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/display.asp"><span>display</span></a></td>
+			</tr>
+			<tr>
+				<td>定位属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/bottom_1.asp"><span>bottom</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/clip.asp"><span>clip</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/height_1.asp"><span>height</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/left.asp"><span>left</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/overflow.asp"><span>overflow</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/overflowx.asp"><span>overflowX</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/overflowy.asp"><span>overflowY</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/position.asp"><span>position</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/right_1.asp"><span>right</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/top_0.asp"><span>top</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/width_2.asp"><span>width</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/zindex.asp"><span>zIndex</span></a></td>
+			</tr>
+			<tr>
+				<td>打印属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/pagebreakafter.asp"><span>pageBreakAfter</span></a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/pagebreakbefore.asp"><span>pageBreakBefore</span></a></td>
+			</tr>
+			<tr>
+				<td>滤镜属性</td>
+				<td><a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/filter.asp"><span>filter</span></a></td>
+			</tr>
+		</table>
+		<h2><LABEL>Related Topics</LABEL>相关主题</h2>
+		<ul>
+			<li><a href="http://msdn.microsoft.com/workshop/author/dhtml/overview/customtags.asp">《在<span>Internet Explorer</span>中使用自定义标签》</a></li>
+			<li><a href="usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/howto/using.asp">《使用<span>DHTML</span>行为》</a></li>
+			<li><a href="htcref.html">《<span>HTC</span>参考》</a></li>
+			<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+			<li><a href="abelebeh.html">《关于元素行为》</a></li>
+			<li><a href="intrviwlnk.html">《<span>ViewLink</span>简介》</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

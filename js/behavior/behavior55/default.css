@@ -1,0 +1,16 @@
+html{overflow:hidden;}
+body{width:100%;height:100%;background-color:#FFFFFF;}
+body,form,hr{margin:0px;padding:0px;}
+body,table,input,textarea,select,button,label,form,legend,fieldSet{
+    font-family:simsun;font-size:12px;line-height:18px;color:#000000;word-break:break-all;text-overflow:ellipsis;
+}
+img{border:0px;}
+
+a{color:#FC6703;text-decoration:none;font-family:simsun;font-size:12px;}
+a:hover{color:#C53334;}
+rs\:paragraph{padding:0px 20px;display:block;}
+rs\:headline{background-color:#696C5B;text-transform:uppercase;color:#FFFFFF;margin:18px 0px;padding:2px 3px 0px 0px;text-align:right;display:block;letter-spacing:2px;}
+rs\:comment,.comment{display:block;line-height:18px;padding:18px 2px;}
+
+.AppName{color:#9A5919;font-family:Verdana;font-size:11px;}
+.Important{color:#8E002E;font-weight:bold;}

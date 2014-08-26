@@ -1,0 +1,79 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="rollOver"
+ urn="ERiW.Snakevil.Product:HTC.attRollOver"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontentready"
+	 onevent="hnContentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="ondblclick"
+	 onevent="hnDblClick()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onclick"
+	 onevent="hnClick()"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+// 事件循环句柄保存变量。
+__hnInterval = null;
+// 行为应用权限。
+__bPermission = false;
+
+/**
+ * oncontentready 事件处理函数。
+ */
+function hnContentReady() {
+	if ("BODY" != element.tagName) {
+		return;
+	}
+	__bPermission = true;
+}
+
+/**
+ * ondblclick 事件处理函数。
+ */
+function hnDblClick() {
+	if (!__bPermission) {
+		return;
+	}
+	if (null != __hnInterval) {
+		return;
+	}
+	__hnInterval = window.setInterval(fnRollOver, 80);
+}
+
+/**
+ * onclick 事件处理函数。
+ */
+function hnClick() {
+	if (!__bPermission) {
+		return;
+	}
+	if (null == __hnInterval) {
+		return;
+	}
+	window.clearInterval(__hnInterval);
+	__hnInterval = null;
+}
+
+/**
+ * 文档向下自动滚动。
+ */
+function fnRollOver() {
+	var oDoc = element.document.body;
+	if (oDoc.scrollHeight <= oDoc.scrollTop + oDoc.clientHeight) {
+		return hnClick();
+	}
+	window.scrollBy(0, 1);
+}
+-->
+</SCRIPT>

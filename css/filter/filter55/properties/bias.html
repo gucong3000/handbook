@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Emboss','Engrave'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'Emboss','Engrave'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;padding:6px;background-color:buttonshadow;position:relative;}\n'+
+'#idDiv{width:80%;height:80px;background-color:#FFD700;padding:6px;position:absolute;z-index:3;left:9px;top:9px;filter:progid:DXImageTransform.Microsoft.Engrave();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.Engrave(Bias=code) ;";\n'+
+'var sCodeEnd="startX=0, startY=0, finishX=100, finishY=100,";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel")) var sValue=options[selectedIndex].value;\n'+
+'with (oDiv.filters[0]) Bias=sValue;\n'+
+'oCodeDiv.innerHTML=sFilter.replace(/code/g,sValue);\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv><img src="../images/rdl_duck.jpg" style="float:left;border:1px solid #000000;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="0.7">---Bias---\n'+
+'<option value="0.3">0.3\n'+
+'<option value="0.7">0.7\n'+
+'<option value="1.0">1.0\n'+
+'<option value="0.1">0.1\n'+
+'<option value="0">0\n'+
+'<option value="-1.0">-1.0\n'+
+'<option value="-0.7">-0.7\n'+
+'<option value="-0.3">-0.3\n'+
+'<\/select>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Engrave() ; <\/div>\n';
+
+
+iWinWidth=450;
+
+iWinHeight=340;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>Bias | Bias</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpBiasing=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b> ( Bias</b> = <i>fBias</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b>').Bias = </b><i>fBias</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> fBias </i></td><td nowrap><b>: </b></td><td>
+浮点数(Float)。取值范围为<b> -1.0 - 1.0 </b>。默认值为<span class=cssDefault><b> 0.7 </b></span>。
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索添加到滤镜结果的每种颜色组分的值的百分比。大的此属性值产生高亮滤光效果。高对比度的图片受滤镜的影响较小。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

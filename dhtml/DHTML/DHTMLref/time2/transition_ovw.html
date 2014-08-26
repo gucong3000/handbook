@@ -1,0 +1,338 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Using HTML+TIME Transitions (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Using HTML+TIME Transitions
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>It is now possible to create visual transitions with HTML+TIME (Timed Interactive Multimedia Extensions) easily without any knowledge of scripting. Click the <B>Show Me</B> button to see an example of HTML+TIME transitions.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/intro_example.htm" FEATURES="top=50,left=50,height=550,width=490,status=0"></IMG></A></DIV><p>Internet Explorer 6 implements the inline transitions module of the <A HREF="http://www.w3.org/audiovideo/group/transitions/smil-transitions.html" TARGET="_top">SMIL 2.0 Transition Effects Modules</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"> through the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. You only have to learn one new HTML+TIME element called <A HREF="../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> and a few of the <B>t:TRANSITIONFILTER</B> attributes to get started. This article introduces you to these necessary components, and you will be adding exciting transitions to your Web pages in no time. </p><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#whatTransition">What Can Use Transitions?</A></LI><LI><A TARGET="_self" HREF="#WhatNeeded">What Is Needed To Apply a Transition</A></LI><LI><A TARGET="_self" HREF="#transitionfilter">TRANSITIONFILTER Element</A></LI><LI><A TARGET="_self" HREF="#types">TYPE and SUBTYPE</A></LI><LI><A TARGET="_self" HREF="#begin">BEGIN</A></LI><LI><A TARGET="_self" HREF="#dur">DUR</A></LI><LI><A TARGET="_self" HREF="#mode">MODE</A></LI><LI><A TARGET="_self" HREF="#progress">Progress Control Attributes</A></LI><LI><A TARGET="_self" HREF="#last">Summary</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2>
+This article assumes you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <B>time2</B> behavior of HTML+TIME. This article does not go into great detail on how to add a behavior to your page nor does it cover how to declare a namespace and use custom tags as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>.
+<H2><A NAME="whatTransition"></A>What Can Use Transitions?</H2><p>
+As seen in the <B>Show Me</B> earlier, many different types of media can have transitions applied to them including images, video, and other elements such as the <A HREF="../objects/div.html">DIV</A> element. As long as the element has renderable content, it can have a transition applied to it.
+HTML+TIME media elements, such as <A HREF="../time2/time/elements/media.html">t:MEDIA</A> and <A HREF="../time2/time/properties/img.html">t:IMG</A>, are automatically available for HTML+TIME transitions to be applied.
+All other elements must have <A HREF="../properties/haslayout.html">layout</A> for the transition to work on the element. Put simply, "having layout" means that an object has a defined height and width. Some objects, like form controls and the <A HREF="../objects/table.html">table</A> and <A HREF="../objects/td.html">td</A> elements, have layout by default. All other objects that can use transitions gain layout by setting the <A HREF="../properties/height_0.html">height</A> or <A HREF="../properties/width_0.html">width</A> property, setting the <A HREF="../properties/position.html">position</A> property to <SPAN CLASS="clsLiteral">absolute</SPAN>, specifying a value for the <A HREF="../properties/zoom.html">zoom</A> property, or setting the <A HREF="../properties/contenteditable.html">contentEditable</A> property to <SPAN CLASS="clsLiteral">true</SPAN>.</p><p>Specific elements that cannot have HTML+TIME transitions applied to them include: </p><ul><li>The <A HREF="../objects/object.html">object</A>, <A HREF="../objects/embed.html">embed</A>, and <A HREF="../objects/applet.html">applet</A> elements </li><li>The <A HREF="../objects/select.html">select</A> and <A HREF="../objects/option.html">option</A> form elements</li><li>The <A HREF="../objects/tr.html">tr</A>, <A HREF="../objects/thead.html">tHead</A>, <A HREF="../objects/tbody.html">tBody</A>, and <A HREF="../objects/tfoot.html">tFoot</A> table elements</li></ul><p>Now that it is clear what kind of content can use transitions, the next step is to learn about how to transition this content.</p><H2><A NAME="WhatNeeded"></A>What Is Needed To Apply a Transition</H2><p>
+The <B>t:TRANSITIONFILTER</B> element applies a transition to renderable content. Several associated attributes of the <B>t:TRANSITIONFILTER</B> specify the characteristics of the transition.
+The following example shows how to use several attributes of the <B>t:TRANSITIONFILTER</B> and their effects. Experiment with the attribute values in this example. An introduction to the <B>t:TRANSITIONFILTER</B> element and important attributes of the <B>t:TRANSITIONFILTER</B> follows in the sections ahead.
+</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/mastersample/master_sample.htm" FEATURES="top=50,left=50,height=550,width=690,status=0"></IMG></A></DIV><H2><A NAME="transitionfilter"></A>TRANSITIONFILTER Element</H2><p>As already stated, the <B>t:TRANSITIONFILTER</B> is the element that applies a transition to renderable content. The <B>t:TRANSITIONFILTER</B> can apply to content in one of two ways.
+<ul><li>The <B>t:TRANSITIONFILTER</B> is a child of the element that is to have the transition applied.
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:MEDIA ... &gt;
+&lt;t:TRANSITIONFILTER ... &gt;
+&lt;/t:MEDIA&gt;
+</PRE></li><li>The <B>t:TRANSITIONFILTER</B> is applied through the <A HREF="../time2/properties/targetelement.html">TARGETELEMENT</A> attribute that specifies the <A HREF="../properties/id.html">ID</A> of the element that is to have the transition applied.
+<PRE CLASS="clsCode" AUTOHILITE="1" HILITE="oDiv">
+&lt;t:TRANSITIONFILTER TARGETELEMENT="oDiv" ... /&gt;
+.
+.
+.
+&lt;t:MEDIA ID="oDiv" ... /&gt;
+</PRE></li></ul></p><p>The only difference between these two techniques is organization. If you use the <B>TARGETELEMENT</B>, you can place the <B>t:TRANSITIONFILTER</B> anywhere in the document and all of the <B>t:TRANSITIONFILTER</B> elements in the document can be grouped together. Placing the <B>t:TRANSITIONFILTER</B> inside of the element that is to use a transition makes it clearer what <B>t:TRANSITIONFILTER</B> applies to what content.</p><p>A <B>t:TRANSITIONFILTER</B> cannot apply to more than one element. However, children of that element can transition along with the parent.</p><p>It is important to note that in order for a child element to transition along with the parent, the child element must have the default value of <SPAN CLASS="clsLiteral">static</SPAN> for the <B>position</B> property. A value of <SPAN CLASS="clsLiteral">absolute</SPAN> or <SPAN CLASS="clsLiteral">relative</SPAN>, on the other hand, takes the child element out of flow from the parent and it does not transition with the parent. For example, the inner <B>DIV</B> in the following snippet does not transition with the parent. </p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="position:relative;">
+&lt;DIV CLASS="TIME" STYLE="width:200px" ... &gt;
+&lt;t:TRANSITIONFILTER ... &gt;
+&lt;DIV STYLE="position:relative; top:30px"&gt;Inner DIV&lt;/DIV&gt;
+&lt;/t:DIV&gt;
+</PRE><p>
+Many attributes of the <B>t:TRANSITIONFILTER</B> enable you to specify the characteristics of the transition. The following sections introduce these attributes and show how they influence the transition.</p><H2><A NAME="types"></A>TYPE and SUBTYPE</H2><p>The <A HREF="../time2/properties/type_1.html">TYPE</A> attributes specifies what kind of transition will occur. The <B>TYPE</B> attribute can either specify a transition value specific to HTML+TIME or a CSS transition. In the case of using a value specific to HTML+TIME, the <B>TYPE</B> attribute specifies the family of transitions to apply.  For each HTML+TIME defined <B>TYPE</B> value, one or more values of the <A HREF="../time2/properties/subtype.html">SUBTYPE</A> attribute is available. This <B>SUBTYPE</B> value modifies the effect of the basic transition type specified by the <B>TYPE</B> value. For example, if you specify the transition to be of type <SPAN CLASS="clsLiteral">barWipe</SPAN>, there are two subtypes available: <SPAN CLASS="clsLiteral">leftToRight</SPAN> and <SPAN CLASS="clsLiteral">topToBottom</SPAN>. If <SPAN CLASS="clsLiteral">leftToRight</SPAN> is specified, then the transition progresses from the left to the right. If <SPAN CLASS="clsLiteral">topToBottom</SPAN> is specified, then the media element transitions from the top of the element to the bottom. The following example demonstrates this.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Using Different SUBTYPE Attribute Values&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time" ID="oDiv1" STYLE="padding:20; width:370; background-color:#ffffcc;
+font-family:arial; font-size:18pt; border:4px solid gold"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv1.begin;" DUR="3" TYPE="barWipe"
+SUBTYPE = "leftToRight"/&gt;
+SUBTYPE = "leftToRight"
+&lt;/DIV&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;DIV CLASS="time" ID="oDiv2" STYLE="padding:20; width:370; background-color:#ffffcc;
+font-family:arial; font-size:18pt; border:4px solid gold"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv2.begin;" DUR="3" TYPE="barWipe"
+SUBTYPE = "topToBottom"/&gt;
+SUBTYPE = "topToBottom"
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/compare_subtypes.html" FEATURES="top=50,left=50,height=480,width=650,status=0,scrollbars=auto"></IMG></A></DIV><p>The default value for the <B>TYPE</B> attribute is <SPAN CLASS="clsLiteral">barWipe</SPAN>. Generally, the <B>SUBTYPE</B> attribute does not need to be included, in which case, a default value is used.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;The <B>TYPE</B> value of <SPAN CLASS="clsLiteral">starWipe</SPAN> is an exception. It is required to explicitly include the <B>SUBTYPE</B> value of <SPAN CLASS="clsLiteral">fivePoint</SPAN> for this transition to work.</DIV><p>
+To find what <B>SUBTYPE</B> values are available for the given <B>TYPE</B> values, see the <A HREF="../time2/properties/type_1.html">TYPE</A> reference.
+In addition, the example in the <A TARGET="_self" HREF="#WhatNeeded">What Is Needed To Apply a Transition</A> section also demonstrates the different transition <A HREF="../time2/properties/type_1.html">type</A> values and the possible  <A HREF="../time2/properties/subtype.html">subtype</A> values that are specifically defined for HTML+TIME. </p><p>As already mentioned, Cascading Style Sheets (CSS) transitions can also be specified as values for the <B>TYPE</B> attribute in <B>t:TRANSITIONFILTER</B> elements. The following example shows how to use a CSS transition to create a wheel transition. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV CLASS="time" ID="oDiv1" STYLE="padding:20; width:700px; height:100px;
+background-color:#ffffcc; font-family:arial; font-size:14pt; border:4px solid gold"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv1.begin;" DUR="3"
+TYPE="progid:DXImageTransform.Microsoft.Wheel(spokes=8)"/&gt;
+TYPE="progid:DXImageTransform.Microsoft.Wheel(spokes=8)"
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/css_transition1.html" FEATURES="top=50,left=50,height=380,width=650,status=0,scrollbars=auto"></IMG></A></DIV><p>In the preceding example, there are a number of HTML+TIME attributes, such as <A HREF="../time2/properties/begin.html">BEGIN</A> and <A HREF="../time2/properties/dur_1.html">DUR</A>, that control the progression and timing of the transition. These properties are examples of attributes that are common to all HTML+TIME transitions. These attributes and others will be explored in greater detail in later sections of this article. Notice that the CSS transition has a property of <I>spokes</I> that is set to a value of <SPAN CLASS="clsLiteral">8</SPAN>. This is an example of a property that is specific to the CSS transition being used. For a complete list of CSS transitions, see <A HREF="../common/author/filter/reference/reference.html">Visual Filters and Transitions Reference</A> and for an overview on CSS transitions in general see <A HREF="../common/author/filter/filters.html">Introduction to Filters and Transitions</A>. In addition, the example shown in the <A TARGET="_self" HREF="#WhatNeeded">What Is Needed To Apply a Transition</A> section demonstrates many of the CSS transitions being used with HTML+TIME. The examples in this article only use HTML+TIME specific transitions. However, it is important to note that the code used in this article to control HTML+TIME specific transitions can also be used with CSS transitions.</p><p>You can apply more than one <B>t:TRANSITIONFILTER</B> and, therefore, more than one type of transition, to a given object.
+The following example shows how to apply multiple transitions simultaneously to renderable content.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="TYPE=&quot;barWipe&quot;;TYPE=&quot;fade&quot;">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;LINK REL="stylesheet" HREF="../common/samples/samples.css" TYPE="text/css"&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" TYPE="barWipe" DUR="5"
+TARGETELEMENT="oDiv"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" TYPE="fade" DUR="5"
+TARGETELEMENT="oDiv"/&gt;
+&lt;DIV CLASS="time" DUR="8" ID="oDiv"
+STYLE="width:535px;"&gt;This div has fade and barwipe types applied.&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwType1.htm" FEATURES="top=50,left=50,height=380,width=650,status=0,scrollbars=auto"></IMG></A></DIV><p>The two <B>t:TRANSITIONFILTER</B> elements in the preceding example both apply to the same media element (in this case a <B>DIV</B>) at the same time. Of course, these <B>t:TRANSITIONFILTER</B> elements could have been started on the time line at any time relative to one another, which could cause a variety of visual effects.
+In addition to the <B>TYPE</B> attribute, the <B>t:TRANSITIONFILTER</B> elements each have the <B>BEGIN</B> and <B>DUR</B> attributes. These are among many important attributes that are discussed in the sections ahead. </p><H2><A NAME="begin"></A>BEGIN</H2><p>The <B>BEGIN</B> element determines when to begin the active period of the <B>t:TRANSITIONFILTER</B>. The duration of this active period is set by the <B>DUR</B> property (see <A TARGET="_self" HREF="#dur">DUR</A> later in this article).
+Because the active period of the <B>t:TRANSITIONFILTER</B> element is finite, it is important to coordinate the active period of the <B>t:TRANSITIONFILTER</B> with the active period of the element that has the <B>t:TRANSITIONFILTER</B> applied to it. For example, the following code snippets show a <B>t:TRANSITIONFILTER</B> beginning at the same time as the element that it is applied to.</p><p>Begin relative to the element.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:MEDIA ID="oMedia" ...&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oMedia.begin" ... /&gt;
+&lt;/t:MEDIA&gt;
+</PRE><p>Begin at the same absolute time.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:MEDIA BEGIN="3" ... &gt;
+&lt;t:TRANSITIONFILTER BEGIN="3" ... /&gt;
+&lt;/t:MEDIA&gt;
+</PRE><p>Begin relative to an event.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:MEDIA BEGIN="oButton.click" ... &gt;
+&lt;t:TRANSITIONFILTER BEGIN="oButton.click" ... /&gt;
+&lt;/t:MEDIA&gt;
+</PRE><p>For a complete list of possible values for the <B>BEGIN</B> attribute, see the <A HREF="../time2/properties/begin.html">BEGIN</A> documentation.</p><p>If the active periods of the <B>t:TRANSITIONFILTER</B> and the applied content do not overlap, then no transition occurs. For example, no transition would be visible in the following example.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:MEDIA BEGIN="O" DUR="3" ... &gt;
+&lt;t:TRANSITIONFILTER BEGIN="4" ... /&gt;
+&lt;/t:MEDIA&gt;
+</PRE><p>In the preceding example, the media element begins at zero seconds and is active for three seconds. The <B>t:TRANSITIONFILTER</B> that is applied to the media element does not begin until four seconds so no transition would occur.</p><p>It is common to begin a <B>t:TRANSITIONFILTER</B> element at the beginning or close to the end of the active period of a transition element in order to transition the media in or out. However, if the <B>t:TRANSITIONFILTER</B> begins in the middle of the active period of a timed element or the active periods of the <B>t:TRANSITIONFILTER</B> element and timed element partially overlap, a variety of generally undesirable results can occur. For more information, see <A TARGET="_self" HREF="#mode">MODE</A> later in this article. One way to ensure that the transition begins at the correct time is to have the parent element that is to be transitioned have a <A HREF="../time2/properties/timecontainer.html">TIMECONTAINER</A> attribute value of <SPAN CLASS="clsLiteral">par</SPAN>. An example of this would be the following:</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="TIMECONTAINER=&quot;par&quot;">
+&lt;t:MEDIA TIMECONTAINER="par" BEGIN="4" DUR="indefinite" ... &gt;
+&lt;t:TRANSITIONFILTER ... /&gt;
+&lt;/t:MEDIA&gt;
+</PRE><p>As you can see, the <B>t:TRANSITIONFILTER</B> element does not even need to include the <B>BEGIN</B> attribute because it is on its parent time line and starts as soon as its parent.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;By default, time container elements end as soon as their child elements end on the time line. If you desire the parent element to persist beyond this time, you must specify a <A HREF="../time2/properties/dur.html">DUR</A> attribute value for the parent.</DIV><H2><A NAME="dur"></A>DUR</H2><p>The <B>DUR</B> attribute determines the duration of the <B>t:TRANSITIONFILTER</B> element. The longer the duration of the <B>t:TRANSITIONFILTER</B> element, the slower the transition proceeds. The default value for the <B>DUR</B> attribute is <SPAN CLASS="clsLiteral">1s</SPAN> (1 second).
+The following example shows how to make two identical <B>DIV</B> elements transition in when a button is clicked. The first <B>DIV</B> has a <B>t:TRANSITIONFILTER</B> applied to it with a <B>DUR</B> equal to one second, while the next <B>DIV</B> has a <B>t:TRANSITIONFILTER</B> applied to it with a <B>DUR</B> equal to three seconds. Because of this, the first <B>DIV</B> transitions three times as fast as the second one.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;INPUT TYPE="button" ID="oBeginRace" VALUE="Begin Race"&gt;
+&lt;DIV BEGIN="oBeginRace.click" DUR="8" CLASS="time" ID="oDiv1"
+STYLE="width:600px;height:100px;background-color:gray"&gt;
+First DIV
+&lt;t:TRANSITIONFILTER BEGIN="oBeginRace.click" TYPE="barWipe" DUR="1"/&gt;
+&lt;/DIV&gt;
+&lt;DIV BEGIN="oBeginRace.click" DUR="8" CLASS="time" ID="oDiv2"
+STYLE="width:600px;height:100px;background-color:gray"&gt;
+Second DIV
+&lt;t:TRANSITIONFILTER BEGIN="oBeginRace.click" TYPE="barWipe" DUR="3"/&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwDur1.html" FEATURES="top=50,left=50,height=450,width=600,status=0,scroll=1"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;The <B>t:TRANSITIONFILTER</B> cannot extend the active period of the transition content. The transition content disappears when the transition content active period has expired regardless of the duration of the <B>t:TRANSITIONFILTER</B> active period.</DIV><H2><A NAME="mode"></A>MODE</H2><p>The <A HREF="../time2/properties/mode.html">MODE</A> attribute specifies whether the transition element transitions in or out. The legal value of <SPAN CLASS="clsLiteral">in</SPAN> indicates that the transition content becomes more visible as the transition progress increases, and <SPAN CLASS="clsLiteral">out</SPAN> indicates that the transition content becomes less visible as the transition progress increases. </p><p>Usually when the <B>MODE</B> attribute is set to the value of <SPAN CLASS="clsLiteral">in</SPAN>, which is the default, the transition is tied to the beginning of a content element's active period. In this way, the media element appears to transition into view. Typically a <B>t:TRANSITIONFILTER</B> with a <B>MODE</B> value of <SPAN CLASS="clsLiteral">out</SPAN> is applied to the end of an element's active period. This makes the media transition out of view. The following example shows a <B>DIV</B> element that transitions in, stays visible for two seconds, and then transitions out.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="MODE=&quot;out&quot;">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="width:270px" CLASS="time" DUR="8" ID="oDiv"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" TYPE="clockWipe"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.end-3" DUR="3" MODE="out" TYPE="fade"/&gt;
+This DIV Transitions In, Stays For Two Seconds, And Then Transitions Out.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwMode1.htm" FEATURES="top=50,left=50,height=450,width=400,status=0"></IMG></A></DIV><p>As can be seen from the previous example, the <B>MODE</B> attribute does not automatically tie the <A HREF="../time2/elements/transitionfilter.html">transitionFilter</A> to the beginning or end of the media. Authors can use the <A HREF="../time2/properties/begin.html">begin</A> attribute on the <B>transitionFilter</B> to indicate the begin time for the <B>transitionFilter</B>. </p><p>You can apply a transition to a media element at any time during its active period. If <B>MODE</B> is set to <SPAN CLASS="clsLiteral">in</SPAN> and the <B>t:TRANSITIONFILTER</B> is applied to the timed element in the middle of its active period, then the timed element disappears for a moment and transitions in. If <B>MODE</B> is set to <SPAN CLASS="clsLiteral">out</SPAN>, then the media element transitions out, be not visible for a moment, and then immediately reappear.
+If <B>MODE</B> is set to <SPAN CLASS="clsLiteral">in</SPAN> and the <B>t:TRANSITIONFILTER</B> is applied to the timed element in the middle of its active period, then the timed element disappears for a moment and then transitions in. If <B>MODE</B> is set to <SPAN CLASS="clsLiteral">out</SPAN>, then the media element transitions out, is not visible for a moment, and then immediately reappears. The following example shows the effect of transitioning out a media element in the middle of the media element active period.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="MODE=&quot;out&quot;;BEGIN=&quot;oDiv.begin&quot;">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;LINK REL="stylesheet" HREF="../common/samples/samples.css" TYPE="text/css"&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="width:270px" CLASS="time" DUR="8" ID="oDiv"&gt;
+&lt;t:TRANSITIONFILTER BEGIN= "oDiv.begin" DUR="3" TYPE="clockWipe"/&gt;
+&lt;!-- The out TRANSITIONFILTER begins immediately --&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="3" MODE="out" TYPE="fade"/&gt;
+This DIV transitions out in the middle of its active period.
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwMode2.htm" FEATURES="top=50,left=50,height=450,width=400,status=0"></IMG></A></DIV><H2><A NAME="progress"></A>Progress Control Attributes</H2><p>There are a number of attributes that enable control over the progress of the transition using the <B>t:TRANSITIONFILTER</B>. These include the <A HREF="../time2/properties/from_1.html">FROM</A>, <A HREF="../time2/properties/to_1.html">TO</A>, <A HREF="../time2/properties/by_1.html">BY</A>, <A HREF="../time2/properties/calcmode_1.html">CALCMODE</A>, and <A HREF="../time2/properties/values_1.html">VALUES</A> attributes. All of these attributes are optional. They are covered in the sections that follow.
+</p><H3><A NAME="from"></A>FROM, TO, and BY</H3><p>The <B>FROM</B> attribute specifies the starting progress value of the transition. Legal values are real numbers in the range of 0.0-1.0. For example, to begin a transition with the destination content to make a transition in by 30%, you would specify a value for <B>FROM</B> of 0.3.</p><p>The <B>TO</B> and <B>BY</B> attributes specify the amount of progress through the transition at which to end progress of the transition. Both of these attributes have legal values in the range of <SPAN CLASS="clsLiteral">0.0-1.0</SPAN>. The <A HREF="../time2/properties/by_1.html">by</A> attribute specifies the relative offset value of the progress from the value of the <A HREF="../time2/properties/from_1.html">from</A> attribute. For example, if <B>from</B> has a value of <SPAN CLASS="clsLiteral">0.2</SPAN> and <B>by</B> has a value of <SPAN CLASS="clsLiteral">0.5</SPAN>, then the transition starts at a progress of <SPAN CLASS="clsLiteral">20%</SPAN> and ends at a progress of <SPAN CLASS="clsLiteral">70%</SPAN>. In contrast, the <B>TO</B> attribute specifies the end of progress directly. If the <B>from</B> attribute is set to a value of <SPAN CLASS="clsLiteral">0.2</SPAN> and the <A HREF="../time2/properties/to_1.html">to</A> attribute is set to a value of <SPAN CLASS="clsLiteral">0.5</SPAN>, then the transition starts at a progress of <SPAN CLASS="clsLiteral">20%</SPAN> and ends at a progress of <SPAN CLASS="clsLiteral">50%</SPAN>. </p><p>The following example shows how to use the <B>FROM</B> and <B>TO</B> attributes to begin a transition 50% through its progress and end progress at 80%.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="FROM=&quot;0.6&quot;;TO=&quot;0.8&quot;">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;LINK REL="stylesheet" HREF="../common/samples/samples.css" TYPE="text/css"&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="width:270px;height:200px;" CLASS="time" DUR="8" ID="oDiv"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" DUR="5" TYPE="ellipseWipe" FROM="0.6"
+TO="0.8"/&gt;
+This transition begins at 50% progress and ends at 80% because FROM is set to
+0.5 and TO is set to 0.8
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwFromTo1.htm" FEATURES="top=50,left=50,height=450,width=400,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;In the preceding example the transition still takes five seconds even though the progress of the transition begins at 50% and ends at 80%.</DIV><p>As the previous sample shows, once the transition finishes, the transitioning element rapidly displays. In order to lock the appearance of the element at the value specified by the <B>TO</B> attribute, set the <A HREF="../time2/properties/fill.html">FILL</A> attribute to a value of <SPAN CLASS="clsLiteral">freeze</SPAN> inside of the <B>t:TRANSITIONFILTER</B> element. The following example is similar to the preceding one except that the <B>FILL</B> attribute is set inside of the <B>t:TRANSITIONFILTER</B> element.  </p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="FILL=&quot;freeze&quot;">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;LINK REL="stylesheet" HREF="../common/samples/samples.css" TYPE="text/css"&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV STYLE="width:270px;height:200px;" CLASS="time" DUR="8" ID="oDiv"&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oDiv.begin" FILL="freeze" DUR="5" TYPE="ellipseWipe" FROM="0.6"
+TO="0.8"/&gt;
+This transition begins at 50% progress and ends at 80% because FROM is set to
+0.5 and TO is set to 0.8
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwFromTo2.htm" FEATURES="top=50,left=50,height=450,width=400,status=0"></IMG></A></DIV><H3><A NAME="values"></A>VALUES and CALCMODE</H3><p>The <B>VALUES</B> attribute specifies a semicolon-delimited list of one or more values indicating the progress of the transition. This attribute can provide more precise control over the progress of a transition than a combination of the <A HREF="../time2/properties/from.html">from</A>, <B>to</B>, and <B>by</B> attributes and overrides those attributes if they are specified.</p><p>The transition effects of <B>FROM</B>, <B>TO</B>, <B>BY</B>, and <B>VALUES</B> can be modified with the <B>CALCMODE</B> attribute. The <B>CALCMODE</B> attribute specifies the interpolation mode for the progress of the <B>t:TRANSITIONFILTER</B>. There are two possible values for <B>CALCMODE</B>: <SPAN CLASS="clsLiteral">discrete</SPAN> and <SPAN CLASS="clsLiteral">linear</SPAN>. When the <SPAN CLASS="clsLiteral">discrete</SPAN> value is specified, the progress of the transition jumps from one value to the next without any interpolation. This gives the transition a progress that appears to shake. The default value of <SPAN CLASS="clsLiteral">linear</SPAN> and the transition progresses smoothly from one value to the next. The following is an example that shows two identical time elements that have the same <B>VALUES</B> attribute but one has a <B>CALCMODE</B> value of <SPAN CLASS="clsLiteral">linear</SPAN> and the other has <SPAN CLASS="clsLiteral">discrete</SPAN>.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="discrete;linear">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oImage1.begin" TYPE="barWipe" DUR="5"
+TARGETELEMENT="oImage1" VALUES=".1;.17;.27;.37;.47;.56;.65;.71;.82;.92;1.0"
+CALCMODE="discrete"/&gt;
+&lt;t:TRANSITIONFILTER BEGIN="oImage2.begin" TYPE="barWipe" DUR="5"
+TARGETELEMENT="oImage2" VALUES=".1;.17;.27;.37;.47;.56;.65;.71;.82;.92;1.0"
+CALCMODE="linear"/&gt;
+&lt;INPUT TYPE="button" ID="oStartButton" VALUE="Start Transition"&gt;
+&lt;P&gt;
+&lt;IMG SRC="img.gif" CLASS="time" begin="oStartButton.click" ID="oImage1"
+STYLE="width:400px;"&gt;
+&lt;P&gt;
+&lt;IMG SRC="img.gif" CLASS="time" begin="oStartButton.click" ID="oImage2"
+STYLE="width:400px;"&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/calcModeEX1.html" FEATURES="top=50,left=50,height=520,width=500,status=0"></IMG></A></DIV><H3><A NAME="repeatcount"></A>REPEATCOUNT and REPEATDUR</H3><p>The <A HREF="../time2/properties/repeatcount_1.html">repeatCount</A> and <A HREF="../time2/properties/repeatdur.html">REPEATDUR</A> attributes enable the transition to repeat itself a specified number of times. The <B>repeatCount</B> attribute specifies a number of times that the transition repeats. This number does not have to be a whole number, and if it is not, the transition progresses a fractional amount, as in the following example. The <B>REPEATDUR</B> attribute specifies the amount of time in which the transition repeats. Therefore, the number of times the media element repeats is equal to the time specified by <B>REPEATDUR</B> divided by the value of the <B>DUR</B> attribute of the <B>t:TRANSITIONFILTER</B>. Any remainder is expressed as a partial transition. It is important to note that neither <B>repeatCount</B> nor <B>REPEATDUR</B> can extend the active duration of a media element. When the duration of the media element expires, the media element disappears even if the <B>repeatCount</B> or <B>REPEATDUR</B> attributes specify more repetitions.</p><p>The following example shows how to use the <A HREF="../time2/properties/repeatcount_1.html">REPEATCOUNT</A> attribute to repeat a transition on a time element. The <B>REPEATCOUNT</B> attribute inside the <B>t:TRANSITIONFILTER</B> element is set to <SPAN CLASS="clsLiteral">indefinite</SPAN>. However, the time element that follows only repeats for the duration of its active period (in this case, seven seconds).</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="REPEATCOUNT=&quot;indefinite&quot;;DUR=&quot;3&quot;;DUR=&quot;7&quot;">
+.
+.
+.
+&lt;!-- The FOR and TO attributes used to make only outer DIV transition. --&gt;
+&lt;t:TRANSITIONFILTER REPEATCOUNT="indefinite" TYPE="ellipseWipe" DUR="3"
+FROM="0.28" TO="1.0" TARGETELEMENT="oDiv1"/&gt;
+&lt;IMG SRC="img.gif" CLASS="time" ID="oDiv1" DUR="7"
+STYLE="width:400px;"&gt;
+.
+.
+.
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/ovwRepeatCount1.html" FEATURES="top=50,left=50,height=400,width=500,status=0"></IMG></A></DIV><H2><A NAME="last"></A>Summary</H2><p>By using the components outlined in this article, you are ready to use transitions in your Web pages. However, this is only the starting point. You can make your transitions even more interactive using scripting.
+The <B>t:TRANSITIONFILTER</B>, along with all of its associated attributes, is accessible through the Document Object Model (DOM). Combining scripting with all of the other features of HTML+TIME provides even more flexibility than the examples in this article. Of course, there are other ways to create transitions, but perhaps the greatest power of this specific technology is its simplicity and compact nature. This makes HTML+TIME transitions a good choice for simple transition applications.   </p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="../common/author/behaviors/howto/transition_basic_tut.html">How to Create a Basic HTML+TIME Transition</A></LI><LI><A HREF="../common/author/behaviors/howto/transition_intro_tut.html">How to Create An Animated Presentation Using HTML+TIME Transitions</A></LI><LI><A HREF="../common/author/behaviors/howto/transition_menu_tut.html">How to Make An Animated Menu Using HTML+TIME Transitions</A></LI><LI><A HREF="../common/author/behaviors/howto/transition_slide_show_tut.html">How to Make a Slide Show Using HTML+TIME Transitions</A></LI><LI><A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="http://www.w3.org/audiovideo/group/transitions/smil-transitions.html" TARGET="_top">The SMIL 2.0 Transition Effects Module</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"></LI><LI><A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A></LI></UL><info><product rid="prod_IE" minver="6"></product><platform rid="plat_win" minver="98"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

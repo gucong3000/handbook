@@ -1,0 +1,129 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>COORDS Attribute | coords</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>COORDS Attribute | coords Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the coordinates of the <span replace="1">object</span>.</P><DIV class="clsWhatsnew"><B>What's New for Microsoft&#174; Internet Explorer 6</B><P>
+This property now applies to the
+<apply-templates></apply-templates><A HREF="../objects/a.html">a</A> object.
+<apply-templates></apply-templates></P></DIV><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>&lt;<SPAN CLASS="clsRange" TITLE="Element refers to an element from the Applies To list below.">ELEMENT</SPAN>&nbsp;<B>COORDS</B>
+= <SPAN CLASS="clsRange">sCoords</SPAN>... &gt;
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>coords</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sCoords</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sCoords</SPAN></TD><TD><b>String</b> that
+specifies or receives the coordinates.</TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>For <B>a</B> objects, you must set the value of this property before you can retrieve it.  This satisfies the requirements of <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.  The page author is responsible for implementing the functionality defined in <A HREF="http://www.w3.org/tr/rec-html40/" TARGET="_top">HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"> for <B>a</B> objects, if desired.</P><P>For <A HREF="../objects/area.html">area</A> objects, the format of <I>sCoords
+</I> depends on the value of the <A HREF="../properties/shape.html">SHAPE</A> attribute of the object, as follows:
+<table class="clsStd"><tr><td><B>SHAPE</B>= <SPAN CLASS="clsLiteral">circ</SPAN> or <SPAN CLASS="clsLiteral">circle</SPAN></td><td><B>COORDS</B>= "<SPAN CLASS="clsLiteral">x1,y1,r</SPAN>" &#150; Where <SPAN CLASS="clsLiteral">x1,y2</SPAN> are the coordinates of the center of the circle, and <SPAN CLASS="clsLiteral">r</SPAN> is the radius of the circle.</td></tr><tr><td><B>SHAPE</B>= <SPAN CLASS="clsLiteral">poly</SPAN> or <SPAN CLASS="clsLiteral">polygon</SPAN></td><td><B>COORDS</B>= "<SPAN CLASS="clsLiteral">x1,y1,x2,y2...xn,yn</SPAN>" &#150; Where each <SPAN CLASS="clsLiteral">x,y</SPAN> pair contains the coordinates of one vertex of the polygon.</td></tr><tr><td><B>SHAPE</B>= <SPAN CLASS="clsLiteral">rect</SPAN> or <SPAN CLASS="clsLiteral">rectangle</SPAN></td><td><B>COORDS</B>= "<SPAN CLASS="clsLiteral">x1,y1,x2,y2</SPAN>" &#150; Where <SPAN CLASS="clsLiteral">x1,y1</SPAN> are the coordinates of the upper-left corner of the rectangle and <SPAN CLASS="clsLiteral">x2,y2</SPAN> are the coordinates of the lower-right coordinates of the rectangle.</td></tr></table></P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example provides the full code for an image map of the solar system. Clicking on the sun or any planet links to an individual image. The user can click the Back button from the image to return to the solar system image map.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;P&gt;&lt;IMG SRC="solarsys.gif" WIDTH=504 HEIGHT=126 BORDER=0
+ALT="Solar System" USEMAP="#SystemMap"&gt;
+&lt;MAP NAME="SystemMap"&gt;
+&lt;AREA SHAPE="rect" COORDS="0,0,82,126"
+HREF="../common/sun.gif"&gt;
+&lt;AREA SHAPE="circle" COORDS="90,58,3"
+HREF="../common/merglobe.gif"&gt;
+&lt;AREA SHAPE="circle" COORDS="124,58,8"
+HREF="../common/venglobe.gif"&gt;
+&lt;AREA SHAPE="circle" COORDS="162,58,10"
+HREF="../common/earglobe.gif"&gt;
+&lt;AREA SHAPE="circle" COORDS="203,58,8"
+HREF="../common/marglobe.gif"&gt;
+&lt;AREA SHAPE="poly"
+COORDS="221,34,238,37,257,32,278,44,284,60,281,75,
+288,91,267,87,253,89,237,81,229,64,228,54"
+HREF="../common/jupglobe.gif"&gt;
+&lt;AREA SHAPE="poly"
+COORDS="288,19,316,39,330,37,348,47,351,66,349,74,
+367,105,337,85,324,85,307,77,303,60,307,50"
+HREF="../common/satglobe.gif"&gt;
+&lt;AREA SHAPE="poly"
+COORDS="405,39,408,50,411,57,410,71,404,78,393,80,
+383,86,381,75,376,69,376,56,380,48,393,44"
+HREF="../common/uraglobe.gif"&gt;
+&lt;AREA SHAPE="poly"
+COORDS="445,38,434,49,431,53,427,62,430,72,435,77,
+445,92,456,77,463,72,463,62,462,53,455,47"
+HREF="../common/nepglobe.gif"&gt;
+&lt;AREA SHAPE="circle" COORDS="479,66,3"
+HREF="../common/pluglobe.gif"&gt;
+&lt;/MAP&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/rec-html40/" TARGET="_top">
+HTML 4.0</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif"> and
+is defined in <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">
+W3C DOM Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../objects/a.html">
+A</A>, <A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/area.html">
+AREA</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

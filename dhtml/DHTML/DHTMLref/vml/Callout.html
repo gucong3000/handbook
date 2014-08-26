@@ -1,0 +1,107 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Callout Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Callout Element</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size="1" />
+<P></P>
+<P>Defines a callout for a shape.</P>
+<P>The following attributes modify a callout.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Attribute</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_accentbar.html"><B>AccentBar</B></A></TD><TD bgcolor=#EEEEEE>Determines whether an accent bar will be used with the callout.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_angle.html"><B>Angle</B></A></TD><TD bgcolor=#EEEEEE>Defines the angle that the callout makes with respect to the bounding box of the shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_distance.html"><B>Distance</B></A></TD><TD bgcolor=#EEEEEE>Defines the drop distance of a callout.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_drop.html"><B>Drop</B></A></TD><TD bgcolor=#EEEEEE>Determines where the drop of a callout will be placed.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_dropauto.html"><B>DropAuto</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the callout will have an automatic drop.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_ext.html"><B>Ext</B></A></TD><TD bgcolor=#EEEEEE>Defines how a callout is processed.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_gap.html"><B>Gap</B></A></TD><TD bgcolor=#EEEEEE>Defines the distance fo the callout from its bounding rectangle.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_length.html"><B>Length</B></A></TD><TD bgcolor=#EEEEEE>Defines the length of the callout.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_lengthspecified.html"><B>LengthSpecified</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the <B>Length</B> attribute will be used for the callout.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_minusx.html"><B>MinusX</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the callout will flip along the x-axis.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_minusy.html"><B>MinusY</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the callout will flip along the y-axis.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_on.html"><B>On</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a shape is a callout.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_textborder.html"><B>TextBorder</B></A></TD><TD bgcolor=#EEEEEE>Determines whether a callout will have a text border.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="call_type.html"><B>Type</B></A></TD><TD bgcolor=#EEEEEE>Defines the type of callout.</TD></TR>
+</TABLE>
+<BR>
+<P class=RL><B>Remarks</B></P>
+<P>This element must be defined within a <A href="e_shape.html"><B>Shape</B></A> element.</P>
+<P>The <B>Callout</B> element is a Microsoft Office Extension to VML.</P>
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

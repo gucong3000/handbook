@@ -1,0 +1,184 @@
+<PUBLIC:COMPONENT
+ lightweight="true"
+ name="enhancedHover"
+ urn="ERiW.Snakevil.Product:HTC.attEnhancedHover"
+>
+	<PUBLIC:DEFAULTS
+	 canhavehtml="false"
+	 contenteditable="false"
+	/>
+	<PUBLIC:ATTACH
+	 event="oncontentready"
+	 onevent="hnContentReady()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onmouseover"
+	 onevent="hnMouseOver()"
+	/>
+	<PUBLIC:ATTACH
+	 event="onmouseout"
+	 onevent="hnMouseOut()"
+	/>
+</PUBLIC:COMPONENT>
+
+<SCRIPT language="JScript" type="text/javascript">
+<!--
+// 时间循环句柄保存变量。
+__hnInterval = null;
+// 行为应用权限。
+__bPermission = false;
+// 颜色值的 Red 部分变幅。
+__iOffR = 0;
+// 颜色值的 Green 部分变幅。
+__iOffG = 0;
+// 颜色值的 Blue 部分变幅。
+__iOffB = 0;
+
+/**
+ * oncontentready 事件处理函数。
+ */
+function hnContentReady() {
+	if ("A" != element.tagName) {
+		return;
+	}
+	__bPermission = true;
+	if (!element.getAttribute("title").length) {
+		var sTip = element.getAttribute("href");
+		var iType = 0; // 本地链接。
+		if (0 == sTip.indexOf("mailto:")) {
+			iType = 2; // 发信。
+		}
+		else {
+			if ((-1 != sTip.indexOf("://")) &&
+				(0 != sTip.indexOf("file:///"))) {
+				iType = 1; // 访问网络。
+			}
+		}
+		if (2 == iType) {
+			element.setAttribute("title", "Send a Mail!");
+		}
+		// 添加链接的标示图片。
+		if (1 == iType) {
+			element.setAttribute("target", "_blank");
+			var oImg = element.document.createElement("IMG");
+			if (1 == iType) {
+				oImg.setAttribute("src", "../_shared/2web.gif");
+			}
+			element.insertAdjacentElement("beforeEnd", oImg);
+		}
+	}
+}
+
+/**
+ * onmouseover 事件处理函数。
+ */
+function hnMouseOver() {
+	if (!__bPermission) {
+		return;
+	}
+	with (element.runtimeStyle) {
+		textDecoration = "underline overline";
+		color = fnRandRgb();
+	}
+	__hnInterval = window.setInterval(fnFlash, 25);
+}
+
+/**
+ * onmouseout 事件处理函数。
+ */
+function hnMouseOut() {
+	if (!__bPermission) {
+		return;
+	}
+	with (element.runtimeStyle) {
+		color = "";
+		textDecoration = "";
+	}
+	window.clearInterval(__hnInterval);
+	__hnInterval = null;
+}
+
+/**
+ * 链接字体闪动处理。
+ */
+function fnFlash() {
+	var sColor = element.runtimeStyle.color.substr(1);
+	var iValueR = parseInt(sColor.substr(0, 2), 16);
+	var iValueG = parseInt(sColor.substr(2, 2), 16);
+	var iValueB = parseInt(sColor.substr(4, 2), 16);
+	// 根据 __iOff? 来修正颜色值。
+	iValueR += __iOffR;
+	if (255 < iValueR) {
+		iValueR = 510 - iValueR;
+		__iOffR = -__iOffR;
+	}
+	else if (0 > iValueR) {
+		iValueR = 0 - iValueR;
+		__iOffR = -__iOffR;
+	}
+	iValueG += __iOffG;
+	if (255 < iValueG) {
+		iValueG = 510 - iValueG;
+		__iOffG = -__iOffG;
+	}
+	else if (0 > iValueG) {
+		iValueG = 0 - iValueG;
+		__iOffG = -__iOffG;
+	}
+	iValueB += __iOffB;
+	if (255 < iValueB) {
+		iValueB = 510 - iValueB;
+		__iOffB = -__iOffB;
+	}
+	else if (0 > iValueB) {
+		iValueB = 0 - iValueB;
+		__iOffB = -__iOffB;
+	}
+	// 组合颜色并更新。
+	sColor = "#";
+	var sFrag = iValueR.toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	sFrag = iValueG.toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	sFrag = iValueB.toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	element.runtimeStyle.color = sColor;
+}
+
+/**
+ * 生成随机的 RGB 颜色值。
+ */
+function fnRandRgb() {
+	var sColor = "#";
+	var fnRand = Math.random;
+	var sFrag = Math.floor(256 * fnRand()).toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	__iOffR = (2 * (0.5 < fnRand()) - 1) * (2 + Math.floor(4 * fnRand()));
+	sFrag = Math.floor(256 * fnRand()).toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	__iOffG = (2 * (0.5 < fnRand()) - 1) * (2 + Math.floor(4 * fnRand()));
+	sFrag = Math.floor(256 * fnRand()).toString(16);
+	while (2 > sFrag.length) {
+		sFrag = "0" + sFrag;
+	}
+	sColor += sFrag;
+	__iOffB = (2 * (0.5 < fnRand()) - 1) * (2 + Math.floor(4 * fnRand()));
+	return sColor;
+}
+-->
+</SCRIPT>

@@ -1,0 +1,106 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>ChooseColorDlg</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>ChooseColorDlg Method
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Opens the system color-selection dialog box.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>rgbColor</I> = <I>Dialog Helper</I><B>.ChooseColorDlg(</B><B> [</B><I>initColor</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>initColor</I></TD><TD>
+Optional.
+<b>Variant</b> that specifies the RGB value of the initial color selected in the color-selection dialog box.
+The value is specified as <SPAN CLASS="clsLiteral">0xrrggbb</SPAN> where <SPAN CLASS="clsLiteral">rr</SPAN> is the <SPAN CLASS="clsLiteral">red</SPAN> hex value, <SPAN CLASS="clsLiteral">gg</SPAN> is the <SPAN CLASS="clsLiteral">green</SPAN> hex value, and <SPAN CLASS="clsLiteral">bb</SPAN> is the <SPAN CLASS="clsLiteral">blue</SPAN> hex value. For a complete list of colors, see <A HREF="../colors/colors.html">Color Table</A>. </TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P>A <b>Variant</b> that specifies the decimal value of the color chosen in the color-selection dialog box.  The value must be converted to its hexadecimal equivalent and is specified as <SPAN CLASS="clsLiteral">0xrrggbb</SPAN>.
+</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>There is no way to persist custom colors in this dialog box.</P><P>The return value of this method must be converted from decimal to hexadecimal before it can be used to change an object's color. In addition, the hexadecimal number must contain six digits to represent the RRGGBB schema required by the color table. For numbers with less than six numbers, concatenate zeros to the beginning of the number. For more information, see the <B>Color Table</B>.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+The following example shows how to call the color dialog box. The return value of the method is converted to a hexadecimal value and applied to the font color.</P><PRE CLASS="clsCode" AUTOHILITE="1">//This variable needs to have global scope for the callColorDlg function to persist the chosen color
+var sInitColor = null;
+function callColorDlg(){
+//if sInitColor is null, the color dialog box has not yet been called
+if (sInitColor == null)
+var sColor = dlgHelper.ChooseColorDlg();
+else
+//call the dialog box and initialize the color to the color previously chosen
+var sColor = dlgHelper.ChooseColorDlg(sInitColor);
+//change the return value from a decimal value to a hex value and make sure the value has 6
+//digits to represent the RRGGBB schema required by the color table
+sColor = sColor.toString(16);
+if (sColor.length &lt; 6) {
+var sTempString = "000000".substring(0,6-sColor.length);
+sColor = sTempString.concat(sColor);
+}
+document.execCommand("ForeColor", false, sColor);
+//set the initialization color to the color chosen
+sInitColor = sColor;
+}</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 6.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6.0" SAMPLEPATH="about:blank" FEATURES="top=25,left=25,height=475,width=600,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win32=6" HREF="../objects/dialoghelper.html">
+Dialog Helper</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

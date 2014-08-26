@@ -1,0 +1,136 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Extrusion Element</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/dhtmlobj.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody">
+<TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Extrusion Element</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR size = "1" />
+<P></P>
+<P>Defines an extrusion for a shape.</P>
+<P>The following attributes modify an extrusion.</P>
+<TABLE class=ClsRef frame=below rules=rows cols=2 cellspacing=2 cellpadding=5 border=0>
+<TR><TD bgcolor=#A6CAF0><B>Attribute</B></TD><TD bgcolor=#A6CAF0><B>Description</B></TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_autorotationcenter.html"><B>AutoRotationCenter</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the center of rotation will be the geometric center of the extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_backdepth.html"><B>BackDepth</B></A></TD><TD bgcolor=#EEEEEE>Defines the amount of backward extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_brightness.html"><B>Brightness</B></A></TD><TD bgcolor=#EEEEEE>Specifies the amount of brightness of a scene.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_color.html"><B>Color</B></A></TD><TD bgcolor=#EEEEEE>Defines the color of the extrusion faces.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_colormode.html"><B>ColorMode</B></A></TD><TD bgcolor=#EEEEEE>Determines the mode of extrusion color.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_diffusity.html"><B>Diffusity</B></A></TD><TD bgcolor=#EEEEEE>Defines the amount of diffusion of reflected light from an extruded shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_edge.html"><B>Edge</B></A></TD><TD bgcolor=#EEEEEE>Defines the apparent bevel of the extrusion edges.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_ext.html"><B>Ext</B></A></TD><TD bgcolor=#EEEEEE>Defines the default extrusion behavior for graphical editors.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_facet.html"><B>Facet</B></A></TD><TD bgcolor=#EEEEEE>Defines the number of facets used to describe curved surfaces of an extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_foredepth.html"><B>ForeDepth</B></A></TD><TD bgcolor=#EEEEEE>Defines the amount of forward extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightface.html"><B>LightFace</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the front face of the extrusion will respond to changes in the lighting.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightharsh.html"><B>LightHarsh</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the primary light source will be harsh.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightharsh2.html"><B>LightHarsh2</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the secondary light source will be harsh.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightlevel.html"><B>LightLevel</B></A></TD><TD bgcolor=#EEEEEE>Defines the intensity of the primary light source for the scene.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightlevel2.html"><B>LightLevel2</B></A></TD><TD bgcolor=#EEEEEE>Defines the intensity of the secondary light source for the scene.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightposition.html"><B>LightPosition</B></A></TD><TD bgcolor=#EEEEEE>Specifies the position of the primary light in a scene.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lightposition2.html"><B>LightPosition2</B></A></TD><TD bgcolor=#EEEEEE>Specifies the position of the secondary light in a scene.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_lockrotationcenter.html"><B>LockRotationCenter</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the rotation of the extruded object is specified by the <B>RotationAngle</B> attribute.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_metal.html"><B>Metal</B></A></TD><TD bgcolor=#EEEEEE>Determines whether the surface of the extruded shape will resemble metal.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_on.html"><B>On</B></A></TD><TD bgcolor=#EEEEEE>Determines whether an extrusion will be displayed.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_orientation.html"><B>Orientation</B></A></TD><TD bgcolor=#EEEEEE>Specifies the vector around which a shape will be rotated.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_orientationangle.html"><B>OrientationAngle</B></A></TD><TD bgcolor=#EEEEEE>Defines the angle that an extrusion rotates around the orientation.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_plane.html"><B>Plane</B></A></TD><TD bgcolor=#EEEEEE>Specifies the plane that is at right angles to the extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_render.html"><B>Render</B></A></TD><TD bgcolor=#EEEEEE>Defines the rendering mode of the extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_rotationangle.html"><B>RotationAngle</B></A></TD><TD bgcolor=#EEEEEE>Specifies the rotation of the object about the x- and y-axes.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_rotationcenter.html"><B>RotationCenter</B></A></TD><TD bgcolor=#EEEEEE>Specifies the center of rotation for a shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_shininess.html"><B>Shininess</B></A></TD><TD bgcolor=#EEEEEE>Defines the concentration of reflected light of an extrusion surface.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_skewamt.html"><B>SkewAmt</B></A></TD><TD bgcolor=#EEEEEE>Defines the amount of skew of an extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_skewangle.html"><B>SkewAngle</B></A></TD><TD bgcolor=#EEEEEE>Defines the angle of skew of an extrusion.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_specularity.html"><B>Specularity</B></A></TD><TD bgcolor=#EEEEEE>Defines the specularity of an extruded shape.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_type.html"><B>Type</B></A></TD><TD bgcolor=#EEEEEE>Defines the way that the shape is extruded.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_viewpoint.html"><B>Viewpoint</B></A></TD><TD bgcolor=#EEEEEE>Defines the viewpoint of the observer.</TD></TR>
+<TR><TD bgcolor=#EEEEEE><A href="extrusion_viewpointorigin.html"><B>ViewpointOrigin</B></A></TD><TD bgcolor=#EEEEEE>Defines the origin of the viewpoint within the bounding box of the shape.</TD></TR>
+</TABLE>
+<P class=RL><B>Remarks</B></P>
+<P>This element must be defined within a <A href="e_shape.html"><B>Shape</B></A> element.</P>
+<P>In addition, the <A href="extrusion_on.html"><B>On</B></A> attribute must be set to <B>True</B>.
+<P>The following is the minimum code needed to produce an extrusion.
+<PRE class="clsCode">
+&nbsp;&nbsp;&nbsp;&lt;v:rect
+&nbsp;&nbsp;&nbsp;fillcolor="green"
+&nbsp;&nbsp;&nbsp;style="position:relative;top:1;left:1;width:50;height:50"&gt;
+&nbsp;&nbsp;&nbsp;&lt;v:extrusion on="True"/&gt;
+&nbsp;&nbsp;&nbsp;&lt;/v:rect&gt;
+</PRE>
+<P class=RL><B>Examples</B></P>
+<P>Click <A href="t_extrusion.html">here</A> to view a simple shape with an extrusion.
+<P>Click <A href="x_extrusion.html">here</A> to view a more complex sample.
+<P></P>
+</DI
+</DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

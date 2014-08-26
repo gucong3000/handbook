@@ -1,0 +1,255 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-352-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-369-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-360-fm2xml"></A><A NAME="jscript4-IDXTERM-3870"></A><A NAME="IXT-23-55189"></A><A NAME="IXT-23-55190"></A><A NAME="IXT-23-55191"></A><A NAME="IXT-23-55192"></A><A NAME="IXT-23-55193"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>Error</i></b></td>
+
+<td align="right"><i>普通异常</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText"><A NAME="jscript4-IDXTERM-3870"></A>JavaScript
+
+1.5; JScript 5.5; ECMAScript v3 </P>
+
+<h4 class="docRefsectTitle">从…继承/覆盖</h4>
+
+
+
+<P class="docText">继承于 Object </P><A NAME="ch23-361-fm2xml"></A>
+
+<h4 class="docRefsectTitle">构造函数</h4>
+
+
+
+<PRE>new Error(  )
+
+new Error(<TT><I>message</I></TT>)</PRE>
+
+
+
+<A NAME="ch23-362-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>message</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">提供异常的详细信息的错误消息，可选。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-363-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">新构造的Error对象。如果指定了参数message，该Error对象将它作为message属性的值；否则，它将用实现定义的默认字符串作为该属性的值。如果把Error构造函数当作函数调用时不使用new运算符，它的行为与使用new运算符调用时一样。</P>
+
+
+
+
+
+<A NAME="ch23-364-fm2xml"></A>
+
+<h4 class="docRefsectTitle">属性</h4>
+
+
+
+<A NAME="IXT-23-55189"></A><A NAME="IXT-23-55190"></A><DL class="docList"><A NAME="IXT-23-55189"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">message</span></span></span></DT>
+
+<DD>
+
+<P class="docList">提供异常详细信息的错误消息。该属性存放传递给构造函数的字符串，或实现定义的默认字符串。</P>
+
+</DD>
+
+<A NAME="IXT-23-55190"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">name</span></span></span></DT>
+
+<DD>
+
+<P class="docList">声明异常类型的字符串。对于Error类的实例和所有子类来说，该属性声明了用于创建实例的构造函数名。</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-365-fm2xml"></A>
+
+<h4 class="docRefsectTitle">方法</h4>
+
+
+
+<A NAME="IXT-23-55191"></A><DL class="docList"><A NAME="IXT-23-55191"></A><DT><span class="docPubcolor"><span class="docPubcolor"><span class="docMonofont">toString(  )</span></span></span></DT>
+
+<DD>
+
+<P class="docList">返回一个表示Error对象的字符串</P>
+
+</DD>
+
+</DL>
+
+
+
+<A NAME="ch23-366-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText"><A NAME="IXT-23-55192"></A>
+
+<A NAME="IXT-23-55193"></A>Error类的实例表示错误或异常，通常与throw语句和try/catch语句一起使用。属性name声明了异常的类型，message属性可提供人们能够读取的异常的详细信息。
+
+</P>
+
+
+
+<P class="docText">JavaScript解释器从不直接抛出Error对象，而是抛出Error子类(如SyntaxError或RangeError)的实例。在代码中，你会发现抛出Error对象指示异常非常方便，或者也可以用原始字符串或数字的形式抛出错误消息或错误代码。</P>
+
+
+
+<P class="docText">注意，ECMAScript标准为Error类定义了toString()方法(Error的所有子类都继
+  承了该方法)，但并不要求该方法返回含有message属性的字符串。因此，不能期望
+  toString()方法可以把Error对象转换成人们可以读懂的字符串。要把错误消息显
+  示给用户，应该明确地使用Error对象的name属性和message属性。</P>
+
+
+
+<A NAME="ch23-367-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<P class="docText">可以用下列代码指示一个异常:</P>
+
+
+
+<PRE>function factorial(x) {
+
+    if (x &lt; 0) throw new Error("factorial: x must be &gt;= 0");
+
+    if (x &lt;= 1) return 1; else return x * factorial(x-1);
+
+}</PRE>
+
+
+
+<P class="docText">如果捕捉到了一个异常，可以用下列代码把它显示给用户(这段代码使用了客户端
+  Window.alert()方法)：</P>
+
+
+
+<PRE>try { &amp;*(&amp;/* an error is thrown here */ }
+
+catch(e) {
+
+    if (e instanceof Error) {  // 判断是否为Error或子类的—个实例
+
+        alert(e.name + ": " + e.message);
+
+    }
+
+} </PRE>
+
+
+
+<A NAME="ch23-368-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-392-fm2xml.html#ch23-392-fm2xml">EvalError</A>, <A class="docLink" HREF="ch23-712-fm2xml.html#ch23-712-fm2xml">RangeError</A>, <A class="docLink" HREF="ch23-719-fm2xml.html#ch23-719-fm2xml">ReferenceError</A>, <A class="docLink" HREF="ch23-907-fm2xml.html#ch23-907-fm2xml">SyntaxError</A>, <A class="docLink" HREF="ch23-914-fm2xml.html#ch23-914-fm2xml">TypeError</A>,
+
+<A class="docLink" HREF="ch23-930-fm2xml.html#ch23-930-fm2xml">URIError</A>
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-352-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-369-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

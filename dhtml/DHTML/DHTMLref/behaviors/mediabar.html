@@ -1,0 +1,134 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>mediaBar</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);        if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>mediaBar Behavior
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Provides a basic user interface (UI) for locating and playing media within the browser window.
+The Media Bar?A HREF="/workshop/author/behaviors/overview.html">default behavior</A> exposes much of the Media Bar functionality to scripting, giving you control over playback, navigation, and the player UI. It also enables you to load HTML in the Media Bar content area.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH>XML</TH><TD>
+&lt;<SPAN CLASS="clsRange">Prefix</SPAN>:<SPAN CLASS="clsRange">
+CustomTag</SPAN><SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN><SPAN class="clsLiteral"> STYLE="<A HREF="../properties/behavior_1.html">behavior</A>:url('#default#mediaBar')"</SPAN> /&gt;
+</TD></TR><TR><TH>HTML</TH><TD>
+&lt;ELEMENT<SPAN class="clsLiteral"> STYLE="behavior:url('#default#mediaBar')"</SPAN><SPAN class="clsLiteral"> ID=</SPAN><SPAN CLASS="clsRange">sID</SPAN>&gt;</TD></TR><TR><TH ROWSPAN="2">Scripting</TH><TD><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN class="clsLiteral">.<A HREF="../objects/obj_style.html">style</A>.behavior = "url('#default#mediaBar')"</SPAN></TD></TR><TR><TD><SPAN CLASS="clsRange"><SPAN CLASS="moreinfo" TITLE="Object refers to an object from the Applies To list below.">object</SPAN></SPAN><SPAN class="clsLiteral">.<A HREF="../methods/addbehavior.html">addBehavior</A> ("#default#mediaBar")</SPAN></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">Prefix</SPAN></TD><TD>Prefix that associates the <SPAN CLASS="clsRange">CustomTag</SPAN> with an XML namespace. This prefix is
+set using the <A HREF="../properties/xmlns.html">XMLNS</A> attribute of the <A HREF="../objects/html.html">HTML</A>
+tag.
+</TD></TR><TR><TD><SPAN CLASS="clsRange">CustomTag</SPAN></TD><TD>User-defined tag.</TD></TR><TR><TD><SPAN CLASS="clsRange">sID</SPAN></TD><TD>String that specifies a unique identifier for the object.</TD></TR><TR></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>mediaBar</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/currentitem.html">currentItem</A></NOBR></TD><TD>
+Sets or retrieves  the current media item.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/disabledui.html">disabledUI</A></NOBR></TD><TD>
+Sets or retrieves  a Boolean value that specifies whether an instance of the Media Bar?
+UI is disabled.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/enabled.html">enabled</A></NOBR></TD><TD>
+Sets or retrieves  a Boolean value that specifies whether the Media Bar player control is enabled.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/hasnextitem.html">hasNextItem</A></NOBR></TD><TD>
+Sets or retrieves  a value that indicates whether any successive items follow the current item in the playlist.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/nextitem.html">nextItem</A></NOBR></TD><TD>
+Sets or retrieves  the next media item in a playlist, if there is one.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/openstate.html">openState</A></NOBR></TD><TD>
+Sets or retrieves  an integer that indicates the open state of the Media Bar player. </TD></TR><TR><TD><NOBR><A HREF="../behaviors/playlistinfo.html">playlistInfo</A></NOBR></TD><TD>
+Sets or retrieves playlist information, if a playlist exists.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/playstate.html">playState</A></NOBR></TD><TD>
+Sets or retrieves  an integer that indicates the play state of the Media Bar player.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Events</P><DIV tabName="Events"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Event</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/onhide.html">onhide</A></NOBR></TD><TD>
+Fires when the Media Bar player is hidden.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/onopenstatechange.html">onopenstatechange</A></NOBR></TD><TD>
+Fires when the Media Bar player changes its open state.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/onplaystatechange.html">onplaystatechange</A></NOBR></TD><TD>
+Fires when the Media Bar player changes its play state.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/onshow.html">onshow</A></NOBR></TD><TD>
+Fires when the Media Bar player becomes visible.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Methods</P><DIV tabName="Methods"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Method</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/playnext.html">playNext</A></NOBR></TD><TD>
+Starts playback of the next media item in the playlist, if a playlist is present.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/playurl.html">playURL</A></NOBR></TD><TD>
+Loads media from a URL into the Media Bar and starts playback.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/stop.html">stop</A></NOBR></TD><TD>
+Stops playback of the media that is currently playing.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Objects</P><DIV tabName="Objects"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Object</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../behaviors/mediaitem.html">MediaItem</A></NOBR></TD><TD>
+Represents a single item in a media player playlist.</TD></TR><TR><TD><NOBR><A HREF="../behaviors/playlistinfo.html">PlaylistInfo</A></NOBR></TD><TD>
+Contains information about a media player playlist.</TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Users can open the Media Bar by clicking a media link in the browser, typing the URL of a media file in the address bar, clicking the <B>Media</B> button in the Internet Explorer toolbar, or by choosing <B>Explorer Bar</B> from the <B>View</B> menu and selecting <B>Media</B>. The <B>mediaBar</B> behavior only functions within the Media Bar. </P><P>When new content is targeted at the <B>mediaBar</B> behavior, the Media Bar becomes dedicated to that content, stopping playback of previous media and navigating away from HTML in the Media Bar content area.  For a demonstration, see the example section that follows.</P><P> You might not have access to the members listed in this table using script until the window.<A HREF="../behaviors/onload.html">onload</A> event fires. If you wait for this event to fire, it ensures that the page is completely loaded, that all behaviors have been applied to corresponding elements on the page, and that all the behavior's properties, methods, and events are available for scripting. If you use any of the behavior-defined members before the window.<B>onload</B> event fires, a scripting error can occur, which indicates that the object does not support that particular member.</P><DIV CLASS="clsNote"><B><IMG alt="security note" src="../common/UI_security_bang_16.gif"></IMG> Security Alert</B>&nbsp;&nbsp;The Media Bar can load .asx and .asf files that specify multiple media URLs and scripted content. For security reasons, streamed content from unverified sources should be treated as user input. Developers should use caution when displaying content from unverified sources as HTML in the Media Bar content pane. For more information, see <A HREF="/workshop/author/dhtml/sec_dhtml.html">Security Considerations: Dynamic HTML</A> and <A HREF="/workshop/author/behaviors/sec_behaviors.html">Security Considerations: DHTML and Default Behaviors</A>.
+</DIV><P>The <B>mediaBar</B> behavior is available in Internet Explorer 6 only in the Microsoft Win32&#174; platform.</P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+The following example shows an ordinary link to media content. When clicked, it starts media playback in the Media Bar.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;A
+href="http://msdn.microsoft.com/workshop/samples/author/behaviors/media/56movie.asf"&gt;
+Launch the shuttle.&lt;/A&gt;
+</PRE><P>
+To display HTML content in the Media Bar content area, you can use a link that targets the Media Bar.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;A  target="_media"
+href="http://msdn.microsoft.com/workshop/samples/author/behaviors/
+sample_content.htm"&gt;&lt;/A&gt;
+</PRE><P>
+Because the behavior works only within the Media Bar, you must load any HTML content that uses the <B>mediaBar</B> behavior in the Media Bar content area and declare the behavior there. Playback of media files loaded with the <B>mediaBar</B> behavior's <A HREF="../behaviors/playnext.html">playNext</A> or <A HREF="../behaviors/playurl.html">playURL</A> methods can then be paused, scanned, and stopped using the media player user interface.</P><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!-- Use an inline behavior declaration for media content in the Media Bar content area. --&gt;
+&lt;DIV style="behavior:url(#default#mediaBar)" id="divMedia"&gt;
+Container for media to play in the Media Bar.
+&lt;/DIV&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="about:blank" FEATURES="top=10,left=50,height=600,width=800,status=0,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../mediabar_ovw.html">Using the Media Bar in Internet Explorer</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

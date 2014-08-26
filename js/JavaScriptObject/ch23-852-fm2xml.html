@@ -1,0 +1,195 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-845-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-860-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-852-fm2xml"></A><A NAME="IXT-23-55409"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>String.slice(  )</i></b></td>
+
+<td align="right"><i>抽取一个子串</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+
+
+<P class="docText">JavaScript 1.2; JScript 3.0; ECMAScript v3 </P><A NAME="ch23-853-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>string</I></TT>.slice(<TT><I>start</I></TT>, <TT><I>end</I></TT>)
+
+</PRE>
+
+
+
+<A NAME="ch23-854-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>start</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要抽取的片段的起始下标。如果是负数，那么该参数声明了从字符串的尾部开始算起的位置。也就是说，-1指字符串中的最后一个字符，-2指倒数第二个字符，以此类推。</P>
+
+</DD>
+
+<DT><span class="docPubcolor"><TT><I>end</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">紧接着要抽取的片段的结尾的下标。如果没有指定这一参数，那么要抽取的子串包括start到原字符串结尾的字符串。如果该参数是负数，那么它声明了从字符串的尾部开始算起的位置。</P>
+
+</DD>
+
+</DL>
+
+
+
+
+
+<A NAME="ch23-855-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">一个新字符串，包括字符串string从start开始(包括start)到end为止(不包
+  括end)的所有字符。</P>
+
+
+
+
+
+<A NAME="ch23-856-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">方法slice()将返回一个含有字符串string的片段的字符串或返回它的一个子串。
+  但是该方法不修改string。</P>
+
+
+
+<P class="docText">String对象的方法slice()、substring()和substr()(不建议使用)都返回字符串的指定部分。slice()比substring()要灵活一些，因为它允许使用负数作为参数。slice()与substr()有所不同，  因为它用两个字符的位置指定子串，而substr()则用字符位置和长度来指定子串。还要注意的是，String.slice()与Array.slice()相似。</P>
+
+
+
+<A NAME="ch23-857-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>var s = "abcdefg";
+
+s.slice(0,4)    // 返回 "abcd"
+
+s.slice(2,4)    // 返回 "cd"
+
+s.slice(4)      // 返回 "efg"
+
+s.slice(3,-1)   // 返回 "def"
+
+s.slice(3,-2)   // 返回 "de"
+
+s.slice(-3,-1)  // 应该返回 "ef";返回"abcdef" in IE 4</PRE>
+
+
+
+<A NAME="ch23-858-fm2xml"></A>
+
+<h4 class="docRefsectTitle">Bug</h4>
+
+
+
+<P class="docText"> 在JScript 3.0(InternetExplorer 4)中，参数start的值是不能是负数。负的start值指定的不是从字符串尾部开始算起的字符位置，而是指定第0个字符的位置。</P>
+
+
+
+<A NAME="ch23-859-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-87-fm2xml.html#ch23-87-fm2xml">Array.slice(  )</A>, <A class="docLink" HREF="ch23-876-fm2xml.html#ch23-876-fm2xml">String.substring(  )</A> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-845-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-860-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

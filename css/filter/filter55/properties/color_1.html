@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'Chroma','DropShadow','Glow','MaskFilter'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE40=new Array(
+'Chroma','DropShadow','Glow','MaskFilter'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:6px;filter:progid:DXImageTransform.Microsoft.Chroma();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.Chroma(";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel")) var sValue=options[selectedIndex].value;\n'+
+'oDiv.filters[0].Color=sValue;\n'+
+'oCodeDiv.innerHTML=sFilter+" color= "+sValue+") ; ";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_shape.gif" style="float:left;">请从下方选择滤镜参数的值。<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="#FF0000FF">---颜色---\n'+
+'<option value="#0000A651">#0000A651\n'+
+'<option value="#00FF9900">#00FF9900\n'+
+'<option value="#00996666">#00996666\n'+
+'<option value="#00FF6633">#00FF6633\n'+
+'<option value="#00FFFFFF">#00FFFFFF\n'+
+'<option value="#FF0000FF">#FF0000FF\n'+
+'<\/select>\n'+
+'<div id=idCodeDiv>filter:progid:DXImageTransform.Microsoft.Chroma();<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>color | Color</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b> ( color</b> = <i>sColor</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.</b><a href="../rdl_filters.html"><i>sFilterName</i></a><b>').Color = </b><i>sColor</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sColor </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。32位 ARGB 格式色彩值。<br>
+其格式为<i> #AARRGGBB </i>。<i> AA </i>、<i> RR </i>、<i> GG </i>、<i> BB </i>为十六进制正整数。取值范围为<b> 00 - FF </b>。<i> RR </i>指定红色值，<i> GG </i>指定绿色值，<i> BB </i>指定蓝色值，<i> AA </i>指定透明度。<b> 00 </b>是完全透明。<b> FF </b>是完全不透明。<br>
+此属性无默认值。以下为例外: 
+<table><tr>
+<td nowrap><a href="../filters/chroma.html"> Chroma </a></td><td nowrap><b> : </b></td><td><span class=cssDefault><b> #FF0000FF </b></span></td>
+</tr><tr>
+<td nowrap><a href="../filters/dropshadow.html"> DropShadow </a></td><td nowrap><b> : </b></td><td><span class=cssDefault><b> #FF404040 </b></span></td>
+</tr><tr>
+<td nowrap><a href="../filters/glow.html"> Glow </a></td><td nowrap><b> : </b></td><td><span class=cssDefault><b> #FF0000 </b></span></td>
+</tr><tr>
+<td nowrap><a href="../filters/maskfilter.html"> MaskFilter </a></td><td nowrap><b> : </b></td><td><span class=cssDefault><b> #FF000000 </b></span></td>
+</tr></table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索滤镜作用的颜色值。<br>
+对于<a href="../filters/glow.html"> Glow </a>滤镜而言，此属性的取值被限制为<i> #RRGGBB </i>格式。因为辉光发热效果总是不透明的。<br>
+此属性作用于下列滤镜有不同的作用: 
+<table><tr>
+<td nowrap><a href="../filters/chroma.html"> Chroma </a></td><td nowrap><b> : </b></td>
+<td>指定被透视的颜色。</td>
+</tr><tr>
+<td nowrap><a href="../filters/dropshadow.html"> DropShadow </a></td><td nowrap><b> : </b></td>
+<td>指定阴影效果的颜色。</td>
+</tr><tr>
+<td nowrap><a href="../filters/glow.html"> Glow </a></td><td nowrap><b> : </b></td>
+<td>指定辉光发热效果的颜色。</td>
+</tr><tr>
+<td nowrap><a href="../filters/maskfilter.html"> MaskFilter </a></td><td nowrap><b> :  </b></td>
+<td>指定显示为透明的颜色。</td>
+</tr></table>
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

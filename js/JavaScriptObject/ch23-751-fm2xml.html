@@ -1,0 +1,120 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-748-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-755-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-751-fm2xml"></A><A NAME="IXT-23-55378"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>RegExp.lastIndex</i></b></td>
+
+<td align="right"><i>下次匹配的起始位置</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.2; JScript 5.5; ECMAScript v3 </P><A NAME="ch23-752-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE><TT><I>regexp</I></TT>.lastIndex</PRE>
+
+<A NAME="IXT-23-55378"></A>
+
+
+
+
+
+<A NAME="ch23-753-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">RegExp对象的属性lastIndex是一个可读可写的值。对于设置了g性质的正则表达式来说，该属性存放的是—个整数，它声明了紧接着上次找到的匹配文本的字符的位置。上次匹配的结果是由方法RegExp.exec()或RegExp.test()找到的，它们都以lastIndex属性所指的位置作为下次检索的起始点。这样，就可以通过反复调用这两个方法来遍历一个字符串中的所有匹配文本。注意，不具有性质g和不表示全局模式的RegExp对象不能使用lastlndex属性。</P>
+
+
+
+<P class="docText">由于这一属性是可读可写的，所以只要目标字符串的下一次搜索开始，就可以对它进行设置。当方法exec()或test()再也找不到可以匹配的文本时，它们会自动地把
+  lastIndex属性重置为0。如果在成功的匹配了某个字符串之后就开始检索另一个字符串，需要明确地把这个属性设为0。</P>
+
+
+
+<A NAME="ch23-754-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-736-fm2xml.html#ch23-736-fm2xml">RegExp.exec(  )</A>, <A class="docLink" HREF="ch23-758-fm2xml.html#ch23-758-fm2xml">RegExp.test(  )</A> </P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-748-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-755-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

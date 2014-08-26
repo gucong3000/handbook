@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>使用 IFRAME</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<DIV CLASS="clsDocBody">
+<H1>使用 IFRAME 元素</H1>
+<HR SIZE="1">
+<p>使用 Microsoft<SUP>&reg</SUP> Internet Explorer 5.5，框架现在不再是基于窗口的了，这可以显著提高执行效能。除此以外，Internet Explorer 5.5 现在还可以改善了 <A HREF="../objects/iframe.html">IFRAME</A> 元素，即内嵌浮动框架，并可使内嵌浮动框架的内容透明。</p>
+<p>Internet Explorer 5.5 中的内嵌浮动框架提供了下列特性。</p>
+<ul>
+<li>与先前版本的 Internet Explorer 相比，显著增强了性能。Internet Explorer 5.5 现已针对更加有效的处理内嵌浮动框架全面优化。这意味着渲染更快，内存占用更少，滚动更迅速。</li>
+<li>内嵌浮动框架可以覆盖在其它内嵌浮动框架之上。</li>
+<li>内嵌浮动框架可以包含透明的内容。</li></ul>
+<p>此文档主要讨论了下面的主题。</p>
+<UL>
+<LI><A HREF="#MakeWindowlessFrames">创建内嵌浮动框架</A></LI>
+<LI><A HREF="#transparency">使用内嵌浮动框架的透明特性</A></LI>
+<LI><A HREF="#layering">叠放内嵌浮动框架</A></LI>
+<LI><A HREF="#related_topics">相关主题</A></LI>
+</UL>
+<H2><A NAME="MakeWindowlessFrames"></A>创建内嵌浮动框架</H2>
+<p>要创建内嵌浮动框架，请使用 <B>IFRAME</B> 标签。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;IFRAME NAME="Frame1" SRC="frame.htm" &gt;
+&lt;/IFRAME&gt;
+</PRE>
+<p><B>IFRAME</B> 标签将在其位于 HTML 文件的位置处创建浮动框架。Internet Explorer 将把该框架内嵌渲染。<A HREF="../properties/src_2.html">SRC</A> 标签属性指定了要在该框架中显示的内容。</p>
+<p>你还可以在上面的 <B>IFRAME</B> 标签中放置内容，方法是使用框架目标，如下所示：</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;A HREF="http://www.microsoft.com" TARGET="Frame1"&gt;查看 Microsoft 的 Web 站点&lt;/A&gt;
+</PRE>
+<p>上面的例子创建了一个超级链接，该链接将把内嵌浮动框架引导到 Microsoft 的 Web 站点。这个例子使用了 <A HREF="../properties/target.html">TARGET</A> 标签属性将 Web 页装入了 <B>IFRAME</B>。<B>IFRAME</B> 标签的 <A HREF="../properties/name_0.html">NAME</A> 标签属性对应于 <A HREF="../objects/a.html">A</A> 标签的 <B>TARGET</B>。</p>
+<DIV CLASS="clsNote">
+<IMG alt="安全警告" src="../common/UI_security_bang_16.gif"></IMG> <B>安全警告</B>
+为了保护用户的隐私以及保卫你的应用程序，Internet Explorer 限制由来自不同域下的 Web 页所组成的框架间的某些交互操作。要获得关于 <A HREF="../objects/frame.html">frame</A> 和 <A HREF="../objects/iframe.html">iframe</A> 对象所使用的动态 HTML(DHTML) 对象模型的更多信息，请参看<A HREF="/workshop/author/om/xframe_scripting_security.html">关于跨框架脚本和安全性</A>以及<A HREF="../sec_dhtml.html">安全性考虑: 动态 HTML</A>。
+</DIV>
+<H2><A NAME="transparency"></A>使用内嵌浮动框架的透明特性</H2>
+<p>尽管 Internet Explorer 自 4.0 版本起就支持透明元素，但是直到 Internet Explorer 5.5 才支持内嵌浮动框架的透明内容。</p>
+<p>如果想要内嵌浮动框架的内容保持透明，则必须满足下列条件。</p>
+<ul>
+<li>与 <B>IFRAME</B> 元素一起使用的 <A HREF="../properties/allowTransparency.html">ALLOWTRANSPARENCY</A> 标签属性必须设置为 <SPAN CLASS="clsLiteral">true</SPAN>。</li>
+<li>在 <B>IFRAME</B> 内容源文档，<A HREF="../properties/backgroundColor.html">background-color</A> 或 <A HREF="BODY.html">BODY</A> 元素的 <A HREF="../properties/bgColor_0.html">BGCOLOR</A> 标签属性必须设置为 <SPAN CLASS="clsLiteral">transparent</SPAN>。</li>
+</ul>
+<DIV CLASS="clsNote">
+<B>注意</B> 尽管 <B>BGCOLOR</B> 标签属性也可以应用于 <B>BODY</B> 元素，但 HTML 4.0 并不建议这么做。推荐你换用 <B>background-color</B> 样式属性。
+</DIV>
+<p>下面的例子演示了如何为 <B>IFRAME</B> 内容源文件应用 <B>background-color</B> 样式属性。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML&gt;
+&lt;BODY STYLE="background-color:transparent"&gt;
+&lt;P&gt;透明。
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+<p>下面的例子演示了如何将 <B>IFRAME</B> 元素改为适应透明内容。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;IFRAME NAME="Frame1" SRC="frame.htm" ALLOWTRANSPARENCY="true"&gt;
+&lt;/IFRAME&gt;
+</PRE>
+<H2><A NAME="layering"></A>叠放内嵌浮动框架</H2>
+<p>Internet Explorer 4.0 及以后版本支持 <A HREF="../properties/zindex.html">z-index</A> 样式属性。但是，直到 Internet Explorer 5.5 和更高本才支持内嵌浮动框架的 <B>z-index</B> 样式属性。如果指定了浮动框架的 z-order，你就可以分层次叠放框架。</p>
+<p>要指定内嵌浮动框架的位置，请使用 <B>z-index</B> 标签属性。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;IFRAME SRC="frame.htm" STYLE="z-index:1" &gt;
+&lt;/IFRAME&gt;
+</PRE>
+<p>对于项目的叠放次序而言，哪个 <B>z-index</B> 的值小，哪个就放在下面；哪个值大，哪个就放在上面。而且，<B>z-index</B> 还可以是负数。</p>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.5 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="/workshop/graphics/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../samples/overview/winless.html" FEATURES="top=50,left=50,height=495,width=600,statusbar=yes,resizable=1"></IMG></A></DIV>
+<H2><A NAME="related_topics">相关主题</A></H2>
+<UL>
+<LI><A HREF="../properties/backgroundcolor.html">background-color</A></LI>
+<LI><A HREF="../properties/bgcolor_0.html">BGCOLOR</A></LI>
+<LI><A HREF="../objects/iframe.html">IFRAME</A></LI>
+<LI><A HREF="../properties/zindex.html">z-index</A></LI>
+<LI><A HREF="../sec_dhtml.html">安全考虑: 动态 HTML</A></LI>
+</UL>
+</BODY>
+</HTML>

@@ -1,0 +1,728 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>currentStyle</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/browdata.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript.encode" language="JScript.Encode" src="../common/appliesto2.jse"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript">
+var gbDBG = true;
+var gsContextMenuPath = "../common/contextmenu.htc";
+var gsCodeDecoPath = "../common/codedeco.htc";
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+if (typeof(fnATInit) == 'function') fnATInit();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/members.js"></SCRIPT>
+<SCRIPT TYPE="text/jscript" language="JScript" src="../common/common.js"></SCRIPT>
+</HEAD>
+<BODY>
+<P><A HREF="COMMENT.html" title="COMMENT 元素 | comment 对象"><IMG SRC="../common/prev.gif" WIDTH="17" HEIGHT="13" BORDER=0>COMMENT 元素 | comment 对象</A> <A HREF="custom.html" title="CUSTOM 元素 | custom 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>CUSTOM 元素 | custom 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>currentStyle 对象</H1>
+<HR SIZE="1"><P>代表了在全局样式表、内嵌样式和 HTML 标签属性中指定的对象格式和样式。</P>
+<P CLASS="clsRef">成员表</P>
+<BLOCKQUOTE>
+<DIV id="oMTExplanation" style="display:none">
+<P>下面的表格列出了 <B>currentStyle</B> 对象引出的成员。请单击左侧的标签来选择你想要查看的成员类型。</P></DIV>
+<DIV id="oMT">
+<P CLASS="clsRef" STYLE="display:none">属性</P>
+<DIV tabName="属性" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/blockDirection.html">blockDirection</A></TD>
+<TD>获取表明<span replace="1">块元素</span>内容的绕排方向的值，是由左至右，还是由右至左。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clipBottom.html">clipBottom</A></TD>
+<TD>获取对象剪裁区域的底边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clipLeft.html">clipLeft</A></TD>
+<TD>获取对象剪裁区域的左边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clipRight.html">clipRight</A></TD>
+<TD>获取对象剪裁区域的右边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clipTop.html">clipTop</A></TD>
+<TD>获取对象剪裁区域的顶边坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../time/properties/onOffBehavior.html">onOffBehavior</A></TD>
+<TD>获取表明指定的 Microsoft<SUP>&reg;</SUP> DirectAnimation<SUP>&reg;</SUP> 行为是否正在运行的对象。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">方法</P>
+<DIV tabName="方法" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>方法</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../methods/getAttribute.html">getAttribute</A></TD>
+<TD>获取指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/getExpression.html">getExpression</A></TD>
+<TD>获取给定属性的表达式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setAttribute.html">setAttribute</A></TD>
+<TD>设置指定标签属性的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../methods/setExpression.html">setExpression</A></TD>
+<TD>设置指定对象的表达式。</TD>
+</TR>
+</TABLE>
+</DIV>
+<P CLASS="clsRef" STYLE="display:none">样式</P>
+<DIV tabName="样式" style="visibility:visible">
+<TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF">
+<TR><TH>样式标签属性</TH><TH>样式属性</TH><TH>描述</TH></TR>
+<TR>
+<TD><A HREF="../properties/accelerator.html">ACCELERATOR</A></TD>
+<TD><A HREF="../properties/accelerator.html">accelerator</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否包含快捷键的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundAttachment.html">background-attachment</A></TD>
+<TD><A HREF="../properties/backgroundAttachment.html">backgroundAttachment</A></TD>
+<TD>设置或获取背景图像如何附加到文档内的<span replace="1">对象</span>中。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundColor.html">background-color</A></TD>
+<TD><A HREF="../properties/backgroundColor.html">backgroundColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容后的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundImage.html">background-image</A></TD>
+<TD><A HREF="../properties/backgroundImage.html">backgroundImage</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的背景图像。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundPositionX.html">background-position-x</A></TD>
+<TD><A HREF="../properties/backgroundPositionX.html">backgroundPositionX</A></TD>
+<TD>设置或获取 <A HREF="../properties/backgroundposition.html">backgroundPosition</A> 属性的 x 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundPositionY.html">background-position-y</A></TD>
+<TD><A HREF="../properties/backgroundPositionY.html">backgroundPositionY</A></TD>
+<TD>设置或获取 <B>backgroundPosition</B> 属性的 y 坐标。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/backgroundRepeat.html">background-repeat</A></TD>
+<TD><A HREF="../properties/backgroundRepeat.html">backgroundRepeat</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/backgroundImage.html">backgroundImage</A> 属性如何平铺。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD><A HREF="../properties/behavior_1.html">behavior</A></TD>
+<TD>设置或获取 <A HREF="../../../behaviors/overview.html">DHTML 行为</A>的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderBottomColor.html">border-bottom-color</A></TD>
+<TD><A HREF="../properties/borderBottomColor.html">borderBottomColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>下边框的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderBottomStyle.html">border-bottom-style</A></TD>
+<TD><A HREF="../properties/borderBottomStyle.html">borderBottomStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>下边框的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderBottomWidth.html">border-bottom-width</A></TD>
+<TD><A HREF="../properties/borderBottomWidth.html">borderBottomWidth</A></TD>
+<TD>设置或获取<span replace="1">对象</span>下边框的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderCollapse.html">border-collapse</A></TD>
+<TD><A HREF="../properties/borderCollapse.html">borderCollapse</A></TD>
+<TD>设置或获取表明表格行和单元格边框是组合为单一边框还是像标准 HTML 那样分离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderColor_0.html">border-color</A></TD>
+<TD><A HREF="../properties/borderColor_0.html">borderColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的边框颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderLeftColor.html">border-left-color</A></TD>
+<TD><A HREF="../properties/borderLeftColor.html">borderLeftColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>左边框的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderLeftStyle.html">border-left-style</A></TD>
+<TD><A HREF="../properties/borderLeftStyle.html">borderLeftStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>左边框的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderLeftWidth.html">border-left-width</A></TD>
+<TD><A HREF="../properties/borderLeftWidth.html">borderLeftWidth</A></TD>
+<TD>设置或获取<span replace="1">对象</span>左边框的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderRightColor.html">border-right-color</A></TD>
+<TD><A HREF="../properties/borderRightColor.html">borderRightColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>右边框的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderRightStyle.html">border-right-style</A></TD>
+<TD><A HREF="../properties/borderRightStyle.html">borderRightStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>右边框的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderRightWidth.html">border-right-width</A></TD>
+<TD><A HREF="../properties/borderRightWidth.html">borderRightWidth</A></TD>
+<TD>设置或获取<span replace="1">对象</span>右边框的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderStyle.html">border-style</A></TD>
+<TD><A HREF="../properties/borderStyle.html">borderStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上下左右边框的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderTopColor.html">border-top-color</A></TD>
+<TD><A HREF="../properties/borderTopColor.html">borderTopColor</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上边框的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderTopStyle.html">border-top-style</A></TD>
+<TD><A HREF="../properties/borderTopStyle.html">borderTopStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上边框的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderTopWidth.html">border-top-width</A></TD>
+<TD><A HREF="../properties/borderTopWidth.html">borderTopWidth</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上边框的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/borderWidth.html">border-width</A></TD>
+<TD><A HREF="../properties/borderWidth.html">borderWidth</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上下左右边框的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/bottom_1.html">bottom</A></TD>
+<TD><A HREF="../properties/bottom_1.html">bottom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>相对于文档层次中下个定位对象的底部的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/clear_0.html">clear</A></TD>
+<TD><A HREF="../properties/clear_0.html">clear</A></TD>
+<TD>设置或获取<span replace="1">对象</span>是否允许在其左侧、右侧或两边放置浮动对象，以防下段文本显示在浮动对象上。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/color_1.html">color</A></TD>
+<TD><A HREF="../properties/color_1.html">color</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/cursor.html">cursor</A></TD>
+<TD><A HREF="../properties/cursor.html">cursor</A></TD>
+<TD>设置或获取当鼠标指针指向<span replace="1">对象</span>时所使用的鼠标指针。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/direction_1.html">direction</A></TD>
+<TD><A HREF="../properties/direction_1.html">direction</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的阅读顺序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/display.html">display</A></TD>
+<TD><A HREF="../properties/display.html">display</A></TD>
+<TD>设置或获取<span replace="1">对象</span>是否要渲染。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontFamily.html">font-family</A></TD>
+<TD><A HREF="../properties/fontFamily.html">fontFamily</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本所使用的字体名称。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontSize.html">font-size</A></TD>
+<TD><A HREF="../properties/fontSize.html">fontSize</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本使用的字体大小。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontStyle.html">font-style</A></TD>
+<TD><A HREF="../properties/fontStyle.html">fontStyle</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的字体样式，如<SPAN CLASS="clsLiteral">斜体</SPAN>、<SPAN CLASS="clsLiteral">常规</SPAN>或<SPAN CLASS="clsLiteral">倾斜</SPAN>。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontVariant.html">font-variant</A></TD>
+<TD><A HREF="../properties/fontVariant.html">fontVariant</A></TD>
+<TD>设置或获取<span replace="1">对象</span>文本是否以小型大写字母显示。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/fontWeight.html">font-weight</A></TD>
+<TD><A HREF="../properties/fontWeight.html">fontWeight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的字体宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/hasLayout.html"></A></TD>
+<TD><A HREF="../properties/hasLayout.html">hasLayout</A></TD>
+<TD>获取表明<span replace="1">对象</span>是否有布局的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/height_1.html">height</A></TD>
+<TD><A HREF="../properties/height_1.html">height</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/imeMode.html">ime-mode</A></TD>
+<TD><A HREF="../properties/imeMode.html">imeMode</A></TD>
+<TD>获取输入方法编辑器(IME)的状态。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutFlow.html">layout-flow</A></TD>
+<TD><A HREF="../properties/layoutFlow.html">layoutFlow</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容的方向和绕排方向。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutGridChar.html">layout-grid-char</A></TD>
+<TD><A HREF="../properties/layoutGridChar.html">layoutGridChar</A></TD>
+<TD>设置或获取用于渲染元素文本内容的字符网格大小。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutGridLine.html">layout-grid-line</A></TD>
+<TD><A HREF="../properties/layoutGridLine.html">layoutGridLine</A></TD>
+<TD>设置或获取用于渲染元素文本内容的网格线值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutGridMode.html">layout-grid-mode</A></TD>
+<TD><A HREF="../properties/layoutGridMode.html">layoutGridMode</A></TD>
+<TD>设置或获取文本布局网格是否使用二维。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/layoutgridtype.html">layout-grid-type</A></TD>
+<TD><A HREF="../properties/layoutgridtype.html">layoutGridType</A></TD>
+<TD>设置或获取用于渲染元素文本内容的网格类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/left.html">left</A></TD>
+<TD><A HREF="../properties/left.html">left</A></TD>
+<TD>设置或获取<span replace="1">对象</span>相对于文档层次中下个定位对象的左边界的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/letterSpacing.html">letter-spacing</A></TD>
+<TD><A HREF="../properties/letterSpacing.html">letterSpacing</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的字符间附加空间的总和。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lineBreak.html">line-break</A></TD>
+<TD><A HREF="../properties/lineBreak.html">lineBreak</A></TD>
+<TD>设置或获取日本文本的换行规则。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/lineHeight.html">line-height</A></TD>
+<TD><A HREF="../properties/lineHeight.html">lineHeight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>两行间的距离。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/listStyleImage.html">list-style-image</A></TD>
+<TD><A HREF="../properties/listStyleImage.html">listStyleImage</A></TD>
+<TD>获取要为<span replace="1">对象</span>应用的列表项目符号的图像。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/listStylePosition.html">list-style-position</A></TD>
+<TD><A HREF="../properties/listStylePosition.html">listStylePosition</A></TD>
+<TD>获取相对于<span replace="1">对象</span>内容如何绘制项目符号。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/listStyleType.html">list-style-type</A></TD>
+<TD><A HREF="../properties/listStyleType.html">listStyleType</A></TD>
+<TD>获取<span replace="1">对象</span>预定义的项目符号类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/margin.html">margin</A></TD>
+<TD><A HREF="../properties/margin.html">margin</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的上下左右边距。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/marginBottom.html">margin-bottom</A></TD>
+<TD><A HREF="../properties/marginBottom.html">marginBottom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的下边距宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/marginLeft.html">margin-left</A></TD>
+<TD><A HREF="../properties/marginLeft.html">marginLeft</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的左边距宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/marginRight.html">margin-right</A></TD>
+<TD><A HREF="../properties/marginRight.html">marginRight</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的右边距宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/marginTop.html">margin-top</A></TD>
+<TD><A HREF="../properties/marginTop.html">marginTop</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的上边距宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/minheight.html">min-height</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD><A HREF="../properties/minheight.html">minHeight</A></TD>
+<TD>设置或获取元素的最小高度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/overflow.html">overflow</A></TD>
+<TD><A HREF="../properties/overflow.html">overflow</A></TD>
+<TD>设置或获取表明当内容超出<span replace="1">对象</span>高度或宽度时如何管理<span replace="1">对象</span>内容的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/overflowX.html">overflow-x</A></TD>
+<TD><A HREF="../properties/overflowX.html">overflowX</A></TD>
+<TD>设置或获取当内容超出<span replace="1">对象</span>宽度时如何管理<span replace="1">对象</span>内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/overflowY.html">overflow-y</A></TD>
+<TD><A HREF="../properties/overflowY.html">overflowY</A></TD>
+<TD>设置或获取当内容超出<span replace="1">对象</span>高度时如何管理<span replace="1">对象</span>内容。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/padding.html">padding</A></TD>
+<TD><A HREF="../properties/padding.html">padding</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>和其边距或若存在的边框的话就是<span replace="1">对象</span>和其边框之间要插入的全部空间。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingBottom.html">padding-bottom</A></TD>
+<TD><A HREF="../properties/paddingBottom.html">paddingBottom</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>下边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingLeft.html">padding-left</A></TD>
+<TD><A HREF="../properties/paddingLeft.html">paddingLeft</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>左边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingRight.html">padding-right</A></TD>
+<TD><A HREF="../properties/paddingRight.html">paddingRight</A></TD>
+<TD>设置或获取要在<span replace="1">对象</span>右边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/paddingTop.html">padding-top</A></TD>
+<TD><A HREF="../properties/paddingTop.html">paddingTop</A></TD>
+<TD>设置或获取<span replace="1">对象</span>上边框和内容之间插入的空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pageBreakAfter.html">page-break-after</A></TD>
+<TD><A HREF="../properties/pageBreakAfter.html">pageBreakAfter</A></TD>
+<TD>设置或获取表明<span replace="1">对象</span>后发生换页的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/pageBreakBefore.html">page-break-before</A></TD>
+<TD><A HREF="../properties/pageBreakBefore.html">pageBreakBefore</A></TD>
+<TD>设置或获取表明<span replace="1">对象</span>前发生换页的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/position.html">position</A></TD>
+<TD><A HREF="../properties/position.html">position</A></TD>
+<TD>设置或获取<span replace="1">对象</span>所使用的定位方式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/right_1.html">right</A></TD>
+<TD><A HREF="../properties/right_1.html">right</A></TD>
+<TD>设置或获取<span replace="1">对象</span>相对于文档层次中下个已定位的对象的右边界的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/rubyAlign.html">ruby-align</A></TD>
+<TD><A HREF="../properties/rubyAlign.html">rubyAlign</A></TD>
+<TD>获取由 <A HREF="RT.html">RT</A> 对象指定的注音文本的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/rubyOverhang.html">ruby-overhang</A></TD>
+<TD><A HREF="../properties/rubyOverhang.html">rubyOverhang</A></TD>
+<TD>获取由 <B>RT</B> 对象指定的注音文本的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/rubyPosition.html">ruby-position</A></TD>
+<TD><A HREF="../properties/rubyPosition.html">rubyPosition</A></TD>
+<TD>获取由 <B>RT</B> 对象指定的注音文本的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbar3dLightColor.html">scrollbar-3dlight-color</A></TD>
+<TD><A HREF="../properties/scrollbar3dLightColor.html">scrollbar3dLightColor</A></TD>
+<TD>设置或获取滚动条上滚动按钮和滚动滑块的左上颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarArrowColor.html">scrollbar-arrow-color</A></TD>
+<TD><A HREF="../properties/scrollbarArrowColor.html">scrollbarArrowColor</A></TD>
+<TD>设置或获取滚动箭头标识的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarBaseColor.html">scrollbar-base-color</A></TD>
+<TD><A HREF="../properties/scrollbarBaseColor.html">scrollbarBaseColor</A></TD>
+<TD>设置或获取滚动条的主要颜色，其中包含滚动按钮和滚动滑块。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarDarkShadowColor.html">scrollbar-darkshadow-color</A></TD>
+<TD><A HREF="../properties/scrollbarDarkShadowColor.html">scrollbarDarkShadowColor</A></TD>
+<TD>设置或获取滚动条上滑槽的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarFaceColor.html">scrollbar-face-color</A></TD>
+<TD><A HREF="../properties/scrollbarFaceColor.html">scrollbarFaceColor</A></TD>
+<TD>设置或获取滚动条和滚动条的滚动箭头的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarHighlightColor.html">scrollbar-highlight-color</A></TD>
+<TD><A HREF="../properties/scrollbarHighlightColor.html">scrollbarHighlightColor</A></TD>
+<TD>设置或获取滚动框和滚动条滚动箭头的左上边缘颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarShadowColor.html">scrollbar-shadow-color</A></TD>
+<TD><A HREF="../properties/scrollbarShadowColor.html">scrollbarShadowColor</A></TD>
+<TD>设置或获取滚动框和滚动条滚动箭头的右下边缘颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/scrollbarTrackColor.html">scrollbar-track-color</A></TD>
+<TD><A HREF="../properties/scrollbarTrackColor.html">scrollbarTrackColor</A></TD>
+<TD>设置或获取滚动条轨迹元素的颜色。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/float.html">float</A></TD>
+<TD><A HREF="../properties/float.html">styleFloat</A></TD>
+<TD>设置或获取文本要绕排到<span replace="1">对象</span>的哪一侧。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/tableLayout.html">table-layout</A></TD>
+<TD><A HREF="../properties/tableLayout.html">tableLayout</A></TD>
+<TD>获取表明表格布局是否固定的字符串。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAlign.html">text-align</A></TD>
+<TD><A HREF="../properties/textAlign.html">textAlign</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中的文本是左对齐、右对齐、居中对齐还是两端对齐。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAlignLast.html">text-align-last</A></TD>
+<TD><A HREF="../properties/textAlignLast.html">textAlignLast</A></TD>
+<TD>设置或获取如何排列<span replace="1">对象</span>的最后一行或仅有的一行。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textAutospace.html">text-autospace</A></TD>
+<TD><A HREF="../properties/textAutospace.html">textAutospace</A></TD>
+<TD>设置或获取自动留空和文本的窄空间宽度调整。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textDecoration.html">text-decoration</A></TD>
+<TD><A HREF="../properties/textDecoration.html">textDecoration</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中的文本是否有闪烁、删除线、上划线或下划线的样式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textIndent.html">text-indent</A></TD>
+<TD><A HREF="../properties/textIndent.html">textIndent</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中文本的缩进。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textJustify.html">text-justify</A></TD>
+<TD><A HREF="../properties/textJustify.html">textJustify</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内的文本所使用的对齐类型。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textKashidaSpace.html">text-kashida-space</A></TD>
+<TD><A HREF="../properties/textKashidaSpace.html">textKashidaSpace</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内文本对齐行时所使用空白扩展的 kashida 扩展的倍率。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textoverflow.html">text-overflow</A><IMG SRC="../common/new.gif" WIDTH="21" HEIGHT="11" BORDER=0 ALT="Microsoft&reg; Internet Explorer 6 新增"></TD>
+<TD><A HREF="../properties/textoverflow.html">textOverflow</A></TD>
+<TD>设置或获取表明是否显示省略号以表明文本溢出的值。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textTransform.html">text-transform</A></TD>
+<TD><A HREF="../properties/textTransform.html">textTransform</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中文本的渲染方式。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/textUnderlinePosition.html">text-underline-position</A></TD>
+<TD><A HREF="../properties/textUnderlinePosition.html">textUnderlinePosition</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的 <A HREF="../properties/textDecoration.html">textDecoration</A> 属性中设置的下划线的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/top_0.html">top</A></TD>
+<TD><A HREF="../properties/top_0.html">top</A></TD>
+<TD>设置或获取<span replace="1">对象</span>相对于文档层次中下个定位对象的上边界的位置。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/unicodeBidi.html">unicode-bidi</A></TD>
+<TD><A HREF="../properties/unicodeBidi.html">unicodeBidi</A></TD>
+<TD>设置或获取关于双向法则的嵌入级别。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/verticalAlign.html">vertical-align</A></TD>
+<TD><A HREF="../properties/verticalAlign.html">verticalAlign</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的垂直排列。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/visibility.html">visibility</A></TD>
+<TD><A HREF="../properties/visibility.html">visibility</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的内容是否显示。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/whitespace.html">white-space</A></TD>
+<TD><A HREF="../properties/whitespace.html">whiteSpace</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中是否自动换行。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/width_2.html">width</A></TD>
+<TD><A HREF="../properties/width_2.html">width</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的宽度。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wordbreak.html">word-break</A></TD>
+<TD><A HREF="../properties/wordbreak.html">wordBreak</A></TD>
+<TD>设置或获取单词内的换行行为，特别是<span replace="1">对象</span>中出现多语言的情况。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wordspacing.html">word-spacing</A></TD>
+<TD><A HREF="../properties/wordspacing.html">wordSpacing</A></TD>
+<TD>设置或获取<span replace="1">对象</span>中单词间的附加空间总量。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/wordWrap.html">word-wrap</A></TD>
+<TD><A HREF="../properties/wordWrap.html">wordWrap</A></TD>
+<TD>设置或获取当内容超过其容器边界时是否断词。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/writingMode.html">writing-mode</A></TD>
+<TD><A HREF="../properties/writingMode.html">writingMode</A></TD>
+<TD>设置或获取<span replace="1">对象</span>内容的方向和绕排。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zIndex.html">z-index</A></TD>
+<TD><A HREF="../properties/zIndex.html">zIndex</A></TD>
+<TD>设置或获取定位<span replace="1">对象</span>的堆叠次序。</TD>
+</TR>
+<TR>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD><A HREF="../properties/zoom.html">zoom</A></TD>
+<TD>设置或获取<span replace="1">对象</span>的放大比例。</TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P><B>currentStyle</B> 对象返回了元素上的样式表，但是 <A HREF="obj_style.html">style</A> 对象只返回通过 <A HREF="STYLE.html">STYLE</A> 标签属性应用到元素的内嵌样式。因此，通过 <B>currentStyle</B> 对象获取的样式值可能与通过 <B>style</B> 对象获取的样式值不同。例如，如果段落的 <A HREF="../properties/color_1.html">color</A> 属性值通过链接或嵌入样式表设置为红色( red )，而不是内嵌的话，对象.<B>currentStyle</B>.color 将返回正确的颜色，而对象 <B>style</B>.<B>color</B> 不能返回值。但是，如果用户指定了 &lt;P STYLE="color:'red'"&gt;，<B>currentStyle</B> 和 <B>STYLE</B> 对象都将返回值 <span class="clsLiteral">red</span>。</P>
+<P><B>currentStyle</B> 对象反映了样式表中的样式优先顺序。在 HTML 中此顺序为：
+<ol>
+<li>内嵌样式</li>
+<li>样式表规则</li>
+<li>HTML 标签属性</li>
+<li>HTML 标签的内部定义</li>
+</ol>
+</P>
+<P>从而，<B>currentStyle</B> 对象将为 bold 标签返回 <A HREF="../properties/fontWeight.html">fontWeight</A> 值 <SPAN CLASS="clsLiteral">normal</SPAN>，若在样式表中为此标签指定了 <SPAN CLASS="clsLiteral">normal</SPAN>。</P>
+<P><B>currentStyle</B> 返回反映页面所应用的样式设置的值，但可能并不反映获取值时渲染所采用的值。例如，样式值设置为 <span class="clsLiteral">"color:red; display:none"</span> 的对象，将返回 <B>currentStyle</B>.color 为 <span class="clsLiteral">red</span>，尽管该对象并不在页面上渲染。也就是说，<B>currentStyle</B> 对象并不受渲染与否的绑定。在下面示例区的第三个例子演示了此行为。禁用的样式表也不影响 <B>currentStyle</B> 值。</P>
+<P>返回值的单位与设置对象时的单位相同。例如，若对象的颜色是以内嵌 <span class="clsLiteral">STYLE="color:'green'"</span> 的格式设置的，那么 <span class="clsRange">object</span>.<B>currentStyle</B>.color 将返回 <span class="clsLiteral">green</span> 而不是 <span class="clsLiteral">#00FF00</span> (与绿色相等的红绿蓝十六进制值)。但是，当 <B>currentStyle</B> 对象返回对象值的时候出现在作者所设置的对象值中的大写和多余的空白将被去掉。</P>
+<P><B>currentStyle</B> 对象支持用户自定义的样式规则属性。请参看示例区的第二个例子。</P>
+<P><B>currentStyle</B> 对象是异步的。这意味着样式不可能被设置后马上就能查询，而是返回旧值。因此，对于含有 <A HREF="../methods/addImport.html">addImport</A> 这样方法的想要获得所期待的 <B>currentStyle</B> 行为的脚本，该脚本需要包含一个调用方法的函数和一个检查 <B>currentStyle</B> 的函数。对于需要在页面装载的时候检查当前属性的脚本，脚本必须等到 <A HREF="BODY.html">body</A> 元素装入且页面被选然后，否则 <B>currentStyle</B> 的值可能不反映所显示的情况。</P>
+<P>此对象在 Microsoft<SUP>&reg;</SUP> Internet Explorer 5 的脚本中可用。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+<p>下面的例子使用 <B>currentStyle</B> 对象将文本颜色设置为棕色。如果你单击着色区域并且背景颜色与文本颜色相同，checkColor 函数就会更改背景颜色，以方便阅读文本。否则，该函数不做任何操作。</p>
+<p>这个例子仅当主体和文本颜色同时使用颜色名称或 RGB 十六进制值时可用，混合使用时无效。</p>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+function checkColor(oObj)
+{
+if (oObj.currentStyle.backgroundColor == 'brown')
+{
+oObj.style.backgroundColor = 'white';
+}
+else
+:
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+:
+&lt;P STYLE="background-color: 'brown'"
+onclick="checkColor(this)"&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../samples/currentstyle/currentStyle_backgroundColor.html"></IMG></A>
+</DIV>
+<P>这个例子使用 <B>currentStyle</B> 对象获取创建于样式规则的用户自定义属性。alert 返回值 <span class="clsLiteral">myvalue</span>。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;STYLE&gt;
+P { myproperty:myvalue }
+&lt;/STYLE&gt;
+&lt;BODY&gt;
+&lt;P ID=oPrgrph&gt;
+:
+&lt;SCRIPT&gt;
+alert(oPrgrph.currentStyle.myproperty)
+&lt;/SCRIPT&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../samples/currentstyle/currentStyle2.html"></IMG></A>
+</DIV>
+<P>这个例子由 <B>currentStyle</B> 对象返回的 <A HREF="TD.html">td</A> 对象宽度是其层叠宽度值而不是屏幕上渲染的宽度值。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;BODY ID=oBdy&gt;
+:
+&lt;TABLE BORDER&gt;
+&lt;TR&gt;&lt;TD WIDTH=1100 ID=oTblD&gt;text&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+:
+&lt;SCRIPT&gt;
+alert("TD 对象 currentStyle.width 为 " +
+oTblD.currentStyle.width + ".\n" +
+"窗口的宽度为 " + oBdy.clientWidth +
+"px.\n屏幕的宽度为 " + screen.width + "px." )
+&lt;/SCRIPT&gt;
+</PRE>
+<DIV>
+<DIV CLASS="clsShowMe">此特性需要 Microsoft<SUP>&reg;</SUP> Internet Explorer 5.0 或以后版本。请单击下面的图标安装最新版本。然后重新装入此页再查看示例。</DIV>
+<A HREF="http://www.microsoft.com/windows/ie_intl/cn/download/default.htm" target="_blank"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5" SAMPLEPATH="../samples/currentstyle/currentStyle_table.html"></IMG></A>
+</DIV>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>没有应用于此对象的公共标准。</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">应用到</P>
+<BLOCKQUOTE>
+<TABLE ID="oATTable" CLASS="TMAT3D">
+<TR>
+<TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD>
+<TD ID="oATData" CLASS="controls"><A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="A.html">a</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="ACRONYM.html">acronym</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="ADDRESS.html">address</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="APPLET.html">applet</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="B.html">b</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="BDO.html">bdo</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="BIG.html">big</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="BLOCKQUOTE.html">blockQuote</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="BODY.html">body</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="BR.html">br</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="BUTTON.html">button</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="CAPTION.html">caption</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="CENTER.html">center</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="CITE.html">cite</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="CODE.html">code</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="COL.html">col</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="COLGROUP.html">colGroup</A>, <A PLATINFO="win32=5;unix=5" HREF="custom.html">custom</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DD.html">dd</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DEL.html">del</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DFN.html">dfn</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DIR.html">dir</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DIV.html">div</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DL.html">dl</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="DT.html">dt</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="EM.html">em</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="EMBED.html">embed</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="FIELDSET.html">fieldSet</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="FONT.html">font</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="FORM.html">form</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="Hn.html">hn</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="HTML.html">html</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="I.html">i</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="IMG.html">img</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_button.html">input type=button</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_checkbox.html">input type=checkbox</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_file.html">input type=file</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_image.html">input type=image</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_password.html">input type=password</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_radio.html">input type=radio</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_reset.html">input type=reset</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_submit.html">input type=submit</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INPUT_text.html">input type=text</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="INS.html">ins</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="ISINDEX.html">isIndex</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="KBD.html">kbd</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="LABEL.html">label</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="LEGEND.html">legend</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="LI.html">li</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="LISTING.html">listing</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="MARQUEE.html">marquee</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="MENU.html">menu</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="NOBR.html">noBr</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="OBJECT.html">object</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="OL.html">ol</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="OPTION.html">option</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="P.html">p</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="PLAINTEXT.html">plainText</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="PRE.html">pre</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="Q.html">q</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="S.html">s</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="SAMP.html">samp</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="SELECT.html">select</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="SMALL.html">small</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="SPAN.html">span</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="STRIKE.html">strike</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="STRONG.html">strong</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="SUB.html">sub</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="SUP.html">sup</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TABLE.html">table</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TBODY.html">tBody</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TD.html">td</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TEXTAREA.html">textArea</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TFOOT.html">tFoot</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TH.html">th</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="THEAD.html">tHead</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TR.html">tr</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="TT.html">tt</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="U.html">u</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="UL.html">ul</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="VAR.html">var</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="WBR.html">wbr</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="xmp.html">xmp</A></TD>
+</TR>
+<TR><TD COLSPAN="2" CLASS="controls"></TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">参看</P>
+<BLOCKQUOTE><A HREF="STYLE.html">style</A></BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

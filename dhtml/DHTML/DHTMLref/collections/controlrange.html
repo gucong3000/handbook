@@ -1,0 +1,127 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>controlRange</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<STYLE TYPE="text/css"></STYLE>
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(AddObjTables) == 'function') AddObjTables(typeof(g_oMemberInfo) != 'undefined' ? g_oMemberInfo : null);
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>controlRange Collection
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>A collection of elements returned by the <A HREF="../methods/createcontrolrange.html">createControlRange</A> or <A HREF="../methods/createrange.html">createRange</A> method.</P><P CLASS="clsRef">Members Table</P><BLOCKQUOTE><DIV id="oMTExplanation" style="display:none"><P>
+The following table lists the members exposed by the
+<B>controlRange</B>
+object.  Click a tab on the left to choose the type of member you want to view.</P></DIV><DIV id="oMT"><P CLASS="clsRef" STYLE="display:none">Attributes/Properties</P><DIV tabName="Attributes/Properties"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Property</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../properties/length.html">length</A></NOBR></TD><TD>
+Sets or retrieves the number of objects in a collection.</TD></TR></TABLE></DIV><P CLASS="clsRef" STYLE="display:none">Methods</P><DIV tabName="Methods"><TABLE CLASS="clsStd" width="100%" STYLE="BACKGROUND: #FFFFFF"><TR><TH>Method</TH><TH>Description</TH></TR><TR><TD><NOBR><A HREF="../methods/add.html">add</A></NOBR></TD><TD>
+Adds an element to the <A HREF="../collections/areas.html">areas</A>, <B>controlRange</B>, or <A HREF="../collections/options.html">options</A> collection.</TD></TR><TR><TD><NOBR><A HREF="../methods/addelement.html">addElement</A></NOBR></TD><TD>
+Adds an element to the <B>controlRange</B> collection.</TD></TR><TR><TD><NOBR><A HREF="../methods/execcommand.html">execCommand</A></NOBR></TD><TD>
+Executes a command on the current document, current selection, or the given range.</TD></TR><TR><TD><NOBR><A HREF="../methods/item_7.html">item</A></NOBR></TD><TD>
+Retrieves an object from the <B>controlRange</B> collection. </TD></TR><TR><TD><NOBR><A HREF="../methods/querycommandenabled.html">queryCommandEnabled</A></NOBR></TD><TD>
+Returns a Boolean value that indicates whether a specified command can be successfully executed using <A HREF="../methods/execcommand.html">execCommand</A>, given the current state of the document.</TD></TR><TR><TD><NOBR><A HREF="../methods/querycommandindeterm.html">queryCommandIndeterm</A></NOBR></TD><TD>
+Returns a Boolean value that indicates whether the specified command is in the indeterminate state.</TD></TR><TR><TD><NOBR><A HREF="../methods/querycommandstate.html">queryCommandState</A></NOBR></TD><TD>
+Returns a Boolean value that indicates the current state of the command.</TD></TR><TR><TD><NOBR><A HREF="../methods/querycommandsupported.html">queryCommandSupported</A></NOBR></TD><TD>
+Returns a Boolean value that indicates whether the current command is supported on the current range.</TD></TR><TR><TD><NOBR><A HREF="../methods/querycommandvalue.html">queryCommandValue</A></NOBR></TD><TD>
+Returns the current value of the document, range, or current selection for the given command.</TD></TR><TR><TD><NOBR><A HREF="../methods/remove.html">remove</A></NOBR></TD><TD>
+Removes an element from the collection.</TD></TR><TR><TD><NOBR><A HREF="../methods/scrollintoview.html">scrollIntoView</A></NOBR></TD><TD>
+Causes the <span replace="1">object</span> to scroll into view, aligning it either at the top or bottom of the window. </TD></TR><TR><TD><NOBR><A HREF="../methods/select_1.html">select</A></NOBR></TD><TD>
+Makes the selection equal to the current object. </TD></TR></TABLE></DIV></DIV></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>Instead of using the collection's <A HREF="../methods/item.html">item</A> method, you can use an index to directly access an element in the collection. For example, the element returned from the collection represented by <SPAN CLASS="clsLiteral">oColl(0)</SPAN> is the same as the element returned by <SPAN CLASS="clsLiteral">oColl.item(0)</SPAN>.</P><P>The <B>controlRange</B> collection is available as of Microsoft&#174; Internet Explorer 5.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example demonstrates how to use the <A HREF="../methods/createrange.html">createRange</A> method to retrieve the <B>controlRange</B> collection. </P><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="createRange">...
+function fnChangeFontFamily    (){
+if (document.selection.type == "Control"){
+var oControlRange = document.selection.createRange();
+for (i = 0; i &lt; oControlRange.length; i++)
+if (oControlRange(i).tagName != "IMG")
+oControlRange(i).style.fontFamily=event.srcElement.style.fontFamily;
+}
+}
+...
+&lt;!-- Text Font-Family Controls  --&gt;
+&lt;SPAN  onclick="fnChangeFontFamily();"&gt;
+&lt;DIV STYLE="height: 25px; cursor:hand; font-family:times;
+font-size:14pt; font-weight:normal; color:white"&gt;Times&lt;/DIV&gt;
+&lt;DIV STYLE="height: 25px; cursor:hand; font-family:arial;
+font-size:14pt; font-weight:normal; color:white"&gt;Arial&lt;/DIV&gt;
+&lt;DIV STYLE="height: 25px; cursor:hand; font-family:georgia;
+font-size:14pt; font-weight:normal; color:white"&gt;Georgia&lt;/DIV&gt;
+&lt;DIV STYLE="height: 25px; cursor:hand; font-family:verdana;
+font-size:14pt; font-weight:normal; color:white"&gt;Verdana&lt;/DIV&gt;
+&lt;/SPAN&gt;&lt;BR/&gt;
+...</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank" FEATURES="top=1,left=1,height=500,width=775,statusbar=yes,resizable=1"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this collection.
+</P></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../methods/createcontrolrange.html">createControlRange</A>, <A HREF="../methods/createrange.html">createRange</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

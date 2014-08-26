@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="gbk" />
+<meta name="robots" content="all" />
+<meta name="author" content="w3school.com.cn" />
+<link rel="stylesheet" type="text/css" href="c5.css" />
+
+<title>HTML DOM Document 对象</title>
+
+</head>
+
+<body class="browserscripting" id="jsref">
+
+<div id="wrapper">
+
+<div id="navsecond">
+
+<div id="course"><h2>JS & DOM 参考手册</h2>
+<ul>
+<li><a href="index.html" title="JavaScript 和 HTML DOM 参考手册">参考手册目录</a></li>
+</ul>
+<h2>JavaScript 对象</h2>
+<ul>
+<li><a href="jsref_obj_array.html" title="JavaScript Array 对象参考手册">JS Array</a></li>
+<li><a href="jsref_obj_boolean.html" title="JavaScript Boolean 对象参考手册">JS Boolean</a></li>
+<li><a href="jsref_obj_date.html" title="JavaScript Date 对象参考手册">JS Date</a></li>
+<li><a href="jsref_obj_math.html" title="JavaScript Math 对象的参考手册">JS Math</a></li>
+<li><a href="jsref_obj_number.html" title="JavaScript Number 对象参考手册">JS Number</a></li>
+<li><a href="jsref_obj_string.html" title="JavaScript String 对象参考手册">JS String</a></li>
+<li><a href="jsref_obj_regexp.html" title="JavaScript RegExp 对象参考手册">JS RegExp</a></li>
+<li><a href="jsref_obj_global.html" title="JavaScript 全局对象参考手册">JS Functions</a></li>
+<li><a href="jsref_events.html" title="JavaScript 事件参考手册">JS Events</a></li>
+</ul>
+<h2>Browser 对象</h2>
+<ul>
+<li><a href="dom_obj_window.html" title="HTML DOM Window 对象">Window</a></li>
+<li><a href="dom_obj_navigator.html" title="HTML DOM Navigator 对象">Navigator</a></li>
+<li><a href="dom_obj_screen.html" title="HTML DOM Screen 对象">Screen</a></li>
+<li><a href="dom_obj_history.html" title="HTML DOM History 对象">History</a></li>
+<li><a href="dom_obj_location.html" title="HTML DOM Location 对象">Location</a></li>
+</ul>
+<h2>HTML DOM 对象</h2>
+<ul>
+<li class="currentLink"><a href="dom_obj_document.html" title="HTML DOM Document 对象">DOM Document</a></li>
+<li><a href="dom_obj_all.html" title="HTML DOM Element 对象">DOM Element</a></li>
+<li><a href="dom_obj_attributes.html" title="HTML DOM Attribute 对象">DOM Attribute</a></li>
+<li><a href="dom_obj_event.html" title="HTML DOM Event 对象">DOM Event</a></li>
+</ul>
+<h2>HTML 对象</h2>
+<ul>
+<li><a href="dom_obj_anchor.html" title="HTML DOM Anchor 对象">&lt;a&gt;</a></li>
+<li><a href="dom_obj_area.html" title="HTML DOM Area 对象">&lt;area&gt;</a></li>
+<li><a href="dom_obj_audio.html" title="HTML DOM Audio 对象">&lt;audio&gt;</a></li>
+<li><a href="dom_obj_base.html" title="HTML DOM Base 对象">&lt;base&gt;</a></li>
+<li><a href="dom_obj_body.html" title="HTML DOM Body 对象">&lt;body&gt;</a></li>
+<li><a href="dom_obj_blockquote.html" title="HTML DOM Blockquote 对象">&lt;blockquote&gt;</a></li>
+<li><a href="dom_obj_pushbutton.html" title="HTML DOM Button 对象">&lt;button&gt;</a></li>
+<li><a href="dom_obj_canvas.html" title="HTML DOM Canvas 对象">&lt;canvas&gt;</a></li>
+<li><a href="dom_obj_col.html" title="HTML DOM Column 对象">&lt;col&gt;</a></li>
+<li><a href="dom_obj_colgroup.html" title="HTML DOM ColumnGroup 对象">&lt;colgroup&gt;</a></li>
+<li><a href="dom_obj_datalist.html" title="HTML DOM Datalist 对象">&lt;datalist&gt;</a></li>
+<li><a href="dom_obj_del.html" title="HTML DOM Del 对象">&lt;del&gt;</a></li>
+<li><a href="dom_obj_details.html" title="HTML DOM Details 对象">&lt;details&gt;</a></li>
+<li><a href="dom_obj_dialog.html" title="HTML DOM Dialog 对象">&lt;dialog&gt;</a></li>
+<li><a href="dom_obj_embed.html" title="HTML DOM Embed 对象">&lt;embed&gt;</a></li>
+<li><a href="dom_obj_fieldset.html" title="HTML DOM Fieldset 对象">&lt;fieldset&gt;</a></li>
+<li><a href="dom_obj_form.html" title="HTML DOM Form 对象">&lt;form&gt;</a></li>
+<li><a href="dom_obj_frame.html" title="HTML DOM Frame 对象">&lt;frame&gt;</a></li>
+<li><a href="dom_obj_frameset.html" title="HTML DOM Frameset 对象">&lt;frameset&gt;</a></li>
+<li><a href="dom_obj_iframe.html" title="HTML DOM IFrame 对象">&lt;iframe&gt;</a></li>
+<li><a href="dom_obj_image.html" title="HTML DOM Image 对象">&lt;img&gt;</a></li>
+<li><a href="dom_obj_ins.html" title="HTML DOM Ins 对象">&lt;ins&gt;</a></li>
+<li><a href="dom_obj_button.html" title="HTML DOM Button 对象">&lt;input&gt; button</a></li>
+<li><a href="dom_obj_checkbox.html" title="HTML DOM Checkbox 对象">&lt;input&gt; checkbox</a></li>
+<li><a href="dom_obj_color.html" title="HTML DOM Color 对象">&lt;input&gt; color</a></li>
+<li><a href="dom_obj_date.html" title="HTML DOM Input Date 对象">&lt;input&gt; date</a></li>
+<li><a href="dom_obj_datetime.html" title="HTML DOM Datetime 对象">&lt;input&gt; datetime</a></li>
+<li><a href="dom_obj_datetime-local.html" title="HTML DOM Datetime Local 对象">&lt;input&gt; datetime-local</a></li>
+<li><a href="dom_obj_email.html" title="HTML DOM Email 对象">&lt;input&gt; email</a></li>
+<li><a href="dom_obj_fileupload.html" title="HTML DOM FileUpload 对象">&lt;input&gt; file</a></li>
+<li><a href="dom_obj_hidden.html" title="HTML DOM Hidden 对象">&lt;input&gt; hidden</a></li>
+<li><a href="dom_obj_input_image.html" title="HTML DOM Input Image 对象">&lt;input&gt; image</a></li>
+<li><a href="dom_obj_month.html" title="HTML DOM Month 对象">&lt;input&gt; month</a></li>
+<li><a href="dom_obj_number.html" title="HTML DOM Number 对象">&lt;input&gt; number</a></li>
+<li><a href="dom_obj_password.html" title="HTML DOM Password 对象">&lt;input&gt; password</a></li>
+<li><a href="dom_obj_range.html" title="HTML DOM Input Range 对象">&lt;input&gt; range</a></li>
+<li><a href="dom_obj_radio.html" title="HTML DOM Radio 对象">&lt;input&gt; radio</a></li>
+<li><a href="dom_obj_reset.html" title="HTML DOM Reset 对象">&lt;input&gt; reset</a></li>
+<li><a href="dom_obj_search.html" title="HTML DOM Input Search 对象">&lt;input&gt; search</a></li>
+<li><a href="dom_obj_submit.html" title="HTML DOM Submit 对象">&lt;input&gt; submit</a></li>
+<li><a href="dom_obj_text.html" title="HTML DOM Text 对象">&lt;input&gt; text</a></li>
+<li><a href="dom_obj_input_time.html" title="HTML DOM Input Time 对象">&lt;input&gt; time</a></li>
+<li><a href="dom_obj_url.html" title="HTML DOM Input URL 对象">&lt;input&gt; url</a></li>
+<li><a href="dom_obj_week.html" title="HTML DOM Week 对象">&lt;input&gt; week</a></li>
+<li><a href="dom_obj_keygen.html" title="HTML DOM Keygen 对象">&lt;keygen&gt;</a></li>
+<li><a href="dom_obj_label.html" title="HTML DOM Label 对象">&lt;label&gt;</a></li>
+<li><a href="dom_obj_legend.html" title="HTML DOM Legend 对象">&lt;legend&gt;</a></li>
+<li><a href="dom_obj_li.html" title="HTML DOM Li 对象">&lt;li&gt;</a></li>
+<li><a href="dom_obj_link.html" title="HTML DOM Link 对象">&lt;link&gt;</a></li>
+<li><a href="dom_obj_map.html" title="HTML DOM Map 对象">&lt;map&gt;</a></li>
+<li><a href="dom_obj_menu.html" title="HTML DOM Menu 对象">&lt;menu&gt;</a></li>
+<li><a href="dom_obj_menuitem.html" title="HTML DOM MenuItem 对象">&lt;menuitem&gt;</a></li>
+<li><a href="dom_obj_meta.html" title="HTML DOM Meta 对象">&lt;meta&gt;</a></li>
+<li><a href="dom_obj_meter.html" title="HTML DOM Meter 对象">&lt;meter&gt;</a></li>
+<li><a href="dom_obj_object.html" title="HTML DOM Object 对象">&lt;object&gt;</a></li>
+<li><a href="dom_obj_ol.html" title="HTML DOM Ol 对象">&lt;ol&gt;</a></li>
+<li><a href="dom_obj_optgroup.html" title="HTML DOM OptionGroup 对象">&lt;optgroup&gt;</a></li>
+<li><a href="dom_obj_option.html" title="HTML DOM Option 对象">&lt;option&gt;</a></li>
+<li><a href="dom_obj_param.html" title="HTML DOM Parameter 对象">&lt;param&gt;</a></li>
+<li><a href="dom_obj_progress.html" title="HTML DOM Progress 对象">&lt;progress&gt;</a></li>
+<li><a href="dom_obj_quote.html" title="HTML DOM Quote 对象">&lt;q&gt;</a></li>
+<li><a href="dom_obj_script.html" title="HTML DOM Script 对象">&lt;script&gt;</a></li>
+<li><a href="dom_obj_select.html" title="HTML DOM Select 对象">&lt;select&gt;</a></li>
+<li><a href="dom_obj_source.html" title="HTML DOM Source 对象">&lt;source&gt;</a></li>
+<li><a href="dom_obj_style.html" title="HTML DOM Style 对象">&lt;style&gt;</a></li>
+<li><a href="dom_obj_table.html" title="HTML DOM Table 对象">&lt;table&gt;</a></li>
+<li><a href="dom_obj_tabledata.html" title="HTML DOM TableCell 对象">&lt;td&gt;</a></li>
+<li><a href="dom_obj_tablehead.html" title="HTML DOM TableHeader 对象">&lt;th&gt;</a></li>
+<li><a href="dom_obj_tablerow.html" title="HTML DOM TableRow 对象">&lt;tr&gt;</a></li>
+<li><a href="dom_obj_textarea.html" title="HTML DOM Textarea 对象">&lt;textarea&gt;</a></li>
+<li><a href="dom_obj_time.html" title="HTML DOM Time 对象">&lt;time&gt;</a></li>
+<li><a href="dom_obj_title.html" title="HTML DOM Title 对象">&lt;title&gt;</a></li>
+<li><a href="dom_obj_track.html" title="HTML DOM Track 对象">&lt;track&gt;</a></li>
+<li><a href="dom_obj_video.html" title="HTML DOM Video 对象">&lt;video&gt;</a></li>
+</ul>
+</div>
+
+</div>
+
+<div id="maincontent">
+
+<h1>HTML DOM Document 对象</h1>
+
+
+<div>
+<h2>Document 对象</h2>
+
+<p>每个载入浏览器的 HTML 文档都会成为 Document 对象。</p>
+
+<p>Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问。</p>
+
+<p class="tip"><span>提示：</span>Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问。</p>
+</div>
+
+
+<div>
+<h2>Document 对象集合</h2>
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">集合</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="coll_doc_all.html">all[]</a></td>
+    <td>提供对文档中所有 HTML 元素的访问。</td>
+  </tr>
+  <tr>
+    <td><a href="coll_doc_anchors.html">anchors[]</a></td>
+    <td>返回对文档中所有 Anchor 对象的引用。</td>
+  </tr>
+  <tr>
+    <td>applets</td>
+    <td>返回对文档中所有 Applet 对象的引用。</td>
+  </tr>
+  <tr>
+    <td><a href="coll_doc_forms.html">forms[]</a></td>
+    <td>返回对文档中所有 Form 对象引用。</td>
+  </tr>
+  <tr>
+    <td><a href="coll_doc_images.html">images[]</a></td>
+    <td>返回对文档中所有 Image 对象引用。</td>
+  </tr>
+  <tr>
+    <td><a href="coll_doc_links.html">links[]</a></td>
+    <td>返回对文档中所有 Area 和 Link 对象引用。</td>
+  </tr>
+  </table>
+</div>
+
+
+<div>
+<h2>Document 对象属性</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">属性</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>body</td>
+    <td><p>提供对 &lt;body&gt; 元素的直接访问。</p><p>对于定义了框架集的文档，该属性引用最外层的 &lt;frameset&gt;。</p></td>
+  </tr>
+  <tr>
+    <td><a href="prop_doc_cookie.html">cookie</a></td>
+    <td>设置或返回与当前文档有关的所有 cookie。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_doc_domain.html">domain</a></td>
+    <td>返回当前文档的域名。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_doc_lastmodified.html">lastModified</a></td>
+    <td>返回文档被最后修改的日期和时间。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_doc_referrer.html">referrer</a></td>
+    <td>返回载入当前文档的文档的 URL。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_doc_title.html">title</a></td>
+    <td>返回当前文档的标题。</td>
+  </tr>
+  <tr>
+    <td><a href="prop_doc_url.html">URL</a></td>
+    <td>返回当前文档的 URL。</td>
+  </tr>
+  </table>
+</div>
+
+
+<div>
+<h2>Document 对象方法</h2>
+
+<table class="dataintable">
+  <tr>
+    <th style="width:30%">方法</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td><a href="met_doc_close.html">close()</a></td>
+    <td>关闭用  document.open() 方法打开的输出流，并显示选定的数据。</td>
+  </tr>
+  <tr>
+    <td><a href="met_doc_getelementbyid.html">getElementById()</a></td>
+    <td>返回对拥有指定 id 的第一个对象的引用。</td>
+  </tr>
+  <tr>
+    <td><a href="met_doc_getelementsbyname.html">getElementsByName()</a></td>
+    <td>返回带有指定名称的对象集合。</td>
+  </tr>
+  <tr>
+    <td class="no_wrap"><a href="met_doc_getelementsbytagname.html">getElementsByTagName()</a></td>
+    <td>返回带有指定标签名的对象集合。</td>
+  </tr>
+  <tr>
+    <td><a href="met_doc_open.html">open()</a></td>
+    <td>打开一个流，以收集来自任何 document.write() 或 document.writeln() 方法的输出。</td>
+  </tr>
+  <tr>
+    <td><a href="met_doc_write.html">write()</a></td>
+    <td>向文档写 HTML 表达式 或 JavaScript 代码。</td>
+  </tr>
+  <tr>
+    <td><a href="met_doc_writeln.html">writeln()</a></td>
+    <td>等同于 write() 方法，不同的是在每个表达式之后写一个换行符。</td>
+  </tr>
+  </table>
+</div>
+
+
+<div>
+<h2>Document 对象描述</h2>
+
+<p>HTMLDocument 接口对 DOM Document 接口进行了扩展，定义 HTML 专用的属性和方法。</p>
+
+<p>很多属性和方法都是 HTMLCollection 对象（实际上是可以用数组或名称索引的只读数组），其中保存了对锚、表单、链接以及其他可脚本元素的引用。</p>
+
+<p>这些集合属性都源自于 0 级 DOM。它们已经被 <a href="met_doc_getelementsbytagname.html">Document.getElementsByTagName()</a> 所取代，但是仍然常常使用，因为他们很方便。</p>
+
+<p><a href="met_doc_write.html">write() 方法</a>值得注意，在文档载入和解析的时候，它允许一个脚本向文档中插入动态生成的内容。</p>
+
+<p>注意，在 1 级 DOM 中，HTMLDocument 定义了一个名为 <a href="met_doc_getelementbyid.html">getElementById()</a> 的非常有用的方法。在 2 级 DOM 中，该方法已经被转移到了 Document 接口，它现在由 HTMLDocument 继承而不是由它定义了。</p>
+</div>
+
+
+
+
+</div>
+<!-- maincontent end -->
+
+</div>
+<!-- wrapper end -->
+
+</body>
+
+</html>

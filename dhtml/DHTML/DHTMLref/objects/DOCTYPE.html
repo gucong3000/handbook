@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<META http-equiv="Content-Language" content="zh-cn">
+<TITLE>DHTML 参考手册 -</TITLE>
+<STYLE TYPE="text/css">
+@import url("../common/common.css");
+</style>
+</HEAD>
+<BODY>
+<P><A HREF="A.html" title="A 元素 | a 对象"><IMG SRC="../common/next.gif" WIDTH="17" HEIGHT="13" BORDER=0>A 元素 | a 对象</A> <A HREF="../objects.html" title="DHTML 对象"><IMG SRC="../common/uplv.gif" WIDTH="17" HEIGHT="13" BORDER=0>DHTML 对象</A></P>
+<DIV CLASS="clsDocBody">
+<H1>!DOCTYPE</H1>
+<HR SIZE="1"><P>指定了 HTML 文档遵循的文档类型定义(DTD)。</P>
+<DIV class="clsWhatsnew"><B>Microsoft<SUP>&reg;</SUP> Internet Explorer 6 的新增内容</B>
+<P>你可使用此声明将 Internet Explorer 6 及以后版本切换到标准兼容模式下。</P>
+</DIV>
+<P CLASS="clsRef">语法</P>
+<BLOCKQUOTE>
+<TABLE CLASS="clsStd">
+<TR>
+<TH><B>HTML</B></TH>
+<TD><SPAN CLASS="clsRange">&nbsp;顶级元素&nbsp;</SPAN><SPAN CLASS="clsRange">&nbsp;可用性&nbsp;</SPAN><SPAN CLASS="clsRange">"注册//</SPAN><SPAN CLASS="clsRange">组织//</SPAN><SPAN CLASS="clsRange">类型&nbsp;</SPAN><SPAN CLASS="clsRange">标签//</SPAN><SPAN CLASS="clsRange">定义&nbsp;</SPAN><SPAN CLASS="clsRange">&nbsp;语言"</SPAN><SPAN CLASS="clsRange">"URL"</SPAN></TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">可能值</P>
+<BLOCKQUOTE>
+<TABLE CLASS="clsStd">
+<TR>
+<TD><SPAN CLASS="clsRange">顶级元素</SPAN></TD>
+<TD>指定 DTD 中声明的顶级元素类型。这与声明的 SGML 文档类型相对应。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsDefValue">HTML</SPAN></TD>
+<TD>默认。HTML。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">可用性</SPAN></TD>
+<TD>指定正式公开标识符(FPI)是可公开访问的对象还是系统资源。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsDefValue">PUBLIC</SPAN></TD>
+<TD>默认。可公开访问的对象。</TD>
+</TR>
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">SYSTEM</SPAN></TD>
+<TD>系统资源，如本地文件或 URL。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">注册</SPAN></TD>
+<TD>指定组织是否由国际标准化组织(ISO)注册。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsDefValue">+</SPAN></TD>
+<TD>默认。组织名称已注册。</TD>
+</TR>
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">-</SPAN></TD>
+<TD>组织名称未注册。Internet 工程任务组(IETF)和万维网协会(W3C)并非注册的 ISO 组织。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">组织</SPAN></TD>
+<TD>指定表明负责由 !DOCTYPE 声明引用的 DTD 的创建和维护的团体或组织的名称，即 OwnderID。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">IETF</SPAN></TD>
+<TD>IETF。</TD>
+</TR>
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">W3C</SPAN></TD>
+<TD>W3C。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">类型</SPAN></TD>
+<TD>指定公开文本类，即所引用的对象类型。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsDefValue">DTD</SPAN></TD>
+<TD>默认。DTD。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">标签</SPAN></TD>
+<TD>指定公开文本描述，即对所引用的公开文本的唯一描述性名称。后面可附带版本号。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsDefValue">HTML</SPAN></TD>
+<TD>默认。HTML。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">定义</SPAN></TD>
+<TD>指定文档类型定义。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">Frameset</SPAN></TD>
+<TD><A HREF="FRAMESET.html">框架集</A>文档。</TD>
+</TR>
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">Strict</SPAN></TD>
+<TD>排除所有 W3C 专家希望逐步淘汰的代表性属性和元素，因为样式表已经很完善了。</TD>
+</TR>
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsLiteral">Transitional</SPAN></TD>
+<TD>包含除 <B>frameSet</B> 元素的全部内容。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">语言</SPAN></TD>
+<TD>指定公开文本语言，即用于创建所引用对象的自然语言编码系统。该语言定义已编写为 <A HREF="http://www.oasis-open.org/cover/iso639a.html" TARGET="_top">ISO 639</A> <IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 语言代码(大写两个字母)。
+<TABLE CLASS="clsStd">
+<TR>
+<TD NOWRAP="1"><SPAN CLASS="clsDefValue">EN</SPAN></TD>
+<TD>默认。英语。</TD>
+</TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><SPAN CLASS="clsRange">URL</SPAN></TD>
+<TD>指定所引用对象的位置。</TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">注释</P>
+<BLOCKQUOTE>
+<P>此声明必须出现在文档的起始处，出现在 <A HREF="HTML.html">html</A> 标签之前。</P>
+<P><B>!DOCTYPE</B> 元素不需要关闭标签。</P>
+<P>此元素在 Microsoft<SUP>&reg;</SUP> Internet Explorer 3.0 的 HTML 中可用。</P>
+<P>你可使用此声明在 Internet Explorer 6 及以后版本中切换为严格的标准兼容模式。若想打开此开关，请在你的文档顶部包含 <B>!DOCTYPE</B> 声明，在声明中指定合法的<B>标签</B>，在某些情况下，还需要指定<B>定义</B>和/或 <B>URL</B>。下面的表格列出了标准兼容模式的开关情况。
+<table class="clsStd">
+<thead>
+<tr>
+<th>DOCTYPE</th>
+<th>出现 URL</th>
+<th>未出现 URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未出现 DOCTYPE</td>
+<td>关</td>
+<td>关</td>
+</tr>
+<tr>
+<td>HTML (无版本)</td>
+<td>关</td>
+<td>关</td>
+</tr>
+<tr>
+<td>HTML 2.0</td>
+<td>关</td>
+<td>关</td>
+</tr>
+<tr>
+<td>HTML 3.0</td>
+<td>关</td>
+<td>关</td>
+</tr>
+<tr>
+<td>HTML 4.0</td>
+<td>开</td>
+<td>开</td>
+</tr>
+<tr>
+<td>HTML 4.0 Frameset</td>
+<td>开</td>
+<td>关</td>
+</tr>
+<tr>
+<td>HTML 4.0 Transitional</td>
+<td>开</td>
+<td>关</td>
+</tr>
+<tr>
+<td>HTML 4.0 Strict</td>
+<td>开</td>
+<td>开</td>
+</tr>
+<tr>
+<td>XHTML</td>
+<td>开</td>
+<td>开</td>
+</tr>
+<tr>
+<td>XML</td>
+<td>开</td>
+<td>开</td>
+</tr>
+<tr>
+<td>无法识别的 DOCTYPE</td>
+<td>开</td>
+<td>开</td>
+</tr>
+</tbody>
+</table>
+<DIV CLASS="clsNote"><B>注意</B> 在标准兼容模式下，不能保证与其它版本的 Internet Explorer 保持兼容。当打开标准兼容模式时，文档的渲染行为也许与将来版本的 Internet Explorer 不同。若内容本来就是固定的(如刻录在 CD 上)，则不应该使用此模式。</DIV>
+</P>
+</BLOCKQUOTE>
+<P CLASS="clsRef">示例</P>
+<BLOCKQUOTE>
+下面的例子演示了如何使用 <B>!DOCTYPE</B> 声明指定文档遵从的 DTD，并将 Internet Explorer 6 及更高版本切换到标准兼容模式。
+<P>下面例子中的声明都指定了遵从 HTML 4.0 DTD。第二种声明指定了“Strict”。第一种声明没有指定。这两种声明都将会把 Internet Explorer 6 及以后版本切换到标准兼容模式。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN"&gt;
+</PRE>
+<P>下面例子中的声明都指定了遵从“Transitional”HTML 4.0 DTD。第二种声明指定了 DTD 的 URL。第一种声明没有指定。第二种声明将会把 Internet Explorer 6 及以后版本切换到标准兼容模式。第一种声明不会。</P>
+<PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd"&gt;
+</PRE>
+</BLOCKQUOTE>
+<P CLASS="clsRef">标准信息</P>
+<BLOCKQUOTE>
+<P>此对象定义在 <A HREF="http://www.w3.org/TR/REC-html32.html" TARGET="_top">HTML 3.2</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="非 Microsoft 链接" SRC="../common/leave-ms.gif"> 中。</P>
+</BLOCKQUOTE>
+</DIV>
+</BODY>
+</HTML>

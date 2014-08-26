@@ -1,0 +1,303 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Basics of HTML+TIME Animation</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="/library/shared/webparts/ie.css" />
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<div id="nsbanner">
+<div id="TitleRow">
+<H1 class="dtH1"><A NAME="timeanimation"></A>Basics of HTML+TIME Animation</H1>
+</div></div>
+<DIV id="nstext" valign="bottom"><DIV id="smpMgrCell" style="width:230px;float:right"></DIV>
+<P><p>Mark Hopkins<br>
+Microsoft Corporation</p>
+<p>December 2000</p>
+<p><b>Summary:</b> This article introduces you to the basics of HTML+TIME animation, so that you can create an exciting Web experience for your users. (10 printed pages)</p>
+<p><b>Contents</b></p>
+<p><a HREF="#animation_topic1" TARGET="_self">Introduction</a><br>
+<a HREF="#animation_topic2" TARGET="_self">Prerequisites</a><br>
+<a HREF="#animation_topic3" TARGET="_self">Declarative Animation</a><br>
+<a HREF="#animation_topic4" TARGET="_self">Animating Properties</a><br>
+<a HREF="#animation_topic5" TARGET="_self">Animation Elements</a><br>
+<a HREF="#animation_topic6" TARGET="_self">Specifying Animation Values</a><br>
+<a HREF="#animation_topic7" TARGET="_self">keyTimes and keySplines Attributes</a><br>
+<a HREF="#animation_topic8" TARGET="_self">For More Information</a></p>
+<h2><a name="animation_topic1"></a>Introduction</h2>
+<p>Adding animation to Web pages was one of the great promises of Web-based programming languages like Microsoft&reg; Visual Basic&reg; Scripting Edition (VBScript) and Microsoft&reg; JScript&reg;. However, unless you were already familiar with programming languages like Visual Basic, C++, or Java, you probably had a steep learning curve ahead of you. </p>
+<p>Well, here's some good news&#151;adding animation to a Web page has never been easier. Microsoft&reg; Internet Explorer 5.5 implements the <a href="http://www.w3.org/TR/smil20/animation.html" target="_top">W3C SMIL 2.0 Working Draft animation module</a> through the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/behaviors/time2.html">time2</a> behavior of HTML+TIME. This article introduces you to the basics of HTML+TIME animation so that you can create an exciting Web experience for your users.</p>
+<h2><a name="animation_topic2"></a>Prerequisites</h2>
+<p>This article assumes you know how to use <A HREF="../common/author/behaviors/time.html">DHTML behaviors</A>, specifically, the <b>time2</b> behavior of HTML+TIME. This article doesn't go into great detail on how to add a behavior to your page. Nor does it cover how to declare a namespace and use custom tags, as required by the <b>time2</b> behavior. These topics are covered in the <a href="http://msdn.microsoft.com../common/author/behaviors/time.html">HTML+TIME Overview</a> and <a HREF="htmltime.html">Spice Up Your Web Pages with HTML+TIME</a>.</p>
+<h2><a name="animation_topic3"></a>Declarative Animation</h2>
+<p>The beauty of HTML+TIME animation is that it uses simple attribute values on elements. Anyone who is comfortable using HTML elements to create Web pages should be able to use these animation features. The best part is that you won't need to use a programming or scripting language. However, most aspects of HTML+TIME are scriptable if you would like to use script to make a more elaborate page.</p>
+<p>This <a HREF="adbanner.html">ad banner</a> is a simple example of some of the things you can do with HTML+TIME animation. The code in this sample will be used to demonstrate some of the elements and attributes covered in this article.</p>
+<p>Of course, animation can be much more complicated than this. Here is a list of some of the basic things you can do with HTML+TIME animation.
+<ul>
+<li>Gradually, or immediately, change the color of an element.<BR></li>
+<li>Move an element along a specific path or make it jump to a location.<BR></li>
+<li>Change the pace of an animation over time.<BR></li>
+<li>Run an animation forward and in reverse.</li>
+</ul>
+<p>When you start combining these activities, you can create some sophisticated animation sequences. Have a look at the <A HREF="/library/en-us/dntime/html/timedemos.html">HTML+TIME Animations</A> page for more examples of what you can do with animation.</p>
+<h2><a name="animation_topic4"></a>Animating Properties</h2>
+<p>The key to understanding HTML+TIME animation is to realize that you are actually changing the value of properties over time. For instance, changing the <a href="http://msdn.microsoft.com../common/author/dhtml/reference/properties/height_1.html">height</a> of a <a href="http://msdn.microsoft.com../common/author/dhtml/reference/objects/div.html">DIV</a> from 70 pixels to 200 pixels over a period of half a second makes the <b>DIV</b> look like it is "growing." This exact technique was used in the ad banner to make it look like the banner was expanding downward.</p>
+<h3>First Things First</h3>
+<p>In order to animate a property, you must first explicitly set that property. For instance, if you want to animate the <b>height</b> property on a <b>DIV</b> element, you need to set it. You can use the inline <a href="http://msdn.microsoft.com../common/author/dhtml/reference/properties/style.html">STYLE</a> attribute for this.</p>
+<pre><code>
+&lt;DIV STYLE="height:70;" ?gt;
+Animated DIV!
+&lt;/DIV&gt;
+</code></pre>
+<p>Another way to set the property is to create a style class with the CSS <b>height</b> property set and apply it to the element.</p>
+<pre><code>
+&lt;STYLE&gt;
+.clsAnimatedDIV { height:70; …}
+&lt;/STYLE&gt;
+?
+&lt;DIV class="clsAnimatedDIV" ?gt;  &lt;/DIV&gt;
+</code></pre>
+<p>It is very important to explicitly set the value of any property you want to animate, or your animation code will not work.</p>
+<p>When animating the position of an element, you must set the <a href="http://msdn.microsoft.com../common/author/dhtml/reference/properties/position.html">position</a> property to either <code>absolute</code> or <code>relative</code>, in addition to setting the <a href="http://msdn.microsoft.com../common/author/dhtml/reference/properties/top_0.html">top</a> and <a href="http://msdn.microsoft.com../common/author/dhtml/reference/properties/left.html">left</a> properties.</p>
+<p>The reason for this requirement is that, by default, elements on a Web page are part of the flow of HTML data and do not have explicit values for all their properties. Imagine the performance hit and memory overhead it would take to maintain a separate value for every property on every element on a given Web page.</p>
+<h2><a name="animation_topic5"></a>Animation Elements</h2>
+<p>There are four elements used to animate other elements on a Web page.
+<ol>
+<li><a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/elements/animate.html">t:animate</a><BR></li>
+<li><a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/elements/animatecolor.html">t:animateColor</a><BR></li>
+<li><a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/elements/animatemotion.html">t:animateMotion</a><BR></li>
+<li><a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/elements/set.html">t:set</a></li>
+</ol>
+<h3>t:animate</h3>
+<p>The <b>t:animate</b> element is a generic element used to animate most properties of HTML elements. Animating a property means to change its value over time. For instance, you can change the value of the <b>top</b> property of a <b>DIV </b>from 10 to 100 over 5 seconds to make it slide down the page.</p>
+<pre><code>
+&lt;DIV ID="myDiv" ?gt;Some text in the DIV.&lt;/DIV&gt;
+&lt;t:animate targetElement="myDiv" attributeName="top" from="10" to="100"
+begin="2" dur="5" ?&gt;
+</code></pre>
+<p>Use the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/targetelement.html">targetElement</a> attribute to specify which element to animate, in this case, <i>myDiv</i>. Set this attribute to the <a href="http://msdn.microsoft.com../common/author/dhtml/reference/properties/id.html">ID</a> of the element you'd like to animate. Use the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/attributename.html">attributeName</a> attribute to specify which property you'd like to animate on the element you specified with the <b>targetElement</b> attribute, in this case, <i>top</i>. The <b>attributeName</b> and <b>targetElement</b> attributes apply to all four of the animation elements.</p>
+<p>In the ad banner sample, the <b>t:animate</b> element is used to resize the ad banner and move the Internet Explorer logo back and forth. See the <a HREF="#animation_sample" TARGET="_self">Sample</a> code for the declarations of the <i>adBanner</i> and <i>ieLogo</i> elements.</p>
+<pre><code>
+&lt;!-- These three tags animate the ad banner and its contents. --&gt;
+&lt;t:animate id="openBanner" targetElement="adBanner" attributeName="height"
+begin="startButton.click" to="200" dur="0.5" fill="hold"/&gt;
+&lt;t:animate id="animateLogo" targetElement="ieLogo" attributeName="left"
+begin="openBanner.end + 0.25" to="195" dur="1" autoReverse="true"
+repeatCount="3"/&gt;
+&lt;t:animate id="closeBanner" targetElement="adBanner" attributeName="height"
+begin="animateLogo.end + 0.25" to="70" dur="0.5" fill="hold"/&gt;
+</code></pre>
+<h3>t:animateColor</h3>
+<p>The <b>t:animateColor</b> element is used to change the color of an object. It uses values specific to color properties. Specify color values using the <a href="http://msdn.microsoft.com../common/author/dhtml/reference/colors/colors.html">predefined color names</a> or hexadecimal RGB values. For more information on color values, see <a HREF="#animation_topic6" TARGET="_self">Specifying Animation Values</a>.</p>
+<p>In the ad banner sample, the background color oscillates between white and navy, while the text color oscillates in the opposite direction. The sample previously set the background color to white and the color navy before applying these color animations.</p>
+<pre><code>
+&lt;!-- These tags animate the background and text colors. --&gt;
+&lt;t:animateColor targetElement="adBanner" attributeName="backgroundColor"
+to="navy" dur="4" autoReverse="true" repeatCount="indefinite" begin="0"
+end="startButton.click"/&gt;
+&lt;t:animateColor targetElement="adBanner" attributeName="color" to="white"
+dur="4" autoReverse="true" repeatCount="indefinite" begin="0"
+end="startButton.click"/&gt;
+</code></pre>
+<p>Use the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/calcmode.html">calcMode</a> attribute to set the interpolation mode for an animated element. The default value for <b>calcMode</b> is <code>linear</code>, which causes an element to animate smoothly from the beginning value to the end value. In the ad banner example, the color oscillates smoothly from navy to white because <b>calcMode</b> is set to the default value of <code>linear</code>. Other values for <b>calcMode</b> include <code>discrete</code> (jumps), <code>paced</code> (set pace), and <code>spline</code> (spline curve). The <b>calcMode</b> attribute applies to the <b>t:animate </b>and <b>t:animateMotion</b> elements, in addition to <b>t:animateColor</b>. The default value for <b>t:animateMotion</b> is <code>paced</code>.</p>
+<h3>t:animateMotion</h3>
+<p>Use the <b>t:animateMotion</b> element to animate the position (<b>top</b> and <b>left</b>) of an element. This element is specifically for animating the <b>top</b> and <b>left</b> properties, so there is no need to use the <b>attributeName</b> attribute. Instead, specify the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/from.html">from</a>, <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/to.html">to</a>, or <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/values.html">values</a> attribute in top/left pairs. The ad banner sample can be written with the <b>t:animateMotion</b> element instead of the <b>t:animate</b> element.</p>
+<pre><code>
+&lt;t:animateMotion id="animateLogo" targetElement="ieLogo"
+begin="openBanner.end + 0.25" to="195,0" dur="1" autoReverse="true"
+repeatCount="3"/&gt;
+</code></pre>
+<p>When using <b>t:animateMotion,</b> you must set the <b>position</b> property to either <code>absolute</code> or <code>relative</code> on the element you want to animate, in addition to the <b>top</b> and <b>left</b> properties.</p>
+<p>Use the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/path.html">path</a> attribute to specify a path for an element to follow. The <b>path</b> attribute uses a subset of the Scalable Vector Graphics (SVG) path syntax. The following example uses the <b>path</b> attribute to "bounce" a graphic file across the page.</p>
+<pre><code>
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:img id="ieLogo" src="elogohalf.gif" style="position:absolute;
+left:10; top:150; cursor:hand;"/&gt;
+&lt;t:animateMotion targetElement="ieLogo"
+path="m 0 0 c 25 -150 75 -150 100 25" dur="2" repeatCount="3"
+accumulate="sum" fill="freeze"/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</code></pre>
+<p><a HREF="bounce.html">Click here to run the sample</a>.</p>
+<DIV>
+<!--
+<DIV CLASS="clsShowMe">
+This feature requires Microsoft?Internet Explorer 5.5 or later. Click the icon below to install the latest version. Then reload this page to view the sample.
+</DIV>
+<A HREF="http://www.microsoft.com/windows/ie/default.htm">
+<IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="ieget_animated.gif" MINVER="5.5" SAMPLEPATH="bounce.html" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1">
+</IMG>
+</A>
+</DIV>
+-->
+<h3>t:set</h3>
+<p>Use the <b>t:set</b> element to set a property directly to a specific value. For example, you can set the <b>top</b> property to 200.</p>
+<pre><code>
+&lt;t:set targetElement="myDiv" attributeName="top" to="200" ?&gt;
+</code></pre>
+<p>This is similar to using a <b>calcMode</b> value of <code>discrete</code>, but only to change to a single value.</p>
+<h3><a name="animation_sample"></a>Sample</h3>
+<p>Now that you've seen most of the active code for the ad banner, here is the entire sample.</p>
+<pre><code>
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time        { behavior: url(#default#time2); }
+.clsAdBanner    { border:thin solid black;
+height:70;
+width:300;
+text-align:center;
+font-family:Arial;
+font-size:10pt;
+font-weight:bold;
+color:navy;
+background-color:white;
+}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV id="adBanner" class="clsAdBanner"&gt;
+&lt;SPAN id="startButton" class="time" style="cursor:hand"
+end="openBanner.end" timeAction="display"&gt;
+Add some excitement to your Web pages without writing a bunch of
+script!&lt;BR&gt;&lt;BR&gt;Click here to find out how...
+&lt;/SPAN&gt;
+&lt;DIV id="adContent" class="time" begin="openBanner.end + 0.25"
+end="closeBanner.begin" timeAction="display"&gt;
+Microsoft&amp;reg; Internet Explorer 5.5 with&lt;BR&gt;
+HTML+TIME 2.0 makes animation easier&lt;BR&gt;
+than ever. No scripting required!
+&lt;t:img id="ieLogo" style="position:absolute; left:15; top:90;"
+src="elogo.gif"/&gt;
+&lt;/DIV&gt;
+&lt;DIV class="time" begin="closeBanner.end" timeAction="display"&gt;
+&lt;A HREF="http://www.microsoft.com/windows/ie/default.htm"&gt;
+Click here to get it!&lt;BR&gt;
+&lt;t:IMG id="downloadLogo" src="msielogo.gif"/&gt;
+&lt;/A&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV class="time" begin="closeBanner.end" timeAction="display"&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;A HREF="animation.doc"&gt;Back to Animation Article&lt;/A&gt;
+&lt;/DIV&gt;
+&lt;!-- The following tags do the animation. --&gt;
+&lt;!-- These three tags animate the ad banner and its contents. --&gt;
+&lt;t:animate id="openBanner" targetElement="adBanner" attributeName="height"
+begin="startButton.click" to="200" dur="0.5" fill="hold"/&gt;
+&lt;t:animate id="animateLogo" targetElement="ieLogo" attributeName="left"
+begin="openBanner.end + 0.25" to="195" dur="1" autoReverse="true"
+repeatCount="3"/&gt;
+&lt;t:animate id="closeBanner" targetElement="adBanner" attributeName="height"
+begin="animateLogo.end + 0.25" to="70" dur="0.5" fill="hold"/&gt;
+&lt;!-- These tags animate the background and text colors. --&gt;
+&lt;t:animateColor targetElement="adBanner" attributeName="backgroundColor"
+to="navy" dur="4" autoReverse="true" repeatCount="indefinite" begin="0"
+end="startButton.click"/&gt;
+&lt;t:animateColor targetElement="adBanner" attributeName="color" to="white"
+dur="4" autoReverse="true" repeatCount="indefinite" begin="0"
+end="startButton.click"/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</code></pre>
+<p><a HREF="adbanner.html">Click here to run the sample</a>.</p>
+<!--
+<DIV>
+<DIV CLASS="clsShowMe">
+This feature requires Microsoft?Internet Explorer 5.5 or later. Click the icon below to install the latest version. Then reload this page to view the sample.
+</DIV>
+<A HREF="http://www.microsoft.com/windows/ie/default.htm">
+<IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="ieget_animated.gif" MINVER="5.5" SAMPLEPATH="adbanner.html" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1">
+</IMG>
+</A>
+</DIV>
+-->
+<h2><a name="animation_topic6"></a>Specifying Animation Values</h2>
+<p>Use the <b>values</b> attribute to specify a list of animation values. For <b>t:animateMotion</b>, specify the values in top/left pairs separated by semicolons.</p>
+<pre><code>
+values="0,0;200,0;200,200;0,200;100,100;0,0"
+</code></pre>
+<p>For <b>height</b> or <b>width</b> on the <b>t:animate</b> tag, specify values in pixels.</p>
+<pre><code>
+values="100;200;300;400"
+</code></pre>
+<p>Specify color values on the <b>t:animateColor</b> tag using <a href="http://msdn.microsoft.com../common/author/dhtml/reference/colors/colors.html">predefined color names</a> or hexadecimal RGB notation.</p>
+<pre><code>
+values="yellow;black;red;green;cyan"
+values="#FF0000;#F88F08"
+</code></pre>
+<h3>Animation Values Shorthand</h3>
+<p>In addition to the <b>values</b> attribute, you can specify individual values using the shorthand attributes <b>from</b>, <b>to</b>, and <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/by.html">by</a>.</p>
+<p><b>Using from, to, and by</b></p>
+<p>Use the <b>from</b> and <b>to</b> attributes like a values list with two values.</p>
+<pre><code>
+from="100" to="400"
+</code></pre>
+<p>Use the <b>by</b> attribute to specify how a value changes by a given amount. In the following example, the property will change by 300 at a time. It will start at 100, increment to 400, 700, 1000, and so on.</p>
+<pre><code>
+from="100" by="300"
+</code></pre>
+<h2><a name="animation_topic7"></a>keyTimes and keySplines Attributes</h2>
+<p>The <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/keytimes.html">keyTimes</a> and <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/keysplines.html">keySplines</a> attributes are always used together. You must also set the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/calcMode.html">calcMode</a> attribute to <code>spline</code>. Use these attributes to specify the pacing of an animated element along a spline curve. The <b>keyTimes</b> and <b>keySplines</b> attributes are similar to the <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/accelerate.html">accelerate</a> and <a href="http://msdn.microsoft.com../common/author/behaviors/reference/time2/properties/decelerate.html">decelerate</a> attributes except that they provide much finer control.</p>
+<h3>keyTimes</h3>
+<p>Use the <b>keyTimes</b> attribute to specify a list of time values to control the pace of animation. The values are a semicolon-separated list of time values, representing a proportional offset into the simple duration of the animation element. Each successive time value in the list must be greater than or equal to the preceding time value. Valid time values are floating-point numbers between 0 and 1, inclusive.</p>
+<h3>keySplines</h3>
+<p>Use the <b>keySplines</b> attribute to specify Bezier control points associated with <b>keyTimes</b>. Each control point is a set of four floating-point values describing the Bezier control points for one time segment. The <b>keySplines</b> attribute describes the time between the <b>keyTimes</b> values. Consequently, <b>keySplines</b> values always have one set less than <b>keyTimes</b>.</p>
+<p>Here is an example that uses <b>keyTimes</b> and <b>keySplines</b> to define how a <b>DIV</b> element moves across the page. The <b>DIV</b> appears to slow down as it reaches its destination, like a car coming to a stoplight.</p>
+<pre><code>
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time    { behavior: url(#default#time2); }
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY ID="oBody"&gt;
+&lt;DIV ID="oDiv" style="position:absolute; top:50; left:20; background-color:yellowgreen;"&gt;
+Animated DIV with pace&lt;BR&gt;
+that changes over time.
+&lt;t:animateMotion begin="1" dur="3" calcMode="spline"
+keySplines="0 .75 .5 1"  keyTimes="0;1" values="20,0;300,0"
+fill="hold"/&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</code></pre>
+<p><a HREF="keySplines.html">Click here to run the sample</a>.</p>
+<!--
+<DIV>
+<DIV CLASS="clsShowMe">
+This feature requires Microsoft?Internet Explorer 5.5 or later. Click the icon below to install the latest version. Then reload this page to view the sample.
+</DIV>
+<A HREF="http://www.microsoft.com/windows/ie/default.htm">
+<IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="ieget_animated.gif" MINVER="5.5" SAMPLEPATH="keySplines.htm" FEATURES="top=50,left=50,height=450,width=550,status=0,resizable=1">
+</IMG>
+</A>
+</DIV>
+-->
+<h2><a name="animation_topic8"></a>For More Information</h2>
+<ul>
+<li><a HREF="htmltime.html">Spice Up Your Web Pages with HTML+TIME</a><BR></li>
+<li><a href="http://msdn.microsoft.com../common/author/behaviors/time.html">HTML+TIME Overview</a><BR></li>
+<li><a href="http://www.w3.org/TR/smil20/animation.html" target="_top">The W3C SMIL 2.0 Working Draft Animation Module</a><BR></li>
+<li><a href="http://msdn.microsoft.com../common/author/behaviors/overview.html">DHTML Behaviors</a><BR></li>
+<li><a href="http://www.w3.org/TR/SVG/paths.html" target="_top">The W3C Scalable Vector Graphics (SVG) 1.0 Paths Section</a></li>
+</ul></P>
+</TD> </TR> </TABLE>
+</BODY> </html>

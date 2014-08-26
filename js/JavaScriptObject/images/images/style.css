@@ -1,0 +1,295 @@
+body {
+	font-size:75%;
+	font-family:"simsun",Verdana, Arial, Helvetica, sans-serif;
+	padding: 0px;
+	margin: 0px;
+	background: #fff url(bkg_page.png);
+	background-repeat: repeat-x;
+
+}
+/*基本样式
+----------------------------------------*/
+
+#css8_header a:link {
+	text-decoration: none;
+	color: #3399cc;
+	border: 0px;
+}
+ 
+#css8_header a:active {
+	text-decoration: none;
+	color: #3399cc;
+	border: 0px;
+}
+ 
+#css8_header a:visited {
+	text-decoration: none;
+	color: #3399cc;
+	border: 0px;
+}
+#css8_header a:hover {
+	text-decoration: none;
+	color: #999933;
+	border: 0px;
+}
+img {
+	border: none;
+}
+.clear {
+	clear:both;
+	display:none;
+	height:0;
+	}
+/*框架
+----------------------------------------*/	
+#css8_header {
+
+	height:170px;
+	width:100%;
+	text-align:center;
+}
+#css8_header1 {
+	height:170px;
+	width:800px;
+	position:relative;
+	margin:0 auto;
+	text-align:left;
+}
+/*logo
+----------------------------------------*/	
+#css8_header1 h1{
+	text-indent: -10000px;
+	margin: 0;
+	padding: 0;
+}
+#css8_header1 h1 a {
+	width: 380px;
+	height: 120px;
+	background: url(logo.jpg) no-repeat center;
+	cursor: pointer;
+	float: left;
+	text-decoration: none;
+}
+/*菜单列表
+----------------------------------------*/	
+#css8_header1 ul {
+	width: 100%;
+	height:46px;
+	position:absolute;
+	left:0;
+	top:108px;
+	padding: 0px;
+	margin: 0px;
+	list-style-type:none;
+}
+
+#css8_header1 li {
+	float: left;
+	padding: 0px;
+	margin: 0px;
+}
+/*超链接
+----------------------------------------*/	
+/*鼠标默认
+--------------------*/	
+#css8_header1 li a {
+	DISPLAY: block;
+	HEIGHT: 46px;
+	background:url(menu_b.gif) repeat-x left top;
+	font-size:13px;
+	font-family:"simsun";
+	text-align:center;
+	text-decoration: none;
+	color:#046868;
+	font-weight:bold;
+	cursor:pointer;
+}
+#css8_header1 li span {
+	display:block;
+	width:100%;
+	height:100%;
+	background:url(menu_l.gif) no-repeat left top;
+
+}
+#css8_header1 li span span {
+	width:100%;
+	height:100%;
+	background:url(menu_r.gif) no-repeat right top;	
+}
+#css8_header1 li span span span{
+	width:100%;
+	height:100%;
+	background:url(menu_m.gif) no-repeat center top;
+	line-height:36px;
+
+
+}	
+/*鼠标经过
+--------------------*/	
+#css8_header1 li a:hover {
+	background-position:left bottom;
+	color:#fff;
+}	
+#css8_header1 li a:hover span {
+	background-position:left bottom;	
+}
+#css8_header1 li a:hover span span {
+	background-position:right bottom;	
+}	
+#css8_header1 li a:hover span span span {
+	background-position:center bottom;
+}
+/*菜单宽度
+----------------------------------------*/
+#css8_header1 .menu1 {
+	width:45px;
+	}
+#css8_header1 .menu2,
+#css8_header1 .menu3,
+#css8_header1 .menu4,
+#css8_header1 .menu5,
+#css8_header1 .menu6,
+#css8_header1 .menu7,
+#css8_header1 .menu8,
+#css8_header1 .menu9,
+#css8_header1 .menu10,
+#css8_header1 .menu11,
+#css8_header1 .menu12,
+#css8_header1 .menu13,
+#css8_header1 .menu14,
+#css8_header1 .menu15,
+#css8_header1 .menu16,
+#css8_header1 .menu17,
+#css8_header1 .menu18
+ {
+	width:70px;
+	}
+#css8_header1 .menu3 {
+	width:88px;
+	}
+
+/*首页特殊样式
+----------------------------------------*/
+#css8_header1 .home a {
+	DISPLAY: block;
+	HEIGHT: 46px;
+	background:url(menu_b.gif) repeat-x left bottom;
+	font-size:13px;
+	font-family:"simsun";
+	text-align:center;
+	text-decoration: none;
+	color:#fff;
+	font-weight:bold;
+	cursor:pointer;	
+}
+#css8_header1 .home span {
+	display:block;
+	width:100%;
+	height:100%;
+	background:url(menu_l.gif) no-repeat left bottom;
+}
+#css8_header1 .home span span {
+	width:100%;
+	height:100%;
+	background:url(menu_r.gif) no-repeat right bottom;	
+}
+#css8_header1 .home span span span{
+	width:100%;
+	height:100%;
+	background:url(menu_m.gif) no-repeat center bottom;
+	line-height:36px;
+	color:#fff;		
+}
+/*站点导航
+----------------------------------------*/
+#css8_header2 {
+	position:absolute;
+	right:0;
+	top:13px;
+	background: url(nt1.gif) repeat;
+	width: 120px;
+	height:80px;	
+	} 
+#css8_header2 div {
+	height:100%;
+	width:100%;	
+	background: url(bl1.gif) no-repeat bottom left; 
+}	
+#css8_header2 div div {
+	height:100%;
+	width:100%;
+	background: url(br1.gif) no-repeat bottom right;
+	}
+#css8_header2 dl {
+	height:100%;
+	width:100%;	
+	margin:0;
+	font-size:12px;
+	text-align:left;
+	}	
+
+#css8_header2 dt {
+	visibility:hidden;
+	padding: 0px;
+	margin: 0px;
+	line-height:4px;
+	height:6px;
+	}
+#css8_header2 dd {
+	margin:0;
+	padding:0 0 0 12px;
+	font-size:12px;
+	text-align:left;
+	padding-top:2px;
+
+	}
+	
+#css8_header2 a {
+	text-decoration: none;
+	}	
+#css8_header2 a:hover {
+	text-decoration: underline;
+	}			
+/*页脚样式
+----------------------------------------*/
+#css8_footer  {
+	float:left;
+	width:100%;
+	text-align:center;
+	}
+#css8_footer1  {
+	width:800px;
+	text-align:left!important;
+	margin: 12px auto 0;
+	height:40px;
+	padding-top:1em;	
+	padding-left:1em;
+	border-top:solid 1px #D2EDFC;	
+	font-size:12px;	
+	}	
+#css8_footer1 a {
+	font-size:12px;
+	text-decoration: none;
+	color: #3399cc;
+	border: 0px;	
+}
+#css8_footer1  a:hover {
+	text-decoration:underline;
+	color: #999933;
+}
+/*索引
+----------------------------------------*/
+#css_first {
+	position:absolute;
+	right:24px;
+	top:170px;
+	font-size:12px;
+}
+#css_first a {
+	font-size:12px;
+	
+	}
+
+
+/*
+----------------------------------------*/	

@@ -1,0 +1,534 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>How to Make a Slide Show Using HTML+TIME Transitions (Internet Explorer - HTML+Time 2)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>How to Make a Slide Show Using HTML+TIME Transitions
+<IMG SRC="../common/new.gif"></IMG></H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>This tutorial shows you how to create a slide show where each slide transitions into view when the user clicks a "back" or "forward" button. Some scripting is used to transition the appropriate slide into view when the user clicks a button. This is an example of integrating scripting with HTML+TIME (Timed Interactive Multimedia Extensions) transitions to make applications utilizing transitions more dynamic. Click the following <B>Show Me</B> button to see the slide show that we create in this tutorial.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/slideShow.htm" FEATURES="top=50,left=50,width=440,height=600,status=0,resizable=1"></IMG></A></DIV><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#firstLook">A Quick Look At The Code</A></LI><LI><A TARGET="_self" HREF="#shell">Setting the Stage</A></LI><LI><A TARGET="_self" HREF="#slides">Setting Up the Slides</A></LI><LI><A TARGET="_self" HREF="#buttons">Setting Up the Buttons</A></LI><LI><A TARGET="_self" HREF="#fnGo">Setting Up the Function</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2><p>This article assumes you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into great detail on how to add a behavior to your page nor does it cover how to declare a namespace and use custom tags, as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>. It is advisable to have some understanding of HTML+TIME transitions; for an overview, see <A HREF="../common/author/behaviors/overview/transition_ovw.html">Using HTML+TIME Transitions</A>.  In addition, you are expected to be familiar with Dynamic HTML (DHTML).</p><H2><A NAME="firstLook"></A>A Quick Look At The Code</H2><p>To start, have a quick look at the code of the entire sample. Later on, we explain this code in greater detail, but for now, it might be useful to have a preview of what is needed to make the tutorial sample.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Slide Show Using HTML+TIME Transitions&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv1
+{
+font-size:28pt;
+font-family: arial;
+font-weight:bold;
+color: #000000;
+background-color: #ffffcc;
+border:3px solid gold;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+padding:20px
+}
+#oDiv2
+{
+font-family: arial;
+font-weight:bold;
+font-size: 28pt;
+background-color: #e4e4e4;
+border:3px solid #666666;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+padding:20px;
+color:red
+}
+#oDiv3
+{
+color: white;
+font-family: arial;
+font-weight:bold;
+font-size: 28pt;
+background-color: #3366CC;
+border:3px solid #666666;
+padding: 20;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function fnGo(direction)
+{
+// divCollection holds the collection of DIVS in the slide show.
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+if (divCollection(i).style.zIndex == 2)
+{
+if (direction == "forward" &amp;&amp; i!=2)
+{
+var next = i + 1;
+}
+else if (direction == "back" &amp;&amp; i!=0)
+{
+var next = i - 1;
+}
+else
+break;
+// Loop below sets all DIVS to low z-index.
+for(j=0; j&lt;ColLength; j++)
+{
+divCollection(j).style.zIndex = 0;
+}
+// Last DIV is set to next highest z-index.
+divCollection(i).style.zIndex = 1;
+// The DIV that is to transition in is set to highest z-index.
+divCollection(next).style.zIndex = 2;
+var transitionFilterCol = divCollection(next).childNodes;
+var nextTransitionFilter = new Object();
+// Create a reference to the next TRANSITIONFILTER.
+nextTransitionFilter = transitionFilterCol(0);
+var nextDiv = new Object();
+// Create a reference to the next DIV.
+nextDiv = divCollection(next);
+// Begin the next transitionFilter.
+nextTransitionFilter.beginElement();
+// Begin the next DIV
+nextDiv.beginElement();
+break;
+}
+}
+}
+&lt;/SCRIPT&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;BLOCKQUOTE CLASS="body"&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oWrapperDiv"&gt;
+&lt;DIV ID="oDiv1" CLASS="time" STYLE="z-index:2"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran1" BEGIN="indefinite" TYPE="ellipseWipe" DUR="1"/&gt;
+The First One
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv2" CLASS="time" BEGIN="indefinite" STYLE="z-index:1"&gt;
+&lt;t:TRANSITIONFILTER id="oTran2" BEGIN="indefinite" TYPE="fanWipe" DUR="1"/&gt;
+The Second One
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv3" CLASS="time" BEGIN="indefinite" STYLE="z-index:0"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran3" BEGIN="indefinite" TYPE="pushWipe" DUR="2"/&gt;
+The Last One
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;BUTTON ID="oForward" onclick="fnGo('forward');" STYLE="position:absolute; top:460;left:100;"&gt;Forward&lt;/BUTTON&gt;&lt;br&gt;
+&lt;BUTTON ID="oForward" onclick="fnGo('back');" STYLE="position:absolute; top:460;"&gt;Back&lt;/BUTTON&gt;&lt;br&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/slideShow.htm" FEATURES="top=50,left=50,width=440,height=600,status=0,resizable=1"></IMG></A></DIV><p>Much of the preceding code is inside of the <A HREF="../objects/style.html">STYLE</A> block. This formatting code is important for this sample to render correctly but is separated from the functional elements for clarity. The rest of the code consists of the elements that are part of the slide show and one Microsoft JScript?function that provides the slideshow functionality. This tutorial walks through each of the following steps to create the sample.
+<ol><li>Write the miscellaneous code needed for the sample to work properly.
+<ul><li>Write the code that is needed to instantiate the HTML+TIME behavior.</li><li>Write the formatting code that will be needed by the menu in a <B>STYLE</B> tag.</li></ul></li><li>Create the <A HREF="../objects/div.html">DIV</A> elements that are the slides in the sample.</li><li>Create the buttons that control when to transition from one slide to the next.</li><li>Create the function that facilitates the transition from one slide to the next.</li></ol></p><H2><A NAME="shell"></A>Setting the Stage</H2><p>To use HTML+TIME elements and use the <B>time2</B> behavior, the following code is needed. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+.
+.
+.
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><p>For more information about creating an XML namespace and referencing the <B>time2</B> behavior, see <A HREF="../common/author/behaviors/time.html#Authoring">Authoring HTML+TIME</A>.</p><p>Next, we add the formatting code inside of the <B>STYLE</B> tags. All of the elements in this sample derive their formatting from here. By separating formatting code from rendered elements, the functional code is simplified.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv1
+{
+font-size:28pt;
+font-family: arial;
+font-weight:bold;
+color: #000000;
+background-color: #ffffcc;
+border:3px solid gold;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+padding:20px
+}
+#oDiv2
+{
+font-family: arial;
+font-weight:bold;
+font-size: 28pt;
+background-color: #e4e4e4;
+border:3px solid #666666;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+padding:20px;
+color:red
+}
+#oDiv3
+{
+color: white;
+font-family: arial;
+font-weight:bold;
+font-size: 28pt;
+background-color: #3366CC;
+border:3px solid #666666;
+padding: 20;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+}
+&lt;/STYLE&gt;
+</PRE><H2><A NAME="slides"></A>Setting Up the Slides</H2><p>The slides of this sample consist of three <B>DIV</B> elements that are absolutely positioned over one another. Each of these <B>DIV</B> elements have <A HREF="../time2/elements/transitionfilter.html">t:TRANSITIONFILTER</A> elements applied to them to transition the <B>DIV</B> elements into view. All of these <B>DIV</B>s are contained within the <SPAN CLASS="clsLiteral">oWrapperDiv</SPAN>?B>DIV</B> element.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;DIV ID="oWrapperDiv"&gt;
+&lt;DIV ID="oDiv1" CLASS="time" STYLE="z-index:2"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran1" BEGIN="indefinite" TYPE="ellipseWipe" DUR="1"/&gt;
+The first one
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv2" CLASS="time" BEGIN="indefinite" STYLE="z-index:1"&gt;
+&lt;t:TRANSITIONFILTER id="oTran2" BEGIN="indefinite" TYPE="fanWipe" DUR="1"/&gt;
+The Second One
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv3" CLASS="time" BEGIN="indefinite" STYLE="z-index:0"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran3" BEGIN="indefinite" TYPE="pushWipe" DUR="2"/&gt;
+The last one
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+</PRE><p>Since the elements are activated dynamically, the <A HREF="../time2/properties/begin.html">BEGIN</A> attributes are set to <SPAN CLASS="clsLiteral">indefinite</SPAN>. All of these <B>DIV</B>s have an assigned <A HREF="../properties/zindex.html">zIndex</A> such that the first <B>DIV</B> is rendered on top of the other two.</p><H2><A NAME="buttons"></A>Setting Up the Buttons</H2><p>The buttons control which slide is displayed by activating the <SPAN CLASS="clsLiteral">fnGo()</SPAN> function.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;BUTTON ID="oForward" onclick="fnGo('forward');" STYLE="position:absolute; top:460;left:100;"&gt;Forward&lt;/BUTTON&gt;&lt;br&gt;
+&lt;BUTTON ID="oForward" onclick="fnGo('back');" STYLE="position:absolute; top:460;"&gt;Back&lt;/BUTTON&gt;&lt;br&gt;
+</PRE><p>Let's take a look at the sample so far. Right now, the layered <B>DIV</B> elements inside of the container <B>DIV</B> are rendered with the first <B>DIV</B> on top of the other two. The slide show control buttons are rendered also. However, clicking the buttons causes an error because the buttons call the <SPAN CLASS="clsLiteral">fnGo()</SPAN> function that you have not created yet. This function provides the functionality of the slide show. The next section walks you through the creation of this function.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t = "urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Sample&lt;/TITLE&gt;
+&lt;STYLE&gt;
+.time    {behavior: url(#default#time2);}
+#oDiv1
+{
+font-size:28pt;
+font-family: arial;
+font-weight:bold;
+color: #000000;
+background-color: #ffffcc;
+border:3px solid gold;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+padding:20px
+}
+#oDiv2
+{
+font-family: arial;
+font-weight:bold;
+font-size: 28pt;
+background-color: #e4e4e4;
+border:3px solid #666666;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+padding:20px;
+color:red
+}
+#oDiv3
+{
+color: white;
+font-family: arial;
+font-weight:bold;
+font-size: 28pt;
+background-color: #3366CC;
+border:3px solid #666666;
+padding: 20;
+position:absolute;
+top:20px;
+left:20px;
+height:300px;
+width:400px;
+}
+&lt;/STYLE&gt;
+&lt;?import namespace = t urn = "urn:schemas-microsoft-com:time"
+implementation = "#default#time2" /&gt;
+&lt;/HEAD&gt;
+&lt;BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" LINK="#000000" VLINK="#808080" ALINK="#000000"&gt;
+&lt;BLOCKQUOTE CLASS="body"&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oWrapperDiv"&gt;
+&lt;DIV ID="oDiv1" CLASS="time" STYLE="z-index:2"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran1" BEGIN="indefinite" TYPE="ellipseWipe" DUR="1"/&gt;
+The First One
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv2" CLASS="time" BEGIN="indefinite" STYLE="z-index:1"&gt;
+&lt;t:TRANSITIONFILTER id="oTran2" BEGIN="indefinite" TYPE="fanWipe" DUR="1"/&gt;
+The Second One
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv3" CLASS="time" BEGIN="indefinite" STYLE="z-index:0"&gt;
+&lt;t:TRANSITIONFILTER ID="oTran3" BEGIN="indefinite" TYPE="pushWipe" DUR="2"/&gt;
+The Last One
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;BUTTON ID="oForward" onclick="fnGo('forward');" STYLE="position:absolute; top:460;left:100;"&gt;Forward&lt;/BUTTON&gt;&lt;br&gt;
+&lt;BUTTON ID="oForward" onclick="fnGo('back');" STYLE="position:absolute; top:460;"&gt;Back&lt;/BUTTON&gt;&lt;br&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 6 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="6" SAMPLEPATH="../common/samples/author/behaviors/htmltime/transitions/tutorialSamples/slideShowTutIntermediate1.htm" FEATURES="top=50,left=50,height=550,width=520,status=0,resizable=1"></IMG></A></DIV><H2><A NAME="fnGo"></A>Setting Up the Function</H2><p>This function assesses which <B>DIV</B> is currently on top and causes the next <B>DIV</B> to transition in. There is only one parameter for the function that indicates if the next <B>DIV</B> to transition in appears before or after the <B>DIV</B> currently on top.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;script&gt;
+function fnGo(direction)
+{
+// divCollection holds the collection of DIVS in the slide show.
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+if (divCollection(i).style.zIndex == 2)
+{
+if (direction == "forward" &amp;&amp; i!=2)
+{
+var next = i + 1;
+}
+else if (direction == "back" &amp;&amp; i!=0)
+{
+var next = i - 1;
+}
+else
+break;
+// Loop below sets all DIVS to low z-index.
+for(j=0; j&lt;ColLength; j++)
+{
+divCollection(j).style.zIndex = 0;
+}
+// The DIV that is to transition in is set to highest z-index.
+divCollection(next).style.zIndex = 2;
+// Last DIV is set to next highest z-index.
+divCollection(i).style.zIndex = 1;
+var transitionFilterCol = divCollection(next).childNodes;
+var nextTransitionFilter = new Object();
+// Create a reference to the next TRANSITIONFILTER.
+nextTransitionFilter = transitionFilterCol(0);
+// Begin the next transitionFilter.
+nextTransitionFilter.beginElement();
+var nextDiv = new Object();
+// Create a reference to the next DIV.
+nextDiv = divCollection(next);
+// Begin the next DIV
+nextDiv.beginElement();
+break;
+}
+}
+}
+&lt;/script&gt;
+</PRE><H3>Stepping Through the Function</H3><ol><li><p>First, a collection of the slide show <B>DIV</B> elements are created by accessing the direct child nodes of the container <B>DIV</B> (<SPAN CLASS="clsLiteral">oWrapperDiv</SPAN>), the length of the collection is determined, and a loop is used to go through each member of the collection</p><PRE CLASS="clsCode" AUTOHILITE="1">
+function fnGo(direction)
+{
+// divCollection holds the collection of DIVS in the slide show.
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+.
+.
+.
+}
+}
+</PRE></li><li><p>An <B>IF</B> statement checks to see if the collection object (divCollection(i)) is the <B>DIV</B> that is currently rendered on top of the other slides.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="if (divCollection(i).style.zIndex == 2)">
+function fnGo(direction)
+{
+// divCollection holds the collection of DIVS in the slide show.
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+if (divCollection(i).style.zIndex == 2)
+{
+.
+.
+.
+}
+}
+}
+</PRE></li><li><p>The direction variable passed as a parameter from the button determines if the variable <I>next</I> is incremented or decremented. This in turn determines if the next higher or next lower member of the collection is the next slide show <B>DIV</B> to transition in.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="if (direction == &quot;forward&quot; &amp;&amp; i!=2);var next = i + 1;;if (direction == &quot;back&quot; &amp;&amp; i!=0);var next = i - 1;;else;break;">
+function fnGo(direction)
+{
+// divCollection holds the collection of DIVS in the slide show.
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+if (divCollection(i).style.zIndex == 2)
+{
+if (direction == "forward" &amp;&amp; i!=2)
+{
+var next = i + 1;
+}
+else if (direction == "back" &amp;&amp; i!=0)
+{
+var next = i - 1;
+}
+else
+break;
+.
+.
+.
+}
+}
+}
+</PRE></li><li><p>All of the slide show <B>DIV</B>s are set to a <B>zIndex</B> value of <SPAN CLASS="clsLiteral">0</SPAN>, the <B>DIV</B> that is next to transition in is set to the highest <B>zIndex</B> (two) of the slide show <B>DIV</B>s, and the last <B>DIV</B> is assigned the second highest <B>zIndex</B> value (one) of the <B>DIV</B>s. The reason why the last <B>DIV</B> is assigned a <B>zIndex</B> of one is so that this <B>DIV</B> is visible as the next <B>DIV</B> transitions in. </p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="for(j=0; j&lt;ColLength; j++);divCollection(j).style.zIndex = 0;;divCollection(next).style.zIndex = 2;;divCollection(i).style.zIndex = 1;">
+function fnGo(direction)
+{
+// divCollection holds the collection of DIVS in the slide show.
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+if (divCollection(i).style.zIndex == 2)
+{
+if (direction == "forward" &amp;&amp; i!=2)
+{
+var next = i + 1;
+}
+else if (direction == "back" &amp;&amp; i!=0)
+{
+var next = i - 1;
+}
+else
+break;
+// Loop below sets all DIVS to low z-index.
+for(j=0; j&lt;ColLength; j++)
+{
+divCollection(j).style.zIndex = 0;
+}
+// The DIV that is to transition in is set to highest z-index.
+divCollection(next).style.zIndex = 2;
+// Last DIV is set to next highest z-index.
+divCollection(i).style.zIndex = 1;
+.
+.
+.
+}
+}
+}
+</PRE></li><li><p>Both the next <B>DIV</B> to transition in and the <B>t:TRANSITIONFILTER</B> that applies to it are begun on the time line using the <A HREF="../time2/methods/beginelement.html">beginElement</A> method. This is when the transition starts. Note that a reference to the correct <B>t:TRANSITIONFILTER</B> element is retrieved by using the first member of the <A HREF="../collections/childnodes.html">childNodes</A> collection of that <B>DIV</B>.  </p><PRE CLASS="clsCode" AUTOHILITE="1">
+function fnGo(direction)
+{
+var divCollection = oWrapperDiv.childNodes;
+var ColLength = divCollection.length;
+for(i=0; i&lt;ColLength; i++)
+{
+if (divCollection(i).style.zIndex == 2)
+{
+if (direction == "forward" &amp;&amp; i!=2)
+{
+var next = i + 1;
+}
+else if (direction == "back" &amp;&amp; i!=0)
+{
+var next = i - 1;
+}
+else
+break;
+for(j=0; j&lt;ColLength; j++)
+{
+divCollection(j).style.zIndex = 0;
+}
+divCollection(next).style.zIndex = 2;
+divCollection(i).style.zIndex = 1;
+// Create a collection of the child nodes of the next element
+// to transition in.
+var transitionFilterCol = divCollection(next).childNodes;
+var nextTransitionFilter = new Object();
+// Create a reference to the next TRANSITIONFILTER. This
+// assumes that the TRANSITIONFILTER is the first child element.
+nextTransitionFilter = transitionFilterCol(0);
+// Begin the next transitionFilter.
+nextTransitionFilter.beginElement();
+var nextDiv = new Object();
+// Create a reference to the next DIV.
+nextDiv = divCollection(next);
+// Begin the next DIV
+nextDiv.beginElement();
+break;
+}
+}
+}
+</PRE></li></ol><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="../common/author/behaviors/time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A></LI><LI><A HREF="transition_ovw.html">Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_basic_tut.html">How to Create a Basic HTML+TIME Transition</A></LI><LI><A HREF="transition_intro_tut.html">How to Create An Animated Presentation Using HTML+TIME Transitions</A></LI><LI><A HREF="transition_menu_tut.html">How to Make An Animated Menu Using HTML+TIME Transitions</A></LI></UL><info><product rid="prod_IE" minver="6"></product><platform rid="plat_win" minver="98"></platform><platform rid="plat_nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

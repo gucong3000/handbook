@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'anchorClick'
+);
+
+sStyle=
+'a {behavior:url(#default#anchorclick);}\n';
+
+sScript=
+'\n';
+
+sCode=
+'<a href = "folder.htm" folder = "d:\" target="_top">打开文件夹</a>\n';
+
+iWinWidth=360;
+
+iWinHeight=240;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>TARGET | target</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> XML </b></td>
+<td> <b>&lt; </b><i>Element</i><b> TARGET = </b><i>sTarget</i><b> &gt; </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.target = </b><i>sTarget</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> sTarget </i></td><td nowrap><b>: </b></td><td>
+字符串(String)。<i>sName</i> | <b>_self</b> | <b>_top</b>
+<table>
+<tr><td nowrap><i> sName </i></td><td nowrap><b>: </b></td>
+<td>窗口或框架的名字。</td></tr>
+<tr><td nowrap><b> _self </b></td><td nowrap><b>: </b></td>
+<td>导航到当前窗口(框架)。</td></tr>
+<tr><td nowrap><b> _top </b></td><td nowrap><b>: </b></td>
+<td>导航到最高层窗口(框架)。</td></tr>
+</table>
+</td></tr></table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+指定或检索视图导航的目标窗口或框架的名字。<br>
+此特性值是大小写敏感的。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

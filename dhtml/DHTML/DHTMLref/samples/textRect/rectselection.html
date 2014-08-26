@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>GetClientRects -</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<SCRIPT>
+window.onload=fnInit;
+var rcts;
+var keyCount=0;
+var bIsMore=false;
+var oClickClock="";
+function fnHighlite(obj) {
+rcts = obj.getClientRects();
+rctLength= rcts.length;
+if (keyCount > rctLength-1) {
+idBeige.style.display="none";
+keyCount = 0
+}
+// 设置黄色 DIV 的渲染属性
+cdRight = rcts[keyCount].right + idBody.scrollLeft;
+cdLeft = rcts[keyCount].left + idBody.scrollLeft;
+cdTop = rcts[keyCount].top + idBody.scrollTop;
+cdBottom = rcts[keyCount].bottom + idBody.scrollTop;
+idYellow.style.top = cdTop;
+idYellow.style.width = (cdRight-cdLeft) - 5;
+idYellow.style.display = 'inline';
+// 现在设置土色 DIV 的渲染属性
+bndRight = obj.getBoundingClientRect().right + idBody.scrollLeft;
+bndLeft = obj.getBoundingClientRect().left + idBody.scrollLeft;
+bndTop = obj.getBoundingClientRect().top + idBody.scrollTop;
+idBeige.style.top = bndTop;
+idBeige.style.width = (bndRight-bndLeft) - 5;
+idBeige.style.height = cdTop - bndTop;
+if (keyCount>0){
+idBeige.style.display = 'inline';
+}
+keyCount++;
+}
+// 在页面装载时显示 clientRects 集合的长度
+function fnInit(){
+oCount.innerText=oID_1.getClientRects().length
+}
+// 模拟单击段落，次数为 clientRects 集合的长度
+function fnClickMore(){
+if(bIsMore==false){
+bIsMore=true;
+oClickMore.value="停止单击";
+oClickClock=window.setInterval("fnSimClick()",250);
+}
+else{
+oClickMore.value="模拟单击";
+window.clearInterval(oClickClock);
+bIsMore=false;
+}
+}
+function fnSimClick(){
+if(keyCount==oID_1.getClientRects().length){
+oID_1.click();
+oClickMore.value="模拟单击";
+bIsMore=false;
+window.clearInterval(oClickClock);
+}
+else{
+oID_1.click();
+}
+}
+</SCRIPT>
+</HEAD>
+<BODY ID="idBody" TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF"
+LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<H2>getBoundingClientRects 和 getClientRects 示例</H2>
+<P>下面的例子演示了 <b>getClientRects</b> 和 <b>getBoundingClientRect</b> 方法的用途。
+单击<b>《再别康桥》</b>中的任意位置都将把第一行置为黄色。
+<b>getClientRects</b> 方法用于获取矩形的集合以及要被突出显示的文本行的 <b>top</b>, <b>left</b> 和 <b>right</b> 坐标。
+由于使用了定位值，会有一个 <b>zIndex</b> 属性值设置为 -1 的定位 <b>DIV</b> 移动到文本后面。</P>
+<P>每单击一次，用于黄色突出显示的定位 <b>DIV</b> 都会被移动到下个矩形的位置。而用于突出显示后的土色定位 <b>DIV</b> 会被移动，其大小也会改为能够覆盖由 <b>getClientRects</b> 方法返回的位于黄色突出显示部分之上的全部矩形。
+用于突出显示后的 <b>DIV</b>会根据由 <b>getBoundingClientRect</b> 方法返回的绑定矩形的大小改变其大小。</P>
+<P>单击下面按钮可以模拟 <span ID="oCount">几</span> 次单击段落。</P>
+<P><input ID="oClickMore" type=button value="模拟单击" onclick="fnClickMore()"></P>
+<H3 ALIGN="center">再别康桥</H3>
+<DIV ID="oID_1" onclick="fnHighlite(this)" onkeydown="fnHighlite(this)">
+<BLOCKQUOTE>
+轻轻的我走了，正如我轻轻的来；<BR>
+我轻轻的招手，作别西天的云彩。<BR>
+<BR>
+那河畔的金柳，是夕阳中的新娘；<BR>
+波光里的艳影，在我的心头荡漾。<BR>
+<BR>
+软泥上的青荇，油油的在水底招摇；<BR>
+在康河的柔波里，我甘心做一条水草！<BR>
+<BR>
+那榆荫下的一潭，不是清泉，<BR>
+是天上虹揉碎在浮藻间，沉淀着彩虹似的梦。<BR>
+<BR>
+寻梦？撑一支长篙，向青草更青处漫溯，<BR>
+满载一船星辉，在星辉斑斓里放歌。<BR>
+<BR>
+但我不能放歌，悄悄是别离的笙箫；<BR>
+夏虫也为我沉默，沉默是今晚的康桥。<BR>
+<BR>
+悄悄的我走了，正如我悄悄的来；<BR>
+我挥一挥衣袖，不带走一片云彩。
+</BLOCKQUOTE></DIV>
+<DIV STYLE="position:absolute; left:5; top:400; z-index:-1; background-color:'yellow'; display:'none'" ID="idYellow"></DIV>
+<DIV STYLE="position:absolute; left:5; top:400; z-index:-1; background-color:'beige'; display:'none'" ID="idBeige"></DIV>
+<BR><BR><BR>
+&copy;  2002 Microsoft Corporation. 版权所有
+</BLOCKQUOTE>
+</BODY>
+</HTML>

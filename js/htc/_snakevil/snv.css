@@ -1,0 +1,157 @@
+BODY {
+    background-color: #073B4C;
+    font-size: 9pt;
+    font-family: "simsun";
+    line-height: 1;
+    color: #C0CCC0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    behavior: url("hisecurity.htc");
+}
+H1 {
+    width: 100%;
+    font-size: 24pt;
+    font-weight: bolder;
+    font-family: "黑体";
+    margin: 30px 10px 15px 10px;
+    letter-spacing: 4px;
+    color: #FFCC66;
+    filter: progid: DXImageTransform.Microsoft.Glow(color=#FFCC66, strength=1), progid: DXImageTransform.Microsoft.Blur(makeShadow=false, pixelRadius=1, shadowOpacity=1);
+}
+IMG {
+    border: 1px solid #052D3A;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    filter: progid: DXImageTransform.Microsoft.Alpha(style=3, opacity=100, finishOpacity=24);
+    _position: absolute;
+}
+HR {
+    margin: 0;
+    height: 1px;
+    filter: progid: DXImageTransform.Microsoft.Alpha(style=1, startX=14, startY=0, opacity=100, finishX=86, finishY=0, finishOpacity=0);
+}
+DL {
+    margin: 20px 180px 20px 30px;
+}
+DT {
+    font-size: 21pt;
+    font-family: "隶书";
+    line-height: 1;
+    padding: 0;
+    margin: 10px 0;
+}
+DT DIV.back {
+    position: absolute;
+    width: 62%;
+    padding: 5px;
+    background-color: #094B61;
+    left: 35px;
+    filter: progid: DXImageTransform.Microsoft.Alpha(style=1, startX=0, startY=100, opacity=100, finishX=62, finishY=0, finishOpacity=0);
+}
+@media all and (min-width: 0px) {
+    DT DIV.back {
+        background: -webkit-linear-gradient(left, #094B61, rgba(9, 75, 97, 0));
+        background: linear-gradient(to right, #094B61, rgba(9, 75, 97, 0));
+        filter: none;
+    }
+}
+DT DIV.data {
+    text-shadow: 4px 3px 0 #06313F;
+    position: relative;
+    width: 100%;
+    color: #FFFFFF;
+    padding: 5px;
+    filter: progid: DXImageTransform.Microsoft.DropShadow(color=#06313F, offX=4, offY=3);
+}
+DT DIV.data:first-letter {
+    font-family: "simsun";
+    font-weight: bold;
+    font-size: 9pt;
+    color: #0C6481;
+    margin-right: 5px;
+}
+DD {
+    font-size: 10pt;
+}
+P {
+    margin: 5px 0;
+    padding: 4px 0;
+    line-height: 1.8;
+    text-indent: 2em;
+}
+TABLE {
+    font-size: 10pt;
+    font-family: "simsun";
+    line-height: 1;
+    table-layout: fixed;
+}
+SPAN,
+B.e {
+    font-size: 8pt;
+    font-family: "Courier New";
+    margin: 0 4px;
+}
+B {
+    margin: 0 4px;
+    color: #D0DDD0;
+}
+A {
+    color: #D0DDD0;
+    behavior: url("enhhover.htc");
+}
+TH {
+    padding: 5px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+THEAD TH {
+    background-color: #052D3A;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+TBODY TR {
+    behavior: url("enhoverrow.htc");
+}
+tbody tr:hover th,
+tbody tr:hover td {
+	background: #003300;
+}
+TBODY TH {
+    background-color: #06313F;
+    font-size: 8pt;
+    font-weight: normal;
+    font-family: "Courier New";
+    text-indent: 15px;
+}
+TBODY TH.main {
+    text-indent: 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+TBODY TD {
+    padding: 0 10px;
+    background-color: #063443;
+    line-height: 1.6;
+}
+DIV.container {
+    width: 86%;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-3dlight-color: #073B4C;
+    scrollbar-highlight-color: #052D3A;
+    scrollbar-face-color: #063443;
+    scrollbar-arrow-color: #246276;
+    scrollbar-shadow-color: #052D3A;
+    scrollbar-darkshadow-color: #073B4C;
+    scrollbar-track-color: #073B4C;
+}
+TABLE.container {
+    position: absolute;
+    top: expression(this.parentElement.scrollTop-2);
+}
+TABLE.data THEAD TR {
+    height: 31px;
+}

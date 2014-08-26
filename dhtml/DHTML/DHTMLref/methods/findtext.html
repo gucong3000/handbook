@@ -1,0 +1,127 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>findText</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>findText Method
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Searches for text in the document and positions the start and end points of the range to encompass the search string.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>bFound</I> = <I>TextRange</I><B>.findText(</B><I>sText</I><B> [</B><B>, </B><I>iSearchScope</I><B>]</B><B> [</B><B>, </B><I>iFlags</I><B>]</B><B>)</B></PRE></BLOCKQUOTE><P CLASS="clsRef">Parameters</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><I>sText</I></TD><TD>
+Required.
+<b>String</b> that specifies the text to find.</TD></TR><TR><TD><I>iSearchScope</I></TD><TD>
+Optional.
+<b>Integer</b> that specifies the number of characters to search from the starting point of the range. A positive integer indicates a forward search; a negative integer indicates a backward search. </TD></TR><TR><TD><I>iFlags</I></TD><TD>
+Optional.
+<b>Integer</b> that specifies one or more of the following flags to indicate the type of search: <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">0</SPAN></TD><TD>Default. Match partial words.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">1</SPAN></TD><TD>Match backwards.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">2</SPAN></TD><TD>Match whole words only.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">4</SPAN></TD><TD>Match case.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">131072</SPAN></TD><TD>Match bytes.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">536870912</SPAN></TD><TD>Match diacritical marks.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">1073741824</SPAN></TD><TD>Match Kashida character.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">2147483648</SPAN></TD><TD>Match AlefHamza character.</TD></TR></TABLE></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Return Value</P><BLOCKQUOTE><P><b>Boolean</b> that returns one of the following values: </P><TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">true</SPAN></TD><TD>The search text was found.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">false</SPAN></TD><TD>The search text was not found.</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>A range has two distinct states: degenerate and nondegenerate.</P><P>A degenerate range is like a text editor caret (insertion point)
+&#151;it does not actually select any characters. Instead, it specifies a point between two characters. The end points of a degenerate range are adjacent.</P><P>A nondegenerate range is like a text editor selection, in that it selects a certain amount of text. The end points of a nondegenerate range are not adjacent.</P><P>The value passed for the <I>iSearchScope
+</I> parameter controls the part of the document, relative to the range, that is searched. The behavior of the <B>findText</B> method depends on whether the state is degenerate or nondegenerate:
+<ul><li>If the range is degenerate, passing a large positive number causes the text to the right of the range to be searched. Passing a large negative number causes the text to the left of the range to be searched. </li><li>If the range is nondegenerate, passing a large positive number causes the text to the right of the start of the range to be searched. Passing a large negative number causes the text to the left of the end of the range to be searched. Passing 0 causes only the text selected by the range to be searched. </li></ul></P><P>This feature might not be available on non-Microsoft&#174; Win32&#174; platforms. </P><P>A text range is not modified if the text specified for the <B>findText</B> method is not found.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example creates a <A HREF="../objects/obj_textrange.html">TextRange</A> over the body of the document, and then uses the <B>findText</B> method to search for text with various flag combinations. The results are indicated in the example code comments.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;HTML&gt;
+&lt;BODY&gt;
+Leonardo da Vinci was one of the great masters of the High
+Renaissance, especially in painting, sculpture, architecture,
+engineering, and science.
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+&lt;SCRIPT&gt;
+var oRange = document.body.createTextRange();
+// record the current position in a bookmark
+var sBookMark = oRange.getBookmark();
+// true - case-insensitive and partial word match
+oRange.findText('leo');
+// reset the range using the bookmark
+oRange.moveToBookmark(sBookMark);
+// false - matches whole words only
+oRange.findText('engineer', 0, 2);
+oRange.moveToBookmark(sBookMark);
+// false - case-sensitive
+oRange.findText('high', 0, 4);
+oRange.moveToBookmark(sBookMark);
+// true - case-sensitive and matches whole words
+oRange.findText('Leonardo', 0, 6);
+// the degenerate case
+oRange.moveToBookmark(sBookMark);
+// make the range degenerate
+oRange.collapse();
+// false - must specify large character count in this case
+oRange.findText('Leonardo', 0, 6);
+// true - no third parameter passed, so no count needed
+oRange.findText('Leonardo');
+// true - a large count covers the range
+oRange.findText('Leonardo', 1000000000, 6);
+&lt;/SCRIPT&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+There is no public standard that applies to this method.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_textrange.html">
+TextRange</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

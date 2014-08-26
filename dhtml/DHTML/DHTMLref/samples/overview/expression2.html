@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=gb2312">
+<TITLE>动态属性示例</TITLE>
+<STYLE TYPE="text/css">
+.block {position: absolute; top: 100; left: 100; height: 75; width: 75; background-color: #CFCFCF; border: "1 solid"; border-left-color: #EFEFEF; border-top-color: #EFEFEF; border-bottom-color: #C0C0C0; border-right-color: #C0C0C0;}
+.block2 {position: absolute; top: 0; left: 0; height: 25; width: 25; background-color: #C0C0C0; border: "1 solid"; border-left-color: #CFCFCF; border-top-color: #CFCFCF; border-bottom-color: #505050; border-right-color: #505050;}
+</STYLE>
+<SCRIPT>
+window.onload=fnInit;
+var iOffset=10;
+function fnInit(){
+oDiv.setAttribute("moving",false);
+oDiv.style.left=document.body.clientWidth/2 - oDiv.offsetWidth/2;
+oDiv.style.top=oOffset.offsetTop  + oOffset.offsetHeight + iOffset + oBlock4.offsetHeight + 10;
+oBlock1.style.setExpression("top","oDiv.offsetTop - iOffset - oBlock1.offsetHeight");
+oBlock1.style.setExpression("left","oDiv.offsetLeft + (oDiv.offsetWidth/2 - oBlock1.offsetWidth/2)");
+oBlock2.style.setExpression("top","oDiv.offsetTop + oDiv.offsetHeight +  iOffset");
+oBlock2.style.setExpression("left","oDiv.offsetLeft + (oDiv.offsetWidth/2 - oBlock2.offsetWidth/2)");
+oBlock3.style.setExpression("top","oDiv.offsetTop + (oDiv.offsetHeight/2 - oBlock3.offsetHeight/2)");
+oBlock3.style.setExpression("left","oDiv.offsetLeft - iOffset - oBlock3.offsetWidth");
+oBlock4.style.setExpression("top","oDiv.offsetTop + (oDiv.offsetHeight/2 - oBlock4.offsetHeight/2)");
+oBlock4.style.setExpression("left","oDiv.offsetLeft + oDiv.offsetWidth + iOffset");
+}
+function fnStartMove(){
+oDiv.adjustX=event.clientX - oDiv.offsetLeft;
+oDiv.adjustY=event.clientY - oDiv.offsetTop;
+oDiv.moving=true;
+}
+function fnStopMove(){
+oDiv.moving=false;
+}
+function fnMove(){
+if(oDiv.moving==true){
+if(event.clientX - oDiv.adjustX>0){
+oDiv.style.left=event.clientX - oDiv.adjustX;
+}
+if(event.clientY - oDiv.adjustY>0){
+oDiv.style.top=event.clientY - oDiv.adjustY;
+}
+}
+}
+function fnUpdate(){
+iOffset=parseInt(oOffset.value);
+}
+</SCRIPT>
+</HEAD>
+<BODY TOPMARGIN=0 LEFTMARGIN=0 BGPROPERTIES="FIXED" BGCOLOR="#FFFFFF" LINK="#000000" VLINK="#808080" ALINK="#000000">
+<BLOCKQUOTE CLASS="body">
+<H1>动态属性示例</H1>
+<P>表达式特别适用于几个对象都依赖于特定值的情况，例如脚本变量，而不是其它对象的测量值。在这个例子中，有四个 <b>DIV</b> 元素环绕第五个较大的 <b>DIV</b> 放置。四个较小的 <b>DIV</b> 元素使用中间的 <b>DIV</b> 和脚本变量 iOffset 作为基准进行定位。当中间的 <b>DIV</b> 在屏幕上飞来飞去的时候(只需拖曳)，四个较小的 <b>DIV</b> 元素也会跟着移动。
+不用编写脚本来移动四个较小的元素，表达式就是根据第五个元素的位置编写的。
+除了随着中间元素的位置进行更改，四个较小的元素同时要根据脚本变量的值来更改偏移量。
+如果你更改了下面的文本框的值，无需重置位置偏移量就会自动更改。
+</P>
+<P style="color:red">注意：本例将只在 Internet Explorer 浏览器中工作正常。对于任何使用 Microsoft Web Browser ActiveX 控件来显示 HTML 文件的的第三方应用程序，将可能由于无法正确响应键盘事件，从而使得本例无法得到预期的效果。</P>
+<P><input TYPE=text VALUE="10" onkeyup="fnUpdate()" ID="oOffset"></P>
+<DIV ID="oDiv" CLASS="block" STYLE="cursor: move;" onmouseout="fnStopMove()" onmouseup="fnStopMove()" onmousemove="fnMove()" onmousedown="fnStartMove()"></DIV>
+<DIV ID="oBlock1" CLASS="block2"></DIV>
+<DIV ID="oBlock2" CLASS="block2"></DIV>
+<DIV ID="oBlock3" CLASS="block2"></DIV>
+<DIV ID="oBlock4" CLASS="block2"></DIV>
+<DIV STYLE="position:absolute;top:400">
+<BR><BR><BR>
+&copy; 2002 Microsoft Corporation. 版权所有。
+</DIV>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

@@ -1,0 +1,208 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>Visual Filters and Transitions</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/members.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "common/";
+var gsGraphicsPath = "common/";
+var gsCodePath = "common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Visual Filters and Transitions Reference
+</H1></TD><TD ALIGN="right"><A HREF="default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>As of Microsoft&#174; Internet Explorer 4.0, you can apply multimedia-style effects to your Web pages using visual filters and transitions. You can apply visual filters and transitions to standard HTML controls, such as text containers, images, and other windowless objects. Transitions are time-varying filters that create a transition from one visual state to another. By combining filters and transitions with basic scripting, you can create visually engaging and interactive documents.</p><p>Internet Explorer 5.5 and later supports a rich variety of optimized filters. Click the following button to see a demonstration of many of these filters and how to use them.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="about:blank"></IMG></A></DIV><p>The links in the following sections provide access to the object model exposed by the visual filters and transitions.</p><H2><A NAME="Procedural_Surfaces"></A>Procedural Surfaces Reference</H2><p>Procedural surfaces are colored surfaces that display between the content of an object and the object's background. Procedural surfaces define each pixel's RGB color and alpha values dynamically. Only the procedure used to compute the surface is stored in memory. The content of an object with a procedural surface applied is not affected by the procedural surface.</p><p><P></P><H2>Procedural Surfaces</H2><BLOCKQUOTE><B><A HREF="filters/alphaimageloader.html">AlphaImageLoader</A></B><P>
+Displays an image within the boundaries of the <span replace="1">object</span> and between the object background and content, with options to clip or resize the image. When loading a Portable Network Graphics (PNG)
+image, tranparency&#151;from zero to 100 percent&#151;is supported.
+</P><B><A HREF="filters/gradient.html">Gradient</A></B><P>
+Displays a colored surface between the <span replace="1">object</span>'s background and content.</P></BLOCKQUOTE><P></P></p><H2><A NAME="Static_Filters"></A>Static Filters Reference</H2><p>Though all filters and transitions are technically filters, the following filters statically change the way the content of an object displays. The <A HREF="filters/composite.html">Compositor</A> filter is implemented as a transition, but gives only a static output. </p><p><P></P><H2>Static Filters</H2><BLOCKQUOTE><B><A HREF="filters/alpha.html">Alpha</A></B><P>
+Adjusts the opacity of the content of the <span replace="1">object</span>.</P><B><A HREF="filters/basicimage.html">BasicImage</A></B><P>
+Adjusts the color processing, image rotation, or opacity of the content of the <span replace="1">object</span>.</P><B><A HREF="filters/blur_1.html">Blur</A></B><P>
+Blurs the content of the <span replace="1">object</span> so that it appears out of focus.</P><B><A HREF="filters/chroma.html">Chroma</A></B><P>
+Displays a specific color of the content of the <span replace="1">object</span> as transparent.</P><B><A HREF="filters/composite.html">Compositor</A></B><P>
+Displays new content of the <span replace="1">object</span> as a logical color combination of the new and original content. The color and alpha values of each version of the content are evaluated to determine the final color on the output image.</P><B><A HREF="filters/dropshadow.html">DropShadow</A></B><P>
+Creates a solid silhouette of the content of the <span replace="1">object</span>, offset in the specified direction. This creates the illusion that the content is floating and casting a shadow.</P><B><A HREF="filters/emboss.html">Emboss</A></B><P>
+Displays the content of the <span replace="1">object</span> as an embossed texture using grayscale values.</P><B><A HREF="filters/engrave.html">Engrave</A></B><P>
+Displays the content of the <span replace="1">object</span> as an engraved texture using grayscale values.</P><B><A HREF="filters/glow.html">Glow</A></B><P>
+Adds radiance around the outside edges of the content of the <span replace="1">object</span> so that it appears to glow.</P><B><A HREF="filters/icmfilter.html">ICMFilter</A></B><P>
+Converts the color content of the <span replace="1">object</span> based on an Image Color Management (ICM) profile. This enables improved display of specific content, or simulated display for hardware devices, such as printers or monitors.</P><B><A HREF="filters/light.html">Light</A></B><P>
+Creates the effect of a light shining on the content of the <span replace="1">object</span>.</P><B><A HREF="filters/mask.html">MaskFilter</A></B><P>
+Displays transparent pixels of the <span replace="1">object</span> content as a color mask, and makes the nontransparent pixels transparent.</P><B><A HREF="filters/matrix.html">Matrix</A></B><P>
+Resizes, rotates, or reverses the content of the <span replace="1">object</span> using matrix transformation.</P><B><A HREF="filters/blur.html">MotionBlur</A></B><P>
+Causes the content of the <span replace="1">object</span> to appear to be in motion.</P><B><A HREF="filters/shadow.html">Shadow</A></B><P>
+Creates a solid silhouette of the content of the <span replace="1">object</span>, offset in the specified direction. This creates the illusion of a shadow.</P><B><A HREF="filters/wave.html">Wave</A></B><P>
+Performs a sine wave distortion of the content of the <span replace="1">object</span> along the vertical axis.</P></BLOCKQUOTE><P></P></p><H2><A NAME="Transitions"></A>Transitions Reference</H2><p>Transitions are filters that reveal new content of an object with a particular visual effect. Use the <A HREF="filters/apply.html">apply</A> and <A HREF="filters/play.html">play</A> filters to initiate the visual effect.</p><p><P></P><H2>Transitions</H2><BLOCKQUOTE><B><A HREF="filters/barn.html">Barn</A></B><P>
+Reveals new content of the <span replace="1">object</span> with a motion that resembles doors opening or closing.</P><B><A HREF="filters/blinds.html">Blinds</A></B><P>
+Reveals new content of the <span replace="1">object</span> with a motion that appears to open or close blinds.</P><B><A HREF="filters/checkerboard.html">CheckerBoard</A></B><P>
+Reveals new content of the <span replace="1">object</span> by uncovering squares placed like a checkerboard over the original content.</P><B><A HREF="filters/fade.html">Fade</A></B><P>
+Reveals new content of the <span replace="1">object</span> by fading out the original content. </P><B><A HREF="filters/gradientwipe.html">GradientWipe</A></B><P>
+Reveals new content of the <span replace="1">object</span> by passing a gradient band over the original content. </P><B><A HREF="filters/inset.html">Inset</A></B><P>
+Reveals new content of the <span replace="1">object</span> diagonally.</P><B><A HREF="filters/iris.html">Iris</A></B><P>
+Reveals new content of the <span replace="1">object</span> with an iris effect, similar to the opening of a camera aperture.</P><B><A HREF="filters/pixelate.html">Pixelate</A></B><P>
+Displays the content of the <span replace="1">object</span> as colored squares that take the average color value of the pixels they replace. This filtered display can be used as a transition.</P><B><A HREF="filters/radialwipe.html">RadialWipe</A></B><P>
+Reveals new content of the <span replace="1">object</span> with a radial wipe, like a windshield-wiper blade.</P><B><A HREF="filters/randombars.html">RandomBars</A></B><P>
+Reveals new content of the <span replace="1">object</span> by exposing random lines of pixels.</P><B><A HREF="filters/randomdissolve.html">RandomDissolve</A></B><P>
+Reveals new content of the <span replace="1">object</span> by exposing random pixels.</P><B><A HREF="filters/slide.html">Slide</A></B><P>
+Reveals new content of the <span replace="1">object</span> by sliding sections of the image into place.  </P><B><A HREF="filters/spiral.html">Spiral</A></B><P>
+Reveals new content of the <span replace="1">object</span> with a spiral motion.</P><B><A HREF="filters/stretch.html">Stretch</A></B><P>
+Reveals new content of the <span replace="1">object</span> with a stretching motion to cover the original content.  One option resembles a cube rotating from one face to another.</P><B><A HREF="filters/strips.html">Strips</A></B><P>
+Reveals new content of the <span replace="1">object</span> by moving successive strips into place, like a diagonal saw blade passing across the original content.</P><B><A HREF="filters/wheel.html">Wheel</A></B><P>
+Reveals new content of the <span replace="1">object</span> with a rotating motion, like spokes of a wheel covering the original content.</P><B><A HREF="filters/zigzag.html">Zigzag</A></B><P>
+Reveals new content of the object with a forward and back motion that moves down the  <span replace="1">object</span>.</P></BLOCKQUOTE><P></P></p><H2><A NAME="filters"></A>Attributes/filters Reference</H2><p>The following filters apply to one or more filters. When you move the pointer over a property name, the pop-up information that appears lists the filters that the property applies to. </p><p><P></P><H2>Attributes/filters</H2><BLOCKQUOTE><B><A HREF="filters/add.html">Add</A></B><P>
+Sets or retrieves a value that indicates whether the filter image overlays the original image. </P><B><A HREF="filters/bands.html">bands</A></B><P>
+Sets or retrieves the number of strips into which the content is divided during the <span replace="1"></span> transition.</P><B><A HREF="filters/bias.html">Bias</A></B><P>
+Sets or retrieves a percentage of a  value that is added to each color component of the filtered result.</P><B><A HREF="filters/color_1.html">Color</A></B><P>
+Sets or retrieves the value of the color applied with the filter. </P><B><A HREF="filters/color.html">Color</A></B><P>
+Sets or retrieves the value of the color applied with the filter. </P><B><A HREF="filters/colorspace.html">ColorSpace</A></B><P>
+Sets or retrieves the name and path for a particular .icm color mapping profile. With a profile assigned, the filtered output simulates the graphical output of devices that use the assigned profile.</P><B><A HREF="filters/direction.html">Direction</A></B><P>
+Sets or retrieves the direction that the filter's effect is offset.</P><B><A HREF="filters/direction_1.html">Direction</A></B><P>
+Sets or retrieves the direction of motion in the <span replace="1"></span> transition.</P><B><A HREF="filters/duration.html">Duration</A></B><P>
+Sets or retrieves the length of time the transition takes to complete. </P><B><A HREF="filters/dx.html">Dx</A></B><P>
+Sets or retrieves the <SPAN CLASS="clsLiteral">X</SPAN> component of the augmenting vector for linear transformations.</P><B><A HREF="filters/dy.html">Dy</A></B><P>
+Sets or retrieves the <SPAN CLASS="clsLiteral">Y</SPAN> component of the augmenting vector for linear transformations.</P><B><A HREF="filters/enabled.html">Enabled</A></B><P>
+Sets or retrieves a value that indicates whether the filter is enabled. </P><B><A HREF="filters/endcolor.html">EndColor</A></B><P>
+Sets or retrieves the final opaque color for a gradient surface.</P><B><A HREF="filters/endcolorstr.html">EndColorStr</A></B><P>
+Sets or retrieves the final color for a gradient surface.</P><B><A HREF="properties/filter.html">filter</A></B><P>
+Sets or retrieves  the filter or collection of filters applied to the <span replace="1">object</span>. </P><B><A HREF="filters/filtertype.html">FilterType</A></B><P>
+Sets or retrieves the method used to define pixels of new content.</P><B><A HREF="filters/finishopacity.html">FinishOpacity</A></B><P>
+Sets or retrieves the opacity level at the end of the gradient applied with the <A HREF="filters/alpha.html">Alpha</A> filter. </P><B><A HREF="filters/finishx.html">FinishX</A></B><P>
+Sets or retrieves the horizontal position at which the opacity gradient ends. </P><B><A HREF="filters/finishy.html">FinishY</A></B><P>
+Sets or retrieves the vertical position at which the opacity gradient ends. </P><B><A HREF="filters/freq.html">Freq</A></B><P>
+Sets or retrieves the number of waves created by the <A HREF="filters/wave.html">Wave</A> filter.</P><B><A HREF="filters/function.html">Function</A></B><P>
+Sets or retrieves the compositing operation to perform. </P><B><A HREF="filters/gradientsize.html">GradientSize</A></B><P>
+Sets or retrieves the percentage of the object that is covered by the gradient band.</P><B><A HREF="filters/gradienttype.html">GradientType</A></B><P>
+Sets or retrieves the orientation of the gradient.</P><B><A HREF="filters/grayscale.html">GrayScale</A></B><P>
+Sets or retrieves the value that indicates whether content is displayed as the average of the RGB component values.</P><B><A HREF="filters/gridsizex.html">GridSizeX</A></B><P>
+Sets or retrieves the number of grid columns used for the <span replace="1"></span> filter.  The value can range from 1 to 100.</P><B><A HREF="filters/gridsizey.html">GridSizeY</A></B><P>
+Sets or retrieves the number of grid rows used for the <span replace="1"></span> filter.  The value can range from 1 to 100.</P><B><A HREF="filters/intent.html">Intent</A></B><P>
+Sets or retreives the intended purpose for the color content of the object.  The filter adjusts the color output to improve the display of content with the selected purpose. </P><B><A HREF="filters/invert.html">Invert</A></B><P>
+Sets or retrieves the value that indicates whether the content is displayed as the complement of the RGB component values.</P><B><A HREF="filters/irisstyle.html">IrisStyle</A></B><P>
+Sets or retrieves the shape of the <A HREF="filters/iris.html">Iris</A> filter aperture.</P><B><A HREF="filters/lightstrength.html">LightStrength</A></B><P>
+Sets or retrieves the difference in light intensity between the peaks and troughs of the waves created by the <B>Wave</B> filter. </P><B><A HREF="filters/m11.html">M11</A></B><P>
+Sets or retrieves the first row/first column matrix entry for linear transformations.</P><B><A HREF="filters/m12.html">M12</A></B><P>
+Sets or retrieves the first row/second column matrix entry for linear transformations.</P><B><A HREF="filters/m21.html">M21</A></B><P>
+Sets or retrieves the second row/first column matrix entry for linear transformations.</P><B><A HREF="filters/m22.html">M22</A></B><P>
+Sets or retrieves the second row/second column matrix entry for linear transformations.</P><B><A HREF="filters/makeshadow.html">MakeShadow</A></B><P>
+Sets or retrieves the value that indicates whether content is displayed as a shadow.</P><B><A HREF="filters/mask_0.html">Mask</A></B><P>
+Sets or retrieves whether transparent content of an object is changed to the <A HREF="filters/maskcolor.html">MaskColor</A> value.</P><B><A HREF="filters/maskcolor.html">MaskColor</A></B><P>
+Sets or retrieves the color used to mask transparent content of an object.
+</P><B><A HREF="filters/maxsquare.html">MaxSquare</A></B><P>
+Sets or retrieves the maximum width in pixels of a pixelated square.</P><B><A HREF="filters/mirror.html">Mirror</A></B><P>
+Sets or retrieves the value that indicates whether the content display is reversed.</P><B><A HREF="filters/motion_2.html">Motion</A></B><P>
+Sets or retrieves the corner from which new content is revealed during a <A HREF="filters/strips.html">Strips</A> transition.</P><B><A HREF="filters/motion_3.html">Motion</A></B><P>
+Sets or retrieves a value that indicates whether content is revealed as defined by the <A HREF="filters/wipestyle_1.html">WipeStyle</A> property setting, or in the opposite direction.</P><B><A HREF="filters/motion_1.html">Motion</A></B><P>
+Sets or retrieves the value that indicates whether new content is revealed from the outside or the inside first.</P><B><A HREF="filters/offx.html">OffX</A></B><P>
+Sets or retrieves the value that the drop shadow is offset from the object along the x-axis. </P><B><A HREF="filters/offy.html">OffY</A></B><P>
+Sets or retrieves the value that the drop shadow is offset from the object along the y-axis. </P><B><A HREF="filters/opacity_1.html">Opacity</A></B><P>
+Sets or retrieves the opacity level that is applied to the content of an object.</P><B><A HREF="filters/opacity.html">Opacity</A></B><P>
+Sets or retrieves the opacity level at the beginning of the gradient applied with the <B>Alpha</B> filter. </P><B><A HREF="filters/orientation.html">Orientation</A></B><P>
+Sets or retrieves the value that indicates whether the <span replace="1">filter</span> effect is horizontal or vertical.</P><B><A HREF="filters/overlap.html">Overlap</A></B><P>
+Sets or retrieves the fraction of the transition's duration that both original and new content are displayed.</P><B><A HREF="filters/percent.html">Percent</A></B><P>
+Sets or retrieves the point in a transition at which to capture the display for a static filter output. </P><B><A HREF="filters/phase.html">Phase</A></B><P>
+Sets or retrieves the phase offset at which the sine wave starts. </P><B><A HREF="filters/pixelradius.html">PixelRadius</A></B><P>
+Sets or retrieves the radius of the area of opaque content around a pixel that is affected by the <A HREF="filters/blur_1.html">Blur</A> filter. </P><B><A HREF="filters/positive.html">Positive</A></B><P>
+Sets or retrieves the value that indicates whether the filter creates a drop shadow from the nontransparent pixels of the object. </P><B><A HREF="filters/rotation.html">Rotation</A></B><P>
+Sets or retrieves the value that indicates whether the content is rotated in ninety-degree increments.</P><B><A HREF="filters/shadowopacity.html">ShadowOpacity</A></B><P>
+Sets or retrieves the opacity level of a shadow created by the <B>Blur</B> filter.</P><B><A HREF="filters/sizingmethod_1.html">sizingMethod</A></B><P>
+Sets or retrieves the manner in which to display an image within the boundary of the object that the <A HREF="filters/alphaimageloader.html">AlphaImageLoader</A> filter is applied to.</P><B><A HREF="filters/sizingmethod_2.html">SizingMethod</A></B><P>
+Sets or retrieves a value that indicates whether the container is resized to fit the resulting image.</P><B><A HREF="filters/slidestyle.html">SlideStyle</A></B><P>
+Sets or retrieves the method used to reveal the new content.</P><B><A HREF="filters/spokes.html">spokes</A></B><P>
+Sets or retrieves the number of wedges that the content is divided into during the <span replace="1"></span> transition.</P><B><A HREF="filters/squaresx.html">SquaresX</A></B><P>
+Sets or retrieves the number of columns for the <A HREF="filters/checkerboard.html">CheckerBoard</A> transition.</P><B><A HREF="filters/squaresy.html">SquaresY</A></B><P>
+Sets or retrieves the number of rows for the <B>CheckerBoard</B> transition.</P><B><A HREF="filters/src.html">src</A></B><P>
+Sets or retrieves the URL of an image that the <B>AlphaImageLoader</B> filter loads.</P><B><A HREF="filters/startcolor.html">StartColor</A></B><P>
+Sets or retrieves the initial opaque color for a gradient surface.</P><B><A HREF="filters/startcolorstr.html">StartColorStr</A></B><P>
+Sets or retrieves the initial color for a gradient surface.</P><B><A HREF="filters/startx.html">StartX</A></B><P>
+Sets or retrieves the horizontal position at which the opacity gradient starts. </P><B><A HREF="filters/starty.html">StartY</A></B><P>
+Sets or retrieves the vertical position at which the opacity gradient starts. </P><B><A HREF="filters/status.html">status</A></B><P>
+Retrieves the state of the transition. </P><B><A HREF="filters/strength.html">Strength</A></B><P>
+Sets or retrieves the distance, in pixels, that a filter effect extends. </P><B><A HREF="filters/stretchstyle.html">StretchStyle</A></B><P>
+Sets or retrieves the method used to reveal the new content.</P><B><A HREF="filters/style.html">Style</A></B><P>
+Sets or retrieves the shape characteristics of the opacity gradient.</P><B><A HREF="filters/transition.html">Transition</A></B><P>
+Sets or retrieves the type of transition.</P><B><A HREF="filters/wipestyle_2.html">WipeStyle</A></B><P>
+Sets or retrieves the method used to reveal the new content.</P><B><A HREF="filters/wipestyle_1.html">WipeStyle</A></B><P>
+Sets or retrieves a value that indicates whether the gradient band moves vertically or horizontally.</P><B><A HREF="filters/xray.html">XRay</A></B><P>
+Sets or retrieves the value that indicates whether the content is displayed as a grayscale defined by the complement of the average red and green component values.</P></BLOCKQUOTE><P></P></p><H2><A NAME="filters"></A>filters Reference</H2><p><P></P><H2>filters</H2><BLOCKQUOTE><B><A HREF="filters/addambient.html">addAmbient</A></B><P>
+Adds an ambient light to the <A HREF="filters/light.html">Light</A> filter.</P><B><A HREF="filters/addcone.html">addCone</A></B><P>
+Adds a cone light to the <B>Light</B> filter effect object to cast a directional light on the page.</P><B><A HREF="filters/addpoint.html">addPoint</A></B><P>
+Adds a light source to the <B>Light</B> filter.The light source originates at a single point and radiates in all directions.</P><B><A HREF="filters/apply.html">apply</A></B><P>
+Captures the initial display of an object's content for a transition. </P><B><A HREF="filters/changecolor.html">changeColor</A></B><P>
+Changes the color of a <B>Light</B> filter's light.</P><B><A HREF="filters/changestrength.html">changeStrength</A></B><P>
+Changes the intensity of a light applied with the <B>Light</B> filter.</P><B><A HREF="filters/clear.html">clear</A></B><P>
+Deletes all lights associated with the <B>Light</B> filter.</P><B><A HREF="filters/elementimage.html">elementImage</A></B><P>
+Not currently supported.</P><B><A HREF="filters/movelight.html">moveLight</A></B><P>
+Moves the focus for cone lights or the origin for point lights that are applied with the <B>Light</B> filter.</P><B><A HREF="filters/play.html">play</A></B><P>
+Plays the transition.</P><B><A HREF="filters/stop.html">stop</A></B><P>
+Stops transition playback.</P></BLOCKQUOTE><P></P></p><H2><A NAME="Events"></A>Events Reference</H2><p>The <A HREF="events/onfilterchange.html">onfilterchange</A> fires when a filter's filters change state or when a filter completes a transition. </p><p><P></P><H2>Events</H2><BLOCKQUOTE><B><A HREF="events/onfilterchange.html">onfilterchange</A></B><P>
+Fires when a visual filter changes state or completes a transition. </P></BLOCKQUOTE><P></P></p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="/workshop/author/filter/filters.html">Introduction to Filters and Transitions</A></LI></UL><info><product rid="prod_IE" minver="4.0"></product><platform rid="plat:win" minver="95"></platform><platform rid="plat:nt" minver="4.0"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

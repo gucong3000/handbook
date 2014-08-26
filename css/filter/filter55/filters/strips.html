@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_object.css">
+<script src="rdl_object.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collElements=new Array();
+//collProperties=new Array();
+//collMethods=new Array();
+//collEvents=new Array();
+//collCollections=new Array();
+
+collProperties=new Array(
+new Array('motion','Motion','设置或检索转换新内容从哪一个角开始。'),
+
+new Array('enabled','Enabled','设置或检索滤镜是否激活。'),
+new Array('duration','Duration','设置或检索转换完成所用的时间。'),
+new Array('','Percent','设置或检索当前静态滤镜输出在转换进程中所处的点。'),
+new Array('','status','检索转换的当前状态。')
+);
+
+collMethods=new Array(
+new Array('apply','捕获对象内容的初始显示，为转换做必要的准备。'),
+new Array('play','开始转换。'),
+new Array('stop','停止转换回放。并呈现转换结果图像。')
+);
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'A','ACRONYM','ADDRESS','B','BDO','BIG','BLOCKQUOTE','BODY','BUTTON','CAPTION','CENTER','CITE','CODE','CUSTOM','DD','DEL','DFN','DIR','DIV','DL','DT','EM','FIELDSET','FONT','FORM','FRAME','Hn','IFRAME','FRAMESET','I','INS','IMG','INPUT type=button','INPUT type=checkbox','INPUT type=file','INPUT type=image','INPUT type=password','INPUT type=radio','INPUT type=reset','INPUT type=submit','INPUT type=text','KBD','LABEL','LEGEND','LI','MARQUEE','MENU','NOBR','OBJECT','OL','P','PLAINTEXT','PRE','Q','RT','RUBY','S','SAMP','SMALL','SPAN','STRIKE','STRONG','SUB','SUP','TABLE','TEXTAREA','TH','TD','TT','U','UL','VAR','XMP'
+);
+
+sStyle=
+'#idParentDiv{width:100%;height:120px;background-color:buttonshadow;position:relative;filter:progid:DXImageTransform.Microsoft.Strips();}\n'+
+'#idDiv1{width:100%;height:100%;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:3;visibility:hidden;}\n'+
+'#idDiv2{width:100%;height:100%;background-color:#000000;color:#FFFFFF;padding:4px;position:absolute;z-index:4;visibility:visible;}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sBaseStr="filter : progid:DXImageTransform.Microsoft.Strips ( ";\n'+
+'var oParentDiv,oCodeDiv;\n'+
+'function rdl_doInit(e){\n'+
+'oParentDiv=document.all("idParentDiv");\n'+
+'oCodeDiv=document.all("idCodeDiv");\n'+
+'rdl_play();\n'+
+'}\n'+
+'function rdl_change(e){\n'+
+'with (document.all("idSel1")) var sValue1=options[selectedIndex].value;\n'+
+'with (document.all("idSel4")) var sValue4=options[selectedIndex].value;\n'+
+'oCodeDiv.innerHTML=sBaseStr+"duration="+sValue1+",motion="+sValue4+" ) ;";\n'+
+'with (oParentDiv.filters[0]) {\n'+
+'Duration=sValue1;Motion=sValue4;\n'+
+'}\n'+
+'}\n'+
+'\n'+
+'function rdl_play(){\n'+
+'with (oParentDiv) {\n'+
+'if (children[0].style.visibility=="hidden") children[1].style.visibility="visible";\n'+
+'else children[1].style.visibility="hidden";\n'+
+'filters[0].Apply();\n'+
+'if (children[0].style.visibility=="hidden") children[0].style.visibility="visible";else children[0].style.visibility="hidden";\n'+
+'if (children[1].style.visibility=="hidden") children[1].style.visibility="visible";else children[1].style.visibility="hidden";\n'+
+'filters[0].play();\n'+
+'}\n'+
+'}\n'+
+'window.onload=rdl_doInit;\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idParentDiv>\n'+
+'<div id=idDiv1><img src="../images/rdl_body1.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> A </b>。<\/div>\n'+
+'<div id=idDiv2><img src="../images/rdl_body2.jpg" style="float:left;border:1px solid #FFFFFF;">我是合成滤镜获取的输入<b> B </b>。<\/div>\n'+
+'<\/div>\n'+
+'<br>\n'+
+'<table><tr><td>\n'+
+'<select id=idSel1 onchange="rdl_change();">\n'+
+'<option value="0.5" style="font-weight:bold;">---Duration---\n'+
+'<option value="1">1\n'+
+'<option value="2">2\n'+
+'<option value="4">4\n'+
+'<option value="5">5\n'+
+'<option value="6">6\n'+
+'<option value="12">12\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<select id=idSel4 onchange="rdl_change();">\n'+
+'<option value="leftdown" style="font-weight:bold;">---Motion---\n'+
+'<option value="leftup">leftup\n'+
+'<option value="leftdown">leftdown\n'+
+'<option value="rightdown">rightdown\n'+
+'<option value="rightup">rightup\n'+
+'<\/select>\n'+
+'<\/td><td>\n'+
+'<input type=button value=" Play " onclick="if (oParentDiv!=null) rdl_play();">\n'+ 
+'<\/td><td>\n'+
+'<input type=button value=" Stop " onclick="if (oParentDiv!=null) oParentDiv.filters[0].stop();">\n'+ 
+'<\/td><\/tr><\/table>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.Strips ()<\/div>\n';
+
+iWinWidth=380;
+
+iWinHeight=360;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>Strips</span>兼容性：IE5.5+</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td><td>
+<b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.Strips ( enabled=</b><i>bEnabled</i><b> , duration=</b></b><i>fDuration</i><b> , motion=</b></b><i>sMotion</i><b> ) </b>
+</td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>object</i><b>.style.<a href="../properties/filter.html">filter</a> = "progid:DXImageTransform.Microsoft.Strips ( </b><i>sProperties</i><b> ) "</b>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle id="idShit"></div>
+<div id=idSubContent></div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+用锯齿边覆盖效果转换对象内容。<br>
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+#idDiv{height:250px; width:250px; background-color: orange; filter:progid:DXImageTransform.Microsoft.Strips(duration=3);}<br>
+</div>
+
+</div>
+</body>
+</html>
+
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

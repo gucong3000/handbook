@@ -1,0 +1,184 @@
+/*  www.css8.cn zhuyinhong@263.net last modify:2007-5-10  */
+
+html {
+	min-width: 776px;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	color: #000;
+	font-size: 14px;
+	line-height:1.4em;
+	text-align: center;
+	font-family: 'simsun','新simsun',arial,verdana,sans-serif;
+}
+a {
+	margin: 0px;
+	padding:0px;
+	border: 0px;
+}
+a:link {
+	color: #E66133;
+	text-decoration:none;
+}
+
+a:visited{
+	color: #E66133;
+	text-decoration: underline;
+}
+a:hover{
+	color: #637DBC;
+	text-decoration: underline;
+}
+img {
+	border: 0px;
+}
+.clear{
+	clear: both;
+}
+.pre {
+	white-space:pre;
+	text-indent:0!important;
+	margin-left:3em!important;
+}
+ul,ol,dl {
+	list-style-type:none;
+	
+	}
+
+
+
+p {
+	margin:0;
+	paaading:0;
+	}
+.ltrim {
+	text-indent:0px;
+	margin:0;
+	padding:0;
+	}	
+
+
+/*  内容页 
+------------------------------------ */
+#css8{
+	width: 780px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+}
+
+#gotop{
+	width: 100%;
+	margin: 0px;
+	padding: 0px 1em 0 0;
+	height: 2em;
+	font-size: 12px;
+	text-align: right;
+}
+
+/* 正文
+------------------------------------ */
+#css8_title {
+	font-weight: bold;
+	margin: 0px 0px 0.6em 0px;
+	padding:0.5em 0px 0.5em 1em;
+	font-size: 18px;
+	color: #000;
+	text-align: left;
+	border-bottom: solid  #D2EDFC  2px;
+}
+.css8_sub {
+	color: #00A06B;
+	font-weight:bold;
+	font-size: 14px;
+	text-align: left;
+	padding:6px 2.3em 6px;
+	background: url(0.gif) #fff no-repeat 1em 52%;	
+}
+.css8_content {
+	text-indent:2em;
+	font-size:13px;
+	margin-left:1em;
+	}
+.css8_content1 {
+	text-indent:0;
+	font-size:13px;
+	margin-left:1em;
+	}	
+.css8_content h2 {
+	margin:0;
+	padding:0;
+	font-size:12px;
+	font-weight:bold;
+	text-indent:1em;	
+	}	
+.css8_content h3 {
+	margin:0;
+	padding:0;
+	font-size:12px;
+	font-weight:bold;
+	position:relative;
+	color:#00A06B;
+	left:-2.5em;
+
+	}
+	
+.textcolor {
+	font-size:15px;
+	color:#333;
+	margin-top:12px;
+	
+	}	
+	
+/* 补丁
+------------------------------------ */	
+#css_a2,
+#css_b2,
+#css_c2,
+#css_d2,
+#css_e2
+
+{
+	padding:6px 1em 6px 0;
+}
+
+/* 圆角
+------------------------------------ */
+.box { background: url(nt.gif) repeat; }
+.tl { background: url(tl.gif) no-repeat top left; }
+.tr { background: url(tr.gif) no-repeat top right; }
+.bl { background: url(bl.gif) no-repeat bottom left; }
+.br { background: url(br.gif) no-repeat bottom right; }
+
+/* 表格
+------------------------------------ */
+.col_1 {
+	text-align:right;
+	color:#555;
+	}
+.col_2 {
+	width:40％;
+	color:red;
+	}	
+table {
+	border-collapse: collapse;
+
+	}
+td {
+	line-height:1.4em;
+	}
+.table {
+	border:solid 1px #BCE5F9;
+	
+	}	
+.table  td,.table TH {
+	border:solid 1px #BCE5F9;
+	font-size:12px;
+}
+.table1 td {
+	height:40px;
+	
+	}	
+	

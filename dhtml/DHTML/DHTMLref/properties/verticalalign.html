@@ -1,0 +1,117 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>vertical-align Attribute | verticalAlign</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>vertical-align Attribute | verticalAlign Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves  the vertical alignment of the <span replace="1">object</span>. </P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TH><B>HTML</B></TH><TD>
+{ vertical-align : <SPAN CLASS="clsRange">sAlign</SPAN> }
+</TD></TR><TR><TH><B>Scripting</B></TH><TD><I><SPAN CLASS="moreinfo" TITLE="an element from the Applies To list below">object</SPAN></I>.<B>style.verticalAlign</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sAlign</SPAN> ]</TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sAlign</SPAN></TD><TD><b>Variant</b> that
+specifies or receives one of the following values.<TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">auto</SPAN></TD><TD>Aligns the contents of an object according to the value of the <A HREF="../properties/layoutflow.html">layout-flow</A> attribute.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsDefValue">baseline</SPAN></TD><TD>Default. Aligns the contents of an object supporting <A HREF="../properties/valign_1.html">VALIGN</A> to the base line.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">sub</SPAN></TD><TD>Vertically aligns the text to subscript.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">super</SPAN></TD><TD>Vertically aligns the text to superscript.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">top</SPAN></TD><TD>Vertically aligns the contents of an object supporting <B>VALIGN</B> to the top of the object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">middle</SPAN></TD><TD>Vertically aligns the contents of an object supporting <B>VALIGN</B> to the middle of the object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">bottom</SPAN></TD><TD>Vertically aligns the contents of an object supporting <B>VALIGN</B> to the bottom of the object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">text-top</SPAN></TD><TD>Vertically aligns the text of an object supporting <B>VALIGN</B> to the top of the object.</TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">text-bottom</SPAN></TD><TD>Vertically aligns the text of an object supporting <B>VALIGN</B> to the bottom of the object.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write
+for all objects except the following, for which it is read-only:
+<A HREF="../objects/currentstyle.html">currentStyle</A>.
+The property has a default value of <SPAN CLASS="clsDefValue">
+baseline</SPAN>
+for all objects with the
+exception of
+<A HREF="../objects/currentstyle.html">currentStyle</A> which has a default value of <SPAN CLASS="clsLiteral">auto</SPAN>. The Cascading Style Sheets (CSS) attribute is
+not  inherited.
+</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>The <SPAN CLASS="clsLiteral">sub</SPAN> and <span class="clsLiteral">super</span> values are supported on text. The <SPAN CLASS="clsLiteral">auto</SPAN> value is supported on the <A HREF="../objects/currentstyle.html">currentStyle</A> object.  The other values are supported on objects that support <B>VALIGN</B>.</P><P>The <SPAN CLASS="clsLiteral">auto</SPAN> value is identical to the <SPAN CLASS="clsLiteral">baseline</SPAN> value when the <B>layout-flow</B> is <SPAN CLASS="clsLiteral">horizontal</SPAN>.  When the <B>layout-flow</B> is <SPAN CLASS="clsLiteral">vertical-ideographic</SPAN>, the <SPAN CLASS="clsLiteral">auto</SPAN> value is identical to the <SPAN CLASS="clsLiteral">middle</SPAN> value.</P></BLOCKQUOTE><P CLASS="clsRef">Example</P><BLOCKQUOTE><P>
+This example uses the <B>verticalAlign</B> property to align text within a table cell.</P><PRE CLASS="clsCode" AUTOHILITE="1"> &lt;TABLE BORDER width=100&gt;
+&lt;TR&gt;
+&lt;TD onmouseover="this.style.verticalAlign='bottom'"
+onmouseout="this.style.verticalAlign=''"&gt;
+text to align&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="about:blank"></IMG></A></DIV></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/TR/REC-CSS1.html" TARGET="_top">
+Cascading Style Sheets (CSS), Level 1 (CSS1)</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/col.html">
+COL</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/currentstyle.html">
+currentStyle</A>, <A PLATINFO="win32=5;unix=5" HREF="../objects/custom.html">
+CUSTOM</A>, <A PLATINFO="win32=5.5" HREF="../objects/defaults.html">
+defaults</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/img.html">
+IMG</A>, <A PLATINFO="win16=5;win32=5;unix=5;mac=5" HREF="../objects/runtimestyle.html">
+runtimeStyle</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/span.html">
+SPAN</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/obj_style.html">
+style</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tbody.html">
+TBODY</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/td.html">
+TD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tfoot.html">
+TFOOT</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/th.html">
+TH</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/thead.html">
+THEAD</A>, <A PLATINFO="win16=4.0;win32=4.0;ce=4.0;unix=4.0;mac=4.0" HREF="../objects/tr.html">
+TR</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="../properties/valign_1.html">vAlign</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

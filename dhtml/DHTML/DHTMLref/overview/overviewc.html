@@ -1,0 +1,112 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>About Client</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>About Client Capabilities
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Web developers are constantly searching for ways to design and implement sites that deliver the best user experience possible. One way to enhance user experience is to customize content based on capabilities that the client browser supports. For example, when a client-side script detects a low-bandwidth modem connection to the server, it may choose to request low-resolution images from the server to minimize bandwidth consumption.</p><p>Client capabilities consists of information about the browsing environment, such as screen resolution, screen dimensions, color depth, CPU, or connection speed. Microsoft&#174; Internet Explorer 4.0 exposed client capabilities as properties through the Dynamic HTML (DHTML) Object Model. Internet Explorer 5 enhanced this further to include a means to install browser components on demand. Beginning with Internet Explorer 5, all this information was encapsulated into <A HREF="/workshop/author/behaviors/overview.html">DHTML behaviors</A> and made available as one of the browser's <A HREF="../reference.html">default</A> behaviors. </p><p>By making this information available on the client, pages can be cached, server roundtrips minimized, server resources freed up as content generation shifts back to the client, and overall performance improved. </p><p>This article outlines the benefits introduced by a client-side solution and discusses the details involved in obtaining client capabilities information from the client. Realizing that a client-side solution is not suited for every Web site or Web application, a solution for server-side developers is also provided.</p><UL><LI><A TARGET="_self" HREF="#Benefits">Benefits of a Client-Side Solution</A></LI><LI><A TARGET="_self" HREF="#Obtaining">Obtaining Client Capabilities</A></LI><LI><A TARGET="_self" HREF="#ServerSide">The Server-Side Approach</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="Benefits"></A>Benefits of a Client-Side Solution</H2><p>Before the release of Internet Explorer 4.0, the only means of obtaining client capability information was through cookies. Microsoft Internet Information Server (IIS) provided another mechanism through the Browser Capabilities component. However, these two methods have inherent limitations. By exposing client capabilities on the client side, Internet Explorer 4.0 provides a solution that attempts to overcome these limitations.</p><H3><A NAME="unknown_619"></A>Using Cookies</H3><p>The following diagram illustrates what occurs when the user types in the URL of a site that requires client capabilities.</p><p><img alt="Client Capabilities Illustration" src="../../graphics/clientcaps.gif"></img></p><table><tr><td>1) The client sends a request to the server.</td><td>1) The client sends a request to the server.</td></tr><tr><td>2) The server sends back a script to obtain the information.</td><td>2) The server sends the page, including a client-side script, to obtain the information.</td></tr><tr><td>3) The client executes the script and stores the information in a cookie.</td><td>3) The client executes the script and renders the page.</td></tr><tr><td>4) The client sends the cookie back to the server.</td></tr><tr><td>5) The server processes the information in the cookie and generates a custom page.</td></tr><tr><td>6) The server sends the custom page back and the client renders it.</td></tr></table><p>The following table outlines the limitations to the server-side approach that uses cookies, and explains how these problems are addressed by a client-side solution that uses client capabilities.</p><table class="clsStd"><tr><th>Server-side limitation</th><th>Client-side solution</th></tr><tr><td>Every time new client capability information is sent in a cookie as part of the client's request, the server spends precious cycles generating content for that client request.</td><td>By providing client capabilities on the client side, no cookies have to be passed back and forth. All the processing takes place on the client computer, none takes place on the server. This provides the server with more time to service other clients' requests.</td></tr><tr><td>Because the server generates a custom page for every client request, the page cannot be cached.</td><td>Client capabilities provides a way to shift the content generation process from the server back to the client. Because the server sends the same page for every client request for the same URL, the page is cached. Every subsequent client request for the same URL, therefore, can be serviced directly by the cache, rather than by an expensive roundtrip back to the server.</td></tr><tr><td>In a multiuser environment, where Internet requests are routed through a proxy server, the limitation is even more apparent. Consider the same scenario with 1,000 users. If every one of those users request the same page at least two times, the server has to respond 2,000 times to service each of those requests, because the page uses cookies and therefore cannot be cached on the proxy.</td><td>Because the client-side solution allows the page to be cached, the only time the proxy hits the server is the very first time a user requests the page. Every subsequent request for the same page is serviced directly by the proxy's cache, instead of the server. Consider the same environment of 1,000 users. This means one request instead of 2,000 requests. This represents a significant reduction in the number of server hits and results in increased performance on both the client and the server.</td></tr></table><H3><A NAME="unknown_112"></A>Using the Browser Capabilities Component</H3><p>The server-side Browser Capabilities component in IIS provides information about the capabilities supported by the browser by comparing the user-agent HTTP Header with the entries in the Browscap.ini file. Server-side scripts are then able to deliver customized content based on this information. However, this approach poses limitations as well. The following table outlines how client capabilities addresses these limitations.</p><table class="clsStd"><tr><th>Server-side limitation</th><th>Client-side solution</th></tr><tr><td>The component relies on a file called Browscap.ini, which contains a static list of client capabilities based on the version of the browser. Due to the static nature of this file, it is updated every time a new version of the browser becomes available.</td><td>Exposing client capabilities on the browser works around this by making the same information available dynamically as part of the object model and accessible through script.</td></tr><tr><td>The static list maintained in Browscap.ini fails to account for options that the client can turn on or off on demand, nor does it provide version-independent information, such as whether certain components currently are installed on the client's system.</td><td>Among the types of information client capabilities provides are screen resolution, screen dimensions, available bandwidth, cookies or Java support, color depth, language, as well as components currently installed on the client.</td></tr></table><H2><A NAME="Obtaining"></A>Obtaining Client Capabilities</H2><p>As highlighted in the preceding section, the ideal way to obtain client capability information is from a client-side script. This method minimizes server roundtrips, frees up server resources, and, consequently, boosts performance. </p><p>Internet Explorer 4.0 introduced this type of information as a set of enhancements to the DHTML Object Model, making it easily accessible to client-side scripts. In most cases, this information has been exposed as properties of the <A HREF="../objects/obj_navigator.html">navigator</A> object, which contains information about the browser. In other cases, the information is available as properties of the <A HREF="../objects/obj_screen.html">screen</A> object. </p><p>The following table outlines the client capabilities exposed since Internet Explorer 4.0. </p><table class="clsStd"><tr><th>Client capability</th><th>Description</th><th>Implementation</th></tr><tr><td><A HREF="../properties/availheight.html">availHeight</A></td><td>Retrieves the height of the working area of the system's screen, excluding the Microsoft Windows&#174; taskbar. </td><td><![CDATA[><A HREF="javascript:alert ('availHeight = ' + screen.availHeight)">window.screen.availHeight</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/availwidth.html">availWidth</A></td><td>Retrieves the width of the working area of the system's screen, excluding the Windows taskbar. </td><td><![CDATA[><A HREF="javascript:alert ('availWidth = ' + screen.availWidth)">window.screen.availWidth</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/bufferdepth.html">bufferDepth</A></td><td>Sets or retrieves the number of bits per pixel used for colors in the off-screen bitmap buffer. </td><td><![CDATA[><A HREF="javascript:alert ('bufferDepth = ' + screen.bufferDepth)">window.screen.bufferDepth</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/colordepth.html">colorDepth</A></td><td>Retrieves the number of bits per pixel used for colors on the destination device or buffer. </td><td><![CDATA[><A HREF="javascript:alert ('colorDepth = ' + screen.colorDepth)">window.screen.colorDepth</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/cookieenabled.html">cookieEnabled</A></td><td>Retrieves whether client-side cookies are enabled in the browser.</td><td><![CDATA[><A HREF="javascript:alert ('cookieEnabled = ' + navigator.cookieEnabled)">window.navigator.cookieEnabled</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/cpuclass.html">cpuClass</A></td><td>Retrieves a string denoting the CPU class. </td><td><![CDATA[><A HREF="javascript:alert ('cpuClass = ' + navigator.cpuClass)">window.navigator.cpuClass</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/height_0.html">height</A></td><td>Retrieves the vertical resolution of the screen.</td><td><![CDATA[><A HREF="javascript:alert ('height = ' + screen.height)">window.screen.height</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../methods/javaenabled.html">javaEnabled</A></td><td>Returns whether Java is enabled. </td><td><![CDATA[><A HREF="javascript:alert ('javaEnabled = ' + navigator.javaEnabled())">window.navigator.javaEnabled()</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/platform.html">platform</A></td><td>Retrieves the name of the user's operating system.</td><td><![CDATA[><A HREF="javascript:alert ('platform = ' + navigator.platform)">window.navigator.platform</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/systemlanguage.html">systemLanguage</A></td><td>Retrieves the default language used by the system. </td><td><![CDATA[><A HREF="javascript:alert ('systemLanguage = ' + navigator.systemLanguage)">window.navigator.systemLanguage</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/userlanguage.html">userLanguage</A></td><td>Retrieves the current user language. </td><td><![CDATA[><A HREF="javascript:alert ('userLanguage = ' + navigator.userLanguage)">window.navigator.userLanguage</A><![CDATA[]]&gt;]]></td></tr><tr><td><A HREF="../properties/width_0.html">width</A></td><td>Retrieves the horizontal resolution of the screen. </td><td><![CDATA[><A HREF="javascript:alert ('width = ' + screen.width)">window.screen.width</A><![CDATA[]]&gt;]]></td></tr></table><H3><A NAME="unknown_895"></A>Sample Code</H3><p>The following example downloads the appropriate image based on the number of colors supported by the client screen. If it detects fewer than 256 colors (or 8 bits per pixel), it displays an image of 16 colors; otherwise, it displays a higher resolution image. As a result, the colors are more suited to the client screen, and overall user experience is improved.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;IMG ID="myImage" WIDTH=200 HEIGHT=200&gt;
+&lt;SCRIPT&gt;
+{
+if (window.screen.colorDepth &gt;= 8)
+myImage.src = "256color.bmp"
+else
+myImage.src = "16color.bmp";}
+&lt;/SCRIPT&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/behaviors/clientCaps/ccProperties.htm" FEATURES="top=50,left=50,height=550,width=450,status=1,resizable=1"></IMG></A></DIV><p>As of Internet Explorer 5, client capabilities information has been available as one of the browser's <B>default</B> behaviors. Encapsulated in this behavior are all the properties exposed in Internet Explorer 4.0, plus a set of new properties and methods that enable Web applications to install browser components on demand. For a complete list of properties and methods included in the <A HREF="../behaviors/clientcaps.html">clientCaps</A> behavior, see <B>clientCaps</B>.</p><p>The following example shows how to use the <B>clientCaps</B> behavior to obtain some of the available client capabilities information. For more information about behaviors and using behaviors on a page, see Related Topics.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/browser/clientcaps/colordepth.htm" FEATURES="top=50,left=50,height=450,width=550,statusbar=0,resizable=1"></IMG></A></DIV><H2><A NAME="ServerSide"></A>The Server-Side Approach</H2><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;This requires IIS 5.0.</DIV><p>Although the benefits are clear, a client-side solution might not be viable for every Web application. In some cases, a Web developer might be locked into a server-side solution, and the disadvantage of using cookies might be negligible. For those cases, Internet Explorer 5 and IIS 5.0 introduce a way to access client capability information from a server-side script, using a combination of cookies and the IIS Browser Capabilities component. As of IIS 5.0, the Browser Capabilities component has been extended to include client capability information as properties of the component.</p><p>Because the information is available on the client, accessing the information from a server-side script requires a few more steps. </p><H3><A NAME="unknown_492"></A>Implementation Details</H3><p>Here are the steps required to obtain client capability information from a server-side script.</p><ol><li>Create a file that contains the client-side script to retrieve the client capability information on the server's behalf.
+<ol><li>Cut and paste the following code to your file.
+<p>Notice how the property names and their corresponding values are constructed as an ampersand-delimited list of name=value pairs. Persisting information as name=value pairs is characteristic of cookies. For more information, see <A HREF="../properties/cookie.html">cookie</A>.</p></li><li>Add as many name=value pairs as the number of client capabilities you need. When specifying name=value pairs, the property names specified on the left side of the equal sign do not need to match the names of the actual property in the DHTML Object Model. This specified property name is then used in step 2.c. below when the property is accessed from the server-side script. </li><li>The BrowsCap cookie is set to the resulting string of all the name=value pairs. </li><li>Once the cookie is passed back to the server, the Browser Capabilities component parses the string to find the values of individual properties from the cookie. These values are then accessible to the server-side script as properties of the component. </li></ol></li><li>Create a new Active Server Pages (ASP) file or modify an existing one.
+<ol><li>Insert the following METADATA tag as the first line in your ASP file. Make sure you set the <A HREF="../properties/src_0.html">SRC</A> attribute to the name of the file you created in step 1. This file contains the client-side script to execute. <PRE CLASS="clsCode" AUTOHILITE="1">&lt;!--METADATA TYPE="Cookie" NAME="BrowsCap" SRC="InsertNameHere.htm"--&gt;</PRE></li><li>Create an instance of the Browser Capabilities component.
+<p>There are two ways to do this. One way is to insert this <A HREF="../objects/object.html">object</A> tag into your page. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;OBJECT ID=myBrowsCap PROGID="MSWC.BrowserType" RUNAT="Server"&gt;&lt;/OBJECT&gt;</PRE><p>Another way is to call the <A HREF="/library/en-us/iisref/htm/ref_vbom_seromco.html" TARGET="_top">CreateObject</A> method of the <A HREF="/library/en-us/iisref/htm/ref_vbom_sero.html" TARGET="_top">Server</A> object in ASP, and assign it to the variable <I>myBrowsCap</I>. </p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;% Set myBrowsCap = Server.CreateObject("MSWC.BrowserType") %&gt;</PRE></li><li>Once the Browser Capabilities component is created, all client capability information retrieved from the preceding client-side script is accessible as properties of the component. <PRE CLASS="clsCode" AUTOHILITE="1">&lt;%
+Response.write("width= "         +myBrowsCap.width          + "&lt;br&gt;")
+Response.write("height= "        +myBrowsCap.height         + "&lt;br&gt;")
+Response.write("availHeight= "   +myBrowsCap.availHeight    + "&lt;br&gt;")
+Response.write("availWidth= "    +myBrowsCap.availWidth     + "&lt;br&gt;")
+Response.write("bufferDepth= "   +myBrowsCap.bufferDepth    + "&lt;br&gt;")
+Response.write("colorDepth= "    +myBrowsCap.colorDepth     + "&lt;br&gt;")
+Response.write("cookies= "       +myBrowsCap.cookies        + "&lt;br&gt;")
+Response.write("javaapplets= "   +myBrowsCap.javaapplets    + "&lt;br&gt;")
+Response.write("cpuClass= "      +myBrowsCap.cpuClass       + "&lt;br&gt;")
+Response.write("platform= "      +myBrowsCap.platform       + "&lt;br&gt;")
+Response.write("systemLanguage= "+myBrowsCap.systemLanguage + "&lt;br&gt;")
+Response.write("userLanguage= "  +myBrowsCap.userLanguage   + "&lt;br&gt;")
+%&gt;</PRE></li></ol></li></ol><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="../reference.html">Default Behaviors Reference</A></LI><LI><A HREF="/workshop/author/behaviors/overview.html">Introduction to DHTML Behaviors</A></LI><LI><A HREF="/workshop/author/behaviors/howto/using.html">Using DHTML Behaviors</A></LI></UL><info><product rid="prod_IE" minver="5"></product><product rid="plat_win" minver="95"></product><product rid="plat_nt" minver="5.0"></product></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

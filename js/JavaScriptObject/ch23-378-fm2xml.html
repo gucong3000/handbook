@@ -1,0 +1,179 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript参考手册</title>
+<link rel="STYLESHEET" type="text/css" href="images/style.css">
+<link rel="STYLESHEET" type="text/css" href="images/docsafari.css">
+</head>
+<body >
+<script src="images/header.js"></script>
+<div class="vsmain">
+  <div class="vsmain1">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-375-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-385-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td valign="top"><A NAME="ch23-378-fm2xml"></A><A NAME="IXT-23-55197"></A><A NAME="IXT-23-55198"></A><table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"><b><i>escape(  )</i></b></td>
+
+<td align="right"><i>对字符串编码</i></td>
+
+</tr>
+
+</table>
+
+<hr width="100%" size="2" noshade="true" align="left" color="#7589FE">
+
+<table width="100%" border="0" cellpadding="5">
+
+<tr>
+
+<td align="left"></td>
+
+<td align="right"></td>
+
+</tr>
+
+</table>
+
+<h4 class="docRefsectTitle">可用性</h4>
+
+
+
+<P class="docText">JavaScript 1.0; JScript 1.0; ECMAScript v1; ECMAScript v3反对使用 </P>
+<A NAME="ch23-379-fm2xml"></A>
+
+<h4 class="docRefsectTitle">语法</h4>
+
+
+
+<PRE>escape(<TT><I>s</I></TT>) </PRE><A NAME="IXT-23-55197"></A> <A NAME="IXT-23-55198"></A>
+
+
+
+<A NAME="ch23-380-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参数</h4>
+
+
+
+<DL class="docList">
+
+<DT><span class="docPubcolor"><TT><I>s</I></TT></span></DT>
+
+<DD>
+
+<P class="docList">要被转义或编码的字符串。</P>
+</DD>
+</DL>
+
+
+
+
+
+<A NAME="ch23-381-fm2xml"></A>
+
+<h4 class="docRefsectTitle">返回值</h4>
+
+
+
+<P class="docText">编码了的s的副本，其中某些字符被替换成了十六进制的转义序列。</P>
+
+
+
+
+
+<A NAME="ch23-382-fm2xml"></A>
+
+<h4 class="docRefsectTitle">描述</h4>
+
+
+
+<P class="docText">escape()是全局函数。它返回一个含有s的编码版本的新字符串。s自身并没有被修改。</P>
+
+
+
+<P class="docText">在escape()返回的字符串中，除了ASCII字母、数字和标点符号@、*、_、+、-、.、和\之外，所有字符都由形为%xx或%uxxxx(x表示十六进制的数字)的转义序列
+  替代。从\u0000到\u00ff的Unicode字符由转义序列%xx替代，其他所有Unicode
+  字符由%uxxxx序列替代。</P>
+
+
+
+<P class="docText">使用函数unescape()可以对escape()编码的字符串进行解码。</P>
+
+
+
+<P class="docText">  在客户端JavaScript中，escape()通常是对cookie值编码，它们含有的标点符号具有限制。参阅客户端参考手册部分的“Document.cookie”参考页。
+
+</P>
+
+
+
+<P class="docText">  虽然ECMAScript的第一个版本标准化了escape()函数，但是ECMAScriptv3反对使用该方法，并从标准中删除了它。ECMAScript的实现可能实现了该函数，但它不是必需的。在JavaScript 1.5和JScript 5.5及其后的版本中，应该用encodeURI()和
+  encodeURIComponent()代替escape()。</P>
+
+
+
+<A NAME="ch23-383-fm2xml"></A>
+
+<h4 class="docRefsectTitle">示例</h4>
+
+
+
+<PRE>escape("Hello World!");  // 返回 "Hello%20World%21"</PRE>
+
+
+
+<A NAME="ch23-384-fm2xml"></A>
+
+<h4 class="docRefsectTitle">参阅</h4>
+
+
+
+<P class="docText"><A class="docLink" HREF="ch23-344-fm2xml.html#ch23-344-fm2xml">encodeURI(  )</A>, <A class="docLink" HREF="ch23-352-fm2xml.html#ch23-352-fm2xml">encodeURIComponent(  )</A>, <A class="docLink" HREF="ch23-771-fm2xml.html#ch23-771-fm2xml">String</A>, <A class="docLink" HREF="#ch23-378-fm2xml">escape(  )</A>;
+
+<A class="docLink" HREF="ch24-84-fm2xml.html#ch24-84-fm2xml">Document.cookie</A> in the client-side reference section
+
+</P>
+
+
+
+
+
+<ul></ul>
+
+</td>
+
+</tr>
+
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<td>
+<a href="main.html"><img src="images/teamlib.gif" border="0" align="absmiddle"  alt="返回列表索引"></a>
+</td>
+<td valign="top" class="v2" align="right">&nbsp;
+          <a href="ch23-375-fm2xml.html"><img src="images/previous.gif"   border="0" align="absmiddle" alt="上一页"></a>
+&nbsp;    
+          <a href="ch23-385-fm2xml.html"><img src="images/next.gif"   border="0" align="absmiddle" alt="下一页"></a>
+</td>
+</tr>
+</table>
+  </div>
+</div>
+<script src="images/footer.js"></script>
+</body>
+</html>

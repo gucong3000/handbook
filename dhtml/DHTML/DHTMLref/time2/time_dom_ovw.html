@@ -1,0 +1,1189 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>Using the HTML+TIME Document Object Model (DOM) (Internet Explorer)</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/css/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>//<!--
+var gbDBG = true;
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+//--></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+//<!--
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+//--></SCRIPT>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Using the HTML+TIME Document Object Model (DOM)
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>With HTML+TIME (Timed Interactive Multimedia Extensions), you can use persistent Extensible Markup Language (XML) elements and attributes to add timing to your HTML page. This means you don't have to know how to program with scripting languages to make your pages more dynamic. However, for people who already know how to use scripting languages, HTML+TIME supports a complete object model that extends the existing Dynamic HTML (DHTML) Object Model. Thus, you can use HTML+TIME properties, methods, and events to add even more interactive features to your Web pages. All HTML+TIME objects are accessible through script at run time. This article introduces you to the HTML+TIME objects, methods, events, and properties available to your Web pages. </p><P>The following topics are discussed in this document.</P><UL><LI><A TARGET="_self" HREF="#prerequisites">Prerequisites</A></LI><LI><A TARGET="_self" HREF="#using_objects">Accessing Elements as Objects</A></LI><LI><A TARGET="_self" HREF="#scripting_components">HTML+TIME Scripting Components</A></LI><LI><A TARGET="_self" HREF="#methods">Methods</A></LI><LI><A TARGET="_self" HREF="#htmltime_properties">Properties</A></LI><LI><A TARGET="_self" HREF="#events">Events</A></LI><LI><A TARGET="_self" HREF="#collections">Collections</A></LI><LI><A TARGET="_self" HREF="#playList_collection">playList Collection</A></LI><LI><A TARGET="_self" HREF="#where_to_go_from_here">Where to Go from Here</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="prerequisites"></A>Prerequisites</H2><p>This article assumes you know how to use <A HREF="../common/author/behaviors/overview.html">Introduction to DHTML Behaviors</A>, specifically, the <A HREF="../time2/behaviors/time2.html">time2</A> behavior of HTML+TIME. This article does not go into great detail on how to add a behavior to your page nor does it cover how to declare a namespace and use custom tags as required by the <B>time2</B> behavior. These topics are covered in the <A HREF="../common/author/behaviors/time.html">HTML+TIME Overview</A> and <A HREF="/library/en-us/dntime/html/htmltime.html" TARGET="_top">Spice Up Your Web Pages with HTML+TIME</A>. You should be familiar with the Microsoft?JScript?programming language and have a basic working knowledge of DHTML.</p><H2><A NAME="using_objects"></A>Accessing Elements as Objects</H2><p>Just like using the <A HREF="../common/author/dhtml/dhtml.html">Introduction to Dynamic HTML</A> Document Object Model (DOM), you can expose HTML+TIME objects to script by setting the <A HREF="../properties/id.html">ID</A> attribute.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;t:media ID="oSoundFile" ... /&gt;</PRE><p>Once you've set the <B>ID</B> attribute, you can access the element through script, just like any other HTML object.</p><PRE CLASS="clsCode" AUTOHILITE="1">oSoundFile.beginElement();</PRE><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Another useful way to access time objects is through collections. For further information, see <A TARGET="_self" HREF="#collections">Collections</A>.</DIV><p>Just like other HTML objects, time objects expose a number of methods, properties, events, and collections that allow your script to manipulate the objects.</p><H2><A NAME="scripting_components"></A>HTML+TIME Scripting Components</H2><p>Because HTML+TIME can be applied to regular HTML elements, you still have access to all of the DHTML methods, properties, events, and collections of an element from script. You also have access to the components specific to HTML+TIME.  For example, if you apply the time behavior to a <A HREF="../objects/span.html">span</A> element, you can manipulate the <B>span</B> using standard DHTML applicable to <B>span</B> elements and all HTML+TIME components available. The following example shows how a <A HREF="../objects/span.html">SPAN</A> element with the time behavior applied to it uses the conventional DHTML property <A HREF="../properties/innertext.html">innerText</A> to change the text of the <B>span</B>.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Much of this article consists of samples. The rendered code that comes before the <B>showme</B> buttons sometimes omits some of the code that is in the sample when you click the <B>showme</B> button. This is done so the instructional intent of the rendered code is not obscured. To see the complete sample code, open the sample from the <B>showme</B> button and view the source of the sample.</DIV><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time" xmlns:control&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+@media all
+{
+control\:slider {behavior:url(slider.htc);}
+}
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+var nCounter = 1;
+// Although the SPAN has the time behavior applied to it, all of the standard
+// properties, methods, events etc. of the SPAN are available to script,
+// such as the innerText property used to change the text inside the SPAN every
+// second.
+function fnChangeSpan()
+{
+switch (nCounter)
+{
+case 1: oSpan.innerText = "one";
+break;
+case 2: oSpan.innerText = "two";
+break;
+case 3: oSpan.innerText = "three";
+break;
+case 4: oSpan.innerText = "four";
+break;
+case 5: oSpan.innerText = "five";
+break;
+case 6: nCounter = 0;
+break;
+}
+nCounter++;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The HTML+TIME "onrepeat" event is used by the SPAN to fire the
+"fnChangeSpan()" function every second. This event is an example of an
+event only available to time elements.--&gt;
+&lt;SPAN id="oSpan" CLASS="time" DUR="1" REPEATCOUNT="indefinite"
+onrepeat="fnChangeSpan()"&gt;&lt;/SPAN&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/simple_span.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><H2><A NAME="methods"></A>Methods</H2><p>HTML+TIME exposes many unique methods. Although there are a variety of these methods, all of them allow you to control the time line or playback of time elements in some way.  Some of these methods are exposed by almost all HTML+TIME objects, while other methods are only exposed by select time objects. Among the most commonly used methods are the <A HREF="../time2/methods/beginelement.html">beginElement</A> and <A HREF="../time2/methods/endelement.html">endElement</A> methods that allow you to begin and end time elements through script. The following is a simple example that uses the <B>beginElement</B> and <B>endElement</B> methods to allow the user to begin and end media on the time line with the push of a button. In addition, the <A HREF="../time2/methods/pauseelement.html">pauseElement</A> and <A HREF="../time2/methods/resumeelement.html">resumeElement</A> methods are used to allow the media to pause and resume.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="beginElement;endElement;pauseElement;resumeElement">
+...
+&lt;t:MEDIA id="oMedia" timeAction="visibility" src="countlead.wmv" begin="indefinite"/&gt;
+&lt;BUTTON onclick="oMedia.beginElement();"&gt;Start&lt;/BUTTON&gt;
+&lt;BUTTON onclick="oMedia.endElement();"&gt;Stop&lt;/BUTTON&gt;
+&lt;BUTTON onclick="oMedia.pauseElement();"&gt;Pause&lt;/BUTTON&gt;
+&lt;BUTTON onclick="oMedia.resumeElement();"&gt;Resume&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/beginEndMethod_ovw.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;When a time element is ended using the <B>endElement</B> method, it cannot be resumed on its time line using the <B>resumeElement</B> method.</DIV><p>Another example of a method that allows significant control over the time line of an object is the <A HREF="../time2/methods/seekto.html">seekTo</A> method. The following example shows how to use the <B>seekTo</B> method, one of several methods that enable seeking, to jump to any time in the time line of a time element.  </p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;This example uses the <A HREF="../common/author/behaviors/library/slider/slider.html">slider</A> behavior to provide the slide bar. Later in this article, you will learn how to make the slider move as a progress bar. See <A TARGET="_self" HREF="#bring_it_on_home">Putting it together</A>.</DIV><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="oMedia.seekTo;1, oSlider.value">
+&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time" xmlns:control&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+&lt;!-- The slider htc file must be at the given path in order for the slider
+to work. Note that the slider only provides a user interface component;
+it is not specifically needed for seeking. --&gt;
+@media all
+{
+control\:slider {behavior:url(slider.htc);}
+}
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;t:video style="width:175px; height:150px;" id="oMedia" src="movie.avi" /&gt;
+&lt;!-- The "seekTo" method uses the value of the slide bar as the time
+in seconds to seek to in the active time of the media. --&gt;
+&lt;!-- The media element is checked to see if it is active
+using the "isActive" property, which is exposed by the HTML+TIME object
+"currTimeState". This is necessary because if the media is not active and the
+"seekTo" method is fired on the media, an error occurs. The currTimeState
+object is explored later in this article. --&gt;
+&lt;control:slider ID="oSlider" TICKINTERVAL="1" TICKNUMBER="19"
+onchange="oMedia.seekTo(1, oSlider.value);"&gt;
+&lt;/control:slider&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/time_sliderBar/seekTo_slider.htm" FEATURES="top=50,left=50,height=520,width=530,status=0"></IMG></A></DIV><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp;Not all media types support seeking. In cases where seeking is not supported by the player, calls to seek methods are ignored.</DIV><p>Many methods are only exposed on specific time objects. The following sample shows how to use the <A HREF="../time2/methods/prevelement.html">prevElement</A> and <A HREF="../time2/methods/nextelement.html">nextElement</A> methods, which are only exposed by the <A HREF="../time2/elements/seq.html">seq</A> object, to move from one slide to the next.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="prevElement;nextElement">
+...
+&lt;t:SEQ ID="oSeq" REPEATCOUNT="indefinite"&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;First&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\newyork.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;Second&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\moscow.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;Third&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\london.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;Fourth&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\hongkong.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;/t:SEQ&gt;
+&lt;BUTTON onclick="oSeq.prevElement()"&gt;Previous Slide&lt;/BUTTON&gt;
+&lt;BUTTON onclick="oSeq.nextElement()"&gt;Next Slide&lt;/BUTTON&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/slideShowMethods_ovw.htm" FEATURES="top=50,left=50,height=500,width=530,status=0"></IMG></A></DIV><H2><A NAME="htmltime_properties"></A>Properties</H2><p>Since <A HREF="../time2_entry.html">HTML+TIME</A> is dynamic by nature, why would you want to access HTML+TIME properties through script? Aren't they supposed to change by themselves over time?  Isn't that what HTML+TIME enables?</p><p>Well, yes, but perhaps you'd want to change these properties in response to user-generated events. For instance, you could change the speed of an animation by allowing the user to adjust its <A HREF="../time2/properties/dur.html">dur</A> property. If you were creating a portal page, you could allow the user to choose between different themes; this can result in different animations or media, like sound effects, to be loaded on the page. The following sample shows how to change the background animation of a slide show by changing the <A HREF="../time2/properties/to.html">to</A> and <A HREF="../time2/properties/from.html">from</A> properties of an animation object.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="onbegin=&quot;fnChangeColor;oAnimate.from = oAnimate.to;;oAnimate.to = sNewColor;">
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+var sNewColor = "#99CCFF";
+function fnChangeColor()
+{
+// The last color animated "to" is now what is animated "from".
+oAnimate.from = oAnimate.to;
+// The "fnSetTo" function assigns a random color to "sNewColor" variable
+sNewColor = fnSetTo();
+// The "to" property is assigned a new value.
+oAnimate.to = sNewColor;
+oAnimate.beginElement();
+}
+// This function is just used to return a random color.
+function fnSetTo()
+{
+// Create a random value between 1 and 4
+var randomNumber = (Math.random() * 4);
+randomNumber = Math.ceil(randomNumber);
+switch(randomNumber)
+{
+case 1:
+sNewColor = "#666666"
+break;
+case 2:
+sNewColor = "#00CC33"
+break;
+case 3:
+sNewColor = "#FF0033"
+break;
+case 4:
+sNewColor = "#FFCC00"
+break;
+}
+return sNewColor;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- This element is used to animate the color change. --&gt;
+&lt;t:ANIMATECOLOR ID="oAnimate" TARGETELEMENT="oContainerDiv" BEGIN="indefinite"
+ATTRIBUTENAME="backgroundColor" TO="#FFCC00" START="2" DUR="1" FILL="hold"/&gt;
+&lt;DIV ID="oContainerDiv" STYLE="background-color:#99CCFF;width:400px;height:200px;"&gt;
+&lt;DIV STYLE="text-align:center"&gt;
+&lt;t:SEQ ID="oSeq" REPEATCOUNT="indefinite"&gt;
+&lt;!-- The "onbegin" HTML+TIME event is used to initiate the color animation when
+any "t:PAR" element begins on the time line. We will discuss HTML+TIME events
+in more detail later in this article. --&gt;
+&lt;t:PAR onbegin="fnChangeColor();"&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;One&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\newyork.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR onbegin="fnChangeColor();"&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;Two&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\moscow.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR onbegin="fnChangeColor();"&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;Three&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\london.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR onbegin="fnChangeColor();"&gt;
+&lt;DIV CLASS="time" DUR="5" TIMEACTION="display"&gt;Four&lt;/DIV&gt;
+&lt;IMG CLASS="time" DUR="5" TIMEACTION="display"
+SRC="\workshop\samples\author\behaviors\media\hongkong.jpg"
+STYLE="height=150; width=300" /&gt;
+&lt;/t:PAR&gt;
+&lt;/t:SEQ&gt;
+&lt;BR&gt;
+&lt;BUTTON onclick="oSeq.prevElement()"&gt;Previous Slide&lt;/BUTTON&gt;
+&lt;BUTTON onclick="oSeq.nextElement()"&gt;Next Slide&lt;/BUTTON&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/slideShowProperty_ovw.htm" FEATURES="top=50,left=50,height=520,width=530,status=0"></IMG></A></DIV><p>In the previous example, the <B>to</B> property was changed on an element and then the element was restarted on the time line. Another option, manipulating properties while media is playing, should be done with caution. Changing properties on time elements while they are playing media or animating objects can have unpredictable or undefined results. When you want to change a property on such an element, the preferred process is to stop the time object, change the property, and then restart the element with the <B>beginElement</B> method. For example, to change the path attribute on an <A HREF="../time2/elements/animate.html">animate</A> object, you could do the following:</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+animateObject.endElement();
+animateObject.path="M 0 0 L 100 100";
+animateObject.beginElement();
+&lt;/SCRIPT&gt;
+</PRE><p>
+That said, there are some properties that are well suited for manipulation on active elements, such as <A HREF="../time2/properties/speed.html">speed</A>, <A HREF="../time2/properties/mute.html">mute</A>, and <A HREF="../time2/properties/volume.html">volume</A>. The following example shows how to change the volume or mute media while it is playing using the <B>volume</B> and <B>mute</B> properties.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="oMedia.volume;oMedia.mute">
+&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+var nCurVolume = 100;
+function fnVolAdjust(sDirection)
+{
+if(sDirection == "up" &amp;&amp; nCurVolume &lt; 100)
+{
+nCurVolume = nCurVolume + 20;
+}
+else if(sDirection == "down" &amp;&amp; nCurVolume &gt; 0)
+{
+nCurVolume = nCurVolume - 20;
+}
+oMedia.volume = nCurVolume;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY &gt;
+&lt;t:MEDIA id="oMedia" timeAction="visibility" src="shuttle3.wmv"/&gt;
+&lt;b&gt;Volume:&lt;/b&gt;
+&lt;BUTTON onclick="fnVolAdjust('down');"&gt;
+Down
+&lt;/BUTTON&gt;
+&lt;BUTTON onclick="fnVolAdjust('up');"&gt;
+Up
+&lt;/BUTTON&gt;
+&lt;b&gt;Mute:&lt;/b&gt;
+on
+&lt;INPUT TYPE="radio" NAME="mute" onclick="oMedia.mute = true;"/&gt;
+off
+&lt;INPUT TYPE="radio" NAME="mute" CHECKED onclick="oMedia.mute = false;"/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/mediaProperty_ovw.htm" FEATURES="top=50,left=50,height=560,width=700,status=0"></IMG></A></DIV><H2><A NAME="events"></A>Events</H2><p>HTML+TIME events are similar to <A HREF="../events.html">DHTML Events</A> except that they only apply to elements with the <B>time2</B> behavior applied to them. These events typically are used to detect events that occur on a time element's time line. The following example shows how to use several different HTML+TIME events to determine which media control buttons should be active in response to whether the media is active or paused.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="onend;onbegin;onpause;onresume">
+&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY &gt;
+&lt;t:MEDIA id="oMedia" timeAction="visibility" src="countlead.wmv" begin="indefinite"
+onend="btnStart.disabled=false;
+btnStop.disabled=true;
+btnPause.disabled=true;
+btnResume.disabled=true;"
+onbegin="btnStart.disabled=true;
+btnStop.disabled=false;
+btnPause.disabled=false;
+btnResume.disabled=true;"
+onpause="btnPause.disabled=true;
+btnResume.disabled=false;"
+onresume="btnPause.disabled=false;
+btnResume.disabled=true;"
+/&gt;
+&lt;BUTTON ID="btnStart"
+onclick="oMedia.beginElement();"&gt;
+Start
+&lt;/BUTTON&gt;
+&lt;BUTTON DISABLED="true" ID="btnStop"
+onclick="oMedia.endElement();"&gt;
+Stop
+&lt;/BUTTON&gt;
+&lt;BUTTON DISABLED="true" ID="btnPause"
+onclick="oMedia.pauseElement();"&gt;
+Pause
+&lt;/BUTTON&gt;
+&lt;BUTTON DISABLED="true" ID="btnResume"
+onclick="oMedia.resumeElement();"&gt;
+Resume
+&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/events1_ovw.htm" FEATURES="top=50,left=50,height=500,width=650,status=0,resizeable=1"></IMG></A></DIV><H3><A NAME="repeat_events"></A>Repeat and Looping Events</H3><p>One particularly useful event is the <A HREF="../time2/events/onrepeat.html">onrepeat</A> event. Loops are quite common in scripting. Now with the <B>onrepeat</B> event, you can create loops that depend on time. You can attach an event handler to this event that is fired at regular intervals. There are a number of examples in this article that do just that. The following example shows how to use the <B>onrepeat</B> event to create a simple timer.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="onrepeat">
+&lt;B&gt;Media Timer:&lt;/B&gt;
+&lt;!-- This SPAN repeats itself on its time line once every second (dur="1").
+Every time it repeats, the "onrepeat" event is fired and updates its inner
+text with the current active time of the media. The "currTimeState" object
+is used to retrieve information about time elements at run time. This object
+is discussed in more detail later in this article. --&gt;
+&lt;SPAN id="Timer" class="time" dur="1" repeatCount="indefinite" fill="hold"
+onrepeat="innerText=oMedia.currTimeState.activeTime;"&gt;0&lt;/SPAN&gt;
+&lt;t:MEDIA id="oMedia" timeAction="visibility" src="countlead.wmv"/&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/onrepeat_ovw.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><p>You could have a time element that has no other purpose but to execute a segment of code at regularly timed intervals. This could be useful when you want to run a script in the background that checks for certain conditions on the page or updates the page. You can change the timing interval of the loop by changing the <B>dur</B> property of the time element that fires the event. The following example shows how to change the precision of the previous timer by changing the duration of the timer's repetitions.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+...
+&lt;BUTTON onclick = "Timer.dur = '.01'"&gt;More Precise Timer&lt;/BUTTON&gt;
+&lt;BUTTON onclick = "Timer.dur = '1'"&gt;Less Precise Timer&lt;/BUTTON&gt;
+&lt;B&gt;Media Timer:&lt;/B&gt;
+&lt;SPAN STYLE="color:red" id="Timer" class="time" dur="1"
+repeatCount="indefinite" fill="hold"
+onrepeat="innerText=oMedia.currTimeState.activeTime;"&gt;0&lt;/SPAN&gt;
+&lt;t:MEDIA id="oMedia" timeAction="visibility" src="countlead.wmv"/&gt;
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/onrepeat2_ovw.htm" FEATURES="top=50,left=50,height=520,width=700,status=0,resizeable=1"></IMG></A></DIV><H3><A NAME="special_objects"></A>Special Objects</H3><p>As already mentioned, all time elements in a document are exposed as objects. Most of the time objects that you access through script will be actual elements on your page, and you have already seen a number of examples of that in this article. There are a few time elements that do not correspond to document time elements. Two of these objects are <A HREF="../time2/objects/currtimestate.html">currTimeState</A> and <A HREF="../time2/objects/playitem.html">playItem</A>. The <B>currTimeState</B> object exposes a large number of unique properties, and the <B>playItem</B> object exposes properties and methods. The next two sections explore these objects in more detail.</p><H4><A NAME="currTimeStateObject"></A>currTimeState Object</H4><p>The <B>currTimeState</B> object is available to you at run time. It provides access to the current values of time parameters as they are changing. This is similar to the <A HREF="../objects/currentstyle.html">currentStyle</A> and <A HREF="../objects/runtimestyle.html">runtimeStyle</A> objects. The <B>currTimeState</B> object has its own run-time copy of all the properties associated with an element. These are read-only properties that you can use to determine the state of an element.</p><p>Using the properties available on the <B>currTimeState</B> object at run time, you can determine things such as:
+<ul><li>The playback <B>speed</B> of a media element</li><li>Whether the element is currently active on the time line by using the <A HREF="../time2/properties/isactive.html">isActive</A> property.</li><li>Whether the element is paused by using the <A HREF="../time2/properties/ispaused.html">isPaused</A> property.</li><li>The current <B>volume</B> of the media.</li></ul>
+For all of the available properties, see <A HREF="../time2/objects/currtimestate.html">currTimeState</A>.
+</p><p>The following example demonstrates how to use the <B>currTimeState</B> object's <B>isActive</B> and <B>isPaused</B> properties to determine which media control buttons should be active. The <A HREF="../time2/properties/activetime.html">activeTime</A> property is used to obtain a timer for the media element. This example is very similar to the previous one that used events to detect which media control buttons should be active and which should be  disabled.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="currTimeState;isActive;isPaused;activeTime">
+&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+function fnUpdate()
+{
+// Check to see if the media is currently active, then update button status.
+if (oMedia.currTimeState.isActive) {
+btnStart.disabled=true;
+btnStop.disabled=false;
+btnPause.disabled=false;
+btnResume.disabled=true;
+// If the media is paused then update button status.
+if (oMedia.currTimeState.isPaused){
+btnPause.disabled=true;
+btnResume.disabled=false;
+}
+}
+// If the media is not active, then update button status apropriately.
+else {
+btnStart.disabled=false;
+btnStop.disabled=true;
+btnPause.disabled=true;
+btnResume.disabled=true;
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The HTML+TIME onrepeat event is used to update the timer value every
+time the SPAN repeats (once every tenth of a second). The current active
+time of the media is retrieved using the activeTime property of the
+currTimeState object. --&gt;
+&lt;B&gt;Media Timer:&lt;/B&gt;
+&lt;SPAN ID="Timer" CLASS="time" DUR=".01" repeatCount="indefinite" FILL="hold"
+onrepeat="innerText=oMedia.currTimeState.activeTime;"&gt;0&lt;/SPAN&gt;&lt;BR&gt;&lt;BR&gt;
+&lt;!-- The HTML+TIME onend event is used to update the buttons when the media
+ends. --&gt;
+&lt;t:MEDIA id="oMedia" timeAction="visibility" src="bee.wmv" begin="indefinite"
+onend="fnUpdate();"/&gt;
+&lt;!-- Whenever a button is pressed, the appropriate method is carried out
+on the media and the fnUpdate() function is called to update the buttons. --&gt;
+&lt;BUTTON ID="btnStart"
+onclick="oMedia.beginElement(); fnUpdate();"&gt;
+Start
+&lt;/BUTTON&gt;
+&lt;BUTTON ID="btnStop"
+onclick="oMedia.endElement(); fnUpdate();"&gt;
+Stop
+&lt;/BUTTON&gt;
+&lt;BUTTON ID="btnPause"
+onclick="oMedia.pauseElement(); fnUpdate();"&gt;
+Pause
+&lt;/BUTTON&gt;
+&lt;BUTTON ID="btnResume"
+onclick="oMedia.resumeElement(); fnUpdate();"&gt;
+Resume
+&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/currTimeState_ovw.htm" FEATURES="top=50,left=50,height=500,width=700,status=0,resizeable=1"></IMG></A></DIV><H4><A NAME="playItemObject"></A>playItem Object</H4><p>A <B>playItem</B> is an object that represents an individual entry (also known as a track) in an Advanced Stream Redirector (ASX) file. An ASX file is an intermediary file that can link to a number of media files that can be used as a play list. The following is a  example of a simple ASX file.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;ASX Version="1.0" &gt;
+&lt;Entry&gt;
+&lt;Title&gt;Bee at Work&lt;/TITLE&gt;
+&lt;Author&gt;Busy Bee&lt;/Author&gt;
+&lt;Copyright&gt;Unknown&lt;/Copyright&gt;
+&lt;Abstract&gt;Look how busy the bee is!&lt;/Abstract&gt;
+&lt;Ref HREF="http://msdn.microsoft.com../common/samples/author/behaviors/media/bee.wmv"/&gt;
+&lt;/Entry&gt;
+&lt;Entry&gt;
+&lt;Title&gt;Cashregister&lt;/TITLE&gt;
+&lt;Author&gt;The Hand&lt;/Author&gt;
+&lt;Copyright&gt;1950&lt;/Copyright&gt;
+&lt;Abstract&gt;A good day at the shop.&lt;/Abstract&gt;
+&lt;Ref HREF="http://msdn.microsoft.com../common/samples/author/behaviors/media/cashregister.wmv"/&gt;
+&lt;/Entry&gt;
+&lt;Entry&gt;
+&lt;Title&gt;Subway&lt;/TITLE&gt;
+&lt;Author&gt;Urban Dweller&lt;/Author&gt;
+&lt;Copyright&gt;1973&lt;/Copyright&gt;
+&lt;Abstract&gt;Riding the subway is easier than walking.&lt;/Abstract&gt;
+&lt;Ref HREF="http://msdn.microsoft.com../common/samples/author/behaviors/media/subway.wmv"/&gt;
+&lt;/Entry&gt;
+&lt;/ASX&gt;
+</PRE><p>The ASX file is in an XML format with each <I>&lt;ENTRY&gt;</I> element corresponding to a <B>playItem</B> object. All of the entries of the ASX file collectively make up the <A HREF="../time2/collections/playlist.html">playList</A> collection. For further information, see <A TARGET="_self" HREF="#playList_collection">playList Collection</A>. When you play back an ASX file, the default action is to play the media corresponding to each entry in order from top to bottom, one after the other. As you can see, each <I>&lt;ENTRY&gt;</I> element has several child elements. The <I>&lt;Ref&gt;</I> element is required to specify the path to the respective media file.  All of these child elements are exposed as read-only properties on the <B>playItem</B> object. You could retrieve the given author of a <B>playItem</B> object like this.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;t:MEDIA id="oMedia" src="short_3tracks.asx" begin="indefinite"
+onend="updateBtns();" ontrackchange="updateFields();"/&gt;
+&lt;SCRIPT&gt;
+alert(oMedia.playList.activeTrack.author);
+&lt;/SCRIPT&gt;
+</PRE><p>It is important to note that you only access individual <B>playItem</B> objects using the <B>playList</B> collection. In the preceding case, the <I>oMedia.playList.activeTrack</I> retrieves the currently active (playing) <B>playItem</B> object. Assuming that the previous sample is using the ASX file shown, <I>oMedia.playList.activeTrack.author</I> would retrieve either "Busy Bee," "The Hand," or "Urban Dweller," depending on what <B>playItem</B> is active when the <A HREF="../methods/alert.html">alert</A> method is called.</p><p>The following example plays the previously shown ASX file. The <A HREF="../time2/methods/nexttrack.html">nextTrack</A> and <A HREF="../time2/methods/prevtrack.html">prevTrack</A> methods, which are exposed by the <B>playList</B> collection, provide the functionality for the user to play different <B>playItem</B> objects (tracks) using buttons. In addition, information about the currently playing track is displayed using properties exposed by the <B>playItem</B> object.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+// This function displays information about the currently active playItem
+// object. Notice that the playItem object must be accessed through the
+// playItem collection.
+function updateFields()
+{
+oTitle.innerText = oMedia.playList.activeTrack.title;
+oAuthor.innerText = oMedia.playList.activeTrack.author;
+oAbstract.innerText = oMedia.playList.activeTrack.abstract;
+oCopyright.innerText = oMedia.playList.activeTrack.copyright;
+oFilename.innerText = oMedia.playList.activeTrack.src;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The "ontrackchange" event is used to update the track information
+every time the active track changed in the play list. --&gt;
+&lt;t:MEDIA id="oMedia" src="short_3tracks.asx" begin="indefinite"
+ontrackchange="updateFields();"/&gt;
+&lt;SPAN&gt;Title:&lt;SPAN STYLE="color:red" id="oTitle"&gt;&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN&gt;Author:&lt;SPAN STYLE="color:red" id="oAuthor"&gt;&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN&gt;Abstract:&lt;SPAN STYLE="color:red" id="oAbstract"&gt;&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN&gt;Copyright:&lt;SPAN STYLE="color:red" id="oCopyright"&gt;&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;BR&gt;
+&lt;SPAN&gt;Filename:&lt;SPAN STYLE="color:red" id="oFilename"&gt;&lt;/SPAN&gt;&lt;/SPAN&gt;&lt;BR&gt;&lt;BR&gt;
+&lt;BUTTON id="btnStart"
+onclick="oMedia.beginElement();"&gt;
+Start
+&lt;/BUTTON&gt;
+&lt;!-- The "prevTrack" and "nextTrack" methods are exposed by the "playList"
+collection. This allows you to move to the next track defined in the asx file
+or the last track relative to the currently active track. --&gt;
+&lt;BUTTON id="btnPrev"
+onclick="oMedia.playList.prevTrack();"&gt;
+Previous Track
+&lt;/BUTTON&gt;
+&lt;BUTTON id="btnNext"
+onclick="oMedia.playList.nextTrack();"&gt;
+Next Track
+&lt;/BUTTON&gt;
+&lt;BUTTON id="btnStop"
+onclick="oMedia.endElement();"&gt;
+Stop
+&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/playList/playList.htm" FEATURES="top=50,left=50,height=520,width=550,status=0,resizeable=1"></IMG></A></DIV><H3><A NAME="bring_it_on_home"></A>Putting it together</H3><p>The next two examples show examples of scripting with HTML+TIME methods, properties, and events together. The first sample shows how to use all of these components to make a simple progress bar that can be used to jump around in the media.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML xmlns:t= "urn:schemas-microsoft-com:time" xmlns:control&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+@media all{
+control\:slider {behavior:url(slider.htc);}
+}
+.time{behavior:url(#default#time2)}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// This function is fired whenever the slide bar changes value.
+function fnChangeBar()
+{
+// If the media is not active, then make it active. This makes it
+// possible to start the media back up again by just dragging the
+// slide bar to some value.
+if(!oMedia.currTimeState.isActive)
+{
+oMedia.beginElement()
+}
+// If the slider value is being moved by the user, the media will seek
+// to the user-specified value.
+if(oSlider.value!=Math.round(oMedia.currTimeState.activeTime))
+{
+oMedia.seekTo(1, oSlider.value)
+}
+Timer.innerText=parseInt(oMedia.currTimeState.activeTime);
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- The following SPAN element serves two purposes. First, it displays where on
+its time line the media is. Second, it changes the value of the slide bar every
+second to show the progression of the media on the slide bar. --&gt;
+&lt;B&gt;Media timer:&lt;/B&gt;
+&lt;SPAN id="Timer" class="time" BEGIN="oMedia.begin" END="oMedia.end" DUR="1"
+REPEATCOUNT="indefinite" FILL="hold"
+onrepeat="oSlider.value=Math.round(oMedia.currTimeState.activeTime);"&gt;0&lt;/SPAN&gt;
+&lt;BR&gt;&lt;BR&gt;
+&lt;t:video style="width:175px; height:150px;" id="oMedia"
+src="../common/samples/author/behaviors/media/movie.avi" /&gt;
+&lt;BR&gt;
+&lt;control:slider ID="oSlider" TICKINTERVAL="1" TICKNUMBER="19"
+onchange="fnChangeBar();"&gt;
+&lt;/control:slider&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/time_sliderBar/seekTo_slider2.htm" FEATURES="top=50,left=50,height=500,width=700,status=0"></IMG></A></DIV><p>This next example is a context menu that moves to the location where the user right-clicks the mouse. The <B>beginElement</B> method is used to initiate the animation, the <B>to</B> and <B>from</B> properties are changed dynamically so that the animation moves along the correct path depending on the location of the user clicking the mouse, and the <A HREF="../time2/events/onend.html">onend</A> event is used to coordinate when the <B>from</B> property should be changed. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;!-- The vml behavior is used in this example to allow oval shaped menu boxes.
+Notice in the following the namespace declaration for the vml behavior. --&gt;
+&lt;HTML  xmlns:t ="urn:schemas-microsoft-com:time"
+xmlns:v = "urn:schemas-microsoft-com:vml"  &gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+v\:* {BEHAVIOR: url(#DEFAULT#VML)}
+BODY {font-family:arial; margin:0; font-size:80%}
+.time {behavior: url(#default#time2)}
+.box {position:absolute;top:100;left:100;width:150px;height:22px;
+padding:5px;padding-left:15px;display:none;cursor:hand;
+font-family:arial;}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// Function is used to animate the menu box movement.
+function moveBox(){
+var mouseLeft = null;
+var mouseTop = null;
+// Make the menu boxes visible
+oBox.style.display='block';
+oBox2.style.display='block';
+oBox3.style.display='block';
+// Retrieve x and y coordinates of the mouse click
+mouseLeft=event.clientX;
+mouseTop=event.clientY;
+////////////////////////////////////////////////////////////////////////////
+// Two t:ANIMATE elements are used for each menu box to control the
+// movement of each box. One t:ANIMATE element controls the x-coordinate
+// animation and the other controls the y-coordinate animation. The "to"
+// properties of the t:ANIMATE elements are set to a value relative to
+// the respective x and y coordinates of the mouse click. This ensures
+// that the menu boxes animate to the correct location. To begin the
+// animation, the t:ANIMATE elements are started on the time line using
+// the "beginElement()" method.
+///////////////////////////////////////////////////////////////////////////
+// Code for top menu box animation.
+leftMove.to=mouseLeft;
+topMove.to=mouseTop;
+leftMove.beginElement();
+topMove.beginElement();
+// Code for middle menu box animation.
+leftMove2.to=mouseLeft;
+topMove2.to=mouseTop + 29; // notice that y-coordinate is offset
+leftMove2.beginElement();
+topMove2.beginElement();
+// Code for bottom menu box animation.
+leftMove3.to=mouseLeft;
+topMove3.to=mouseTop + 58;
+leftMove3.beginElement();
+topMove3.beginElement();
+}
+// Function is used to hide the menu when clicked.
+function closeMenu(){
+oBox.style.display='none';
+oBox2.style.display='none';
+oBox3.style.display='none';
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;!-- The "oncontextmenu" event is used to make the menu become visible and animate. --&gt;
+&lt;BODY oncontextmenu="moveBox(); return false; "&gt;
+&lt;!-- The following are the menu blocks. Notice that the vml behavior is attached to them,
+which enables the rounded corners of the menu blocks. --&gt;
+&lt;v:ROUNDRECT ID="oBox" CLASS="box" ARCSIZE="90923f" STROKEWEIGHT="2"
+articles.style.display='none'; contacts.style.display='none'; closeMenu()"&gt;
+Home&lt;/v:ROUNDRECT &gt;
+&lt;v:ROUNDRECT ID="oBox2" CLASS="box" ARCSIZE="90923f" STROKEWEIGHT="2"
+contacts.style.display='none'; closeMenu()"&gt;
+Articles&lt;/v:ROUNDRECT &gt;
+&lt;v:ROUNDRECT  ID="oBox3" CLASS="box" ARCSIZE="90923f" STROKEWEIGHT="2"
+contacts.style.display='block'; closeMenu()"&gt;
+Contact&lt;/v:ROUNDRECT &gt;
+&lt;!--------------------------------------------------------------------------
+The following are the t:ANIMATE elements that control the animation of the
+menu blocks. Notice that the "DUR" attribute values are different for each
+pair of elements. This causes the blocks to move at different rates and follow
+one another.
+Note that when each t:ANIMATE element ends, its "from" property is
+updated to the coordinate that the animation ends at. Thus, upon the next
+animation, the menu starts its animation from the new location.
+---------------------------------------------------------------------------&gt;
+&lt;t:ANIMATE
+ID="leftMove"
+TARGETELEMENT="oBox"
+ATTRIBUTENAME='left'
+BEGIN="indefinite"
+DUR=".15"
+DECELERATE="1"
+FILL="freeze"
+onend="this.from=this.to"/&gt;
+&lt;t:ANIMATE
+ID="topMove"
+TARGETELEMENT="oBox"
+ATTRIBUTENAME='top'
+BEGIN="indefinite"
+DUR=".15"
+DECELERATE="1"
+FILL="freeze"
+onend="this.from=this.to"/&gt;
+&lt;t:ANIMATE
+ID="leftMove2"
+TARGETELEMENT="oBox2"
+ATTRIBUTENAME='left'
+BEGIN="indefinite"
+DUR=".3"
+DECELERATE="1"
+FILL="freeze"
+onend="this.from=this.to"/&gt;
+&lt;t:ANIMATE
+ID="topMove2"
+TARGETELEMENT="oBox2"
+ATTRIBUTENAME='top'
+BEGIN="indefinite"
+DUR=".3"
+DECELERATE="1"
+FILL="freeze"
+onend="this.from=this.to"/&gt;
+&lt;t:ANIMATE
+ID="leftMove3"
+TARGETELEMENT="oBox3"
+ATTRIBUTENAME='left'
+BEGIN="indefinite"
+DUR=".6"
+DECELERATE="1"
+FILL="freeze"
+onend="this.from=this.to"/&gt;
+&lt;t:ANIMATE
+ID="topMove3"
+TARGETELEMENT="oBox3"
+ATTRIBUTENAME='top'
+BEGIN="indefinite"
+DUR=".6"
+DECELERATE="1"
+FILL="freeze"
+onend="this.from=this.to"/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/contextMenu_ovw.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><H2><A NAME="collections"></A>Collections</H2><p>The samples so far have only accessed time objects using their <A HREF="../properties/id.html">id</A> values. Using collections allows an alternative way to access objects in a document. Just like normal HTML elements, time elements are available to standard collections. For example, all time elements are available to the <A HREF="../collections/all.html">all</A> collection. In addition, there are a number of unique collections that are available to most time objects. These collections are listed in the table that follows:</p><table class="clsStd"><tr><td><A HREF="../time2/collections/activeelements.html">activeElements</A></td><td>Returns a reference to the collection of all top-level child elements of the object that are currently active on the time line.</td></tr><tr><td><A HREF="../time2/collections/timeall.html">timeAll</A></td><td>Retrieves a reference to the collection of all timed elements.</td></tr><tr><td><A HREF="../time2/collections/timechildren.html">timeChildren</A></td><td>Retrieves a reference to the collection of all top-level time container child elements.</td></tr></table><p>Another HTML+TIME collection, the <B>playList</B> collection, is applicable only when ASX files are being used. For more information, see <A TARGET="_self" HREF="#playList_collection">playList Collection</A>. To demonstrate the collections in the table, let's start by taking a look at the following example. It is a simple menu application.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+.block
+{
+margin-left:10px;
+color:red;
+font-weight:normal;
+font-size:18px;
+position:absolute;
+top:115px;
+left:12px;
+cursor:hand;
+}
+#oDiv
+{
+cursor:hand;
+color:#003399;
+font-weight:bold;
+font-size:15pt;
+position:absolute;
+top:85px;
+left:10px;
+border:2px solid #cccccc;
+background:#eeeeee;
+padding:10px;
+height:160px;
+width:200px;
+padding-top:5px;
+}
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV ID="oDiv" onclick="oContainer.beginElement();"&gt;Click Me!&lt;/DIV&gt;
+&lt;t:PAR ID="oContainer" BEGIN="indefinite" DUR="indefinite"&gt;
+&lt;t:PAR BEGIN=".25"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 1
+&lt;t:ANIMATE BY="5px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN=".5"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 2
+&lt;t:ANIMATE BY="35px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN=".75"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 3
+&lt;t:ANIMATE BY="65px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV &gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN="1"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 4
+&lt;t:ANIMATE BY="95px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;/t:PAR&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/collections0_ovw.htm" FEATURES="top=50,left=50,height=450,width=530,status=0"></IMG></A></DIV><p>As you can see, the container <A HREF="../time2/elements/par.html">t:PAR</A> (oContainer), has child <B>t:PAR</B> elements nested inside and these child <B>t:PAR</B> elements in turn have child time elements.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+...
+// This is the container element
+&lt;t:PAR ID="oContainer" BEGIN="indefinite" DUR="indefinite"&gt;
+// The container element has direct child and grandchild time elements.
+&lt;t:PAR BEGIN=".25"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 1
+&lt;t:ANIMATE BY="5px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+...
+</PRE><p>The collections are used just like typical DHTML collections. Here is a simple example that uses the <A HREF="../time2/collections/timeall.html">timeAll</A> collection to retrieve all of the children of the container element and then loops though each member of the collection and displays the member's tag name. </p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE="timeAll">
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+.block
+{
+color:red;
+width:130px;
+font-size:13pt;
+position:absolute;
+top:200px;
+left:22px;
+cursor:hand;
+}
+#oDiv
+{
+padding:10px;
+padding-top:7px;
+height:20px;
+background-color:#eeeeee;
+border:2px solid #cccccc;
+color:#003399;
+font-weight:bold;
+font-size:13pt;
+position:absolute;
+top:175px;
+left:10px;
+cursor:hand;
+width:150px;
+height:160px;
+}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+function fnSeeAllChildren()
+{
+// All of the time child elements are retrieved.
+var aAllTimeChildren = oContainer.timeAll;
+// Loop through all of the members of the collection and display their
+// tag names.
+for(i=0;i&lt;aAllTimeChildren.length;i++)
+{
+alert(aAllTimeChildren[i].tagName);
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;BUTTON onclick="fnSeeAllChildren();"&gt;Loop Through Collection&lt;/BUTTON&gt;
+&lt;DIV ID="oDiv" onclick="oContainer.beginElement();"&gt;Click me!&lt;/DIV&gt;
+&lt;t:PAR ID="oContainer" BEGIN="indefinite" DUR="indefinite"&gt;
+&lt;t:PAR BEGIN=".25"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 1
+&lt;t:ANIMATE BY="5px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN=".5"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 2
+&lt;t:ANIMATE BY="35px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN=".75"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 3
+&lt;t:ANIMATE BY="65px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV &gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN="1"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 4
+&lt;t:ANIMATE BY="95px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;/t:PAR&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/collectionAlert_ovw.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><p>Similar to the last example, this example shows the members of the <B>timeAll</B>, <A HREF="../time2/collections/timechildren.html">timeChildren</A>, and <A HREF="../time2/collections/activeelements.html">activeElements</A> collections. This example uses a repeating time element (oRepeater) to run script every tenth of a second, which displays what elements are active. </p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+.block
+{
+margin-left:10px;
+color:red;
+font-weight:normal;
+font-size:18px;
+position:absolute;
+top:260px;
+left:12px;
+cursor:hand;
+}
+#oDiv
+{
+cursor:hand;
+color:#003399;
+font-weight:bold;
+font-size:15pt;
+position:absolute;
+top:230px;
+left:10px;
+border:2px solid #cccccc;
+background:#eeeeee;
+padding:10px;
+height:160px;
+width:200px;
+padding-top:5px;
+}
+&lt;/STYLE&gt;
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// This function displays the members of the collections in their
+// respective display SPAN elements.
+function fnGetCollection(Col)
+{
+var sDisplayString = ""
+if(Col == "all")
+{
+var aCol = oContainer.timeAll;
+var oDisplayer = oTimeAllDisplay;
+}
+else if(Col == "child")
+{
+var aCol = oContainer.timeChildren;
+var oDisplayer = oTimeChildrenDisplay;
+}
+else if(Col == "active")
+{
+var aCol = oContainer.activeElements;
+var oDisplayer = oTimeActiveDisplay;
+}
+// Loop through the collection specified in the "if" block above and
+// create a string of the tag names of each object in the collection.
+for(i=0;i&lt;aCol.length;i++)
+{
+if(i==0)
+sDisplayString = aCol.item(i).tagName;
+else
+sDisplayString = sDisplayString + ", " + aCol.item(i).tagName;
+}
+// The string populates the appropriate display SPAN.
+oDisplayer.innerText = sDisplayString;
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;!-- When the document loads, the members of the "timeAll" and "timeChildren"
+collection are displayed. --&gt;
+&lt;BODY ONLOAD="fnGetCollection('all');fnGetCollection('child');"&gt;
+&lt;!-- This is a time element that fires the fnGetCollection() function every
+tenth of a second to display the members of the "oCollection.aciveElements"
+collection. --&gt;
+&lt;SPAN ID="repeat_span" CLASS="time" dur=".1" REPEATCOUNT="indefinite" onrepeat="fnGetCollection('active');"&gt;&lt;/SPAN&gt;
+&lt;DIV STYLE="position:absolute; top:130px"&gt;
+&lt;B&gt;The tag names of all time elements in the following collections:&lt;/B&gt;
+&lt;DIV&gt;&lt;I&gt;containerElement&lt;/I&gt;.timeAll (all children):&lt;/DIV&gt;
+&lt;SPAN STYLE="color:red" ID="oTimeAllDisplay"&gt;&lt;/SPAN&gt;
+&lt;DIV&gt;&lt;I&gt;containerElement&lt;/I&gt;.timeChildren (top-level children):
+&lt;SPAN STYLE="color:red" ID="oTimeChildrenDisplay"&gt;&lt;/SPAN&gt;
+&lt;/DIV&gt;
+&lt;DIV&gt;&lt;I&gt;containerElement&lt;/I&gt;.activeChildren (top-level active children):
+&lt;SPAN STYLE="color:red" ID="oTimeActiveDisplay"&gt;&lt;/SPAN&gt;
+&lt;/DIV&gt;
+&lt;/DIV&gt;
+&lt;DIV ID="oDiv" onclick="oContainer.beginElement();"&gt;Click me!&lt;/DIV&gt;
+&lt;t:PAR ID="oContainer" BEGIN="indefinite" DUR="indefinite"&gt;
+&lt;t:PAR BEGIN=".25"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 1
+&lt;t:ANIMATE BY="5px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN=".5"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 2
+&lt;t:ANIMATE BY="35px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN=".75"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 3
+&lt;t:ANIMATE BY="65px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV &gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR BEGIN="1"&gt;
+&lt;DIV CLASS="time block"&gt;Menu Item 4
+&lt;t:ANIMATE BY="95px" ATTRIBUTENAME="top" FILL="FREEZE" DUR="1" /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;/t:PAR&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/collections1_ovw.htm" FEATURES="top=50,left=50,height=510,width=600,status=0"></IMG></A></DIV><p>At this point, it is useful to explore what scenarios are appropriate for the use of collections. Collections are often useful when you don't know how many time elements there will be. Let's say that you wanted to make a menu application similar to the preceding one but you don't know how many items will be in your menu. In the case of the preceding sample, we might want to access the timed menu items in such a way that we don't care how many menu items there are. You simply add an item and it works. This makes the application more reusable and generic. The following example shows how you can achieve the same time element timing as the preceding sample with the menu item looking like this.</p><PRE CLASS="clsCode" AUTOHILITE="1">...
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time bullet"&gt;Menu Item 1
+&lt;t:ANIMATE /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+...</PRE><p>Notice that all of the attributes are absent from the <A HREF="../time2/elements/animate.html">t:ANIMATE</A> element. All of the properties of the <B>t:ANIMATE</B> elements are applied in script to the collection. Therefore, you could add another item to the menu by simply changing the inner text of the <A HREF="../objects/div.html">div</A>. The timing and animation of the menu items of this sample are accessed through the HTML+TIME?B>timeAll</B> and <B>timeChildren</B> collections, and the properties of these collection items are changed using script.
+</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t ="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time {behavior: url(#default#time2);}
+.bullet
+{
+margin-left:10px;
+color:red;
+font-weight:normal;
+font-size:18px;
+position:absolute;
+top:180px;
+left:12px;
+cursor:hand;
+}
+#oDiv
+{
+cursor:hand;
+color:#003399;
+font-weight:bold;
+font-size:15pt;
+position:absolute;
+top:150px;
+left:10px;
+border:2px solid #cccccc;
+background:#eeeeee;
+padding:10px;
+height:160px;
+width:200px;
+padding-top:5px;
+}
+&lt;/STYLE&gt;
+&lt;SCRIPT&gt;
+// This function is called when the page is loaded. It applies values to
+// "begin" property of the "t:PAR" menu item container elements and values
+// to the properties of the "t:ANIMATE" objects, which are needed for the
+// animation of the menu items.
+function fnInit()
+{
+// Create a collection of the top-level element time containers.
+var aParChildren = oContainer.timeChildren;
+var nBeginTime = 0;
+for(i=0;i&lt;aParChildren.length;i++)
+{
+// Stagger the begin times of all of the menu items.
+aParChildren[i].begin = nBeginTime;
+nBeginTime = nBeginTime + .25
+}
+var aAllTimeElements = oContainer.timeAll;
+var multiplier = 0;
+for(i=0;i&lt;aAllTimeElements.length;i++)
+{
+if(aAllTimeElements[i].tagName == "ANIMATE")
+{
+// Stagger the values of the "by" properties of the "t:ANIMATE"
+// objects so the menu items cascade down to different positions.
+if(multiplier==0)
+{
+aAllTimeElements[i].by = 10;
+}
+else
+{
+aAllTimeElements[i].by = (multiplier*30) + 10;
+}
+// Assign appropriate values to other properties of the "t:ANIMATE"
+// objects.
+aAllTimeElements[i].fill = "freeze";
+aAllTimeElements[i].dur = 1;
+aAllTimeElements[i].attributeName = "top";
+multiplier ++;
+}
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;!-- The properties of the time elements are set when the page loads. --&gt;
+&lt;BODY onload="fnInit();" &gt;
+&lt;DIV ID="oDiv" onclick="oContainer.beginElement();"&gt;Click me!
+&lt;/DIV&gt;
+&lt;t:PAR ID="oContainer" BEGIN="indefinite" DUR="indefinite"&gt;
+&lt;!-- Notice how these entries are so generic now. Adding a new entry is
+as simple as altering the inner text of the DIV time elements. The rest
+of the details are taken care of by script. --&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time bullet"&gt;Menu item 1
+&lt;t:ANIMATE /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time bullet"&gt;Menu item 2
+&lt;t:ANIMATE /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time bullet"&gt;Menu item 3
+&lt;t:ANIMATE /&gt;
+&lt;/DIV &gt;
+&lt;/t:PAR&gt;
+&lt;t:PAR&gt;
+&lt;DIV CLASS="time bullet"&gt;Menu item 4
+&lt;t:ANIMATE /&gt;
+&lt;/DIV&gt;
+&lt;/t:PAR&gt;
+&lt;/t:PAR&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/collections2_ovw.htm" FEATURES="top=50,left=50,height=480,width=530,status=0"></IMG></A></DIV><p>Here is the same example again with more menu entries. In addition, a background <B>div</B> element grows in height as the menu items move down. How far the <B>div</B> expands depends on the number of items in the menu (the collection size).</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/collections3_ovw.htm" FEATURES="top=50,left=50,height=600,width=530,status=0,resizable=1,scrollbars=yes"></IMG></A></DIV><p>Because we use a collection and change the properties of the collection members through script, it is easy to change how the application behaves with little modification of the script. The following example shows what happens to the previous example when you change the begin times of the collection items.</p><PRE CLASS="clsCode" AUTOHILITE="1" HILITE=".1">
+...
+var aParChildren = oContainer.timeChildren;
+var nBeginTime = 0;
+for(i=0;i&lt;aParChildren.length;i++)
+{
+// Stagger the begin times of all of the menu items.
+aParChildren[i].begin = nBeginTime;
+// This used to be "nBeginTime = nBeginTime + .25" by changing the
+// behavior of the time elements changes dramatically.
+nBeginTime = nBeginTime + .1
+}
+...
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/collection4_ovw.htm" FEATURES="top=50,left=50,height=600,width=530,status=0,resizable=1,scrollbars=yes"></IMG></A></DIV><H2><A NAME="playList_collection"></A>playList Collection</H2><p>As already mentioned, the <B>playList</B> collection is only available when an ASX file is being used as the source of the media object. The <B>playList</B> collection consists of all of the <B>playItem</B> objects (tracks), defined in the ASX file. The ASX file essentially supplies a <B>playList</B> that is analogous to programming a jukebox to play a list of songs in a given order. The following example shows how to use the <B>playList</B> collection to display the play list supplied by an ASX file and allow the user to click on the play list items to skip directly to a media selection.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;HTML XMLNS:t="urn:schemas-microsoft-com:time"&gt;
+&lt;HEAD&gt;
+&lt;?IMPORT namespace="t" implementation="#default#time2"&gt;
+&lt;STYLE&gt;
+.time{ behavior: url(#default#time2);}
+.trackDisplay {cursor:hand;}
+&lt;/STYLE&gt;
+&lt;SCRIPT LANGUAGE="JScript"&gt;
+var bPlayListMade = false;
+// This function is called when the media is started. The function creates
+// a set of SPAN elements that map to the members of the play list collection (tracks).
+function fnCreatePlayList()
+{
+var playCollection = oMedia.playList;
+for(i=0;i&lt;playCollection.length;i++)
+{
+var sElement = "&lt;SPAN onclick='fnGoToTrack()'" +
+"CLASS = 'trackDisplay'&gt;" + playCollection(i).title + "&lt;/SPAN&gt;"
+var oDisplaySpan = document.createElement(sElement);
+oDisplaySpan.innerText = playCollection(i).title;
+oShowPlayList.insertBefore(oDisplaySpan);
+var oBr = document.createElement("BR");
+oShowPlayList.insertBefore(oBr);
+}
+}
+// The following function is called every time the media track changes. The
+// function is used to highlight the SPAN inside the play list that corresponds
+// to the currently playing track.
+function updateFields()
+{
+// Retrieve collection of SPAN elements in display DIV
+var aSpans = oShowPlayList.childNodes;
+for (i=0; i&lt;aSpans.length; i++)
+{
+aSpans(i).style.color = "blue";
+if(aSpans(i).innerText == oMedia.playList.activeTrack.title)
+{
+// Only the SPAN that maps to the currently active track is highlighted.
+aSpans(i).style.color = "red";
+}
+}
+}
+// This function is called when the user clicks on one of the items in the
+// play list. The function is used to activate the corresponding track.
+function fnGoToTrack()
+{
+var playCollection = oMedia.playList;
+for(i=0;i&lt;playCollection.length;i++)
+{
+// Find which member of the collection corresponds to the clicked item.
+if(event.srcElement.innerText == playCollection(i).title)
+{
+// When the correct track is retrieved, play the track.
+playCollection(i).setActive();
+}
+}
+}
+&lt;/SCRIPT&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;!-- Note that the media has an ASX file as its source. --&gt;
+&lt;t:MEDIA ID="oMedia" SRC="short_3tracks.asx"
+BEGIN="indefinite" ontrackchange="updateFields();"/&gt;
+&lt;!-- The following DIV contains all of the dynamically created SPAN elements
+map to playList collection items (tracks). --&gt;
+&lt;DIV ID="oShowPlayList"&gt;&lt;/DIV&gt;
+&lt;BUTTON ID="btnStart"
+onclick="oMedia.beginElement();fnCreatePlayList(); updateFields();"&gt;
+Start
+&lt;/BUTTON&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/playList/playList2Simple.htm" FEATURES="top=50,left=50,height=450,width=600,status=0"></IMG></A></DIV><p>Because this sample used the <B>playList</B> collection to dynamically find the number of tracks in the ASX file, you could use any ASX file with this sample and it would work (assuming that the tracks had titles!). Here is a slightly larger sample that displays the information about the currently playing track.</p><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft?Internet Explorer 5.5 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="../common/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="5.5" SAMPLEPATH="../common/samples/author/behaviors/htmltime/DOM Overview/playList/playList2.htm" FEATURES="top=50,left=50,height=600,width=700,status=0"></IMG></A></DIV><H2><A NAME="where_to_go_from_here"></A>Where to Go from Here</H2><p>This article provides a starting point for using scripting on time elements. We have shown only a small subset of the HTML+TIME methods, properties, and events available. For a complete list, see <B>HTML+TIME 2.0 Reference</B>. We have strived to show that HTML+TIME scripting components are used in a very similar way to other DHTML components. With this in mind, HTML+TIME is not only an extension to HTML but an extension to DHTML as well.</p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="time.html">Introduction to HTML+TIME</A></LI><LI><A HREF="time2_entry.html">HTML+TIME 2.0 Reference</A></LI></UL><info><product rid="prod_IE" minver="5.5"></product><platform rid="plat_win" minver="95"></platform><platform rid="plat_nt" minver="5.5"></platform></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </html>

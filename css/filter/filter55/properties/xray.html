@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_property.css">
+<script src="rdl_property.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendFilters=new Array(
+'BasicImage'
+);
+
+collFriendProperties=new Array(
+'grayScale','mirror','opacity','Invert ','Mask','MaskColor','Rotation'
+);
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'BasicImage'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#000000;color:#FFFFFF;padding:4px;filter:progid:DXImageTransform.Microsoft.BasicImage();}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n'+
+'input{padding:1px 4px 0px 4px;letter-spacing:1px;}\n'
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.BasicImage(XRay=bXRay);";\n'+
+'function rdl_change(e){\n'+
+'var oDiv=document.all("idDiv");\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'with (document.all("idSel")) var sValue=options[selectedIndex].value;\n'+
+'oDiv.filters[0].XRay=parseInt(sValue);\n'+
+'oCodeDiv.innerHTML=sFilter.replace(/bXRay/g,sValue);\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv><img src="../images/rdl_shape.gif" style="float:left;">请从下方选择滤镜效果。<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="0">---XRay---\n'+
+'<option value="1">1\n'+
+'<option value="0">0\n'+
+'<\/select>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>filter : progid:DXImageTransform.Microsoft.BasicImage();<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>XRay | XRay</span>版本：DHTML Object Model　读/写</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td>
+<td> <b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.<a href="../filters/basicimage.html">BasicImage</a> ( XRay</b> = <i>bXRay</i><b> ) </b></td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>object</i><b>.<a href="../filters/filters.html">filters</a>.<a href="../methods/item.html">item</a>('DXImageTransform.Microsoft.<a href="../filters/basicimage.html">BasicImage</a>').XRay = </b><i>bXRay</i></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>取值：</div>
+<table><tr><td nowrap><i> bXRay </i></td><td nowrap><b>: </b></td><td>
+布尔值(Boolean)。<span class=cssDefault><b>0</b></span> | <b>1</b>
+<table>
+<tr><td nowrap><b> 1 </b></td><td nowrap><b>: </b></td><td>以X光效果显示对象内容。</td></tr>
+<tr><td nowrap><b> 0 </b></td><td nowrap><b>: </b></td><td><b>默认值</b>。正常显示对象内容。</td></tr>
+</table>
+</td></tr></table>
+
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+设置或检索是否通过红、绿均衡补偿的方法以X光效果显示对象内容。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

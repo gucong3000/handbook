@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_method.css">
+<script src="rdl_method.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//collFriendBehaviors=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendProperties=new Array(
+'behavior'
+);
+
+collFriendMethods=new Array(
+'setHomePage'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE50=new Array(
+'homePage'
+);
+
+sStyle=
+'@media all {\n'+
+'rdl\\:homepage {behavior:url(#default#homepage);}\n'+
+'}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;}\n';
+
+sScript=
+'<script>\n'+
+'var oHomePage,oCodeDiv,oURL;\n'+
+'var sHomePage;\n'+
+'function rdl_Verify(){\n'+
+'var sHomePage=oURL.value;\n'+
+'var bIs=oHomePage.isHomePage(sHomePage);\n'+
+'with (oCodeDiv) if (bIs) innerHTML=sHomePage+"是您的默认主页"; else innerHTML=sHomePage+"不是您的默认主页";\n'+
+'}\n'+
+'function rdl_Set(){\n'+
+'var sHomePage=oURL.value;\n'+
+'oHomePage.setHomePage(sHomePage);\n'+
+'}\n'+
+'function window.onload(){\n'+
+'oHomePage=document.all("idHomePage");\n'+
+'oCodeDiv=document.all("idCodeDiv");\n'+
+'oURL=document.all("idURL");\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<rdl:homepage id="idHomePage" />\n'+
+'<table><tr>\n'+
+'<td><input type=text size=30 value="http://www.dhtmlet.com" id=idURL></td>\n'+
+'<td><input type=button value=" 检测 " onclick="rdl_Verify();"></td><td><input type=button value=" 设置 " onclick="rdl_Set();"></td>\n'+
+'</tr></table>\n'+
+'<br>\n'+
+'<br>\n'+
+'<div id=idCodeDiv>请确认输入框内的url地址然后点击「检测」按钮。</div>\n';
+
+iWinWidth=380;
+
+iWinHeight=260;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>isHomePage</span>版本：DHTML Object Model　返回值：有</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td>
+<td><i>bHomePage</i><b> = </b><i> Object </i><b>.isHomePage ( </b><i>sURL</i><b> ) </b></td></tr>
+</table>
+
+<div>
+
+</div>
+
+<div class=cssColumnTitle>参数：</div>
+<table>
+<tr><td nowrap><i> sURL </i></td><td nowrap><b>: </b></td><td>必选项。字符串(String)。 指定和客户端的默认主页比较的路径和(或)文件名。</td></tr>
+</table>
+
+<div class=cssColumnTitle>返回值：</div>
+<table>
+<tr><td nowrap><i> bHomePage </i></td><td nowrap><b>: </b></td><td>
+布尔值(Boolean)。<b>false</b> | <b>true</b>
+<table>
+<tr><td nowrap><b> false <b></td><td nowrap><b>: </b></td><td><i> sURL </i>是客户端指定的默认主页。</td></tr>
+<tr><td nowrap><b> true </b></td><td nowrap><b>: </b></td><td><i> sURL </i>不是客户端指定的默认主页。</td></tr>
+</table></td></tr>
+</table>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+探测<i> sURL </i>是否客户端指定的默认主页。<br>
+假如调用此方法的页面地址和客户端当前的默认主页不在同一个域内则此方法总是返回<b> false </b>。例如，如果 http://www.dhtmlet.com 是您的默认主页，而您在  http://www.dhtmlet.com/demo/index.html 页面内调用此方法，则会返回<b> true </b>。而您若从其他域名下的页面内调用此方法则会返回<b> false </b>。
+</div>
+
+
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

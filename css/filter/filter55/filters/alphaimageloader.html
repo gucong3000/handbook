@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="rdl_object.css">
+<script src="rdl_object.js"></script>
+<base target="_self">
+</head>
+<body>
+
+<script>
+
+//var collElements=new Array();
+//var collProperties=new Array();
+//var collMethods=new Array();
+//var collEvents=new Array();
+//var collCollections=new Array();
+
+collProperties=new Array(
+new Array('enabled','Enabled','设置或检索滤镜是否激活。'),
+new Array('sizingMethod','sizingMethod','设置或检索滤镜作用的对象的图片在对象容器边界内的显示方式。 '),
+new Array('src','src','使用绝对或相对 url 地址指定背景图像。')
+);
+
+//collFriendFilters=new Array();
+//collFriendProperties=new Array();
+//collFriendMethods=new Array();
+//collFriendEvents=new Array();
+//collFriendCollections=new Array();
+
+collFriendEvents=new Array(
+'onfilterchange'
+);
+
+collFriendProperties=new Array(
+'filter'
+);
+
+collFriendCollections=new Array(
+'filters'
+);
+
+//collIE40=new Array();
+//collIE50=new Array();
+//collIE55=new Array();
+//collIE60=new Array();
+
+collIE55=new Array(
+'A','ACRONYM','ADDRESS','B','BDO','BIG','BLOCKQUOTE','BODY','BUTTON','CAPTION','CENTER','CITE','CODE','CUSTOM','DD','DEL','DFN','DIR','DIV','DL','DT','EM','FIELDSET','FONT','FORM','FRAME','Hn','IFRAME','I','INS','IMG','INPUT type=button','INPUT type=checkbox','INPUT type=file','INPUT type=image','INPUT type=password','INPUT type=radio','INPUT type=reset','INPUT type=submit','INPUT type=text','KBD','LABEL','LEGEND','LI','MARQUEE','MENU','NOBR','OBJECT','OL','P','PLAINTEXT','PRE','Q','RT','RUBY','S','SAMP','SMALL','SPAN','STRIKE','STRONG','SUB','SUP','TABLE','TEXTAREA','TH','TD','TT','U','UL','VAR','XMP'
+);
+
+sStyle=
+'#idDiv{width:80%;height:80px;background-color:#FF6633;color:#FFFFFF;padding:4px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="..\/images\/rdl_ice.gif", sizingMethod="crop");}\n'+
+'#idCodeDiv{width:100%;padding:4px;font-family:verdana,tahoma;margin:12px 0px 0px 0px;background-color:#EEEEEE;font-weight:bold;}\n';
+
+sScript=
+'<script>\n'+
+'var sFilter="filter : progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\'..\/images\/rdl_ice.gif\', sizingMethod=\'";\n'+
+'function rdl_change(e){\n'+
+'var oCodeDiv=document.all("idCodeDiv");\n'+
+'var oDiv=document.all("idDiv");\n'+
+'with (document.all("idSel")){\n'+
+'if (selectedIndex!=0) var sValue=options[selectedIndex].value;\n'+
+'else var sValue="image"\n'+
+'}\n'+
+'oDiv.filters[0].sizingMethod=sValue;\n'+
+'oCodeDiv.innerHTML=sFilter+sValue+"\');";\n'+
+'}\n'+
+'<\/script>\n';
+
+sCode=
+'<div id=idDiv>请从下方选择<b> sizingMethod </b>参数的值。<\/div>\n'+
+'<br>\n'+
+'<select id="idSel" onchange="rdl_change();">\n'+
+'<option value="null">---请选择---\n'+
+'<option value="image">image\n'+
+'<option value="scale">scale\n'+
+'<option value="crop">crop\n'+
+'<\/select>\n'+
+'<div id=idCodeDiv>filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="..\/images\/rdl_ice.gif", sizingMethod="crop");<\/div>\n';
+
+
+iWinWidth=500;
+
+iWinHeight=300;
+
+//bRunCode=false;
+
+//bElements=false;
+
+</script>
+
+<div id=idContent>
+
+<div id=idContentTitle><span id=idTitleName>AlphaImageLoader</span>兼容性：IE5.5+</div>
+
+<div class=cssColumnTitle>语法：</div>
+<table class=cssCommonTable border=0 cellpadding=0 cellspacing=1>
+<tr><td nowrap class=cssIETD><b> CSS </b></td><td>
+<b><a href="../properties/filter.html">filter</a> : progid:DXImageTransform.Microsoft.AlphaImageLoader ( enabled=</b><i>bEnabled</i><b> , sizingMethod=</b><i>sSize</i><b> , src=</b><i>sURL</i><b> ) </b>
+</td></tr>
+<tr><td nowrap class=cssIETD><b> Scripting </b></td><td>
+<i>object</i><b>.style.<a href="../properties/filter.html">filter</a> = "progid:DXImageTransform.Microsoft.AlphaImageLoader ( </b><i>sProperties</i><b> ) "</b>
+</td></tr>
+</table>
+
+<div class=cssColumnTitle id="idShit"></div>
+<div id=idSubContent></div>
+
+<div class=cssColumnTitle>说明：</div>
+<div>
+在对象容器边界内，在对象的背景和内容之间显示一张图片。并提供对此图片的剪切和改变尺寸的操作。如果载入的是PNG(Portable Network Graphics)格式，则0%-100%的透明度也被提供。<br>
+PNG(Portable Network Graphics)格式的图片的透明度不妨碍你选择文本。也就是说，你可以选择显示在PNG(Portable Network Graphics)格式的图片完全透明区域后面的内容。<br>
+</div>
+
+<div class=cssColumnTitle>示例：</div>
+<div id=idSimpleCode>
+#idDiv{position:absolute; left:140px; height:400; width:400;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='rain1977.gif',sizingMethod='scale');}<br>
+.dream{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/earglobe.gif');}
+</div>
+
+</div>
+</body>
+</html>
+
+<!-- Part of RDL(TM) - Written by Rain1977 
+HomeSite: http://www.dhtmlet.com  E-Mail: dhtmlet@hotmail.com -->

@@ -1,0 +1,180 @@
+.docBookTitle, .docPartTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:24px;
+	font-weight:bold;
+}
+.docPrefaceTitle, .docAppendixTitle, .docChapterTitle, .docBibliographyTitle, .docArticleTitle, .docGlossaryTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:22px;
+}
+.docSidebarTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:22px;
+	text-align:center;
+}
+.docSection1Title, .docBibliodivTitle, .docBridgehead {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:20px;
+}
+.docSection2Title, .docBibliosetTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:17px;
+}
+.docSection3Title, .docSection4Title, .docSection5Title {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:14px;
+	font-weight:bold;
+}
+.docFigureTitle, .docTableTitle, .docExampleTitle, .docTocTitle, .docAbstractTitle, .docQandasetTitle,  .docProcTitle, .docRefsectTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:14px;
+	font-weight:bold;
+}
+.docText, .docList {
+	font-family:Arial, Helvetica, sans-serif;
+	color:black;
+	font-size:14px;
+}
+.docMonofont {
+	font-family:Courier New, Courier, monospace;
+}
+.docTableHeader, .docTableCell {
+	font-family:Arial, Helvetica, sans-serif;
+	color:black;
+	font-size:14px;
+}
+.docTableFooter {
+	font-family:Arial, Helvetica, sans-serif;
+	color:black;
+	font-size:10px;
+}
+.docRefCell {
+	font-family:Arial, Helvetica, sans-serif;
+	color:black;
+	font-size:17px;
+}
+.docTextHighlight {
+	background-color:#EEEEEE;
+	color:#CC0000;
+}
+.docIndexterm {
+	color:#A0A0A0;
+	font-size:12px;
+}
+.docFootnote, .docItemizedlist {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#606060;
+	font-size:10px;
+}
+.docNote {
+blockquote margin-top:2em;
+	margin-right:2em;
+	margin-bottom:2em;
+	margin-left:2em;
+}
+.docNoteTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:black;
+	font-size:14px;
+	font-weight:bold;
+}
+.docNormalTitle, .docTipTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#354278;
+	font-size:14px;
+	font-weight:bold;
+}
+.docCautionsTitle {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#CC0000;
+	font-size:14px;
+	font-weight:bold;
+}
+.docLink {
+	color:#003399;
+	text-decoration:none;
+}
+.docLink:visited {
+	color:#3366CC;
+	text-decoration:none;
+}
+.docLink:hover {
+	color:#000033;
+	text-decoration:underline;
+}
+.docEmphasis {
+	font-style:italic;
+}
+.docEmphBold, .docEmphStrong {
+	font-weight:bold;
+}
+.docEmphGray {
+	color:#C0C0C0;
+}
+.docEmphMark {
+	background-color:#C0C0C0;
+}
+.docEmphRev {
+	color:silver;
+	background-color:black;
+}
+.docEmphStrike {
+	text-decoration:line-through;
+}
+.docEmphUl, .docEmphCursor {
+	text-decoration:underline;
+}
+.docEmphBoldItalic {
+	font-style:italic;
+	font-weight:bold;
+}
+.docEmphRoman {
+	font-style:normal;
+	text-decoration:none;
+	text-transform:none;
+	font-weight:normal;
+	font-variant:normal;
+}
+.docEmphSmaller {
+	color:#354278;
+	font-size:75%;
+}
+.docEmphHyperlink {
+	color:black;
+}
+.docCaps {
+	text-transform:uppercase;
+}
+.docStructname {
+	font-variant:small-caps;
+}
+.docPubcolor {
+	color:#354278;
+}
+h1, h2, h3, h4, h5, h6 {
+	color:#354278;
+}
+pre {
+	color:#3178C6;
+	font-family:Courier New, Courier, monospace;
+	font-size:14px;
+}
+tt {
+	color:#3178C6;
+	font-family:Courier New, Courier, monospace;
+}
+i {
+	font-style:normal;
+	font-size:15px;
+	}
+* {
+	font-family:"simsun"!important;
+	}
+	

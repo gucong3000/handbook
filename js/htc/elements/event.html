@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html>
+<head>
+<meta name="Author" content="Snakevil">
+<meta charset="utf-8">
+<link href="../_shared/basic.css" rel="stylesheet">
+<script src="../_shared/example.js" id="oScriptExample"></script>
+</head>
+
+<body>
+	<div id="main">
+		<h1><span>PUBLIC:EVENT</span>元素</h1>
+		<hr>
+		<p>定义一个该<span>HTC</span>的专有事件，并将其暴露给包含此<span>HTC</span>的文档。</p>
+		<h2><LABEL>Syntax</LABEL>格式</h2>
+		<blockquote>
+			<code>&lt;PUBLIC:EVENT<br>&nbsp;&nbsp;id&nbsp;=&nbsp;&quot;<I>sEventID</I>&quot;<br>&nbsp;&nbsp;name&nbsp;=&nbsp;&quot;<I>sName</I>&quot;<br>/&gt;</code>
+		</blockquote>
+		<h2><LABEL>Attributes</LABEL>属性</h2>
+		<blockquote>
+			<dl>
+				<dt><B>ID</B></dt>
+				<dd>
+					<p>可选。字符串值；在组件内用于识别该<B><span>PUBLIC:EVENT</span></B>元素的唯一值。这个属性类似于<span>DHTML</span>中的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"><span>ID</span></a>属性。</p>
+				</dd>
+				<dt><B>NAME</B></dt>
+				<dd>
+					<p>必需。字符串值；指定暴露给其包含文档的事件名称。</p>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Methods</LABEL>方法</h2>
+		<blockquote>
+			<dl>
+				<dt><I>eventID</I><B>.fire( [</B><I>oEvent</I><B>] )</B></dt>
+				<dd>
+					<p>发生该事件到其包含文档。</p>
+					<p>此方法拥有下面的参数：</p>
+					<table>
+						<tr>
+							<td class="value">oEvent</td>
+							<td>指定<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/obj_event.asp"><span>event</span></a>对象所包含的相关信息的对象。</td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+		</blockquote>
+		<h2><LABEL>Element Information</LABEL>元素信息</h2>
+		<blockquote>
+			<table>
+				<tr>
+					<th>父元素</th>
+					<td><a href="component.html"><span>PUBLIC:COMPONENT</span></a></td>
+				</tr>
+				<tr>
+					<th>子元素</th>
+					<td>无</td>
+				</tr>
+				<tr>
+					<th>最低可用版本</th>
+					<td><span>Internet Explorer 5</span></td>
+				</tr>
+				<tr>
+					<th>最低操作系统版本</th>
+					<td><span>Windows 95</span>，<span>Windows NT 4.0</span></td>
+				</tr>
+			</table>
+		</blockquote>
+		<h2><LABEL>Remarks</LABEL>注意</h2>
+		<blockquote>
+			<p>通过指定与该元素已定义的标准事件同名的<B><span>NAME</span></B>属性，该行为可以重载该元素的默认行为。</p>
+			<p>一个行为中定义的事件不会起泡；它们只发生在附加有该行为的元素上。</p>
+		</blockquote>
+		<h2><LABEL>Examples</LABEL>范例</h2>
+		<blockquote>
+			<p>此例源自于一个计算器行为样例。只要结果改变，该<span>HTC</span>发生一个自定义的<span>onResultChange</span>事件返回到页面，同时将结果作为<B><span>event</span></B>对象的一个自定义属性进行传递。</p>
+			<code>&lt;PUBLIC:EVENT&nbsp;name=&quot;onResultChange&quot;&nbsp;id=&quot;rcID&quot;&nbsp;/&gt;<br><br>&lt;SCRIPT&nbsp;language=&quot;JScript&quot;&gt;<br>function&nbsp;doCalc()<br>{<br>&nbsp;&nbsp;<U>:</U><br>&nbsp;&nbsp;oEvent&nbsp;=&nbsp;createEventObject();<br>&nbsp;&nbsp;oEvent.result&nbsp;=&nbsp;sResult;<br>&nbsp;&nbsp;rcID.fire&nbsp;(oEvent);<br>}<br>&lt;SCRIPT&gt;</code>
+			<p>此例展示了该包含页如何。</p>
+			<div class="example">
+				<code>&lt;HTML&nbsp;XMLNS:InetSDK&gt;<br>&lt;HEAD&gt;<br>&lt;STYLE&gt;<br>@media&nbsp;all&nbsp;{<br>&nbsp;&nbsp;InetSDK\:CALC&nbsp;{behavior:url(engine.htc)}&nbsp;<br>}<br>&lt;/STYLE&gt;<br>&lt;/HEAD&gt;<br><br>&lt;InetSDK:CALC&nbsp;id=&quot;myCalc&quot;<br>&nbsp;onResultChange=&quot;resultWindow.innerText=window.event.result&quot;&gt;<br>&lt;TABLE&gt;<br>&lt;TR&gt;&lt;DIV&nbsp;id=&quot;resultWindow&quot;<br>&nbsp;style=&quot;BORDER:.025cm&nbsp;solid&nbsp;gray&quot;<br>&nbsp;align=&quot;right&quot;&gt;0.&lt;/DIV&gt;&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;7&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;8&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;9&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;/&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;C&nbsp;&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;4&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;5&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;6&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;*&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;%&nbsp;&quot;&nbsp;disabled=&quot;true&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;1&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;2&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;3&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;-&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;1/x&quot;&nbsp;disabled=&quot;true&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;TR&gt;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;0&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;+/-&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;.&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;+&nbsp;&quot;&gt;&lt;/TD&gt;<br>&nbsp;&nbsp;&lt;TD&gt;&lt;INPUT&nbsp;type=&quot;button&quot;&nbsp;value=&quot;&nbsp;=&nbsp;&quot;&gt;&lt;/TD&gt;<br>&lt;/TR&gt;<br>&lt;/TABLE&gt;<br>&lt;/InetSDK:CALC&gt;<br>&lt;/HTML&gt;</code>
+				<button href="../examples/"></button>
+			</div>
+		</blockquote>
+		<h2><LABEL>See Also</LABEL>相关资料</h2>
+		<blockquote>
+			<ul>
+				<li><a href="http://msdn.microsoft.com/workshop/author/behaviors/overview.asp">《<span>DHTML</span>行为简介》</a></li>
+				<li><a href="../articles/usehtmcom2impdhtbehinscr.html">《使用<span>HTML</span>组件在脚本中实现<span>DHTML</span>行为》</a></li>
+				<li><a href="method.html"><span>PUBLIC:METHOD</span></a></li>
+				<li><a href="property.html"><span>PUBLIC:PROPERTY</span></a></li>
+			</ul>
+		</blockquote>
+	</div>
+	<script type="text/javascript" src="../_shared/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252" />
+<TITLE>cookie</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/appliesto2.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/advSDKATIE4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(fnATInit) == 'function') fnATInit();
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>cookie Property
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><P>Sets or retrieves the string value of a cookie.</P><P CLASS="clsRef">Syntax</P><BLOCKQUOTE><PRE CLASS="clsSyntax"><I>document</I>.<B>cookie</B> [ <B>=</B>&nbsp;<SPAN CLASS="clsRange">sCookie</SPAN> ]</PRE></BLOCKQUOTE><P CLASS="clsRef">Possible Values</P><BLOCKQUOTE><TABLE CLASS="clsStd"><TR><TD><SPAN CLASS="clsRange">sCookie</SPAN></TD><TD><b>String</b> that
+specifies or receives the name=value; pairs, plus any of the values listed in Possible Values. <TABLE CLASS="clsStd"><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">expires=date;</SPAN></TD><TD>Setting no expiration date on a cookie causes it to expire when the browser closes. If you set an expiration date in the future, the cookie is saved across browser sessions. If you set an expiration date in the past, the cookie is deleted. Use GMT format to specify the date. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">domain=domainname;</SPAN></TD><TD>Setting the domain of the cookie allows pages on a domain made up of more than one server to share cookie information. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsRange">path=path;</SPAN></TD><TD>Setting a path for the cookie allows the current document to share cookie information with other pages within the same domain&#151;that is, if the path is set to /thispathname, all pages in /thispathname and all pages in subfolders of /thispathname can access the same cookie information. </TD></TR><TR><TD NOWRAP="1"><SPAN CLASS="clsLiteral">secure;</SPAN></TD><TD>Setting a cookie as <SPAN CLASS="clsLiteral">secure;</SPAN> means the stored cookie information can be accessed only from a secure environment.</TD></TR></TABLE></TD></TR></TABLE><P>The property is read/write.
+The property has no default value.</P><P>Expressions can be used in place of the preceding value(s), as of Microsoft&#174; Internet Explorer 5.  For more information, see <A HREF="/workshop/author/dhtml/overview/recalc.html">About Dynamic Properties</A>.</P></BLOCKQUOTE><P CLASS="clsRef">Remarks</P><BLOCKQUOTE><P>A cookie is a small piece of information stored by the browser. Each cookie is stored in a name=value; pair called a crumb&#151;that is, if the cookie name is "id" and you want to save the id's value as "this", the cookie would be saved as id=this. You can store up to 20 name=value pairs in a cookie, and the cookie is always returned as a string of all the cookies that apply to the page. This means that you must parse the string returned to find the values of individual cookies.</P><P>Cookies accumulate each time the property is set.  If you try to set more than one cookie with a single call to the property, only the first cookie in the list will be retained.</P><P>You can use the Microsoft&#174; JScript&#174;?A HREF="/library/en-us/script56/html/vtoriMicrosoftWindowsScriptTechnologies.html" TARGET="_top">split</A> method to extract a value stored in a cookie. </P></BLOCKQUOTE><P CLASS="clsRef">Examples</P><BLOCKQUOTE><P>
+This example creates a cookie with a specified name and value. The value is passed to the JScript?B>escape</B> function to ensure that the value only contains valid characters. When the cookie is retrieved, the JScript <B>unescape</B> function should be used to translate the value back to its original form.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+// Create a cookie with the specified name and value.
+// The cookie expires at the end of the 20th century.
+function SetCookie(sName, sValue)
+{
+date = new Date();
+document.cookie = sName + "=" + escape(sValue) + "; expires=" + date.toGMTString();
+}
+&lt;/SCRIPT&gt;</PRE><P>
+This example retrieves the value of the portion of the <B>cookie</B> specified by the <I>sCookie
+</I> parameter.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+// Retrieve the value of the cookie with the specified name.
+function GetCookie(sName)
+{
+// cookies are separated by semicolons
+var aCookie = document.cookie.split("; ");
+for (var i=0; i &lt; aCookie.length; i++)
+{
+// a name/value pair (a crumb) is separated by an equal sign
+var aCrumb = aCookie[i].split("=");
+if (sName == aCrumb[0])
+return unescape(aCrumb[1]);
+}
+// a cookie with the requested name does not exist
+return null;
+}
+&lt;/SCRIPT&gt;</PRE><P>
+This example deletes a cookie by setting its expires attribute to a past date. A cookie deleted in this manner might not be removed immediately by the browser.</P><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+// Delete the cookie with the specified name.
+function DelCookie(sName)
+{
+document.cookie = sName + "=" + escape(sValue) + "; expires=Fri, 31 Dec 1999 23:59:59 GMT;";
+}
+&lt;/SCRIPT&gt;</PRE></BLOCKQUOTE><P CLASS="clsRef">Standards Information</P><BLOCKQUOTE><P>
+This property is defined in <A HREF="http://www.w3.org/tr/2000/wd-dom-level-1-20000929/" TARGET="_top">
+World Wide Web Consortium (W3C) Document Object Model (DOM) Level 1</A>&nbsp;<IMG WIDTH="33" HEIGHT="11" BORDER="0" ALT="Non-Microsoft link" SRC="../common/leave-ms.gif">.
+</P></BLOCKQUOTE><P CLASS="clsRef">Applies To</P><BLOCKQUOTE><TABLE ID="oATTable" CLASS="TMAT3D"><TR><TD VALIGN="top" STYLE="border: 1 outset; display: none;"></TD><TD ID="oATData" CLASS="controls"><A PLATINFO="win16=3.02;win32=3.02;ce=4.0;unix=4.0;mac=3.02" HREF="../objects/obj_document.html">
+document</A></TD></TR><TR><TD COLSPAN="2" CLASS="controls"></TD></TR></TABLE></BLOCKQUOTE><P CLASS="clsRef">See Also</P><BLOCKQUOTE><A HREF="/workshop/author/persistence/overview.html">Introduction to Persistence</A>, <A HREF="/library/en-us/dnpriv/html/ie6privacyfeature.html" TARGET="_top">Privacy in Internet Explorer 6</A></BLOCKQUOTE></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>

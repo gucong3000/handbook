@@ -1,0 +1,318 @@
+
+<HTML >
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312" />
+<TITLE>Introduction to</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie5.css" />
+<style>
+BODY
+{
+font-family:verdana,arial,helvetica;
+margin:0;
+}
+</style>
+<SCRIPT LANGUAGE="javascript" SRC="../common/common.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/browdata.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript" SRC="../common/toolbar.js"></SCRIPT>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/ie4.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/inetsdk.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../common/default.css" />
+
+
+
+
+
+<SCRIPT>
+var gbDBG = true;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsHTCPath = "../common/";
+var gsGraphicsPath = "../common/";
+var gsCodePath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+var gsContextMenuPath = gsHTCPath + "contextmenu.htc";
+var gsCodeDecoPath = gsHTCPath + "codedeco.htc";
+var gsStoreName="workshop";
+var gsGraphicsPath = "../common/";
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function CMemberInfo()
+{   this.defView = 'all';
+}
+var g_oMemberInfo = new CMemberInfo();
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function InitPage()
+{
+if (!assert( (typeof(oBD) == 'object' && oBD != null), "browdata object unavailable!") )
+{
+return;
+}
+if ("MSIE" == oBD.browser && oBD.majorVer >= 5 && (oBD.platform.toLowerCase()!="x" && oBD.platform!="Mac" && oBD.platform!="PPC" ))
+{
+if (typeof(PostGBInit) == 'function') PostGBInit();
+if (typeof(PostInit) == 'function') PostInit();
+if (typeof(initTabbedMembers) == 'function') initTabbedMembers();
+if (typeof(hideExamples) == 'function') hideExamples();
+}
+if (oBD.getsNavBar && oBD.platform!="PPC" )
+{
+if (typeof(SetShowMes) == 'function') SetShowMes();
+}
+}
+function assert(bCond, sMsg)
+{
+if (bCond) { return true; }
+else { if (gbDBG) { alert(sMsg); } return false; }
+}
+window.onload = InitPage;
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2">
+function PreInit()
+{
+if (top == self)
+location.replace("http://" + document.domain +"/library/default.html?url=" + document.URL.substring("http://".length + document.domain.length));
+}
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+</script>
+</HEAD> <BODY TOPMARGIN="0"  LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0" BGCOLOR="#FFFFFF" TEXT="#000000">
+<TABLE STYLE="table-layout:fixed" class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top'>
+<DIV CLASS="clsDocBody"><TABLE WIDTH="97%" CELLPADDING="0" CELLSPACING="0"><TR><TD><H1>Introduction to Forms
+</H1></TD><TD ALIGN="right"><A HREF="../default.html" TITLE="This index is only for content formerly found in the Web Workshop." TARGET="_top">Internet Development Index</A></TD></TR></TABLE>
+<HR SIZE="1"></HR><p>Forms provide an interface for collecting, displaying, and delivering information, and are a key component of HTML. By providing different controls such as <A HREF="../objects/input_text.html">text fields</A>, <A HREF="../objects/input_button.html">buttons</A>, and <A HREF="../objects/input_checkbox.html">checkboxes</A>, forms can enhance Web pages with a means to exchange information between a client and a server. The various controls allow authors and users to perform actions, make choices, and quickly identify and enter information. When the form data is submitted to the server- or client-side script, the information either is parsed and cataloged, or redirected in response to the submission. Forms are prevalent throughout all graphics-based operating systems and Web pages. </p><p>Web-based forms are supported in most browsers, and including forms in a Web page is relatively straightforward. This overview introduces form controls, discusses form design and accessibility, and provides a first step to submitting and managing form data.</p><DIV CLASS="clsNote"><B>
+Note</B>&nbsp;&nbsp; Handling form submissions requires knowledge of a programming language such as Perl, C++, or server-side scripting and Active Server Pages (ASP).</DIV><UL><LI><A TARGET="_self" HREF="#advantages">Advantages of Forms</A></LI><LI><A TARGET="_self" HREF="#controls">Form Controls</A></LI><LI><A TARGET="_self" HREF="#implementing">Implementing Forms</A></LI><LI><A TARGET="_self" HREF="#organizing">Organizing and Enhancing Forms</A></LI><LI><A TARGET="_self" HREF="#worktext">Working with Text</A></LI><LI><A TARGET="_self" HREF="#submission">Submitting Forms</A></LI><LI><A TARGET="_self" HREF="#submitissues">Submission Issues</A></LI><LI><A TARGET="_self" HREF="#related_topics">Related Topics</A></LI></UL><H2><A NAME="advantages"></A>Advantages of Forms</H2><p>Using forms is advantageous because they are:</p><ul><li>Easy to implement. There are several controls that provide a means to exchange information with a user. </li><li>Extensible. Dynamic HTML (DHTML) allows an author to update and modify forms and controls as needed. </li><li>Accessible. Using the <A HREF="/workshop/author/css/reference/attributes.html">Cascading Style Sheets (CSS)</A> attributes, supported as of Microsoft&#174; Internet Explorer 4.0 and later, allows authors to tailor form controls with specific styles. </li></ul><p>Forms provide a convenient interface for exchanging information between a server and a client, and allow an author to quickly create and distribute an HTML interface to a large audience. With DHTML, Web authors can enhance forms using CSS and client-side scripting languages, such as Microsoft JScript&#174; and Microsoft Visual Basic&#174; Scripting Edition (VBScript).</p><p>To enhance a form's visibility and make its controls easier to use, an author can apply CSS attributes, such as <A HREF="/workshop/author/position/positioning.html">positioning</A> and <A HREF="/workshop/author/dynstyle/styles.html">dynamic styles</A>. Combined with robust client-side scripts, forms also can be enhanced to provide validation or masking, or even to perform calculations once reserved for the server.</p><H2><A NAME="controls"></A>Form Controls</H2><p>Form controls allow authors to provide Web sites with benefits similar to other graphics-based programming languages. The following table provides a list of the supported form controls, when they were first available in Internet Explorer, what attributes are submitted, and a description.</p><table class="clsStd"><tr><th>Element/Control</th><th>Availability</th><th>Submitted</th><th>Description</th></tr><tr><td><A HREF="../objects/button.html">button</A></td><td>4.0</td><td><A HREF="../properties/name_2.html">NAME</A>, <A HREF="../properties/value_1.html">VALUE</A></td><td>Rich button control that can include DHTML is rendered. When submitted, Internet Explorer 4.0 submits the <A HREF="../properties/innertext.html">innerText</A> property, and Internet Explorer 5 and later submits the <B>NAME</B>/<B>VALUE</B> pair.</td></tr><tr><td><A HREF="../objects/input_button.html">input type=button</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td><A HREF="../objects/input.html">input</A> element is rendered as a button. Events such as <A HREF="../events/onclick.html">onclick</A> can be included with the button to provide action when it is clicked.</td></tr><tr><td><A HREF="../objects/input_checkbox.html">input type=checkbox</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td><B>input</B> element is rendered as a check box. The check box is useful for selecting multiple groups of topics (for example, selecting favorite magazines) and Boolean decisions (for example, adding your e-mail to the mailing list). Events such as <B>onclick</B> can be used in conjunction with the <A HREF="../properties/checked.html">checked</A> property to determine conditions (for example, displaying a hidden object).</td></tr><tr><td><A HREF="../objects/input_file.html">input type=file</A></td><td>4.0</td><td><B>NAME</B>, <B>VALUE</B> (encoded)</td><td>Nonscriptable text field and Browse button are rendered. The <A HREF="../properties/encoding.html">ENCTYPE</A> attribute for a form must be set to <SPAN CLASS="clsLiteral">multipart/form.data</SPAN> for this control to work properly. For security reasons, the <B>VALUE</B> attribute is not accessible in script on the client.</td></tr><tr><td><A HREF="../objects/input_hidden.html">input type=hidden</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td>Hidden control is rendered, and is useful for submitting additional information that does not need to be displayed to the user.</td></tr><tr><td><A HREF="../objects/input_image.html">input type=image</A></td><td>3.0</td><td><B>NAME</B></td><td>Submit control is rendered as an image. The image control is a useful alternative to using buttons. When the image control is clicked, it is the only image control submitted for the form. In addition, an image control is submitted only if the <B>NAME</B> attribute is specified.</td></tr><tr><td><A HREF="../objects/input_password.html">input type=password</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td>Text field masked with asterisks is rendered. The password field is useful on the client for shielding private information from anyone looking at the same screen.</td></tr><tr><td><A HREF="../objects/input_radio.html">input type=radio</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td>Radio control is rendered, and is useful for selecting one item from a set. Selecting one radio control clears any other radio controls with the same <B>NAME</B> attribute value.</td></tr><tr><td><A HREF="../objects/input_reset.html">input type=reset</A></td><td>3.0</td><td></td><td>Button that resets all form values is rendered.</td></tr><tr><td><A HREF="../objects/input_submit.html">input type=submit</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td>Button that sends all the information for a particular form to the script or program specified in the <A HREF="../properties/action.html">ACTION</A> attribute is rendered. The <A HREF="../properties/method.html">METHOD</A> attribute specifies the way in which the form information is delivered. <p>Submit controls are sent only if the <B>NAME</B> attribute is defined. If more than one submit control exists in a particular form, only the control that is clicked is sent.</p></td></tr><tr><td><A HREF="../objects/input_text.html">input type=text</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td>Single-line text field is rendered.</td></tr><tr><td><A HREF="../objects/select.html">select</A></td><td>3.0</td><td><B>NAME</B>, <A HREF="../objects/option.html">option</A>(selected)</td><td>Drop-down list box or list box is created, comprised of included <B>option</B> elements, or created dynamically using the <A HREF="../collections/options.html">options</A> collection and <A HREF="../methods/add.html">add</A> method. A list box is created by specifying a value greater than 1 for the <A HREF="../properties/size_2.html">SIZE</A> attribute. Multiple options in a list box can be selected by including the <A HREF="../properties/multiple.html">MULTIPLE</A> attribute. If the <B>MULTIPLE</B> attribute is included, a list box is created. If the <B>SIZE</B> and <B>MULTIPLE</B> attributes are not present, a drop-down list box is created.</td></tr><tr><td><A HREF="../objects/textarea.html">textArea</A></td><td>3.0</td><td><B>NAME</B>, <B>VALUE</B></td><td>Text field with multiple lines is rendered. The <B>VALUE</B> attribute of the <B>textArea</B> element is equivalent to the <B>innerText</B> property, and is located between the opening and closing tags.</td></tr></table><H2><A NAME="implementing"></A>Implementing Forms</H2><p>Before implementing forms on a Web site, the need for the <A HREF="../objects/form.html">form</A> element must be determined. The <B>form</B> element is necessary for submitting form controls to a server. When a form is submitted, only the name/value pairs for the controls within the submitted <B>form</B> element are sent. The <B>form</B> element is not necessary if form controls are being used only for client-side scripting. However, other browsers may require the element before the controls are rendered.</p><p>When using the <B>form</B> element, the <B>ACTION</B> and <B>METHOD</B> attributes specify how and where the data in the form controls is delivered. The two methods used are <SPAN CLASS="clsLiteral">get</SPAN> and <SPAN CLASS="clsLiteral">post</SPAN>.</p><ul><li>The <SPAN CLASS="clsLiteral">get</SPAN> possible value specifies that the form data is appended to the URL specified in the <B>ACTION</B> attribute, and limits the amount of data to 256 characters. This method is deprecated due to the size limitation and visibility in the document location. However, it is useful for debugging transactions, because the submission string is visible as a part of the path. </li><li>The <SPAN CLASS="clsLiteral">post</SPAN> possible value sends form data as a post transaction, is not limited in size, and is the preferred method for delivering data to the server. </li></ul><p>A form action is any script designed to process the delivered information and reply to the HTTP server, so that results can be returned to the client. The following sample demonstrates the syntax of the <B>form</B> element that sends form data as a post transaction to an ASP.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;FORM ACTION = "process.html" METHOD = "post"&gt;
+:
+&lt;/FORM&gt;</PRE><p>Form controls are added to Web pages as <A HREF="/workshop/author/html/reference/elements.html">HTML elements</A>. For example, adding two text fields for the first and last names of visitors only requires the <B>input type=text</B> control.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;FORM&gt;
+First Name: &lt;INPUT TYPE = "text" NAME = "FirstName"&gt;
+&lt;BR&gt;
+Last Name: &lt;INPUT TYPE = "text" NAME = "LastName"&gt;
+&lt;/FORM&gt;</PRE><p>When adding controls, it is important to understand the difference between the <A HREF="../properties/id.html">ID</A> and <B>NAME</B> attributes. Both attributes are accessible through client-side scripting, but only the <B>NAME</B> is passed when the form is submitted. In addition, the <B>ID</B> can be referred to directly in script while the <B>NAME</B> must be referred to by including the <B>NAME</B> of the parent form, if the element is a child of a <B>form</B> element. For example, if a Web author wants to access the <B>VALUE</B> attributes of the <SPAN CLASS="clsLiteral">FirstName</SPAN> text field on the client, the following considerations must be taken into account.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;FORM NAME = "Form1"&gt;
+&lt;INPUT TYPE = "text" ID = "oFirstName" NAME = "FirstName" &gt;
+&lt;/FORM&gt;</PRE><ol><li>If the <B>ID</B> attribute is assigned, the element can be directly accessed within script. Keep in mind that the <B>ID</B> is not submitted.
+<PRE CLASS="clsCode" AUTOHILITE="1">var sFirstName = oFirstName.value;</PRE></li><li>If the text field is not a child of a <B>form</B> element, the <B>NAME</B> attribute can be used to identify the text field.
+<PRE CLASS="clsCode" AUTOHILITE="1">var sFirstName = oFirstName.value;</PRE></li><li>If the text field is a child of a <B>form</B> element and does not have an assigned <B>ID</B> attribute, then the <B>NAME</B> attribute of the <B>form</B>, or the ordinal position of the <B>form</B> in the <A HREF="../collections/forms.html">forms</A> collection, must be used to access the text field. In addition, the <A HREF="../methods/item.html">item</A> method can be used to refer to a particular control of the form without specifying the <B>NAME</B> or <B>ID</B>.
+<PRE CLASS="clsCode" AUTOHILITE="1">// Access the VALUE through the form NAME
+var sFirstName = Form1.FirstName.value;
+// Access the VALUE through the forms collection using the NAME attribute.
+var sFirstName = document.forms[0].FirstName.value;
+// Access the VALUE through the forms collection using the item method.
+var sFirstName = document.forms[0].items[0].value;</PRE></li></ol><p>The <B>input type=text</B>, <B>input type=password</B>, and <B>textArea</B> controls are useful for submitting name/value pairs. A Web author may want more specific information or a more controlled environment for entering information. Ensuring that the correct information is supplied is critical for databases that rely on specific values for queries. It is useful to provide preset values and choices that can be selected when particular information is required.</p><p>The <B>select</B>, <B>input type=checkbox</B>, and <B>input type=radio</B> controls are ideal for selecting preset information and making choices without requiring (though allowing) keyboard input. This makes it easier and faster for users to supply information, and it means that the Web author or system administrator knows the exact value combinations.</p><p>The <B>select</B> control is extremely useful for quickly selecting one or more items from a predefined or dynamically constructed list. Implementing the <B>select</B> control is straightforward, but doing something with the control can be difficult. The <B>select</B> control allows a Web author to choose from several implementations using the <B>SIZE</B> and <B>MULTIPLE</B> attributes.</p><p>The three primary implementations of the <B>select</B> control are illustrated in the following diagram, accompanied by the attribute settings used to achieve the rendered version.</p><p><img src="../../graphics/form2.gif" width="407" height="125" alt="Form Screenshot 2"></img></p><p>The three different implementations of the <B>select</B> control are a drop-down list box, a list box, and a multi-select list box. The <B>option</B> object is used to populate the control. Referring to the selected values requires being able to identify the control and the selected option. To retrieve the selected value, the <A HREF="../properties/selectedindex.html">selectedIndex</A> property is used with the <B>options</B> collection to identify the particular item. For example, the following code contains a sample <B>select</B> control and a few lines of script that use the <A HREF="../methods/alert.html">alert</A> method to display the selected value when the <A HREF="../events/onchange.html">onchange</A> event fires.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnShowText(){
+/* Use the selectedIndex property of the SELECT control
+to retrieve the text from the options collection. */
+var sText = oSel.options(oSel.selectedIndex).text;
+alert(sText);
+}
+&lt;/SCRIPT&gt;
+&lt;SELECT ID = "oSel" onchange = "fnShowText()"&gt;
+&lt;OPTION&gt;Luna
+&lt;OPTION&gt;Saturn
+&lt;OPTION&gt;Europa
+&lt;OPTION&gt;Io
+&lt;OPTION&gt;Jupiter
+&lt;OPTION&gt;Monolith
+&lt;/SELECT&gt;</PRE><p>A somewhat different approach is required to retrieve the selected values from a multi-select list. By iterating through all the options, the <A HREF="../properties/selected.html">selected</A> property can be queried to determine if the option is selected. If so, the current index of the iteration can be used to acquire the text or value of the item. The following sample code demonstrates how this is done.</p><PRE CLASS="clsCode" AUTOHILITE="1">
+&lt;SCRIPT&gt;
+function fnShowText(){
+/* Look through all the options to find selected items. */
+for(var i = 0; i &lt; oSel.options.length; i++){
+/* Check to see if a particular option is selected */
+if(oSel.options(i).selected){
+/* Return the selected value */
+alert(oSel.options(i).text);
+}
+}
+}
+&lt;/SCRIPT&gt;
+&lt;SELECT ID = "oSel" MULTIPLE SIZE = "5" onchange = "fnShowText()"&gt;
+&lt;OPTION&gt;Luna
+&lt;OPTION&gt;Saturn
+&lt;OPTION&gt;Europa
+&lt;OPTION&gt;Io
+&lt;OPTION&gt;Jupiter
+&lt;OPTION&gt;Monolith
+&lt;/SELECT&gt;</PRE><p>When a multi-select list is submitted, the items are sent as a comma-delimited list. If a <B>VALUE</B> attribute is not provided as an option, the <A HREF="../properties/text_3.html">TEXT</A> attribute is sent instead.</p><p>The <B>input type=checkbox</B> and <B>input type=radio</B> controls provide similar interfaces with different capabilities. When the <B>NAME</B> attributes for two or more <B>input type=radio</B> controls are the same, the controls act as a collection. As a collection, only one <B>input type=radio</B> control can be checked at a time. Selecting one option at a time makes this control ideal for Boolean choices, or options that only have one possible value.</p><p>For example, if an elementary school history teacher wants to design a multiple-choice exam, the choices could be comprised of radio controls. The following sample demonstrates how the <B>input type=radio</B> control is implemented. To provide <A HREF="../objects/label.html">label</A> elements, each radio control receives a unique <B>ID</B> attribute, while the <B>NAME</B> attribute remains the same to allow the controls to function as a collection. An <B>input type=button</B> object is included to provide the correct answer, and an <B>onclick</B> event is used to verify the <B>checked</B> property of the controls.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;FORM NAME = "Form1"&gt;
+The first President of the United States was:
+&lt;TABLE&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;LABEL FOR = "oRadio1"&gt;George Washington&lt;/LABEL&gt;&lt;/td&gt;
+&lt;td&gt;&lt;INPUT TYPE = "radio" NAME = "radio1" ID = "oRadio1"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;!-- Place additional choices here --&gt;
+&lt;/TABLE&gt;
+&lt;INPUT TYPE = "button" VALUE = "Check Answer" onclick = "fnGetAnswer()"&gt;
+&lt;/FORM&gt;</PRE><p>To determine which radio control is selected, the collection is accessed and the <B>checked</B> property is verified.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+var aRadio1Answers=new Array("Correct.","Incorrect","Incorrect,"Incorrect");
+function fnGetAnswer(){
+for(var i=0;i&lt;Form1.radio1.length;i++){
+if(Form1.radio1(i).checked){
+alert(aRadio1Answers[i]);
+}
+}
+}
+&lt;/SCRIPT&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/forms/RadioForm1.htm"></IMG></A></DIV><p>On the other hand, if several choices from a group need to be made, then the <B>input type=checkbox</B> control can be used. For example, if a teacher wants to test a student's knowledge about a range of information, the <B>input type=checkbox</B> control is preferred for allowing a series of choices to be made. The syntax is the same as the radio control, only the <A HREF="../properties/type_7.html">TYPE</A> attribute is different.</p><PRE CLASS="clsCode" AUTOHILITE="1">Select the inventions created before 1500 AD.
+&lt;FORM NAME="Form1"&gt;
+&lt;TABLE&gt;
+&lt;TR&gt;
+&lt;TD&gt;&lt;LABEL FOR = "oInvention1"&gt;Crop Rotation (science)&lt;/LABEL&gt;&lt;/TD&gt;
+&lt;TD&gt;&lt;INPUT TYPE= "checkbox" NAME = "invention1" ID = "oInvention1"&gt;&lt;/td&gt;
+&lt;!-- Place additional choices here --&gt;
+&lt;/TABLE&gt;
+&lt;INPUT TYPE = "button" VALUE = "Check Answers" onclick = "fnCheck()"&gt;
+&lt;/FORM&gt;</PRE><p>In this example, the correct values are predetermined. In fact, checking for the correct values is easy. However, it gets a little tricky checking for incorrect values and handling the different cases.</p><PRE CLASS="clsCode" AUTOHILITE="1">// Preset binary markers for the correct answers.
+var aAnswers=new Array(0,1,0,0,0,1,1,0,1,1);
+// Total number of correct answers possible.
+var iTotalCorrect=5;
+// Number of attempts to submit answers.
+var iTries=0;
+function fnCheck(){
+// Increment tries and set correct and incorrect answers to zero.
+iTries++;
+var iCorrect=0;
+var iIncorrect=0;
+// Use an array of preset binaries and see if the correct control
+is checked.
+for(var i=0;i&lt;Form1.invention1.length;i++){
+// If the check box is checked and the binary is 1, it is a
+// correct answer.
+if((Form1.invention1(i).checked)&amp;&amp;(aAnswers[i]==1)){
+iCorrect++;
+}
+// If the check box is checked and the binary is 0, it is an
+incorrect answer.
+if((Form1.invention1(i).checked)&amp;&amp;(aAnswers[i]==0)){
+iIncorrect++;
+}
+}
+// If there are fewer correct answers than the total, or there
+// are any incorrect answers, return the following message.
+if((iCorrect&lt;iTotalCorrect)||(iIncorrect&gt;0)){
+alert("You have some correct and " + iIncorrect +
+" incorrect answers.");
+}
+// If there are no incorrect answers, and all the correct answers
+// are chosen, continue.
+if((iCorrect==iTotalCorrect)&amp;&amp;(iIncorrect==0)){
+// Proceed based on number of attempts.
+if(iTries==1){
+alert("Congratulations, you got them all right on the
+first try!");
+}
+else{
+alert("Congratulations.  It took " + iTries + " tries.");
+}
+}
+}</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/forms/CheckboxForm1.htm"></IMG></A></DIV><H2><A NAME="organizing"></A>Organizing and Enhancing Forms</H2><p>Forms can quickly become large and difficult to organize and use. Internet Explorer 4.0 and later supports several features that help authors manage forms, and help users quickly jump to particular places on a form.</p><ul><li>Visual enhancements provide authors with an effective way to organize how forms are positioned on a document.
+<ul><ul><li>The <A HREF="../objects/fieldset.html">fieldSet</A> element groups form controls into a bordered field. A <A HREF="../objects/legend.html">legend</A> element is used to specify the title of the field. </li><li>The <B>label</B> element provides authors with a means to identify the purpose of a form control, and gives users an easy way to set focus on that control by clicking on the label. </li></ul></ul></li><li>Keyboard enhancements provide users with a quick, logical way of accessing specific areas of a form.
+<ul><ul><li>The <A HREF="../properties/tabindex.html">TABINDEX</A> attribute allows authors to specify the cycle order of form controls when a user presses the tab key to move to the next control. </li><li>The <A HREF="../properties/accesskey.html">ACCESSKEY</A> attribute allows authors to specify a keyboard combination that sets focus on a specific form control. </li></ul></ul></li></ul><p>The following image shows how the <B>fieldSet</B> and <B>legend</B> elements can be used to group <B>input type=text</B> and <B>label</B> elements together.</p><p><img src="../../graphics/form1.gif" width="253" height="37" alt="Form Screenshot 1"></img></p><p>Using the enhancements just mentioned, a form can be organized to make it available to more users. The following code demonstrates how these enhancements are implemented.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;!-- The FIELDSET is a container for the controls. --&gt;
+&lt;FORM&gt;
+&lt;FIELDSET STYLE="width: 200;"&gt;
+&lt;!-- The LEGEND identifies the FIELDSET --&gt;
+&lt;LEGEND&gt;Accessibility Form&lt;/LEGEND&gt;
+&lt;TABLE&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;!-- A TABINDEX of -1 specifies this object is skipped. --&gt;
+&lt;LABEL TABINDEX = "-1" FOR= "oFirstName"&gt;
+&lt;!-- The acceleration key is underlined for easy identification --&gt;
+&lt;SPAN STYLE = "text-decoration: underline;"&gt;F&lt;/SPAN&gt;irst Name
+&lt;/LABEL&gt;
+&lt;/TD&gt;
+&lt;TD&gt;
+&lt;!-- The ID is defined for the LABEL, the NAME is provided for form submission --&gt;
+&lt;INPUT TABINDEX = "1" TYPE = "text" ID = "oFirstName" NAME = "FirstName" ACCESSKEY = "F"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;/FIELDSET&gt;
+&lt;/FORM&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/forms/AccessibleForm1.htm"></IMG></A></DIV><p>The AutoComplete feature, available in Internet Explorer 5 and later, provides further enhancements to forms usability. For more information, see the <A HREF="/workshop/author/forms/autocomplete_ovr.html">Using AutoComplete in HTML Forms</A> overview.</p><H2><A NAME="worktext"></A>Working with Text</H2><p>Text plays an important role in forms, particularly for messages, database queries, or updating content. In addition, managing text is a prerequisite for developing any sort of word processing or data organization, such as with spreadsheets. Since form controls primarily are designed to work with ASCII text, formatting the value within the control can be extremely difficult.</p><p>The form controls that permit direct user input are the <B>input type=text</B> and <B>textArea</B> elements. The <B>textArea</B> element is ideal for entering messages with multiple lines. The size of the <B>textArea</B> element is adjustable using the <A HREF="../properties/cols_0.html">COLS</A> and <A HREF="../properties/rows_0.html">ROWS</A> attributes. Wordwrap is specified using the <A HREF="../properties/wrap.html">WRAP</A> attribute. The following sample code highlights the syntax for a <B>textArea</B> element using the <B>COLS</B>, <B>ROWS</B>, and <B>WRAP</B> attributes.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;TEXTAREA COLS = "50" ROWS = "10" WRAP = "hard"&gt;
+...
+&lt;/TEXTAREA&gt;</PRE><p>Beyond simply entering text messages, the <B>textArea</B> element is useful for working with raw information provided by the user. For example, if a technical-support Web site wants to provide an automated feature that checks for temporary files that can be deleted, then a total list of files from a particular directory may be required from the user. An easy and security-conscious way to get this information from the user's hard drive to the Web site would be to simply have the user paste the file list into a <B>textArea</B> element. Once the file list is provided, the Web site can then proceed to analyze the files in client-side script.</p><p>A common character is all that is needed to convert the <B>VALUE</B> attribute of the <B>textArea</B> element into a functional list for analysis. In this case, a line return can be used to parse the <B>VALUE</B> and create an array. The following code demonstrates how this is done.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnParseValue(){
+var oFileArray = new Array();
+oFileArray = oConvert.value.split("\n");
+// This returns a script array that can now be sorted or altered.
+}
+&lt;/SCRIPT&gt;
+&lt;TEXTAREA onpaste = "fnParseValue()" ID = "oConvert"&gt;
+Past file list here.
+&lt;/TEXTAREA&gt;</PRE><H2><A NAME="submission"></A>Submitting Forms</H2><p>When a <B>form</B> element is submitted, only the controls within that element are sent. There are many different reasons to use forms, but there are only a few locations to which the information can be sent. Form submissions can be sent to:</p><ul><li>Client-side script, a Java applet, or an Microsoft ActiveX&#174; control. </li><li>Server-side script, a servlet, or a control. </li><li>E-mail. </li></ul><p>Form information can be processed on the client using JScript, VBScript, or any other supported scripting language. Processing form information on the client is useful for any Web-based utility or tool not requiring interaction with the server. If the form data needs to be written to a file or added to a database, then server interaction most likely is required.</p><p>The script or application handling the form submission is specified by the <B>ACTION</B> attribute. This script can be just about any script or application that is supported by the Web server or operating system, and that generates results the client can understand (typically HTML). The scripts that handle form submissions are referred to as Common Gateway Interface (CGI) scripts. Some languages that CGI scripts are written in are Perl, Visual Basic, Microsoft Visual C++&#174;, and Java.</p><p>Web authors also can use server-side script embedded in the Web document, such as ASP. Server-side script is preprocessed by the Web server, and the results are generated in HTML. For example, ASP allows Web authors to use predefined scripting objects and implementations of client-side script to achieve the same results as other CGI-capable languages.</p><p>Whether it is designed to be processed on the client or on the server, a form can be submitted in one of the following ways:</p><ul><li>Using the <B>input type=submit</B> control. </li><li>Using the <B>input type=image</B> control. </li><li>Using the <B>button</B> object with the <B>TYPE</B> attribute set to <SPAN CLASS="clsLiteral">submit</SPAN>. </li><li>Using the <A HREF="../methods/submit.html">submit</A> method in script. </li></ul><p>In addition to using a scripting language, a control, or an application, forms also can be submitted using the <A HREF="/workshop/networking/predefined/mailto.html">mailto</A> protocol. It is recommended to set the <B>METHOD</B> attribute to <SPAN CLASS="clsLiteral">post</SPAN> and the <B>ENCTYPE</B> attribute to <SPAN CLASS="clsLiteral">text/plain</SPAN> on the <B>form</B> element when using <B>mailto</B>. To use this protocol, the e-mail message can be constructed within the <B>mailto</B> protocol, or using the e-mail form names. If no names are provided, the information simply is appended to the e-mail body. The following list provides e-mail form names and a description of each one.</p><ul><li><SPAN CLASS="clsLiteral">Recipient</SPAN> specifies the primary address to where the e-mail is sent. </li><li><SPAN CLASS="clsLiteral">Subject</SPAN> specifies the subject of the e-mail document. </li><li><SPAN CLASS="clsLiteral">CC</SPAN> specifies the recipient of a carbon copy of the e-mail. </li><li><SPAN CLASS="clsLiteral">BCC</SPAN> specifies the recipient of a blind carbon copy of the e-mail. The carbon copy and primary recipients do not see addresses included in the BCC field. </li><li><SPAN CLASS="clsLiteral">Body</SPAN> specifies the body of the e-mail document. </li></ul><p>Using these particular field names only is practical when the mail path is not constructed in script. The following sample outlines an e-mail form that constructs the form action when the <A HREF="../events/onsubmit.html">onsubmit</A> event fires. </p><ul><li>The e-mail form is a basic form with four text fields, one <B>textArea</B> element, a Submit button, and a Reset button. The <B>button</B> object is used instead of the <B>input type=submit</B> and <B>input type=reset</B> controls, so that the value can reflect the <B>ACCESSKEY</B> accessibility. <PRE CLASS="clsCode" AUTOHILITE="1">&lt;FORM METHOD = "get" onsubmit = "fnSetAction()" NAME = "oMailForm"&gt;
+&lt;LABEL FOR = "oTo"&gt;&lt;SPAN&gt;A&lt;/SPAN&gt;ddress:&lt;/LABEL&gt;
+&lt;INPUT ACCESSKEY = "A" ID = "oTo" VALUE = "" TYPE = "text" NAME = "recipient"&gt;
+&lt;BR&gt;
+&lt;LABEL FOR = "oSubject"&gt;
+&lt;SPAN&gt;S&lt;/SPAN&gt;ubject:&lt;/LABEL&gt;
+&lt;INPUT ACCESSKEY = "S" VALUE = "" ID = "oSubject" TYPE=text name="subject"&gt;
+&lt;BR&gt;
+&lt;!-- Repeat for additional fields --&gt;
+&lt;LABEL FOR=oBody&gt;&lt;SPAN&gt;M&lt;/SPAN&gt;essage Body:&lt;/label&gt;
+&lt;TEXTAREA TYPE=text ACCESSKEY="M" COLS=40 ROWS=5 ID=oBody TYPE=text NAME="body"&gt;
+&lt;/TEXTAREA&gt;
+&lt;BR&gt;
+&lt;BUTTON ACCESSKEY="E" TYPE=submit&gt;
+Send &lt;SPAN&gt;E&lt;/SPAN&gt;mail
+&lt;/BUTTON&gt;
+&lt;BR&gt;
+&lt;BUTTON ACCESSKEY="R" TYPE=reset&gt;
+&lt;SPAN&gt;R&lt;/SPAN&gt;eset E-mail Form
+&lt;/BUTTON&gt;
+&lt;/FORM&gt;</PRE></li><li>The <B>onsubmit</B> handler demonstrates how the e-mail message is added to the <B>mailto</B> protocol. The <B>mailto</B> protocol is created from a string of values based on the form fields and appended to the <B>ACTION</B> attribute. This is not necessary if the form field names match the e-mail field names.
+<PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnSetAction(){
+if(oMailForm.recipient.value!=""){
+var sAction="mailto:" + oMailForm.recipient.value;
+if(oMailForm.subject.value!=""){
+sAction+=""&amp;Subject=" + oMailForm.subject.value;
+}
+if(oMailForm.cc.value!=""){
+sAction+="&amp;cc=" + oMailForm.cc.value;
+}
+if(oMailForm.bcc.value!=""){
+sAction+="&amp;bcc=" + oMailForm.bcc.value;
+}
+if(oMailForm.body.value!=""){
+sAction+="&amp;body=" + oMailForm.body.value;
+}
+oMailForm.action=sAction;
+}
+else{
+alert("Address required.");
+}
+}
+&lt;/SCRIPT&gt;</PRE></li></ul><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/forms/formmailto.htm"></IMG></A></DIV><p>When the form is submitted to the CGI script specified by the <B>ACTION</B> attribute, the location of the form data is specified by the <B>METHOD</B> attribute. If the possible value <SPAN CLASS="clsLiteral">get</SPAN> (deprecated) is used, the form data is appended to the URL, and a 4K limit is imposed. However, if the possible value <SPAN CLASS="clsLiteral">post</SPAN> is used, the form data is sent with the HTTP header without a size limit.</p><p>The <SPAN CLASS="clsLiteral">get</SPAN> possible value is advantageous for debugging scripts or learning how the submission process works. When using the <SPAN CLASS="clsLiteral">get</SPAN> possible value, the form data can be retrieved in client-side or server-side script by analyzing the <A HREF="../properties/href_3.html">href</A> property on the <A HREF="../objects/obj_location.html">location</A> object. The following sample demonstrates how this information is accessed through script. Consider a form with controls named oFirstName, oLastName, and oPhrase.</p><PRE CLASS="clsCode" AUTOHILITE="1">var aData=new Array();
+function fnInit(){
+var sLocation=  location.href;
+var sData = sLocation.substring(sLocation.indexOf("?") + 1,sLocation.length);
+aData = sData.split("&amp;");
+for(var i = 0;i &lt; aData.length;i++){
+var sName = aData[i].substring(0,aData[i].indexOf("="));
+var sValue = aData[i].substring(aData[i].indexOf("=")+1,aData[i].length);
+alert(sName + ' = "' + unescape(sValue));
+}
+}</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/forms/SubmitForm1.htm"></IMG></A></DIV><p>After a form is submitted, the form data is appended to the URL. For instance, after the file name extension of the CGI script specified by the <B>ACTION</B> attribute, the form data might have the following appearance:</p><p><I>?oFirstName=Gertrude&amp;oLastName=Spencer&amp;oPhrase=My%20favorite%20color%20is%20plaid.</I></p><p>The first character in the preceding form data is a question mark (?), and it specifies that information following it is form data. Each name/value pair is grouped with the form control name, an equal sign (=), and the value. The value is encoded so that spaces and special characters are converted to their ASCII equivalents. Each name/value pair is separated by an ampersand (&amp;).</p><p>The steps to recover the form data from the URL are as follows:</p><ul><li>Separate the name/value pairs from each other. </li><li>Split the name from the value. </li><li>Unencode the value. </li></ul><p>After the values are unencoded, a Web author can continue using the form data through script.</p><p>When a form is submitted using the <SPAN CLASS="clsLiteral">post</SPAN> possible value, and the form data is appended to the HTTP header, the CGI script specified in the <B>ACTION</B> attribute generally provides a means to recover the name/value pairs. Keep in mind that the submitted form information is available through client-side script when using the possible value <SPAN CLASS="clsLiteral">get</SPAN>, but not when using <SPAN CLASS="clsLiteral">post</SPAN>.</p><H2><A NAME="submitissues"></A>Submission Issues</H2><p>Submitting forms sometimes requires some insight into data management and the ability to adapt to new technology. As the document object model in Internet Explorer grows, and objects are interwoven with one another, it is not always clear as to how information can be sent to the server from objects that are not submitted with a form. One of the best solutions is to use an existing form control. </p><p>For example, a new technological feature, available as of Internet Explorer 5, is <A HREF="/workshop/author/behaviors/overview.html">DHTML technological behaviors</A>. While behaviors provide a robust information-access solution to Web authors, they are not inherently submitted with the <B>form</B> element unless they are part of a form control. It is unnecessary, though, for a behavior to be submitted with other controls simply because the methodology exists to handle this case. Information supplied by the behavior can be easily transferred to the <B>VALUE</B> attribute of an <B>input type=hidden</B> control, or any other control that submits the <B>VALUE</B> attribute. If a Web author wants to send information gathered from the <A HREF="../behaviors/clientcaps.html">clientCaps</A> behavior, that information can be moved to a form control for the submission process.</p><p>The following code outlines how information gathered from a DHTML behavior can be submitted using a form control.</p><p>Start with a <B>textArea</B> control, an object participating in the <B>CLIENTCAPS</B> behavior, and a button to copy the data.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;TEXTAREA ID = "oOutput" COLS = "50" ROWS = "10"&gt;
+&lt;/TEXTAREA&gt;
+&lt;DIV ID = "oClientCaps" STYLE = "url(#default#clientCaps)"&gt;
+&lt;/DIV&gt;
+&lt;INPUT TYPE = "button" VALUE = "Copy Data" onclick = "fnGetCaps()"&gt;</PRE><p>Next, prepare the information in a format that can be accessed and used on the server, or can be the target of the form submission. For this sample, the information is stored in a comma-delimited list.</p><PRE CLASS="clsCode" AUTOHILITE="1">&lt;SCRIPT&gt;
+function fnGetCaps(){
+try{
+oClientCaps.style.behavior = "url(#default#clientCaps)";
+var sClientData="";
+for(var i=0;i&lt;pClientCaps.length;i++){
+sClientData+="|" + pClientCaps[i]
++ "|,|" + eval("oClientCaps."
++ pClientCaps[i]) + "|\n";
+}
+oOutput.value=sClientData;
+}
+catch(e){
+alert("Exception Error:\n\n" + e.error);
+}
+}
+&lt;/SCRIPT&gt;</PRE><DIV><DIV CLASS="clsShowMe">This feature requires Microsoft&#174; Internet Explorer 4.0 or later. Click the following icon to install the latest version. Then reload this page to view the sample.</DIV><A HREF="/workshop/downloadie.html"><IMG BORDER="0" WIDTH="88" HEIGHT="31" showme="Microsoft Internet Explorer" SRC="../common/ieget_animated.gif" MINVER="4.0" SAMPLEPATH="/workshop/samples/author/forms/clientcapsForm.htm"></IMG></A></DIV><p>With the growing popularity of DHTML, there are times when form controls are not needed, but information needs to be submitted. The <B>input type=hidden</B> control is an ideal solution, because the name/value pair is submitted, but the control itself is not rendered. Web authors also can use <A HREF="/workshop/author/css/reference/attributes.html">CSS</A> attributes and DHTML behaviors to enhance form controls, because they allow the controls to be better integrated with other designs on a particular page.</p><H2><A NAME="related_topics">Related Topics</A></H2><P></P><UL><LI><A HREF="/workshop/author/forms/autocomplete_ovr.html">Using AutoComplete in HTML Forms</A></LI></UL><info><product rid="prod_IE" minver="4.0"></product></info></DIV>
+</TD> </TR> </TABLE>
+</BODY> </HTML>
